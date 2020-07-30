@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "declarationDir": "dist/types",
     "baseUrl": "./src",
     "rootDir": "./src",
     "esModuleInterop": true,
