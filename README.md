@@ -1,4 +1,6 @@
-## @sentecacommerce/sdk@0.0.5
+## @sentecacommerce/sdk
+
+OpenAPI generated client for SentecaCommerce platform.
 
 Sample use:
 

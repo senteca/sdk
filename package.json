@@ -1,17 +1,23 @@
 {
   "name": "@sentecacommerce/sdk",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "OpenAPI client for sentecacommerce platform",
   "author": "Stanislav Bogdanov",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/types",
   "scripts": {
     "prebuild": "rm -rf dist",
-    "build": "tsc",
+    "build": "rollup -c rollup.config.ts",
     "prepare": "npm run build"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "rollup": "^2.23.0",
+    "rollup-plugin-peer-deps-external": "^2.2.3",
+    "rollup-plugin-terser": "^6.1.0",
+    "rollup-plugin-typescript2": "^0.27.1",
     "typescript": "^3.9.7"
   },
   "repository": {
