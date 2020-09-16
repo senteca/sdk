@@ -35,12 +35,17 @@ export interface FilterAttributesRequest {
     filter: string;
     sort: string;
     expand: string;
+    project: string;
     limit?: number;
     offset?: number;
 }
 
 export interface FindAttributeByIdRequest {
     id: string;
+}
+
+export interface ImportAttributesRequest {
+    attributeDraftDTO: Array<AttributeDraftDTO>;
 }
 
 export interface SearchAttributesRequest {
@@ -140,6 +145,10 @@ export class AttributesApi extends runtime.BaseAPI {
             throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling filterAttributes.');
         }
 
+        if (requestParameters.project === null || requestParameters.project === undefined) {
+            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling filterAttributes.');
+        }
+
         const queryParameters: runtime.HTTPQuery = {};
 
         if (requestParameters.filter !== undefined) {
@@ -152,6 +161,10 @@ export class AttributesApi extends runtime.BaseAPI {
 
         if (requestParameters.expand !== undefined) {
             queryParameters['expand'] = requestParameters.expand;
+        }
+
+        if (requestParameters.project !== undefined) {
+            queryParameters['project'] = requestParameters.project;
         }
 
         if (requestParameters.limit !== undefined) {
@@ -208,6 +221,39 @@ export class AttributesApi extends runtime.BaseAPI {
      */
     async findAttributeById(requestParameters: FindAttributeByIdRequest): Promise<AttributeDTO> {
         const response = await this.findAttributeByIdRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Imports multiple attributes.
+     */
+    async importAttributesRaw(requestParameters: ImportAttributesRequest): Promise<runtime.ApiResponse<Array<AttributeDTO>>> {
+        if (requestParameters.attributeDraftDTO === null || requestParameters.attributeDraftDTO === undefined) {
+            throw new runtime.RequiredError('attributeDraftDTO','Required parameter requestParameters.attributeDraftDTO was null or undefined when calling importAttributes.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/merchandise/attributes/import`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters.attributeDraftDTO.map(AttributeDraftDTOToJSON),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AttributeDTOFromJSON));
+    }
+
+    /**
+     * Imports multiple attributes.
+     */
+    async importAttributes(requestParameters: ImportAttributesRequest): Promise<Array<AttributeDTO>> {
+        const response = await this.importAttributesRaw(requestParameters);
         return await response.value();
     }
 

@@ -35,6 +35,7 @@ export interface FilterCartDiscountsRequest {
     filter: string;
     sort: string;
     expand: string;
+    project: string;
     limit?: number;
     offset?: number;
 }
@@ -51,6 +52,7 @@ export interface SearchCartDiscountsRequest {
     filter: string;
     sort: string;
     expand: string;
+    project: string;
     limit?: number;
     offset?: number;
 }
@@ -144,6 +146,10 @@ export class CartDiscountsApi extends runtime.BaseAPI {
             throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling filterCartDiscounts.');
         }
 
+        if (requestParameters.project === null || requestParameters.project === undefined) {
+            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling filterCartDiscounts.');
+        }
+
         const queryParameters: runtime.HTTPQuery = {};
 
         if (requestParameters.filter !== undefined) {
@@ -156,6 +162,10 @@ export class CartDiscountsApi extends runtime.BaseAPI {
 
         if (requestParameters.expand !== undefined) {
             queryParameters['expand'] = requestParameters.expand;
+        }
+
+        if (requestParameters.project !== undefined) {
+            queryParameters['project'] = requestParameters.project;
         }
 
         if (requestParameters.limit !== undefined) {
@@ -264,6 +274,10 @@ export class CartDiscountsApi extends runtime.BaseAPI {
             throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling searchCartDiscounts.');
         }
 
+        if (requestParameters.project === null || requestParameters.project === undefined) {
+            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling searchCartDiscounts.');
+        }
+
         const queryParameters: runtime.HTTPQuery = {};
 
         if (requestParameters.filter !== undefined) {
@@ -276,6 +290,10 @@ export class CartDiscountsApi extends runtime.BaseAPI {
 
         if (requestParameters.expand !== undefined) {
             queryParameters['expand'] = requestParameters.expand;
+        }
+
+        if (requestParameters.project !== undefined) {
+            queryParameters['project'] = requestParameters.project;
         }
 
         if (requestParameters.limit !== undefined) {

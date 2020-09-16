@@ -36,6 +36,9 @@ import {
     OrderDTO,
     OrderDTOFromJSON,
     OrderDTOToJSON,
+    OrderImportDTO,
+    OrderImportDTOFromJSON,
+    OrderImportDTOToJSON,
     OrderNoteUpdateDTO,
     OrderNoteUpdateDTOFromJSON,
     OrderNoteUpdateDTOToJSON,
@@ -144,6 +147,7 @@ export interface FilterOrdersRequest {
     filter: string;
     sort: string;
     expand: string;
+    project: string;
     limit?: number;
     offset?: number;
 }
@@ -172,7 +176,7 @@ export interface GetShippingDeliveryParcelByIdRequest {
 }
 
 export interface ImportOrdersRequest {
-    requestBody: Array<string>;
+    orderImportDTO: Array<OrderImportDTO>;
 }
 
 export interface MakePaymentInterfaceInteractionRequest {
@@ -641,6 +645,10 @@ export class OrdersApi extends runtime.BaseAPI {
             throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling filterOrders.');
         }
 
+        if (requestParameters.project === null || requestParameters.project === undefined) {
+            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling filterOrders.');
+        }
+
         const queryParameters: runtime.HTTPQuery = {};
 
         if (requestParameters.filter !== undefined) {
@@ -653,6 +661,10 @@ export class OrdersApi extends runtime.BaseAPI {
 
         if (requestParameters.expand !== undefined) {
             queryParameters['expand'] = requestParameters.expand;
+        }
+
+        if (requestParameters.project !== undefined) {
+            queryParameters['project'] = requestParameters.project;
         }
 
         if (requestParameters.limit !== undefined) {
@@ -739,6 +751,32 @@ export class OrdersApi extends runtime.BaseAPI {
      */
     async getCustomerCart(requestParameters: GetCustomerCartRequest): Promise<OrderDTO> {
         const response = await this.getCustomerCartRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Returns either or not has new orders.
+     */
+    async getNewOrdersRaw(): Promise<runtime.ApiResponse<object>> {
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/fulfillment/orders/new-orders`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * Returns either or not has new orders.
+     */
+    async getNewOrders(): Promise<object> {
+        const response = await this.getNewOrdersRaw();
         return await response.value();
     }
 
@@ -848,8 +886,8 @@ export class OrdersApi extends runtime.BaseAPI {
      * Imports list of orders. Returns imported orders with their ids.
      */
     async importOrdersRaw(requestParameters: ImportOrdersRequest): Promise<runtime.ApiResponse<Array<OrderDTO>>> {
-        if (requestParameters.requestBody === null || requestParameters.requestBody === undefined) {
-            throw new runtime.RequiredError('requestBody','Required parameter requestParameters.requestBody was null or undefined when calling importOrders.');
+        if (requestParameters.orderImportDTO === null || requestParameters.orderImportDTO === undefined) {
+            throw new runtime.RequiredError('orderImportDTO','Required parameter requestParameters.orderImportDTO was null or undefined when calling importOrders.');
         }
 
         const queryParameters: runtime.HTTPQuery = {};
@@ -863,7 +901,7 @@ export class OrdersApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: requestParameters.requestBody,
+            body: requestParameters.orderImportDTO.map(OrderImportDTOToJSON),
         });
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(OrderDTOFromJSON));

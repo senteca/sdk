@@ -24,6 +24,9 @@ import {
     BrandDraftDTO,
     BrandDraftDTOFromJSON,
     BrandDraftDTOToJSON,
+    BrandStatusUpdateDTO,
+    BrandStatusUpdateDTOFromJSON,
+    BrandStatusUpdateDTOToJSON,
 } from '../models';
 
 export interface AddBrandAssetRequest {
@@ -43,6 +46,7 @@ export interface FilterBrandsRequest {
     filter: string;
     sort: string;
     expand: string;
+    project: string;
     limit?: number;
     offset?: number;
 }
@@ -70,6 +74,10 @@ export interface GetAllBrandSlugsRequest {
     languageCode: string;
 }
 
+export interface ImportBrandsRequest {
+    brandDraftDTO: Array<BrandDraftDTO>;
+}
+
 export interface RemoveBrandAssetRequest {
     brandId: string;
     assetIndex: number;
@@ -81,6 +89,11 @@ export interface SearchBrandsRequest {
     term: string;
     limit?: number;
     offset?: number;
+}
+
+export interface SetBrandStatusRequest {
+    brandId: string;
+    brandStatusUpdateDTO: BrandStatusUpdateDTO;
 }
 
 export interface UpdateBrandAssetRequest {
@@ -215,6 +228,10 @@ export class BrandsApi extends runtime.BaseAPI {
             throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling filterBrands.');
         }
 
+        if (requestParameters.project === null || requestParameters.project === undefined) {
+            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling filterBrands.');
+        }
+
         const queryParameters: runtime.HTTPQuery = {};
 
         if (requestParameters.filter !== undefined) {
@@ -227,6 +244,10 @@ export class BrandsApi extends runtime.BaseAPI {
 
         if (requestParameters.expand !== undefined) {
             queryParameters['expand'] = requestParameters.expand;
+        }
+
+        if (requestParameters.project !== undefined) {
+            queryParameters['project'] = requestParameters.project;
         }
 
         if (requestParameters.limit !== undefined) {
@@ -417,6 +438,39 @@ export class BrandsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Imports multiple brands.
+     */
+    async importBrandsRaw(requestParameters: ImportBrandsRequest): Promise<runtime.ApiResponse<Array<BrandDTO>>> {
+        if (requestParameters.brandDraftDTO === null || requestParameters.brandDraftDTO === undefined) {
+            throw new runtime.RequiredError('brandDraftDTO','Required parameter requestParameters.brandDraftDTO was null or undefined when calling importBrands.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/merchandise/brands/import`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters.brandDraftDTO.map(BrandDraftDTOToJSON),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(BrandDTOFromJSON));
+    }
+
+    /**
+     * Imports multiple brands.
+     */
+    async importBrands(requestParameters: ImportBrandsRequest): Promise<Array<BrandDTO>> {
+        const response = await this.importBrandsRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
      * Deletes an asset per brand id and asset index.
      */
     async removeBrandAssetRaw(requestParameters: RemoveBrandAssetRequest): Promise<runtime.ApiResponse<BrandDTO>> {
@@ -505,6 +559,43 @@ export class BrandsApi extends runtime.BaseAPI {
      */
     async searchBrands(requestParameters: SearchBrandsRequest): Promise<void> {
         await this.searchBrandsRaw(requestParameters);
+    }
+
+    /**
+     * Updates brand status by id.
+     */
+    async setBrandStatusRaw(requestParameters: SetBrandStatusRequest): Promise<runtime.ApiResponse<BrandDTO>> {
+        if (requestParameters.brandId === null || requestParameters.brandId === undefined) {
+            throw new runtime.RequiredError('brandId','Required parameter requestParameters.brandId was null or undefined when calling setBrandStatus.');
+        }
+
+        if (requestParameters.brandStatusUpdateDTO === null || requestParameters.brandStatusUpdateDTO === undefined) {
+            throw new runtime.RequiredError('brandStatusUpdateDTO','Required parameter requestParameters.brandStatusUpdateDTO was null or undefined when calling setBrandStatus.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/merchandise/brands/{brandId}/status`.replace(`{${"brandId"}}`, encodeURIComponent(String(requestParameters.brandId))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+            body: BrandStatusUpdateDTOToJSON(requestParameters.brandStatusUpdateDTO),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BrandDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Updates brand status by id.
+     */
+    async setBrandStatus(requestParameters: SetBrandStatusRequest): Promise<BrandDTO> {
+        const response = await this.setBrandStatusRaw(requestParameters);
+        return await response.value();
     }
 
     /**

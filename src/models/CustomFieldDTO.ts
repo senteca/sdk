@@ -148,7 +148,9 @@ export enum CustomFieldDTOResourceTypeIdEnum {
     PriceList = 'price-list',
     ShippingMethod = 'shipping-method',
     PaymentMethod = 'payment-method',
-    State = 'state'
+    State = 'state',
+    CmsFolder = 'cms-folder',
+    CmsType = 'cms-type'
 }
 
 

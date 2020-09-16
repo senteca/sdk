@@ -43,6 +43,7 @@ export interface FilterCategoriesRequest {
     filter: string;
     sort: string;
     expand: string;
+    project: string;
     limit?: number;
     offset?: number;
 }
@@ -68,6 +69,10 @@ export interface FindCategoryBySlugRequest {
 
 export interface GetCategorySlugsRequest {
     languageCode: string;
+}
+
+export interface ImportCategoriesRequest {
+    categoryDraftDTO: Array<CategoryDraftDTO>;
 }
 
 export interface RemoveCategoryAssetRequest {
@@ -215,6 +220,10 @@ export class CategoriesApi extends runtime.BaseAPI {
             throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling filterCategories.');
         }
 
+        if (requestParameters.project === null || requestParameters.project === undefined) {
+            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling filterCategories.');
+        }
+
         const queryParameters: runtime.HTTPQuery = {};
 
         if (requestParameters.filter !== undefined) {
@@ -227,6 +236,10 @@ export class CategoriesApi extends runtime.BaseAPI {
 
         if (requestParameters.expand !== undefined) {
             queryParameters['expand'] = requestParameters.expand;
+        }
+
+        if (requestParameters.project !== undefined) {
+            queryParameters['project'] = requestParameters.project;
         }
 
         if (requestParameters.limit !== undefined) {
@@ -413,6 +426,39 @@ export class CategoriesApi extends runtime.BaseAPI {
      */
     async getCategorySlugs(requestParameters: GetCategorySlugsRequest): Promise<Array<string>> {
         const response = await this.getCategorySlugsRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Imports multiple categories.
+     */
+    async importCategoriesRaw(requestParameters: ImportCategoriesRequest): Promise<runtime.ApiResponse<Array<CategoryDTO>>> {
+        if (requestParameters.categoryDraftDTO === null || requestParameters.categoryDraftDTO === undefined) {
+            throw new runtime.RequiredError('categoryDraftDTO','Required parameter requestParameters.categoryDraftDTO was null or undefined when calling importCategories.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/merchandise/categories/import`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters.categoryDraftDTO.map(CategoryDraftDTOToJSON),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(CategoryDTOFromJSON));
+    }
+
+    /**
+     * Imports multiple categories.
+     */
+    async importCategories(requestParameters: ImportCategoriesRequest): Promise<Array<CategoryDTO>> {
+        const response = await this.importCategoriesRaw(requestParameters);
         return await response.value();
     }
 

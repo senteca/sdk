@@ -100,6 +100,7 @@ export interface FilterProductsRequest {
     filter: string;
     sort: string;
     expand: string;
+    project: string;
     limit?: number;
     offset?: number;
 }
@@ -125,6 +126,10 @@ export interface FindProductBySlugRequest {
 
 export interface GetAllProductSlugsRequest {
     languageCode: string;
+}
+
+export interface ImportProductsRequest {
+    productDraftDTO: Array<ProductDraftDTO>;
 }
 
 export interface LinkProductsRequest {
@@ -561,6 +566,10 @@ export class ProductsApi extends runtime.BaseAPI {
             throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling filterProducts.');
         }
 
+        if (requestParameters.project === null || requestParameters.project === undefined) {
+            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling filterProducts.');
+        }
+
         const queryParameters: runtime.HTTPQuery = {};
 
         if (requestParameters.filter !== undefined) {
@@ -573,6 +582,10 @@ export class ProductsApi extends runtime.BaseAPI {
 
         if (requestParameters.expand !== undefined) {
             queryParameters['expand'] = requestParameters.expand;
+        }
+
+        if (requestParameters.project !== undefined) {
+            queryParameters['project'] = requestParameters.project;
         }
 
         if (requestParameters.limit !== undefined) {
@@ -759,6 +772,39 @@ export class ProductsApi extends runtime.BaseAPI {
      */
     async getAllProductSlugs(requestParameters: GetAllProductSlugsRequest): Promise<Array<string>> {
         const response = await this.getAllProductSlugsRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Imports multiple products.
+     */
+    async importProductsRaw(requestParameters: ImportProductsRequest): Promise<runtime.ApiResponse<Array<ProductDraftDTO>>> {
+        if (requestParameters.productDraftDTO === null || requestParameters.productDraftDTO === undefined) {
+            throw new runtime.RequiredError('productDraftDTO','Required parameter requestParameters.productDraftDTO was null or undefined when calling importProducts.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/merchandise/products/import`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: requestParameters.productDraftDTO.map(ProductDraftDTOToJSON),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ProductDraftDTOFromJSON));
+    }
+
+    /**
+     * Imports multiple products.
+     */
+    async importProducts(requestParameters: ImportProductsRequest): Promise<Array<ProductDraftDTO>> {
+        const response = await this.importProductsRaw(requestParameters);
         return await response.value();
     }
 

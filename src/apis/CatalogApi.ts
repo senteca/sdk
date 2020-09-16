@@ -179,7 +179,7 @@ export class CatalogApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/merchandise/catalog/searchCatalog`,
+            path: `/merchandise/catalog/search`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -257,7 +257,7 @@ export class CatalogApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/merchandise/catalog/suggestCatalog`,
+            path: `/merchandise/catalog/suggest`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -283,7 +283,7 @@ export class CatalogApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/merchandise/catalog/syncCatalog`,
+            path: `/merchandise/catalog/sync`,
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,

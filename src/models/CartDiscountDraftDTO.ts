@@ -71,7 +71,7 @@ export interface CartDiscountDraftDTO {
      * @type {CartDiscountTargetDTO}
      * @memberof CartDiscountDraftDTO
      */
-    target: CartDiscountTargetDTO;
+    target?: CartDiscountTargetDTO;
     /**
      * 
      * @type {number}
@@ -126,7 +126,7 @@ export function CartDiscountDraftDTOFromJSONTyped(json: any, ignoreDiscriminator
         'description': !exists(json, 'description') ? undefined : json['description'],
         'value': CartDiscountValueDTOFromJSON(json['value']),
         'cartPredicate': json['cartPredicate'],
-        'target': CartDiscountTargetDTOFromJSON(json['target']),
+        'target': !exists(json, 'target') ? undefined : CartDiscountTargetDTOFromJSON(json['target']),
         'sortOrder': json['sortOrder'],
         'isActive': json['isActive'],
         'validFrom': !exists(json, 'validFrom') ? undefined : json['validFrom'],

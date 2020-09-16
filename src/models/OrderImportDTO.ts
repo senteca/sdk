@@ -30,10 +30,10 @@ import {
     KeyReferenceDTOFromJSON,
     KeyReferenceDTOFromJSONTyped,
     KeyReferenceDTOToJSON,
-    LineItemDTO,
-    LineItemDTOFromJSON,
-    LineItemDTOFromJSONTyped,
-    LineItemDTOToJSON,
+    LineItemImportDTO,
+    LineItemImportDTOFromJSON,
+    LineItemImportDTOFromJSONTyped,
+    LineItemImportDTOToJSON,
     MerchantMethodDTO,
     MerchantMethodDTOFromJSON,
     MerchantMethodDTOFromJSONTyped,
@@ -46,10 +46,6 @@ import {
     MerchantTaxedPriceDTOFromJSON,
     MerchantTaxedPriceDTOFromJSONTyped,
     MerchantTaxedPriceDTOToJSON,
-    MerchantWeightDTO,
-    MerchantWeightDTOFromJSON,
-    MerchantWeightDTOFromJSONTyped,
-    MerchantWeightDTOToJSON,
     MoneyDTO,
     MoneyDTOFromJSON,
     MoneyDTOFromJSONTyped,
@@ -62,10 +58,6 @@ import {
     ShippingDTOFromJSON,
     ShippingDTOFromJSONTyped,
     ShippingDTOToJSON,
-    SubtotalDiscountDTO,
-    SubtotalDiscountDTOFromJSON,
-    SubtotalDiscountDTOFromJSONTyped,
-    SubtotalDiscountDTOToJSON,
     TaxedPriceDTO,
     TaxedPriceDTOFromJSON,
     TaxedPriceDTOFromJSONTyped,
@@ -75,334 +67,279 @@ import {
 /**
  * 
  * @export
- * @interface OrderDTO
+ * @interface OrderImportDTO
  */
-export interface OrderDTO {
+export interface OrderImportDTO {
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
-    id: string;
+    id?: string;
     /**
      * 
      * @type {number}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     createdAt: number;
     /**
      * 
      * @type {number}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     updatedAt: number;
     /**
      * 
      * @type {number}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     version: number;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
-    status: OrderDTOStatusEnum;
+    status: OrderImportDTOStatusEnum;
     /**
      * 
      * @type {KeyReferenceDTO}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     state?: KeyReferenceDTO;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
-     */
-    note?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     countryCode: string;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     currencyCode: string;
     /**
      * 
      * @type {boolean}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     taxIncluded: boolean;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     languageCode?: string;
     /**
      * 
      * @type {KeyReferenceDTO}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     priceList: KeyReferenceDTO;
     /**
      * 
      * @type {number}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     orderNumber: number;
     /**
      * 
      * @type {KeyReferenceDTO}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     store: KeyReferenceDTO;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
-    taxRoundingMode?: OrderDTOTaxRoundingModeEnum;
+    taxRoundingMode?: OrderImportDTOTaxRoundingModeEnum;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
-    taxCalculationMode?: OrderDTOTaxCalculationModeEnum;
+    taxCalculationMode?: OrderImportDTOTaxCalculationModeEnum;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
-    inventoryMode?: OrderDTOInventoryModeEnum;
+    inventoryMode?: OrderImportDTOInventoryModeEnum;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
-    draftInventoryMode?: OrderDTODraftInventoryModeEnum;
-    /**
-     * 
-     * @type {number}
-     * @memberof OrderDTO
-     */
-    deleteDaysAfterDraftLastModification?: number;
+    draftInventoryMode?: OrderImportDTODraftInventoryModeEnum;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     customerId?: string;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     customerFirstName?: string;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     customerLastName?: string;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     customerPhone?: string;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     customerEmail?: string;
     /**
      * 
      * @type {KeyReferenceDTO}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     customerGroup?: KeyReferenceDTO;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     anonymousId?: string;
     /**
      * 
      * @type {AddressDTO}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     shippingAddress: AddressDTO;
     /**
      * 
      * @type {AddressDTO}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     billingAddress: AddressDTO;
     /**
      * 
-     * @type {Array<AddressDTO>}
-     * @memberof OrderDTO
+     * @type {Array<LineItemImportDTO>}
+     * @memberof OrderImportDTO
      */
-    itemShippingAddresses?: Array<AddressDTO>;
-    /**
-     * 
-     * @type {Array<LineItemDTO>}
-     * @memberof OrderDTO
-     */
-    lineItems: Array<LineItemDTO>;
-    /**
-     * 
-     * @type {number}
-     * @memberof OrderDTO
-     */
-    lineItemsCount: number;
+    lineItems: Array<LineItemImportDTO>;
     /**
      * 
      * @type {Array<KeyReferenceDTO>}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
-    merchants?: Array<KeyReferenceDTO>;
+    merchants: Array<KeyReferenceDTO>;
     /**
      * 
      * @type {Array<MerchantPriceDTO>}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     merchantsTotalPrices: Array<MerchantPriceDTO>;
     /**
      * 
      * @type {MoneyDTO}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     grandTotalPrice: MoneyDTO;
     /**
      * 
      * @type {Array<MerchantTaxedPriceDTO>}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     merchantsTaxedPrices: Array<MerchantTaxedPriceDTO>;
     /**
      * 
      * @type {TaxedPriceDTO}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     grandTaxedPrice?: TaxedPriceDTO;
     /**
      * 
-     * @type {Array<MerchantWeightDTO>}
-     * @memberof OrderDTO
-     */
-    merchantTotalWeights: Array<MerchantWeightDTO>;
-    /**
-     * 
-     * @type {number}
-     * @memberof OrderDTO
-     */
-    totalWeightInGrams: number;
-    /**
-     * 
      * @type {Array<DiscountCodeInfoDTO>}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     discountCodes: Array<DiscountCodeInfoDTO>;
     /**
      * 
-     * @type {MoneyDTO}
-     * @memberof OrderDTO
-     */
-    subtotal?: MoneyDTO;
-    /**
-     * 
-     * @type {SubtotalDiscountDTO}
-     * @memberof OrderDTO
-     */
-    discountedSubtotal?: SubtotalDiscountDTO;
-    /**
-     * 
      * @type {OrderWalletDTO}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     wallet?: OrderWalletDTO;
     /**
      * 
      * @type {Array<object>}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     payments: Array<object>;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
-    paymentsAuthority?: OrderDTOPaymentsAuthorityEnum;
+    paymentsAuthority?: OrderImportDTOPaymentsAuthorityEnum;
     /**
      * 
      * @type {Array<MerchantMethodDTO>}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     merchantPaymentMethods?: Array<MerchantMethodDTO>;
     /**
      * 
      * @type {IdReferenceDTO}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     platformPaymentMethod?: IdReferenceDTO;
     /**
      * 
      * @type {Array<ShippingDTO>}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     shippings: Array<ShippingDTO>;
     /**
      * 
      * @type {string}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
-    shippingsAuthority?: OrderDTOShippingsAuthorityEnum;
+    shippingsAuthority?: OrderImportDTOShippingsAuthorityEnum;
     /**
      * 
      * @type {Array<MerchantMethodDTO>}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     merchantShippingMethods?: Array<MerchantMethodDTO>;
     /**
      * 
      * @type {IdReferenceDTO}
-     * @memberof OrderDTO
+     * @memberof OrderImportDTO
      */
     platformShippingMethod?: IdReferenceDTO;
-    /**
-     * 
-     * @type {object}
-     * @memberof OrderDTO
-     */
-    custom?: object;
 }
 
-export function OrderDTOFromJSON(json: any): OrderDTO {
-    return OrderDTOFromJSONTyped(json, false);
+export function OrderImportDTOFromJSON(json: any): OrderImportDTO {
+    return OrderImportDTOFromJSONTyped(json, false);
 }
 
-export function OrderDTOFromJSONTyped(json: any, ignoreDiscriminator: boolean): OrderDTO {
+export function OrderImportDTOFromJSONTyped(json: any, ignoreDiscriminator: boolean): OrderImportDTO {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'id': json['id'],
+        'id': !exists(json, 'id') ? undefined : json['id'],
         'createdAt': json['createdAt'],
         'updatedAt': json['updatedAt'],
         'version': json['version'],
         'status': json['status'],
         'state': !exists(json, 'state') ? undefined : KeyReferenceDTOFromJSON(json['state']),
-        'note': !exists(json, 'note') ? undefined : json['note'],
         'countryCode': json['countryCode'],
         'currencyCode': json['currencyCode'],
         'taxIncluded': json['taxIncluded'],
@@ -414,7 +351,6 @@ export function OrderDTOFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'taxCalculationMode': !exists(json, 'taxCalculationMode') ? undefined : json['taxCalculationMode'],
         'inventoryMode': !exists(json, 'inventoryMode') ? undefined : json['inventoryMode'],
         'draftInventoryMode': !exists(json, 'draftInventoryMode') ? undefined : json['draftInventoryMode'],
-        'deleteDaysAfterDraftLastModification': !exists(json, 'deleteDaysAfterDraftLastModification') ? undefined : json['deleteDaysAfterDraftLastModification'],
         'customerId': !exists(json, 'customerId') ? undefined : json['customerId'],
         'customerFirstName': !exists(json, 'customerFirstName') ? undefined : json['customerFirstName'],
         'customerLastName': !exists(json, 'customerLastName') ? undefined : json['customerLastName'],
@@ -424,19 +360,13 @@ export function OrderDTOFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'anonymousId': !exists(json, 'anonymousId') ? undefined : json['anonymousId'],
         'shippingAddress': AddressDTOFromJSON(json['shippingAddress']),
         'billingAddress': AddressDTOFromJSON(json['billingAddress']),
-        'itemShippingAddresses': !exists(json, 'itemShippingAddresses') ? undefined : ((json['itemShippingAddresses'] as Array<any>).map(AddressDTOFromJSON)),
-        'lineItems': ((json['lineItems'] as Array<any>).map(LineItemDTOFromJSON)),
-        'lineItemsCount': json['lineItemsCount'],
-        'merchants': !exists(json, 'merchants') ? undefined : ((json['merchants'] as Array<any>).map(KeyReferenceDTOFromJSON)),
+        'lineItems': ((json['lineItems'] as Array<any>).map(LineItemImportDTOFromJSON)),
+        'merchants': ((json['merchants'] as Array<any>).map(KeyReferenceDTOFromJSON)),
         'merchantsTotalPrices': ((json['merchantsTotalPrices'] as Array<any>).map(MerchantPriceDTOFromJSON)),
         'grandTotalPrice': MoneyDTOFromJSON(json['grandTotalPrice']),
         'merchantsTaxedPrices': ((json['merchantsTaxedPrices'] as Array<any>).map(MerchantTaxedPriceDTOFromJSON)),
         'grandTaxedPrice': !exists(json, 'grandTaxedPrice') ? undefined : TaxedPriceDTOFromJSON(json['grandTaxedPrice']),
-        'merchantTotalWeights': ((json['merchantTotalWeights'] as Array<any>).map(MerchantWeightDTOFromJSON)),
-        'totalWeightInGrams': json['totalWeightInGrams'],
         'discountCodes': ((json['discountCodes'] as Array<any>).map(DiscountCodeInfoDTOFromJSON)),
-        'subtotal': !exists(json, 'subtotal') ? undefined : MoneyDTOFromJSON(json['subtotal']),
-        'discountedSubtotal': !exists(json, 'discountedSubtotal') ? undefined : SubtotalDiscountDTOFromJSON(json['discountedSubtotal']),
         'wallet': !exists(json, 'wallet') ? undefined : OrderWalletDTOFromJSON(json['wallet']),
         'payments': json['payments'],
         'paymentsAuthority': !exists(json, 'paymentsAuthority') ? undefined : json['paymentsAuthority'],
@@ -446,11 +376,10 @@ export function OrderDTOFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'shippingsAuthority': !exists(json, 'shippingsAuthority') ? undefined : json['shippingsAuthority'],
         'merchantShippingMethods': !exists(json, 'merchantShippingMethods') ? undefined : ((json['merchantShippingMethods'] as Array<any>).map(MerchantMethodDTOFromJSON)),
         'platformShippingMethod': !exists(json, 'platformShippingMethod') ? undefined : IdReferenceDTOFromJSON(json['platformShippingMethod']),
-        'custom': !exists(json, 'custom') ? undefined : json['custom'],
     };
 }
 
-export function OrderDTOToJSON(value?: OrderDTO | null): any {
+export function OrderImportDTOToJSON(value?: OrderImportDTO | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -465,7 +394,6 @@ export function OrderDTOToJSON(value?: OrderDTO | null): any {
         'version': value.version,
         'status': value.status,
         'state': KeyReferenceDTOToJSON(value.state),
-        'note': value.note,
         'countryCode': value.countryCode,
         'currencyCode': value.currencyCode,
         'taxIncluded': value.taxIncluded,
@@ -477,7 +405,6 @@ export function OrderDTOToJSON(value?: OrderDTO | null): any {
         'taxCalculationMode': value.taxCalculationMode,
         'inventoryMode': value.inventoryMode,
         'draftInventoryMode': value.draftInventoryMode,
-        'deleteDaysAfterDraftLastModification': value.deleteDaysAfterDraftLastModification,
         'customerId': value.customerId,
         'customerFirstName': value.customerFirstName,
         'customerLastName': value.customerLastName,
@@ -487,19 +414,13 @@ export function OrderDTOToJSON(value?: OrderDTO | null): any {
         'anonymousId': value.anonymousId,
         'shippingAddress': AddressDTOToJSON(value.shippingAddress),
         'billingAddress': AddressDTOToJSON(value.billingAddress),
-        'itemShippingAddresses': value.itemShippingAddresses === undefined ? undefined : ((value.itemShippingAddresses as Array<any>).map(AddressDTOToJSON)),
-        'lineItems': ((value.lineItems as Array<any>).map(LineItemDTOToJSON)),
-        'lineItemsCount': value.lineItemsCount,
-        'merchants': value.merchants === undefined ? undefined : ((value.merchants as Array<any>).map(KeyReferenceDTOToJSON)),
+        'lineItems': ((value.lineItems as Array<any>).map(LineItemImportDTOToJSON)),
+        'merchants': ((value.merchants as Array<any>).map(KeyReferenceDTOToJSON)),
         'merchantsTotalPrices': ((value.merchantsTotalPrices as Array<any>).map(MerchantPriceDTOToJSON)),
         'grandTotalPrice': MoneyDTOToJSON(value.grandTotalPrice),
         'merchantsTaxedPrices': ((value.merchantsTaxedPrices as Array<any>).map(MerchantTaxedPriceDTOToJSON)),
         'grandTaxedPrice': TaxedPriceDTOToJSON(value.grandTaxedPrice),
-        'merchantTotalWeights': ((value.merchantTotalWeights as Array<any>).map(MerchantWeightDTOToJSON)),
-        'totalWeightInGrams': value.totalWeightInGrams,
         'discountCodes': ((value.discountCodes as Array<any>).map(DiscountCodeInfoDTOToJSON)),
-        'subtotal': MoneyDTOToJSON(value.subtotal),
-        'discountedSubtotal': SubtotalDiscountDTOToJSON(value.discountedSubtotal),
         'wallet': OrderWalletDTOToJSON(value.wallet),
         'payments': value.payments,
         'paymentsAuthority': value.paymentsAuthority,
@@ -509,7 +430,6 @@ export function OrderDTOToJSON(value?: OrderDTO | null): any {
         'shippingsAuthority': value.shippingsAuthority,
         'merchantShippingMethods': value.merchantShippingMethods === undefined ? undefined : ((value.merchantShippingMethods as Array<any>).map(MerchantMethodDTOToJSON)),
         'platformShippingMethod': IdReferenceDTOToJSON(value.platformShippingMethod),
-        'custom': value.custom,
     };
 }
 
@@ -517,7 +437,7 @@ export function OrderDTOToJSON(value?: OrderDTO | null): any {
 * @export
 * @enum {string}
 */
-export enum OrderDTOStatusEnum {
+export enum OrderImportDTOStatusEnum {
     Draft = 'Draft',
     Open = 'Open',
     Confirmed = 'Confirmed',
@@ -528,7 +448,7 @@ export enum OrderDTOStatusEnum {
 * @export
 * @enum {string}
 */
-export enum OrderDTOTaxRoundingModeEnum {
+export enum OrderImportDTOTaxRoundingModeEnum {
     HalfEven = 'HalfEven',
     HalfUp = 'HalfUp',
     HalfDown = 'HalfDown'
@@ -537,7 +457,7 @@ export enum OrderDTOTaxRoundingModeEnum {
 * @export
 * @enum {string}
 */
-export enum OrderDTOTaxCalculationModeEnum {
+export enum OrderImportDTOTaxCalculationModeEnum {
     LineItemLevel = 'LineItemLevel',
     UnitPriceLevel = 'UnitPriceLevel'
 }
@@ -545,7 +465,7 @@ export enum OrderDTOTaxCalculationModeEnum {
 * @export
 * @enum {string}
 */
-export enum OrderDTOInventoryModeEnum {
+export enum OrderImportDTOInventoryModeEnum {
     TrackOnly = 'TrackOnly',
     ReserveOnOrder = 'ReserveOnOrder',
     None = 'None'
@@ -554,7 +474,7 @@ export enum OrderDTOInventoryModeEnum {
 * @export
 * @enum {string}
 */
-export enum OrderDTODraftInventoryModeEnum {
+export enum OrderImportDTODraftInventoryModeEnum {
     TrackOnly = 'TrackOnly',
     ReserveOnOrder = 'ReserveOnOrder',
     None = 'None'
@@ -563,7 +483,7 @@ export enum OrderDTODraftInventoryModeEnum {
 * @export
 * @enum {string}
 */
-export enum OrderDTOPaymentsAuthorityEnum {
+export enum OrderImportDTOPaymentsAuthorityEnum {
     Platform = 'Platform',
     Merchant = 'Merchant'
 }
@@ -571,7 +491,7 @@ export enum OrderDTOPaymentsAuthorityEnum {
 * @export
 * @enum {string}
 */
-export enum OrderDTOShippingsAuthorityEnum {
+export enum OrderImportDTOShippingsAuthorityEnum {
     Platform = 'Platform',
     Merchant = 'Merchant'
 }

@@ -14,6 +14,10 @@
 
 import { exists, mapValues } from '../runtime';
 import {
+    IdReferenceDTO,
+    IdReferenceDTOFromJSON,
+    IdReferenceDTOFromJSONTyped,
+    IdReferenceDTOToJSON,
     MoneyDTO,
     MoneyDTOFromJSON,
     MoneyDTOFromJSONTyped,
@@ -44,6 +48,18 @@ export interface CartDiscountValueDTO {
      * @memberof CartDiscountValueDTO
      */
     money?: Array<MoneyDTO>;
+    /**
+     * 
+     * @type {IdReferenceDTO}
+     * @memberof CartDiscountValueDTO
+     */
+    product?: IdReferenceDTO;
+    /**
+     * 
+     * @type {string}
+     * @memberof CartDiscountValueDTO
+     */
+    variantId?: string;
 }
 
 export function CartDiscountValueDTOFromJSON(json: any): CartDiscountValueDTO {
@@ -59,6 +75,8 @@ export function CartDiscountValueDTOFromJSONTyped(json: any, ignoreDiscriminator
         'type': json['type'],
         'permyriad': !exists(json, 'permyriad') ? undefined : json['permyriad'],
         'money': !exists(json, 'money') ? undefined : ((json['money'] as Array<any>).map(MoneyDTOFromJSON)),
+        'product': !exists(json, 'product') ? undefined : IdReferenceDTOFromJSON(json['product']),
+        'variantId': !exists(json, 'variantId') ? undefined : json['variantId'],
     };
 }
 
@@ -74,6 +92,8 @@ export function CartDiscountValueDTOToJSON(value?: CartDiscountValueDTO | null):
         'type': value.type,
         'permyriad': value.permyriad,
         'money': value.money === undefined ? undefined : ((value.money as Array<any>).map(MoneyDTOToJSON)),
+        'product': IdReferenceDTOToJSON(value.product),
+        'variantId': value.variantId,
     };
 }
 

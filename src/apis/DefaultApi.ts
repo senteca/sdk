@@ -29,41 +29,15 @@ import {
 export class DefaultApi extends runtime.BaseAPI {
 
     /**
-     * External public health check.
-     */
-    async authHealhthzRaw(): Promise<runtime.ApiResponse<string>> {
-        const queryParameters: runtime.HTTPQuery = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/auth/healthz`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        });
-
-        return new runtime.TextApiResponse(response) as any;
-    }
-
-    /**
-     * External public health check.
-     */
-    async authHealhthz(): Promise<string> {
-        const response = await this.authHealhthzRaw();
-        return await response.value();
-    }
-
-    /**
      * Internal cluster health check.
      */
-    async authHealthRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
+    async authHealthyRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
         const queryParameters: runtime.HTTPQuery = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/auth`,
+            path: `/auth/probes/healthy`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -75,21 +49,21 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Internal cluster health check.
      */
-    async authHealth(): Promise<InlineResponse200> {
-        const response = await this.authHealthRaw();
+    async authHealthy(): Promise<InlineResponse200> {
+        const response = await this.authHealthyRaw();
         return await response.value();
     }
 
     /**
      * Internal cluster health check.
      */
-    async configHealthRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
+    async authReadyRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
         const queryParameters: runtime.HTTPQuery = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/config`,
+            path: `/auth/probes/ready`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -101,47 +75,21 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Internal cluster health check.
      */
-    async configHealth(): Promise<InlineResponse200> {
-        const response = await this.configHealthRaw();
-        return await response.value();
-    }
-
-    /**
-     * External public health check.
-     */
-    async configHealthzRaw(): Promise<runtime.ApiResponse<string>> {
-        const queryParameters: runtime.HTTPQuery = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/config/healthz`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        });
-
-        return new runtime.TextApiResponse(response) as any;
-    }
-
-    /**
-     * External public health check.
-     */
-    async configHealthz(): Promise<string> {
-        const response = await this.configHealthzRaw();
+    async authReady(): Promise<InlineResponse200> {
+        const response = await this.authReadyRaw();
         return await response.value();
     }
 
     /**
      * Internal cluster health check.
      */
-    async fulfillmentHealthRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
+    async configHealthyRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
         const queryParameters: runtime.HTTPQuery = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/fulfillment`,
+            path: `/config/probes/healthy`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -153,47 +101,21 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Internal cluster health check.
      */
-    async fulfillmentHealth(): Promise<InlineResponse200> {
-        const response = await this.fulfillmentHealthRaw();
-        return await response.value();
-    }
-
-    /**
-     * External public health check.
-     */
-    async fulfillmentHealthzRaw(): Promise<runtime.ApiResponse<string>> {
-        const queryParameters: runtime.HTTPQuery = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/fulfillment/healthz`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        });
-
-        return new runtime.TextApiResponse(response) as any;
-    }
-
-    /**
-     * External public health check.
-     */
-    async fulfillmentHealthz(): Promise<string> {
-        const response = await this.fulfillmentHealthzRaw();
+    async configHealthy(): Promise<InlineResponse200> {
+        const response = await this.configHealthyRaw();
         return await response.value();
     }
 
     /**
      * Internal cluster health check.
      */
-    async merchandiseHealthRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
+    async configReadyRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
         const queryParameters: runtime.HTTPQuery = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/merchandise`,
+            path: `/config/probes/ready`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -205,47 +127,21 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Internal cluster health check.
      */
-    async merchandiseHealth(): Promise<InlineResponse200> {
-        const response = await this.merchandiseHealthRaw();
-        return await response.value();
-    }
-
-    /**
-     * External public health check.
-     */
-    async merchandiseHealthzRaw(): Promise<runtime.ApiResponse<string>> {
-        const queryParameters: runtime.HTTPQuery = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/merchandise/healthz`,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        });
-
-        return new runtime.TextApiResponse(response) as any;
-    }
-
-    /**
-     * External public health check.
-     */
-    async merchandiseHealthz(): Promise<string> {
-        const response = await this.merchandiseHealthzRaw();
+    async configReady(): Promise<InlineResponse200> {
+        const response = await this.configReadyRaw();
         return await response.value();
     }
 
     /**
      * Internal cluster health check.
      */
-    async usersHealthRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
+    async fulfillmentHealthyRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
         const queryParameters: runtime.HTTPQuery = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/users`,
+            path: `/fulfillment/probes/healthy`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -257,34 +153,138 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Internal cluster health check.
      */
-    async usersHealth(): Promise<InlineResponse200> {
-        const response = await this.usersHealthRaw();
+    async fulfillmentHealthy(): Promise<InlineResponse200> {
+        const response = await this.fulfillmentHealthyRaw();
         return await response.value();
     }
 
     /**
-     * External public health check.
+     * Internal cluster health check.
      */
-    async usersHealthzRaw(): Promise<runtime.ApiResponse<string>> {
+    async fulfillmentReadyRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
         const queryParameters: runtime.HTTPQuery = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/users/healthz`,
+            path: `/fulfillment/probes/ready`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
         });
 
-        return new runtime.TextApiResponse(response) as any;
+        return new runtime.JSONApiResponse(response, (jsonValue) => InlineResponse200FromJSON(jsonValue));
     }
 
     /**
-     * External public health check.
+     * Internal cluster health check.
      */
-    async usersHealthz(): Promise<string> {
-        const response = await this.usersHealthzRaw();
+    async fulfillmentReady(): Promise<InlineResponse200> {
+        const response = await this.fulfillmentReadyRaw();
+        return await response.value();
+    }
+
+    /**
+     * Internal cluster health check.
+     */
+    async merchandiseHealthyRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/merchandise/probes/healthy`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => InlineResponse200FromJSON(jsonValue));
+    }
+
+    /**
+     * Internal cluster health check.
+     */
+    async merchandiseHealthy(): Promise<InlineResponse200> {
+        const response = await this.merchandiseHealthyRaw();
+        return await response.value();
+    }
+
+    /**
+     * Internal cluster health check.
+     */
+    async merchandiseReadyRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/merchandise/probes/ready`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => InlineResponse200FromJSON(jsonValue));
+    }
+
+    /**
+     * Internal cluster health check.
+     */
+    async merchandiseReady(): Promise<InlineResponse200> {
+        const response = await this.merchandiseReadyRaw();
+        return await response.value();
+    }
+
+    /**
+     * Internal cluster health check.
+     */
+    async usersHealthyRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/users/probes/healthy`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => InlineResponse200FromJSON(jsonValue));
+    }
+
+    /**
+     * Internal cluster health check.
+     */
+    async usersHealthy(): Promise<InlineResponse200> {
+        const response = await this.usersHealthyRaw();
+        return await response.value();
+    }
+
+    /**
+     * Internal cluster health check.
+     */
+    async usersReadyRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/users/probes/ready`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => InlineResponse200FromJSON(jsonValue));
+    }
+
+    /**
+     * Internal cluster health check.
+     */
+    async usersReady(): Promise<InlineResponse200> {
+        const response = await this.usersReadyRaw();
         return await response.value();
     }
 

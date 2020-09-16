@@ -54,6 +54,12 @@ export interface PaymentMethodDraftDTO {
      * @type {string}
      * @memberof PaymentMethodDraftDTO
      */
+    key: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof PaymentMethodDraftDTO
+     */
     description?: string;
     /**
      * 
@@ -90,6 +96,7 @@ export function PaymentMethodDraftDTOFromJSONTyped(json: any, ignoreDiscriminato
         'type': json['type'],
         'providerType': json['providerType'],
         'merchantKey': !exists(json, 'merchantKey') ? undefined : json['merchantKey'],
+        'key': json['key'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'countryCode': json['countryCode'],
         'currencyCode': json['currencyCode'],
@@ -111,6 +118,7 @@ export function PaymentMethodDraftDTOToJSON(value?: PaymentMethodDraftDTO | null
         'type': value.type,
         'providerType': value.providerType,
         'merchantKey': value.merchantKey,
+        'key': value.key,
         'description': value.description,
         'countryCode': value.countryCode,
         'currencyCode': value.currencyCode,
