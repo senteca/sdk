@@ -35,6 +35,10 @@ export interface CreateCategoryRequest {
     categoryDraftDTO: CategoryDraftDTO;
 }
 
+export interface DeleteCategoryByExternalIdRequest {
+    id: string;
+}
+
 export interface DeleteCategoryByIdRequest {
     id: string;
 }
@@ -92,6 +96,11 @@ export interface UpdateCategoryAssetRequest {
     categoryId: string;
     assetIndex: number;
     assetDTO: AssetDTO;
+}
+
+export interface UpdateCategoryByExternalIdRequest {
+    id: string;
+    categoryDraftDTO: CategoryDraftDTO;
 }
 
 export interface UpdateCategoryByIdRequest {
@@ -171,6 +180,36 @@ export class CategoriesApi extends runtime.BaseAPI {
      */
     async createCategory(requestParameters: CreateCategoryRequest): Promise<CategoryDTO> {
         const response = await this.createCategoryRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Deletes a category by external id.
+     */
+    async deleteCategoryByExternalIdRaw(requestParameters: DeleteCategoryByExternalIdRequest): Promise<runtime.ApiResponse<CategoryDTO>> {
+        if (requestParameters.id === null || requestParameters.id === undefined) {
+            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling deleteCategoryByExternalId.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/merchandise/categories/external/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CategoryDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Deletes a category by external id.
+     */
+    async deleteCategoryByExternalId(requestParameters: DeleteCategoryByExternalIdRequest): Promise<CategoryDTO> {
+        const response = await this.deleteCategoryByExternalIdRaw(requestParameters);
         return await response.value();
     }
 
@@ -591,6 +630,43 @@ export class CategoriesApi extends runtime.BaseAPI {
      */
     async updateCategoryAsset(requestParameters: UpdateCategoryAssetRequest): Promise<CategoryDTO> {
         const response = await this.updateCategoryAssetRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Updates a category by external id.
+     */
+    async updateCategoryByExternalIdRaw(requestParameters: UpdateCategoryByExternalIdRequest): Promise<runtime.ApiResponse<CategoryDTO>> {
+        if (requestParameters.id === null || requestParameters.id === undefined) {
+            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling updateCategoryByExternalId.');
+        }
+
+        if (requestParameters.categoryDraftDTO === null || requestParameters.categoryDraftDTO === undefined) {
+            throw new runtime.RequiredError('categoryDraftDTO','Required parameter requestParameters.categoryDraftDTO was null or undefined when calling updateCategoryByExternalId.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/merchandise/categories/external/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: CategoryDraftDTOToJSON(requestParameters.categoryDraftDTO),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CategoryDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Updates a category by external id.
+     */
+    async updateCategoryByExternalId(requestParameters: UpdateCategoryByExternalIdRequest): Promise<CategoryDTO> {
+        const response = await this.updateCategoryByExternalIdRaw(requestParameters);
         return await response.value();
     }
 

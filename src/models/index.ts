@@ -135,6 +135,8 @@ export * from './StoreDraftDTO';
 export * from './SubRateDTO';
 export * from './SubscriptionDTO';
 export * from './SubtotalDiscountDTO';
+export * from './SynonymDTO';
+export * from './SynonymDraftDTO';
 export * from './TaxCategoryDTO';
 export * from './TaxCategoryDraftDTO';
 export * from './TaxPortionDTO';

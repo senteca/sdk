@@ -88,6 +88,10 @@ export interface CreateProductRequest {
     productDraftDTO: ProductDraftDTO;
 }
 
+export interface DeleteProductByExternalIdRequest {
+    id: string;
+}
+
 export interface DeleteProductByIdRequest {
     id: string;
 }
@@ -190,6 +194,11 @@ export interface UpdateProductAssetRequest {
     productId: string;
     assetIndex: number;
     assetDTO: AssetDTO;
+}
+
+export interface UpdateProductByExternalIdRequest {
+    id: string;
+    productDraftDTO: ProductDraftDTO;
 }
 
 export interface UpdateProductByIdRequest {
@@ -490,6 +499,36 @@ export class ProductsApi extends runtime.BaseAPI {
     /**
      * Deletes a product by id.
      */
+    async deleteProductByExternalIdRaw(requestParameters: DeleteProductByExternalIdRequest): Promise<runtime.ApiResponse<ProductDTO>> {
+        if (requestParameters.id === null || requestParameters.id === undefined) {
+            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling deleteProductByExternalId.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/merchandise/products/externalId/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Deletes a product by id.
+     */
+    async deleteProductByExternalId(requestParameters: DeleteProductByExternalIdRequest): Promise<ProductDTO> {
+        const response = await this.deleteProductByExternalIdRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Deletes a product by id.
+     */
     async deleteProductByIdRaw(requestParameters: DeleteProductByIdRequest): Promise<runtime.ApiResponse<ProductDTO>> {
         if (requestParameters.id === null || requestParameters.id === undefined) {
             throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling deleteProductById.');
@@ -640,7 +679,7 @@ export class ProductsApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/merchandise/products/external/{externalId}`.replace(`{${"externalId"}}`, encodeURIComponent(String(requestParameters.externalId))),
+            path: `/merchandise/products/externalId/{externalId}`.replace(`{${"externalId"}}`, encodeURIComponent(String(requestParameters.externalId))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
@@ -1228,6 +1267,43 @@ export class ProductsApi extends runtime.BaseAPI {
      */
     async updateProductAsset(requestParameters: UpdateProductAssetRequest): Promise<ProductDTO> {
         const response = await this.updateProductAssetRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Updates a product by external id.
+     */
+    async updateProductByExternalIdRaw(requestParameters: UpdateProductByExternalIdRequest): Promise<runtime.ApiResponse<ProductDTO>> {
+        if (requestParameters.id === null || requestParameters.id === undefined) {
+            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling updateProductByExternalId.');
+        }
+
+        if (requestParameters.productDraftDTO === null || requestParameters.productDraftDTO === undefined) {
+            throw new runtime.RequiredError('productDraftDTO','Required parameter requestParameters.productDraftDTO was null or undefined when calling updateProductByExternalId.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/merchandise/products/externalId/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: ProductDraftDTOToJSON(requestParameters.productDraftDTO),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ProductDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Updates a product by external id.
+     */
+    async updateProductByExternalId(requestParameters: UpdateProductByExternalIdRequest): Promise<ProductDTO> {
+        const response = await this.updateProductByExternalIdRaw(requestParameters);
         return await response.value();
     }
 

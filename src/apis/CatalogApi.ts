@@ -14,6 +14,31 @@
 
 
 import * as runtime from '../runtime';
+import {
+    SynonymDTO,
+    SynonymDTOFromJSON,
+    SynonymDTOToJSON,
+    SynonymDraftDTO,
+    SynonymDraftDTOFromJSON,
+    SynonymDraftDTOToJSON,
+} from '../models';
+
+export interface CreateSynonymRequest {
+    synonymDraftDTO: SynonymDraftDTO;
+}
+
+export interface DeleteSynonymRequest {
+    id: string;
+}
+
+export interface FilterSynonymsRequest {
+    filter: string;
+    sort: string;
+    expand: string;
+    project: string;
+    limit?: number;
+    offset?: number;
+}
 
 export interface SearchCatalogRequest {
     preFilters: Array<string>;
@@ -53,10 +78,143 @@ export interface SyncCatalogFromRequest {
     from: number;
 }
 
+export interface UpdateSynonymRequest {
+    synonymId: string;
+    synonymDraftDTO: SynonymDraftDTO;
+}
+
 /**
  * 
  */
 export class CatalogApi extends runtime.BaseAPI {
+
+    /**
+     * Creates a new synonym.
+     */
+    async createSynonymRaw(requestParameters: CreateSynonymRequest): Promise<runtime.ApiResponse<SynonymDTO>> {
+        if (requestParameters.synonymDraftDTO === null || requestParameters.synonymDraftDTO === undefined) {
+            throw new runtime.RequiredError('synonymDraftDTO','Required parameter requestParameters.synonymDraftDTO was null or undefined when calling createSynonym.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/merchandise/catalog/synonyms`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SynonymDraftDTOToJSON(requestParameters.synonymDraftDTO),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SynonymDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Creates a new synonym.
+     */
+    async createSynonym(requestParameters: CreateSynonymRequest): Promise<SynonymDTO> {
+        const response = await this.createSynonymRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Deletes a synonym by id.
+     */
+    async deleteSynonymRaw(requestParameters: DeleteSynonymRequest): Promise<runtime.ApiResponse<SynonymDTO>> {
+        if (requestParameters.id === null || requestParameters.id === undefined) {
+            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling deleteSynonym.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/merchandise/catalog/synonyms/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SynonymDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Deletes a synonym by id.
+     */
+    async deleteSynonym(requestParameters: DeleteSynonymRequest): Promise<SynonymDTO> {
+        const response = await this.deleteSynonymRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Filters synonyms collection
+     */
+    async filterSynonymsRaw(requestParameters: FilterSynonymsRequest): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.filter === null || requestParameters.filter === undefined) {
+            throw new runtime.RequiredError('filter','Required parameter requestParameters.filter was null or undefined when calling filterSynonyms.');
+        }
+
+        if (requestParameters.sort === null || requestParameters.sort === undefined) {
+            throw new runtime.RequiredError('sort','Required parameter requestParameters.sort was null or undefined when calling filterSynonyms.');
+        }
+
+        if (requestParameters.expand === null || requestParameters.expand === undefined) {
+            throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling filterSynonyms.');
+        }
+
+        if (requestParameters.project === null || requestParameters.project === undefined) {
+            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling filterSynonyms.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.filter !== undefined) {
+            queryParameters['filter'] = requestParameters.filter;
+        }
+
+        if (requestParameters.sort !== undefined) {
+            queryParameters['sort'] = requestParameters.sort;
+        }
+
+        if (requestParameters.expand !== undefined) {
+            queryParameters['expand'] = requestParameters.expand;
+        }
+
+        if (requestParameters.project !== undefined) {
+            queryParameters['project'] = requestParameters.project;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/merchandise/catalog/synonyms`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Filters synonyms collection
+     */
+    async filterSynonyms(requestParameters: FilterSynonymsRequest): Promise<void> {
+        await this.filterSynonymsRaw(requestParameters);
+    }
 
     /**
      * Searches in catalog by search term.
@@ -328,6 +486,68 @@ export class CatalogApi extends runtime.BaseAPI {
         await this.syncCatalogFromRaw(requestParameters);
     }
 
+    /**
+     * Syncs catalog database and elastic search indexes.
+     */
+    async syncSynonymsRaw(): Promise<runtime.ApiResponse<void>> {
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/merchandise/catalog/synonyms/sync`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Syncs catalog database and elastic search indexes.
+     */
+    async syncSynonyms(): Promise<void> {
+        await this.syncSynonymsRaw();
+    }
+
+    /**
+     * Update synonym by id
+     */
+    async updateSynonymRaw(requestParameters: UpdateSynonymRequest): Promise<runtime.ApiResponse<SynonymDTO>> {
+        if (requestParameters.synonymId === null || requestParameters.synonymId === undefined) {
+            throw new runtime.RequiredError('synonymId','Required parameter requestParameters.synonymId was null or undefined when calling updateSynonym.');
+        }
+
+        if (requestParameters.synonymDraftDTO === null || requestParameters.synonymDraftDTO === undefined) {
+            throw new runtime.RequiredError('synonymDraftDTO','Required parameter requestParameters.synonymDraftDTO was null or undefined when calling updateSynonym.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/merchandise/catalog/synonyms/{synonymId}`.replace(`{${"synonymId"}}`, encodeURIComponent(String(requestParameters.synonymId))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: SynonymDraftDTOToJSON(requestParameters.synonymDraftDTO),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => SynonymDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Update synonym by id
+     */
+    async updateSynonym(requestParameters: UpdateSynonymRequest): Promise<SynonymDTO> {
+        const response = await this.updateSynonymRaw(requestParameters);
+        return await response.value();
+    }
+
 }
 
 /**
@@ -344,5 +564,7 @@ export enum SearchCatalogSortEnum {
     InventoryAsc = 'inventory-asc',
     InventoryDesc = 'inventory-desc',
     ImagesAsc = 'images-asc',
-    ImagesDesc = 'images-desc'
+    ImagesDesc = 'images-desc',
+    ScoreAsc = 'score-asc',
+    ScoreDesc = 'score-desc'
 }

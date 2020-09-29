@@ -195,6 +195,12 @@ export interface OrderImportDTO {
      * @type {string}
      * @memberof OrderImportDTO
      */
+    customerFullName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OrderImportDTO
+     */
     customerPhone?: string;
     /**
      * 
@@ -354,6 +360,7 @@ export function OrderImportDTOFromJSONTyped(json: any, ignoreDiscriminator: bool
         'customerId': !exists(json, 'customerId') ? undefined : json['customerId'],
         'customerFirstName': !exists(json, 'customerFirstName') ? undefined : json['customerFirstName'],
         'customerLastName': !exists(json, 'customerLastName') ? undefined : json['customerLastName'],
+        'customerFullName': !exists(json, 'customerFullName') ? undefined : json['customerFullName'],
         'customerPhone': !exists(json, 'customerPhone') ? undefined : json['customerPhone'],
         'customerEmail': !exists(json, 'customerEmail') ? undefined : json['customerEmail'],
         'customerGroup': !exists(json, 'customerGroup') ? undefined : KeyReferenceDTOFromJSON(json['customerGroup']),
@@ -408,6 +415,7 @@ export function OrderImportDTOToJSON(value?: OrderImportDTO | null): any {
         'customerId': value.customerId,
         'customerFirstName': value.customerFirstName,
         'customerLastName': value.customerLastName,
+        'customerFullName': value.customerFullName,
         'customerPhone': value.customerPhone,
         'customerEmail': value.customerEmail,
         'customerGroup': KeyReferenceDTOToJSON(value.customerGroup),

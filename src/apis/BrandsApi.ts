@@ -38,6 +38,10 @@ export interface CreateBrandRequest {
     brandDraftDTO: BrandDraftDTO;
 }
 
+export interface DeleteBrandByExternalIdRequest {
+    id: string;
+}
+
 export interface DeleteBrandByIdRequest {
     id: string;
 }
@@ -100,6 +104,11 @@ export interface UpdateBrandAssetRequest {
     brandId: string;
     assetIndex: number;
     assetDTO: AssetDTO;
+}
+
+export interface UpdateBrandByExternalIdRequest {
+    id: string;
+    brandDraftDTO: BrandDraftDTO;
 }
 
 export interface UpdateBrandByIdRequest {
@@ -179,6 +188,36 @@ export class BrandsApi extends runtime.BaseAPI {
      */
     async createBrand(requestParameters: CreateBrandRequest): Promise<BrandDTO> {
         const response = await this.createBrandRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Deletes a brand by id.
+     */
+    async deleteBrandByExternalIdRaw(requestParameters: DeleteBrandByExternalIdRequest): Promise<runtime.ApiResponse<BrandDTO>> {
+        if (requestParameters.id === null || requestParameters.id === undefined) {
+            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling deleteBrandByExternalId.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/merchandise/brands/externalId/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BrandDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Deletes a brand by id.
+     */
+    async deleteBrandByExternalId(requestParameters: DeleteBrandByExternalIdRequest): Promise<BrandDTO> {
+        const response = await this.deleteBrandByExternalIdRaw(requestParameters);
         return await response.value();
     }
 
@@ -636,6 +675,43 @@ export class BrandsApi extends runtime.BaseAPI {
      */
     async updateBrandAsset(requestParameters: UpdateBrandAssetRequest): Promise<BrandDTO> {
         const response = await this.updateBrandAssetRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Updates a brand by id.
+     */
+    async updateBrandByExternalIdRaw(requestParameters: UpdateBrandByExternalIdRequest): Promise<runtime.ApiResponse<BrandDTO>> {
+        if (requestParameters.id === null || requestParameters.id === undefined) {
+            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling updateBrandByExternalId.');
+        }
+
+        if (requestParameters.brandDraftDTO === null || requestParameters.brandDraftDTO === undefined) {
+            throw new runtime.RequiredError('brandDraftDTO','Required parameter requestParameters.brandDraftDTO was null or undefined when calling updateBrandByExternalId.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/merchandise/brands/externalId/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: BrandDraftDTOToJSON(requestParameters.brandDraftDTO),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => BrandDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Updates a brand by id.
+     */
+    async updateBrandByExternalId(requestParameters: UpdateBrandByExternalIdRequest): Promise<BrandDTO> {
+        const response = await this.updateBrandByExternalIdRaw(requestParameters);
         return await response.value();
     }
 

@@ -31,6 +31,10 @@ export interface DeleteAttributeByIdRequest {
     id: string;
 }
 
+export interface DeleteAttributeByNameRequest {
+    name: string;
+}
+
 export interface FilterAttributesRequest {
     filter: string;
     sort: string;
@@ -58,6 +62,11 @@ export interface SearchAttributesRequest {
 
 export interface UpdateAttributeByIdRequest {
     id: string;
+    attributeDraftDTO: AttributeDraftDTO;
+}
+
+export interface UpdateAttributeByNameRequest {
+    name: string;
     attributeDraftDTO: AttributeDraftDTO;
 }
 
@@ -126,6 +135,36 @@ export class AttributesApi extends runtime.BaseAPI {
      */
     async deleteAttributeById(requestParameters: DeleteAttributeByIdRequest): Promise<AttributeDTO> {
         const response = await this.deleteAttributeByIdRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Deletes an attribute by name.
+     */
+    async deleteAttributeByNameRaw(requestParameters: DeleteAttributeByNameRequest): Promise<runtime.ApiResponse<AttributeDTO>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling deleteAttributeByName.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/merchandise/attributes/name/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AttributeDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Deletes an attribute by name.
+     */
+    async deleteAttributeByName(requestParameters: DeleteAttributeByNameRequest): Promise<AttributeDTO> {
+        const response = await this.deleteAttributeByNameRaw(requestParameters);
         return await response.value();
     }
 
@@ -348,6 +387,43 @@ export class AttributesApi extends runtime.BaseAPI {
      */
     async updateAttributeById(requestParameters: UpdateAttributeByIdRequest): Promise<AttributeDTO> {
         const response = await this.updateAttributeByIdRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Updates an attribute by name.
+     */
+    async updateAttributeByNameRaw(requestParameters: UpdateAttributeByNameRequest): Promise<runtime.ApiResponse<AttributeDTO>> {
+        if (requestParameters.name === null || requestParameters.name === undefined) {
+            throw new runtime.RequiredError('name','Required parameter requestParameters.name was null or undefined when calling updateAttributeByName.');
+        }
+
+        if (requestParameters.attributeDraftDTO === null || requestParameters.attributeDraftDTO === undefined) {
+            throw new runtime.RequiredError('attributeDraftDTO','Required parameter requestParameters.attributeDraftDTO was null or undefined when calling updateAttributeByName.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/merchandise/attributes/name/{name}`.replace(`{${"name"}}`, encodeURIComponent(String(requestParameters.name))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: AttributeDraftDTOToJSON(requestParameters.attributeDraftDTO),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AttributeDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Updates an attribute by name.
+     */
+    async updateAttributeByName(requestParameters: UpdateAttributeByNameRequest): Promise<AttributeDTO> {
+        const response = await this.updateAttributeByNameRaw(requestParameters);
         return await response.value();
     }
 
