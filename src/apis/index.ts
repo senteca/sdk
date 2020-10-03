@@ -33,6 +33,7 @@ export * from './ProductsApi';
 export * from './RolesApi';
 export * from './ShippingMethodsApi';
 export * from './StatesApi';
+export * from './StoreViewsApi';
 export * from './StoresApi';
 export * from './SubscriptionsApi';
 export * from './TagsApi';
