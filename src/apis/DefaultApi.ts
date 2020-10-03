@@ -83,6 +83,58 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Internal cluster health check.
      */
+    async cmsHealthyRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/cms/probes/healthy`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => InlineResponse200FromJSON(jsonValue));
+    }
+
+    /**
+     * Internal cluster health check.
+     */
+    async cmsHealthy(): Promise<InlineResponse200> {
+        const response = await this.cmsHealthyRaw();
+        return await response.value();
+    }
+
+    /**
+     * Internal cluster health check.
+     */
+    async cmsReadyRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/cms/probes/ready`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => InlineResponse200FromJSON(jsonValue));
+    }
+
+    /**
+     * Internal cluster health check.
+     */
+    async cmsReady(): Promise<InlineResponse200> {
+        const response = await this.cmsReadyRaw();
+        return await response.value();
+    }
+
+    /**
+     * Internal cluster health check.
+     */
     async configHealthyRaw(): Promise<runtime.ApiResponse<InlineResponse200>> {
         const queryParameters: runtime.HTTPQuery = {};
 

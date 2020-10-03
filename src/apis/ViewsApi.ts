@@ -18,6 +18,12 @@ import {
     AssetDTO,
     AssetDTOFromJSON,
     AssetDTOToJSON,
+    StoreViewDTO,
+    StoreViewDTOFromJSON,
+    StoreViewDTOToJSON,
+    StoreViewDraftDTO,
+    StoreViewDraftDTOFromJSON,
+    StoreViewDraftDTOToJSON,
     ViewDTO,
     ViewDTOFromJSON,
     ViewDTOToJSON,
@@ -31,12 +37,29 @@ export interface AddViewAssetRequest {
     assetDTO: AssetDTO;
 }
 
+export interface CreateRequest {
+    storeViewDraftDTO: StoreViewDraftDTO;
+}
+
 export interface CreateViewRequest {
     viewDraftDTO: ViewDraftDTO;
 }
 
+export interface DeleteByIdRequest {
+    id: string;
+}
+
 export interface DeleteViewByIdRequest {
     id: string;
+}
+
+export interface FilterRequest {
+    filter: string;
+    sort: string;
+    expand: string;
+    project: string;
+    limit?: number;
+    offset?: number;
 }
 
 export interface FilterViewsRequest {
@@ -68,6 +91,19 @@ export interface SearchViewsRequest {
     term: string;
     limit?: number;
     offset?: number;
+}
+
+export interface SetThemeConfigRequest {
+    id: string;
+}
+
+export interface SetThemeKeyRequest {
+    id: string;
+}
+
+export interface UpdateRequest {
+    id: string;
+    storeViewDraftDTO: StoreViewDraftDTO;
 }
 
 export interface UpdateViewAssetRequest {
@@ -124,6 +160,39 @@ export class ViewsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Creates new record
+     */
+    async createRaw(requestParameters: CreateRequest): Promise<runtime.ApiResponse<StoreViewDTO>> {
+        if (requestParameters.storeViewDraftDTO === null || requestParameters.storeViewDraftDTO === undefined) {
+            throw new runtime.RequiredError('storeViewDraftDTO','Required parameter requestParameters.storeViewDraftDTO was null or undefined when calling create.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/config/views`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: StoreViewDraftDTOToJSON(requestParameters.storeViewDraftDTO),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StoreViewDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Creates new record
+     */
+    async create(requestParameters: CreateRequest): Promise<StoreViewDTO> {
+        const response = await this.createRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
      * Creates a new view.
      */
     async createViewRaw(requestParameters: CreateViewRequest): Promise<runtime.ApiResponse<ViewDTO>> {
@@ -157,6 +226,36 @@ export class ViewsApi extends runtime.BaseAPI {
     }
 
     /**
+     * Deletes a record by id
+     */
+    async deleteByIdRaw(requestParameters: DeleteByIdRequest): Promise<runtime.ApiResponse<StoreViewDTO>> {
+        if (requestParameters.id === null || requestParameters.id === undefined) {
+            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling deleteById.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/config/views/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+            method: 'DELETE',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StoreViewDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Deletes a record by id
+     */
+    async deleteById(requestParameters: DeleteByIdRequest): Promise<StoreViewDTO> {
+        const response = await this.deleteByIdRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
      * Deletes a view by id.
      */
     async deleteViewByIdRaw(requestParameters: DeleteViewByIdRequest): Promise<runtime.ApiResponse<ViewDTO>> {
@@ -184,6 +283,71 @@ export class ViewsApi extends runtime.BaseAPI {
     async deleteViewById(requestParameters: DeleteViewByIdRequest): Promise<ViewDTO> {
         const response = await this.deleteViewByIdRaw(requestParameters);
         return await response.value();
+    }
+
+    /**
+     * Filters the collection
+     */
+    async filterRaw(requestParameters: FilterRequest): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters.filter === null || requestParameters.filter === undefined) {
+            throw new runtime.RequiredError('filter','Required parameter requestParameters.filter was null or undefined when calling filter.');
+        }
+
+        if (requestParameters.sort === null || requestParameters.sort === undefined) {
+            throw new runtime.RequiredError('sort','Required parameter requestParameters.sort was null or undefined when calling filter.');
+        }
+
+        if (requestParameters.expand === null || requestParameters.expand === undefined) {
+            throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling filter.');
+        }
+
+        if (requestParameters.project === null || requestParameters.project === undefined) {
+            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling filter.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        if (requestParameters.filter !== undefined) {
+            queryParameters['filter'] = requestParameters.filter;
+        }
+
+        if (requestParameters.sort !== undefined) {
+            queryParameters['sort'] = requestParameters.sort;
+        }
+
+        if (requestParameters.expand !== undefined) {
+            queryParameters['expand'] = requestParameters.expand;
+        }
+
+        if (requestParameters.project !== undefined) {
+            queryParameters['project'] = requestParameters.project;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/config/views`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.VoidApiResponse(response);
+    }
+
+    /**
+     * Filters the collection
+     */
+    async filter(requestParameters: FilterRequest): Promise<void> {
+        await this.filterRaw(requestParameters);
     }
 
     /**
@@ -404,6 +568,103 @@ export class ViewsApi extends runtime.BaseAPI {
      */
     async searchViews(requestParameters: SearchViewsRequest): Promise<void> {
         await this.searchViewsRaw(requestParameters);
+    }
+
+    /**
+     * Sets theme config
+     */
+    async setThemeConfigRaw(requestParameters: SetThemeConfigRequest): Promise<runtime.ApiResponse<StoreViewDTO>> {
+        if (requestParameters.id === null || requestParameters.id === undefined) {
+            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling setThemeConfig.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/config/views/{id}/theme-config`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StoreViewDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Sets theme config
+     */
+    async setThemeConfig(requestParameters: SetThemeConfigRequest): Promise<StoreViewDTO> {
+        const response = await this.setThemeConfigRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Sets theme key
+     */
+    async setThemeKeyRaw(requestParameters: SetThemeKeyRequest): Promise<runtime.ApiResponse<StoreViewDTO>> {
+        if (requestParameters.id === null || requestParameters.id === undefined) {
+            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling setThemeKey.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/config/views/{id}/theme-key`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+            method: 'PATCH',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StoreViewDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Sets theme key
+     */
+    async setThemeKey(requestParameters: SetThemeKeyRequest): Promise<StoreViewDTO> {
+        const response = await this.setThemeKeyRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Updates a record
+     */
+    async updateRaw(requestParameters: UpdateRequest): Promise<runtime.ApiResponse<StoreViewDTO>> {
+        if (requestParameters.id === null || requestParameters.id === undefined) {
+            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling update.');
+        }
+
+        if (requestParameters.storeViewDraftDTO === null || requestParameters.storeViewDraftDTO === undefined) {
+            throw new runtime.RequiredError('storeViewDraftDTO','Required parameter requestParameters.storeViewDraftDTO was null or undefined when calling update.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/config/views/{id}`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+            method: 'PUT',
+            headers: headerParameters,
+            query: queryParameters,
+            body: StoreViewDraftDTOToJSON(requestParameters.storeViewDraftDTO),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => StoreViewDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Updates a record
+     */
+    async update(requestParameters: UpdateRequest): Promise<StoreViewDTO> {
+        const response = await this.updateRaw(requestParameters);
+        return await response.value();
     }
 
     /**
