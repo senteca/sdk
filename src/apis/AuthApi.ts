@@ -15,24 +15,34 @@
 
 import * as runtime from '../runtime';
 import {
-    FacebookTokenDTO,
-    FacebookTokenDTOFromJSON,
-    FacebookTokenDTOToJSON,
-    TokenDTO,
-    TokenDTOFromJSON,
-    TokenDTOToJSON,
+    AccessTokenDTO,
+    AccessTokenDTOFromJSON,
+    AccessTokenDTOToJSON,
+    FacebookTokenRequestDTO,
+    FacebookTokenRequestDTOFromJSON,
+    FacebookTokenRequestDTOToJSON,
+    PasswordGrantTokenRequestDTO,
+    PasswordGrantTokenRequestDTOFromJSON,
+    PasswordGrantTokenRequestDTOToJSON,
+    TokenRequestDTO,
+    TokenRequestDTOFromJSON,
+    TokenRequestDTOToJSON,
 } from '../models';
 
 export interface GetAnonymousTokenRequest {
-    tokenDTO: TokenDTO;
+    tokenRequestDTO: TokenRequestDTO;
 }
 
 export interface GetFacebookTokenRequest {
-    facebookTokenDTO: FacebookTokenDTO;
+    facebookTokenRequestDTO: FacebookTokenRequestDTO;
+}
+
+export interface GetPasswordGrantTokenRequest {
+    passwordGrantTokenRequestDTO: PasswordGrantTokenRequestDTO;
 }
 
 export interface GetTokenRequest {
-    tokenDTO: TokenDTO;
+    tokenRequestDTO: TokenRequestDTO;
 }
 
 /**
@@ -43,9 +53,9 @@ export class AuthApi extends runtime.BaseAPI {
     /**
      * Returns an anonymous access token based on api client\'s id and secret. Anonymous token permissions match the api client permissions.
      */
-    async getAnonymousTokenRaw(requestParameters: GetAnonymousTokenRequest): Promise<runtime.ApiResponse<object>> {
-        if (requestParameters.tokenDTO === null || requestParameters.tokenDTO === undefined) {
-            throw new runtime.RequiredError('tokenDTO','Required parameter requestParameters.tokenDTO was null or undefined when calling getAnonymousToken.');
+    async getAnonymousTokenRaw(requestParameters: GetAnonymousTokenRequest): Promise<runtime.ApiResponse<AccessTokenDTO>> {
+        if (requestParameters.tokenRequestDTO === null || requestParameters.tokenRequestDTO === undefined) {
+            throw new runtime.RequiredError('tokenRequestDTO','Required parameter requestParameters.tokenRequestDTO was null or undefined when calling getAnonymousToken.');
         }
 
         const queryParameters: runtime.HTTPQuery = {};
@@ -59,16 +69,16 @@ export class AuthApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: TokenDTOToJSON(requestParameters.tokenDTO),
+            body: TokenRequestDTOToJSON(requestParameters.tokenRequestDTO),
         });
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccessTokenDTOFromJSON(jsonValue));
     }
 
     /**
      * Returns an anonymous access token based on api client\'s id and secret. Anonymous token permissions match the api client permissions.
      */
-    async getAnonymousToken(requestParameters: GetAnonymousTokenRequest): Promise<object> {
+    async getAnonymousToken(requestParameters: GetAnonymousTokenRequest): Promise<AccessTokenDTO> {
         const response = await this.getAnonymousTokenRaw(requestParameters);
         return await response.value();
     }
@@ -76,9 +86,9 @@ export class AuthApi extends runtime.BaseAPI {
     /**
      * Returns an access token and a refresh token based on user\'s facebook id and facebook token.
      */
-    async getFacebookTokenRaw(requestParameters: GetFacebookTokenRequest): Promise<runtime.ApiResponse<object>> {
-        if (requestParameters.facebookTokenDTO === null || requestParameters.facebookTokenDTO === undefined) {
-            throw new runtime.RequiredError('facebookTokenDTO','Required parameter requestParameters.facebookTokenDTO was null or undefined when calling getFacebookToken.');
+    async getFacebookTokenRaw(requestParameters: GetFacebookTokenRequest): Promise<runtime.ApiResponse<AccessTokenDTO>> {
+        if (requestParameters.facebookTokenRequestDTO === null || requestParameters.facebookTokenRequestDTO === undefined) {
+            throw new runtime.RequiredError('facebookTokenRequestDTO','Required parameter requestParameters.facebookTokenRequestDTO was null or undefined when calling getFacebookToken.');
         }
 
         const queryParameters: runtime.HTTPQuery = {};
@@ -92,26 +102,59 @@ export class AuthApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: FacebookTokenDTOToJSON(requestParameters.facebookTokenDTO),
+            body: FacebookTokenRequestDTOToJSON(requestParameters.facebookTokenRequestDTO),
         });
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccessTokenDTOFromJSON(jsonValue));
     }
 
     /**
      * Returns an access token and a refresh token based on user\'s facebook id and facebook token.
      */
-    async getFacebookToken(requestParameters: GetFacebookTokenRequest): Promise<object> {
+    async getFacebookToken(requestParameters: GetFacebookTokenRequest): Promise<AccessTokenDTO> {
         const response = await this.getFacebookTokenRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     * Returns an access token using password grant
+     */
+    async getPasswordGrantTokenRaw(requestParameters: GetPasswordGrantTokenRequest): Promise<runtime.ApiResponse<AccessTokenDTO>> {
+        if (requestParameters.passwordGrantTokenRequestDTO === null || requestParameters.passwordGrantTokenRequestDTO === undefined) {
+            throw new runtime.RequiredError('passwordGrantTokenRequestDTO','Required parameter requestParameters.passwordGrantTokenRequestDTO was null or undefined when calling getPasswordGrantToken.');
+        }
+
+        const queryParameters: runtime.HTTPQuery = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters['Content-Type'] = 'application/json';
+
+        const response = await this.request({
+            path: `/auth/password`,
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+            body: PasswordGrantTokenRequestDTOToJSON(requestParameters.passwordGrantTokenRequestDTO),
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccessTokenDTOFromJSON(jsonValue));
+    }
+
+    /**
+     * Returns an access token using password grant
+     */
+    async getPasswordGrantToken(requestParameters: GetPasswordGrantTokenRequest): Promise<AccessTokenDTO> {
+        const response = await this.getPasswordGrantTokenRaw(requestParameters);
         return await response.value();
     }
 
     /**
      * Returns an access token and optionally a refresh token for different grant types. Grant type \'client-credentials\' authorizes api clients based on client id and client secret. Grant type \'password-credentials\' authorizes users based on email and password along with api client\'s id and secret. Grant type \'refresh-token\' returns new access and refresh tokens if the provided current refresh token is valid.
      */
-    async getTokenRaw(requestParameters: GetTokenRequest): Promise<runtime.ApiResponse<object>> {
-        if (requestParameters.tokenDTO === null || requestParameters.tokenDTO === undefined) {
-            throw new runtime.RequiredError('tokenDTO','Required parameter requestParameters.tokenDTO was null or undefined when calling getToken.');
+    async getTokenRaw(requestParameters: GetTokenRequest): Promise<runtime.ApiResponse<AccessTokenDTO>> {
+        if (requestParameters.tokenRequestDTO === null || requestParameters.tokenRequestDTO === undefined) {
+            throw new runtime.RequiredError('tokenRequestDTO','Required parameter requestParameters.tokenRequestDTO was null or undefined when calling getToken.');
         }
 
         const queryParameters: runtime.HTTPQuery = {};
@@ -125,16 +168,16 @@ export class AuthApi extends runtime.BaseAPI {
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
-            body: TokenDTOToJSON(requestParameters.tokenDTO),
+            body: TokenRequestDTOToJSON(requestParameters.tokenRequestDTO),
         });
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccessTokenDTOFromJSON(jsonValue));
     }
 
     /**
      * Returns an access token and optionally a refresh token for different grant types. Grant type \'client-credentials\' authorizes api clients based on client id and client secret. Grant type \'password-credentials\' authorizes users based on email and password along with api client\'s id and secret. Grant type \'refresh-token\' returns new access and refresh tokens if the provided current refresh token is valid.
      */
-    async getToken(requestParameters: GetTokenRequest): Promise<object> {
+    async getToken(requestParameters: GetTokenRequest): Promise<AccessTokenDTO> {
         const response = await this.getTokenRaw(requestParameters);
         return await response.value();
     }

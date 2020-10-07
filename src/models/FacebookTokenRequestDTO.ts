@@ -16,52 +16,64 @@ import { exists, mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface TokenDTO
+ * @interface FacebookTokenRequestDTO
  */
-export interface TokenDTO {
+export interface FacebookTokenRequestDTO {
     /**
      * 
      * @type {string}
-     * @memberof TokenDTO
+     * @memberof FacebookTokenRequestDTO
      */
-    grantType: TokenDTOGrantTypeEnum;
+    grantType: FacebookTokenRequestDTOGrantTypeEnum;
     /**
      * 
      * @type {string}
-     * @memberof TokenDTO
+     * @memberof FacebookTokenRequestDTO
      */
     email?: string;
     /**
      * 
      * @type {string}
-     * @memberof TokenDTO
+     * @memberof FacebookTokenRequestDTO
      */
     password?: string;
     /**
      * 
      * @type {string}
-     * @memberof TokenDTO
+     * @memberof FacebookTokenRequestDTO
      */
     refreshToken?: string;
     /**
      * 
      * @type {boolean}
-     * @memberof TokenDTO
+     * @memberof FacebookTokenRequestDTO
      */
     isOrgUser?: boolean;
     /**
      * 
      * @type {string}
-     * @memberof TokenDTO
+     * @memberof FacebookTokenRequestDTO
      */
     anonymousId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof FacebookTokenRequestDTO
+     */
+    facebookId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof FacebookTokenRequestDTO
+     */
+    facebookToken: string;
 }
 
-export function TokenDTOFromJSON(json: any): TokenDTO {
-    return TokenDTOFromJSONTyped(json, false);
+export function FacebookTokenRequestDTOFromJSON(json: any): FacebookTokenRequestDTO {
+    return FacebookTokenRequestDTOFromJSONTyped(json, false);
 }
 
-export function TokenDTOFromJSONTyped(json: any, ignoreDiscriminator: boolean): TokenDTO {
+export function FacebookTokenRequestDTOFromJSONTyped(json: any, ignoreDiscriminator: boolean): FacebookTokenRequestDTO {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -73,10 +85,12 @@ export function TokenDTOFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'refreshToken': !exists(json, 'refreshToken') ? undefined : json['refreshToken'],
         'isOrgUser': !exists(json, 'isOrgUser') ? undefined : json['isOrgUser'],
         'anonymousId': !exists(json, 'anonymousId') ? undefined : json['anonymousId'],
+        'facebookId': json['facebookId'],
+        'facebookToken': json['facebookToken'],
     };
 }
 
-export function TokenDTOToJSON(value?: TokenDTO | null): any {
+export function FacebookTokenRequestDTOToJSON(value?: FacebookTokenRequestDTO | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -91,6 +105,8 @@ export function TokenDTOToJSON(value?: TokenDTO | null): any {
         'refreshToken': value.refreshToken,
         'isOrgUser': value.isOrgUser,
         'anonymousId': value.anonymousId,
+        'facebookId': value.facebookId,
+        'facebookToken': value.facebookToken,
     };
 }
 
@@ -98,7 +114,7 @@ export function TokenDTOToJSON(value?: TokenDTO | null): any {
 * @export
 * @enum {string}
 */
-export enum TokenDTOGrantTypeEnum {
+export enum FacebookTokenRequestDTOGrantTypeEnum {
     Code = 'code',
     PasswordCredentials = 'password-credentials',
     ClientCredentials = 'client-credentials',
