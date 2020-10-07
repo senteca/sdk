@@ -27,6 +27,7 @@ export * from './ContentDraftDTO';
 export * from './ContentTypeDTO';
 export * from './ContentTypeDraftDTO';
 export * from './CustomFieldDTO';
+export * from './CustomFieldDraftDTO';
 export * from './CustomFieldValueDTO';
 export * from './CustomerCreateDTO';
 export * from './CustomerDTO';

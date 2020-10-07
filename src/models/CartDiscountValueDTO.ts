@@ -60,6 +60,12 @@ export interface CartDiscountValueDTO {
      * @memberof CartDiscountValueDTO
      */
     variantId?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof CartDiscountValueDTO
+     */
+    quantity?: number;
 }
 
 export function CartDiscountValueDTOFromJSON(json: any): CartDiscountValueDTO {
@@ -77,6 +83,7 @@ export function CartDiscountValueDTOFromJSONTyped(json: any, ignoreDiscriminator
         'money': !exists(json, 'money') ? undefined : ((json['money'] as Array<any>).map(MoneyDTOFromJSON)),
         'product': !exists(json, 'product') ? undefined : IdReferenceDTOFromJSON(json['product']),
         'variantId': !exists(json, 'variantId') ? undefined : json['variantId'],
+        'quantity': !exists(json, 'quantity') ? undefined : json['quantity'],
     };
 }
 
@@ -94,6 +101,7 @@ export function CartDiscountValueDTOToJSON(value?: CartDiscountValueDTO | null):
         'money': value.money === undefined ? undefined : ((value.money as Array<any>).map(MoneyDTOToJSON)),
         'product': IdReferenceDTOToJSON(value.product),
         'variantId': value.variantId,
+        'quantity': value.quantity,
     };
 }
 

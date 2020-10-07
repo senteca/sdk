@@ -23,96 +23,75 @@ import {
 /**
  * 
  * @export
- * @interface CustomFieldDTO
+ * @interface CustomFieldDraftDTO
  */
-export interface CustomFieldDTO {
+export interface CustomFieldDraftDTO {
     /**
      * 
      * @type {string}
-     * @memberof CustomFieldDTO
+     * @memberof CustomFieldDraftDTO
      */
-    id: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomFieldDTO
-     */
-    createdAt: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof CustomFieldDTO
-     */
-    updatedAt: number;
+    type: CustomFieldDraftDTOTypeEnum;
     /**
      * 
      * @type {string}
-     * @memberof CustomFieldDTO
+     * @memberof CustomFieldDraftDTO
      */
-    type: CustomFieldDTOTypeEnum;
+    resourceTypeId: CustomFieldDraftDTOResourceTypeIdEnum;
     /**
      * 
      * @type {string}
-     * @memberof CustomFieldDTO
-     */
-    resourceTypeId: CustomFieldDTOResourceTypeIdEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof CustomFieldDTO
+     * @memberof CustomFieldDraftDTO
      */
     name: string;
     /**
      * 
      * @type {object}
-     * @memberof CustomFieldDTO
+     * @memberof CustomFieldDraftDTO
      */
     label?: object;
     /**
      * 
      * @type {object}
-     * @memberof CustomFieldDTO
+     * @memberof CustomFieldDraftDTO
      */
     description?: object;
     /**
      * 
      * @type {boolean}
-     * @memberof CustomFieldDTO
+     * @memberof CustomFieldDraftDTO
      */
     isRequired: boolean;
     /**
      * 
      * @type {boolean}
-     * @memberof CustomFieldDTO
+     * @memberof CustomFieldDraftDTO
      */
     isSearchable: boolean;
     /**
      * 
      * @type {Array<CustomFieldValueDTO>}
-     * @memberof CustomFieldDTO
+     * @memberof CustomFieldDraftDTO
      */
     values?: Array<CustomFieldValueDTO>;
     /**
      * 
      * @type {object}
-     * @memberof CustomFieldDTO
+     * @memberof CustomFieldDraftDTO
      */
     defaultValue?: object;
 }
 
-export function CustomFieldDTOFromJSON(json: any): CustomFieldDTO {
-    return CustomFieldDTOFromJSONTyped(json, false);
+export function CustomFieldDraftDTOFromJSON(json: any): CustomFieldDraftDTO {
+    return CustomFieldDraftDTOFromJSONTyped(json, false);
 }
 
-export function CustomFieldDTOFromJSONTyped(json: any, ignoreDiscriminator: boolean): CustomFieldDTO {
+export function CustomFieldDraftDTOFromJSONTyped(json: any, ignoreDiscriminator: boolean): CustomFieldDraftDTO {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
-        'id': json['id'],
-        'createdAt': json['createdAt'],
-        'updatedAt': json['updatedAt'],
         'type': json['type'],
         'resourceTypeId': json['resourceTypeId'],
         'name': json['name'],
@@ -125,7 +104,7 @@ export function CustomFieldDTOFromJSONTyped(json: any, ignoreDiscriminator: bool
     };
 }
 
-export function CustomFieldDTOToJSON(value?: CustomFieldDTO | null): any {
+export function CustomFieldDraftDTOToJSON(value?: CustomFieldDraftDTO | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -134,9 +113,6 @@ export function CustomFieldDTOToJSON(value?: CustomFieldDTO | null): any {
     }
     return {
         
-        'id': value.id,
-        'createdAt': value.createdAt,
-        'updatedAt': value.updatedAt,
         'type': value.type,
         'resourceTypeId': value.resourceTypeId,
         'name': value.name,
@@ -153,7 +129,7 @@ export function CustomFieldDTOToJSON(value?: CustomFieldDTO | null): any {
 * @export
 * @enum {string}
 */
-export enum CustomFieldDTOTypeEnum {
+export enum CustomFieldDraftDTOTypeEnum {
     String = 'string',
     Boolean = 'boolean',
     Number = 'number',
@@ -166,7 +142,7 @@ export enum CustomFieldDTOTypeEnum {
 * @export
 * @enum {string}
 */
-export enum CustomFieldDTOResourceTypeIdEnum {
+export enum CustomFieldDraftDTOResourceTypeIdEnum {
     Store = 'store',
     Address = 'address',
     Brand = 'brand',

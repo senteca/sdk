@@ -23,32 +23,15 @@ import {
     StoreViewDraftDTOToJSON,
 } from '../models';
 
-export interface CreateStoreViewRequest {
+export interface CreateRequest {
     storeViewDraftDTO: StoreViewDraftDTO;
 }
 
-export interface DeleteStoreViewByIdRequest {
+export interface DeleteByIdRequest {
     id: string;
 }
 
-export interface FilterStoreViewsRequest {
-    filter: string;
-    sort: string;
-    expand: string;
-    project: string;
-    limit?: number;
-    offset?: number;
-}
-
-export interface SetThemeConfigRequest {
-    id: string;
-}
-
-export interface SetThemeKeyRequest {
-    id: string;
-}
-
-export interface UpdateStoreViewRequest {
+export interface UpdateRequest {
     id: string;
     storeViewDraftDTO: StoreViewDraftDTO;
 }
@@ -59,11 +42,11 @@ export interface UpdateStoreViewRequest {
 export class StoreViewsApi extends runtime.BaseAPI {
 
     /**
-     * Creates new record
+     * Creates new store view record
      */
-    async createStoreViewRaw(requestParameters: CreateStoreViewRequest): Promise<runtime.ApiResponse<StoreViewDTO>> {
+    async createRaw(requestParameters: CreateRequest): Promise<runtime.ApiResponse<StoreViewDTO>> {
         if (requestParameters.storeViewDraftDTO === null || requestParameters.storeViewDraftDTO === undefined) {
-            throw new runtime.RequiredError('storeViewDraftDTO','Required parameter requestParameters.storeViewDraftDTO was null or undefined when calling createStoreView.');
+            throw new runtime.RequiredError('storeViewDraftDTO','Required parameter requestParameters.storeViewDraftDTO was null or undefined when calling create.');
         }
 
         const queryParameters: runtime.HTTPQuery = {};
@@ -84,19 +67,19 @@ export class StoreViewsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Creates new record
+     * Creates new store view record
      */
-    async createStoreView(requestParameters: CreateStoreViewRequest): Promise<StoreViewDTO> {
-        const response = await this.createStoreViewRaw(requestParameters);
+    async create(requestParameters: CreateRequest): Promise<StoreViewDTO> {
+        const response = await this.createRaw(requestParameters);
         return await response.value();
     }
 
     /**
-     * Deletes a record by id
+     * Deletes a store veiw by id
      */
-    async deleteStoreViewByIdRaw(requestParameters: DeleteStoreViewByIdRequest): Promise<runtime.ApiResponse<StoreViewDTO>> {
+    async deleteByIdRaw(requestParameters: DeleteByIdRequest): Promise<runtime.ApiResponse<StoreViewDTO>> {
         if (requestParameters.id === null || requestParameters.id === undefined) {
-            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling deleteStoreViewById.');
+            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling deleteById.');
         }
 
         const queryParameters: runtime.HTTPQuery = {};
@@ -114,58 +97,18 @@ export class StoreViewsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Deletes a record by id
+     * Deletes a store veiw by id
      */
-    async deleteStoreViewById(requestParameters: DeleteStoreViewByIdRequest): Promise<StoreViewDTO> {
-        const response = await this.deleteStoreViewByIdRaw(requestParameters);
+    async deleteById(requestParameters: DeleteByIdRequest): Promise<StoreViewDTO> {
+        const response = await this.deleteByIdRaw(requestParameters);
         return await response.value();
     }
 
     /**
-     * Filters the collection
+     * Filters the store views collection
      */
-    async filterStoreViewsRaw(requestParameters: FilterStoreViewsRequest): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters.filter === null || requestParameters.filter === undefined) {
-            throw new runtime.RequiredError('filter','Required parameter requestParameters.filter was null or undefined when calling filterStoreViews.');
-        }
-
-        if (requestParameters.sort === null || requestParameters.sort === undefined) {
-            throw new runtime.RequiredError('sort','Required parameter requestParameters.sort was null or undefined when calling filterStoreViews.');
-        }
-
-        if (requestParameters.expand === null || requestParameters.expand === undefined) {
-            throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling filterStoreViews.');
-        }
-
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling filterStoreViews.');
-        }
-
+    async filterRaw(): Promise<runtime.ApiResponse<void>> {
         const queryParameters: runtime.HTTPQuery = {};
-
-        if (requestParameters.filter !== undefined) {
-            queryParameters['filter'] = requestParameters.filter;
-        }
-
-        if (requestParameters.sort !== undefined) {
-            queryParameters['sort'] = requestParameters.sort;
-        }
-
-        if (requestParameters.expand !== undefined) {
-            queryParameters['expand'] = requestParameters.expand;
-        }
-
-        if (requestParameters.project !== undefined) {
-            queryParameters['project'] = requestParameters.project;
-        }
-
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
-        }
-
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
-        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -180,82 +123,22 @@ export class StoreViewsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Filters the collection
+     * Filters the store views collection
      */
-    async filterStoreViews(requestParameters: FilterStoreViewsRequest): Promise<void> {
-        await this.filterStoreViewsRaw(requestParameters);
+    async filter(): Promise<void> {
+        await this.filterRaw();
     }
 
     /**
-     * Sets theme config
+     * Updates a store view
      */
-    async setThemeConfigRaw(requestParameters: SetThemeConfigRequest): Promise<runtime.ApiResponse<StoreViewDTO>> {
+    async updateRaw(requestParameters: UpdateRequest): Promise<runtime.ApiResponse<StoreViewDTO>> {
         if (requestParameters.id === null || requestParameters.id === undefined) {
-            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling setThemeConfig.');
-        }
-
-        const queryParameters: runtime.HTTPQuery = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/config/store-views/{id}/theme-config`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-        });
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => StoreViewDTOFromJSON(jsonValue));
-    }
-
-    /**
-     * Sets theme config
-     */
-    async setThemeConfig(requestParameters: SetThemeConfigRequest): Promise<StoreViewDTO> {
-        const response = await this.setThemeConfigRaw(requestParameters);
-        return await response.value();
-    }
-
-    /**
-     * Sets theme key
-     */
-    async setThemeKeyRaw(requestParameters: SetThemeKeyRequest): Promise<runtime.ApiResponse<StoreViewDTO>> {
-        if (requestParameters.id === null || requestParameters.id === undefined) {
-            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling setThemeKey.');
-        }
-
-        const queryParameters: runtime.HTTPQuery = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/config/store-views/{id}/theme-key`.replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-        });
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => StoreViewDTOFromJSON(jsonValue));
-    }
-
-    /**
-     * Sets theme key
-     */
-    async setThemeKey(requestParameters: SetThemeKeyRequest): Promise<StoreViewDTO> {
-        const response = await this.setThemeKeyRaw(requestParameters);
-        return await response.value();
-    }
-
-    /**
-     * Updates a record
-     */
-    async updateStoreViewRaw(requestParameters: UpdateStoreViewRequest): Promise<runtime.ApiResponse<StoreViewDTO>> {
-        if (requestParameters.id === null || requestParameters.id === undefined) {
-            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling updateStoreView.');
+            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling update.');
         }
 
         if (requestParameters.storeViewDraftDTO === null || requestParameters.storeViewDraftDTO === undefined) {
-            throw new runtime.RequiredError('storeViewDraftDTO','Required parameter requestParameters.storeViewDraftDTO was null or undefined when calling updateStoreView.');
+            throw new runtime.RequiredError('storeViewDraftDTO','Required parameter requestParameters.storeViewDraftDTO was null or undefined when calling update.');
         }
 
         const queryParameters: runtime.HTTPQuery = {};
@@ -276,10 +159,10 @@ export class StoreViewsApi extends runtime.BaseAPI {
     }
 
     /**
-     * Updates a record
+     * Updates a store view
      */
-    async updateStoreView(requestParameters: UpdateStoreViewRequest): Promise<StoreViewDTO> {
-        const response = await this.updateStoreViewRaw(requestParameters);
+    async update(requestParameters: UpdateRequest): Promise<StoreViewDTO> {
+        const response = await this.updateRaw(requestParameters);
         return await response.value();
     }
 

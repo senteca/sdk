@@ -23,17 +23,12 @@ import {
     ThemeDraftDTOToJSON,
 } from '../models';
 
-export interface DeleteThemeByKeyRequest {
+export interface DeleteByKeyRequest {
     themeKey: string;
     viewKey: string;
 }
 
-export interface InstallThemeRequest {
-    themeDraftDTO: ThemeDraftDTO;
-}
-
-export interface UpdateThemeRequest {
-    key: string;
+export interface InstallRequest {
     themeDraftDTO: ThemeDraftDTO;
 }
 
@@ -45,13 +40,13 @@ export class ThemesApi extends runtime.BaseAPI {
     /**
      * Deletes theme resources
      */
-    async deleteThemeByKeyRaw(requestParameters: DeleteThemeByKeyRequest): Promise<runtime.ApiResponse<ThemeDTO>> {
+    async deleteByKeyRaw(requestParameters: DeleteByKeyRequest): Promise<runtime.ApiResponse<ThemeDTO>> {
         if (requestParameters.themeKey === null || requestParameters.themeKey === undefined) {
-            throw new runtime.RequiredError('themeKey','Required parameter requestParameters.themeKey was null or undefined when calling deleteThemeByKey.');
+            throw new runtime.RequiredError('themeKey','Required parameter requestParameters.themeKey was null or undefined when calling deleteByKey.');
         }
 
         if (requestParameters.viewKey === null || requestParameters.viewKey === undefined) {
-            throw new runtime.RequiredError('viewKey','Required parameter requestParameters.viewKey was null or undefined when calling deleteThemeByKey.');
+            throw new runtime.RequiredError('viewKey','Required parameter requestParameters.viewKey was null or undefined when calling deleteByKey.');
         }
 
         const queryParameters: runtime.HTTPQuery = {};
@@ -71,17 +66,17 @@ export class ThemesApi extends runtime.BaseAPI {
     /**
      * Deletes theme resources
      */
-    async deleteThemeByKey(requestParameters: DeleteThemeByKeyRequest): Promise<ThemeDTO> {
-        const response = await this.deleteThemeByKeyRaw(requestParameters);
+    async deleteByKey(requestParameters: DeleteByKeyRequest): Promise<ThemeDTO> {
+        const response = await this.deleteByKeyRaw(requestParameters);
         return await response.value();
     }
 
     /**
-     * Install theme
+     * Install a theme
      */
-    async installThemeRaw(requestParameters: InstallThemeRequest): Promise<runtime.ApiResponse<ThemeDTO>> {
+    async installRaw(requestParameters: InstallRequest): Promise<runtime.ApiResponse<ThemeDTO>> {
         if (requestParameters.themeDraftDTO === null || requestParameters.themeDraftDTO === undefined) {
-            throw new runtime.RequiredError('themeDraftDTO','Required parameter requestParameters.themeDraftDTO was null or undefined when calling installTheme.');
+            throw new runtime.RequiredError('themeDraftDTO','Required parameter requestParameters.themeDraftDTO was null or undefined when calling install.');
         }
 
         const queryParameters: runtime.HTTPQuery = {};
@@ -102,47 +97,10 @@ export class ThemesApi extends runtime.BaseAPI {
     }
 
     /**
-     * Install theme
+     * Install a theme
      */
-    async installTheme(requestParameters: InstallThemeRequest): Promise<ThemeDTO> {
-        const response = await this.installThemeRaw(requestParameters);
-        return await response.value();
-    }
-
-    /**
-     * Updates theme
-     */
-    async updateThemeRaw(requestParameters: UpdateThemeRequest): Promise<runtime.ApiResponse<ThemeDTO>> {
-        if (requestParameters.key === null || requestParameters.key === undefined) {
-            throw new runtime.RequiredError('key','Required parameter requestParameters.key was null or undefined when calling updateTheme.');
-        }
-
-        if (requestParameters.themeDraftDTO === null || requestParameters.themeDraftDTO === undefined) {
-            throw new runtime.RequiredError('themeDraftDTO','Required parameter requestParameters.themeDraftDTO was null or undefined when calling updateTheme.');
-        }
-
-        const queryParameters: runtime.HTTPQuery = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        const response = await this.request({
-            path: `/cms/themes/{key}`.replace(`{${"key"}}`, encodeURIComponent(String(requestParameters.key))),
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ThemeDraftDTOToJSON(requestParameters.themeDraftDTO),
-        });
-
-        return new runtime.JSONApiResponse(response, (jsonValue) => ThemeDTOFromJSON(jsonValue));
-    }
-
-    /**
-     * Updates theme
-     */
-    async updateTheme(requestParameters: UpdateThemeRequest): Promise<ThemeDTO> {
-        const response = await this.updateThemeRaw(requestParameters);
+    async install(requestParameters: InstallRequest): Promise<ThemeDTO> {
+        const response = await this.installRaw(requestParameters);
         return await response.value();
     }
 

@@ -18,6 +18,9 @@ import {
     CustomFieldDTO,
     CustomFieldDTOFromJSON,
     CustomFieldDTOToJSON,
+    CustomFieldDraftDTO,
+    CustomFieldDraftDTOFromJSON,
+    CustomFieldDraftDTOToJSON,
     SetCustomFieldDTO,
     SetCustomFieldDTOFromJSON,
     SetCustomFieldDTOToJSON,
@@ -44,17 +47,13 @@ export interface FindCustomFieldByIdRequest {
     id: string;
 }
 
-export interface FindCustomFieldByResourceTypeIdRequest {
-    resourceTypeId: string;
-}
-
 export interface SetMyCustomFieldRequest {
     setCustomFieldDTO: SetCustomFieldDTO;
 }
 
 export interface UpdateCustomFieldByIdRequest {
     id: string;
-    customFieldDTO: CustomFieldDTO;
+    customFieldDraftDTO: CustomFieldDraftDTO;
 }
 
 /**
@@ -65,7 +64,7 @@ export class CustomFieldsApi extends runtime.BaseAPI {
     /**
      * Creates a new custom field.
      */
-    async createCustomFieldRaw(requestParameters: CreateCustomFieldRequest): Promise<runtime.ApiResponse<object>> {
+    async createCustomFieldRaw(requestParameters: CreateCustomFieldRequest): Promise<runtime.ApiResponse<CustomFieldDTO>> {
         if (requestParameters.customFieldDTO === null || requestParameters.customFieldDTO === undefined) {
             throw new runtime.RequiredError('customFieldDTO','Required parameter requestParameters.customFieldDTO was null or undefined when calling createCustomField.');
         }
@@ -84,13 +83,13 @@ export class CustomFieldsApi extends runtime.BaseAPI {
             body: CustomFieldDTOToJSON(requestParameters.customFieldDTO),
         });
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => CustomFieldDTOFromJSON(jsonValue));
     }
 
     /**
      * Creates a new custom field.
      */
-    async createCustomField(requestParameters: CreateCustomFieldRequest): Promise<object> {
+    async createCustomField(requestParameters: CreateCustomFieldRequest): Promise<CustomFieldDTO> {
         const response = await this.createCustomFieldRaw(requestParameters);
         return await response.value();
     }
@@ -98,7 +97,7 @@ export class CustomFieldsApi extends runtime.BaseAPI {
     /**
      * Deletes a custom field by id.
      */
-    async deleteCustomFieldByIdRaw(requestParameters: DeleteCustomFieldByIdRequest): Promise<runtime.ApiResponse<object>> {
+    async deleteCustomFieldByIdRaw(requestParameters: DeleteCustomFieldByIdRequest): Promise<runtime.ApiResponse<CustomFieldDTO>> {
         if (requestParameters.id === null || requestParameters.id === undefined) {
             throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling deleteCustomFieldById.');
         }
@@ -114,13 +113,13 @@ export class CustomFieldsApi extends runtime.BaseAPI {
             query: queryParameters,
         });
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => CustomFieldDTOFromJSON(jsonValue));
     }
 
     /**
      * Deletes a custom field by id.
      */
-    async deleteCustomFieldById(requestParameters: DeleteCustomFieldByIdRequest): Promise<object> {
+    async deleteCustomFieldById(requestParameters: DeleteCustomFieldByIdRequest): Promise<CustomFieldDTO> {
         const response = await this.deleteCustomFieldByIdRaw(requestParameters);
         return await response.value();
     }
@@ -193,7 +192,7 @@ export class CustomFieldsApi extends runtime.BaseAPI {
     /**
      * Returns a custom field by id.
      */
-    async findCustomFieldByIdRaw(requestParameters: FindCustomFieldByIdRequest): Promise<runtime.ApiResponse<object>> {
+    async findCustomFieldByIdRaw(requestParameters: FindCustomFieldByIdRequest): Promise<runtime.ApiResponse<CustomFieldDTO>> {
         if (requestParameters.id === null || requestParameters.id === undefined) {
             throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling findCustomFieldById.');
         }
@@ -209,44 +208,14 @@ export class CustomFieldsApi extends runtime.BaseAPI {
             query: queryParameters,
         });
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => CustomFieldDTOFromJSON(jsonValue));
     }
 
     /**
      * Returns a custom field by id.
      */
-    async findCustomFieldById(requestParameters: FindCustomFieldByIdRequest): Promise<object> {
+    async findCustomFieldById(requestParameters: FindCustomFieldByIdRequest): Promise<CustomFieldDTO> {
         const response = await this.findCustomFieldByIdRaw(requestParameters);
-        return await response.value();
-    }
-
-    /**
-     * Returns all custom fields for a specific resource type.
-     */
-    async findCustomFieldByResourceTypeIdRaw(requestParameters: FindCustomFieldByResourceTypeIdRequest): Promise<runtime.ApiResponse<Array<object>>> {
-        if (requestParameters.resourceTypeId === null || requestParameters.resourceTypeId === undefined) {
-            throw new runtime.RequiredError('resourceTypeId','Required parameter requestParameters.resourceTypeId was null or undefined when calling findCustomFieldByResourceTypeId.');
-        }
-
-        const queryParameters: runtime.HTTPQuery = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        const response = await this.request({
-            path: `/config/custom-fields/resourceTypeId={resourceTypeId}`.replace(`{${"resourceTypeId"}}`, encodeURIComponent(String(requestParameters.resourceTypeId))),
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        });
-
-        return new runtime.JSONApiResponse<any>(response);
-    }
-
-    /**
-     * Returns all custom fields for a specific resource type.
-     */
-    async findCustomFieldByResourceTypeId(requestParameters: FindCustomFieldByResourceTypeIdRequest): Promise<Array<object>> {
-        const response = await this.findCustomFieldByResourceTypeIdRaw(requestParameters);
         return await response.value();
     }
 
@@ -312,13 +281,13 @@ export class CustomFieldsApi extends runtime.BaseAPI {
     /**
      * Updates a custom field by id.
      */
-    async updateCustomFieldByIdRaw(requestParameters: UpdateCustomFieldByIdRequest): Promise<runtime.ApiResponse<object>> {
+    async updateCustomFieldByIdRaw(requestParameters: UpdateCustomFieldByIdRequest): Promise<runtime.ApiResponse<CustomFieldDTO>> {
         if (requestParameters.id === null || requestParameters.id === undefined) {
             throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling updateCustomFieldById.');
         }
 
-        if (requestParameters.customFieldDTO === null || requestParameters.customFieldDTO === undefined) {
-            throw new runtime.RequiredError('customFieldDTO','Required parameter requestParameters.customFieldDTO was null or undefined when calling updateCustomFieldById.');
+        if (requestParameters.customFieldDraftDTO === null || requestParameters.customFieldDraftDTO === undefined) {
+            throw new runtime.RequiredError('customFieldDraftDTO','Required parameter requestParameters.customFieldDraftDTO was null or undefined when calling updateCustomFieldById.');
         }
 
         const queryParameters: runtime.HTTPQuery = {};
@@ -332,16 +301,16 @@ export class CustomFieldsApi extends runtime.BaseAPI {
             method: 'PUT',
             headers: headerParameters,
             query: queryParameters,
-            body: CustomFieldDTOToJSON(requestParameters.customFieldDTO),
+            body: CustomFieldDraftDTOToJSON(requestParameters.customFieldDraftDTO),
         });
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.JSONApiResponse(response, (jsonValue) => CustomFieldDTOFromJSON(jsonValue));
     }
 
     /**
      * Updates a custom field by id.
      */
-    async updateCustomFieldById(requestParameters: UpdateCustomFieldByIdRequest): Promise<object> {
+    async updateCustomFieldById(requestParameters: UpdateCustomFieldByIdRequest): Promise<CustomFieldDTO> {
         const response = await this.updateCustomFieldByIdRaw(requestParameters);
         return await response.value();
     }

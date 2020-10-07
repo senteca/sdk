@@ -30,7 +30,7 @@ export interface SetCustomFieldDTO {
      * @type {string}
      * @memberof SetCustomFieldDTO
      */
-    resourceType: string;
+    resourceType: SetCustomFieldDTOResourceTypeEnum;
     /**
      * 
      * @type {string}
@@ -76,6 +76,39 @@ export function SetCustomFieldDTOToJSON(value?: SetCustomFieldDTO | null): any {
         'fieldName': value.fieldName,
         'fieldValue': value.fieldValue,
     };
+}
+
+/**
+* @export
+* @enum {string}
+*/
+export enum SetCustomFieldDTOResourceTypeEnum {
+    Store = 'store',
+    Address = 'address',
+    Brand = 'brand',
+    Category = 'category',
+    Collection = 'collection',
+    View = 'view',
+    Wallet = 'wallet',
+    WalletType = 'wallet-type',
+    Customer = 'customer',
+    CustomerGroup = 'customer-group',
+    ProductDiscount = 'product-discount',
+    CartDiscount = 'cart-discount',
+    DiscountCode = 'discount-code',
+    Item = 'item',
+    Order = 'order',
+    Payment = 'payment',
+    Merchant = 'merchant',
+    Product = 'product',
+    Shipping = 'shipping',
+    TaxCategory = 'tax-category',
+    PriceList = 'price-list',
+    ShippingMethod = 'shipping-method',
+    PaymentMethod = 'payment-method',
+    State = 'state',
+    CmsFolder = 'cms-folder',
+    CmsType = 'cms-type'
 }
 
 
