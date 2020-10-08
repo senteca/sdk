@@ -32,10 +32,10 @@ export interface DeleteDiscountCodeByIdRequest {
 }
 
 export interface FilterDiscountCodesRequest {
-    filter: string;
-    sort: string;
-    expand: string;
-    project: string;
+    filter?: Array<string>;
+    sort?: Array<string>;
+    expand?: Array<string>;
+    project?: Array<string>;
     limit?: number;
     offset?: number;
 }
@@ -49,10 +49,10 @@ export interface ImportDiscountCodesRequest {
 }
 
 export interface SearchDiscountCodesRequest {
-    filter: string;
-    sort: string;
-    expand: string;
-    project: string;
+    filter?: Array<string>;
+    sort?: Array<string>;
+    expand?: Array<string>;
+    project?: Array<string>;
     limit?: number;
     offset?: number;
 }
@@ -134,37 +134,21 @@ export class DiscountCodesApi extends runtime.BaseAPI {
      * Lists all discount codes.
      */
     async filterDiscountCodesRaw(requestParameters: FilterDiscountCodesRequest): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters.filter === null || requestParameters.filter === undefined) {
-            throw new runtime.RequiredError('filter','Required parameter requestParameters.filter was null or undefined when calling filterDiscountCodes.');
-        }
-
-        if (requestParameters.sort === null || requestParameters.sort === undefined) {
-            throw new runtime.RequiredError('sort','Required parameter requestParameters.sort was null or undefined when calling filterDiscountCodes.');
-        }
-
-        if (requestParameters.expand === null || requestParameters.expand === undefined) {
-            throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling filterDiscountCodes.');
-        }
-
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling filterDiscountCodes.');
-        }
-
         const queryParameters: runtime.HTTPQuery = {};
 
-        if (requestParameters.filter !== undefined) {
+        if (requestParameters.filter) {
             queryParameters['filter'] = requestParameters.filter;
         }
 
-        if (requestParameters.sort !== undefined) {
+        if (requestParameters.sort) {
             queryParameters['sort'] = requestParameters.sort;
         }
 
-        if (requestParameters.expand !== undefined) {
+        if (requestParameters.expand) {
             queryParameters['expand'] = requestParameters.expand;
         }
 
-        if (requestParameters.project !== undefined) {
+        if (requestParameters.project) {
             queryParameters['project'] = requestParameters.project;
         }
 
@@ -262,37 +246,21 @@ export class DiscountCodesApi extends runtime.BaseAPI {
      * Searches discount codes by name.
      */
     async searchDiscountCodesRaw(requestParameters: SearchDiscountCodesRequest): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters.filter === null || requestParameters.filter === undefined) {
-            throw new runtime.RequiredError('filter','Required parameter requestParameters.filter was null or undefined when calling searchDiscountCodes.');
-        }
-
-        if (requestParameters.sort === null || requestParameters.sort === undefined) {
-            throw new runtime.RequiredError('sort','Required parameter requestParameters.sort was null or undefined when calling searchDiscountCodes.');
-        }
-
-        if (requestParameters.expand === null || requestParameters.expand === undefined) {
-            throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling searchDiscountCodes.');
-        }
-
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling searchDiscountCodes.');
-        }
-
         const queryParameters: runtime.HTTPQuery = {};
 
-        if (requestParameters.filter !== undefined) {
+        if (requestParameters.filter) {
             queryParameters['filter'] = requestParameters.filter;
         }
 
-        if (requestParameters.sort !== undefined) {
+        if (requestParameters.sort) {
             queryParameters['sort'] = requestParameters.sort;
         }
 
-        if (requestParameters.expand !== undefined) {
+        if (requestParameters.expand) {
             queryParameters['expand'] = requestParameters.expand;
         }
 
-        if (requestParameters.project !== undefined) {
+        if (requestParameters.project) {
             queryParameters['project'] = requestParameters.project;
         }
 

@@ -145,6 +145,7 @@ export * from './StoreDTO';
 export * from './StoreDraftDTO';
 export * from './StoreViewDTO';
 export * from './StoreViewDraftDTO';
+export * from './StoreViewFilterResultDTO';
 export * from './SubRateDTO';
 export * from './SubscriptionDTO';
 export * from './SubtotalDiscountDTO';

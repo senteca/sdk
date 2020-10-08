@@ -32,10 +32,10 @@ export interface DeleteProductDiscountByIdRequest {
 }
 
 export interface FilterProductDiscountsRequest {
-    filter: string;
-    sort: string;
-    expand: string;
-    project: string;
+    filter?: Array<string>;
+    sort?: Array<string>;
+    expand?: Array<string>;
+    project?: Array<string>;
     limit?: number;
     offset?: number;
 }
@@ -45,10 +45,10 @@ export interface FindProductDiscountByIdRequest {
 }
 
 export interface SearchProductDiscountsRequest {
-    filter: string;
-    sort: string;
-    expand: string;
-    project: string;
+    filter?: Array<string>;
+    sort?: Array<string>;
+    expand?: Array<string>;
+    project?: Array<string>;
     limit?: number;
     offset?: number;
 }
@@ -130,37 +130,21 @@ export class ProductDiscountsApi extends runtime.BaseAPI {
      * Lists all product discounts.
      */
     async filterProductDiscountsRaw(requestParameters: FilterProductDiscountsRequest): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters.filter === null || requestParameters.filter === undefined) {
-            throw new runtime.RequiredError('filter','Required parameter requestParameters.filter was null or undefined when calling filterProductDiscounts.');
-        }
-
-        if (requestParameters.sort === null || requestParameters.sort === undefined) {
-            throw new runtime.RequiredError('sort','Required parameter requestParameters.sort was null or undefined when calling filterProductDiscounts.');
-        }
-
-        if (requestParameters.expand === null || requestParameters.expand === undefined) {
-            throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling filterProductDiscounts.');
-        }
-
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling filterProductDiscounts.');
-        }
-
         const queryParameters: runtime.HTTPQuery = {};
 
-        if (requestParameters.filter !== undefined) {
+        if (requestParameters.filter) {
             queryParameters['filter'] = requestParameters.filter;
         }
 
-        if (requestParameters.sort !== undefined) {
+        if (requestParameters.sort) {
             queryParameters['sort'] = requestParameters.sort;
         }
 
-        if (requestParameters.expand !== undefined) {
+        if (requestParameters.expand) {
             queryParameters['expand'] = requestParameters.expand;
         }
 
-        if (requestParameters.project !== undefined) {
+        if (requestParameters.project) {
             queryParameters['project'] = requestParameters.project;
         }
 
@@ -225,37 +209,21 @@ export class ProductDiscountsApi extends runtime.BaseAPI {
      * Searches product discounts by name.
      */
     async searchProductDiscountsRaw(requestParameters: SearchProductDiscountsRequest): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters.filter === null || requestParameters.filter === undefined) {
-            throw new runtime.RequiredError('filter','Required parameter requestParameters.filter was null or undefined when calling searchProductDiscounts.');
-        }
-
-        if (requestParameters.sort === null || requestParameters.sort === undefined) {
-            throw new runtime.RequiredError('sort','Required parameter requestParameters.sort was null or undefined when calling searchProductDiscounts.');
-        }
-
-        if (requestParameters.expand === null || requestParameters.expand === undefined) {
-            throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling searchProductDiscounts.');
-        }
-
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling searchProductDiscounts.');
-        }
-
         const queryParameters: runtime.HTTPQuery = {};
 
-        if (requestParameters.filter !== undefined) {
+        if (requestParameters.filter) {
             queryParameters['filter'] = requestParameters.filter;
         }
 
-        if (requestParameters.sort !== undefined) {
+        if (requestParameters.sort) {
             queryParameters['sort'] = requestParameters.sort;
         }
 
-        if (requestParameters.expand !== undefined) {
+        if (requestParameters.expand) {
             queryParameters['expand'] = requestParameters.expand;
         }
 
-        if (requestParameters.project !== undefined) {
+        if (requestParameters.project) {
             queryParameters['project'] = requestParameters.project;
         }
 

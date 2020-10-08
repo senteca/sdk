@@ -75,19 +75,19 @@ export interface DeleteMyAddressByIdRequest {
 }
 
 export interface ExportCustomersCSVRequest {
-    filter: string;
-    sort: string;
-    expand: string;
-    project: string;
+    filter?: Array<string>;
+    sort?: Array<string>;
+    expand?: Array<string>;
+    project?: Array<string>;
     limit?: number;
     offset?: number;
 }
 
 export interface FilterCustomersRequest {
-    filter: string;
-    sort: string;
-    expand: string;
-    project: string;
+    filter?: Array<string>;
+    sort?: Array<string>;
+    expand?: Array<string>;
+    project?: Array<string>;
     limit?: number;
     offset?: number;
 }
@@ -422,37 +422,21 @@ export class CustomersApi extends runtime.BaseAPI {
      * Exports customers to a csv file.
      */
     async exportCustomersCSVRaw(requestParameters: ExportCustomersCSVRequest): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters.filter === null || requestParameters.filter === undefined) {
-            throw new runtime.RequiredError('filter','Required parameter requestParameters.filter was null or undefined when calling exportCustomersCSV.');
-        }
-
-        if (requestParameters.sort === null || requestParameters.sort === undefined) {
-            throw new runtime.RequiredError('sort','Required parameter requestParameters.sort was null or undefined when calling exportCustomersCSV.');
-        }
-
-        if (requestParameters.expand === null || requestParameters.expand === undefined) {
-            throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling exportCustomersCSV.');
-        }
-
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling exportCustomersCSV.');
-        }
-
         const queryParameters: runtime.HTTPQuery = {};
 
-        if (requestParameters.filter !== undefined) {
+        if (requestParameters.filter) {
             queryParameters['filter'] = requestParameters.filter;
         }
 
-        if (requestParameters.sort !== undefined) {
+        if (requestParameters.sort) {
             queryParameters['sort'] = requestParameters.sort;
         }
 
-        if (requestParameters.expand !== undefined) {
+        if (requestParameters.expand) {
             queryParameters['expand'] = requestParameters.expand;
         }
 
-        if (requestParameters.project !== undefined) {
+        if (requestParameters.project) {
             queryParameters['project'] = requestParameters.project;
         }
 
@@ -487,37 +471,21 @@ export class CustomersApi extends runtime.BaseAPI {
      * Lists all customers.
      */
     async filterCustomersRaw(requestParameters: FilterCustomersRequest): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters.filter === null || requestParameters.filter === undefined) {
-            throw new runtime.RequiredError('filter','Required parameter requestParameters.filter was null or undefined when calling filterCustomers.');
-        }
-
-        if (requestParameters.sort === null || requestParameters.sort === undefined) {
-            throw new runtime.RequiredError('sort','Required parameter requestParameters.sort was null or undefined when calling filterCustomers.');
-        }
-
-        if (requestParameters.expand === null || requestParameters.expand === undefined) {
-            throw new runtime.RequiredError('expand','Required parameter requestParameters.expand was null or undefined when calling filterCustomers.');
-        }
-
-        if (requestParameters.project === null || requestParameters.project === undefined) {
-            throw new runtime.RequiredError('project','Required parameter requestParameters.project was null or undefined when calling filterCustomers.');
-        }
-
         const queryParameters: runtime.HTTPQuery = {};
 
-        if (requestParameters.filter !== undefined) {
+        if (requestParameters.filter) {
             queryParameters['filter'] = requestParameters.filter;
         }
 
-        if (requestParameters.sort !== undefined) {
+        if (requestParameters.sort) {
             queryParameters['sort'] = requestParameters.sort;
         }
 
-        if (requestParameters.expand !== undefined) {
+        if (requestParameters.expand) {
             queryParameters['expand'] = requestParameters.expand;
         }
 
-        if (requestParameters.project !== undefined) {
+        if (requestParameters.project) {
             queryParameters['project'] = requestParameters.project;
         }
 
