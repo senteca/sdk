@@ -11,8 +11,6 @@ module.exports = class BaseRoutine {
   }
 
   static async loadTemplate() {
-    console.log(resolveRoot("templates"));
-
     return await readFileAsync(
       `${__dirname}/templates/${target}.mustache`,
       "utf-8"

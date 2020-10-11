@@ -1,5 +1,67 @@
 export class BaseAPI {
-  test() {
-      console.log('{{hello}}');
+  protected async request(context: RequestOptions): Promise<Response> {
+    const { url, init } = this.createFetchParams(context);
+    const response = await this.fetchApi(url, init);
+    if (response.status >= 200 && response.status < 300) {
+      return response;
+    }
+    throw response;
+  }
+
+  private createFetchParams(context: RequestOptions) {
+    const config = Config.getGlobal();
+
+    let url = config.basePath + context.path;
+    if (context.query) {
+      url += `?${context.query}`;
+    }
+    const body = context.body ? JSON.stringify(context.body) : undefined;
+
+    const headers = {};
+    if (config.token) {
+      headers["Authorization"] = `Bearer ${config.token}`;
+    }
+    const init = {
+      method: context.method,
+      headers: headers,
+      body,
+    };
+    return { url, init };
+  }
+
+  private fetchApi = async (url: string, init: RequestInit) => {
+    let fetchParams = { url, init };
+    let response = await Config.getGlobal().fetchApi(
+      fetchParams.url,
+      fetchParams.init
+    );
+    return response;
+  };
+}
+
+export interface RequestOptions {
+  path: string;
+  method: string;
+  query?: string;
+  body?: any;
+}
+
+export type FetchAPI = WindowOrWorkerGlobalScope["fetch"];
+
+export interface ConfigOptions {
+  basePath?: string;
+  fetchApi?: FetchAPI;
+  token?: string;
+}
+
+export class Config {
+  static options: ConfigOptions;
+
+  static setGlobal(o: ConfigOptions): void {
+    Config.options = o;
+  }
+
+  static getGlobal(): ConfigOptions {
+    return Config.options;
   }
 }

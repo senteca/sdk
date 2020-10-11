@@ -1,0 +1,17 @@
+{{#relatedModels}}
+import { {{.}} } from './{{.}}';
+{{/relatedModels}}
+
+export class {{name}} {
+{{#properties}}
+  {{{.}}}
+{{/properties}}
+}
+
+{{#relatedEnums}}
+export enum {{name}} {
+  {{#values}}
+    {{name}} = '{{value}}',  
+  {{/values}}
+}
+{{/relatedEnums}}
