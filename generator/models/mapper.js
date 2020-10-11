@@ -82,19 +82,28 @@ module.exports = class ModelsMapper {
     const requiredExpr = isRequired ? "" : "?";
 
     const isStr = realType === "string";
+    const isArray = definition.type === "array";
     const isEnum = !!relatedEnum;
     let defaultExpr = "";
     if (hasDefault) {
       let defaultValue = "";
-      if (isStr) defaultValue = `'${definition.default}'`;
-      else if (isEnum) {
-        defaultValue = `${relatedEnum.name}.${kebabToPascal(
-          definition.default
-        )}`;
-      } else {
-        defaultValue = definition.default;
-      }
 
+      switch (true) {
+        case isStr:
+          defaultValue = `'${definition.default}'`;
+          break;
+        case isEnum:
+          defaultValue = `${relatedEnum.name}.${kebabToPascal(
+            definition.default
+          )}`;
+          break;
+        case isArray:
+          defaultValue = JSON.stringify(definition.default);
+          break;
+        default:
+          defaultValue = definition.default;
+          break;
+      }
       defaultExpr = ` = ${defaultValue}`;
     }
 
