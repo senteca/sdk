@@ -7428,7 +7428,7 @@
         }
       }
     },
-    "/auth/token": {
+    "/auth/auth/token": {
       "post": {
         "operationId": "getToken",
         "summary": "Returns an access token and optionally a refresh token for different grant types. Grant type 'client-credentials' authorizes api clients based on client id and client secret. Grant type 'password-credentials' authorizes users based on email and password along with api client's id and secret. Grant type 'refresh-token' returns new access and refresh tokens if the provided current refresh token is valid.",
@@ -7460,7 +7460,7 @@
         ]
       }
     },
-    "/auth/password": {
+    "/auth/auth/password": {
       "post": {
         "operationId": "getPasswordGrantToken",
         "summary": "Returns an access token using password grant",
@@ -7492,7 +7492,7 @@
         ]
       }
     },
-    "/auth/facebook/token": {
+    "/auth/auth/facebook/token": {
       "post": {
         "operationId": "getFacebookToken",
         "summary": "Returns an access token and a refresh token based on user's facebook id and facebook token.",
@@ -7524,7 +7524,7 @@
         ]
       }
     },
-    "/auth/anonymous/token": {
+    "/auth/auth/anonymous/token": {
       "post": {
         "operationId": "getAnonymousToken",
         "summary": "Returns an anonymous access token based on api client's id and secret. Anonymous token permissions match the api client permissions.",
