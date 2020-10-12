@@ -1,5 +1,19 @@
 import { BaseAPI } from '../../runtime';
+{{#relatedModels}}
+import { {{.}} } from '../../models/{{.}}';
+{{/relatedModels}}
 
 export class {{name}} extends BaseAPI {
- // TODO
+ {{#methods}}
+   async {{name}} ({{#parameters}}{{name}}: {{type}}{{^last}}, {{/last}}{{/parameters}}): Promise<{{response}}> {
+       const response = await this.request({
+           path: '{{{url}}}',
+           method: '{{method}}',
+           query: '',
+           {{#hasBody}}body: JSON.stringify(dto) {{/hasBody}}
+        });
+       return (response.json() as unknown) as {{response}};
+   }
+
+ {{/methods}}
 }

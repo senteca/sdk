@@ -15,10 +15,10 @@ module.exports = class ApisRoutine {
     Mustache.parse(template); // pre-parse and caching template
 
     for (const app of Object.values(groupedByApp)) {
-      // if (app.key === "auth") {
+      // if (app.key === "merchandise") {
       await this.createAppFolder(app);
       for (const rawApi of Object.values(app.apis)) {
-        // if (rawApi.key === "auth") {
+        // if (rawApi.key === "brands") {
         const api = ApisMapper.map(rawApi);
         await ApisGenerator.generate(template, app.key, api);
         // }
@@ -35,7 +35,11 @@ module.exports = class ApisRoutine {
       const api = app.apis[apiKey] || { key: apiKey, actions: [] };
       api.actions.push({
         url: curr,
-        methods: Object.values(paths[curr]),
+        methods: Object.keys(paths[curr]).map((method) => ({
+          // TODO: quite messy
+          method,
+          ...paths[curr][method],
+        })),
       });
       app.apis[apiKey] = api;
       map[appKey] = app;
