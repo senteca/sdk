@@ -21,7 +21,8 @@ module.exports = class ModelsMapper {
       const { signature, relatedModel, relatedEnum } = this.mapProp(
         prop,
         props[prop],
-        requiredMap
+        requiredMap,
+        name
       );
 
       if (relatedModel && !relatedModels.includes(relatedModel)) {
@@ -43,17 +44,16 @@ module.exports = class ModelsMapper {
     };
   }
 
-  static mapProp(name, definition, requiredMap) {
+  static mapProp(name, definition, requiredMap, prefix) {
     let relatedModel = null;
     let relatedEnum = null;
 
     const isRequired = requiredMap[name];
-    const hasDefault = definition.hasOwnProperty("default");
     let realType;
     if (definition.type) {
       if (definition.enum) {
         // enum
-        realType = `${capitalize(name)}Enum`;
+        realType = `${capitalize(prefix)}${capitalize(name)}Enum`;
         relatedEnum = {
           name: realType,
           values: definition.enum.map((value) => ({
@@ -63,7 +63,7 @@ module.exports = class ModelsMapper {
         };
       } else if (definition.type === "array") {
         // array
-        const mappedItem = this.mapProp(name, definition.items, {});
+        const mappedItem = this.mapProp(name, definition.items, {}, prefix);
         realType = `${mappedItem.realType}[]`;
         relatedModel = mappedItem.relatedModel;
         relatedEnum = mappedItem.relatedEnum;
@@ -80,32 +80,32 @@ module.exports = class ModelsMapper {
 
     const typeExpr = `: ${realType}`;
     const requiredExpr = isRequired ? "" : "?";
-
-    const isStr = realType === "string";
-    const isArray = definition.type === "array";
-    const isEnum = !!relatedEnum;
     let defaultExpr = "";
-    if (hasDefault) {
-      let defaultValue = "";
+    // const hasDefault = definition.hasOwnProperty("default");
+    // const isStr = realType === "string";
+    // const isArray = definition.type === "array";
+    // const isEnum = !!relatedEnum;
+    // if (hasDefault) {
+    //   let defaultValue = "";
 
-      switch (true) {
-        case isStr:
-          defaultValue = `'${definition.default}'`;
-          break;
-        case isEnum:
-          defaultValue = `${relatedEnum.name}.${kebabToPascal(
-            definition.default
-          )}`;
-          break;
-        case isArray:
-          defaultValue = JSON.stringify(definition.default);
-          break;
-        default:
-          defaultValue = definition.default;
-          break;
-      }
-      defaultExpr = ` = ${defaultValue}`;
-    }
+    //   switch (true) {
+    //     case isStr:
+    //       defaultValue = `'${definition.default}'`;
+    //       break;
+    //     case isEnum:
+    //       defaultValue = `${relatedEnum.name}.${kebabToPascal(
+    //         definition.default
+    //       )}`;
+    //       break;
+    //     case isArray:
+    //       defaultValue = JSON.stringify(definition.default);
+    //       break;
+    //     default:
+    //       defaultValue = definition.default;
+    //       break;
+    //   }
+    //   defaultExpr = ` = ${defaultValue}`;
+    // }
 
     const signature = `${name}${requiredExpr}${typeExpr}${defaultExpr};`;
 

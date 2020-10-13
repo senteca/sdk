@@ -18,6 +18,7 @@ export class BaseAPI {
     const body = context.body ? JSON.stringify(context.body) : undefined;
 
     const headers = {};
+    headers["Content-Type"] = "application/json";
     if (config.token) {
       headers["Authorization"] = `Bearer ${config.token}`;
     }
@@ -27,6 +28,12 @@ export class BaseAPI {
       body,
     };
     return { url, init };
+  }
+
+  protected stringifyQuery(queryObj): string {
+    return Object.keys(queryObj)
+      .map((key) => `${key}=${encodeURIComponent(queryObj[key])}`)
+      .join("&");
   }
 
   private fetchApi = async (url: string, init: RequestInit) => {

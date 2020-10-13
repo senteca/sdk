@@ -10,7 +10,7 @@
     "prebuild": "rm -rf dist",
     "build": "rollup -c rollup.config.ts",
     "prepare": "npm run build",
-    "pregenerate": "rm -rf src/v2",
+    "pregenerate": "rm -rf src",
     "generate": "node ./generator/index.js"
   },
   "devDependencies": {

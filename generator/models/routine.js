@@ -2,8 +2,13 @@ const Mustache = require("mustache");
 const ModelsMapper = require("./mapper");
 const ModelGenerator = require("./generator");
 const { getIn } = require("../utils/data");
-const { readFileAsync } = require("../utils/io");
-const { target } = require("../config");
+const {
+  readFileAsync,
+  resolveRoot,
+  readDirAsync,
+  writeFileAsync,
+} = require("../utils/io");
+const { target, outputDir } = require("../config");
 
 module.exports = class ModelsRoutine {
   static async run(json) {
@@ -17,6 +22,19 @@ module.exports = class ModelsRoutine {
       const model = ModelsMapper.map(schemaKey, schema);
       await ModelGenerator.generate(template, model);
     }
+
+    await this.createIndexFile();
+  }
+
+  static async createIndexFile() {
+    const path = resolveRoot(outputDir, "models");
+    const files = await readDirAsync(path);
+    const content = files
+      .map((file) => `export * from "./${file.replace(".ts", "")}";`)
+      .join("\n");
+    await writeFileAsync(`${path}/index.ts`, content, {
+      encoding: "utf-8",
+    });
   }
 
   static async loadTemplate() {

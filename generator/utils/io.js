@@ -10,6 +10,7 @@ const mkDirIfNotExists = async (path) => {
     return await mkDirAsync(path, { recursive: true });
   }
 };
+const readDirAsync = promisify(fs.readdir);
 const resolveRoot = (...paths) => path.resolve(process.cwd(), ...paths);
 
 module.exports = {
@@ -18,4 +19,5 @@ module.exports = {
   mkDirAsync,
   mkDirIfNotExists,
   resolveRoot,
+  readDirAsync,
 };

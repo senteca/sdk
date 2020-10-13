@@ -2,7 +2,13 @@ const Mustache = require("mustache");
 const ApisMapper = require("./mapper");
 const ApisGenerator = require("./generator");
 const { getIn } = require("../utils/data");
-const { readFileAsync, resolveRoot, mkDirIfNotExists } = require("../utils/io");
+const {
+  readFileAsync,
+  resolveRoot,
+  readDirAsync,
+  writeFileAsync,
+  mkDirIfNotExists,
+} = require("../utils/io");
 const { target, outputDir } = require("../config");
 
 module.exports = class ApisRoutine {
@@ -15,16 +21,14 @@ module.exports = class ApisRoutine {
     Mustache.parse(template); // pre-parse and caching template
 
     for (const app of Object.values(groupedByApp)) {
-      // if (app.key === "merchandise") {
       await this.createAppFolder(app);
       for (const rawApi of Object.values(app.apis)) {
-        // if (rawApi.key === "brands") {
         const api = ApisMapper.map(rawApi);
         await ApisGenerator.generate(template, app.key, api);
-        // }
       }
-      // }
+      await this.createAppIndexFile(app);
     }
+    await this.createIndexFile();
   }
 
   static groupPathsByApp(paths) {
@@ -50,6 +54,28 @@ module.exports = class ApisRoutine {
   static async createAppFolder(app) {
     const path = resolveRoot(outputDir, "apis", app.key);
     await mkDirIfNotExists(path);
+  }
+
+  static async createAppIndexFile(app) {
+    const path = resolveRoot(outputDir, "apis", app.key);
+    const files = await readDirAsync(path);
+    const content = files
+      .map((file) => `export * from "./${file.replace(".ts", "")}";`)
+      .join("\n");
+    await writeFileAsync(`${path}/index.ts`, content, {
+      encoding: "utf-8",
+    });
+  }
+
+  static async createIndexFile() {
+    const path = resolveRoot(outputDir, "apis");
+    const apps = await readDirAsync(path);
+    const content = apps
+      .map((app) => `export * as ${app} from "./${app}";`)
+      .join("\n");
+    await writeFileAsync(`${path}/index.ts`, content, {
+      encoding: "utf-8",
+    });
   }
 
   static async loadTemplate() {

@@ -21,6 +21,7 @@ module.exports = class ApiMapper {
   }
 
   static mapActionMethod(actionMethod, url, relatedModels) {
+    url = url.replace(/\{/g, "${"); // {id} -> ${id} to be used for sting interpolation
     const name = actionMethod.operationId; // TODO: operationId alternative ?
     const method = actionMethod.method.toUpperCase();
     const parameters = this.mapParameters(actionMethod.parameters);
@@ -31,15 +32,17 @@ module.exports = class ApiMapper {
 
     if (bodyParam) {
       parameters.push(bodyParam); // DTO always comes last
-    } else if (parameters.length) {
-      parameters[parameters.length - 1].last = true;
+    }
+
+    if (parameters.length) {
+      parameters[parameters.length - 1].last = true; // needed by the template
     }
 
     const response = this.mapResponse(actionMethod.responses, relatedModels);
 
-    // TODO : group query and path params, refine schema
-    const queryParams = [];
-    const pathParams = [];
+    const hasQueryParam =
+      parameters.find((p) => p.text.startsWith("query:")) !== undefined;
+    const hasBodyParam = !!bodyParam;
 
     return {
       url,
@@ -47,19 +50,36 @@ module.exports = class ApiMapper {
       method,
       parameters,
       response,
-      queryParams,
-      pathParams,
-      hasBody: !!bodyParam,
+      hasQueryParam,
+      hasBodyParam,
     };
   }
 
   static mapParameters(parameters) {
-    return parameters.map((p) => ({
+    const mappedParams = parameters.map((p) => ({
       target: p.in,
       name: p.name,
       required: p.required,
       type: p.schema.type == "array" ? "string[]" : p.schema.type, // quick fix - other array types available?
     }));
+
+    const toSignature = (param) =>
+      `${param.name}${param.required ? "" : "?"}: ${param.type}`;
+
+    const pathParams = mappedParams.filter((p) => p.target === "path");
+    const queryParams = mappedParams.filter((p) => p.target === "query");
+
+    const paramSignatures = pathParams.map((x) => ({ text: toSignature(x) }));
+
+    if (queryParams.length) {
+      // anonymous type for query params:
+      // query: { filter: string[]; sort?: string; }
+      const queryParamSignatures = queryParams.map(toSignature);
+      const querySignature = `query: { ${queryParamSignatures.join(", ")} }`;
+      paramSignatures.push({ text: querySignature });
+    }
+
+    return paramSignatures;
   }
 
   static mapRequestBody(requestBody, relatedModels) {
@@ -69,37 +89,47 @@ module.exports = class ApiMapper {
 
     const schema = getIn(requestBody, "content.application/json.schema");
 
-    // TODO: super messy
     const ref = getIn(schema, "$ref");
-    const itemsRef = getIn(schema, "items.$ref");
     const type = getIn(schema, "type");
-    const itemsType = getIn(schema, "items.type");
 
-    const requestBodyType =
-      (ref || itemsRef || "").replace("#/components/schemas/", "") ||
-      type ||
-      itemsType;
+    let requestBodyType;
+    let isReference = false;
 
-    if (!relatedModels.includes(requestBodyType)) {
+    if (type === "array") {
+      const itemsRef = getIn(schema, "items.$ref");
+      const itemsType = getIn(schema, "items.type");
+      requestBodyType = itemsRef || itemsType;
+      if (itemsRef) {
+        isReference = false;
+      }
+    } else {
+      requestBodyType = ref || type;
+      if (ref) {
+        isReference = false;
+      }
+    }
+    requestBodyType = requestBodyType.replace("#/components/schemas/", "");
+
+    if (isReference && !relatedModels.includes(requestBodyType)) {
       relatedModels.push(requestBodyType);
     }
 
-    return {
-      target: "body",
-      name: "dto",
-      type: requestBodyType,
-      last: true,
-    };
+    const signature = `dto: ${requestBodyType}`;
+    return { text: signature };
   }
 
   static mapResponse(response, relatedModels) {
     const successStatus = response["200"] || response["201"];
 
     const type = (
-      getIn(successStatus, "content.application/json.schema.$ref") || "void"
+      getIn(successStatus, "content.application/json.schema.$ref") || ""
     ).replace("#/components/schemas/", "");
 
-    if (type !== "void" && !relatedModels.includes(type)) {
+    if (!type) {
+      return "void";
+    }
+
+    if (!relatedModels.includes(type)) {
       relatedModels.push(type);
     }
 
