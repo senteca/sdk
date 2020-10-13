@@ -13,7 +13,7 @@ export class AttributesAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async filterAttributes (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterAttributes (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/merchandise/attributes`,
            method: 'GET',

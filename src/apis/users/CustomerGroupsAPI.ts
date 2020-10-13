@@ -12,7 +12,7 @@ export class CustomerGroupsAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async filterCustomerGroups (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterCustomerGroups (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/users/customer-groups`,
            method: 'GET',

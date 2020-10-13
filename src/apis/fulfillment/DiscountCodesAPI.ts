@@ -13,7 +13,7 @@ export class DiscountCodesAPI extends BaseAPI {
        return (response.json() as unknown) as DiscountCodeDTO[];
    }
 
-   async searchDiscountCodes (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async searchDiscountCodes (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/fulfillment/discount-codes/search`,
            method: 'GET',
@@ -23,7 +23,7 @@ export class DiscountCodesAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async filterDiscountCodes (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterDiscountCodes (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/fulfillment/discount-codes`,
            method: 'GET',

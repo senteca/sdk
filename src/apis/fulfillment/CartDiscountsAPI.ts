@@ -13,7 +13,7 @@ export class CartDiscountsAPI extends BaseAPI {
        return (response.json() as unknown) as CartDiscountDTO[];
    }
 
-   async searchCartDiscounts (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async searchCartDiscounts (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/fulfillment/cart-discounts/search`,
            method: 'GET',
@@ -23,7 +23,7 @@ export class CartDiscountsAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async filterCartDiscounts (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterCartDiscounts (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/fulfillment/cart-discounts`,
            method: 'GET',

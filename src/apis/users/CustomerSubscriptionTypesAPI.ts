@@ -12,7 +12,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerSubscriptionTypeDTO;
    }
 
-   async filterCustomerSubscriptionTypes (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterCustomerSubscriptionTypes (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/users/customer-subscription-types`,
            method: 'GET',

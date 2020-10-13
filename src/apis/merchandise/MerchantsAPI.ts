@@ -3,7 +3,7 @@ import { MerchantDraftDTO } from '../../models/MerchantDraftDTO';
 import { MerchantDTO } from '../../models/MerchantDTO';
 
 export class MerchantsAPI extends BaseAPI {
-   async filterMerchants (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterMerchants (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/merchandise/merchants`,
            method: 'GET',

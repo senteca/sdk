@@ -13,7 +13,7 @@ export class RolesAPI extends BaseAPI {
        return (response.json() as unknown) as Permission[];
    }
 
-   async filterRoles (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterRoles (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/auth/roles`,
            method: 'GET',

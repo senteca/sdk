@@ -110,7 +110,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async filterCustomers (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterCustomers (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/users/customers`,
            method: 'GET',
@@ -260,7 +260,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO[];
    }
 
-   async exportCustomersCSV (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async exportCustomersCSV (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/users/customers/export/csv`,
            method: 'GET',

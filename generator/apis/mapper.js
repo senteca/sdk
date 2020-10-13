@@ -40,8 +40,7 @@ module.exports = class ApiMapper {
 
     const response = this.mapResponse(actionMethod.responses, relatedModels);
 
-    const hasQueryParam =
-      parameters.find((p) => p.text.startsWith("query:")) !== undefined;
+    const hasQueryParam = parameters.some((p) => /^query\??\:/.test(p.text));
     const hasBodyParam = !!bodyParam;
 
     return {
@@ -74,8 +73,11 @@ module.exports = class ApiMapper {
     if (queryParams.length) {
       // anonymous type for query params:
       // query: { filter: string[]; sort?: string; }
+      const isRequired = queryParams.some((p) => p.required);
       const queryParamSignatures = queryParams.map(toSignature);
-      const querySignature = `query: { ${queryParamSignatures.join(", ")} }`;
+      const querySignature = `query${
+        isRequired ? "" : "?"
+      }: { ${queryParamSignatures.join(", ")} }`;
       paramSignatures.push({ text: querySignature });
     }
 

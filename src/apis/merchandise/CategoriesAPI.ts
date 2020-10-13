@@ -44,7 +44,7 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async filterCategories (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterCategories (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/merchandise/categories`,
            method: 'GET',
@@ -74,7 +74,7 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as string[];
    }
 
-   async findCategoryById (id: string, query: { expand: string[], statuses?: string[] }): Promise<CategoryDTO> {
+   async findCategoryById (id: string, query?: { expand?: string[], statuses?: string[] }): Promise<CategoryDTO> {
        const response = await this.request({
            path: `/merchandise/categories/${id}`,
            method: 'GET',
@@ -104,7 +104,7 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategoryDTO;
    }
 
-   async findCategoryByExternalId (externalId: string, query: { expand: string[], statuses?: string[] }): Promise<CategoryDTO> {
+   async findCategoryByExternalId (externalId: string, query?: { expand?: string[], statuses?: string[] }): Promise<CategoryDTO> {
        const response = await this.request({
            path: `/merchandise/categories/external/${externalId}`,
            method: 'GET',
@@ -114,7 +114,7 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategoryDTO;
    }
 
-   async findCategoryBySlug (languageCode: string, slug: string, query: { expand: string[], statuses?: string[] }): Promise<CategoryDTO> {
+   async findCategoryBySlug (languageCode: string, slug: string, query?: { expand?: string[], statuses?: string[] }): Promise<CategoryDTO> {
        const response = await this.request({
            path: `/merchandise/categories/slug/${languageCode}/${slug}`,
            method: 'GET',

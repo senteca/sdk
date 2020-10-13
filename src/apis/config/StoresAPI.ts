@@ -13,7 +13,7 @@ export class StoresAPI extends BaseAPI {
        return (response.json() as unknown) as StoreDTO;
    }
 
-   async filterStores (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterStores (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/config/stores`,
            method: 'GET',

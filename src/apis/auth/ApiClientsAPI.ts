@@ -3,7 +3,7 @@ import { ApiClientDraftDTO } from '../../models/ApiClientDraftDTO';
 import { ApiClientDTO } from '../../models/ApiClientDTO';
 
 export class ApiClientsAPI extends BaseAPI {
-   async filterApiClients (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterApiClients (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/auth/api-clients`,
            method: 'GET',

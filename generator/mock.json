@@ -15000,9 +15000,10 @@
           },
           {
             "name": "expand",
-            "required": true,
+            "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -15014,6 +15015,7 @@
             "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -15121,9 +15123,10 @@
           },
           {
             "name": "expand",
-            "required": true,
+            "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -15135,6 +15138,7 @@
             "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -15182,9 +15186,10 @@
           },
           {
             "name": "expand",
-            "required": true,
+            "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -15196,6 +15201,7 @@
             "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -15672,9 +15678,10 @@
           },
           {
             "name": "expand",
-            "required": true,
+            "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -15686,6 +15693,7 @@
             "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -15793,9 +15801,10 @@
           },
           {
             "name": "expand",
-            "required": true,
+            "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -15807,6 +15816,7 @@
             "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -15854,9 +15864,10 @@
           },
           {
             "name": "expand",
-            "required": true,
+            "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -15868,6 +15879,7 @@
             "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -18848,9 +18860,10 @@
           },
           {
             "name": "expand",
-            "required": true,
+            "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -18862,6 +18875,7 @@
             "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -18977,9 +18991,10 @@
           },
           {
             "name": "expand",
-            "required": true,
+            "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -18991,6 +19006,7 @@
             "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -19030,9 +19046,10 @@
           },
           {
             "name": "expand",
-            "required": true,
+            "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"
@@ -19044,6 +19061,7 @@
             "required": false,
             "in": "query",
             "schema": {
+              "default": [],
               "type": "array",
               "items": {
                 "type": "string"

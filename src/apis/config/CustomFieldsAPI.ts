@@ -34,7 +34,7 @@ export class CustomFieldsAPI extends BaseAPI {
        return (response.json() as unknown) as CustomFieldDTO;
    }
 
-   async filterCustomFields (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterCustomFields (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/config/custom-fields`,
            method: 'GET',

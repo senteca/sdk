@@ -45,7 +45,7 @@ export class BrandsAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async filterBrands (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterBrands (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/merchandise/brands`,
            method: 'GET',
@@ -75,7 +75,7 @@ export class BrandsAPI extends BaseAPI {
        return (response.json() as unknown) as string[];
    }
 
-   async findBrandById (id: string, query: { expand: string[], statuses?: string[] }): Promise<BrandDTO> {
+   async findBrandById (id: string, query?: { expand?: string[], statuses?: string[] }): Promise<BrandDTO> {
        const response = await this.request({
            path: `/merchandise/brands/${id}`,
            method: 'GET',
@@ -105,7 +105,7 @@ export class BrandsAPI extends BaseAPI {
        return (response.json() as unknown) as BrandDTO;
    }
 
-   async findBrandByExternalId (externalId: string, query: { expand: string[], statuses?: string[] }): Promise<BrandDTO> {
+   async findBrandByExternalId (externalId: string, query?: { expand?: string[], statuses?: string[] }): Promise<BrandDTO> {
        const response = await this.request({
            path: `/merchandise/brands/external/${externalId}`,
            method: 'GET',
@@ -115,7 +115,7 @@ export class BrandsAPI extends BaseAPI {
        return (response.json() as unknown) as BrandDTO;
    }
 
-   async findBrandBySlug (languageCode: string, slug: string, query: { expand: string[], statuses?: string[] }): Promise<BrandDTO> {
+   async findBrandBySlug (languageCode: string, slug: string, query?: { expand?: string[], statuses?: string[] }): Promise<BrandDTO> {
        const response = await this.request({
            path: `/merchandise/brands/slug/${languageCode}/${slug}`,
            method: 'GET',

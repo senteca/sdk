@@ -53,7 +53,7 @@ export class CatalogAPI extends BaseAPI {
        return (response.json() as unknown) as SynonymDTO;
    }
 
-   async filterSynonyms (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterSynonyms (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/merchandise/catalog/synonyms`,
            method: 'GET',

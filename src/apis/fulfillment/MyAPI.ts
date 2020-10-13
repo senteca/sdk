@@ -206,7 +206,7 @@ export class MyAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async getMyOrders (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async getMyOrders (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/fulfillment/my/orders`,
            method: 'GET',

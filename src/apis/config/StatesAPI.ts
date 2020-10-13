@@ -13,7 +13,7 @@ export class StatesAPI extends BaseAPI {
        return (response.json() as unknown) as StateDTO;
    }
 
-   async filterStates (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterStates (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/config/states`,
            method: 'GET',

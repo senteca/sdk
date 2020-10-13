@@ -13,7 +13,7 @@ export class PriceListsAPI extends BaseAPI {
        return (response.json() as unknown) as PriceListDTO;
    }
 
-   async filterPriceLists (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterPriceLists (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/merchandise/price-lists`,
            method: 'GET',

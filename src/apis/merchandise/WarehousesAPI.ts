@@ -3,7 +3,7 @@ import { WarehouseDraftDTO } from '../../models/WarehouseDraftDTO';
 import { WarehouseDTO } from '../../models/WarehouseDTO';
 
 export class WarehousesAPI extends BaseAPI {
-   async filterWarehouses (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterWarehouses (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/merchandise/warehouses`,
            method: 'GET',

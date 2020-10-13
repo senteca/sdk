@@ -54,7 +54,7 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionDTO;
    }
 
-   async filterCollections (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterCollections (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/merchandise/collections`,
            method: 'GET',

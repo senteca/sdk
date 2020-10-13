@@ -14,7 +14,7 @@ export class StoreViewsAPI extends BaseAPI {
        return (response.json() as unknown) as StoreViewDTO;
    }
 
-   async filterStoreViews (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<StoreViewFilterResultDTO> {
+   async filterStoreViews (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<StoreViewFilterResultDTO> {
        const response = await this.request({
            path: `/config/store-views`,
            method: 'GET',

@@ -13,7 +13,7 @@ export class WidgetsAPI extends BaseAPI {
        return (response.json() as unknown) as WidgetDTO;
    }
 
-   async filter (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/cms/widgets`,
            method: 'GET',

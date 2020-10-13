@@ -31,6 +31,9 @@ export class BaseAPI {
   }
 
   protected stringifyQuery(queryObj): string {
+    if (!queryObj) {
+      return "";
+    }
     return Object.keys(queryObj)
       .map((key) => `${key}=${encodeURIComponent(queryObj[key])}`)
       .join("&");

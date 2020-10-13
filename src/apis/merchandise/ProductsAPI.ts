@@ -182,7 +182,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async filterProducts (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterProducts (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/merchandise/products`,
            method: 'GET',
@@ -212,7 +212,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as string[];
    }
 
-   async findProductById (id: string, query: { expand: string[], statuses?: string[] }): Promise<ProductDTO> {
+   async findProductById (id: string, query?: { expand?: string[], statuses?: string[] }): Promise<ProductDTO> {
        const response = await this.request({
            path: `/merchandise/products/${id}`,
            method: 'GET',
@@ -242,7 +242,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async findProductBySlug (language: string, slug: string, query: { expand: string[], statuses?: string[] }): Promise<ProductDTO> {
+   async findProductBySlug (language: string, slug: string, query?: { expand?: string[], statuses?: string[] }): Promise<ProductDTO> {
        const response = await this.request({
            path: `/merchandise/products/slug/${language}/${slug}`,
            method: 'GET',
@@ -252,7 +252,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async findProductByExternalId (externalId: string, query: { expand: string[], statuses?: string[] }): Promise<ProductDTO> {
+   async findProductByExternalId (externalId: string, query?: { expand?: string[], statuses?: string[] }): Promise<ProductDTO> {
        const response = await this.request({
            path: `/merchandise/products/externalId/${externalId}`,
            method: 'GET',

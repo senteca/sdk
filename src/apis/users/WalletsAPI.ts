@@ -3,7 +3,7 @@ import { WalletDraftDTO } from '../../models/WalletDraftDTO';
 import { WalletDTO } from '../../models/WalletDTO';
 
 export class WalletsAPI extends BaseAPI {
-   async filterWallets (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filterWallets (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/users/wallets`,
            method: 'GET',
@@ -53,7 +53,7 @@ export class WalletsAPI extends BaseAPI {
        return (response.json() as unknown) as WalletDTO;
    }
 
-   async searchWallets (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async searchWallets (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this.request({
            path: `/users/wallets/search`,
            method: 'GET',

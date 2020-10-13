@@ -1,13 +1,14 @@
 {
   "name": "@sentecacommerce/sdk",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "OpenAPI client for sentecacommerce platform",
   "author": "Stanislav Bogdanov",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/types",
   "scripts": {
-    "update": "npm version patch && npm run generate && npm publish",
+    "update": "npm run generate && npm run bump-version && npm publish",
+    "bump-version": "npm version patch -no-git-tag-version --force",
     "prebuild": "rm -rf dist",
     "build": "rollup -c rollup.config.ts",
     "prepare": "npm run build",
