@@ -21,14 +21,14 @@ export class MediaAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async deleteMedia (): Promise<void> {
+   async deleteMedia (): Promise<object> {
        const response = await this.request({
            path: `/cms/media`,
            method: 'DELETE',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
 }

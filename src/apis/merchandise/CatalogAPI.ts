@@ -3,24 +3,24 @@ import { SynonymDraftDTO } from '../../models/SynonymDraftDTO';
 import { SynonymDTO } from '../../models/SynonymDTO';
 
 export class CatalogAPI extends BaseAPI {
-   async searchCatalog (query: { priceRanges?: string[], discountRanges?: string[], preFilters: string[], postFilters: string[], showCount?: boolean, skipSingleAttributes?: boolean, onlyResults?: boolean, language: string, priceList: string, merchant: string, sort: string[], limit: number, offset: number, categoriesParent: string, brandsParent: string, fuzziness?: string, prefixLength?: number, maxExpansions?: number }): Promise<void> {
+   async searchCatalog (query: { priceRanges?: string[], discountRanges?: string[], preFilters: string[], postFilters: string[], showCount?: boolean, skipSingleAttributes?: boolean, onlyResults?: boolean, language: string, priceList: string, merchant: string, sort: string[], limit: number, offset: number, categoriesParent: string, brandsParent: string, fuzziness?: string, prefixLength?: number, maxExpansions?: number }): Promise<object[]> {
        const response = await this.request({
            path: `/merchandise/catalog/search`,
            method: 'GET',
            query: this.stringifyQuery(query),
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object[];
    }
 
-   async suggest (query: { language: string, priceList: string, text: string, merchant?: string, fuzziness?: string, prefixLength?: number, maxExpansions?: number, maxProductResults?: number, maxCategoryResults?: number, maxBrandsResults?: number }): Promise<void> {
+   async suggest (query: { language: string, priceList: string, text: string, merchant?: string, fuzziness?: string, prefixLength?: number, maxExpansions?: number, maxProductResults?: number, maxCategoryResults?: number, maxBrandsResults?: number }): Promise<object[]> {
        const response = await this.request({
            path: `/merchandise/catalog/suggest`,
            method: 'GET',
            query: this.stringifyQuery(query),
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object[];
    }
 
    async sync (): Promise<void> {

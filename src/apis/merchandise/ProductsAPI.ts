@@ -12,54 +12,54 @@ import { InventoryUpdateDTO } from '../../models/InventoryUpdateDTO';
 import { AssetDTO } from '../../models/AssetDTO';
 
 export class ProductsAPI extends BaseAPI {
-   async linkProducts (dto: BulkLinkUpdateDTO): Promise<void> {
+   async linkProducts (dto: BulkLinkUpdateDTO): Promise<object> {
        const response = await this.request({
            path: `/merchandise/products/bulk/link`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
-   async unlinkProducts (dto: BulkLinkUpdateDTO): Promise<void> {
+   async unlinkProducts (dto: BulkLinkUpdateDTO): Promise<object> {
        const response = await this.request({
            path: `/merchandise/products/bulk/unlink`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
-   async deleteProducts (dto: BulkDeleteDTO): Promise<void> {
+   async deleteProducts (dto: BulkDeleteDTO): Promise<object> {
        const response = await this.request({
            path: `/merchandise/products/bulk/delete`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
-   async changeProductsStatus (dto: BulkStatusChangeDTO): Promise<void> {
+   async changeProductsStatus (dto: BulkStatusChangeDTO): Promise<object> {
        const response = await this.request({
            path: `/merchandise/products/bulk/status`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
-   async importProducts (dto: ProductDraftDTO[]): Promise<void> {
+   async importProducts (dto: ProductDraftDTO[]): Promise<ProductDraftDTO[]> {
        const response = await this.request({
            path: `/merchandise/products/import`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ProductDraftDTO[];
    }
 
    async addProductOffer (productId: string, variantId: string, dto: OfferDraftDTO): Promise<ProductDTO> {
@@ -202,14 +202,14 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async getAllProductSlugs (languageCode: string): Promise<void> {
+   async getAllProductSlugs (languageCode: string): Promise<string[]> {
        const response = await this.request({
            path: `/merchandise/products/slugs/${languageCode}`,
            method: 'GET',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as string[];
    }
 
    async findProductById (id: string, query: { expand: string[], statuses?: string[] }): Promise<ProductDTO> {
@@ -312,24 +312,24 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async removeProductImage (productId: string, variantId: string, imageIndex: number): Promise<void> {
+   async removeProductImage (productId: string, variantId: string, imageIndex: number): Promise<object> {
        const response = await this.request({
            path: `/merchandise/products/${productId}/${variantId}/images/${imageIndex}`,
            method: 'DELETE',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
-   async removeProductImages (productId: string): Promise<void> {
+   async removeProductImages (productId: string): Promise<object> {
        const response = await this.request({
            path: `/merchandise/products/${productId}/images`,
            method: 'DELETE',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
 }

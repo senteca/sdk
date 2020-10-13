@@ -1,24 +1,24 @@
 import { BaseAPI } from '../../runtime';
 
 export class FulfillmentAPI extends BaseAPI {
-   async getShippingsInfo (): Promise<void> {
+   async getShippingsInfo (): Promise<object[]> {
        const response = await this.request({
            path: `/config/fulfillment/shipping-types`,
            method: 'GET',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object[];
    }
 
-   async getPaymentsInfo (): Promise<void> {
+   async getPaymentsInfo (): Promise<object[]> {
        const response = await this.request({
            path: `/config/fulfillment/payment-types`,
            method: 'GET',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object[];
    }
 
 }

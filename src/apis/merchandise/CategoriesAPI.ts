@@ -64,14 +64,14 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategoryDTO;
    }
 
-   async getCategorySlugs (languageCode: string): Promise<void> {
+   async getCategorySlugs (languageCode: string): Promise<string[]> {
        const response = await this.request({
            path: `/merchandise/categories/slugs/${languageCode}`,
            method: 'GET',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as string[];
    }
 
    async findCategoryById (id: string, query: { expand: string[], statuses?: string[] }): Promise<CategoryDTO> {
@@ -124,14 +124,14 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategoryDTO;
    }
 
-   async importCategories (dto: CategoryDraftDTO[]): Promise<void> {
+   async importCategories (dto: CategoryDraftDTO[]): Promise<CategoryDTO[]> {
        const response = await this.request({
            path: `/merchandise/categories/import`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as CategoryDTO[];
    }
 
    async updateCategoryByExternalId (id: string, dto: CategoryDraftDTO): Promise<CategoryDTO> {

@@ -1,24 +1,24 @@
 import { BaseAPI } from '../../runtime';
 
 export class ProbesAPI extends BaseAPI {
-   async ready (): Promise<void> {
+   async ready (): Promise<object> {
        const response = await this.request({
            path: `/cms/probes/ready`,
            method: 'GET',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
-   async healthy (): Promise<void> {
+   async healthy (): Promise<object> {
        const response = await this.request({
            path: `/cms/probes/healthy`,
            method: 'GET',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
 }

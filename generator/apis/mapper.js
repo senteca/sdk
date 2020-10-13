@@ -88,12 +88,34 @@ module.exports = class ApiMapper {
     }
 
     const schema = getIn(requestBody, "content.application/json.schema");
+    const { realType, relatedModel } = this.schemaToType(schema);
 
+    if (relatedModel && !relatedModels.includes(relatedModel)) {
+      relatedModels.push(relatedModel);
+    }
+
+    const signature = `dto: ${realType}`;
+    return { text: signature };
+  }
+
+  static mapResponse(response, relatedModels) {
+    const successStatus = response["200"] || response["201"];
+    const schema = getIn(successStatus, "content.application/json.schema");
+    const { realType, relatedModel } = this.schemaToType(schema);
+
+    if (relatedModel && !relatedModels.includes(relatedModel)) {
+      relatedModels.push(relatedModel);
+    }
+
+    return realType;
+  }
+
+  static schemaToType(schema) {
     const ref = getIn(schema, "$ref", "").replace("#/components/schemas/", "");
     const type = getIn(schema, "type", "");
 
-    let requestBodyType;
-    let relatedModel;
+    let realType = "";
+    let relatedModel = "";
 
     if (type === "array") {
       const itemsRef = getIn(schema, "items.$ref", "").replace(
@@ -101,40 +123,21 @@ module.exports = class ApiMapper {
         ""
       );
       const itemsType = getIn(schema, "items.type", "");
-      requestBodyType = `${itemsRef || itemsType}[]`;
+      realType = `${itemsRef || itemsType}[]`;
       if (itemsRef) {
         relatedModel = itemsRef;
       }
     } else {
-      requestBodyType = ref || type;
+      realType = ref || type;
       if (ref) {
         relatedModel = ref;
       }
     }
 
-    if (relatedModel && !relatedModels.includes(relatedModel)) {
-      relatedModels.push(relatedModel);
+    if (!realType) {
+      realType = "void";
     }
 
-    const signature = `dto: ${requestBodyType}`;
-    return { text: signature };
-  }
-
-  static mapResponse(response, relatedModels) {
-    const successStatus = response["200"] || response["201"];
-
-    const type = (
-      getIn(successStatus, "content.application/json.schema.$ref") || ""
-    ).replace("#/components/schemas/", "");
-
-    if (!type) {
-      return "void";
-    }
-
-    if (!relatedModels.includes(type)) {
-      relatedModels.push(type);
-    }
-
-    return type;
+    return { realType, relatedModel };
   }
 };

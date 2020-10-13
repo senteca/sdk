@@ -1,16 +1,16 @@
 import { BaseAPI } from '../../runtime';
-import { CartDiscountDraftDTO } from '../../models/CartDiscountDraftDTO';
 import { CartDiscountDTO } from '../../models/CartDiscountDTO';
+import { CartDiscountDraftDTO } from '../../models/CartDiscountDraftDTO';
 
 export class CartDiscountsAPI extends BaseAPI {
-   async importCartDiscounts (dto: string[]): Promise<void> {
+   async importCartDiscounts (dto: string[]): Promise<CartDiscountDTO[]> {
        const response = await this.request({
            path: `/fulfillment/cart-discounts/import`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as CartDiscountDTO[];
    }
 
    async searchCartDiscounts (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {

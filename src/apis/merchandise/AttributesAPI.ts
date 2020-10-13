@@ -63,14 +63,14 @@ export class AttributesAPI extends BaseAPI {
        return (response.json() as unknown) as AttributeDTO;
    }
 
-   async importAttributes (dto: AttributeDraftDTO[]): Promise<void> {
+   async importAttributes (dto: AttributeDraftDTO[]): Promise<AttributeDTO[]> {
        const response = await this.request({
            path: `/merchandise/attributes/import`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as AttributeDTO[];
    }
 
    async updateAttributeByName (name: string, dto: AttributeDraftDTO): Promise<AttributeDTO> {

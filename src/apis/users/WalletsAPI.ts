@@ -63,14 +63,14 @@ export class WalletsAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async importWallets (dto: string[]): Promise<void> {
+   async importWallets (dto: string[]): Promise<WalletDTO[]> {
        const response = await this.request({
            path: `/users/wallets/import`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as WalletDTO[];
    }
 
 }

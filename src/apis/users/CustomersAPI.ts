@@ -50,14 +50,14 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async getMyAddresses (): Promise<void> {
+   async getMyAddresses (): Promise<AddressDTO[]> {
        const response = await this.request({
            path: `/users/customers/my-addresses`,
            method: 'GET',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as AddressDTO[];
    }
 
    async createMyAddress (dto: AddressDTO): Promise<AddressDTO> {
@@ -150,44 +150,44 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async deleteCustomerById (id: string): Promise<void> {
+   async deleteCustomerById (id: string): Promise<object> {
        const response = await this.request({
            path: `/users/customers/${id}`,
            method: 'DELETE',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
-   async registerCustomer (dto: CustomerRegisterDTO): Promise<void> {
+   async registerCustomer (dto: CustomerRegisterDTO): Promise<object> {
        const response = await this.request({
            path: `/users/customers/register`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
-   async registerCustomerViaFacebook (dto: CustomerRegisterFacebookDTO): Promise<void> {
+   async registerCustomerViaFacebook (dto: CustomerRegisterFacebookDTO): Promise<object> {
        const response = await this.request({
            path: `/users/customers/register/facebook`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
-   async requestCustomerPasswordToken (dto: PasswordTokenDTO): Promise<void> {
+   async requestCustomerPasswordToken (dto: PasswordTokenDTO): Promise<object> {
        const response = await this.request({
            path: `/users/customers/password-token`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
    async resetCustomerPassword (dto: PasswordResetDTO): Promise<CustomerDTO> {
@@ -200,14 +200,14 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async getCustomerAddresses (customerId: string): Promise<void> {
+   async getCustomerAddresses (customerId: string): Promise<AddressDTO[]> {
        const response = await this.request({
            path: `/users/customers/${customerId}/addresses`,
            method: 'GET',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as AddressDTO[];
    }
 
    async createCustomerAddress (customerId: string, dto: AddressDTO): Promise<AddressDTO> {
@@ -240,24 +240,24 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
-   async deleteCustomerAddressById (customerId: string, addressId: string): Promise<void> {
+   async deleteCustomerAddressById (customerId: string, addressId: string): Promise<object> {
        const response = await this.request({
            path: `/users/customers/${customerId}/addresses/${addressId}`,
            method: 'DELETE',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
-   async importCustomers (dto: string[]): Promise<void> {
+   async importCustomers (dto: string[]): Promise<CustomerDTO[]> {
        const response = await this.request({
            path: `/users/customers/import`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as CustomerDTO[];
    }
 
    async exportCustomersCSV (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {

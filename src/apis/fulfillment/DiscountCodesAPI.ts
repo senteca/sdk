@@ -1,16 +1,16 @@
 import { BaseAPI } from '../../runtime';
-import { DiscountCodeDraftDTO } from '../../models/DiscountCodeDraftDTO';
 import { DiscountCodeDTO } from '../../models/DiscountCodeDTO';
+import { DiscountCodeDraftDTO } from '../../models/DiscountCodeDraftDTO';
 
 export class DiscountCodesAPI extends BaseAPI {
-   async importDiscountCodes (dto: string[]): Promise<void> {
+   async importDiscountCodes (dto: string[]): Promise<DiscountCodeDTO[]> {
        const response = await this.request({
            path: `/fulfillment/discount-codes/import`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as DiscountCodeDTO[];
    }
 
    async searchDiscountCodes (query: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {

@@ -4,24 +4,24 @@ import { CustomFieldDTO } from '../../models/CustomFieldDTO';
 import { CustomFieldDraftDTO } from '../../models/CustomFieldDraftDTO';
 
 export class CustomFieldsAPI extends BaseAPI {
-   async setCustomField (): Promise<void> {
+   async setCustomField (): Promise<object> {
        const response = await this.request({
            path: `/config/custom-fields/set`,
            method: 'PUT',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
-   async setMyCustomField (dto: SetCustomFieldDTO): Promise<void> {
+   async setMyCustomField (dto: SetCustomFieldDTO): Promise<object> {
        const response = await this.request({
            path: `/config/custom-fields/set-my`,
            method: 'PUT',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
    async createCustomField (dto: CustomFieldDTO): Promise<CustomFieldDTO> {

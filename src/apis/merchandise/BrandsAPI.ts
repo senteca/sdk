@@ -65,14 +65,14 @@ export class BrandsAPI extends BaseAPI {
        return (response.json() as unknown) as BrandDTO;
    }
 
-   async getAllBrandSlugs (languageCode: string): Promise<void> {
+   async getAllBrandSlugs (languageCode: string): Promise<string[]> {
        const response = await this.request({
            path: `/merchandise/brands/slugs/${languageCode}`,
            method: 'GET',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as string[];
    }
 
    async findBrandById (id: string, query: { expand: string[], statuses?: string[] }): Promise<BrandDTO> {
@@ -135,14 +135,14 @@ export class BrandsAPI extends BaseAPI {
        return (response.json() as unknown) as BrandDTO;
    }
 
-   async importBrands (dto: BrandDraftDTO[]): Promise<void> {
+   async importBrands (dto: BrandDraftDTO[]): Promise<BrandDTO[]> {
        const response = await this.request({
            path: `/merchandise/brands/import`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as BrandDTO[];
    }
 
    async updateBrandByExternalId (id: string, dto: BrandDraftDTO): Promise<BrandDTO> {

@@ -38,14 +38,14 @@ export class UsersAPI extends BaseAPI {
        return (response.json() as unknown) as UserDTO;
    }
 
-   async requestUserPasswordToken (dto: PasswordTokenDTO): Promise<void> {
+   async requestUserPasswordToken (dto: PasswordTokenDTO): Promise<object> {
        const response = await this.request({
            path: `/users/users/password-token`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
    async resetUserPassword (dto: PasswordResetDTO): Promise<UserDTO> {

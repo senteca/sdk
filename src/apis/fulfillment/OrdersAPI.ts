@@ -1,7 +1,8 @@
 import { BaseAPI } from '../../runtime';
 import { OrderImportDTO } from '../../models/OrderImportDTO';
-import { CartDraftDTO } from '../../models/CartDraftDTO';
 import { OrderDTO } from '../../models/OrderDTO';
+import { ShippingDTO } from '../../models/ShippingDTO';
+import { CartDraftDTO } from '../../models/CartDraftDTO';
 import { TransitionOrderStateDTO } from '../../models/TransitionOrderStateDTO';
 import { OrderNoteUpdateDTO } from '../../models/OrderNoteUpdateDTO';
 import { OrderStatusUpdateDTO } from '../../models/OrderStatusUpdateDTO';
@@ -27,24 +28,24 @@ import { PaymentInterfaceInteractionDraftDTO } from '../../models/PaymentInterfa
 import { MakePaymentInteractionDTO } from '../../models/MakePaymentInteractionDTO';
 
 export class OrdersAPI extends BaseAPI {
-   async importOrders (dto: OrderImportDTO[]): Promise<void> {
+   async importOrders (dto: OrderImportDTO[]): Promise<OrderDTO[]> {
        const response = await this.request({
            path: `/fulfillment/orders/import`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as OrderDTO[];
    }
 
-   async syncShippings (): Promise<void> {
+   async syncShippings (): Promise<ShippingDTO[]> {
        const response = await this.request({
            path: `/fulfillment/orders/sync-shippings`,
            method: 'POST',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ShippingDTO[];
    }
 
    async createCart (dto: CartDraftDTO): Promise<OrderDTO> {
@@ -337,14 +338,14 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async makeShippingInterfaceInteraction (orderId: string, shippingId: string, deliveryId: string, parcelId: string, dto: MakeShippingInteractionDTO): Promise<void> {
+   async makeShippingInterfaceInteraction (orderId: string, shippingId: string, deliveryId: string, parcelId: string, dto: MakeShippingInteractionDTO): Promise<object> {
        const response = await this.request({
            path: `/fulfillment/orders/${orderId}/shippings/${shippingId}/deliveries/${deliveryId}/parcels/${parcelId}/interface-interactions`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
    async setPaymentStatus (orderId: string, paymentId: string, dto: PaymentStatusUpdateDTO): Promise<OrderDTO> {
@@ -377,24 +378,24 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async makePaymentInterfaceInteraction (orderId: string, paymentId: string, transactionId: string, dto: MakePaymentInteractionDTO): Promise<void> {
+   async makePaymentInterfaceInteraction (orderId: string, paymentId: string, transactionId: string, dto: MakePaymentInteractionDTO): Promise<object> {
        const response = await this.request({
            path: `/fulfillment/orders/${orderId}/payments/${paymentId}/transactions/${transactionId}/interface-interactions`,
            method: 'POST',
            
            body: dto,
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
-   async getNewOrders (): Promise<void> {
+   async getNewOrders (): Promise<object> {
        const response = await this.request({
            path: `/fulfillment/orders/new-orders`,
            method: 'GET',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
 }

@@ -43,14 +43,14 @@ export class TaxCategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as TaxCategoryDTO;
    }
 
-   async deleteTaxCategoryById (id: string): Promise<void> {
+   async deleteTaxCategoryById (id: string): Promise<object> {
        const response = await this.request({
            path: `/config/tax-categories/${id}`,
            method: 'DELETE',
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as object;
    }
 
    async findTaxCategoryByKey (key: string): Promise<TaxCategoryDTO> {
