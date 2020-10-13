@@ -27,7 +27,7 @@ import { PaymentInterfaceInteractionDraftDTO } from '../../models/PaymentInterfa
 import { MakePaymentInteractionDTO } from '../../models/MakePaymentInteractionDTO';
 
 export class OrdersAPI extends BaseAPI {
-   async importOrders (dto: OrderImportDTO): Promise<void> {
+   async importOrders (dto: OrderImportDTO[]): Promise<void> {
        const response = await this.request({
            path: `/fulfillment/orders/import`,
            method: 'POST',

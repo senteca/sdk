@@ -250,7 +250,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async importCustomers (dto: string): Promise<void> {
+   async importCustomers (dto: string[]): Promise<void> {
        const response = await this.request({
            path: `/users/customers/import`,
            method: 'POST',

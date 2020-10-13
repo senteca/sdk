@@ -89,29 +89,31 @@ module.exports = class ApiMapper {
 
     const schema = getIn(requestBody, "content.application/json.schema");
 
-    const ref = getIn(schema, "$ref");
-    const type = getIn(schema, "type");
+    const ref = getIn(schema, "$ref", "").replace("#/components/schemas/", "");
+    const type = getIn(schema, "type", "");
 
     let requestBodyType;
-    let isReference = false;
+    let relatedModel;
 
     if (type === "array") {
-      const itemsRef = getIn(schema, "items.$ref");
-      const itemsType = getIn(schema, "items.type");
-      requestBodyType = itemsRef || itemsType;
+      const itemsRef = getIn(schema, "items.$ref", "").replace(
+        "#/components/schemas/",
+        ""
+      );
+      const itemsType = getIn(schema, "items.type", "");
+      requestBodyType = `${itemsRef || itemsType}[]`;
       if (itemsRef) {
-        isReference = false;
+        relatedModel = itemsRef;
       }
     } else {
       requestBodyType = ref || type;
       if (ref) {
-        isReference = false;
+        relatedModel = ref;
       }
     }
-    requestBodyType = requestBodyType.replace("#/components/schemas/", "");
 
-    if (isReference && !relatedModels.includes(requestBodyType)) {
-      relatedModels.push(requestBodyType);
+    if (relatedModel && !relatedModels.includes(relatedModel)) {
+      relatedModels.push(relatedModel);
     }
 
     const signature = `dto: ${requestBodyType}`;

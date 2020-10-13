@@ -52,7 +52,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async importProducts (dto: ProductDraftDTO): Promise<void> {
+   async importProducts (dto: ProductDraftDTO[]): Promise<void> {
        const response = await this.request({
            path: `/merchandise/products/import`,
            method: 'POST',

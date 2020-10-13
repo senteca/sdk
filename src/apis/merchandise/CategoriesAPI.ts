@@ -124,7 +124,7 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategoryDTO;
    }
 
-   async importCategories (dto: CategoryDraftDTO): Promise<void> {
+   async importCategories (dto: CategoryDraftDTO[]): Promise<void> {
        const response = await this.request({
            path: `/merchandise/categories/import`,
            method: 'POST',

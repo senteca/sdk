@@ -3,7 +3,7 @@ import { DiscountCodeDraftDTO } from '../../models/DiscountCodeDraftDTO';
 import { DiscountCodeDTO } from '../../models/DiscountCodeDTO';
 
 export class DiscountCodesAPI extends BaseAPI {
-   async importDiscountCodes (dto: string): Promise<void> {
+   async importDiscountCodes (dto: string[]): Promise<void> {
        const response = await this.request({
            path: `/fulfillment/discount-codes/import`,
            method: 'POST',

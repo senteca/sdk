@@ -1,4 +1,4 @@
-const getIn = (data, path) => {
+const getIn = (data, path, defaultValue) => {
   if (!data || !path) {
     return data;
   }
@@ -10,7 +10,7 @@ const getIn = (data, path) => {
       break;
     }
   }
-  return value;
+  return value || defaultValue;
 };
 
 module.exports = {

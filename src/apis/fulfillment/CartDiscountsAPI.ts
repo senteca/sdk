@@ -3,7 +3,7 @@ import { CartDiscountDraftDTO } from '../../models/CartDiscountDraftDTO';
 import { CartDiscountDTO } from '../../models/CartDiscountDTO';
 
 export class CartDiscountsAPI extends BaseAPI {
-   async importCartDiscounts (dto: string): Promise<void> {
+   async importCartDiscounts (dto: string[]): Promise<void> {
        const response = await this.request({
            path: `/fulfillment/cart-discounts/import`,
            method: 'POST',

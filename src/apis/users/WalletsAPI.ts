@@ -63,7 +63,7 @@ export class WalletsAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async importWallets (dto: string): Promise<void> {
+   async importWallets (dto: string[]): Promise<void> {
        const response = await this.request({
            path: `/users/wallets/import`,
            method: 'POST',

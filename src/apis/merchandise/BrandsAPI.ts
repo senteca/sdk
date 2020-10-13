@@ -135,7 +135,7 @@ export class BrandsAPI extends BaseAPI {
        return (response.json() as unknown) as BrandDTO;
    }
 
-   async importBrands (dto: BrandDraftDTO): Promise<void> {
+   async importBrands (dto: BrandDraftDTO[]): Promise<void> {
        const response = await this.request({
            path: `/merchandise/brands/import`,
            method: 'POST',
