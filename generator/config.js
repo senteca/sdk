@@ -1,5 +1,5 @@
 module.exports = {
-  source: "generator/mock.json",
+  apiURL: "http://localhost:5000",
   target: "ts-node", // ts-node | nestjs
   outputDir: "src",
 };

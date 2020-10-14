@@ -4,6 +4,9 @@ import { ShippingFeeTableOrderTotalWeightInGramsDTO } from './ShippingFeeTableOr
 import { CodFeeTableOrderTotalAmountDTO } from './CodFeeTableOrderTotalAmountDTO';
 
 export interface ShippingMethodDTO {
+  id: string;
+  createdAt: number;
+  updatedAt: number;
   version?: number;
   name: LocalizedString;
   description?: LocalizedString;
@@ -21,9 +24,6 @@ export interface ShippingMethodDTO {
   codFeeRateCalculationType: ShippingMethodDTOCodFeeRateCalculationTypeEnum;
   codFeeTableOrderTotalAmount: CodFeeTableOrderTotalAmountDTO[];
   providerConfig: object;
-  id: string;
-  createdAt: number;
-  updatedAt: number;
 }
 
 export enum ShippingMethodDTOAuthorityEnum {

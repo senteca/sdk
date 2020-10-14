@@ -11,16 +11,17 @@ const {
 const { target, outputDir } = require("../config");
 
 module.exports = class ModelsRoutine {
-  static async run(json) {
-    const schemas = getIn(json, "components.schemas") || {};
-
+  static async run(apiDocuments) {
     const template = await this.loadTemplate();
     Mustache.parse(template); // pre-parse and caching template
 
-    for (let schemaKey in schemas) {
-      const schema = schemas[schemaKey];
-      const model = ModelsMapper.map(schemaKey, schema);
-      await ModelGenerator.generate(template, model);
+    for (const doc of apiDocuments) {
+      const schemas = getIn(doc, "components.schemas") || {};
+      for (let schemaKey in schemas) {
+        const schema = schemas[schemaKey];
+        const model = ModelsMapper.map(schemaKey, schema);
+        await ModelGenerator.generate(template, model);
+      }
     }
 
     await this.createIndexFile();

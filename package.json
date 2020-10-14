@@ -1,6 +1,6 @@
 {
   "name": "@sentecacommerce/sdk",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "OpenAPI client for sentecacommerce platform",
   "author": "Stanislav Bogdanov",
   "main": "./dist/index.cjs.js",
@@ -19,6 +19,7 @@
     "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-node-resolve": "^8.4.0",
     "mustache": "^4.0.1",
+    "node-fetch": "^2.6.1",
     "rollup": "^2.23.0",
     "rollup-plugin-peer-deps-external": "^2.2.3",
     "rollup-plugin-terser": "^6.1.0",

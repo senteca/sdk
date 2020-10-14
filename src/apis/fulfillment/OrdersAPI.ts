@@ -72,6 +72,17 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
+   async getNewOrders (): Promise<object> {
+       const response = await this.request({
+           path: `/fulfillment/orders/new-orders`,
+           method: 'GET',
+           
+           
+           
+        });
+       return (response.json() as unknown) as object;
+   }
+
    async createOrderFromCart (id: string): Promise<OrderDTO> {
        const response = await this.request({
            path: `/fulfillment/orders/${id}`,
@@ -419,17 +430,6 @@ export class OrdersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
-           
-        });
-       return (response.json() as unknown) as object;
-   }
-
-   async getNewOrders (): Promise<object> {
-       const response = await this.request({
-           path: `/fulfillment/orders/new-orders`,
-           method: 'GET',
-           
-           
            
         });
        return (response.json() as unknown) as object;

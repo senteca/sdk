@@ -1,5 +1,8 @@
 
 export interface PaymentMethodDTO {
+  id: string;
+  createdAt: number;
+  updatedAt: number;
   version?: number;
   authority: PaymentMethodDTOAuthorityEnum;
   type: PaymentMethodDTOTypeEnum;
@@ -10,9 +13,6 @@ export interface PaymentMethodDTO {
   countryCode: string;
   currencyCode: string;
   providerConfig: object;
-  id: string;
-  createdAt: number;
-  updatedAt: number;
 }
 
 export enum PaymentMethodDTOAuthorityEnum {

@@ -12,31 +12,31 @@ const {
 const { target, outputDir } = require("../config");
 
 module.exports = class ApisRoutine {
-  static async run(json) {
-    const paths = getIn(json, "paths") || {};
-
-    const groupedByApp = this.groupPathsByApp(paths);
-
+  static async run(apiDocuments) {
     const template = await this.loadTemplate();
     Mustache.parse(template); // pre-parse and caching template
 
-    for (const app of Object.values(groupedByApp)) {
-      await this.createAppFolder(app);
-      for (const rawApi of Object.values(app.apis)) {
+    for (const doc of apiDocuments) {
+      const appName = doc.info.title.toLowerCase();
+      await this.createAppFolder(appName);
+
+      const paths = getIn(doc, "paths") || {};
+      const groupedByApi = this.groupPathsByApi(paths);
+
+      for (const rawApi of Object.values(groupedByApi)) {
         const api = ApisMapper.map(rawApi);
-        await ApisGenerator.generate(template, app.key, api);
+        await ApisGenerator.generate(template, appName, api);
       }
-      await this.createAppIndexFile(app);
+      await this.createAppIndexFile(appName);
     }
     await this.createIndexFile();
   }
 
-  static groupPathsByApp(paths) {
+  static groupPathsByApi(paths) {
     const pathKeys = Object.keys(paths);
     return pathKeys.reduce((map, curr) => {
       const [_, appKey, apiKey] = curr.split("/");
-      const app = map[appKey] || { key: appKey, apis: {} };
-      const api = app.apis[apiKey] || { key: apiKey, actions: [] };
+      const api = map[apiKey] || { key: apiKey, actions: [] };
       api.actions.push({
         url: curr,
         methods: Object.keys(paths[curr]).map((method) => ({
@@ -45,19 +45,18 @@ module.exports = class ApisRoutine {
           ...paths[curr][method],
         })),
       });
-      app.apis[apiKey] = api;
-      map[appKey] = app;
+      map[apiKey] = api;
       return map;
     }, {});
   }
 
-  static async createAppFolder(app) {
-    const path = resolveRoot(outputDir, "apis", app.key);
+  static async createAppFolder(appName) {
+    const path = resolveRoot(outputDir, "apis", appName);
     await mkDirIfNotExists(path);
   }
 
-  static async createAppIndexFile(app) {
-    const path = resolveRoot(outputDir, "apis", app.key);
+  static async createAppIndexFile(appName) {
+    const path = resolveRoot(outputDir, "apis", appName);
     const files = await readDirAsync(path);
     const content = files
       .map((file) => `export * from "./${file.replace(".ts", "")}";`)
