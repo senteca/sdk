@@ -9,6 +9,7 @@ export class CatalogAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as object[];
    }
@@ -19,6 +20,7 @@ export class CatalogAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as object[];
    }
@@ -27,6 +29,7 @@ export class CatalogAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/catalog/sync`,
            method: 'POST',
+           
            
            
         });
@@ -39,6 +42,7 @@ export class CatalogAPI extends BaseAPI {
            method: 'POST',
            
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -49,6 +53,7 @@ export class CatalogAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as SynonymDTO;
    }
@@ -58,6 +63,7 @@ export class CatalogAPI extends BaseAPI {
            path: `/merchandise/catalog/synonyms`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -69,6 +75,7 @@ export class CatalogAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as SynonymDTO;
    }
@@ -79,6 +86,7 @@ export class CatalogAPI extends BaseAPI {
            method: 'DELETE',
            
            
+           
         });
        return (response.json() as unknown) as SynonymDTO;
    }
@@ -87,6 +95,7 @@ export class CatalogAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/catalog/synonyms/sync`,
            method: 'POST',
+           
            
            
         });

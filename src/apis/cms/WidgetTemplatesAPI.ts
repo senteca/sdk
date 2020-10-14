@@ -9,6 +9,7 @@ export class WidgetTemplatesAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as WidgetTemplateDTO;
    }
@@ -18,6 +19,7 @@ export class WidgetTemplatesAPI extends BaseAPI {
            path: `/cms/widget-templates`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -29,6 +31,7 @@ export class WidgetTemplatesAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as WidgetTemplateDTO;
    }
@@ -37,6 +40,7 @@ export class WidgetTemplatesAPI extends BaseAPI {
        const response = await this.request({
            path: `/cms/widget-templates/${id}`,
            method: 'DELETE',
+           
            
            
         });

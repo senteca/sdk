@@ -11,6 +11,7 @@ export class BrandsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -21,6 +22,7 @@ export class BrandsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -29,6 +31,7 @@ export class BrandsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/brands/${brandId}/assets/${assetIndex}`,
            method: 'DELETE',
+           
            
            
         });
@@ -41,6 +44,7 @@ export class BrandsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -50,6 +54,7 @@ export class BrandsAPI extends BaseAPI {
            path: `/merchandise/brands`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -61,6 +66,7 @@ export class BrandsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -69,6 +75,7 @@ export class BrandsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/brands/slugs/${languageCode}`,
            method: 'GET',
+           
            
            
         });
@@ -81,6 +88,7 @@ export class BrandsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -91,6 +99,7 @@ export class BrandsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -99,6 +108,7 @@ export class BrandsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/brands/${id}`,
            method: 'DELETE',
+           
            
            
         });
@@ -111,6 +121,7 @@ export class BrandsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -120,6 +131,7 @@ export class BrandsAPI extends BaseAPI {
            path: `/merchandise/brands/slug/${languageCode}/${slug}`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as BrandDTO;
@@ -131,6 +143,7 @@ export class BrandsAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -141,6 +154,7 @@ export class BrandsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as BrandDTO[];
    }
@@ -151,6 +165,7 @@ export class BrandsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -159,6 +174,7 @@ export class BrandsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/brands/externalId/${id}`,
            method: 'DELETE',
+           
            
            
         });

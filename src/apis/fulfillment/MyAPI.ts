@@ -22,6 +22,7 @@ export class MyAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -30,6 +31,7 @@ export class MyAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/my/cart`,
            method: 'GET',
+           
            
            
         });
@@ -42,6 +44,7 @@ export class MyAPI extends BaseAPI {
            method: 'POST',
            
            
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -52,6 +55,7 @@ export class MyAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -60,6 +64,7 @@ export class MyAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/my/cart/line-items/${lineItemId}`,
            method: 'DELETE',
+           
            
            
         });
@@ -72,6 +77,7 @@ export class MyAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -82,6 +88,7 @@ export class MyAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -92,6 +99,7 @@ export class MyAPI extends BaseAPI {
            method: 'DELETE',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -100,6 +108,7 @@ export class MyAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/my/cart/wallet/type=${type}`,
            method: 'POST',
+           
            
            
         });
@@ -112,6 +121,7 @@ export class MyAPI extends BaseAPI {
            method: 'DELETE',
            
            
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -122,6 +132,7 @@ export class MyAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -132,6 +143,7 @@ export class MyAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -140,6 +152,7 @@ export class MyAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/my/cart/shipping-methods`,
            method: 'GET',
+           
            
            
         });
@@ -152,6 +165,7 @@ export class MyAPI extends BaseAPI {
            method: 'GET',
            
            
+           
         });
        return (response.json() as unknown) as PaymentMethodsInfo;
    }
@@ -162,6 +176,7 @@ export class MyAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -172,6 +187,7 @@ export class MyAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -182,6 +198,7 @@ export class MyAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -192,6 +209,7 @@ export class MyAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -200,6 +218,7 @@ export class MyAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/my/cart/custom-field`,
            method: 'PATCH',
+           
            
            
         });
@@ -212,6 +231,7 @@ export class MyAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -220,6 +240,7 @@ export class MyAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/my/orders`,
            method: 'POST',
+           
            
            
         });
@@ -232,6 +253,7 @@ export class MyAPI extends BaseAPI {
            method: 'GET',
            
            
+           
         });
        return (response.json() as unknown) as MakePaymentResponse;
    }
@@ -242,6 +264,7 @@ export class MyAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as MakePaymentResponse;
    }
@@ -252,6 +275,7 @@ export class MyAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as WishListDTO;
    }
@@ -260,6 +284,7 @@ export class MyAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/my/wish-list`,
            method: 'GET',
+           
            
            
         });
@@ -272,6 +297,7 @@ export class MyAPI extends BaseAPI {
            method: 'POST',
            
            
+           
         });
        return (response.json() as unknown) as WishListDTO;
    }
@@ -280,6 +306,7 @@ export class MyAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/my/wish-list/products/${productId}`,
            method: 'DELETE',
+           
            
            
         });

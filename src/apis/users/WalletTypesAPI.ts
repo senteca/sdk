@@ -9,6 +9,7 @@ export class WalletTypesAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -19,6 +20,7 @@ export class WalletTypesAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as WalletTypeDTO;
    }
@@ -27,6 +29,7 @@ export class WalletTypesAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/wallet-types/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -39,6 +42,7 @@ export class WalletTypesAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as WalletTypeDTO;
    }
@@ -47,6 +51,7 @@ export class WalletTypesAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/wallet-types/${id}`,
            method: 'DELETE',
+           
            
            
         });
@@ -58,6 +63,7 @@ export class WalletTypesAPI extends BaseAPI {
            path: `/users/wallet-types/search`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;

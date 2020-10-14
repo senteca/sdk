@@ -9,6 +9,7 @@ export class RolesAPI extends BaseAPI {
            method: 'GET',
            
            
+           
         });
        return (response.json() as unknown) as Permission[];
    }
@@ -18,6 +19,7 @@ export class RolesAPI extends BaseAPI {
            path: `/auth/roles`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -29,6 +31,7 @@ export class RolesAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -37,6 +40,7 @@ export class RolesAPI extends BaseAPI {
        const response = await this.request({
            path: `/auth/roles/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -49,6 +53,7 @@ export class RolesAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -57,6 +62,7 @@ export class RolesAPI extends BaseAPI {
        const response = await this.request({
            path: `/auth/roles/${id}`,
            method: 'DELETE',
+           
            
            
         });

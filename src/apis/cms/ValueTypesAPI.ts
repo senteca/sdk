@@ -9,6 +9,7 @@ export class ValueTypesAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ValueTypeDTO;
    }
@@ -18,6 +19,7 @@ export class ValueTypesAPI extends BaseAPI {
            path: `/cms/value-types`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -29,6 +31,7 @@ export class ValueTypesAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ValueTypeDTO;
    }
@@ -37,6 +40,7 @@ export class ValueTypesAPI extends BaseAPI {
        const response = await this.request({
            path: `/cms/value-types/${id}`,
            method: 'DELETE',
+           
            
            
         });

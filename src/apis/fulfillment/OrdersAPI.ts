@@ -34,6 +34,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO[];
    }
@@ -42,6 +43,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/orders/sync-shippings`,
            method: 'POST',
+           
            
            
         });
@@ -54,6 +56,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -62,6 +65,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/orders/cart/${customerId}`,
            method: 'GET',
+           
            
            
         });
@@ -74,6 +78,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'POST',
            
            
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -82,6 +87,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/orders/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -94,6 +100,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -102,6 +109,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/orders/carts/${days}`,
            method: 'DELETE',
+           
            
            
         });
@@ -114,6 +122,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -124,6 +133,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -134,6 +144,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -144,6 +155,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -154,6 +166,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -162,6 +175,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/orders/${orderId}/line-items/${lineItemId}`,
            method: 'DELETE',
+           
            
            
         });
@@ -174,6 +188,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -184,6 +199,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -194,6 +210,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'DELETE',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -204,6 +221,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -214,6 +232,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -222,6 +241,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/orders/${orderId}/shipping-methods`,
            method: 'GET',
+           
            
            
         });
@@ -234,6 +254,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'GET',
            
            
+           
         });
        return (response.json() as unknown) as PaymentMethodsInfo;
    }
@@ -244,6 +265,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -254,6 +276,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -264,6 +287,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -274,6 +298,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -284,6 +309,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -294,6 +320,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -302,6 +329,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/orders/${orderId}/shippings/${shippingId}/deliveries/${deliveryId}/parcels/${parcelId}`,
            method: 'GET',
+           
            
            
         });
@@ -314,6 +342,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ShippingDeliveryParcelDTO;
    }
@@ -324,6 +353,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ShippingDeliveryParcelDTO;
    }
@@ -334,6 +364,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -344,6 +375,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -354,6 +386,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -364,6 +397,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -374,6 +408,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -384,6 +419,7 @@ export class OrdersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -392,6 +428,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/orders/new-orders`,
            method: 'GET',
+           
            
            
         });

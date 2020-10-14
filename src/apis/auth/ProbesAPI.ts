@@ -7,6 +7,7 @@ export class ProbesAPI extends BaseAPI {
            method: 'GET',
            
            
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -15,6 +16,7 @@ export class ProbesAPI extends BaseAPI {
        const response = await this.request({
            path: `/auth/probes/healthy`,
            method: 'GET',
+           
            
            
         });

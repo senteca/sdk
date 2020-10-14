@@ -16,6 +16,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'GET',
            
            
+           
         });
        return (response.json() as unknown) as CustomerDTO;
    }
@@ -26,6 +27,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CustomerDTO;
    }
@@ -34,6 +36,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/customers/profile`,
            method: 'DELETE',
+           
            
            
         });
@@ -46,6 +49,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CustomerDTO;
    }
@@ -54,6 +58,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/customers/my-addresses`,
            method: 'GET',
+           
            
            
         });
@@ -66,6 +71,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as AddressDTO;
    }
@@ -74,6 +80,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/customers/my-addresses/${addressId}`,
            method: 'GET',
+           
            
            
         });
@@ -86,6 +93,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as AddressDTO;
    }
@@ -94,6 +102,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/customers/my-addresses/${addressId}`,
            method: 'DELETE',
+           
            
            
         });
@@ -106,6 +115,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CustomerDTO;
    }
@@ -115,6 +125,7 @@ export class CustomersAPI extends BaseAPI {
            path: `/users/customers`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -126,6 +137,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -134,6 +146,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/customers/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -146,6 +159,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CustomerDTO;
    }
@@ -154,6 +168,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/customers/${id}`,
            method: 'DELETE',
+           
            
            
         });
@@ -166,6 +181,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -176,6 +192,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -186,6 +203,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -196,6 +214,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CustomerDTO;
    }
@@ -204,6 +223,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/customers/${customerId}/addresses`,
            method: 'GET',
+           
            
            
         });
@@ -216,6 +236,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as AddressDTO;
    }
@@ -224,6 +245,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/customers/${customerId}/addresses/${addressId}`,
            method: 'GET',
+           
            
            
         });
@@ -236,6 +258,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as AddressDTO;
    }
@@ -244,6 +267,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/customers/${customerId}/addresses/${addressId}`,
            method: 'DELETE',
+           
            
            
         });
@@ -256,6 +280,7 @@ export class CustomersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CustomerDTO[];
    }
@@ -265,6 +290,7 @@ export class CustomersAPI extends BaseAPI {
            path: `/users/customers/export/csv`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;

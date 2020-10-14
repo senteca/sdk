@@ -9,6 +9,7 @@ export class StatesAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as StateDTO;
    }
@@ -19,6 +20,7 @@ export class StatesAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -27,6 +29,7 @@ export class StatesAPI extends BaseAPI {
        const response = await this.request({
            path: `/config/states/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -39,6 +42,7 @@ export class StatesAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as StateDTO;
    }
@@ -49,6 +53,7 @@ export class StatesAPI extends BaseAPI {
            method: 'DELETE',
            
            
+           
         });
        return (response.json() as unknown) as StateDTO;
    }
@@ -57,6 +62,7 @@ export class StatesAPI extends BaseAPI {
        const response = await this.request({
            path: `/config/states/key/${key}`,
            method: 'GET',
+           
            
            
         });

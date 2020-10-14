@@ -24,11 +24,14 @@ module.exports = class ApiMapper {
     url = url.replace(/\{/g, "${"); // {id} -> ${id} to be used for sting interpolation
     const name = actionMethod.operationId; // TODO: operationId alternative ?
     const method = actionMethod.method.toUpperCase();
+    const authMethods = this.mapAuth(actionMethod.security);
     const parameters = this.mapParameters(actionMethod.parameters);
     const bodyParam = this.mapRequestBody(
       actionMethod.requestBody,
       relatedModels
     );
+
+    while (authMethods.length) parameters.unshift(authMethods.shift()); // auth methods always come first
 
     if (bodyParam) {
       parameters.push(bodyParam); // DTO always comes last
@@ -40,6 +43,7 @@ module.exports = class ApiMapper {
 
     const response = this.mapResponse(actionMethod.responses, relatedModels);
 
+    const hasBasicAuth = parameters.some((m) => m.text.startsWith("basicAuth"));
     const hasQueryParam = parameters.some((p) => /^query\??\:/.test(p.text));
     const hasBodyParam = !!bodyParam;
 
@@ -49,9 +53,26 @@ module.exports = class ApiMapper {
       method,
       parameters,
       response,
+      hasBasicAuth,
       hasQueryParam,
       hasBodyParam,
     };
+  }
+
+  static mapAuth(security) {
+    if (!security) {
+      return [];
+    }
+
+    const authMethods = security
+      .map((auth) => {
+        if (auth.hasOwnProperty("basic")) {
+          return { text: `basicAuth: { username: string, password: string }` };
+        }
+      })
+      .filter((x) => x);
+
+    return authMethods;
   }
 
   static mapParameters(parameters) {

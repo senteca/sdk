@@ -9,6 +9,7 @@ export class InternationalsAPI extends BaseAPI {
            method: 'GET',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -19,6 +20,7 @@ export class InternationalsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }

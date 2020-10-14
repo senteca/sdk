@@ -22,6 +22,14 @@ export class BaseAPI {
     if (config.token) {
       headers["Authorization"] = `Bearer ${config.token}`;
     }
+
+    if (context.basicAuth) {
+      const { username, password } = context.basicAuth;
+      headers["Authorization"] = `Basic ${this.base64(
+        [username, password].join(":")
+      )}`;
+    }
+
     const init = {
       method: context.method,
       headers: headers,
@@ -47,6 +55,15 @@ export class BaseAPI {
     );
     return response;
   };
+
+  private base64(inputStr: string) {
+    if (typeof btoa !== "undefined") {
+      return btoa(inputStr);
+    } else if (typeof Buffer !== "undefined") {
+      return Buffer.from(inputStr, "utf-8").toString("base64");
+    }
+    return inputStr;
+  }
 }
 
 export interface RequestOptions {
@@ -54,6 +71,7 @@ export interface RequestOptions {
   method: string;
   query?: string;
   body?: any;
+  basicAuth?: { username: string; password: string };
 }
 
 export type FetchAPI = WindowOrWorkerGlobalScope["fetch"];

@@ -9,6 +9,7 @@ export class CartDiscountsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CartDiscountDTO[];
    }
@@ -18,6 +19,7 @@ export class CartDiscountsAPI extends BaseAPI {
            path: `/fulfillment/cart-discounts/search`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -29,6 +31,7 @@ export class CartDiscountsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -39,6 +42,7 @@ export class CartDiscountsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CartDiscountDTO;
    }
@@ -47,6 +51,7 @@ export class CartDiscountsAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/cart-discounts/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -59,6 +64,7 @@ export class CartDiscountsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CartDiscountDTO;
    }
@@ -67,6 +73,7 @@ export class CartDiscountsAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/cart-discounts/${id}`,
            method: 'DELETE',
+           
            
            
         });

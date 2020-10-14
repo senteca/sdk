@@ -18,6 +18,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -28,6 +29,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -38,6 +40,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -48,6 +51,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -58,6 +62,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDraftDTO[];
    }
@@ -68,6 +73,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -78,6 +84,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -86,6 +93,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/products/${productId}/${variantId}/offers/${priceListKey}/${merchantKey}`,
            method: 'DELETE',
+           
            
            
         });
@@ -98,6 +106,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -108,6 +117,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'PATCH',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -118,6 +128,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -128,6 +139,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -138,6 +150,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -148,6 +161,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -158,6 +172,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -166,6 +181,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/products/${productId}/assets/${assetIndex}`,
            method: 'DELETE',
+           
            
            
         });
@@ -178,6 +194,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -187,6 +204,7 @@ export class ProductsAPI extends BaseAPI {
            path: `/merchandise/products`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -198,6 +216,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -206,6 +225,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/products/slugs/${languageCode}`,
            method: 'GET',
+           
            
            
         });
@@ -218,6 +238,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -228,6 +249,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -236,6 +258,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/products/${id}`,
            method: 'DELETE',
+           
            
            
         });
@@ -248,6 +271,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -257,6 +281,7 @@ export class ProductsAPI extends BaseAPI {
            path: `/merchandise/products/externalId/${externalId}`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as ProductDTO;
@@ -268,6 +293,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -276,6 +302,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/products/externalId/${id}`,
            method: 'DELETE',
+           
            
            
         });
@@ -288,6 +315,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'POST',
            
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -296,6 +324,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/products/${productId}/${variantId}/images/${imageId}`,
            method: 'PATCH',
+           
            
            
         });
@@ -308,6 +337,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'PUT',
            
            
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -318,6 +348,7 @@ export class ProductsAPI extends BaseAPI {
            method: 'DELETE',
            
            
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -326,6 +357,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/products/${productId}/images`,
            method: 'DELETE',
+           
            
            
         });

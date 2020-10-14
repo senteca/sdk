@@ -14,6 +14,7 @@ export class UsersAPI extends BaseAPI {
            method: 'GET',
            
            
+           
         });
        return (response.json() as unknown) as UserDTO;
    }
@@ -24,6 +25,7 @@ export class UsersAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as UserDTO;
    }
@@ -34,6 +36,7 @@ export class UsersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as UserDTO;
    }
@@ -44,6 +47,7 @@ export class UsersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -54,6 +58,7 @@ export class UsersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as UserDTO;
    }
@@ -63,6 +68,7 @@ export class UsersAPI extends BaseAPI {
            path: `/users/users`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -74,6 +80,7 @@ export class UsersAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as UserDTO;
    }
@@ -82,6 +89,7 @@ export class UsersAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/users/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -94,6 +102,7 @@ export class UsersAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as UserDTO;
    }
@@ -102,6 +111,7 @@ export class UsersAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/users/${id}`,
            method: 'DELETE',
+           
            
            
         });

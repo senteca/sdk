@@ -9,6 +9,7 @@ export class ContentsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ContentDTO;
    }
@@ -18,6 +19,7 @@ export class ContentsAPI extends BaseAPI {
            path: `/cms/contents`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -29,6 +31,7 @@ export class ContentsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ContentDTO;
    }
@@ -37,6 +40,7 @@ export class ContentsAPI extends BaseAPI {
        const response = await this.request({
            path: `/cms/contents/${id}`,
            method: 'DELETE',
+           
            
            
         });

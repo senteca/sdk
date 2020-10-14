@@ -11,6 +11,7 @@ export class {{name}} extends BaseAPI {
            method: '{{method}}',
            {{#hasQueryParam}}query: this.stringifyQuery(query),{{/hasQueryParam}}
            {{#hasBodyParam}}body: dto,{{/hasBodyParam}}
+           {{#hasBasicAuth}}basicAuth,{{/hasBasicAuth}}
         });
        return (response.json() as unknown) as {{response}};
    }

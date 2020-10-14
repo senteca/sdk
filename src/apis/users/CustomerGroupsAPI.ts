@@ -8,6 +8,7 @@ export class CustomerGroupsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -18,6 +19,7 @@ export class CustomerGroupsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -26,6 +28,7 @@ export class CustomerGroupsAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/customer-groups/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -38,6 +41,7 @@ export class CustomerGroupsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -46,6 +50,7 @@ export class CustomerGroupsAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/customer-groups/${id}`,
            method: 'DELETE',
+           
            
            
         });

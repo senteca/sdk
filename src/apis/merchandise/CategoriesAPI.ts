@@ -10,6 +10,7 @@ export class CategoriesAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CategoryDTO;
    }
@@ -20,6 +21,7 @@ export class CategoriesAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CategoryDTO;
    }
@@ -28,6 +30,7 @@ export class CategoriesAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/categories/${categoryId}/assets/${assetIndex}`,
            method: 'DELETE',
+           
            
            
         });
@@ -40,6 +43,7 @@ export class CategoriesAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -49,6 +53,7 @@ export class CategoriesAPI extends BaseAPI {
            path: `/merchandise/categories`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -60,6 +65,7 @@ export class CategoriesAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CategoryDTO;
    }
@@ -68,6 +74,7 @@ export class CategoriesAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/categories/slugs/${languageCode}`,
            method: 'GET',
+           
            
            
         });
@@ -80,6 +87,7 @@ export class CategoriesAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as CategoryDTO;
    }
@@ -90,6 +98,7 @@ export class CategoriesAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CategoryDTO;
    }
@@ -98,6 +107,7 @@ export class CategoriesAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/categories/${id}`,
            method: 'DELETE',
+           
            
            
         });
@@ -110,6 +120,7 @@ export class CategoriesAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as CategoryDTO;
    }
@@ -119,6 +130,7 @@ export class CategoriesAPI extends BaseAPI {
            path: `/merchandise/categories/slug/${languageCode}/${slug}`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as CategoryDTO;
@@ -130,6 +142,7 @@ export class CategoriesAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CategoryDTO[];
    }
@@ -140,6 +153,7 @@ export class CategoriesAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CategoryDTO;
    }
@@ -148,6 +162,7 @@ export class CategoriesAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/categories/external/${id}`,
            method: 'DELETE',
+           
            
            
         });

@@ -9,6 +9,7 @@ export class PagesAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as PageDTO;
    }
@@ -18,6 +19,7 @@ export class PagesAPI extends BaseAPI {
            path: `/cms/pages`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -29,6 +31,7 @@ export class PagesAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as PageDTO;
    }
@@ -37,6 +40,7 @@ export class PagesAPI extends BaseAPI {
        const response = await this.request({
            path: `/cms/pages/${id}`,
            method: 'DELETE',
+           
            
            
         });

@@ -7,6 +7,7 @@ export class MediaAPI extends BaseAPI {
            method: 'POST',
            
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -17,6 +18,7 @@ export class MediaAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -25,6 +27,7 @@ export class MediaAPI extends BaseAPI {
        const response = await this.request({
            path: `/cms/media`,
            method: 'DELETE',
+           
            
            
         });

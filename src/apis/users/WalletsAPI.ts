@@ -9,6 +9,7 @@ export class WalletsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -19,6 +20,7 @@ export class WalletsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as WalletDTO;
    }
@@ -27,6 +29,7 @@ export class WalletsAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/wallets/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -39,6 +42,7 @@ export class WalletsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as WalletDTO;
    }
@@ -47,6 +51,7 @@ export class WalletsAPI extends BaseAPI {
        const response = await this.request({
            path: `/users/wallets/${id}`,
            method: 'DELETE',
+           
            
            
         });
@@ -59,6 +64,7 @@ export class WalletsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -69,6 +75,7 @@ export class WalletsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as WalletDTO[];
    }

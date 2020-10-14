@@ -10,6 +10,7 @@ export class ViewsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ViewDTO;
    }
@@ -20,6 +21,7 @@ export class ViewsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ViewDTO;
    }
@@ -28,6 +30,7 @@ export class ViewsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/views/${viewId}/assets/${assetIndex}`,
            method: 'DELETE',
+           
            
            
         });
@@ -40,6 +43,7 @@ export class ViewsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -50,6 +54,7 @@ export class ViewsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ViewDTO;
    }
@@ -60,6 +65,7 @@ export class ViewsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -68,6 +74,7 @@ export class ViewsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/views/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -80,6 +87,7 @@ export class ViewsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ViewDTO;
    }
@@ -90,6 +98,7 @@ export class ViewsAPI extends BaseAPI {
            method: 'DELETE',
            
            
+           
         });
        return (response.json() as unknown) as ViewDTO;
    }
@@ -98,6 +107,7 @@ export class ViewsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/views/slug/${language}/${slug}`,
            method: 'GET',
+           
            
            
         });

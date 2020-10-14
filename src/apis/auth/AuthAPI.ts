@@ -5,12 +5,13 @@ import { PasswordGrantTokenRequestDTO } from '../../models/PasswordGrantTokenReq
 import { FacebookTokenRequestDTO } from '../../models/FacebookTokenRequestDTO';
 
 export class AuthAPI extends BaseAPI {
-   async getToken (dto: TokenRequestDTO): Promise<AccessTokenDTO> {
+   async getToken (basicAuth: { username: string, password: string }, dto: TokenRequestDTO): Promise<AccessTokenDTO> {
        const response = await this.request({
            path: `/auth/auth/token`,
            method: 'POST',
            
            body: dto,
+           basicAuth,
         });
        return (response.json() as unknown) as AccessTokenDTO;
    }
@@ -21,26 +22,29 @@ export class AuthAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as AccessTokenDTO;
    }
 
-   async getFacebookToken (dto: FacebookTokenRequestDTO): Promise<AccessTokenDTO> {
+   async getFacebookToken (basicAuth: { username: string, password: string }, dto: FacebookTokenRequestDTO): Promise<AccessTokenDTO> {
        const response = await this.request({
            path: `/auth/auth/facebook/token`,
            method: 'POST',
            
            body: dto,
+           basicAuth,
         });
        return (response.json() as unknown) as AccessTokenDTO;
    }
 
-   async getAnonymousToken (dto: TokenRequestDTO): Promise<AccessTokenDTO> {
+   async getAnonymousToken (basicAuth: { username: string, password: string }, dto: TokenRequestDTO): Promise<AccessTokenDTO> {
        const response = await this.request({
            path: `/auth/auth/anonymous/token`,
            method: 'POST',
            
            body: dto,
+           basicAuth,
         });
        return (response.json() as unknown) as AccessTokenDTO;
    }

@@ -10,6 +10,7 @@ export class CollectionsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CollectionDTO;
    }
@@ -20,6 +21,7 @@ export class CollectionsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CollectionDTO;
    }
@@ -28,6 +30,7 @@ export class CollectionsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/collections/${collectionId}/assets/${assetIndex}`,
            method: 'DELETE',
+           
            
            
         });
@@ -40,6 +43,7 @@ export class CollectionsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -50,6 +54,7 @@ export class CollectionsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CollectionDTO;
    }
@@ -60,6 +65,7 @@ export class CollectionsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -68,6 +74,7 @@ export class CollectionsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/collections/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -80,6 +87,7 @@ export class CollectionsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CollectionDTO;
    }
@@ -88,6 +96,7 @@ export class CollectionsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/collections/${id}`,
            method: 'DELETE',
+           
            
            
         });
@@ -100,6 +109,7 @@ export class CollectionsAPI extends BaseAPI {
            method: 'GET',
            
            
+           
         });
        return (response.json() as unknown) as CollectionDTO;
    }
@@ -108,6 +118,7 @@ export class CollectionsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/collections/slug/${lang}/${slug}`,
            method: 'GET',
+           
            
            
         });

@@ -9,6 +9,7 @@ export class ThemesAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ThemeDTO;
    }
@@ -17,6 +18,7 @@ export class ThemesAPI extends BaseAPI {
        const response = await this.request({
            path: `/cms/themes/themeKey=${themeKey}/viewKey=${viewKey}`,
            method: 'DELETE',
+           
            
            
         });

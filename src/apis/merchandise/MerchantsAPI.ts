@@ -9,6 +9,7 @@ export class MerchantsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -19,6 +20,7 @@ export class MerchantsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as MerchantDTO;
    }
@@ -27,6 +29,7 @@ export class MerchantsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/merchants/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -39,6 +42,7 @@ export class MerchantsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as MerchantDTO;
    }
@@ -47,6 +51,7 @@ export class MerchantsAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/merchants/${id}`,
            method: 'DELETE',
+           
            
            
         });

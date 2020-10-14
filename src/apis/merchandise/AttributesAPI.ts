@@ -9,6 +9,7 @@ export class AttributesAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -18,6 +19,7 @@ export class AttributesAPI extends BaseAPI {
            path: `/merchandise/attributes`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -29,6 +31,7 @@ export class AttributesAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as AttributeDTO;
    }
@@ -37,6 +40,7 @@ export class AttributesAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/attributes/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -49,6 +53,7 @@ export class AttributesAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as AttributeDTO;
    }
@@ -57,6 +62,7 @@ export class AttributesAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/attributes/${id}`,
            method: 'DELETE',
+           
            
            
         });
@@ -69,6 +75,7 @@ export class AttributesAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as AttributeDTO[];
    }
@@ -79,6 +86,7 @@ export class AttributesAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as AttributeDTO;
    }
@@ -87,6 +95,7 @@ export class AttributesAPI extends BaseAPI {
        const response = await this.request({
            path: `/merchandise/attributes/name/${name}`,
            method: 'DELETE',
+           
            
            
         });

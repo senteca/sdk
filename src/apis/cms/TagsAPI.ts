@@ -9,6 +9,7 @@ export class TagsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as TagDTO;
    }
@@ -18,6 +19,7 @@ export class TagsAPI extends BaseAPI {
            path: `/cms/tags`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -29,6 +31,7 @@ export class TagsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as TagDTO;
    }
@@ -37,6 +40,7 @@ export class TagsAPI extends BaseAPI {
        const response = await this.request({
            path: `/cms/tags/${id}`,
            method: 'DELETE',
+           
            
            
         });

@@ -10,6 +10,7 @@ export class CustomFieldsAPI extends BaseAPI {
            method: 'PUT',
            
            
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -20,6 +21,7 @@ export class CustomFieldsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -30,6 +32,7 @@ export class CustomFieldsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CustomFieldDTO;
    }
@@ -40,6 +43,7 @@ export class CustomFieldsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -48,6 +52,7 @@ export class CustomFieldsAPI extends BaseAPI {
        const response = await this.request({
            path: `/config/custom-fields/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -60,6 +65,7 @@ export class CustomFieldsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as CustomFieldDTO;
    }
@@ -68,6 +74,7 @@ export class CustomFieldsAPI extends BaseAPI {
        const response = await this.request({
            path: `/config/custom-fields/${id}`,
            method: 'DELETE',
+           
            
            
         });

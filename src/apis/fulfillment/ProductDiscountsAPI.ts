@@ -9,6 +9,7 @@ export class ProductDiscountsAPI extends BaseAPI {
            method: 'GET',
            query: this.stringifyQuery(query),
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -18,6 +19,7 @@ export class ProductDiscountsAPI extends BaseAPI {
            path: `/fulfillment/product-discounts`,
            method: 'GET',
            query: this.stringifyQuery(query),
+           
            
         });
        return (response.json() as unknown) as void;
@@ -29,6 +31,7 @@ export class ProductDiscountsAPI extends BaseAPI {
            method: 'POST',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDiscountDTO;
    }
@@ -37,6 +40,7 @@ export class ProductDiscountsAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/product-discounts/${id}`,
            method: 'GET',
+           
            
            
         });
@@ -49,6 +53,7 @@ export class ProductDiscountsAPI extends BaseAPI {
            method: 'PUT',
            
            body: dto,
+           
         });
        return (response.json() as unknown) as ProductDiscountDTO;
    }
@@ -57,6 +62,7 @@ export class ProductDiscountsAPI extends BaseAPI {
        const response = await this.request({
            path: `/fulfillment/product-discounts/${id}`,
            method: 'DELETE',
+           
            
            
         });
