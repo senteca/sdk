@@ -32,4 +32,5 @@ export enum IdReferenceDTOResourceTypeEnum {
     State = 'state',  
     CmsFolder = 'cms-folder',  
     CmsType = 'cms-type',  
+    StockLocation = 'stock-location',  
 }

@@ -33,4 +33,5 @@ export enum BulkLinkUpdateDTOLinkTypeEnum {
     State = 'state',  
     CmsFolder = 'cms-folder',  
     CmsType = 'cms-type',  
+    StockLocation = 'stock-location',  
 }

@@ -9,3 +9,4 @@ export * from "./StoreViewsAPI";
 export * from "./StoresAPI";
 export * from "./SubscriptionsAPI";
 export * from "./TaxCategoriesAPI";
+export * from "./ZonesAPI";

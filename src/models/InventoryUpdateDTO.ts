@@ -1,6 +1,6 @@
 
 export interface InventoryUpdateDTO {
-  warehouseKey: string;
+  stockLocationKey: string;
   merchantKey: string;
   quantity: number;
 }

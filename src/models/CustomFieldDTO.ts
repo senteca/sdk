@@ -52,4 +52,5 @@ export enum CustomFieldDTOResourceTypeIdEnum {
     State = 'state',  
     CmsFolder = 'cms-folder',  
     CmsType = 'cms-type',  
+    StockLocation = 'stock-location',  
 }
