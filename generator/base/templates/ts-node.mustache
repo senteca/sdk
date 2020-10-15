@@ -1,4 +1,14 @@
 export class BaseAPI {
+  private config: Configuration;
+
+  constructor(config: Configuration = null) {
+    this.config = config;
+  }
+
+  private getOptions(): ConfigOptions {
+    return this.config ? this.config.options : Configuration.getGlobal();
+  }
+
   protected async request(context: RequestOptions): Promise<Response> {
     const { url, init } = this.createFetchParams(context);
     const response = await this.fetchApi(url, init);
@@ -9,9 +19,9 @@ export class BaseAPI {
   }
 
   private createFetchParams(context: RequestOptions) {
-    const config = Config.getGlobal();
+    const options = this.getOptions();
 
-    let url = config.basePath + context.path;
+    let url = options.basePath + context.path;
     if (context.query) {
       url += `?${context.query}`;
     }
@@ -19,8 +29,8 @@ export class BaseAPI {
 
     const headers = {};
     headers["Content-Type"] = "application/json";
-    if (config.token) {
-      headers["Authorization"] = `Bearer ${config.token}`;
+    if (options.token) {
+      headers["Authorization"] = `Bearer ${options.token}`;
     }
 
     if (context.basicAuth) {
@@ -49,7 +59,7 @@ export class BaseAPI {
 
   private fetchApi = async (url: string, init: RequestInit) => {
     let fetchParams = { url, init };
-    let response = await Config.getGlobal().fetchApi(
+    let response = await this.getOptions().fetchApi(
       fetchParams.url,
       fetchParams.init
     );
@@ -82,14 +92,19 @@ export interface ConfigOptions {
   token?: string;
 }
 
-export class Config {
+export class Configuration {
+  public options: ConfigOptions;
+  constructor(options: ConfigOptions) {
+    this.options = options;
+  }
+
   static options: ConfigOptions;
 
-  static setGlobal(o: ConfigOptions): void {
-    Config.options = o;
+  static setGlobal(options: ConfigOptions): void {
+    Configuration.options = options;
   }
 
   static getGlobal(): ConfigOptions {
-    return Config.options;
+    return Configuration.options;
   }
 }
