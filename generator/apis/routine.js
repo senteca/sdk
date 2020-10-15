@@ -69,9 +69,7 @@ module.exports = class ApisRoutine {
   static async createIndexFile() {
     const path = resolveRoot(outputDir, "apis");
     const apps = await readDirAsync(path);
-    const content = apps
-      .map((app) => `export * as ${app} from "./${app}";`)
-      .join("\n");
+    const content = apps.map((app) => `export * from "./${app}";`).join("\n");
     await writeFileAsync(`${path}/index.ts`, content, {
       encoding: "utf-8",
     });

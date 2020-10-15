@@ -1,6 +1,6 @@
-export * as auth from "./auth";
-export * as cms from "./cms";
-export * as config from "./config";
-export * as fulfillment from "./fulfillment";
-export * as merchandise from "./merchandise";
-export * as users from "./users";
+export * from "./auth";
+export * from "./cms";
+export * from "./config";
+export * from "./fulfillment";
+export * from "./merchandise";
+export * from "./users";
