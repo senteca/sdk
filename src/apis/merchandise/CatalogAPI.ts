@@ -36,9 +36,9 @@ export class CatalogAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async syncCatalogFrom (from: number): Promise<void> {
+   async syncFrom (from: number): Promise<void> {
        const response = await this._request({
-           path: `/merchandise/catalog/sync/${from}`,
+           path: `/merchandise/catalog/sync/from=${from}`,
            method: 'POST',
            
            
@@ -69,9 +69,9 @@ export class CatalogAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async updateSynonym (synonymId: string, dto: SynonymDraftDTO): Promise<SynonymDTO> {
+   async updateSynonym (id: string, dto: SynonymDraftDTO): Promise<SynonymDTO> {
        const response = await this._request({
-           path: `/merchandise/catalog/synonyms/${synonymId}`,
+           path: `/merchandise/catalog/synonyms/${id}`,
            method: 'PUT',
            
            body: dto,

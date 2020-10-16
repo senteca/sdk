@@ -60,7 +60,7 @@ export class PriceListsAPI extends BaseAPI {
 
    async getByKey (key: string): Promise<PriceListDTO> {
        const response = await this._request({
-           path: `/merchandise/price-lists/key/${key}`,
+           path: `/merchandise/price-lists/key=${key}`,
            method: 'GET',
            
            

@@ -16,7 +16,7 @@ export class BrandsAPI extends BaseAPI {
        return (response.json() as unknown) as BrandDTO;
    }
 
-   async updateAsset (id: string, index: number, dto: AssetDTO): Promise<BrandDTO> {
+   async updateAssetByIndex (id: string, index: number, dto: AssetDTO): Promise<BrandDTO> {
        const response = await this._request({
            path: `/merchandise/brands/${id}/assets/index=${index}`,
            method: 'PUT',
@@ -27,7 +27,7 @@ export class BrandsAPI extends BaseAPI {
        return (response.json() as unknown) as BrandDTO;
    }
 
-   async deleteAsset (id: string, index: number): Promise<BrandDTO> {
+   async deleteAssetByIndex (id: string, index: number): Promise<BrandDTO> {
        const response = await this._request({
            path: `/merchandise/brands/${id}/assets/index=${index}`,
            method: 'DELETE',

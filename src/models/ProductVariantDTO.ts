@@ -1,14 +1,14 @@
-import { OfferDraftDTO } from './OfferDraftDTO';
+import { OfferDTO } from './OfferDTO';
 import { InventoryDTO } from './InventoryDTO';
 import { ProductAttributeDTO } from './ProductAttributeDTO';
 import { ImageSetDTO } from './ImageSetDTO';
 
 export interface ProductVariantDTO {
+  offers: OfferDTO[];
   id: string;
   sku: string;
   masterBarcode?: string;
   barcodes: string[];
-  offers: OfferDraftDTO[];
   inventories: InventoryDTO[];
   attributes: ProductAttributeDTO[];
   imageSets: ImageSetDTO[];

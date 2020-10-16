@@ -59,11 +59,15 @@ export class BaseAPI {
 
   private fetchApi = async (url: string, init: RequestInit) => {
     let fetchParams = { url, init };
-    let response = await this.getOptions().fetchApi(
-      fetchParams.url,
-      fetchParams.init
-    );
-    return response;
+
+    const fetch =
+      this.getOptions().fetchApi || typeof window !== "undefined"
+        ? window.fetch.bind(window)
+        : null;
+
+    if (fetch) {
+      return fetch(fetchParams.url, fetchParams.init);
+    }
   };
 
   private base64(inputStr: string) {

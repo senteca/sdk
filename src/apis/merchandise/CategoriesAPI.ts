@@ -4,9 +4,9 @@ import { CategoryDTO } from '../../models/CategoryDTO';
 import { CategoryDraftDTO } from '../../models/CategoryDraftDTO';
 
 export class CategoriesAPI extends BaseAPI {
-   async addCategoryAsset (categoryId: string, dto: AssetDTO): Promise<CategoryDTO> {
+   async createAsset (id: string, dto: AssetDTO): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/${categoryId}/assets`,
+           path: `/merchandise/categories/${id}/assets`,
            method: 'POST',
            
            body: dto,
@@ -15,9 +15,9 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategoryDTO;
    }
 
-   async updateCategoryAsset (categoryId: string, assetIndex: number, dto: AssetDTO): Promise<CategoryDTO> {
+   async updateAssetByIndex (id: string, index: number, dto: AssetDTO): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/${categoryId}/assets/${assetIndex}`,
+           path: `/merchandise/categories/${id}/assets/index=${index}`,
            method: 'PUT',
            
            body: dto,
@@ -26,9 +26,9 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategoryDTO;
    }
 
-   async removeCategoryAsset (categoryId: string, assetIndex: number): Promise<CategoryDTO> {
+   async deleteAssetByIndex (id: string, index: number): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/${categoryId}/assets/${assetIndex}`,
+           path: `/merchandise/categories/${id}/assets/index=${index}`,
            method: 'DELETE',
            
            
@@ -70,9 +70,9 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategoryDTO;
    }
 
-   async getCategorySlugs (languageCode: string): Promise<string[]> {
+   async getSlugs (lang: string): Promise<string[]> {
        const response = await this._request({
-           path: `/merchandise/categories/slugs/${languageCode}`,
+           path: `/merchandise/categories/slugs/lang=${lang}`,
            method: 'GET',
            
            
@@ -116,7 +116,7 @@ export class CategoriesAPI extends BaseAPI {
 
    async getByExternalId (externalId: string, query?: { expand?: string[], statuses?: string[] }): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/external/${externalId}`,
+           path: `/merchandise/categories/externalId=${externalId}`,
            method: 'GET',
            query: this._stringifyQuery(query),
            
@@ -125,31 +125,9 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategoryDTO;
    }
 
-   async getBySlug (languageCode: string, slug: string, query?: { expand?: string[], statuses?: string[] }): Promise<CategoryDTO> {
+   async updateByExternalId (externalId: string, dto: CategoryDraftDTO): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/slug/${languageCode}/${slug}`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-        });
-       return (response.json() as unknown) as CategoryDTO;
-   }
-
-   async importCategories (dto: CategoryDraftDTO[]): Promise<CategoryDTO[]> {
-       const response = await this._request({
-           path: `/merchandise/categories/import`,
-           method: 'POST',
-           
-           body: dto,
-           
-        });
-       return (response.json() as unknown) as CategoryDTO[];
-   }
-
-   async updateCategoryByExternalId (id: string, dto: CategoryDraftDTO): Promise<CategoryDTO> {
-       const response = await this._request({
-           path: `/merchandise/categories/external/${id}`,
+           path: `/merchandise/categories/externalId=${externalId}`,
            method: 'PUT',
            
            body: dto,
@@ -158,15 +136,37 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategoryDTO;
    }
 
-   async deleteCategoryByExternalId (id: string): Promise<CategoryDTO> {
+   async deleteByExternalId (externalId: string): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/external/${id}`,
+           path: `/merchandise/categories/externalId=${externalId}`,
            method: 'DELETE',
            
            
            
         });
        return (response.json() as unknown) as CategoryDTO;
+   }
+
+   async getBySlug (slug: string, lang: string, query?: { expand?: string[], statuses?: string[] }): Promise<CategoryDTO> {
+       const response = await this._request({
+           path: `/merchandise/categories/slug=${slug}/lang=${lang}`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+        });
+       return (response.json() as unknown) as CategoryDTO;
+   }
+
+   async import (dto: CategoryDraftDTO[]): Promise<CategoryDTO[]> {
+       const response = await this._request({
+           path: `/merchandise/categories/import`,
+           method: 'POST',
+           
+           body: dto,
+           
+        });
+       return (response.json() as unknown) as CategoryDTO[];
    }
 
 }

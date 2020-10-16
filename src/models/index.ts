@@ -154,6 +154,7 @@ export * from "./SubRateDTO";
 export * from "./SubscriptionDTO";
 export * from "./SubscriptionDraftDTO";
 export * from "./SubtotalDiscountDTO";
+export * from "./SwapIndexDTO";
 export * from "./SynonymDTO";
 export * from "./SynonymDraftDTO";
 export * from "./TagDTO";

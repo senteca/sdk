@@ -4,9 +4,9 @@ import { CollectionDTO } from '../../models/CollectionDTO';
 import { CollectionDraftDTO } from '../../models/CollectionDraftDTO';
 
 export class CollectionsAPI extends BaseAPI {
-   async addCollectionAsset (collectionId: string, dto: AssetDTO): Promise<CollectionDTO> {
+   async createAsset (id: string, dto: AssetDTO): Promise<CollectionDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/${collectionId}/assets`,
+           path: `/merchandise/collections/${id}/assets`,
            method: 'POST',
            
            body: dto,
@@ -15,9 +15,9 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionDTO;
    }
 
-   async updateCollectionAsset (collectionId: string, assetIndex: number, dto: AssetDTO): Promise<CollectionDTO> {
+   async updateAssetByIndex (id: string, index: number, dto: AssetDTO): Promise<CollectionDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/${collectionId}/assets/${assetIndex}`,
+           path: `/merchandise/collections/${id}/assets/index=${index}`,
            method: 'PUT',
            
            body: dto,
@@ -26,9 +26,9 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionDTO;
    }
 
-   async removeCollectionAsset (collectionId: string, assetIndex: number): Promise<CollectionDTO> {
+   async deleteAssetByIndex (id: string, index: number): Promise<CollectionDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/${collectionId}/assets/${assetIndex}`,
+           path: `/merchandise/collections/${id}/assets/index=${index}`,
            method: 'DELETE',
            
            
@@ -105,7 +105,7 @@ export class CollectionsAPI extends BaseAPI {
 
    async getByExternalId (externalId: string): Promise<CollectionDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/external/${externalId}`,
+           path: `/merchandise/collections/externalId=${externalId}`,
            method: 'GET',
            
            
@@ -114,9 +114,9 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionDTO;
    }
 
-   async getBySlug (lang: string, slug: string): Promise<CollectionDTO> {
+   async getBySlug (slug: string, lang: string): Promise<CollectionDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/slug/${lang}/${slug}`,
+           path: `/merchandise/collections/slug=${slug}/lang=${lang}`,
            method: 'GET',
            
            

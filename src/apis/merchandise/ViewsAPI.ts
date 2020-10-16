@@ -4,9 +4,9 @@ import { ViewDTO } from '../../models/ViewDTO';
 import { ViewDraftDTO } from '../../models/ViewDraftDTO';
 
 export class ViewsAPI extends BaseAPI {
-   async addViewAsset (viewId: string, dto: AssetDTO): Promise<ViewDTO> {
+   async createAsset (id: string, dto: AssetDTO): Promise<ViewDTO> {
        const response = await this._request({
-           path: `/merchandise/views/${viewId}/assets`,
+           path: `/merchandise/views/${id}/assets`,
            method: 'POST',
            
            body: dto,
@@ -15,9 +15,9 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async updateViewAsset (viewId: string, assetIndex: number, dto: AssetDTO): Promise<ViewDTO> {
+   async updateAssetByIndex (id: string, index: number, dto: AssetDTO): Promise<ViewDTO> {
        const response = await this._request({
-           path: `/merchandise/views/${viewId}/assets/${assetIndex}`,
+           path: `/merchandise/views/${id}/assets/index=${index}`,
            method: 'PUT',
            
            body: dto,
@@ -26,9 +26,9 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async removeViewAsset (viewId: string, assetIndex: number): Promise<ViewDTO> {
+   async deleteAssetByIndex (id: string, index: number): Promise<ViewDTO> {
        const response = await this._request({
-           path: `/merchandise/views/${viewId}/assets/${assetIndex}`,
+           path: `/merchandise/views/${id}/assets/index=${index}`,
            method: 'DELETE',
            
            
@@ -103,9 +103,9 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async getBySlug (language: string, slug: string): Promise<ViewDTO> {
+   async getBySlug (slug: string, lang: string): Promise<ViewDTO> {
        const response = await this._request({
-           path: `/merchandise/views/slug/${language}/${slug}`,
+           path: `/merchandise/views/slug=${slug}/lang=${lang}`,
            method: 'GET',
            
            
