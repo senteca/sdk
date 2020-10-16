@@ -10,9 +10,9 @@ import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
 import { PasswordResetDTO } from '../../models/PasswordResetDTO';
 
 export class CustomersAPI extends BaseAPI {
-   async getCustomerProfile (): Promise<CustomerDTO> {
-       const response = await this.request({
-           path: `/users/customers/profile`,
+   async getMyProfile (): Promise<CustomerDTO> {
+       const response = await this._request({
+           path: `/users/customers/my-profile`,
            method: 'GET',
            
            
@@ -21,9 +21,9 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async updateCustomerProfile (dto: CustomerUpdateDTO): Promise<CustomerDTO> {
-       const response = await this.request({
-           path: `/users/customers/profile`,
+   async updateMyProfile (dto: CustomerUpdateDTO): Promise<CustomerDTO> {
+       const response = await this._request({
+           path: `/users/customers/my-profile`,
            method: 'PUT',
            
            body: dto,
@@ -32,9 +32,9 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async deleteCustomerProfile (): Promise<CustomerDTO> {
-       const response = await this.request({
-           path: `/users/customers/profile`,
+   async deleteMyProfile (): Promise<CustomerDTO> {
+       const response = await this._request({
+           path: `/users/customers/my-profile`,
            method: 'DELETE',
            
            
@@ -43,8 +43,8 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async changeCustomerPassword (dto: PasswordChangeDTO): Promise<CustomerDTO> {
-       const response = await this.request({
+   async changePassword (dto: PasswordChangeDTO): Promise<CustomerDTO> {
+       const response = await this._request({
            path: `/users/customers/password`,
            method: 'POST',
            
@@ -55,7 +55,7 @@ export class CustomersAPI extends BaseAPI {
    }
 
    async getMyAddresses (): Promise<AddressDTO[]> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/users/customers/my-addresses`,
            method: 'GET',
            
@@ -66,7 +66,7 @@ export class CustomersAPI extends BaseAPI {
    }
 
    async createMyAddress (dto: AddressDTO): Promise<AddressDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/users/customers/my-addresses`,
            method: 'POST',
            
@@ -76,9 +76,9 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
-   async findMyAddressById (addressId: string): Promise<AddressDTO> {
-       const response = await this.request({
-           path: `/users/customers/my-addresses/${addressId}`,
+   async getMyAddressById (id: string): Promise<AddressDTO> {
+       const response = await this._request({
+           path: `/users/customers/my-addresses/${id}`,
            method: 'GET',
            
            
@@ -87,9 +87,9 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
-   async updateMyAddressById (addressId: string, dto: AddressDTO): Promise<AddressDTO> {
-       const response = await this.request({
-           path: `/users/customers/my-addresses/${addressId}`,
+   async updateMyAddress (id: string, dto: AddressDTO): Promise<AddressDTO> {
+       const response = await this._request({
+           path: `/users/customers/my-addresses/${id}`,
            method: 'PUT',
            
            body: dto,
@@ -98,9 +98,9 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
-   async deleteMyAddressById (addressId: string): Promise<AddressDTO> {
-       const response = await this.request({
-           path: `/users/customers/my-addresses/${addressId}`,
+   async deleteMyAddress (id: string): Promise<AddressDTO> {
+       const response = await this._request({
+           path: `/users/customers/my-addresses/${id}`,
            method: 'DELETE',
            
            
@@ -109,8 +109,8 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
-   async createCustomer (dto: CustomerCreateDTO): Promise<CustomerDTO> {
-       const response = await this.request({
+   async create (dto: CustomerCreateDTO): Promise<CustomerDTO> {
+       const response = await this._request({
            path: `/users/customers`,
            method: 'POST',
            
@@ -120,30 +120,30 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async filterCustomers (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/users/customers`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async searchCustomers (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/users/customers/search`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async findCustomerById (id: string): Promise<CustomerDTO> {
-       const response = await this.request({
+   async getById (id: string): Promise<CustomerDTO> {
+       const response = await this._request({
            path: `/users/customers/${id}`,
            method: 'GET',
            
@@ -153,8 +153,8 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async updateCustomerById (id: string, dto: CustomerUpdateDTO): Promise<CustomerDTO> {
-       const response = await this.request({
+   async update (id: string, dto: CustomerUpdateDTO): Promise<CustomerDTO> {
+       const response = await this._request({
            path: `/users/customers/${id}`,
            method: 'PUT',
            
@@ -164,8 +164,8 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async deleteCustomerById (id: string): Promise<object> {
-       const response = await this.request({
+   async delete (id: string): Promise<object> {
+       const response = await this._request({
            path: `/users/customers/${id}`,
            method: 'DELETE',
            
@@ -175,8 +175,8 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async registerCustomer (dto: CustomerRegisterDTO): Promise<object> {
-       const response = await this.request({
+   async register (dto: CustomerRegisterDTO): Promise<object> {
+       const response = await this._request({
            path: `/users/customers/register`,
            method: 'POST',
            
@@ -186,8 +186,8 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async registerCustomerViaFacebook (dto: CustomerRegisterFacebookDTO): Promise<object> {
-       const response = await this.request({
+   async registerFacebook (dto: CustomerRegisterFacebookDTO): Promise<object> {
+       const response = await this._request({
            path: `/users/customers/register/facebook`,
            method: 'POST',
            
@@ -197,8 +197,8 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async requestCustomerPasswordToken (dto: PasswordTokenDTO): Promise<object> {
-       const response = await this.request({
+   async createPasswordToken (dto: PasswordTokenDTO): Promise<object> {
+       const response = await this._request({
            path: `/users/customers/password-token`,
            method: 'POST',
            
@@ -208,8 +208,8 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async resetCustomerPassword (dto: PasswordResetDTO): Promise<CustomerDTO> {
-       const response = await this.request({
+   async resetPassword (dto: PasswordResetDTO): Promise<CustomerDTO> {
+       const response = await this._request({
            path: `/users/customers/password/reset`,
            method: 'POST',
            
@@ -219,8 +219,8 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async getCustomerAddresses (customerId: string): Promise<AddressDTO[]> {
-       const response = await this.request({
+   async getAddresses (customerId: string): Promise<AddressDTO[]> {
+       const response = await this._request({
            path: `/users/customers/${customerId}/addresses`,
            method: 'GET',
            
@@ -230,8 +230,8 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO[];
    }
 
-   async createCustomerAddress (customerId: string, dto: AddressDTO): Promise<AddressDTO> {
-       const response = await this.request({
+   async createAddress (customerId: string, dto: AddressDTO): Promise<AddressDTO> {
+       const response = await this._request({
            path: `/users/customers/${customerId}/addresses`,
            method: 'POST',
            
@@ -241,8 +241,8 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
-   async findCustomerAddressById (customerId: string, addressId: string): Promise<AddressDTO> {
-       const response = await this.request({
+   async getAddressById (customerId: string, addressId: string): Promise<AddressDTO> {
+       const response = await this._request({
            path: `/users/customers/${customerId}/addresses/${addressId}`,
            method: 'GET',
            
@@ -252,8 +252,8 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
-   async updateCustomerAddressById (customerId: string, addressId: string, dto: AddressDTO): Promise<AddressDTO> {
-       const response = await this.request({
+   async updateAddress (customerId: string, addressId: string, dto: AddressDTO): Promise<AddressDTO> {
+       const response = await this._request({
            path: `/users/customers/${customerId}/addresses/${addressId}`,
            method: 'PUT',
            
@@ -263,8 +263,8 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
-   async deleteCustomerAddressById (customerId: string, addressId: string): Promise<object> {
-       const response = await this.request({
+   async deleteAddress (customerId: string, addressId: string): Promise<object> {
+       const response = await this._request({
            path: `/users/customers/${customerId}/addresses/${addressId}`,
            method: 'DELETE',
            
@@ -274,8 +274,8 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async importCustomers (dto: string[]): Promise<CustomerDTO[]> {
-       const response = await this.request({
+   async import (dto: string[]): Promise<CustomerDTO[]> {
+       const response = await this._request({
            path: `/users/customers/import`,
            method: 'POST',
            
@@ -285,11 +285,11 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO[];
    }
 
-   async exportCustomersCSV (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async exportCSV (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/users/customers/export/csv`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });

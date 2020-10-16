@@ -3,11 +3,11 @@ import { SynonymDraftDTO } from '../../models/SynonymDraftDTO';
 import { SynonymDTO } from '../../models/SynonymDTO';
 
 export class CatalogAPI extends BaseAPI {
-   async searchCatalog (query: { priceRanges?: string[], discountRanges?: string[], preFilters: string[], postFilters: string[], showCount?: boolean, skipSingleAttributes?: boolean, onlyResults?: boolean, language: string, priceList: string, merchant: string, sort: string[], limit: number, offset: number, categoriesParent: string, brandsParent: string, fuzziness?: string, prefixLength?: number, maxExpansions?: number }): Promise<object[]> {
-       const response = await this.request({
+   async search (query: { priceRanges?: string[], discountRanges?: string[], preFilters: string[], postFilters: string[], showCount?: boolean, skipSingleAttributes?: boolean, onlyResults?: boolean, language: string, priceList: string, merchant: string, sort: string[], limit: number, offset: number, categoriesParent: string, brandsParent: string, fuzziness?: string, prefixLength?: number, maxExpansions?: number }): Promise<object[]> {
+       const response = await this._request({
            path: `/merchandise/catalog/search`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -15,10 +15,10 @@ export class CatalogAPI extends BaseAPI {
    }
 
    async suggest (query: { language: string, priceList: string, text: string, merchant?: string, fuzziness?: string, prefixLength?: number, maxExpansions?: number, maxProductResults?: number, maxCategoryResults?: number, maxBrandsResults?: number }): Promise<object[]> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/catalog/suggest`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -26,7 +26,7 @@ export class CatalogAPI extends BaseAPI {
    }
 
    async sync (): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/catalog/sync`,
            method: 'POST',
            
@@ -37,7 +37,7 @@ export class CatalogAPI extends BaseAPI {
    }
 
    async syncCatalogFrom (from: number): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/catalog/sync/${from}`,
            method: 'POST',
            
@@ -48,7 +48,7 @@ export class CatalogAPI extends BaseAPI {
    }
 
    async createSynonym (dto: SynonymDraftDTO): Promise<SynonymDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/catalog/synonyms`,
            method: 'POST',
            
@@ -59,10 +59,10 @@ export class CatalogAPI extends BaseAPI {
    }
 
    async filterSynonyms (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/catalog/synonyms`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -70,7 +70,7 @@ export class CatalogAPI extends BaseAPI {
    }
 
    async updateSynonym (synonymId: string, dto: SynonymDraftDTO): Promise<SynonymDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/catalog/synonyms/${synonymId}`,
            method: 'PUT',
            
@@ -81,7 +81,7 @@ export class CatalogAPI extends BaseAPI {
    }
 
    async deleteSynonym (id: string): Promise<SynonymDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/catalog/synonyms/${id}`,
            method: 'DELETE',
            
@@ -92,7 +92,7 @@ export class CatalogAPI extends BaseAPI {
    }
 
    async syncSynonyms (): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/catalog/synonyms/sync`,
            method: 'POST',
            

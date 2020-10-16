@@ -9,7 +9,7 @@ export class BaseAPI {
     return this.config ? this.config.options : Configuration.getGlobal();
   }
 
-  protected async request(context: RequestOptions): Promise<Response> {
+  protected async _request(context: RequestOptions): Promise<Response> {
     const { url, init } = this.createFetchParams(context);
     const response = await this.fetchApi(url, init);
     if (response.status >= 200 && response.status < 300) {
@@ -48,7 +48,7 @@ export class BaseAPI {
     return { url, init };
   }
 
-  protected stringifyQuery(queryObj): string {
+  protected _stringifyQuery(queryObj): string {
     if (!queryObj) {
       return "";
     }

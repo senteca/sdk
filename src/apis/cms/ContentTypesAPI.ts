@@ -4,7 +4,7 @@ import { ContentTypeDTO } from '../../models/ContentTypeDTO';
 
 export class ContentTypesAPI extends BaseAPI {
    async create (dto: ContentTypeDraftDTO): Promise<ContentTypeDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/content-types`,
            method: 'POST',
            
@@ -15,10 +15,10 @@ export class ContentTypesAPI extends BaseAPI {
    }
 
    async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/content-types`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -26,7 +26,7 @@ export class ContentTypesAPI extends BaseAPI {
    }
 
    async update (id: string, dto: ContentTypeDraftDTO): Promise<ContentTypeDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/content-types/${id}`,
            method: 'PUT',
            
@@ -37,7 +37,7 @@ export class ContentTypesAPI extends BaseAPI {
    }
 
    async delete (id: string): Promise<ContentTypeDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/content-types/${id}`,
            method: 'DELETE',
            

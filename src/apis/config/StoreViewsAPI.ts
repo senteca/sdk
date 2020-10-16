@@ -4,8 +4,8 @@ import { StoreViewDTO } from '../../models/StoreViewDTO';
 import { StoreViewFilterResultDTO } from '../../models/StoreViewFilterResultDTO';
 
 export class StoreViewsAPI extends BaseAPI {
-   async createStoreView (dto: StoreViewDraftDTO): Promise<StoreViewDTO> {
-       const response = await this.request({
+   async create (dto: StoreViewDraftDTO): Promise<StoreViewDTO> {
+       const response = await this._request({
            path: `/config/store-views`,
            method: 'POST',
            
@@ -15,19 +15,19 @@ export class StoreViewsAPI extends BaseAPI {
        return (response.json() as unknown) as StoreViewDTO;
    }
 
-   async filterStoreViews (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<StoreViewFilterResultDTO> {
-       const response = await this.request({
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<StoreViewFilterResultDTO> {
+       const response = await this._request({
            path: `/config/store-views`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as StoreViewFilterResultDTO;
    }
 
-   async getStoreViewById (id: string): Promise<StoreViewDTO> {
-       const response = await this.request({
+   async getById (id: string): Promise<StoreViewDTO> {
+       const response = await this._request({
            path: `/config/store-views/${id}`,
            method: 'GET',
            
@@ -38,7 +38,7 @@ export class StoreViewsAPI extends BaseAPI {
    }
 
    async update (id: string, dto: StoreViewDraftDTO): Promise<StoreViewDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/config/store-views/${id}`,
            method: 'PUT',
            
@@ -48,8 +48,8 @@ export class StoreViewsAPI extends BaseAPI {
        return (response.json() as unknown) as StoreViewDTO;
    }
 
-   async deleteStoreViewById (id: string): Promise<StoreViewDTO> {
-       const response = await this.request({
+   async delete (id: string): Promise<StoreViewDTO> {
+       const response = await this._request({
            path: `/config/store-views/${id}`,
            method: 'DELETE',
            

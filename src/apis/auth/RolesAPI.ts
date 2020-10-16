@@ -4,7 +4,7 @@ import { RoleDTO } from '../../models/RoleDTO';
 
 export class RolesAPI extends BaseAPI {
    async getPermissions (): Promise<Permission[]> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/auth/roles/permissions`,
            method: 'GET',
            
@@ -14,19 +14,19 @@ export class RolesAPI extends BaseAPI {
        return (response.json() as unknown) as Permission[];
    }
 
-   async filterRoles (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/auth/roles`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async createRole (dto: RoleDTO): Promise<object> {
-       const response = await this.request({
+   async create (dto: RoleDTO): Promise<object> {
+       const response = await this._request({
            path: `/auth/roles`,
            method: 'POST',
            
@@ -36,8 +36,8 @@ export class RolesAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async findRoleById (id: string): Promise<object> {
-       const response = await this.request({
+   async getById (id: string): Promise<object> {
+       const response = await this._request({
            path: `/auth/roles/${id}`,
            method: 'GET',
            
@@ -47,8 +47,8 @@ export class RolesAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async updateRoleById (id: string, dto: RoleDTO): Promise<object> {
-       const response = await this.request({
+   async update (id: string, dto: RoleDTO): Promise<object> {
+       const response = await this._request({
            path: `/auth/roles/${id}`,
            method: 'PUT',
            
@@ -58,8 +58,8 @@ export class RolesAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async deleteRoleById (id: string): Promise<object> {
-       const response = await this.request({
+   async delete (id: string): Promise<object> {
+       const response = await this._request({
            path: `/auth/roles/${id}`,
            method: 'DELETE',
            

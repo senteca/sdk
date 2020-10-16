@@ -3,19 +3,19 @@ import { ApiClientDraftDTO } from '../../models/ApiClientDraftDTO';
 import { ApiClientDTO } from '../../models/ApiClientDTO';
 
 export class ApiClientsAPI extends BaseAPI {
-   async filterApiClients (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/auth/api-clients`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async createApiClient (dto: ApiClientDraftDTO): Promise<ApiClientDTO> {
-       const response = await this.request({
+   async create (dto: ApiClientDraftDTO): Promise<ApiClientDTO> {
+       const response = await this._request({
            path: `/auth/api-clients`,
            method: 'POST',
            
@@ -25,8 +25,8 @@ export class ApiClientsAPI extends BaseAPI {
        return (response.json() as unknown) as ApiClientDTO;
    }
 
-   async findApiClientById (id: string): Promise<ApiClientDTO> {
-       const response = await this.request({
+   async getById (id: string): Promise<ApiClientDTO> {
+       const response = await this._request({
            path: `/auth/api-clients/${id}`,
            method: 'GET',
            
@@ -36,8 +36,8 @@ export class ApiClientsAPI extends BaseAPI {
        return (response.json() as unknown) as ApiClientDTO;
    }
 
-   async updateApiClientById (id: string, dto: ApiClientDraftDTO): Promise<ApiClientDTO> {
-       const response = await this.request({
+   async update (id: string, dto: ApiClientDraftDTO): Promise<ApiClientDTO> {
+       const response = await this._request({
            path: `/auth/api-clients/${id}`,
            method: 'PUT',
            
@@ -47,8 +47,8 @@ export class ApiClientsAPI extends BaseAPI {
        return (response.json() as unknown) as ApiClientDTO;
    }
 
-   async deleteApiClientById (id: string): Promise<ApiClientDTO> {
-       const response = await this.request({
+   async delete (id: string): Promise<ApiClientDTO> {
+       const response = await this._request({
            path: `/auth/api-clients/${id}`,
            method: 'DELETE',
            

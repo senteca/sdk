@@ -152,6 +152,7 @@ export * from "./StoreViewDraftDTO";
 export * from "./StoreViewFilterResultDTO";
 export * from "./SubRateDTO";
 export * from "./SubscriptionDTO";
+export * from "./SubscriptionDraftDTO";
 export * from "./SubtotalDiscountDTO";
 export * from "./SynonymDTO";
 export * from "./SynonymDraftDTO";

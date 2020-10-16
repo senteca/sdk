@@ -4,8 +4,8 @@ import { CustomFieldDTO } from '../../models/CustomFieldDTO';
 import { CustomFieldDraftDTO } from '../../models/CustomFieldDraftDTO';
 
 export class CustomFieldsAPI extends BaseAPI {
-   async setCustomField (): Promise<object> {
-       const response = await this.request({
+   async set (): Promise<object> {
+       const response = await this._request({
            path: `/config/custom-fields/set`,
            method: 'PUT',
            
@@ -15,8 +15,8 @@ export class CustomFieldsAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async setMyCustomField (dto: SetCustomFieldDTO): Promise<object> {
-       const response = await this.request({
+   async setMy (dto: SetCustomFieldDTO): Promise<object> {
+       const response = await this._request({
            path: `/config/custom-fields/set-my`,
            method: 'PUT',
            
@@ -26,8 +26,8 @@ export class CustomFieldsAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async createCustomField (dto: CustomFieldDTO): Promise<CustomFieldDTO> {
-       const response = await this.request({
+   async create (dto: CustomFieldDTO): Promise<CustomFieldDTO> {
+       const response = await this._request({
            path: `/config/custom-fields`,
            method: 'POST',
            
@@ -37,19 +37,19 @@ export class CustomFieldsAPI extends BaseAPI {
        return (response.json() as unknown) as CustomFieldDTO;
    }
 
-   async filterCustomFields (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/config/custom-fields`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async findCustomFieldById (id: string): Promise<CustomFieldDTO> {
-       const response = await this.request({
+   async getById (id: string): Promise<CustomFieldDTO> {
+       const response = await this._request({
            path: `/config/custom-fields/${id}`,
            method: 'GET',
            
@@ -59,8 +59,8 @@ export class CustomFieldsAPI extends BaseAPI {
        return (response.json() as unknown) as CustomFieldDTO;
    }
 
-   async updateCustomFieldById (id: string, dto: CustomFieldDraftDTO): Promise<CustomFieldDTO> {
-       const response = await this.request({
+   async update (id: string, dto: CustomFieldDraftDTO): Promise<CustomFieldDTO> {
+       const response = await this._request({
            path: `/config/custom-fields/${id}`,
            method: 'PUT',
            
@@ -70,8 +70,8 @@ export class CustomFieldsAPI extends BaseAPI {
        return (response.json() as unknown) as CustomFieldDTO;
    }
 
-   async deleteCustomFieldById (id: string): Promise<CustomFieldDTO> {
-       const response = await this.request({
+   async delete (id: string): Promise<CustomFieldDTO> {
+       const response = await this._request({
            path: `/config/custom-fields/${id}`,
            method: 'DELETE',
            

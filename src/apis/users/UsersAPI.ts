@@ -8,9 +8,9 @@ import { UserCreateDTO } from '../../models/UserCreateDTO';
 import { UserUpdateDTO } from '../../models/UserUpdateDTO';
 
 export class UsersAPI extends BaseAPI {
-   async getUserProfile (): Promise<UserDTO> {
-       const response = await this.request({
-           path: `/users/users/profile`,
+   async getMyProfile (): Promise<UserDTO> {
+       const response = await this._request({
+           path: `/users/users/my-profile`,
            method: 'GET',
            
            
@@ -19,9 +19,9 @@ export class UsersAPI extends BaseAPI {
        return (response.json() as unknown) as UserDTO;
    }
 
-   async updateUserProfile (dto: UserProfileUpdateDTO): Promise<UserDTO> {
-       const response = await this.request({
-           path: `/users/users/profile`,
+   async updateMyProfile (dto: UserProfileUpdateDTO): Promise<UserDTO> {
+       const response = await this._request({
+           path: `/users/users/my-profile`,
            method: 'PUT',
            
            body: dto,
@@ -30,8 +30,8 @@ export class UsersAPI extends BaseAPI {
        return (response.json() as unknown) as UserDTO;
    }
 
-   async changeUserPassword (dto: PasswordChangeDTO): Promise<UserDTO> {
-       const response = await this.request({
+   async changePassword (dto: PasswordChangeDTO): Promise<UserDTO> {
+       const response = await this._request({
            path: `/users/users/password`,
            method: 'POST',
            
@@ -41,8 +41,8 @@ export class UsersAPI extends BaseAPI {
        return (response.json() as unknown) as UserDTO;
    }
 
-   async requestUserPasswordToken (dto: PasswordTokenDTO): Promise<object> {
-       const response = await this.request({
+   async createPasswordToken (dto: PasswordTokenDTO): Promise<object> {
+       const response = await this._request({
            path: `/users/users/password-token`,
            method: 'POST',
            
@@ -52,8 +52,8 @@ export class UsersAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async resetUserPassword (dto: PasswordResetDTO): Promise<UserDTO> {
-       const response = await this.request({
+   async resetPassword (dto: PasswordResetDTO): Promise<UserDTO> {
+       const response = await this._request({
            path: `/users/users/password/reset`,
            method: 'POST',
            
@@ -63,19 +63,19 @@ export class UsersAPI extends BaseAPI {
        return (response.json() as unknown) as UserDTO;
    }
 
-   async filterUsers (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/users/users`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async createUser (dto: UserCreateDTO): Promise<UserDTO> {
-       const response = await this.request({
+   async create (dto: UserCreateDTO): Promise<UserDTO> {
+       const response = await this._request({
            path: `/users/users`,
            method: 'POST',
            
@@ -85,8 +85,8 @@ export class UsersAPI extends BaseAPI {
        return (response.json() as unknown) as UserDTO;
    }
 
-   async findUserById (id: string): Promise<UserDTO> {
-       const response = await this.request({
+   async getById (id: string): Promise<UserDTO> {
+       const response = await this._request({
            path: `/users/users/${id}`,
            method: 'GET',
            
@@ -96,8 +96,8 @@ export class UsersAPI extends BaseAPI {
        return (response.json() as unknown) as UserDTO;
    }
 
-   async updateUserById (id: string, dto: UserUpdateDTO): Promise<UserDTO> {
-       const response = await this.request({
+   async update (id: string, dto: UserUpdateDTO): Promise<UserDTO> {
+       const response = await this._request({
            path: `/users/users/${id}`,
            method: 'PUT',
            
@@ -107,8 +107,8 @@ export class UsersAPI extends BaseAPI {
        return (response.json() as unknown) as UserDTO;
    }
 
-   async deleteUserById (id: string): Promise<UserDTO> {
-       const response = await this.request({
+   async delete (id: string): Promise<UserDTO> {
+       const response = await this._request({
            path: `/users/users/${id}`,
            method: 'DELETE',
            

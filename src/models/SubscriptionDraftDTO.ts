@@ -1,17 +1,14 @@
 import { GoogleCloudPubSubDestinationDTO } from './GoogleCloudPubSubDestinationDTO';
 import { MessageDTO } from './MessageDTO';
 
-export interface SubscriptionDTO {
+export interface SubscriptionDraftDTO {
   key: string;
-  type: SubscriptionDTOTypeEnum;
+  type: SubscriptionDraftDTOTypeEnum;
   destination: GoogleCloudPubSubDestinationDTO;
   messages: MessageDTO[];
-  _id: string;
-  createdAt: number;
-  updatedAt: number;
 }
 
-export enum SubscriptionDTOTypeEnum {
+export enum SubscriptionDraftDTOTypeEnum {
     GoogleCloudPubSub = 'GoogleCloudPubSub',  
     SQS = 'SQS',  
     SNS = 'SNS',  

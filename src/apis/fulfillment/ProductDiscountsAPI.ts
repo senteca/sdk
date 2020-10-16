@@ -4,10 +4,10 @@ import { ProductDiscountDTO } from '../../models/ProductDiscountDTO';
 
 export class ProductDiscountsAPI extends BaseAPI {
    async searchProductDiscounts (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/product-discounts/search`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -15,10 +15,10 @@ export class ProductDiscountsAPI extends BaseAPI {
    }
 
    async filterProductDiscounts (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/product-discounts`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -26,7 +26,7 @@ export class ProductDiscountsAPI extends BaseAPI {
    }
 
    async createProductDiscount (dto: ProductDiscountDraftDTO): Promise<ProductDiscountDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/product-discounts`,
            method: 'POST',
            
@@ -37,7 +37,7 @@ export class ProductDiscountsAPI extends BaseAPI {
    }
 
    async findProductDiscountById (id: string): Promise<ProductDiscountDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/product-discounts/${id}`,
            method: 'GET',
            
@@ -48,7 +48,7 @@ export class ProductDiscountsAPI extends BaseAPI {
    }
 
    async updateProductDiscountById (id: string, dto: ProductDiscountDraftDTO): Promise<ProductDiscountDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/product-discounts/${id}`,
            method: 'PUT',
            
@@ -59,7 +59,7 @@ export class ProductDiscountsAPI extends BaseAPI {
    }
 
    async deleteProductDiscountById (id: string): Promise<ProductDiscountDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/product-discounts/${id}`,
            method: 'DELETE',
            

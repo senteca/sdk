@@ -4,7 +4,7 @@ import { ZoneDTO } from '../../models/ZoneDTO';
 
 export class ZonesAPI extends BaseAPI {
    async create (dto: ZoneDraftDTO): Promise<ZoneDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/config/zones`,
            method: 'POST',
            
@@ -15,10 +15,10 @@ export class ZonesAPI extends BaseAPI {
    }
 
    async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/config/zones`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -26,7 +26,7 @@ export class ZonesAPI extends BaseAPI {
    }
 
    async getById (id: string): Promise<ZoneDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/config/zones/${id}`,
            method: 'GET',
            
@@ -37,7 +37,7 @@ export class ZonesAPI extends BaseAPI {
    }
 
    async update (id: string, dto: ZoneDraftDTO): Promise<ZoneDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/config/zones/${id}`,
            method: 'PUT',
            
@@ -48,7 +48,7 @@ export class ZonesAPI extends BaseAPI {
    }
 
    async delete (id: string): Promise<ZoneDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/config/zones/${id}`,
            method: 'DELETE',
            

@@ -5,7 +5,7 @@ import { FlipFoldersDTO } from '../../models/FlipFoldersDTO';
 
 export class FoldersAPI extends BaseAPI {
    async create (dto: FolderDraftDTO): Promise<FolderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/folders`,
            method: 'POST',
            
@@ -16,10 +16,10 @@ export class FoldersAPI extends BaseAPI {
    }
 
    async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/folders`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -27,7 +27,7 @@ export class FoldersAPI extends BaseAPI {
    }
 
    async update (id: string, dto: FolderDraftDTO): Promise<FolderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/folders/${id}`,
            method: 'PUT',
            
@@ -38,7 +38,7 @@ export class FoldersAPI extends BaseAPI {
    }
 
    async delete (id: string): Promise<FolderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/folders/${id}`,
            method: 'DELETE',
            
@@ -49,7 +49,7 @@ export class FoldersAPI extends BaseAPI {
    }
 
    async flip (dto: FlipFoldersDTO): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/folders/flip`,
            method: 'POST',
            

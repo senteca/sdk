@@ -3,8 +3,8 @@ import { TaxCategoryDraftDTO } from '../../models/TaxCategoryDraftDTO';
 import { TaxCategoryDTO } from '../../models/TaxCategoryDTO';
 
 export class TaxCategoriesAPI extends BaseAPI {
-   async createTaxCategory (dto: TaxCategoryDraftDTO): Promise<TaxCategoryDTO> {
-       const response = await this.request({
+   async create (dto: TaxCategoryDraftDTO): Promise<TaxCategoryDTO> {
+       const response = await this._request({
            path: `/config/tax-categories`,
            method: 'POST',
            
@@ -14,19 +14,19 @@ export class TaxCategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as TaxCategoryDTO;
    }
 
-   async filterTaxCategories (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/config/tax-categories`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async findTaxCategoryById (id: string): Promise<TaxCategoryDTO> {
-       const response = await this.request({
+   async getById (id: string): Promise<TaxCategoryDTO> {
+       const response = await this._request({
            path: `/config/tax-categories/${id}`,
            method: 'GET',
            
@@ -36,8 +36,8 @@ export class TaxCategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as TaxCategoryDTO;
    }
 
-   async updateTaxCategoryById (id: string, dto: TaxCategoryDraftDTO): Promise<TaxCategoryDTO> {
-       const response = await this.request({
+   async update (id: string, dto: TaxCategoryDraftDTO): Promise<TaxCategoryDTO> {
+       const response = await this._request({
            path: `/config/tax-categories/${id}`,
            method: 'PUT',
            
@@ -47,8 +47,8 @@ export class TaxCategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as TaxCategoryDTO;
    }
 
-   async deleteTaxCategoryById (id: string): Promise<object> {
-       const response = await this.request({
+   async delete (id: string): Promise<object> {
+       const response = await this._request({
            path: `/config/tax-categories/${id}`,
            method: 'DELETE',
            
@@ -58,9 +58,9 @@ export class TaxCategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async findTaxCategoryByKey (key: string): Promise<TaxCategoryDTO> {
-       const response = await this.request({
-           path: `/config/tax-categories/key/${key}`,
+   async getByKey (key: string): Promise<TaxCategoryDTO> {
+       const response = await this._request({
+           path: `/config/tax-categories/key=${key}`,
            method: 'GET',
            
            

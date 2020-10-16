@@ -13,7 +13,7 @@ import { AssetDTO } from '../../models/AssetDTO';
 
 export class ProductsAPI extends BaseAPI {
    async linkProducts (dto: BulkLinkUpdateDTO): Promise<object> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/bulk/link`,
            method: 'POST',
            
@@ -24,7 +24,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async unlinkProducts (dto: BulkLinkUpdateDTO): Promise<object> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/bulk/unlink`,
            method: 'POST',
            
@@ -35,7 +35,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async deleteProducts (dto: BulkDeleteDTO): Promise<object> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/bulk/delete`,
            method: 'POST',
            
@@ -46,7 +46,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async changeProductsStatus (dto: BulkStatusChangeDTO): Promise<object> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/bulk/status`,
            method: 'POST',
            
@@ -57,7 +57,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async importProducts (dto: ProductDraftDTO[]): Promise<ProductDraftDTO[]> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/import`,
            method: 'POST',
            
@@ -68,7 +68,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async addProductOffer (productId: string, variantId: string, dto: OfferDraftDTO): Promise<ProductDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/${variantId}/offers`,
            method: 'POST',
            
@@ -79,7 +79,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async updateProductOffer (productId: string, variantId: string, dto: OfferUpdateDTO): Promise<ProductDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/${variantId}/offers`,
            method: 'PUT',
            
@@ -90,7 +90,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async removeProductOffer (productId: string, variantId: string, priceListKey: string, merchantKey: string): Promise<ProductDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/${variantId}/offers/${priceListKey}/${merchantKey}`,
            method: 'DELETE',
            
@@ -101,7 +101,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async setProductStatus (productId: string, dto: ProductStatusUpdateDTO): Promise<ProductDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/status`,
            method: 'PATCH',
            
@@ -112,7 +112,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async setProductWeight (productId: string, dto: ProductWeightUpdateDTO): Promise<ProductDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/weight`,
            method: 'PATCH',
            
@@ -123,7 +123,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async addProductQuantity (productId: string, variantId: string, dto: InventoryUpdateDTO): Promise<ProductDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/${variantId}/inventory/add-quantity`,
            method: 'PUT',
            
@@ -134,7 +134,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async removeProductQuantity (productId: string, variantId: string, dto: InventoryUpdateDTO): Promise<ProductDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/${variantId}/inventory/remove-quantity`,
            method: 'PUT',
            
@@ -145,7 +145,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async changeProductQuantity (productId: string, variantId: string, dto: InventoryUpdateDTO): Promise<ProductDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/${variantId}/inventory/change-quantity`,
            method: 'PUT',
            
@@ -156,7 +156,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async addProductAsset (productId: string, dto: AssetDTO): Promise<ProductDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/assets`,
            method: 'POST',
            
@@ -167,7 +167,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async updateProductAsset (productId: string, assetIndex: number, dto: AssetDTO): Promise<ProductDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/assets/${assetIndex}`,
            method: 'PUT',
            
@@ -178,7 +178,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async removeProductAsset (productId: string, assetIndex: number): Promise<ProductDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/assets/${assetIndex}`,
            method: 'DELETE',
            
@@ -188,30 +188,30 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async searchProducts (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/merchandise/products/search`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async filterProducts (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/merchandise/products`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async createProduct (dto: ProductDraftDTO): Promise<ProductDTO> {
-       const response = await this.request({
+   async create (dto: ProductDraftDTO): Promise<ProductDTO> {
+       const response = await this._request({
            path: `/merchandise/products`,
            method: 'POST',
            
@@ -222,7 +222,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async getAllProductSlugs (languageCode: string): Promise<string[]> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/slugs/${languageCode}`,
            method: 'GET',
            
@@ -232,19 +232,19 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as string[];
    }
 
-   async findProductById (id: string, query?: { expand?: string[], statuses?: string[] }): Promise<ProductDTO> {
-       const response = await this.request({
+   async getById (id: string, query?: { expand?: string[], statuses?: string[] }): Promise<ProductDTO> {
+       const response = await this._request({
            path: `/merchandise/products/${id}`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async updateProductById (id: string, dto: ProductDraftDTO): Promise<ProductDTO> {
-       const response = await this.request({
+   async update (id: string, dto: ProductDraftDTO): Promise<ProductDTO> {
+       const response = await this._request({
            path: `/merchandise/products/${id}`,
            method: 'PUT',
            
@@ -254,8 +254,8 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async deleteProductById (id: string): Promise<ProductDTO> {
-       const response = await this.request({
+   async delete (id: string): Promise<ProductDTO> {
+       const response = await this._request({
            path: `/merchandise/products/${id}`,
            method: 'DELETE',
            
@@ -265,22 +265,22 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async findProductBySlug (language: string, slug: string, query?: { expand?: string[], statuses?: string[] }): Promise<ProductDTO> {
-       const response = await this.request({
+   async getBySlug (language: string, slug: string, query?: { expand?: string[], statuses?: string[] }): Promise<ProductDTO> {
+       const response = await this._request({
            path: `/merchandise/products/slug/${language}/${slug}`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async findProductByExternalId (externalId: string, query?: { expand?: string[], statuses?: string[] }): Promise<ProductDTO> {
-       const response = await this.request({
+   async getByExternalId (externalId: string, query?: { expand?: string[], statuses?: string[] }): Promise<ProductDTO> {
+       const response = await this._request({
            path: `/merchandise/products/externalId/${externalId}`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -288,7 +288,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async updateProductByExternalId (id: string, dto: ProductDraftDTO): Promise<ProductDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/externalId/${id}`,
            method: 'PUT',
            
@@ -299,7 +299,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async deleteProductByExternalId (id: string): Promise<ProductDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/externalId/${id}`,
            method: 'DELETE',
            
@@ -310,7 +310,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async uploadProductImage (productId: string, variantId: string): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/${variantId}/images`,
            method: 'POST',
            
@@ -321,7 +321,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async uploadProductImageById (productId: string, variantId: string, imageId: string): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/${variantId}/images/${imageId}`,
            method: 'PATCH',
            
@@ -332,7 +332,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async changeProductImageIndex (productId: string, variantId: string, imageIndex: number, destinationIndex: number): Promise<ProductDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/${variantId}/images/${imageIndex}/${destinationIndex}`,
            method: 'PUT',
            
@@ -343,7 +343,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async removeProductImage (productId: string, variantId: string, imageIndex: number): Promise<object> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/${variantId}/images/${imageIndex}`,
            method: 'DELETE',
            
@@ -354,7 +354,7 @@ export class ProductsAPI extends BaseAPI {
    }
 
    async removeProductImages (productId: string): Promise<object> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/products/${productId}/images`,
            method: 'DELETE',
            

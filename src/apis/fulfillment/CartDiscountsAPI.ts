@@ -4,7 +4,7 @@ import { CartDiscountDraftDTO } from '../../models/CartDiscountDraftDTO';
 
 export class CartDiscountsAPI extends BaseAPI {
    async importCartDiscounts (dto: string[]): Promise<CartDiscountDTO[]> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/cart-discounts/import`,
            method: 'POST',
            
@@ -15,10 +15,10 @@ export class CartDiscountsAPI extends BaseAPI {
    }
 
    async searchCartDiscounts (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/cart-discounts/search`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -26,10 +26,10 @@ export class CartDiscountsAPI extends BaseAPI {
    }
 
    async filterCartDiscounts (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/cart-discounts`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -37,7 +37,7 @@ export class CartDiscountsAPI extends BaseAPI {
    }
 
    async createCartDiscount (dto: CartDiscountDraftDTO): Promise<CartDiscountDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/cart-discounts`,
            method: 'POST',
            
@@ -48,7 +48,7 @@ export class CartDiscountsAPI extends BaseAPI {
    }
 
    async findCartDiscountById (id: string): Promise<CartDiscountDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/cart-discounts/${id}`,
            method: 'GET',
            
@@ -59,7 +59,7 @@ export class CartDiscountsAPI extends BaseAPI {
    }
 
    async updateCartDiscountById (id: string, dto: CartDiscountDraftDTO): Promise<CartDiscountDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/cart-discounts/${id}`,
            method: 'PUT',
            
@@ -70,7 +70,7 @@ export class CartDiscountsAPI extends BaseAPI {
    }
 
    async deleteCartDiscountById (id: string): Promise<CartDiscountDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/cart-discounts/${id}`,
            method: 'DELETE',
            

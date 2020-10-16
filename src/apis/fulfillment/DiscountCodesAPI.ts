@@ -4,7 +4,7 @@ import { DiscountCodeDraftDTO } from '../../models/DiscountCodeDraftDTO';
 
 export class DiscountCodesAPI extends BaseAPI {
    async importDiscountCodes (dto: string[]): Promise<DiscountCodeDTO[]> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/discount-codes/import`,
            method: 'POST',
            
@@ -15,10 +15,10 @@ export class DiscountCodesAPI extends BaseAPI {
    }
 
    async searchDiscountCodes (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/discount-codes/search`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -26,10 +26,10 @@ export class DiscountCodesAPI extends BaseAPI {
    }
 
    async filterDiscountCodes (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/discount-codes`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -37,7 +37,7 @@ export class DiscountCodesAPI extends BaseAPI {
    }
 
    async createDiscountCode (dto: DiscountCodeDraftDTO): Promise<DiscountCodeDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/discount-codes`,
            method: 'POST',
            
@@ -48,7 +48,7 @@ export class DiscountCodesAPI extends BaseAPI {
    }
 
    async findDiscountCodeById (id: string): Promise<DiscountCodeDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/discount-codes/${id}`,
            method: 'GET',
            
@@ -59,7 +59,7 @@ export class DiscountCodesAPI extends BaseAPI {
    }
 
    async updateDiscountCodeById (id: string, dto: DiscountCodeDraftDTO): Promise<DiscountCodeDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/discount-codes/${id}`,
            method: 'PUT',
            
@@ -70,7 +70,7 @@ export class DiscountCodesAPI extends BaseAPI {
    }
 
    async deleteDiscountCodeById (id: string): Promise<DiscountCodeDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/discount-codes/${id}`,
            method: 'DELETE',
            

@@ -4,7 +4,7 @@ import { ThemeDTO } from '../../models/ThemeDTO';
 
 export class ThemesAPI extends BaseAPI {
    async install (dto: ThemeDraftDTO): Promise<ThemeDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/themes/install`,
            method: 'POST',
            
@@ -15,7 +15,7 @@ export class ThemesAPI extends BaseAPI {
    }
 
    async deleteByKey (themeKey: string, viewKey: string): Promise<ThemeDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/themes/themeKey=${themeKey}/viewKey=${viewKey}`,
            method: 'DELETE',
            

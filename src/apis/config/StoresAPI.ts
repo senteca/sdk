@@ -3,8 +3,8 @@ import { StoreDraftDTO } from '../../models/StoreDraftDTO';
 import { StoreDTO } from '../../models/StoreDTO';
 
 export class StoresAPI extends BaseAPI {
-   async createStore (dto: StoreDraftDTO): Promise<StoreDTO> {
-       const response = await this.request({
+   async create (dto: StoreDraftDTO): Promise<StoreDTO> {
+       const response = await this._request({
            path: `/config/stores`,
            method: 'POST',
            
@@ -14,19 +14,19 @@ export class StoresAPI extends BaseAPI {
        return (response.json() as unknown) as StoreDTO;
    }
 
-   async filterStores (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/config/stores`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async findStoreById (id: string): Promise<StoreDTO> {
-       const response = await this.request({
+   async getById (id: string): Promise<StoreDTO> {
+       const response = await this._request({
            path: `/config/stores/${id}`,
            method: 'GET',
            
@@ -36,8 +36,8 @@ export class StoresAPI extends BaseAPI {
        return (response.json() as unknown) as StoreDTO;
    }
 
-   async updateStoreById (id: string, dto: StoreDraftDTO): Promise<StoreDTO> {
-       const response = await this.request({
+   async update (id: string, dto: StoreDraftDTO): Promise<StoreDTO> {
+       const response = await this._request({
            path: `/config/stores/${id}`,
            method: 'PUT',
            
@@ -47,8 +47,8 @@ export class StoresAPI extends BaseAPI {
        return (response.json() as unknown) as StoreDTO;
    }
 
-   async deleteStoreById (id: string): Promise<StoreDTO> {
-       const response = await this.request({
+   async delete (id: string): Promise<StoreDTO> {
+       const response = await this._request({
            path: `/config/stores/${id}`,
            method: 'DELETE',
            
@@ -58,9 +58,9 @@ export class StoresAPI extends BaseAPI {
        return (response.json() as unknown) as StoreDTO;
    }
 
-   async findStoreByKey (key: string): Promise<StoreDTO> {
-       const response = await this.request({
-           path: `/config/stores/key/${key}`,
+   async getByKey (key: string): Promise<StoreDTO> {
+       const response = await this._request({
+           path: `/config/stores/key=${key}`,
            method: 'GET',
            
            

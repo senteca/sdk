@@ -4,10 +4,10 @@ import { AccessTokenDTO } from '../../models/AccessTokenDTO';
 import { PasswordGrantTokenRequestDTO } from '../../models/PasswordGrantTokenRequestDTO';
 import { FacebookTokenRequestDTO } from '../../models/FacebookTokenRequestDTO';
 
-export class AuthAPI extends BaseAPI {
-   async createToken (basicAuth: { username: string, password: string }, dto: TokenRequestDTO): Promise<AccessTokenDTO> {
-       const response = await this.request({
-           path: `/auth/auth/token`,
+export class TokenAPI extends BaseAPI {
+   async create (basicAuth: { username: string, password: string }, dto: TokenRequestDTO): Promise<AccessTokenDTO> {
+       const response = await this._request({
+           path: `/auth/token`,
            method: 'POST',
            
            body: dto,
@@ -16,9 +16,9 @@ export class AuthAPI extends BaseAPI {
        return (response.json() as unknown) as AccessTokenDTO;
    }
 
-   async createPasswordGrantToken (dto: PasswordGrantTokenRequestDTO): Promise<AccessTokenDTO> {
-       const response = await this.request({
-           path: `/auth/auth/password`,
+   async createPasswordToken (dto: PasswordGrantTokenRequestDTO): Promise<AccessTokenDTO> {
+       const response = await this._request({
+           path: `/auth/token/password`,
            method: 'POST',
            
            body: dto,
@@ -28,8 +28,8 @@ export class AuthAPI extends BaseAPI {
    }
 
    async createFacebookToken (basicAuth: { username: string, password: string }, dto: FacebookTokenRequestDTO): Promise<AccessTokenDTO> {
-       const response = await this.request({
-           path: `/auth/auth/facebook/token`,
+       const response = await this._request({
+           path: `/auth/token/facebook`,
            method: 'POST',
            
            body: dto,
@@ -39,8 +39,8 @@ export class AuthAPI extends BaseAPI {
    }
 
    async createAnonymousToken (basicAuth: { username: string, password: string }, dto: TokenRequestDTO): Promise<AccessTokenDTO> {
-       const response = await this.request({
-           path: `/auth/auth/anonymous/token`,
+       const response = await this._request({
+           path: `/auth/token/anonymous`,
            method: 'POST',
            
            body: dto,

@@ -6,10 +6,10 @@ import { {{.}} } from '../../models/{{.}}';
 export class {{name}} extends BaseAPI {
  {{#methods}}
    async {{name}} ({{#parameters}}{{text}}{{^last}}, {{/last}}{{/parameters}}): Promise<{{response}}> {
-       const response = await this.request({
+       const response = await this._request({
            path: `{{{url}}}`,
            method: '{{method}}',
-           {{#hasQueryParam}}query: this.stringifyQuery(query),{{/hasQueryParam}}
+           {{#hasQueryParam}}query: this._stringifyQuery(query),{{/hasQueryParam}}
            {{#hasBodyParam}}body: dto,{{/hasBodyParam}}
            {{#hasBasicAuth}}basicAuth,{{/hasBasicAuth}}
         });

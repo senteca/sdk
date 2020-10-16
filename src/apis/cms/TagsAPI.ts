@@ -4,7 +4,7 @@ import { TagDTO } from '../../models/TagDTO';
 
 export class TagsAPI extends BaseAPI {
    async create (dto: TagDraftDTO): Promise<TagDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/tags`,
            method: 'POST',
            
@@ -15,10 +15,10 @@ export class TagsAPI extends BaseAPI {
    }
 
    async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/tags`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -26,7 +26,7 @@ export class TagsAPI extends BaseAPI {
    }
 
    async update (id: string, dto: TagDraftDTO): Promise<TagDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/tags/${id}`,
            method: 'PUT',
            
@@ -37,7 +37,7 @@ export class TagsAPI extends BaseAPI {
    }
 
    async delete (id: string): Promise<TagDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/tags/${id}`,
            method: 'DELETE',
            

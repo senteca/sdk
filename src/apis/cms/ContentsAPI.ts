@@ -4,7 +4,7 @@ import { ContentDTO } from '../../models/ContentDTO';
 
 export class ContentsAPI extends BaseAPI {
    async create (dto: ContentDraftDTO): Promise<ContentDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/contents`,
            method: 'POST',
            
@@ -15,10 +15,10 @@ export class ContentsAPI extends BaseAPI {
    }
 
    async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/contents`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -26,7 +26,7 @@ export class ContentsAPI extends BaseAPI {
    }
 
    async update (id: string, dto: ContentDraftDTO): Promise<ContentDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/contents/${id}`,
            method: 'PUT',
            
@@ -37,7 +37,7 @@ export class ContentsAPI extends BaseAPI {
    }
 
    async delete (id: string): Promise<ContentDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/contents/${id}`,
            method: 'DELETE',
            

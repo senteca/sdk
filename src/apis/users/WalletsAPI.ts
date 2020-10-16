@@ -3,19 +3,19 @@ import { WalletDraftDTO } from '../../models/WalletDraftDTO';
 import { WalletDTO } from '../../models/WalletDTO';
 
 export class WalletsAPI extends BaseAPI {
-   async filterWallets (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/users/wallets`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async createWallet (dto: WalletDraftDTO): Promise<WalletDTO> {
-       const response = await this.request({
+   async create (dto: WalletDraftDTO): Promise<WalletDTO> {
+       const response = await this._request({
            path: `/users/wallets`,
            method: 'POST',
            
@@ -25,8 +25,8 @@ export class WalletsAPI extends BaseAPI {
        return (response.json() as unknown) as WalletDTO;
    }
 
-   async findWalletById (id: string): Promise<WalletDTO> {
-       const response = await this.request({
+   async getById (id: string): Promise<WalletDTO> {
+       const response = await this._request({
            path: `/users/wallets/${id}`,
            method: 'GET',
            
@@ -36,8 +36,8 @@ export class WalletsAPI extends BaseAPI {
        return (response.json() as unknown) as WalletDTO;
    }
 
-   async updateWalletById (id: string, dto: WalletDraftDTO): Promise<WalletDTO> {
-       const response = await this.request({
+   async update (id: string, dto: WalletDraftDTO): Promise<WalletDTO> {
+       const response = await this._request({
            path: `/users/wallets/${id}`,
            method: 'PUT',
            
@@ -47,8 +47,8 @@ export class WalletsAPI extends BaseAPI {
        return (response.json() as unknown) as WalletDTO;
    }
 
-   async deleteWalletById (id: string): Promise<WalletDTO> {
-       const response = await this.request({
+   async delete (id: string): Promise<WalletDTO> {
+       const response = await this._request({
            path: `/users/wallets/${id}`,
            method: 'DELETE',
            
@@ -58,19 +58,19 @@ export class WalletsAPI extends BaseAPI {
        return (response.json() as unknown) as WalletDTO;
    }
 
-   async searchWallets (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async search (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/users/wallets/search`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async importWallets (dto: string[]): Promise<WalletDTO[]> {
-       const response = await this.request({
+   async import (dto: string[]): Promise<WalletDTO[]> {
+       const response = await this._request({
            path: `/users/wallets/import`,
            method: 'POST',
            

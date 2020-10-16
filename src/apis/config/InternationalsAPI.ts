@@ -1,28 +1,28 @@
 import { BaseAPI } from '../../runtime';
-import { InternationalsDraftDTO } from '../../models/InternationalsDraftDTO';
 import { InternationalsDTO } from '../../models/InternationalsDTO';
+import { InternationalsDraftDTO } from '../../models/InternationalsDraftDTO';
 
 export class InternationalsAPI extends BaseAPI {
-   async filterInternationals (dto: InternationalsDraftDTO): Promise<object> {
-       const response = await this.request({
+   async get (): Promise<InternationalsDTO> {
+       const response = await this._request({
            path: `/config/internationals`,
            method: 'GET',
            
-           body: dto,
+           
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as InternationalsDTO;
    }
 
-   async createInternationals (dto: InternationalsDTO): Promise<object> {
-       const response = await this.request({
+   async set (dto: InternationalsDraftDTO): Promise<InternationalsDTO> {
+       const response = await this._request({
            path: `/config/internationals`,
            method: 'PUT',
            
            body: dto,
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as InternationalsDTO;
    }
 
 }

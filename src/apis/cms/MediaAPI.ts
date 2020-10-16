@@ -2,7 +2,7 @@ import { BaseAPI } from '../../runtime';
 
 export class MediaAPI extends BaseAPI {
    async uploadAssets (folderId: string): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/media/${folderId}`,
            method: 'POST',
            
@@ -13,18 +13,18 @@ export class MediaAPI extends BaseAPI {
    }
 
    async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/media`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async deleteMedia (): Promise<object> {
-       const response = await this.request({
+   async delete (): Promise<object> {
+       const response = await this._request({
            path: `/cms/media`,
            method: 'DELETE',
            

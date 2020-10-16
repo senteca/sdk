@@ -5,7 +5,7 @@ import { ViewDraftDTO } from '../../models/ViewDraftDTO';
 
 export class ViewsAPI extends BaseAPI {
    async addViewAsset (viewId: string, dto: AssetDTO): Promise<ViewDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/views/${viewId}/assets`,
            method: 'POST',
            
@@ -16,7 +16,7 @@ export class ViewsAPI extends BaseAPI {
    }
 
    async updateViewAsset (viewId: string, assetIndex: number, dto: AssetDTO): Promise<ViewDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/views/${viewId}/assets/${assetIndex}`,
            method: 'PUT',
            
@@ -27,7 +27,7 @@ export class ViewsAPI extends BaseAPI {
    }
 
    async removeViewAsset (viewId: string, assetIndex: number): Promise<ViewDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/views/${viewId}/assets/${assetIndex}`,
            method: 'DELETE',
            
@@ -37,19 +37,19 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async searchViews (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/merchandise/views/search`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async createView (dto: ViewDraftDTO): Promise<ViewDTO> {
-       const response = await this.request({
+   async create (dto: ViewDraftDTO): Promise<ViewDTO> {
+       const response = await this._request({
            path: `/merchandise/views`,
            method: 'POST',
            
@@ -59,19 +59,19 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async filterViews (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/merchandise/views`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async findViewById (id: string): Promise<ViewDTO> {
-       const response = await this.request({
+   async getById (id: string): Promise<ViewDTO> {
+       const response = await this._request({
            path: `/merchandise/views/${id}`,
            method: 'GET',
            
@@ -81,8 +81,8 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async updateViewById (id: string, dto: ViewDraftDTO): Promise<ViewDTO> {
-       const response = await this.request({
+   async update (id: string, dto: ViewDraftDTO): Promise<ViewDTO> {
+       const response = await this._request({
            path: `/merchandise/views/${id}`,
            method: 'PUT',
            
@@ -92,8 +92,8 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async deleteViewById (id: string): Promise<ViewDTO> {
-       const response = await this.request({
+   async delete (id: string): Promise<ViewDTO> {
+       const response = await this._request({
            path: `/merchandise/views/${id}`,
            method: 'DELETE',
            
@@ -103,8 +103,8 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async findViewBySlug (language: string, slug: string): Promise<ViewDTO> {
-       const response = await this.request({
+   async getBySlug (language: string, slug: string): Promise<ViewDTO> {
+       const response = await this._request({
            path: `/merchandise/views/slug/${language}/${slug}`,
            method: 'GET',
            

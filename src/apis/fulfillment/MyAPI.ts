@@ -17,7 +17,7 @@ import { WishListDTO } from '../../models/WishListDTO';
 
 export class MyAPI extends BaseAPI {
    async createMyCart (dto: CartDraftDTO): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart`,
            method: 'POST',
            
@@ -28,7 +28,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async getMyCart (): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart`,
            method: 'GET',
            
@@ -39,7 +39,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async checkMyCart (): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/check`,
            method: 'POST',
            
@@ -50,7 +50,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async addMyCartLineItem (dto: LineItemDraftDTO): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/line-items`,
            method: 'POST',
            
@@ -61,7 +61,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async removeMyCartLineItem (lineItemId: string): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/line-items/${lineItemId}`,
            method: 'DELETE',
            
@@ -72,7 +72,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async setMyCartLineItemQuantity (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/line-items/${lineItemId}/quantity`,
            method: 'PATCH',
            
@@ -83,7 +83,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async setMyCartDiscountCode (dto: DiscountCodeUpdateDTO): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/discount-code`,
            method: 'PATCH',
            
@@ -94,10 +94,10 @@ export class MyAPI extends BaseAPI {
    }
 
    async removeMyCartDiscountCode (query: { code: string }): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/discount-code`,
            method: 'DELETE',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -105,7 +105,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async addMyCartWallet (type: string): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/wallet/type=${type}`,
            method: 'POST',
            
@@ -116,7 +116,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async removeMyCartWallet (type: string): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/wallet/type=${type}`,
            method: 'DELETE',
            
@@ -127,7 +127,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async setMyShippingAddress (dto: ShippingAddressDTO): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/shipping-address`,
            method: 'PATCH',
            
@@ -138,7 +138,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async setMyBillingAddress (dto: AddressDTO): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/billing-address`,
            method: 'PATCH',
            
@@ -149,7 +149,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async getMyShippingMethods (): Promise<ShippingMethodsInfo> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/shipping-methods`,
            method: 'GET',
            
@@ -160,7 +160,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async getMyPaymentMethods (): Promise<PaymentMethodsInfo> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/payment-methods`,
            method: 'GET',
            
@@ -171,7 +171,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async setMyPlatformShippingMethod (dto: PlatformMethodUpdateDTO): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/platform-shipping-method`,
            method: 'PATCH',
            
@@ -182,7 +182,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async setMyMerchantsShippingMethods (dto: MerchantsMethodsUpdateDTO): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/merchants-shipping-methods`,
            method: 'PATCH',
            
@@ -193,7 +193,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async setMyPlatformPaymentMethod (dto: PlatformMethodUpdateDTO): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/platform-payment-method`,
            method: 'PATCH',
            
@@ -204,7 +204,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async setMyMerchantsPaymentMethods (dto: MerchantsMethodsUpdateDTO): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/merchants-payment-methods`,
            method: 'PATCH',
            
@@ -215,7 +215,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async setMyCartCustomField (): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/cart/custom-field`,
            method: 'PATCH',
            
@@ -226,10 +226,10 @@ export class MyAPI extends BaseAPI {
    }
 
    async getMyOrders (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/orders`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -237,7 +237,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async createMyOrderFromCart (): Promise<OrderDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/orders`,
            method: 'POST',
            
@@ -248,7 +248,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async payMyOrder (orderId: string, paymentId: string): Promise<MakePaymentResponse> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/orders/${orderId}/payments/${paymentId}/pay`,
            method: 'GET',
            
@@ -259,7 +259,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async verifyMyPaymentResult (dto: VerifyPaymentResultRequest): Promise<MakePaymentResponse> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/orders/verify-payment-result`,
            method: 'POST',
            
@@ -270,7 +270,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async createMyWishlist (dto: WishListDraftDTO): Promise<WishListDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/wish-list`,
            method: 'POST',
            
@@ -281,7 +281,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async getMyWishList (): Promise<WishListDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/wish-list`,
            method: 'GET',
            
@@ -292,7 +292,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async addMyWishlistProduct (productId: string): Promise<WishListDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/wish-list/products/${productId}`,
            method: 'POST',
            
@@ -303,7 +303,7 @@ export class MyAPI extends BaseAPI {
    }
 
    async removeMyWishlistProduct (productId: string): Promise<WishListDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/fulfillment/my/wish-list/products/${productId}`,
            method: 'DELETE',
            

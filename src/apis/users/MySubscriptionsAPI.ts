@@ -4,7 +4,7 @@ import { CustomerSubscribeDTO } from '../../models/CustomerSubscribeDTO';
 
 export class MySubscriptionsAPI extends BaseAPI {
    async getMySubscriptions (): Promise<CustomerSubscriptionDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/users/my-subscriptions`,
            method: 'GET',
            
@@ -15,7 +15,7 @@ export class MySubscriptionsAPI extends BaseAPI {
    }
 
    async subscribe (dto: CustomerSubscribeDTO): Promise<CustomerSubscriptionDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/users/my-subscriptions/subscribe`,
            method: 'POST',
            
@@ -26,7 +26,7 @@ export class MySubscriptionsAPI extends BaseAPI {
    }
 
    async unsubscribe (dto: CustomerSubscribeDTO): Promise<CustomerSubscriptionDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/users/my-subscriptions/unsubscribe`,
            method: 'POST',
            

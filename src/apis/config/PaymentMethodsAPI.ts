@@ -3,8 +3,8 @@ import { PaymentMethodDraftDTO } from '../../models/PaymentMethodDraftDTO';
 import { PaymentMethodDTO } from '../../models/PaymentMethodDTO';
 
 export class PaymentMethodsAPI extends BaseAPI {
-   async createPaymentMethod (dto: PaymentMethodDraftDTO): Promise<PaymentMethodDTO> {
-       const response = await this.request({
+   async create (dto: PaymentMethodDraftDTO): Promise<PaymentMethodDTO> {
+       const response = await this._request({
            path: `/config/payment-methods`,
            method: 'POST',
            
@@ -14,19 +14,19 @@ export class PaymentMethodsAPI extends BaseAPI {
        return (response.json() as unknown) as PaymentMethodDTO;
    }
 
-   async filterPaymentMethods (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/config/payment-methods`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async findPaymentMethodById (id: string): Promise<PaymentMethodDTO> {
-       const response = await this.request({
+   async getById (id: string): Promise<PaymentMethodDTO> {
+       const response = await this._request({
            path: `/config/payment-methods/${id}`,
            method: 'GET',
            
@@ -36,8 +36,8 @@ export class PaymentMethodsAPI extends BaseAPI {
        return (response.json() as unknown) as PaymentMethodDTO;
    }
 
-   async updatePaymentMethodById (id: string, dto: PaymentMethodDraftDTO): Promise<PaymentMethodDTO> {
-       const response = await this.request({
+   async update (id: string, dto: PaymentMethodDraftDTO): Promise<PaymentMethodDTO> {
+       const response = await this._request({
            path: `/config/payment-methods/${id}`,
            method: 'PUT',
            
@@ -47,8 +47,8 @@ export class PaymentMethodsAPI extends BaseAPI {
        return (response.json() as unknown) as PaymentMethodDTO;
    }
 
-   async deletePaymentMethodById (id: string): Promise<PaymentMethodDTO> {
-       const response = await this.request({
+   async delete (id: string): Promise<PaymentMethodDTO> {
+       const response = await this._request({
            path: `/config/payment-methods/${id}`,
            method: 'DELETE',
            

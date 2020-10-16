@@ -4,7 +4,7 @@ import { ValueTypeDTO } from '../../models/ValueTypeDTO';
 
 export class ValueTypesAPI extends BaseAPI {
    async create (dto: ValueTypeDraftDTO): Promise<ValueTypeDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/value-types`,
            method: 'POST',
            
@@ -15,10 +15,10 @@ export class ValueTypesAPI extends BaseAPI {
    }
 
    async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/value-types`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -26,7 +26,7 @@ export class ValueTypesAPI extends BaseAPI {
    }
 
    async update (id: string, dto: ValueTypeDraftDTO): Promise<ValueTypeDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/value-types/${id}`,
            method: 'PUT',
            
@@ -37,7 +37,7 @@ export class ValueTypesAPI extends BaseAPI {
    }
 
    async delete (id: string): Promise<ValueTypeDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/cms/value-types/${id}`,
            method: 'DELETE',
            

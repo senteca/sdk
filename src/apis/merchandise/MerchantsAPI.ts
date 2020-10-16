@@ -3,19 +3,19 @@ import { MerchantDraftDTO } from '../../models/MerchantDraftDTO';
 import { MerchantDTO } from '../../models/MerchantDTO';
 
 export class MerchantsAPI extends BaseAPI {
-   async filterMerchants (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/merchandise/merchants`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async createMerchant (dto: MerchantDraftDTO): Promise<MerchantDTO> {
-       const response = await this.request({
+   async create (dto: MerchantDraftDTO): Promise<MerchantDTO> {
+       const response = await this._request({
            path: `/merchandise/merchants`,
            method: 'POST',
            
@@ -25,8 +25,8 @@ export class MerchantsAPI extends BaseAPI {
        return (response.json() as unknown) as MerchantDTO;
    }
 
-   async findMerchantById (id: string): Promise<MerchantDTO> {
-       const response = await this.request({
+   async getById (id: string): Promise<MerchantDTO> {
+       const response = await this._request({
            path: `/merchandise/merchants/${id}`,
            method: 'GET',
            
@@ -36,8 +36,8 @@ export class MerchantsAPI extends BaseAPI {
        return (response.json() as unknown) as MerchantDTO;
    }
 
-   async updateMerchantById (id: string, dto: MerchantDraftDTO): Promise<MerchantDTO> {
-       const response = await this.request({
+   async update (id: string, dto: MerchantDraftDTO): Promise<MerchantDTO> {
+       const response = await this._request({
            path: `/merchandise/merchants/${id}`,
            method: 'PUT',
            
@@ -47,8 +47,8 @@ export class MerchantsAPI extends BaseAPI {
        return (response.json() as unknown) as MerchantDTO;
    }
 
-   async deleteMerchantById (id: string): Promise<MerchantDTO> {
-       const response = await this.request({
+   async delete (id: string): Promise<MerchantDTO> {
+       const response = await this._request({
            path: `/merchandise/merchants/${id}`,
            method: 'DELETE',
            

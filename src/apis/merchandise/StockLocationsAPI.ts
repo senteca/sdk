@@ -4,7 +4,7 @@ import { StockLocationDTO } from '../../models/StockLocationDTO';
 
 export class StockLocationsAPI extends BaseAPI {
    async create (dto: StockLocationDraftDTO): Promise<StockLocationDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/stock-locations`,
            method: 'POST',
            
@@ -15,10 +15,10 @@ export class StockLocationsAPI extends BaseAPI {
    }
 
    async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/stock-locations`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
@@ -26,7 +26,7 @@ export class StockLocationsAPI extends BaseAPI {
    }
 
    async getById (id: string): Promise<StockLocationDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/stock-locations/${id}`,
            method: 'GET',
            
@@ -37,7 +37,7 @@ export class StockLocationsAPI extends BaseAPI {
    }
 
    async update (id: string, dto: StockLocationDraftDTO): Promise<StockLocationDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/stock-locations/${id}`,
            method: 'PUT',
            
@@ -48,7 +48,7 @@ export class StockLocationsAPI extends BaseAPI {
    }
 
    async delete (id: string): Promise<StockLocationDTO> {
-       const response = await this.request({
+       const response = await this._request({
            path: `/merchandise/stock-locations/${id}`,
            method: 'DELETE',
            

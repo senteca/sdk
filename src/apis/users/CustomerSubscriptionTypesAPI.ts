@@ -2,8 +2,8 @@ import { BaseAPI } from '../../runtime';
 import { CustomerSubscriptionTypeDTO } from '../../models/CustomerSubscriptionTypeDTO';
 
 export class CustomerSubscriptionTypesAPI extends BaseAPI {
-   async createCustomerSubscriptionType (dto: CustomerSubscriptionTypeDTO): Promise<CustomerSubscriptionTypeDTO> {
-       const response = await this.request({
+   async create (dto: CustomerSubscriptionTypeDTO): Promise<CustomerSubscriptionTypeDTO> {
+       const response = await this._request({
            path: `/users/customer-subscription-types`,
            method: 'POST',
            
@@ -13,19 +13,19 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerSubscriptionTypeDTO;
    }
 
-   async filterCustomerSubscriptionTypes (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
-       const response = await this.request({
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
            path: `/users/customer-subscription-types`,
            method: 'GET',
-           query: this.stringifyQuery(query),
+           query: this._stringifyQuery(query),
            
            
         });
        return (response.json() as unknown) as void;
    }
 
-   async findCustomerSubscriptionTypeById (id: string): Promise<CustomerSubscriptionTypeDTO> {
-       const response = await this.request({
+   async getById (id: string): Promise<CustomerSubscriptionTypeDTO> {
+       const response = await this._request({
            path: `/users/customer-subscription-types/${id}`,
            method: 'GET',
            
@@ -35,8 +35,8 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerSubscriptionTypeDTO;
    }
 
-   async updateCustomerSubscriptionTypeById (id: string, dto: CustomerSubscriptionTypeDTO): Promise<CustomerSubscriptionTypeDTO> {
-       const response = await this.request({
+   async update (id: string, dto: CustomerSubscriptionTypeDTO): Promise<CustomerSubscriptionTypeDTO> {
+       const response = await this._request({
            path: `/users/customer-subscription-types/${id}`,
            method: 'PUT',
            
@@ -46,8 +46,8 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerSubscriptionTypeDTO;
    }
 
-   async deleteCustomerSubscriptionTypeById (id: string): Promise<CustomerSubscriptionTypeDTO> {
-       const response = await this.request({
+   async delete (id: string): Promise<CustomerSubscriptionTypeDTO> {
+       const response = await this._request({
            path: `/users/customer-subscription-types/${id}`,
            method: 'DELETE',
            

@@ -1,71 +1,72 @@
 import { BaseAPI } from '../../runtime';
+import { SubscriptionDraftDTO } from '../../models/SubscriptionDraftDTO';
 import { SubscriptionDTO } from '../../models/SubscriptionDTO';
 
 export class SubscriptionsAPI extends BaseAPI {
-   async createSubscription (dto: SubscriptionDTO): Promise<object> {
-       const response = await this.request({
+   async create (dto: SubscriptionDraftDTO): Promise<SubscriptionDTO> {
+       const response = await this._request({
            path: `/config/subscriptions`,
            method: 'POST',
            
            body: dto,
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as SubscriptionDTO;
    }
 
-   async filterSubscriptions (): Promise<object[]> {
-       const response = await this.request({
+   async filter (): Promise<SubscriptionDTO[]> {
+       const response = await this._request({
            path: `/config/subscriptions`,
            method: 'GET',
            
            
            
         });
-       return (response.json() as unknown) as object[];
+       return (response.json() as unknown) as SubscriptionDTO[];
    }
 
-   async findSubscriptionByKey (key: string): Promise<object> {
-       const response = await this.request({
+   async getByKey (key: string): Promise<SubscriptionDTO> {
+       const response = await this._request({
            path: `/config/subscriptions/key=${key}`,
            method: 'GET',
            
            
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as SubscriptionDTO;
    }
 
-   async findSubscriptionById (id: string): Promise<object> {
-       const response = await this.request({
+   async getById (id: string): Promise<SubscriptionDTO> {
+       const response = await this._request({
            path: `/config/subscriptions/${id}`,
            method: 'GET',
            
            
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as SubscriptionDTO;
    }
 
-   async updateSubscriptionById (id: string, dto: SubscriptionDTO): Promise<object> {
-       const response = await this.request({
+   async update (id: string, dto: SubscriptionDTO): Promise<SubscriptionDTO> {
+       const response = await this._request({
            path: `/config/subscriptions/${id}`,
            method: 'PUT',
            
            body: dto,
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as SubscriptionDTO;
    }
 
-   async deleteSubscriptionById (id: string): Promise<object> {
-       const response = await this.request({
+   async delete (id: string): Promise<SubscriptionDTO> {
+       const response = await this._request({
            path: `/config/subscriptions/${id}`,
            method: 'DELETE',
            
            
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as SubscriptionDTO;
    }
 
 }
