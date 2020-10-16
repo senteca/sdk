@@ -15,7 +15,7 @@ export class BaseAPI {
     if (response.status >= 200 && response.status < 300) {
       return response;
     }
-    throw response;
+    throw await response.json();
   }
 
   private createFetchParams(context: RequestOptions) {
@@ -61,9 +61,8 @@ export class BaseAPI {
     let fetchParams = { url, init };
 
     const fetch =
-      this.getOptions().fetchApi || typeof window !== "undefined"
-        ? window.fetch.bind(window)
-        : null;
+      this.getOptions().fetchApi ||
+      (typeof window !== "undefined" ? window.fetch.bind(window) : null);
 
     if (fetch) {
       return fetch(fetchParams.url, fetchParams.init);
