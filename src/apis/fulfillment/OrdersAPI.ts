@@ -28,7 +28,7 @@ import { PaymentInterfaceInteractionDraftDTO } from '../../models/PaymentInterfa
 import { MakePaymentInteractionDTO } from '../../models/MakePaymentInteractionDTO';
 
 export class OrdersAPI extends BaseAPI {
-   async importOrders (dto: OrderImportDTO[]): Promise<OrderDTO[]> {
+   async import (dto: OrderImportDTO[]): Promise<OrderDTO[]> {
        const response = await this._request({
            path: `/fulfillment/orders/import`,
            method: 'POST',
@@ -41,7 +41,7 @@ export class OrdersAPI extends BaseAPI {
 
    async syncShippings (): Promise<ShippingDTO[]> {
        const response = await this._request({
-           path: `/fulfillment/orders/sync-shippings`,
+           path: `/fulfillment/orders/shippings/sync`,
            method: 'POST',
            
            
@@ -61,9 +61,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async getCustomerCart (customerId: string): Promise<OrderDTO> {
+   async getCartByCustomerId (customerId: string): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/cart/${customerId}`,
+           path: `/fulfillment/orders/cart/customerId=${customerId}`,
            method: 'GET',
            
            
@@ -83,7 +83,7 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async createOrderFromCart (id: string): Promise<OrderDTO> {
+   async createFromCart (id: string): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/orders/${id}`,
            method: 'POST',
@@ -94,7 +94,7 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async findOrderById (id: string): Promise<OrderDTO> {
+   async getById (id: string): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/orders/${id}`,
            method: 'GET',
@@ -105,7 +105,7 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async filterOrders (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this._request({
            path: `/fulfillment/orders`,
            method: 'GET',
@@ -116,9 +116,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async deleteExpiredCarts (days: number): Promise<OrderDTO> {
+   async deleteCartsOlderThan (days: number): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/carts/${days}`,
+           path: `/fulfillment/orders/carts/olderThan=${days}`,
            method: 'DELETE',
            
            
@@ -127,9 +127,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async transitionOrderState (orderId: string, dto: TransitionOrderStateDTO): Promise<OrderDTO> {
+   async setState (id: string, dto: TransitionOrderStateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/state`,
+           path: `/fulfillment/orders/${id}/state`,
            method: 'PATCH',
            
            body: dto,
@@ -138,9 +138,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async updateOrderNote (orderId: string, dto: OrderNoteUpdateDTO): Promise<OrderDTO> {
+   async setNote (id: string, dto: OrderNoteUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/note`,
+           path: `/fulfillment/orders/${id}/note`,
            method: 'PATCH',
            
            body: dto,
@@ -149,9 +149,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setOrderStatus (orderId: string, dto: OrderStatusUpdateDTO): Promise<OrderDTO> {
+   async setStatus (id: string, dto: OrderStatusUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/status`,
+           path: `/fulfillment/orders/${id}/status`,
            method: 'PATCH',
            
            body: dto,
@@ -160,9 +160,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async transitionLineItemQuantityState (orderId: string, dto: TransitionLineItemQuantityState): Promise<OrderDTO> {
+   async setLineItemQuantityState (id: string, dto: TransitionLineItemQuantityState): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/line-items/state`,
+           path: `/fulfillment/orders/${id}/line-items`,
            method: 'PATCH',
            
            body: dto,
@@ -171,9 +171,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async addOrderLineItem (orderId: string, dto: LineItemDraftDTO): Promise<OrderDTO> {
+   async addLineItem (id: string, dto: LineItemDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/line-items`,
+           path: `/fulfillment/orders/${id}/line-items`,
            method: 'POST',
            
            body: dto,
@@ -182,9 +182,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async removeOrderLineItem (orderId: string, lineItemId: string): Promise<OrderDTO> {
+   async deleteLineItem (id: string, lineItemId: string): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/line-items/${lineItemId}`,
+           path: `/fulfillment/orders/${id}/line-items/${lineItemId}`,
            method: 'DELETE',
            
            
@@ -193,9 +193,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setOrderLineItemQuantity (orderId: string, lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
+   async setLineItemQuantity (id: string, lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/line-items/${lineItemId}/quantity`,
+           path: `/fulfillment/orders/${id}/line-items/${lineItemId}/quantity`,
            method: 'PATCH',
            
            body: dto,
@@ -204,9 +204,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setOrderDiscountCode (orderId: string, dto: DiscountCodeUpdateDTO): Promise<OrderDTO> {
+   async setOrderDiscountCode (id: string, dto: DiscountCodeUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/discount-code`,
+           path: `/fulfillment/orders/${id}/discount-code`,
            method: 'PATCH',
            
            body: dto,
@@ -215,9 +215,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async removeOrderDiscountCode (orderId: string, dto: DiscountCodeUpdateDTO): Promise<OrderDTO> {
+   async deleteDiscountCode (id: string, dto: DiscountCodeUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/discount-code`,
+           path: `/fulfillment/orders/${id}/discount-code`,
            method: 'DELETE',
            
            body: dto,
@@ -226,9 +226,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setOrderShippingAddress (orderId: string, dto: ShippingAddressDTO): Promise<OrderDTO> {
+   async setShippingAddress (id: string, dto: ShippingAddressDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/shipping-address`,
+           path: `/fulfillment/orders/${id}/shipping-address`,
            method: 'PATCH',
            
            body: dto,
@@ -237,9 +237,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setOrderBillingAddress (orderId: string, dto: AddressDTO): Promise<OrderDTO> {
+   async setBillingAddress (id: string, dto: AddressDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/billing-address`,
+           path: `/fulfillment/orders/${id}/billing-address`,
            method: 'PATCH',
            
            body: dto,
@@ -248,9 +248,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async getOrderShippingMethods (orderId: string): Promise<ShippingMethodsInfo> {
+   async getShippingMethods (id: string): Promise<ShippingMethodsInfo> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/shipping-methods`,
+           path: `/fulfillment/orders/${id}/shipping-methods`,
            method: 'GET',
            
            
@@ -259,9 +259,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as ShippingMethodsInfo;
    }
 
-   async getOrderPaymentMethods (orderId: string): Promise<PaymentMethodsInfo> {
+   async getPaymentMethods (id: string): Promise<PaymentMethodsInfo> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/payment-methods`,
+           path: `/fulfillment/orders/${id}/payment-methods`,
            method: 'GET',
            
            
@@ -270,9 +270,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as PaymentMethodsInfo;
    }
 
-   async setOrderPlatformShippingMethod (orderId: string, dto: PlatformMethodUpdateDTO): Promise<OrderDTO> {
+   async setPlatformShippingMethod (id: string, dto: PlatformMethodUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/platform-shipping-method`,
+           path: `/fulfillment/orders/${id}/platform-shipping-method`,
            method: 'PATCH',
            
            body: dto,
@@ -281,9 +281,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setOrderMerchantsShippingMethods (orderId: string, dto: MerchantsMethodsUpdateDTO): Promise<OrderDTO> {
+   async setMerchantsShippingMethods (id: string, dto: MerchantsMethodsUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/merchants-shipping-methods`,
+           path: `/fulfillment/orders/${id}/merchants-shipping-methods`,
            method: 'PATCH',
            
            body: dto,
@@ -292,9 +292,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setOrderPlatformPaymentMethod (orderId: string, dto: PlatformMethodUpdateDTO): Promise<OrderDTO> {
+   async setPlatformPaymentMethod (id: string, dto: PlatformMethodUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/platform-payment-method`,
+           path: `/fulfillment/orders/${id}/platform-payment-method`,
            method: 'PATCH',
            
            body: dto,
@@ -303,9 +303,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setOrderMerchantsPaymentMethods (orderId: string, dto: MerchantsMethodsUpdateDTO): Promise<OrderDTO> {
+   async setMerchantsPaymentMethods (id: string, dto: MerchantsMethodsUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/merchants-payment-methods`,
+           path: `/fulfillment/orders/${id}/merchants-payment-methods`,
            method: 'PATCH',
            
            body: dto,
@@ -314,9 +314,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setShippingStatus (orderId: string, shippingId: string, dto: ShippingStatusUpdateDTO): Promise<OrderDTO> {
+   async setShippingStatus (id: string, shippingId: string, dto: ShippingStatusUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/shippings/${shippingId}/status`,
+           path: `/fulfillment/orders/${id}/shippings/${shippingId}/status`,
            method: 'PATCH',
            
            body: dto,
@@ -325,9 +325,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async createShippingDelivery (orderId: string, shippingId: string, dto: ShippingDeliveryDraftDTO): Promise<OrderDTO> {
+   async createShippingDelivery (id: string, shippingId: string, dto: ShippingDeliveryDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/shippings/${shippingId}/deliveries`,
+           path: `/fulfillment/orders/${id}/shippings/${shippingId}/deliveries`,
            method: 'POST',
            
            body: dto,
@@ -336,9 +336,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async getShippingDeliveryParcelById (orderId: string, shippingId: string, deliveryId: string, parcelId: string): Promise<ShippingDeliveryParcelDTO> {
+   async getShippingDeliveryParcelById (id: string, shippingId: string, deliveryId: string, parcelId: string): Promise<ShippingDeliveryParcelDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/shippings/${shippingId}/deliveries/${deliveryId}/parcels/${parcelId}`,
+           path: `/fulfillment/orders/${id}/shippings/${shippingId}/deliveries/${deliveryId}/parcels/${parcelId}`,
            method: 'GET',
            
            
@@ -347,9 +347,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as ShippingDeliveryParcelDTO;
    }
 
-   async updateShippingDeliveryParcel (orderId: string, shippingId: string, deliveryId: string, parcelId: string, dto: ShippingDeliveryParcelDraftDTO): Promise<ShippingDeliveryParcelDTO> {
+   async updateShippingDeliveryParcel (id: string, shippingId: string, deliveryId: string, parcelId: string, dto: ShippingDeliveryParcelDraftDTO): Promise<ShippingDeliveryParcelDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/shippings/${shippingId}/deliveries/${deliveryId}/parcels/${parcelId}`,
+           path: `/fulfillment/orders/${id}/shippings/${shippingId}/deliveries/${deliveryId}/parcels/${parcelId}`,
            method: 'PUT',
            
            body: dto,
@@ -358,9 +358,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as ShippingDeliveryParcelDTO;
    }
 
-   async createShippingDeliveryParcel (orderId: string, shippingId: string, deliveryId: string, dto: ShippingDeliveryParcelDraftDTO): Promise<ShippingDeliveryParcelDTO> {
+   async createShippingDeliveryParcel (id: string, shippingId: string, deliveryId: string, dto: ShippingDeliveryParcelDraftDTO): Promise<ShippingDeliveryParcelDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/shippings/${shippingId}/deliveries/${deliveryId}/parcels`,
+           path: `/fulfillment/orders/${id}/shippings/${shippingId}/deliveries/${deliveryId}/parcels`,
            method: 'POST',
            
            body: dto,
@@ -369,9 +369,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as ShippingDeliveryParcelDTO;
    }
 
-   async createShippingInterfaceInteraction (orderId: string, shippingId: string, dto: ShippingInterfaceInteractionDraftDTO): Promise<OrderDTO> {
+   async createShippingInterfaceInteraction (id: string, shippingId: string, dto: ShippingInterfaceInteractionDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/shippings/${shippingId}/interface-interactions`,
+           path: `/fulfillment/orders/${id}/shippings/${shippingId}/interface-interactions`,
            method: 'POST',
            
            body: dto,
@@ -380,9 +380,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async makeShippingInterfaceInteraction (orderId: string, shippingId: string, deliveryId: string, parcelId: string, dto: MakeShippingInteractionDTO): Promise<object> {
+   async makeShippingInterfaceInteraction (id: string, shippingId: string, deliveryId: string, parcelId: string, dto: MakeShippingInteractionDTO): Promise<object> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/shippings/${shippingId}/deliveries/${deliveryId}/parcels/${parcelId}/interface-interactions`,
+           path: `/fulfillment/orders/${id}/shippings/${shippingId}/deliveries/${deliveryId}/parcels/${parcelId}/interface-interactions`,
            method: 'POST',
            
            body: dto,
@@ -391,9 +391,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async setPaymentStatus (orderId: string, paymentId: string, dto: PaymentStatusUpdateDTO): Promise<OrderDTO> {
+   async setPaymentStatus (id: string, paymentId: string, dto: PaymentStatusUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/payments/${paymentId}/status`,
+           path: `/fulfillment/orders/${id}/payments/${paymentId}/status`,
            method: 'PATCH',
            
            body: dto,
@@ -402,9 +402,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async createPaymentTransaction (orderId: string, paymentId: string, dto: PaymentTransactionDraftDTO): Promise<OrderDTO> {
+   async createPaymentTransaction (id: string, paymentId: string, dto: PaymentTransactionDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/payments/${paymentId}/transactions`,
+           path: `/fulfillment/orders/${id}/payments/${paymentId}/transactions`,
            method: 'POST',
            
            body: dto,
@@ -413,9 +413,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async createPaymentInterfaceInteraction (orderId: string, paymentId: string, dto: PaymentInterfaceInteractionDraftDTO): Promise<OrderDTO> {
+   async createPaymentInterfaceInteraction (id: string, paymentId: string, dto: PaymentInterfaceInteractionDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/payments/${paymentId}/interface-interactions`,
+           path: `/fulfillment/orders/${id}/payments/${paymentId}/interface-interactions`,
            method: 'POST',
            
            body: dto,
@@ -424,9 +424,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async makePaymentInterfaceInteraction (orderId: string, paymentId: string, transactionId: string, dto: MakePaymentInteractionDTO): Promise<object> {
+   async createPaymentTransactionInterfaceInteraction (id: string, paymentId: string, transactionId: string, dto: MakePaymentInteractionDTO): Promise<object> {
        const response = await this._request({
-           path: `/fulfillment/orders/${orderId}/payments/${paymentId}/transactions/${transactionId}/interface-interactions`,
+           path: `/fulfillment/orders/${id}/payments/${paymentId}/transactions/${transactionId}/interface-interactions`,
            method: 'POST',
            
            body: dto,

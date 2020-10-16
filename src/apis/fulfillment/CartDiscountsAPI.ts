@@ -3,7 +3,7 @@ import { CartDiscountDTO } from '../../models/CartDiscountDTO';
 import { CartDiscountDraftDTO } from '../../models/CartDiscountDraftDTO';
 
 export class CartDiscountsAPI extends BaseAPI {
-   async importCartDiscounts (dto: string[]): Promise<CartDiscountDTO[]> {
+   async import (dto: string[]): Promise<CartDiscountDTO[]> {
        const response = await this._request({
            path: `/fulfillment/cart-discounts/import`,
            method: 'POST',
@@ -14,7 +14,7 @@ export class CartDiscountsAPI extends BaseAPI {
        return (response.json() as unknown) as CartDiscountDTO[];
    }
 
-   async searchCartDiscounts (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async search (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this._request({
            path: `/fulfillment/cart-discounts/search`,
            method: 'GET',
@@ -25,7 +25,7 @@ export class CartDiscountsAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async filterCartDiscounts (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
        const response = await this._request({
            path: `/fulfillment/cart-discounts`,
            method: 'GET',
@@ -36,7 +36,7 @@ export class CartDiscountsAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async createCartDiscount (dto: CartDiscountDraftDTO): Promise<CartDiscountDTO> {
+   async create (dto: CartDiscountDraftDTO): Promise<CartDiscountDTO> {
        const response = await this._request({
            path: `/fulfillment/cart-discounts`,
            method: 'POST',
@@ -47,7 +47,7 @@ export class CartDiscountsAPI extends BaseAPI {
        return (response.json() as unknown) as CartDiscountDTO;
    }
 
-   async findCartDiscountById (id: string): Promise<CartDiscountDTO> {
+   async getById (id: string): Promise<CartDiscountDTO> {
        const response = await this._request({
            path: `/fulfillment/cart-discounts/${id}`,
            method: 'GET',
@@ -58,7 +58,7 @@ export class CartDiscountsAPI extends BaseAPI {
        return (response.json() as unknown) as CartDiscountDTO;
    }
 
-   async updateCartDiscountById (id: string, dto: CartDiscountDraftDTO): Promise<CartDiscountDTO> {
+   async update (id: string, dto: CartDiscountDraftDTO): Promise<CartDiscountDTO> {
        const response = await this._request({
            path: `/fulfillment/cart-discounts/${id}`,
            method: 'PUT',
@@ -69,7 +69,7 @@ export class CartDiscountsAPI extends BaseAPI {
        return (response.json() as unknown) as CartDiscountDTO;
    }
 
-   async deleteCartDiscountById (id: string): Promise<CartDiscountDTO> {
+   async delete (id: string): Promise<CartDiscountDTO> {
        const response = await this._request({
            path: `/fulfillment/cart-discounts/${id}`,
            method: 'DELETE',
