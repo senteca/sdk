@@ -1,9 +1,10 @@
 
 export interface PageDraftDTO {
   version?: number;
-  themeKey?: string;
-  viewKey?: string;
   name: string;
-  data: object[];
+  storeKey: string;
+  interfaceKey: string;
+  themeKey: string;
+  nodes: object[];
 }
 

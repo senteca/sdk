@@ -1,4 +1,5 @@
 import { KeyReferenceDTO } from './KeyReferenceDTO';
+import { InterfaceDTO } from './InterfaceDTO';
 
 export interface StoreDTO {
   version?: number;
@@ -10,6 +11,7 @@ export interface StoreDTO {
   merchants: KeyReferenceDTO[];
   priceLists: KeyReferenceDTO[];
   stockLocations: KeyReferenceDTO[];
+  interfaces: InterfaceDTO[];
   id: string;
   createdAt: number;
   updatedAt: number;

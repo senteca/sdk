@@ -1,10 +1,11 @@
 
 export interface PageDTO {
   version?: number;
-  themeKey?: string;
-  viewKey?: string;
   name: string;
-  data: object[];
+  storeKey: string;
+  interfaceKey: string;
+  themeKey: string;
+  nodes: object[];
   _id: string;
   createdAt: number;
   updatedAt: number;

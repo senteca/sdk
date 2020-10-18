@@ -1,14 +1,13 @@
-import { WidgetDraftDTO } from './WidgetDraftDTO';
-import { WidgetTemplateDraftDTO } from './WidgetTemplateDraftDTO';
+import { PackageDTO } from './PackageDTO';
 
 export interface ThemeDraftDTO {
-  viewKey: string;
+  version?: number;
   key: string;
-  version: string;
-  widgets: WidgetDraftDTO[];
-  configSchema: object;
+  package: PackageDTO;
+  vendorPackages: PackageDTO[];
+  components: object[];
+  pages: object[];
+  config: object;
   defaultConfig: object;
-  defaultTemplates: WidgetTemplateDraftDTO[];
-  defaultPages: object[];
 }
 
