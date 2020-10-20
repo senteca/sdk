@@ -1,21 +1,22 @@
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 import { AssetDTO } from './AssetDTO';
+import { CustomField } from './CustomField';
 
 export interface CollectionDTO {
   id: string;
   createdAt: number;
   updatedAt: number;
   version?: number;
-  name: LocalizedString;
-  description?: LocalizedString;
+  name: LangValue[];
+  description?: LangValue[];
   validFrom?: number;
   validTo?: number;
   assets?: AssetDTO[];
-  slug: LocalizedString;
-  metaTitle?: LocalizedString;
-  metaDescription?: LocalizedString;
-  metaKeywords?: LocalizedString;
-  custom?: object;
+  slug: LangValue[];
+  metaTitle?: LangValue[];
+  metaDescription?: LangValue[];
+  metaKeywords?: LangValue[];
+  custom?: CustomField[];
   externalId?: string;
 }
 

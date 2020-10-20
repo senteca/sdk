@@ -1,7 +1,7 @@
-import { Map } from './Map';
+import { LangValue } from './LangValue';
 
 export interface CustomFieldValueDTO {
   key: string;
-  label: Map;
+  label: LangValue[];
 }
 

@@ -1,5 +1,6 @@
 import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { AddressDTO } from './AddressDTO';
+import { CustomField } from './CustomField';
 
 export interface CustomerDTO {
   customerNumber: number;
@@ -10,7 +11,7 @@ export interface CustomerDTO {
   firstName?: string;
   middleName?: string;
   lastName?: string;
-  gender?: number;
+  gender?: CustomerDTOGenderEnum;
   dayOfBirth?: number;
   monthOfBirth?: number;
   yearOfBirth?: number;
@@ -21,15 +22,20 @@ export interface CustomerDTO {
   status: CustomerDTOStatusEnum;
   locale?: string;
   phoneNumber?: string;
-  anonymousId: string;
-  defaultBillingAddress: string;
-  defaultShippingAddress: string;
+  anonymousId?: string;
+  defaultBillingAddress?: string;
+  defaultShippingAddress?: string;
   customerAddresses: AddressDTO[];
-  passwordResetToken: string;
-  passwordResetTokenExpirationDate: number;
-  custom: object;
+  passwordResetToken?: string;
+  passwordResetTokenExpirationDate?: number;
+  custom?: CustomField[];
 }
 
+export enum CustomerDTOGenderEnum {
+    Unspecified = 'Unspecified',  
+    Male = 'Male',  
+    Female = 'Female',  
+}
 export enum CustomerDTOStatusEnum {
     Active = 'active',  
     Disabled = 'disabled',  

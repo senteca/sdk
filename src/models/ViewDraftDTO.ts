@@ -1,17 +1,18 @@
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 import { FilterStateDTO } from './FilterStateDTO';
 import { AssetDTO } from './AssetDTO';
+import { CustomField } from './CustomField';
 
 export interface ViewDraftDTO {
   version?: number;
-  name: LocalizedString;
-  description?: LocalizedString;
+  name: LangValue[];
+  description?: LangValue[];
   filters: FilterStateDTO[];
   assets?: AssetDTO[];
-  slug: LocalizedString;
-  metaTitle?: LocalizedString;
-  metaDescription?: LocalizedString;
-  metaKeywords?: LocalizedString;
-  custom?: object;
+  slug: LangValue[];
+  metaTitle?: LangValue[];
+  metaDescription?: LangValue[];
+  metaKeywords?: LangValue[];
+  custom?: CustomField[];
 }
 

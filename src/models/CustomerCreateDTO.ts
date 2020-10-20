@@ -1,4 +1,5 @@
 import { KeyReferenceDTO } from './KeyReferenceDTO';
+import { CustomField } from './CustomField';
 
 export interface CustomerCreateDTO {
   store?: KeyReferenceDTO;
@@ -9,7 +10,7 @@ export interface CustomerCreateDTO {
   firstName?: string;
   middleName?: string;
   lastName?: string;
-  gender: number;
+  gender: CustomerCreateDTOGenderEnum;
   dayOfBirth?: number;
   monthOfBirth?: number;
   yearOfBirth?: number;
@@ -18,12 +19,17 @@ export interface CustomerCreateDTO {
   externalId?: string;
   customerGroup?: KeyReferenceDTO;
   status: CustomerCreateDTOStatusEnum;
-  locale: string;
+  locale?: string;
   phoneNumber?: string;
   customerNumber?: number;
-  custom?: object;
+  custom?: CustomField[];
 }
 
+export enum CustomerCreateDTOGenderEnum {
+    Unspecified = 'Unspecified',  
+    Male = 'Male',  
+    Female = 'Female',  
+}
 export enum CustomerCreateDTOStatusEnum {
     Active = 'active',  
     Disabled = 'disabled',  

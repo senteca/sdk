@@ -1,12 +1,12 @@
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 import { KeyReferenceDTO } from './KeyReferenceDTO';
 
 export interface StateDTO {
   version?: number;
   key: string;
   type: StateDTOTypeEnum;
-  name?: LocalizedString;
-  description?: LocalizedString;
+  name?: LangValue[];
+  description?: LangValue[];
   color?: string;
   initial: boolean;
   transitions: KeyReferenceDTO[];

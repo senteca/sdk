@@ -3,7 +3,7 @@ import { SynonymDraftDTO } from '../../models/SynonymDraftDTO';
 import { SynonymDTO } from '../../models/SynonymDTO';
 
 export class CatalogAPI extends BaseAPI {
-   async search (query: { priceRanges?: string[], discountRanges?: string[], preFilters: string[], postFilters: string[], showCount?: boolean, skipSingleAttributes?: boolean, onlyResults?: boolean, language: string, priceList: string, merchant: string, sort: string[], limit: number, offset: number, categoriesParent: string, brandsParent: string, fuzziness?: string, prefixLength?: number, maxExpansions?: number }): Promise<object[]> {
+   async search (query: { priceRanges?: string[], discountRanges?: string[], preFilters?: string[], postFilters?: string[], showCount?: boolean, skipSingleAttributes?: boolean, onlyResults?: boolean, language: string, priceList: string, merchant: string, sort?: string[], limit?: number, offset?: number, categoriesParent: string, brandsParent: string, fuzziness?: string, prefixLength?: number, maxExpansions?: number }): Promise<object[]> {
        const response = await this._request({
            path: `/merchandise/catalog/search`,
            method: 'GET',

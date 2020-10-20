@@ -1,25 +1,26 @@
+import { LangValue } from './LangValue';
 import { IdReferenceDTO } from './IdReferenceDTO';
-import { LocalizedString } from './LocalizedString';
 import { AssetDTO } from './AssetDTO';
+import { CustomField } from './CustomField';
 
 export interface CategoryDTO {
   id: string;
   createdAt: number;
   updatedAt: number;
+  version?: number;
+  name: LangValue[];
+  description?: LangValue[];
+  weight: number;
   parent?: IdReferenceDTO;
   ancestors?: IdReferenceDTO[];
   alias?: IdReferenceDTO;
-  version?: number;
-  name: LocalizedString;
-  description?: LocalizedString;
-  weight: number;
   status: CategoryDTOStatusEnum;
   assets?: AssetDTO[];
-  slug: LocalizedString;
-  metaTitle?: LocalizedString;
-  metaDescription?: LocalizedString;
-  metaKeywords?: LocalizedString;
-  custom?: object;
+  slug: LangValue[];
+  metaTitle?: LangValue[];
+  metaDescription?: LangValue[];
+  metaKeywords?: LangValue[];
+  custom?: CustomField[];
   externalId?: string;
 }
 

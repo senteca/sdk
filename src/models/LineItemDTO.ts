@@ -1,5 +1,5 @@
 import { LineItemStateForQuantityDTO } from './LineItemStateForQuantityDTO';
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 import { IdReferenceDTO } from './IdReferenceDTO';
 import { ProductVariantDTO } from './ProductVariantDTO';
 import { OfferDTO } from './OfferDTO';
@@ -14,8 +14,8 @@ export interface LineItemDTO {
   id: string;
   states: LineItemStateForQuantityDTO[];
   productId: string;
-  productName: LocalizedString;
-  productSlug: LocalizedString;
+  productName: LangValue[];
+  productSlug: LangValue[];
   productThumbnailUrl: string;
   productCategories?: IdReferenceDTO[];
   productBrands?: IdReferenceDTO[];

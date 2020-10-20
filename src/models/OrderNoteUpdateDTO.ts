@@ -1,5 +1,5 @@
 
 export interface OrderNoteUpdateDTO {
-  note: string;
+  note?: string;
 }
 

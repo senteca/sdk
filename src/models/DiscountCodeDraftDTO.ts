@@ -1,22 +1,20 @@
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 import { IdReferenceDTO } from './IdReferenceDTO';
 
 export interface DiscountCodeDraftDTO {
-  authority: DiscountCodeDraftDTOAuthorityEnum;
+  authority?: DiscountCodeDraftDTOAuthorityEnum;
   merchantKey?: string;
-  name: LocalizedString;
-  description?: LocalizedString;
+  name: LangValue[];
+  description?: LangValue[];
   code: string;
   cartDiscounts: IdReferenceDTO[];
   cartPredicate: string;
-  groups: string[];
-  isActive: boolean;
+  groups?: string[];
+  isActive?: boolean;
   validFrom?: number;
   validTo?: number;
   maxApplications?: number;
   maxApplicationsPerCustomer?: number;
-  totalApplications: number;
-  applicationsPerCustomer: object;
 }
 
 export enum DiscountCodeDraftDTOAuthorityEnum {

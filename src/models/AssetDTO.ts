@@ -1,13 +1,14 @@
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 import { AssetSourceDTO } from './AssetSourceDTO';
+import { CustomField } from './CustomField';
 
 export interface AssetDTO {
   key?: string;
-  name: LocalizedString;
+  name: LangValue[];
   link?: string;
   sources: AssetSourceDTO[];
-  description?: LocalizedString;
+  description?: LangValue[];
   tags?: string[];
-  custom?: object;
+  custom?: CustomField[];
 }
 

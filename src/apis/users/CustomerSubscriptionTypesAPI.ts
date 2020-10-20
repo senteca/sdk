@@ -1,8 +1,9 @@
 import { BaseAPI } from '../../runtime';
+import { CustomerSubscriptionTypeDraftDTO } from '../../models/CustomerSubscriptionTypeDraftDTO';
 import { CustomerSubscriptionTypeDTO } from '../../models/CustomerSubscriptionTypeDTO';
 
 export class CustomerSubscriptionTypesAPI extends BaseAPI {
-   async create (dto: CustomerSubscriptionTypeDTO): Promise<CustomerSubscriptionTypeDTO> {
+   async create (dto: CustomerSubscriptionTypeDraftDTO): Promise<CustomerSubscriptionTypeDTO> {
        const response = await this._request({
            path: `/users/customer-subscription-types`,
            method: 'POST',

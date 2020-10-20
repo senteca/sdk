@@ -1,4 +1,4 @@
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 import { AddressDTO } from './AddressDTO';
 
 export interface StockLocationDraftDTO {
@@ -6,8 +6,8 @@ export interface StockLocationDraftDTO {
   key: string;
   merchantKey: string;
   priority?: number;
-  name: LocalizedString;
-  description?: LocalizedString;
+  name: LangValue[];
+  description?: LangValue[];
   address: AddressDTO;
 }
 

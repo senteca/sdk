@@ -1,22 +1,23 @@
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 import { IdReferenceDTO } from './IdReferenceDTO';
 import { AssetDTO } from './AssetDTO';
+import { CustomField } from './CustomField';
 
 export interface BrandDraftDTO {
   version?: number;
-  name: LocalizedString;
-  description?: LocalizedString;
+  name: LangValue[];
+  description?: LangValue[];
   weight: number;
   parent?: IdReferenceDTO;
   ancestors?: IdReferenceDTO[];
   status: BrandDraftDTOStatusEnum;
   assets?: AssetDTO[];
-  slug: LocalizedString;
-  metaTitle?: LocalizedString;
-  metaDescription?: LocalizedString;
-  metaKeywords?: LocalizedString;
+  slug: LangValue[];
+  metaTitle?: LangValue[];
+  metaDescription?: LangValue[];
+  metaKeywords?: LangValue[];
   externalId?: string;
-  custom?: object;
+  custom?: CustomField[];
 }
 
 export enum BrandDraftDTOStatusEnum {

@@ -1,9 +1,13 @@
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 
 export interface ContentDTO {
   key: string;
-  label?: LocalizedString;
-  type: string;
-  content?: LocalizedString;
+  label?: LangValue[];
+  type: ContentDTOTypeEnum;
+  content?: LangValue[];
 }
 
+export enum ContentDTOTypeEnum {
+    Text = 'text',  
+    Html = 'html',  
+}

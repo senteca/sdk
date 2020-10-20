@@ -1,6 +1,10 @@
 import { KeyReferenceDTO } from './KeyReferenceDTO';
+import { CustomField } from './CustomField';
 
 export interface CustomerUpdateDTO {
+  id: string;
+  createdAt?: number;
+  updatedAt?: number;
   store?: KeyReferenceDTO;
   email: string;
   salutation?: string;
@@ -8,7 +12,7 @@ export interface CustomerUpdateDTO {
   firstName?: string;
   middleName?: string;
   lastName?: string;
-  gender: number;
+  gender: CustomerUpdateDTOGenderEnum;
   dayOfBirth?: number;
   monthOfBirth?: number;
   yearOfBirth?: number;
@@ -19,9 +23,14 @@ export interface CustomerUpdateDTO {
   status: CustomerUpdateDTOStatusEnum;
   locale?: string;
   phoneNumber?: string;
-  custom?: object;
+  custom?: CustomField[];
 }
 
+export enum CustomerUpdateDTOGenderEnum {
+    Unspecified = 'Unspecified',  
+    Male = 'Male',  
+    Female = 'Female',  
+}
 export enum CustomerUpdateDTOStatusEnum {
     Active = 'active',  
     Disabled = 'disabled',  

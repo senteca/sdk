@@ -1,12 +1,12 @@
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 import { CartDiscountValueDTO } from './CartDiscountValueDTO';
 import { CartDiscountTargetDTO } from './CartDiscountTargetDTO';
 
 export interface CartDiscountDraftDTO {
-  authority: CartDiscountDraftDTOAuthorityEnum;
+  authority?: CartDiscountDraftDTOAuthorityEnum;
   merchantKey?: string;
-  name: LocalizedString;
-  description?: LocalizedString;
+  name: LangValue[];
+  description?: LangValue[];
   value: CartDiscountValueDTO;
   cartPredicate: string;
   target?: CartDiscountTargetDTO;
@@ -14,11 +14,15 @@ export interface CartDiscountDraftDTO {
   isActive: boolean;
   validFrom?: number;
   validTo?: number;
-  requiresDiscountCode: boolean;
-  stackingMode: string;
+  requiresDiscountCode?: boolean;
+  stackingMode: CartDiscountDraftDTOStackingModeEnum;
 }
 
 export enum CartDiscountDraftDTOAuthorityEnum {
     Platform = 'Platform',  
     Merchant = 'Merchant',  
+}
+export enum CartDiscountDraftDTOStackingModeEnum {
+    Stacking = 'stacking',  
+    StopAfterThisDiscount = 'stopAfterThisDiscount',  
 }

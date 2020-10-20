@@ -1,12 +1,12 @@
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 import { IdReferenceDTO } from './IdReferenceDTO';
 import { ShippingFeeTableOrderTotalWeightInGramsDTO } from './ShippingFeeTableOrderTotalWeightInGramsDTO';
 import { CodFeeTableOrderTotalAmountDTO } from './CodFeeTableOrderTotalAmountDTO';
 
 export interface ShippingMethodDraftDTO {
   version?: number;
-  name: LocalizedString;
-  description?: LocalizedString;
+  name: LangValue[];
+  description?: LangValue[];
   authority: ShippingMethodDraftDTOAuthorityEnum;
   type: ShippingMethodDraftDTOTypeEnum;
   providerType: ShippingMethodDraftDTOProviderTypeEnum;

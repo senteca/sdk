@@ -1,18 +1,18 @@
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 import { ProductDiscountValueDTO } from './ProductDiscountValueDTO';
 
 export interface ProductDiscountDTO {
   id: string;
   createdAt: number;
   updatedAt: number;
-  authority: ProductDiscountDTOAuthorityEnum;
+  authority?: ProductDiscountDTOAuthorityEnum;
   merchantKey?: string;
-  name: LocalizedString;
-  description?: LocalizedString;
+  name: LangValue[];
+  description?: LangValue[];
   value: ProductDiscountValueDTO;
   predicate: string;
   sortOrder: number;
-  isActive: boolean;
+  isActive?: boolean;
   validFrom?: number;
   validTo?: number;
 }

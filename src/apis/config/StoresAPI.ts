@@ -25,6 +25,17 @@ export class StoresAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
+   async getByKey (key: string): Promise<StoreDTO> {
+       const response = await this._request({
+           path: `/config/stores/key=${key}`,
+           method: 'GET',
+           
+           
+           
+        });
+       return (response.json() as unknown) as StoreDTO;
+   }
+
    async getById (id: string): Promise<StoreDTO> {
        const response = await this._request({
            path: `/config/stores/${id}`,
@@ -51,17 +62,6 @@ export class StoresAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/stores/${id}`,
            method: 'DELETE',
-           
-           
-           
-        });
-       return (response.json() as unknown) as StoreDTO;
-   }
-
-   async getByKey (key: string): Promise<StoreDTO> {
-       const response = await this._request({
-           path: `/config/stores/key=${key}`,
-           method: 'GET',
            
            
            

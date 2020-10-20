@@ -4,6 +4,6 @@ export interface AccessTokenDTO {
   expires: number;
   refreshToken?: string;
   refreshTokenExpires?: number;
-  tokenType: string;
+  tokenType?: string;
 }
 

@@ -15,7 +15,7 @@ export interface ShippingDTO {
   status: ShippingDTOStatusEnum;
   method: IdReferenceDTO;
   type: ShippingDTOTypeEnum;
-  authority: ShippingDTOAuthorityEnum;
+  authority?: ShippingDTOAuthorityEnum;
   merchant?: KeyReferenceDTO;
   providerType?: ShippingDTOProviderTypeEnum;
   price?: MoneyDTO;

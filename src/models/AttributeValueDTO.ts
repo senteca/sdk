@@ -1,7 +1,7 @@
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 
 export interface AttributeValueDTO {
   key: string;
-  label: LocalizedString;
+  label: LangValue[];
 }
 

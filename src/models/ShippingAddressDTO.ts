@@ -1,4 +1,5 @@
 import { AddressVerifiedDTO } from './AddressVerifiedDTO';
+import { CustomField } from './CustomField';
 
 export interface ShippingAddressDTO {
   id?: string;
@@ -24,9 +25,9 @@ export interface ShippingAddressDTO {
   vatId?: string;
   additionalStreetInfo?: string;
   additionalAddressInfo?: string;
-  isDefaultBillingAddress: boolean;
-  isDefaultShippingAddress: boolean;
+  isDefaultBillingAddress?: boolean;
+  isDefaultShippingAddress?: boolean;
   verified: AddressVerifiedDTO;
-  custom?: object;
+  custom?: CustomField[];
 }
 

@@ -1,11 +1,8 @@
 import { LangValue } from './LangValue';
 
-export interface CustomerSubscriptionTypeDTO {
+export interface CustomerSubscriptionTypeDraftDTO {
   key: string;
   label?: LangValue[];
   description?: LangValue[];
-  id: string;
-  createdAt: number;
-  updatedAt: number;
 }
 

@@ -1,4 +1,4 @@
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 import { CustomFieldValueDTO } from './CustomFieldValueDTO';
 
 export interface CustomFieldDTO {
@@ -8,8 +8,8 @@ export interface CustomFieldDTO {
   type: CustomFieldDTOTypeEnum;
   resourceTypeId: CustomFieldDTOResourceTypeIdEnum;
   name: string;
-  label?: LocalizedString;
-  description?: LocalizedString;
+  label?: LangValue[];
+  description?: LangValue[];
   isRequired: boolean;
   isSearchable: boolean;
   values?: CustomFieldValueDTO[];
@@ -53,4 +53,5 @@ export enum CustomFieldDTOResourceTypeIdEnum {
     CmsFolder = 'cms-folder',  
     CmsType = 'cms-type',  
     StockLocation = 'stock-location',  
+    Role = 'role',  
 }

@@ -29,6 +29,7 @@ export interface OrderImportDTO {
   taxCalculationMode?: OrderImportDTOTaxCalculationModeEnum;
   inventoryMode?: OrderImportDTOInventoryModeEnum;
   draftInventoryMode?: OrderImportDTODraftInventoryModeEnum;
+  deleteDaysAfterDraftLastModification?: number;
   customerId?: string;
   customerFirstName?: string;
   customerLastName?: string;

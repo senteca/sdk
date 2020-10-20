@@ -2,7 +2,7 @@ import { MoneyDTO } from './MoneyDTO';
 import { IdReferenceDTO } from './IdReferenceDTO';
 
 export interface CartDiscountValueDTO {
-  type: string;
+  type: CartDiscountValueDTOTypeEnum;
   permyriad?: number;
   money?: MoneyDTO[];
   product?: IdReferenceDTO;
@@ -10,3 +10,8 @@ export interface CartDiscountValueDTO {
   quantity?: number;
 }
 
+export enum CartDiscountValueDTOTypeEnum {
+    Relative = 'relative',  
+    Absolute = 'absolute',  
+    GiftLineItem = 'giftLineItem',  
+}

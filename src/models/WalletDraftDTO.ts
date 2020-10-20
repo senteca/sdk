@@ -1,6 +1,7 @@
 import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { IdReferenceDTO } from './IdReferenceDTO';
 import { MoneyDTO } from './MoneyDTO';
+import { CustomField } from './CustomField';
 
 export interface WalletDraftDTO {
   version?: number;
@@ -11,7 +12,7 @@ export interface WalletDraftDTO {
   availableAmount?: MoneyDTO;
   lastKnownAvailableAmount?: MoneyDTO;
   lastSyncAt?: number;
-  custom?: object;
+  custom?: CustomField[];
 }
 
 export enum WalletDraftDTOStatusEnum {

@@ -4,7 +4,6 @@ export interface ThemeDTO {
   version?: number;
   key: string;
   package: PackageDTO;
-  vendorPackages: PackageDTO[];
   components: object[];
   pages: object[];
   config: object;

@@ -1,3 +1,4 @@
+import { IdReferenceDTO } from './IdReferenceDTO';
 
 export interface UserCreateDTO {
   firstName: string;
@@ -5,6 +6,6 @@ export interface UserCreateDTO {
   lastName?: string;
   email: string;
   password: string;
-  role: string;
+  role: IdReferenceDTO;
 }
 

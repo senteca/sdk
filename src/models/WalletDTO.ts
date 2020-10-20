@@ -1,20 +1,19 @@
-import { IdReferenceDTO } from './IdReferenceDTO';
 import { KeyReferenceDTO } from './KeyReferenceDTO';
+import { IdReferenceDTO } from './IdReferenceDTO';
 import { MoneyDTO } from './MoneyDTO';
+import { CustomField } from './CustomField';
 
 export interface WalletDTO {
   id: string;
-  createdAt: number;
-  updatedAt: number;
-  owners: IdReferenceDTO[];
   version?: number;
   type: KeyReferenceDTO;
   key: string;
   status: WalletDTOStatusEnum;
+  owners: IdReferenceDTO[];
   availableAmount?: MoneyDTO;
   lastKnownAvailableAmount?: MoneyDTO;
   lastSyncAt?: number;
-  custom?: object;
+  custom?: CustomField[];
 }
 
 export enum WalletDTOStatusEnum {

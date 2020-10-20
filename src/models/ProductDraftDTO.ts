@@ -1,15 +1,16 @@
 import { IdReferenceDTO } from './IdReferenceDTO';
-import { LocalizedString } from './LocalizedString';
+import { LangValue } from './LangValue';
 import { ContentDTO } from './ContentDTO';
 import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
 import { AssetDTO } from './AssetDTO';
 import { ProductVariantDraftDTO } from './ProductVariantDraftDTO';
+import { CustomField } from './CustomField';
 
 export interface ProductDraftDTO {
   version?: number;
   taxCategory: IdReferenceDTO;
-  name: LocalizedString;
-  description: LocalizedString;
+  name: LangValue[];
+  description: LangValue[];
   weight: number;
   contents: ContentDTO[];
   categories?: IdReferenceDTO[];
@@ -19,14 +20,14 @@ export interface ProductDraftDTO {
   status: ProductDraftDTOStatusEnum;
   reviewRatingStatistics?: ReviewRatingStatisticsDTO;
   assets?: AssetDTO[];
-  slug: LocalizedString;
-  metaTitle?: LocalizedString;
-  metaDescription?: LocalizedString;
-  metaKeywords?: LocalizedString;
+  slug: LangValue[];
+  metaTitle?: LangValue[];
+  metaDescription?: LangValue[];
+  metaKeywords?: LangValue[];
   masterVariantId?: string;
   variants?: ProductVariantDraftDTO[];
   metadata?: object;
-  custom?: object;
+  custom?: CustomField[];
   externalId?: string;
 }
 

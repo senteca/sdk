@@ -1,6 +1,11 @@
 
 export interface CartDiscountTargetDTO {
-  type: string;
+  type: CartDiscountTargetDTOTypeEnum;
   predicate: string;
 }
 
+export enum CartDiscountTargetDTOTypeEnum {
+    LineItems = 'lineItems',  
+    Shipping = 'shipping',  
+    Subtotal = 'subtotal',  
+}

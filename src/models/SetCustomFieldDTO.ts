@@ -34,4 +34,5 @@ export enum SetCustomFieldDTOResourceTypeEnum {
     CmsFolder = 'cms-folder',  
     CmsType = 'cms-type',  
     StockLocation = 'stock-location',  
+    Role = 'role',  
 }
