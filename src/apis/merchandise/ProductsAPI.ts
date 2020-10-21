@@ -10,6 +10,8 @@ import { ProductStatusUpdateDTO } from '../../models/ProductStatusUpdateDTO';
 import { ProductWeightUpdateDTO } from '../../models/ProductWeightUpdateDTO';
 import { InventoryUpdateDTO } from '../../models/InventoryUpdateDTO';
 import { AssetDTO } from '../../models/AssetDTO';
+import { ProductSearchResultDTO } from '../../models/ProductSearchResultDTO';
+import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
 import { SwapIndexDTO } from '../../models/SwapIndexDTO';
 
 export class ProductsAPI extends BaseAPI {
@@ -189,7 +191,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<void> {
+   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<ProductSearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/products/search`,
            method: 'GET',
@@ -197,10 +199,10 @@ export class ProductsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ProductSearchResultDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ProductFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/products`,
            method: 'GET',
@@ -208,7 +210,7 @@ export class ProductsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ProductFilterResultDTO;
    }
 
    async create (dto: ProductDraftDTO): Promise<ProductDTO> {

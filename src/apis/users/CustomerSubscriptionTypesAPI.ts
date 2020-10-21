@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { CustomerSubscriptionTypeDraftDTO } from '../../models/CustomerSubscriptionTypeDraftDTO';
 import { CustomerSubscriptionTypeDTO } from '../../models/CustomerSubscriptionTypeDTO';
+import { CustomerSubscriptionTypeFilterResultDTO } from '../../models/CustomerSubscriptionTypeFilterResultDTO';
 
 export class CustomerSubscriptionTypesAPI extends BaseAPI {
    async create (dto: CustomerSubscriptionTypeDraftDTO): Promise<CustomerSubscriptionTypeDTO> {
@@ -14,7 +15,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerSubscriptionTypeDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<CustomerSubscriptionTypeFilterResultDTO> {
        const response = await this._request({
            path: `/users/customer-subscription-types`,
            method: 'GET',
@@ -22,7 +23,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as CustomerSubscriptionTypeFilterResultDTO;
    }
 
    async getById (id: string): Promise<CustomerSubscriptionTypeDTO> {

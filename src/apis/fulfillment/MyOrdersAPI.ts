@@ -1,10 +1,11 @@
 import { BaseAPI } from '../../runtime';
+import { OrderFilterResultDTO } from '../../models/OrderFilterResultDTO';
 import { OrderDTO } from '../../models/OrderDTO';
 import { MakePaymentResponse } from '../../models/MakePaymentResponse';
 import { VerifyPaymentResultRequest } from '../../models/VerifyPaymentResultRequest';
 
 export class MyOrdersAPI extends BaseAPI {
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
        const response = await this._request({
            path: `/fulfillment/my-orders`,
            method: 'GET',
@@ -12,7 +13,7 @@ export class MyOrdersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as OrderFilterResultDTO;
    }
 
    async create (): Promise<OrderDTO> {

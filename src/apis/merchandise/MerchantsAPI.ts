@@ -1,9 +1,10 @@
 import { BaseAPI } from '../../runtime';
+import { MerchantFilterResultDTO } from '../../models/MerchantFilterResultDTO';
 import { MerchantDraftDTO } from '../../models/MerchantDraftDTO';
 import { MerchantDTO } from '../../models/MerchantDTO';
 
 export class MerchantsAPI extends BaseAPI {
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<MerchantFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/merchants`,
            method: 'GET',
@@ -11,7 +12,7 @@ export class MerchantsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as MerchantFilterResultDTO;
    }
 
    async create (dto: MerchantDraftDTO): Promise<MerchantDTO> {

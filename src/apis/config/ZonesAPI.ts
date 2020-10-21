@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { ZoneDraftDTO } from '../../models/ZoneDraftDTO';
 import { ZoneDTO } from '../../models/ZoneDTO';
+import { ZoneFilterResultDTO } from '../../models/ZoneFilterResultDTO';
 
 export class ZonesAPI extends BaseAPI {
    async create (dto: ZoneDraftDTO): Promise<ZoneDTO> {
@@ -14,7 +15,7 @@ export class ZonesAPI extends BaseAPI {
        return (response.json() as unknown) as ZoneDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ZoneFilterResultDTO> {
        const response = await this._request({
            path: `/config/zones`,
            method: 'GET',
@@ -22,7 +23,7 @@ export class ZonesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ZoneFilterResultDTO;
    }
 
    async getById (id: string): Promise<ZoneDTO> {

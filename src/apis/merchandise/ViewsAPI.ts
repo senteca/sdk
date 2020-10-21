@@ -1,7 +1,9 @@
 import { BaseAPI } from '../../runtime';
 import { AssetDTO } from '../../models/AssetDTO';
 import { ViewDTO } from '../../models/ViewDTO';
+import { ViewSearchResultDTO } from '../../models/ViewSearchResultDTO';
 import { ViewDraftDTO } from '../../models/ViewDraftDTO';
+import { ViewFilterResultDTO } from '../../models/ViewFilterResultDTO';
 
 export class ViewsAPI extends BaseAPI {
    async createAsset (id: string, dto: AssetDTO): Promise<ViewDTO> {
@@ -37,7 +39,7 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<void> {
+   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<ViewSearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/views/search`,
            method: 'GET',
@@ -45,7 +47,7 @@ export class ViewsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ViewSearchResultDTO;
    }
 
    async create (dto: ViewDraftDTO): Promise<ViewDTO> {
@@ -59,7 +61,7 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ViewFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/views`,
            method: 'GET',
@@ -67,7 +69,7 @@ export class ViewsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ViewFilterResultDTO;
    }
 
    async getById (id: string): Promise<ViewDTO> {

@@ -4,6 +4,7 @@ import { UserProfileUpdateDTO } from '../../models/UserProfileUpdateDTO';
 import { PasswordChangeDTO } from '../../models/PasswordChangeDTO';
 import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
 import { PasswordResetDTO } from '../../models/PasswordResetDTO';
+import { UserFilterResultDTO } from '../../models/UserFilterResultDTO';
 import { UserCreateDTO } from '../../models/UserCreateDTO';
 import { UserUpdateDTO } from '../../models/UserUpdateDTO';
 
@@ -63,7 +64,7 @@ export class UsersAPI extends BaseAPI {
        return (response.json() as unknown) as UserDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<UserFilterResultDTO> {
        const response = await this._request({
            path: `/users/users`,
            method: 'GET',
@@ -71,7 +72,7 @@ export class UsersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as UserFilterResultDTO;
    }
 
    async create (dto: UserCreateDTO): Promise<UserDTO> {

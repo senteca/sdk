@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { ContentDraftDTO } from '../../models/ContentDraftDTO';
 import { ContentDTO } from '../../models/ContentDTO';
+import { ContentFilterResultDTO } from '../../models/ContentFilterResultDTO';
 
 export class ContentsAPI extends BaseAPI {
    async create (dto: ContentDraftDTO): Promise<ContentDTO> {
@@ -14,7 +15,7 @@ export class ContentsAPI extends BaseAPI {
        return (response.json() as unknown) as ContentDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ContentFilterResultDTO> {
        const response = await this._request({
            path: `/cms/contents`,
            method: 'GET',
@@ -22,7 +23,7 @@ export class ContentsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ContentFilterResultDTO;
    }
 
    async update (id: string, dto: ContentDraftDTO): Promise<ContentDTO> {

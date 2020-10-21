@@ -1,6 +1,8 @@
 import { BaseAPI } from '../../runtime';
 import { AssetDTO } from '../../models/AssetDTO';
 import { CategoryDTO } from '../../models/CategoryDTO';
+import { CategorySearchResultDTO } from '../../models/CategorySearchResultDTO';
+import { CategoryFilterResultDTO } from '../../models/CategoryFilterResultDTO';
 import { CategoryDraftDTO } from '../../models/CategoryDraftDTO';
 
 export class CategoriesAPI extends BaseAPI {
@@ -37,7 +39,7 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategoryDTO;
    }
 
-   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<void> {
+   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<CategorySearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/categories/search`,
            method: 'GET',
@@ -45,10 +47,10 @@ export class CategoriesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as CategorySearchResultDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<CategoryFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/categories`,
            method: 'GET',
@@ -56,7 +58,7 @@ export class CategoriesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as CategoryFilterResultDTO;
    }
 
    async create (dto: CategoryDraftDTO): Promise<CategoryDTO> {

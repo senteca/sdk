@@ -1,9 +1,11 @@
 import { BaseAPI } from '../../runtime';
+import { WalletTypeFilterResultDTO } from '../../models/WalletTypeFilterResultDTO';
 import { WalletTypeDraftDTO } from '../../models/WalletTypeDraftDTO';
 import { WalletTypeDTO } from '../../models/WalletTypeDTO';
+import { WalletTypeSearchResultDTO } from '../../models/WalletTypeSearchResultDTO';
 
 export class WalletTypesAPI extends BaseAPI {
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<WalletTypeFilterResultDTO> {
        const response = await this._request({
            path: `/users/wallet-types`,
            method: 'GET',
@@ -11,7 +13,7 @@ export class WalletTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as WalletTypeFilterResultDTO;
    }
 
    async create (dto: WalletTypeDraftDTO): Promise<WalletTypeDTO> {
@@ -58,7 +60,7 @@ export class WalletTypesAPI extends BaseAPI {
        return (response.json() as unknown) as WalletTypeDTO;
    }
 
-   async search (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async search (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<WalletTypeSearchResultDTO> {
        const response = await this._request({
            path: `/users/wallet-types/search`,
            method: 'GET',
@@ -66,7 +68,7 @@ export class WalletTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as WalletTypeSearchResultDTO;
    }
 
 }

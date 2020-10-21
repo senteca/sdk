@@ -1,7 +1,9 @@
 import { BaseAPI } from '../../runtime';
 import { AssetDTO } from '../../models/AssetDTO';
 import { CollectionDTO } from '../../models/CollectionDTO';
+import { CollectionSearchResultDTO } from '../../models/CollectionSearchResultDTO';
 import { CollectionDraftDTO } from '../../models/CollectionDraftDTO';
+import { CollectionFilterResultDTO } from '../../models/CollectionFilterResultDTO';
 
 export class CollectionsAPI extends BaseAPI {
    async createAsset (id: string, dto: AssetDTO): Promise<CollectionDTO> {
@@ -37,7 +39,7 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionDTO;
    }
 
-   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<void> {
+   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<CollectionSearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/collections/search`,
            method: 'GET',
@@ -45,7 +47,7 @@ export class CollectionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as CollectionSearchResultDTO;
    }
 
    async create (dto: CollectionDraftDTO): Promise<CollectionDTO> {
@@ -59,7 +61,7 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<CollectionFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/collections`,
            method: 'GET',
@@ -67,7 +69,7 @@ export class CollectionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as CollectionFilterResultDTO;
    }
 
    async getById (id: string): Promise<CollectionDTO> {

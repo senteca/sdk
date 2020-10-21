@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { ThemeDraftDTO } from '../../models/ThemeDraftDTO';
 import { ThemeDTO } from '../../models/ThemeDTO';
+import { ThemeFilterResultDTO } from '../../models/ThemeFilterResultDTO';
 
 export class ThemeAPI extends BaseAPI {
    async install (themeKey: string, storeKey: string, interfaceKey: string): Promise<void> {
@@ -25,7 +26,7 @@ export class ThemeAPI extends BaseAPI {
        return (response.json() as unknown) as ThemeDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ThemeFilterResultDTO> {
        const response = await this._request({
            path: `/cms/theme`,
            method: 'GET',
@@ -33,7 +34,7 @@ export class ThemeAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ThemeFilterResultDTO;
    }
 
    async update (id: string, dto: ThemeDraftDTO): Promise<ThemeDTO> {

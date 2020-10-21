@@ -1,9 +1,11 @@
 import { BaseAPI } from '../../runtime';
+import { ProductDiscountSearchResultDTO } from '../../models/ProductDiscountSearchResultDTO';
+import { ProductDiscountFilterResultDTO } from '../../models/ProductDiscountFilterResultDTO';
 import { ProductDiscountDraftDTO } from '../../models/ProductDiscountDraftDTO';
 import { ProductDiscountDTO } from '../../models/ProductDiscountDTO';
 
 export class ProductDiscountsAPI extends BaseAPI {
-   async search (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async search (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ProductDiscountSearchResultDTO> {
        const response = await this._request({
            path: `/fulfillment/product-discounts/search`,
            method: 'GET',
@@ -11,10 +13,10 @@ export class ProductDiscountsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ProductDiscountSearchResultDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ProductDiscountFilterResultDTO> {
        const response = await this._request({
            path: `/fulfillment/product-discounts`,
            method: 'GET',
@@ -22,7 +24,7 @@ export class ProductDiscountsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ProductDiscountFilterResultDTO;
    }
 
    async create (dto: ProductDiscountDraftDTO): Promise<ProductDiscountDTO> {

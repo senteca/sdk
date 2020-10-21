@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 import { CustomFieldDTO } from '../../models/CustomFieldDTO';
+import { CustomFieldFilterResultDTO } from '../../models/CustomFieldFilterResultDTO';
 import { CustomFieldDraftDTO } from '../../models/CustomFieldDraftDTO';
 
 export class CustomFieldsAPI extends BaseAPI {
@@ -37,7 +38,7 @@ export class CustomFieldsAPI extends BaseAPI {
        return (response.json() as unknown) as CustomFieldDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<CustomFieldFilterResultDTO> {
        const response = await this._request({
            path: `/config/custom-fields`,
            method: 'GET',
@@ -45,7 +46,7 @@ export class CustomFieldsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as CustomFieldFilterResultDTO;
    }
 
    async getById (id: string): Promise<CustomFieldDTO> {

@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { ContentTypeDraftDTO } from '../../models/ContentTypeDraftDTO';
 import { ContentTypeDTO } from '../../models/ContentTypeDTO';
+import { ContentTypeFilterResultDTO } from '../../models/ContentTypeFilterResultDTO';
 
 export class ContentTypesAPI extends BaseAPI {
    async create (dto: ContentTypeDraftDTO): Promise<ContentTypeDTO> {
@@ -14,7 +15,7 @@ export class ContentTypesAPI extends BaseAPI {
        return (response.json() as unknown) as ContentTypeDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ContentTypeFilterResultDTO> {
        const response = await this._request({
            path: `/cms/content-types`,
            method: 'GET',
@@ -22,7 +23,7 @@ export class ContentTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ContentTypeFilterResultDTO;
    }
 
    async update (id: string, dto: ContentTypeDraftDTO): Promise<ContentTypeDTO> {

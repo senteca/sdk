@@ -4,6 +4,8 @@ import { CustomerUpdateDTO } from '../../models/CustomerUpdateDTO';
 import { PasswordChangeDTO } from '../../models/PasswordChangeDTO';
 import { AddressDTO } from '../../models/AddressDTO';
 import { CustomerCreateDTO } from '../../models/CustomerCreateDTO';
+import { CustomerFilterResultDTO } from '../../models/CustomerFilterResultDTO';
+import { CustomerSearchResultDTO } from '../../models/CustomerSearchResultDTO';
 import { CustomerRegisterDTO } from '../../models/CustomerRegisterDTO';
 import { CustomerRegisterFacebookDTO } from '../../models/CustomerRegisterFacebookDTO';
 import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
@@ -120,7 +122,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<CustomerFilterResultDTO> {
        const response = await this._request({
            path: `/users/customers`,
            method: 'GET',
@@ -128,10 +130,10 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as CustomerFilterResultDTO;
    }
 
-   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<void> {
+   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<CustomerSearchResultDTO> {
        const response = await this._request({
            path: `/users/customers/search`,
            method: 'GET',
@@ -139,7 +141,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as CustomerSearchResultDTO;
    }
 
    async getById (id: string): Promise<CustomerDTO> {

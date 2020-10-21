@@ -1,5 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { CartDiscountDTO } from '../../models/CartDiscountDTO';
+import { CartDiscountSearchResultDTO } from '../../models/CartDiscountSearchResultDTO';
+import { CartDiscountFilterResultDTO } from '../../models/CartDiscountFilterResultDTO';
 import { CartDiscountDraftDTO } from '../../models/CartDiscountDraftDTO';
 
 export class CartDiscountsAPI extends BaseAPI {
@@ -14,7 +16,7 @@ export class CartDiscountsAPI extends BaseAPI {
        return (response.json() as unknown) as CartDiscountDTO[];
    }
 
-   async search (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async search (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<CartDiscountSearchResultDTO> {
        const response = await this._request({
            path: `/fulfillment/cart-discounts/search`,
            method: 'GET',
@@ -22,10 +24,10 @@ export class CartDiscountsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as CartDiscountSearchResultDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<CartDiscountFilterResultDTO> {
        const response = await this._request({
            path: `/fulfillment/cart-discounts`,
            method: 'GET',
@@ -33,7 +35,7 @@ export class CartDiscountsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as CartDiscountFilterResultDTO;
    }
 
    async create (dto: CartDiscountDraftDTO): Promise<CartDiscountDTO> {

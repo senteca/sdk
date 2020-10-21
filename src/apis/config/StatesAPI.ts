@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { StateDraftDTO } from '../../models/StateDraftDTO';
 import { StateDTO } from '../../models/StateDTO';
+import { StateFilterResultDTO } from '../../models/StateFilterResultDTO';
 
 export class StatesAPI extends BaseAPI {
    async create (dto: StateDraftDTO): Promise<StateDTO> {
@@ -14,7 +15,7 @@ export class StatesAPI extends BaseAPI {
        return (response.json() as unknown) as StateDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<StateFilterResultDTO> {
        const response = await this._request({
            path: `/config/states`,
            method: 'GET',
@@ -22,7 +23,7 @@ export class StatesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as StateFilterResultDTO;
    }
 
    async getById (id: string): Promise<StateDTO> {

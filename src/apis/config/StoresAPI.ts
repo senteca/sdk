@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { StoreDraftDTO } from '../../models/StoreDraftDTO';
 import { StoreDTO } from '../../models/StoreDTO';
+import { StoreFilterResultDTO } from '../../models/StoreFilterResultDTO';
 
 export class StoresAPI extends BaseAPI {
    async create (dto: StoreDraftDTO): Promise<StoreDTO> {
@@ -14,7 +15,7 @@ export class StoresAPI extends BaseAPI {
        return (response.json() as unknown) as StoreDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<StoreFilterResultDTO> {
        const response = await this._request({
            path: `/config/stores`,
            method: 'GET',
@@ -22,7 +23,7 @@ export class StoresAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as StoreFilterResultDTO;
    }
 
    async getByKey (key: string): Promise<StoreDTO> {

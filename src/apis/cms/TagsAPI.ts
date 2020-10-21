@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { TagDraftDTO } from '../../models/TagDraftDTO';
 import { TagDTO } from '../../models/TagDTO';
+import { TagFilterResultDTO } from '../../models/TagFilterResultDTO';
 
 export class TagsAPI extends BaseAPI {
    async create (dto: TagDraftDTO): Promise<TagDTO> {
@@ -14,7 +15,7 @@ export class TagsAPI extends BaseAPI {
        return (response.json() as unknown) as TagDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<TagFilterResultDTO> {
        const response = await this._request({
            path: `/cms/tags`,
            method: 'GET',
@@ -22,7 +23,7 @@ export class TagsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as TagFilterResultDTO;
    }
 
    async update (id: string, dto: TagDraftDTO): Promise<TagDTO> {

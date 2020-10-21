@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { ValueTypeDraftDTO } from '../../models/ValueTypeDraftDTO';
 import { ValueTypeDTO } from '../../models/ValueTypeDTO';
+import { ValueTypeFilterResultDTO } from '../../models/ValueTypeFilterResultDTO';
 
 export class ValueTypesAPI extends BaseAPI {
    async create (dto: ValueTypeDraftDTO): Promise<ValueTypeDTO> {
@@ -14,7 +15,7 @@ export class ValueTypesAPI extends BaseAPI {
        return (response.json() as unknown) as ValueTypeDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ValueTypeFilterResultDTO> {
        const response = await this._request({
            path: `/cms/value-types`,
            method: 'GET',
@@ -22,7 +23,7 @@ export class ValueTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ValueTypeFilterResultDTO;
    }
 
    async update (id: string, dto: ValueTypeDraftDTO): Promise<ValueTypeDTO> {

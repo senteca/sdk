@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { FolderDraftDTO } from '../../models/FolderDraftDTO';
 import { FolderDTO } from '../../models/FolderDTO';
+import { FolderFilterResultDTO } from '../../models/FolderFilterResultDTO';
 import { FlipFoldersDTO } from '../../models/FlipFoldersDTO';
 
 export class FoldersAPI extends BaseAPI {
@@ -15,7 +16,7 @@ export class FoldersAPI extends BaseAPI {
        return (response.json() as unknown) as FolderDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<FolderFilterResultDTO> {
        const response = await this._request({
            path: `/cms/folders`,
            method: 'GET',
@@ -23,7 +24,7 @@ export class FoldersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as FolderFilterResultDTO;
    }
 
    async update (id: string, dto: FolderDraftDTO): Promise<FolderDTO> {

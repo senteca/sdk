@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { PageDraftDTO } from '../../models/PageDraftDTO';
 import { PageDTO } from '../../models/PageDTO';
+import { PageFilterResultDTO } from '../../models/PageFilterResultDTO';
 
 export class PagesAPI extends BaseAPI {
    async create (dto: PageDraftDTO): Promise<PageDTO> {
@@ -14,7 +15,7 @@ export class PagesAPI extends BaseAPI {
        return (response.json() as unknown) as PageDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<PageFilterResultDTO> {
        const response = await this._request({
            path: `/cms/pages`,
            method: 'GET',
@@ -22,7 +23,7 @@ export class PagesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as PageFilterResultDTO;
    }
 
    async update (id: string, dto: PageDraftDTO): Promise<PageDTO> {

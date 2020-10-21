@@ -1,9 +1,10 @@
 import { BaseAPI } from '../../runtime';
+import { ApiClientFilterResultDTO } from '../../models/ApiClientFilterResultDTO';
 import { ApiClientDraftDTO } from '../../models/ApiClientDraftDTO';
 import { ApiClientDTO } from '../../models/ApiClientDTO';
 
 export class ApiClientsAPI extends BaseAPI {
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ApiClientFilterResultDTO> {
        const response = await this._request({
            path: `/auth/api-clients`,
            method: 'GET',
@@ -11,7 +12,7 @@ export class ApiClientsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ApiClientFilterResultDTO;
    }
 
    async create (dto: ApiClientDraftDTO): Promise<ApiClientDTO> {

@@ -1,7 +1,9 @@
 import { BaseAPI } from '../../runtime';
+import { ShippingInfo } from '../../models/ShippingInfo';
+import { PaymentInfo } from '../../models/PaymentInfo';
 
 export class FulfillmentAPI extends BaseAPI {
-   async getShippingsInfo (): Promise<object[]> {
+   async getShippingsInfo (): Promise<ShippingInfo[]> {
        const response = await this._request({
            path: `/config/fulfillment/shipping-info`,
            method: 'GET',
@@ -9,10 +11,10 @@ export class FulfillmentAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as object[];
+       return (response.json() as unknown) as ShippingInfo[];
    }
 
-   async getPaymentsInfo (): Promise<object[]> {
+   async getPaymentsInfo (): Promise<PaymentInfo[]> {
        const response = await this._request({
            path: `/config/fulfillment/payment-info`,
            method: 'GET',
@@ -20,7 +22,7 @@ export class FulfillmentAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as object[];
+       return (response.json() as unknown) as PaymentInfo[];
    }
 
 }

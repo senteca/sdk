@@ -3,6 +3,8 @@ import { OrderImportDTO } from '../../models/OrderImportDTO';
 import { OrderDTO } from '../../models/OrderDTO';
 import { ShippingDTO } from '../../models/ShippingDTO';
 import { CartDraftDTO } from '../../models/CartDraftDTO';
+import { NewOrders } from '../../models/NewOrders';
+import { OrderFilterResultDTO } from '../../models/OrderFilterResultDTO';
 import { TransitionOrderStateDTO } from '../../models/TransitionOrderStateDTO';
 import { OrderNoteUpdateDTO } from '../../models/OrderNoteUpdateDTO';
 import { OrderStatusUpdateDTO } from '../../models/OrderStatusUpdateDTO';
@@ -72,7 +74,7 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async getNewOrders (): Promise<object> {
+   async getNewOrders (): Promise<NewOrders> {
        const response = await this._request({
            path: `/fulfillment/orders/new-orders`,
            method: 'GET',
@@ -80,7 +82,7 @@ export class OrdersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as NewOrders;
    }
 
    async createFromCart (id: string): Promise<OrderDTO> {
@@ -105,7 +107,7 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
        const response = await this._request({
            path: `/fulfillment/orders`,
            method: 'GET',
@@ -113,7 +115,7 @@ export class OrdersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as OrderFilterResultDTO;
    }
 
    async deleteCartsOlderThan (days: number): Promise<OrderDTO> {

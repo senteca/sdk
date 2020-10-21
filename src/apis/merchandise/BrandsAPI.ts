@@ -1,6 +1,8 @@
 import { BaseAPI } from '../../runtime';
 import { AssetDTO } from '../../models/AssetDTO';
 import { BrandDTO } from '../../models/BrandDTO';
+import { BrandSearchResultDTO } from '../../models/BrandSearchResultDTO';
+import { BrandFilterResultDTO } from '../../models/BrandFilterResultDTO';
 import { BrandDraftDTO } from '../../models/BrandDraftDTO';
 import { BrandStatusUpdateDTO } from '../../models/BrandStatusUpdateDTO';
 
@@ -38,7 +40,7 @@ export class BrandsAPI extends BaseAPI {
        return (response.json() as unknown) as BrandDTO;
    }
 
-   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<void> {
+   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<BrandSearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/brands/search`,
            method: 'GET',
@@ -46,10 +48,10 @@ export class BrandsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as BrandSearchResultDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<BrandFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/brands`,
            method: 'GET',
@@ -57,7 +59,7 @@ export class BrandsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as BrandFilterResultDTO;
    }
 
    async create (dto: BrandDraftDTO): Promise<BrandDTO> {

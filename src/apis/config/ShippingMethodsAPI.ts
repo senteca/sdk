@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { ShippingMethodDraftDTO } from '../../models/ShippingMethodDraftDTO';
 import { ShippingMethodDTO } from '../../models/ShippingMethodDTO';
+import { ShippingMethodFilterResultDTO } from '../../models/ShippingMethodFilterResultDTO';
 
 export class ShippingMethodsAPI extends BaseAPI {
    async create (dto: ShippingMethodDraftDTO): Promise<ShippingMethodDTO> {
@@ -14,7 +15,7 @@ export class ShippingMethodsAPI extends BaseAPI {
        return (response.json() as unknown) as ShippingMethodDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ShippingMethodFilterResultDTO> {
        const response = await this._request({
            path: `/config/shipping-methods`,
            method: 'GET',
@@ -22,7 +23,7 @@ export class ShippingMethodsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as ShippingMethodFilterResultDTO;
    }
 
    async getById (id: string): Promise<ShippingMethodDTO> {
