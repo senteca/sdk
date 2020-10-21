@@ -1,10 +1,11 @@
 import { BaseAPI } from '../../runtime';
+import { StoreDTO } from '../../models/StoreDTO';
 import { ThemeDraftDTO } from '../../models/ThemeDraftDTO';
 import { ThemeDTO } from '../../models/ThemeDTO';
 import { ThemeFilterResultDTO } from '../../models/ThemeFilterResultDTO';
 
 export class ThemeAPI extends BaseAPI {
-   async install (themeKey: string, storeKey: string, interfaceKey: string): Promise<void> {
+   async install (themeKey: string, storeKey: string, interfaceKey: string): Promise<StoreDTO> {
        const response = await this._request({
            path: `/cms/theme/install/${themeKey}/${storeKey}/${interfaceKey}`,
            method: 'POST',
@@ -12,7 +13,18 @@ export class ThemeAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       return (response.json() as unknown) as StoreDTO;
+   }
+
+   async uninstall (themeKey: string, storeKey: string, interfaceKey: string): Promise<StoreDTO> {
+       const response = await this._request({
+           path: `/cms/theme/uninstall/${themeKey}/${storeKey}/${interfaceKey}`,
+           method: 'POST',
+           
+           
+           
+        });
+       return (response.json() as unknown) as StoreDTO;
    }
 
    async create (dto: ThemeDraftDTO): Promise<ThemeDTO> {
