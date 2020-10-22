@@ -49,6 +49,28 @@ export class ThemeAPI extends BaseAPI {
        return (response.json() as unknown) as ThemeFilterResultDTO;
    }
 
+   async getByKey (key: string): Promise<ThemeDTO> {
+       const response = await this._request({
+           path: `/cms/theme/key=${key}`,
+           method: 'GET',
+           
+           
+           
+        });
+       return (response.json() as unknown) as ThemeDTO;
+   }
+
+   async getById (id: string): Promise<ThemeDTO> {
+       const response = await this._request({
+           path: `/cms/theme/${id}`,
+           method: 'GET',
+           
+           
+           
+        });
+       return (response.json() as unknown) as ThemeDTO;
+   }
+
    async update (id: string, dto: ThemeDraftDTO): Promise<ThemeDTO> {
        const response = await this._request({
            path: `/cms/theme/${id}`,
