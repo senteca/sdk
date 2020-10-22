@@ -26,6 +26,17 @@ export class PagesAPI extends BaseAPI {
        return (response.json() as unknown) as PageFilterResultDTO;
    }
 
+   async getById (id: string): Promise<PageDTO> {
+       const response = await this._request({
+           path: `/cms/pages/${id}`,
+           method: 'GET',
+           
+           
+           
+        });
+       return (response.json() as unknown) as PageDTO;
+   }
+
    async update (id: string, dto: PageDraftDTO): Promise<PageDTO> {
        const response = await this._request({
            path: `/cms/pages/${id}`,
