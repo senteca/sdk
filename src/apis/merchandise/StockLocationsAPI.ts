@@ -15,7 +15,7 @@ export class StockLocationsAPI extends BaseAPI {
        return (response.json() as unknown) as StockLocationDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<StockLocationFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<StockLocationFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/stock-locations`,
            method: 'GET',

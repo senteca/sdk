@@ -5,7 +5,7 @@ import { AttributeDraftDTO } from '../../models/AttributeDraftDTO';
 import { AttributeDTO } from '../../models/AttributeDTO';
 
 export class AttributesAPI extends BaseAPI {
-   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<AttributeSearchResultDTO> {
+   async search (query: { language: string, term: string, expand?: string, limit?: number, offset?: number }): Promise<AttributeSearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/attributes/search`,
            method: 'GET',
@@ -16,7 +16,7 @@ export class AttributesAPI extends BaseAPI {
        return (response.json() as unknown) as AttributeSearchResultDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<AttributeFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<AttributeFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/attributes`,
            method: 'GET',

@@ -15,7 +15,7 @@ export class ContentTypesAPI extends BaseAPI {
        return (response.json() as unknown) as ContentTypeDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ContentTypeFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<ContentTypeFilterResultDTO> {
        const response = await this._request({
            path: `/cms/content-types`,
            method: 'GET',

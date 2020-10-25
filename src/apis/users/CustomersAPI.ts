@@ -122,7 +122,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<CustomerFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<CustomerFilterResultDTO> {
        const response = await this._request({
            path: `/users/customers`,
            method: 'GET',
@@ -133,7 +133,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerFilterResultDTO;
    }
 
-   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<CustomerSearchResultDTO> {
+   async search (query: { language: string, term: string, expand?: string, limit?: number, offset?: number }): Promise<CustomerSearchResultDTO> {
        const response = await this._request({
            path: `/users/customers/search`,
            method: 'GET',
@@ -175,6 +175,17 @@ export class CustomersAPI extends BaseAPI {
            
         });
        return (response.json() as unknown) as object;
+   }
+
+   async setCustom (id: string, dto: string[]): Promise<CustomerDTO> {
+       const response = await this._request({
+           path: `/users/customers/${id}/custom`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+        });
+       return (response.json() as unknown) as CustomerDTO;
    }
 
    async register (dto: CustomerRegisterDTO): Promise<object> {
@@ -287,7 +298,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO[];
    }
 
-   async exportCSV (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<void> {
+   async exportCSV (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<void> {
        const response = await this._request({
            path: `/users/customers/export/csv`,
            method: 'GET',

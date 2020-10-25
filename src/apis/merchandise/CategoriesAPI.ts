@@ -39,7 +39,7 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategoryDTO;
    }
 
-   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<CategorySearchResultDTO> {
+   async search (query: { language: string, term: string, expand?: string, limit?: number, offset?: number }): Promise<CategorySearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/categories/search`,
            method: 'GET',
@@ -50,7 +50,7 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategorySearchResultDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<CategoryFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<CategoryFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/categories`,
            method: 'GET',
@@ -83,7 +83,7 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as string[];
    }
 
-   async getById (id: string, query?: { expand?: string[], statuses?: string[] }): Promise<CategoryDTO> {
+   async getById (id: string, query?: { statuses?: string[], expand?: string }): Promise<CategoryDTO> {
        const response = await this._request({
            path: `/merchandise/categories/${id}`,
            method: 'GET',
@@ -116,7 +116,7 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategoryDTO;
    }
 
-   async getByExternalId (externalId: string, query?: { expand?: string[], statuses?: string[] }): Promise<CategoryDTO> {
+   async getByExternalId (externalId: string, query?: { statuses?: string[], expand?: string }): Promise<CategoryDTO> {
        const response = await this._request({
            path: `/merchandise/categories/externalId=${externalId}`,
            method: 'GET',
@@ -149,7 +149,7 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategoryDTO;
    }
 
-   async getBySlug (slug: string, lang: string, query?: { expand?: string[], statuses?: string[] }): Promise<CategoryDTO> {
+   async getBySlug (slug: string, lang: string, query?: { statuses?: string[], expand?: string }): Promise<CategoryDTO> {
        const response = await this._request({
            path: `/merchandise/categories/slug=${slug}/lang=${lang}`,
            method: 'GET',

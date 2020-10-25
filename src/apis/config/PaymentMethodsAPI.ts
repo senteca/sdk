@@ -15,7 +15,7 @@ export class PaymentMethodsAPI extends BaseAPI {
        return (response.json() as unknown) as PaymentMethodDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<PaymentMethodFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<PaymentMethodFilterResultDTO> {
        const response = await this._request({
            path: `/config/payment-methods`,
            method: 'GET',

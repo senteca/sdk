@@ -15,7 +15,7 @@ export class TaxCategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as TaxCategoryDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<TaxCategoryFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<TaxCategoryFilterResultDTO> {
        const response = await this._request({
            path: `/config/tax-categories`,
            method: 'GET',

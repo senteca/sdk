@@ -15,7 +15,7 @@ export class ZonesAPI extends BaseAPI {
        return (response.json() as unknown) as ZoneDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ZoneFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<ZoneFilterResultDTO> {
        const response = await this._request({
            path: `/config/zones`,
            method: 'GET',

@@ -38,7 +38,7 @@ export class ThemeAPI extends BaseAPI {
        return (response.json() as unknown) as ThemeDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ThemeFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<ThemeFilterResultDTO> {
        const response = await this._request({
            path: `/cms/theme`,
            method: 'GET',

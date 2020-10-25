@@ -15,7 +15,7 @@ export class ShippingMethodsAPI extends BaseAPI {
        return (response.json() as unknown) as ShippingMethodDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ShippingMethodFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<ShippingMethodFilterResultDTO> {
        const response = await this._request({
            path: `/config/shipping-methods`,
            method: 'GET',

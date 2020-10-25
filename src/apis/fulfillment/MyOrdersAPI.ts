@@ -5,7 +5,7 @@ import { MakePaymentResponse } from '../../models/MakePaymentResponse';
 import { VerifyPaymentResultRequest } from '../../models/VerifyPaymentResultRequest';
 
 export class MyOrdersAPI extends BaseAPI {
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
        const response = await this._request({
            path: `/fulfillment/my-orders`,
            method: 'GET',

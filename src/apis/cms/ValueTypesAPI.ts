@@ -15,7 +15,7 @@ export class ValueTypesAPI extends BaseAPI {
        return (response.json() as unknown) as ValueTypeDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ValueTypeFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<ValueTypeFilterResultDTO> {
        const response = await this._request({
            path: `/cms/value-types`,
            method: 'GET',

@@ -39,7 +39,7 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<ViewSearchResultDTO> {
+   async search (query: { language: string, term: string, expand?: string, limit?: number, offset?: number }): Promise<ViewSearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/views/search`,
            method: 'GET',
@@ -61,7 +61,7 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ViewFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<ViewFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/views`,
            method: 'GET',

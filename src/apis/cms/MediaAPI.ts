@@ -13,7 +13,7 @@ export class MediaAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<MediaFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<MediaFilterResultDTO> {
        const response = await this._request({
            path: `/cms/media`,
            method: 'GET',

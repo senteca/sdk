@@ -1,7 +1,7 @@
 import { IdReferenceDTO } from './IdReferenceDTO';
 
 export interface BulkLinkUpdateDTO {
-  filters: string[];
+  filters: string;
   linkType: BulkLinkUpdateDTOLinkTypeEnum;
   links: IdReferenceDTO[];
 }

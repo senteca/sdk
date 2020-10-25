@@ -15,7 +15,7 @@ export class ContentsAPI extends BaseAPI {
        return (response.json() as unknown) as ContentDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ContentFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<ContentFilterResultDTO> {
        const response = await this._request({
            path: `/cms/contents`,
            method: 'GET',

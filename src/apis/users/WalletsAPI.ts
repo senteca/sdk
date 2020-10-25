@@ -5,7 +5,7 @@ import { WalletDTO } from '../../models/WalletDTO';
 import { WalletSearchResultDTO } from '../../models/WalletSearchResultDTO';
 
 export class WalletsAPI extends BaseAPI {
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<WalletFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<WalletFilterResultDTO> {
        const response = await this._request({
            path: `/users/wallets`,
            method: 'GET',
@@ -60,7 +60,7 @@ export class WalletsAPI extends BaseAPI {
        return (response.json() as unknown) as WalletDTO;
    }
 
-   async search (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<WalletSearchResultDTO> {
+   async search (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<WalletSearchResultDTO> {
        const response = await this._request({
            path: `/users/wallets/search`,
            method: 'GET',

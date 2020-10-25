@@ -191,7 +191,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<ProductSearchResultDTO> {
+   async search (query: { language: string, term: string, expand?: string, limit?: number, offset?: number }): Promise<ProductSearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/products/search`,
            method: 'GET',
@@ -202,7 +202,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductSearchResultDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<ProductFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<ProductFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/products`,
            method: 'GET',
@@ -235,7 +235,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as string[];
    }
 
-   async getById (id: string, query?: { expand?: string[], statuses?: string[] }): Promise<ProductDTO> {
+   async getById (id: string, query?: { statuses?: string[], expand?: string }): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products/${id}`,
            method: 'GET',
@@ -268,7 +268,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async getBySlug (slug: string, lang: string, query?: { expand?: string[], statuses?: string[] }): Promise<ProductDTO> {
+   async getBySlug (slug: string, lang: string, query?: { statuses?: string[], expand?: string }): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products/slug=${slug}/lang=${lang}`,
            method: 'GET',
@@ -279,7 +279,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async getByExternalId (externalId: string, query?: { expand?: string[], statuses?: string[] }): Promise<ProductDTO> {
+   async getByExternalId (externalId: string, query?: { statuses?: string[], expand?: string }): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products/externalId=${externalId}`,
            method: 'GET',

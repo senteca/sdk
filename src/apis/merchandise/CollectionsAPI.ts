@@ -39,7 +39,7 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionDTO;
    }
 
-   async search (query: { expand: string, language: string, term: string, limit?: number, offset?: number }): Promise<CollectionSearchResultDTO> {
+   async search (query: { language: string, term: string, expand?: string, limit?: number, offset?: number }): Promise<CollectionSearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/collections/search`,
            method: 'GET',
@@ -61,7 +61,7 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionDTO;
    }
 
-   async filter (query?: { filter?: string[], sort?: string[], expand?: string[], project?: string[], limit?: number, offset?: number }): Promise<CollectionFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<CollectionFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/collections`,
            method: 'GET',
