@@ -2,6 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { WalletFilterResultDTO } from '../../models/WalletFilterResultDTO';
 import { WalletDraftDTO } from '../../models/WalletDraftDTO';
 import { WalletDTO } from '../../models/WalletDTO';
+import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 import { WalletSearchResultDTO } from '../../models/WalletSearchResultDTO';
 
 export class WalletsAPI extends BaseAPI {
@@ -55,6 +56,17 @@ export class WalletsAPI extends BaseAPI {
            method: 'DELETE',
            
            
+           
+        });
+       return (response.json() as unknown) as WalletDTO;
+   }
+
+   async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<WalletDTO> {
+       const response = await this._request({
+           path: `/users/wallets/${id}/custom`,
+           method: 'PATCH',
+           
+           body: dto,
            
         });
        return (response.json() as unknown) as WalletDTO;

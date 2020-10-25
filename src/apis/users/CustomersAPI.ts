@@ -6,6 +6,7 @@ import { AddressDTO } from '../../models/AddressDTO';
 import { CustomerCreateDTO } from '../../models/CustomerCreateDTO';
 import { CustomerFilterResultDTO } from '../../models/CustomerFilterResultDTO';
 import { CustomerSearchResultDTO } from '../../models/CustomerSearchResultDTO';
+import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 import { CustomerRegisterDTO } from '../../models/CustomerRegisterDTO';
 import { CustomerRegisterFacebookDTO } from '../../models/CustomerRegisterFacebookDTO';
 import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
@@ -177,7 +178,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async setCustom (id: string, dto: string[]): Promise<CustomerDTO> {
+   async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<CustomerDTO> {
        const response = await this._request({
            path: `/users/customers/${id}/custom`,
            method: 'PATCH',
@@ -287,7 +288,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as object;
    }
 
-   async import (dto: string[]): Promise<CustomerDTO[]> {
+   async import (dto: CustomerCreateDTO[]): Promise<CustomerDTO[]> {
        const response = await this._request({
            path: `/users/customers/import`,
            method: 'POST',

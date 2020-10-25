@@ -4,6 +4,7 @@ import { CollectionDTO } from '../../models/CollectionDTO';
 import { CollectionSearchResultDTO } from '../../models/CollectionSearchResultDTO';
 import { CollectionDraftDTO } from '../../models/CollectionDraftDTO';
 import { CollectionFilterResultDTO } from '../../models/CollectionFilterResultDTO';
+import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 
 export class CollectionsAPI extends BaseAPI {
    async createAsset (id: string, dto: AssetDTO): Promise<CollectionDTO> {
@@ -122,6 +123,17 @@ export class CollectionsAPI extends BaseAPI {
            method: 'GET',
            
            
+           
+        });
+       return (response.json() as unknown) as CollectionDTO;
+   }
+
+   async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<CollectionDTO> {
+       const response = await this._request({
+           path: `/merchandise/collections/${id}/custom`,
+           method: 'PATCH',
+           
+           body: dto,
            
         });
        return (response.json() as unknown) as CollectionDTO;

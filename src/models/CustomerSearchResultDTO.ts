@@ -5,5 +5,6 @@ export interface CustomerSearchResultDTO {
   offset: number;
   limit: number;
   count: number;
+  total: number;
 }
 

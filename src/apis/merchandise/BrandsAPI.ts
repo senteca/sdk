@@ -5,6 +5,7 @@ import { BrandSearchResultDTO } from '../../models/BrandSearchResultDTO';
 import { BrandFilterResultDTO } from '../../models/BrandFilterResultDTO';
 import { BrandDraftDTO } from '../../models/BrandDraftDTO';
 import { BrandStatusUpdateDTO } from '../../models/BrandStatusUpdateDTO';
+import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 
 export class BrandsAPI extends BaseAPI {
    async createAsset (id: string, dto: AssetDTO): Promise<BrandDTO> {
@@ -164,6 +165,17 @@ export class BrandsAPI extends BaseAPI {
    async setStatus (id: string, dto: BrandStatusUpdateDTO): Promise<BrandDTO> {
        const response = await this._request({
            path: `/merchandise/brands/${id}/status`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+        });
+       return (response.json() as unknown) as BrandDTO;
+   }
+
+   async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<BrandDTO> {
+       const response = await this._request({
+           path: `/merchandise/brands/${id}/custom`,
            method: 'PATCH',
            
            body: dto,

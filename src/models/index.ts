@@ -166,6 +166,7 @@ export * from "./QuantityUpdateDTO";
 export * from "./ReviewRatingStatisticsDTO";
 export * from "./RoleDTO";
 export * from "./RoleFilterResultDTO";
+export * from "./SetCustomFieldDTO";
 export * from "./ShippingAddressDTO";
 export * from "./ShippingDTO";
 export * from "./ShippingDeliveryDTO";

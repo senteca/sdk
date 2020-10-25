@@ -4,6 +4,7 @@ import { CategoryDTO } from '../../models/CategoryDTO';
 import { CategorySearchResultDTO } from '../../models/CategorySearchResultDTO';
 import { CategoryFilterResultDTO } from '../../models/CategoryFilterResultDTO';
 import { CategoryDraftDTO } from '../../models/CategoryDraftDTO';
+import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 
 export class CategoriesAPI extends BaseAPI {
    async createAsset (id: string, dto: AssetDTO): Promise<CategoryDTO> {
@@ -155,6 +156,17 @@ export class CategoriesAPI extends BaseAPI {
            method: 'GET',
            query: this._stringifyQuery(query),
            
+           
+        });
+       return (response.json() as unknown) as CategoryDTO;
+   }
+
+   async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<CategoryDTO> {
+       const response = await this._request({
+           path: `/merchandise/categories/${id}/custom`,
+           method: 'PATCH',
+           
+           body: dto,
            
         });
        return (response.json() as unknown) as CategoryDTO;

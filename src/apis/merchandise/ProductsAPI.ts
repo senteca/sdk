@@ -8,6 +8,7 @@ import { OfferDraftDTO } from '../../models/OfferDraftDTO';
 import { OfferUpdateDTO } from '../../models/OfferUpdateDTO';
 import { ProductStatusUpdateDTO } from '../../models/ProductStatusUpdateDTO';
 import { ProductWeightUpdateDTO } from '../../models/ProductWeightUpdateDTO';
+import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 import { InventoryUpdateDTO } from '../../models/InventoryUpdateDTO';
 import { AssetDTO } from '../../models/AssetDTO';
 import { ProductSearchResultDTO } from '../../models/ProductSearchResultDTO';
@@ -117,6 +118,17 @@ export class ProductsAPI extends BaseAPI {
    async setWeight (id: string, dto: ProductWeightUpdateDTO): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products/${id}/weight`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${id}/custom`,
            method: 'PATCH',
            
            body: dto,

@@ -4,6 +4,7 @@ import { ViewDTO } from '../../models/ViewDTO';
 import { ViewSearchResultDTO } from '../../models/ViewSearchResultDTO';
 import { ViewDraftDTO } from '../../models/ViewDraftDTO';
 import { ViewFilterResultDTO } from '../../models/ViewFilterResultDTO';
+import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 
 export class ViewsAPI extends BaseAPI {
    async createAsset (id: string, dto: AssetDTO): Promise<ViewDTO> {
@@ -111,6 +112,17 @@ export class ViewsAPI extends BaseAPI {
            method: 'GET',
            
            
+           
+        });
+       return (response.json() as unknown) as ViewDTO;
+   }
+
+   async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<ViewDTO> {
+       const response = await this._request({
+           path: `/merchandise/views/${id}/custom`,
+           method: 'PATCH',
+           
+           body: dto,
            
         });
        return (response.json() as unknown) as ViewDTO;
