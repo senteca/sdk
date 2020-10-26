@@ -4,7 +4,7 @@ export interface FilterStateDTO {
   operator: string;
   label: string;
   field: string;
-  componentId: string;
+  componentId: number;
   values: ValueDTO[];
 }
 
