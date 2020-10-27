@@ -29,7 +29,7 @@ export class FoldersAPI extends BaseAPI {
 
    async update (id: string, dto: FolderDraftDTO): Promise<FolderDTO> {
        const response = await this._request({
-           path: `/cms/folders/${id}`,
+           path: `/cms/folders/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -40,7 +40,7 @@ export class FoldersAPI extends BaseAPI {
 
    async delete (id: string): Promise<FolderDTO> {
        const response = await this._request({
-           path: `/cms/folders/${id}`,
+           path: `/cms/folders/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

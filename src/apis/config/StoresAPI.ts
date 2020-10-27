@@ -28,7 +28,7 @@ export class StoresAPI extends BaseAPI {
 
    async getByKey (key: string): Promise<StoreDTO> {
        const response = await this._request({
-           path: `/config/stores/key=${key}`,
+           path: `/config/stores/key=${encodeURIComponent(key)}`,
            method: 'GET',
            
            
@@ -39,7 +39,7 @@ export class StoresAPI extends BaseAPI {
 
    async getById (id: string): Promise<StoreDTO> {
        const response = await this._request({
-           path: `/config/stores/${id}`,
+           path: `/config/stores/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -50,7 +50,7 @@ export class StoresAPI extends BaseAPI {
 
    async update (id: string, dto: StoreDraftDTO): Promise<StoreDTO> {
        const response = await this._request({
-           path: `/config/stores/${id}`,
+           path: `/config/stores/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -61,7 +61,7 @@ export class StoresAPI extends BaseAPI {
 
    async delete (id: string): Promise<StoreDTO> {
        const response = await this._request({
-           path: `/config/stores/${id}`,
+           path: `/config/stores/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

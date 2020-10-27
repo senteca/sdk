@@ -5,7 +5,7 @@ import { WalletDraftDTO } from '../../models/WalletDraftDTO';
 export class MyWalletAPI extends BaseAPI {
    async getByType (type: string): Promise<WalletDTO> {
        const response = await this._request({
-           path: `/users/my-wallet/type=${type}`,
+           path: `/users/my-wallet/type=${encodeURIComponent(type)}`,
            method: 'GET',
            
            

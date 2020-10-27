@@ -28,7 +28,7 @@ export class StockLocationsAPI extends BaseAPI {
 
    async getById (id: string): Promise<StockLocationDTO> {
        const response = await this._request({
-           path: `/merchandise/stock-locations/${id}`,
+           path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -39,7 +39,7 @@ export class StockLocationsAPI extends BaseAPI {
 
    async update (id: string, dto: StockLocationDraftDTO): Promise<StockLocationDTO> {
        const response = await this._request({
-           path: `/merchandise/stock-locations/${id}`,
+           path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -50,7 +50,7 @@ export class StockLocationsAPI extends BaseAPI {
 
    async delete (id: string): Promise<StockLocationDTO> {
        const response = await this._request({
-           path: `/merchandise/stock-locations/${id}`,
+           path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

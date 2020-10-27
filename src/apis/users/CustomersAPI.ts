@@ -81,7 +81,7 @@ export class CustomersAPI extends BaseAPI {
 
    async getMyAddressById (id: string): Promise<AddressDTO> {
        const response = await this._request({
-           path: `/users/customers/my-addresses/${id}`,
+           path: `/users/customers/my-addresses/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -92,7 +92,7 @@ export class CustomersAPI extends BaseAPI {
 
    async updateMyAddress (id: string, dto: AddressDTO): Promise<AddressDTO> {
        const response = await this._request({
-           path: `/users/customers/my-addresses/${id}`,
+           path: `/users/customers/my-addresses/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -103,7 +103,7 @@ export class CustomersAPI extends BaseAPI {
 
    async deleteMyAddress (id: string): Promise<AddressDTO> {
        const response = await this._request({
-           path: `/users/customers/my-addresses/${id}`,
+           path: `/users/customers/my-addresses/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
@@ -147,7 +147,7 @@ export class CustomersAPI extends BaseAPI {
 
    async getById (id: string): Promise<CustomerDTO> {
        const response = await this._request({
-           path: `/users/customers/${id}`,
+           path: `/users/customers/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -158,7 +158,7 @@ export class CustomersAPI extends BaseAPI {
 
    async update (id: string, dto: CustomerUpdateDTO): Promise<CustomerDTO> {
        const response = await this._request({
-           path: `/users/customers/${id}`,
+           path: `/users/customers/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -169,7 +169,7 @@ export class CustomersAPI extends BaseAPI {
 
    async delete (id: string): Promise<object> {
        const response = await this._request({
-           path: `/users/customers/${id}`,
+           path: `/users/customers/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
@@ -180,7 +180,7 @@ export class CustomersAPI extends BaseAPI {
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<CustomerDTO> {
        const response = await this._request({
-           path: `/users/customers/${id}/custom`,
+           path: `/users/customers/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
            
            body: dto,
@@ -235,7 +235,7 @@ export class CustomersAPI extends BaseAPI {
 
    async getAddresses (customerId: string): Promise<AddressDTO[]> {
        const response = await this._request({
-           path: `/users/customers/${customerId}/addresses`,
+           path: `/users/customers/${encodeURIComponent(customerId)}/addresses`,
            method: 'GET',
            
            
@@ -246,7 +246,7 @@ export class CustomersAPI extends BaseAPI {
 
    async createAddress (customerId: string, dto: AddressDTO): Promise<AddressDTO> {
        const response = await this._request({
-           path: `/users/customers/${customerId}/addresses`,
+           path: `/users/customers/${encodeURIComponent(customerId)}/addresses`,
            method: 'POST',
            
            body: dto,
@@ -257,7 +257,7 @@ export class CustomersAPI extends BaseAPI {
 
    async getAddressById (customerId: string, addressId: string): Promise<AddressDTO> {
        const response = await this._request({
-           path: `/users/customers/${customerId}/addresses/${addressId}`,
+           path: `/users/customers/${encodeURIComponent(customerId)}/addresses/${encodeURIComponent(addressId)}`,
            method: 'GET',
            
            
@@ -268,7 +268,7 @@ export class CustomersAPI extends BaseAPI {
 
    async updateAddress (customerId: string, addressId: string, dto: AddressDTO): Promise<AddressDTO> {
        const response = await this._request({
-           path: `/users/customers/${customerId}/addresses/${addressId}`,
+           path: `/users/customers/${encodeURIComponent(customerId)}/addresses/${encodeURIComponent(addressId)}`,
            method: 'PUT',
            
            body: dto,
@@ -279,7 +279,7 @@ export class CustomersAPI extends BaseAPI {
 
    async deleteAddress (customerId: string, addressId: string): Promise<object> {
        const response = await this._request({
-           path: `/users/customers/${customerId}/addresses/${addressId}`,
+           path: `/users/customers/${encodeURIComponent(customerId)}/addresses/${encodeURIComponent(addressId)}`,
            method: 'DELETE',
            
            

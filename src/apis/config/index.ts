@@ -2,6 +2,7 @@ export * from "./CustomFieldsAPI";
 export * from "./FulfillmentAPI";
 export * from "./InternationalsAPI";
 export * from "./PaymentMethodsAPI";
+export * from "./ShippingConfigsAPI";
 export * from "./ShippingMethodsAPI";
 export * from "./StatesAPI";
 export * from "./StoreViewsAPI";

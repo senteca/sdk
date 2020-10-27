@@ -28,7 +28,7 @@ export class ValueTypesAPI extends BaseAPI {
 
    async update (id: string, dto: ValueTypeDraftDTO): Promise<ValueTypeDTO> {
        const response = await this._request({
-           path: `/cms/value-types/${id}`,
+           path: `/cms/value-types/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -39,7 +39,7 @@ export class ValueTypesAPI extends BaseAPI {
 
    async delete (id: string): Promise<ValueTypeDTO> {
        const response = await this._request({
-           path: `/cms/value-types/${id}`,
+           path: `/cms/value-types/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

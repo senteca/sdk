@@ -1,5 +1,5 @@
 
-export interface ContentDataDTO {
+export interface CmsContentDataDTO {
   languageCode: string;
   value: string;
 }

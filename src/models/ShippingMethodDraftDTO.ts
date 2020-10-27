@@ -7,20 +7,20 @@ export interface ShippingMethodDraftDTO {
   version?: number;
   name: LangValue[];
   description?: LangValue[];
-  authority: ShippingMethodDraftDTOAuthorityEnum;
-  type: ShippingMethodDraftDTOTypeEnum;
-  providerType: ShippingMethodDraftDTOProviderTypeEnum;
-  option?: object;
-  merchantKey?: string;
-  taxCategory: IdReferenceDTO;
   countryCode: string;
   currencyCode: string;
-  shippingFeeRateCalculationType: ShippingMethodDraftDTOShippingFeeRateCalculationTypeEnum;
-  shippingFeeTableOrderTotalWeightInGrams: ShippingFeeTableOrderTotalWeightInGramsDTO[];
-  isCOD: boolean;
-  codFeeRateCalculationType: ShippingMethodDraftDTOCodFeeRateCalculationTypeEnum;
-  codFeeTableOrderTotalAmount: CodFeeTableOrderTotalAmountDTO[];
-  providerConfig: object;
+  taxCategory: IdReferenceDTO;
+  storeKey: string;
+  authority: ShippingMethodDraftDTOAuthorityEnum;
+  merchantKey: string;
+  type: ShippingMethodDraftDTOTypeEnum;
+  moduleKey: string;
+  methodKey: string;
+  shippingFeeRateCalculationType?: ShippingMethodDraftDTOShippingFeeRateCalculationTypeEnum;
+  shippingFeeTableOrderTotalWeightInGrams?: ShippingFeeTableOrderTotalWeightInGramsDTO[];
+  isCOD?: boolean;
+  codFeeRateCalculationType?: ShippingMethodDraftDTOCodFeeRateCalculationTypeEnum;
+  codFeeTableOrderTotalAmount?: CodFeeTableOrderTotalAmountDTO[];
 }
 
 export enum ShippingMethodDraftDTOAuthorityEnum {
@@ -29,10 +29,7 @@ export enum ShippingMethodDraftDTOAuthorityEnum {
 }
 export enum ShippingMethodDraftDTOTypeEnum {
     ShippingServiceProvider = 'ShippingServiceProvider',  
-}
-export enum ShippingMethodDraftDTOProviderTypeEnum {
-    Speedy = 'Speedy',  
-    Econt = 'Econt',  
+    PickUpFromStore = 'PickUpFromStore',  
     Custom = 'Custom',  
 }
 export enum ShippingMethodDraftDTOShippingFeeRateCalculationTypeEnum {

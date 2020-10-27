@@ -28,7 +28,7 @@ export class MerchantsAPI extends BaseAPI {
 
    async getById (id: string): Promise<MerchantDTO> {
        const response = await this._request({
-           path: `/merchandise/merchants/${id}`,
+           path: `/merchandise/merchants/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -39,7 +39,7 @@ export class MerchantsAPI extends BaseAPI {
 
    async update (id: string, dto: MerchantDraftDTO): Promise<MerchantDTO> {
        const response = await this._request({
-           path: `/merchandise/merchants/${id}`,
+           path: `/merchandise/merchants/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -50,7 +50,7 @@ export class MerchantsAPI extends BaseAPI {
 
    async delete (id: string): Promise<MerchantDTO> {
        const response = await this._request({
-           path: `/merchandise/merchants/${id}`,
+           path: `/merchandise/merchants/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

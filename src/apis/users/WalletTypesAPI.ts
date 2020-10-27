@@ -29,7 +29,7 @@ export class WalletTypesAPI extends BaseAPI {
 
    async getById (id: string): Promise<WalletTypeDTO> {
        const response = await this._request({
-           path: `/users/wallet-types/${id}`,
+           path: `/users/wallet-types/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -40,7 +40,7 @@ export class WalletTypesAPI extends BaseAPI {
 
    async update (id: string, dto: WalletTypeDraftDTO): Promise<WalletTypeDTO> {
        const response = await this._request({
-           path: `/users/wallet-types/${id}`,
+           path: `/users/wallet-types/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -51,7 +51,7 @@ export class WalletTypesAPI extends BaseAPI {
 
    async delete (id: string): Promise<WalletTypeDTO> {
        const response = await this._request({
-           path: `/users/wallet-types/${id}`,
+           path: `/users/wallet-types/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

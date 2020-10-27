@@ -7,7 +7,7 @@ import { ThemeFilterResultDTO } from '../../models/ThemeFilterResultDTO';
 export class ThemeAPI extends BaseAPI {
    async install (themeKey: string, storeKey: string, interfaceKey: string): Promise<StoreDTO> {
        const response = await this._request({
-           path: `/cms/theme/install/${themeKey}/${storeKey}/${interfaceKey}`,
+           path: `/cms/theme/install/${encodeURIComponent(themeKey)}/${encodeURIComponent(storeKey)}/${encodeURIComponent(interfaceKey)}`,
            method: 'POST',
            
            
@@ -18,7 +18,7 @@ export class ThemeAPI extends BaseAPI {
 
    async uninstall (themeKey: string, storeKey: string, interfaceKey: string): Promise<StoreDTO> {
        const response = await this._request({
-           path: `/cms/theme/uninstall/${themeKey}/${storeKey}/${interfaceKey}`,
+           path: `/cms/theme/uninstall/${encodeURIComponent(themeKey)}/${encodeURIComponent(storeKey)}/${encodeURIComponent(interfaceKey)}`,
            method: 'POST',
            
            
@@ -51,7 +51,7 @@ export class ThemeAPI extends BaseAPI {
 
    async getByKey (key: string): Promise<ThemeDTO> {
        const response = await this._request({
-           path: `/cms/theme/key=${key}`,
+           path: `/cms/theme/key=${encodeURIComponent(key)}`,
            method: 'GET',
            
            
@@ -62,7 +62,7 @@ export class ThemeAPI extends BaseAPI {
 
    async getById (id: string): Promise<ThemeDTO> {
        const response = await this._request({
-           path: `/cms/theme/${id}`,
+           path: `/cms/theme/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -73,7 +73,7 @@ export class ThemeAPI extends BaseAPI {
 
    async update (id: string, dto: ThemeDraftDTO): Promise<ThemeDTO> {
        const response = await this._request({
-           path: `/cms/theme/${id}`,
+           path: `/cms/theme/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -84,7 +84,7 @@ export class ThemeAPI extends BaseAPI {
 
    async delete (id: string): Promise<ThemeDTO> {
        const response = await this._request({
-           path: `/cms/theme/${id}`,
+           path: `/cms/theme/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

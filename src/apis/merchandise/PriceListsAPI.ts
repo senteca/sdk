@@ -28,7 +28,7 @@ export class PriceListsAPI extends BaseAPI {
 
    async getById (id: string): Promise<PriceListDTO> {
        const response = await this._request({
-           path: `/merchandise/price-lists/${id}`,
+           path: `/merchandise/price-lists/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -39,7 +39,7 @@ export class PriceListsAPI extends BaseAPI {
 
    async update (id: string, dto: PriceListDraftDTO): Promise<PriceListDTO> {
        const response = await this._request({
-           path: `/merchandise/price-lists/${id}`,
+           path: `/merchandise/price-lists/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -50,7 +50,7 @@ export class PriceListsAPI extends BaseAPI {
 
    async delete (id: string): Promise<PriceListDTO> {
        const response = await this._request({
-           path: `/merchandise/price-lists/${id}`,
+           path: `/merchandise/price-lists/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
@@ -61,7 +61,7 @@ export class PriceListsAPI extends BaseAPI {
 
    async getByKey (key: string): Promise<PriceListDTO> {
        const response = await this._request({
-           path: `/merchandise/price-lists/key=${key}`,
+           path: `/merchandise/price-lists/key=${encodeURIComponent(key)}`,
            method: 'GET',
            
            

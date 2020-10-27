@@ -28,7 +28,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
 
    async getById (id: string): Promise<CustomerSubscriptionTypeDTO> {
        const response = await this._request({
-           path: `/users/customer-subscription-types/${id}`,
+           path: `/users/customer-subscription-types/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -39,7 +39,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
 
    async update (id: string, dto: CustomerSubscriptionTypeDTO): Promise<CustomerSubscriptionTypeDTO> {
        const response = await this._request({
-           path: `/users/customer-subscription-types/${id}`,
+           path: `/users/customer-subscription-types/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -50,7 +50,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
 
    async delete (id: string): Promise<CustomerSubscriptionTypeDTO> {
        const response = await this._request({
-           path: `/users/customer-subscription-types/${id}`,
+           path: `/users/customer-subscription-types/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

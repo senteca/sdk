@@ -28,7 +28,7 @@ export class ZonesAPI extends BaseAPI {
 
    async getById (id: string): Promise<ZoneDTO> {
        const response = await this._request({
-           path: `/config/zones/${id}`,
+           path: `/config/zones/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -39,7 +39,7 @@ export class ZonesAPI extends BaseAPI {
 
    async update (id: string, dto: ZoneDraftDTO): Promise<ZoneDTO> {
        const response = await this._request({
-           path: `/config/zones/${id}`,
+           path: `/config/zones/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -50,7 +50,7 @@ export class ZonesAPI extends BaseAPI {
 
    async delete (id: string): Promise<ZoneDTO> {
        const response = await this._request({
-           path: `/config/zones/${id}`,
+           path: `/config/zones/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

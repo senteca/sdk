@@ -9,7 +9,7 @@ import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 export class CategoriesAPI extends BaseAPI {
    async createAsset (id: string, dto: AssetDTO): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/${id}/assets`,
+           path: `/merchandise/categories/${encodeURIComponent(id)}/assets`,
            method: 'POST',
            
            body: dto,
@@ -20,7 +20,7 @@ export class CategoriesAPI extends BaseAPI {
 
    async updateAssetByIndex (id: string, index: number, dto: AssetDTO): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/${id}/assets/index=${index}`,
+           path: `/merchandise/categories/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
            method: 'PUT',
            
            body: dto,
@@ -31,7 +31,7 @@ export class CategoriesAPI extends BaseAPI {
 
    async deleteAssetByIndex (id: string, index: number): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/${id}/assets/index=${index}`,
+           path: `/merchandise/categories/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
            method: 'DELETE',
            
            
@@ -75,7 +75,7 @@ export class CategoriesAPI extends BaseAPI {
 
    async getSlugs (lang: string): Promise<string[]> {
        const response = await this._request({
-           path: `/merchandise/categories/slugs/lang=${lang}`,
+           path: `/merchandise/categories/slugs/lang=${encodeURIComponent(lang)}`,
            method: 'GET',
            
            
@@ -86,7 +86,7 @@ export class CategoriesAPI extends BaseAPI {
 
    async getById (id: string, query?: { statuses?: string[], expand?: string }): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/${id}`,
+           path: `/merchandise/categories/${encodeURIComponent(id)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
            
@@ -97,7 +97,7 @@ export class CategoriesAPI extends BaseAPI {
 
    async update (id: string, dto: CategoryDraftDTO): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/${id}`,
+           path: `/merchandise/categories/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -108,7 +108,7 @@ export class CategoriesAPI extends BaseAPI {
 
    async delete (id: string): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/${id}`,
+           path: `/merchandise/categories/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
@@ -119,7 +119,7 @@ export class CategoriesAPI extends BaseAPI {
 
    async getByExternalId (externalId: string, query?: { statuses?: string[], expand?: string }): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/externalId=${externalId}`,
+           path: `/merchandise/categories/externalId=${encodeURIComponent(externalId)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
            
@@ -130,7 +130,7 @@ export class CategoriesAPI extends BaseAPI {
 
    async updateByExternalId (externalId: string, dto: CategoryDraftDTO): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/externalId=${externalId}`,
+           path: `/merchandise/categories/externalId=${encodeURIComponent(externalId)}`,
            method: 'PUT',
            
            body: dto,
@@ -141,7 +141,7 @@ export class CategoriesAPI extends BaseAPI {
 
    async deleteByExternalId (externalId: string): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/externalId=${externalId}`,
+           path: `/merchandise/categories/externalId=${encodeURIComponent(externalId)}`,
            method: 'DELETE',
            
            
@@ -152,7 +152,7 @@ export class CategoriesAPI extends BaseAPI {
 
    async getBySlug (slug: string, lang: string, query?: { statuses?: string[], expand?: string }): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/slug=${slug}/lang=${lang}`,
+           path: `/merchandise/categories/slug=${encodeURIComponent(slug)}/lang=${encodeURIComponent(lang)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
            
@@ -163,7 +163,7 @@ export class CategoriesAPI extends BaseAPI {
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<CategoryDTO> {
        const response = await this._request({
-           path: `/merchandise/categories/${id}/custom`,
+           path: `/merchandise/categories/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
            
            body: dto,

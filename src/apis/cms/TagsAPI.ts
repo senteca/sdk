@@ -28,7 +28,7 @@ export class TagsAPI extends BaseAPI {
 
    async update (id: string, dto: TagDraftDTO): Promise<TagDTO> {
        const response = await this._request({
-           path: `/cms/tags/${id}`,
+           path: `/cms/tags/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -39,7 +39,7 @@ export class TagsAPI extends BaseAPI {
 
    async delete (id: string): Promise<TagDTO> {
        const response = await this._request({
-           path: `/cms/tags/${id}`,
+           path: `/cms/tags/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

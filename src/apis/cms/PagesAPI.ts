@@ -28,7 +28,7 @@ export class PagesAPI extends BaseAPI {
 
    async getById (id: string): Promise<PageDTO> {
        const response = await this._request({
-           path: `/cms/pages/${id}`,
+           path: `/cms/pages/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -39,7 +39,7 @@ export class PagesAPI extends BaseAPI {
 
    async update (id: string, dto: PageDraftDTO): Promise<PageDTO> {
        const response = await this._request({
-           path: `/cms/pages/${id}`,
+           path: `/cms/pages/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -50,7 +50,7 @@ export class PagesAPI extends BaseAPI {
 
    async delete (id: string): Promise<PageDTO> {
        const response = await this._request({
-           path: `/cms/pages/${id}`,
+           path: `/cms/pages/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

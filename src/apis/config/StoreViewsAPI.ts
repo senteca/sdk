@@ -28,7 +28,7 @@ export class StoreViewsAPI extends BaseAPI {
 
    async getById (id: string): Promise<StoreViewDTO> {
        const response = await this._request({
-           path: `/config/store-views/${id}`,
+           path: `/config/store-views/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -39,7 +39,7 @@ export class StoreViewsAPI extends BaseAPI {
 
    async update (id: string, dto: StoreViewDraftDTO): Promise<StoreViewDTO> {
        const response = await this._request({
-           path: `/config/store-views/${id}`,
+           path: `/config/store-views/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -50,7 +50,7 @@ export class StoreViewsAPI extends BaseAPI {
 
    async delete (id: string): Promise<StoreViewDTO> {
        const response = await this._request({
-           path: `/config/store-views/${id}`,
+           path: `/config/store-views/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

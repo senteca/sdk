@@ -9,7 +9,7 @@ import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 export class ViewsAPI extends BaseAPI {
    async createAsset (id: string, dto: AssetDTO): Promise<ViewDTO> {
        const response = await this._request({
-           path: `/merchandise/views/${id}/assets`,
+           path: `/merchandise/views/${encodeURIComponent(id)}/assets`,
            method: 'POST',
            
            body: dto,
@@ -20,7 +20,7 @@ export class ViewsAPI extends BaseAPI {
 
    async updateAssetByIndex (id: string, index: number, dto: AssetDTO): Promise<ViewDTO> {
        const response = await this._request({
-           path: `/merchandise/views/${id}/assets/index=${index}`,
+           path: `/merchandise/views/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
            method: 'PUT',
            
            body: dto,
@@ -31,7 +31,7 @@ export class ViewsAPI extends BaseAPI {
 
    async deleteAssetByIndex (id: string, index: number): Promise<ViewDTO> {
        const response = await this._request({
-           path: `/merchandise/views/${id}/assets/index=${index}`,
+           path: `/merchandise/views/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
            method: 'DELETE',
            
            
@@ -75,7 +75,7 @@ export class ViewsAPI extends BaseAPI {
 
    async getById (id: string): Promise<ViewDTO> {
        const response = await this._request({
-           path: `/merchandise/views/${id}`,
+           path: `/merchandise/views/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -86,7 +86,7 @@ export class ViewsAPI extends BaseAPI {
 
    async update (id: string, dto: ViewDraftDTO): Promise<ViewDTO> {
        const response = await this._request({
-           path: `/merchandise/views/${id}`,
+           path: `/merchandise/views/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -97,7 +97,7 @@ export class ViewsAPI extends BaseAPI {
 
    async delete (id: string): Promise<ViewDTO> {
        const response = await this._request({
-           path: `/merchandise/views/${id}`,
+           path: `/merchandise/views/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
@@ -108,7 +108,7 @@ export class ViewsAPI extends BaseAPI {
 
    async getBySlug (slug: string, lang: string): Promise<ViewDTO> {
        const response = await this._request({
-           path: `/merchandise/views/slug=${slug}/lang=${lang}`,
+           path: `/merchandise/views/slug=${encodeURIComponent(slug)}/lang=${encodeURIComponent(lang)}`,
            method: 'GET',
            
            
@@ -119,7 +119,7 @@ export class ViewsAPI extends BaseAPI {
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<ViewDTO> {
        const response = await this._request({
-           path: `/merchandise/views/${id}/custom`,
+           path: `/merchandise/views/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
            
            body: dto,

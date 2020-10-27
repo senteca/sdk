@@ -4,26 +4,26 @@ import { ShippingFeeTableOrderTotalWeightInGramsDTO } from './ShippingFeeTableOr
 import { CodFeeTableOrderTotalAmountDTO } from './CodFeeTableOrderTotalAmountDTO';
 
 export interface ShippingMethodDTO {
-  id: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
   version?: number;
   name: LangValue[];
   description?: LangValue[];
-  authority: ShippingMethodDTOAuthorityEnum;
-  type: ShippingMethodDTOTypeEnum;
-  providerType: ShippingMethodDTOProviderTypeEnum;
-  option?: object;
-  merchantKey?: string;
-  taxCategory: IdReferenceDTO;
   countryCode: string;
   currencyCode: string;
-  shippingFeeRateCalculationType: ShippingMethodDTOShippingFeeRateCalculationTypeEnum;
-  shippingFeeTableOrderTotalWeightInGrams: ShippingFeeTableOrderTotalWeightInGramsDTO[];
-  isCOD: boolean;
-  codFeeRateCalculationType: ShippingMethodDTOCodFeeRateCalculationTypeEnum;
-  codFeeTableOrderTotalAmount: CodFeeTableOrderTotalAmountDTO[];
-  providerConfig: object;
+  taxCategory: IdReferenceDTO;
+  storeKey: string;
+  authority: ShippingMethodDTOAuthorityEnum;
+  merchantKey: string;
+  type: ShippingMethodDTOTypeEnum;
+  moduleKey: string;
+  methodKey: string;
+  shippingFeeRateCalculationType?: ShippingMethodDTOShippingFeeRateCalculationTypeEnum;
+  shippingFeeTableOrderTotalWeightInGrams?: ShippingFeeTableOrderTotalWeightInGramsDTO[];
+  isCOD?: boolean;
+  codFeeRateCalculationType?: ShippingMethodDTOCodFeeRateCalculationTypeEnum;
+  codFeeTableOrderTotalAmount?: CodFeeTableOrderTotalAmountDTO[];
 }
 
 export enum ShippingMethodDTOAuthorityEnum {
@@ -32,10 +32,7 @@ export enum ShippingMethodDTOAuthorityEnum {
 }
 export enum ShippingMethodDTOTypeEnum {
     ShippingServiceProvider = 'ShippingServiceProvider',  
-}
-export enum ShippingMethodDTOProviderTypeEnum {
-    Speedy = 'Speedy',  
-    Econt = 'Econt',  
+    PickUpFromStore = 'PickUpFromStore',  
     Custom = 'Custom',  
 }
 export enum ShippingMethodDTOShippingFeeRateCalculationTypeEnum {

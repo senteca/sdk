@@ -4,7 +4,7 @@ import { MediaFilterResultDTO } from '../../models/MediaFilterResultDTO';
 export class MediaAPI extends BaseAPI {
    async uploadAssets (folderId: string): Promise<void> {
        const response = await this._request({
-           path: `/cms/media/${folderId}`,
+           path: `/cms/media/${encodeURIComponent(folderId)}`,
            method: 'POST',
            
            

@@ -39,7 +39,7 @@ export class CatalogAPI extends BaseAPI {
 
    async syncFrom (from: number): Promise<void> {
        const response = await this._request({
-           path: `/merchandise/catalog/sync/from=${from}`,
+           path: `/merchandise/catalog/sync/from=${encodeURIComponent(from)}`,
            method: 'POST',
            
            
@@ -72,7 +72,7 @@ export class CatalogAPI extends BaseAPI {
 
    async updateSynonym (id: string, dto: SynonymDraftDTO): Promise<SynonymDTO> {
        const response = await this._request({
-           path: `/merchandise/catalog/synonyms/${id}`,
+           path: `/merchandise/catalog/synonyms/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -83,7 +83,7 @@ export class CatalogAPI extends BaseAPI {
 
    async deleteSynonym (id: string): Promise<SynonymDTO> {
        const response = await this._request({
-           path: `/merchandise/catalog/synonyms/${id}`,
+           path: `/merchandise/catalog/synonyms/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

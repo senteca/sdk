@@ -28,7 +28,7 @@ export class CustomFieldsAPI extends BaseAPI {
 
    async getById (id: string): Promise<CustomFieldDTO> {
        const response = await this._request({
-           path: `/config/custom-fields/${id}`,
+           path: `/config/custom-fields/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -39,7 +39,7 @@ export class CustomFieldsAPI extends BaseAPI {
 
    async update (id: string, dto: CustomFieldDraftDTO): Promise<CustomFieldDTO> {
        const response = await this._request({
-           path: `/config/custom-fields/${id}`,
+           path: `/config/custom-fields/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -50,7 +50,7 @@ export class CustomFieldsAPI extends BaseAPI {
 
    async delete (id: string): Promise<CustomFieldDTO> {
        const response = await this._request({
-           path: `/config/custom-fields/${id}`,
+           path: `/config/custom-fields/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

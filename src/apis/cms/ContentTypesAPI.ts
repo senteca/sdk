@@ -28,7 +28,7 @@ export class ContentTypesAPI extends BaseAPI {
 
    async update (id: string, dto: ContentTypeDraftDTO): Promise<ContentTypeDTO> {
        const response = await this._request({
-           path: `/cms/content-types/${id}`,
+           path: `/cms/content-types/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -39,7 +39,7 @@ export class ContentTypesAPI extends BaseAPI {
 
    async delete (id: string): Promise<ContentTypeDTO> {
        const response = await this._request({
-           path: `/cms/content-types/${id}`,
+           path: `/cms/content-types/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

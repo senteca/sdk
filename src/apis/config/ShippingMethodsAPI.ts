@@ -28,7 +28,7 @@ export class ShippingMethodsAPI extends BaseAPI {
 
    async getById (id: string): Promise<ShippingMethodDTO> {
        const response = await this._request({
-           path: `/config/shipping-methods/${id}`,
+           path: `/config/shipping-methods/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -39,7 +39,7 @@ export class ShippingMethodsAPI extends BaseAPI {
 
    async update (id: string, dto: ShippingMethodDraftDTO): Promise<ShippingMethodDTO> {
        const response = await this._request({
-           path: `/config/shipping-methods/${id}`,
+           path: `/config/shipping-methods/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -50,7 +50,7 @@ export class ShippingMethodsAPI extends BaseAPI {
 
    async delete (id: string): Promise<ShippingMethodDTO> {
        const response = await this._request({
-           path: `/config/shipping-methods/${id}`,
+           path: `/config/shipping-methods/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

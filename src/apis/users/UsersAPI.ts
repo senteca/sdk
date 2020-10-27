@@ -88,7 +88,7 @@ export class UsersAPI extends BaseAPI {
 
    async getById (id: string): Promise<UserDTO> {
        const response = await this._request({
-           path: `/users/users/${id}`,
+           path: `/users/users/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -99,7 +99,7 @@ export class UsersAPI extends BaseAPI {
 
    async update (id: string, dto: UserUpdateDTO): Promise<UserDTO> {
        const response = await this._request({
-           path: `/users/users/${id}`,
+           path: `/users/users/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -110,7 +110,7 @@ export class UsersAPI extends BaseAPI {
 
    async delete (id: string): Promise<UserDTO> {
        const response = await this._request({
-           path: `/users/users/${id}`,
+           path: `/users/users/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

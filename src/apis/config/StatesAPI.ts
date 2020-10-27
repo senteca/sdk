@@ -28,7 +28,7 @@ export class StatesAPI extends BaseAPI {
 
    async getById (id: string): Promise<StateDTO> {
        const response = await this._request({
-           path: `/config/states/${id}`,
+           path: `/config/states/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -39,7 +39,7 @@ export class StatesAPI extends BaseAPI {
 
    async update (id: string, dto: StateDraftDTO): Promise<StateDTO> {
        const response = await this._request({
-           path: `/config/states/${id}`,
+           path: `/config/states/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -50,7 +50,7 @@ export class StatesAPI extends BaseAPI {
 
    async delete (id: string): Promise<StateDTO> {
        const response = await this._request({
-           path: `/config/states/${id}`,
+           path: `/config/states/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
@@ -61,7 +61,7 @@ export class StatesAPI extends BaseAPI {
 
    async getByKey (key: string): Promise<StateDTO> {
        const response = await this._request({
-           path: `/config/states/key=${key}`,
+           path: `/config/states/key=${encodeURIComponent(key)}`,
            method: 'GET',
            
            

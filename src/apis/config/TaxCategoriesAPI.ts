@@ -28,7 +28,7 @@ export class TaxCategoriesAPI extends BaseAPI {
 
    async getById (id: string): Promise<TaxCategoryDTO> {
        const response = await this._request({
-           path: `/config/tax-categories/${id}`,
+           path: `/config/tax-categories/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -39,7 +39,7 @@ export class TaxCategoriesAPI extends BaseAPI {
 
    async update (id: string, dto: TaxCategoryDraftDTO): Promise<TaxCategoryDTO> {
        const response = await this._request({
-           path: `/config/tax-categories/${id}`,
+           path: `/config/tax-categories/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -50,7 +50,7 @@ export class TaxCategoriesAPI extends BaseAPI {
 
    async delete (id: string): Promise<object> {
        const response = await this._request({
-           path: `/config/tax-categories/${id}`,
+           path: `/config/tax-categories/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
@@ -61,7 +61,7 @@ export class TaxCategoriesAPI extends BaseAPI {
 
    async getByKey (key: string): Promise<TaxCategoryDTO> {
        const response = await this._request({
-           path: `/config/tax-categories/key=${key}`,
+           path: `/config/tax-categories/key=${encodeURIComponent(key)}`,
            method: 'GET',
            
            

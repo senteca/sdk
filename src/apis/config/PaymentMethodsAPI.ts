@@ -28,7 +28,7 @@ export class PaymentMethodsAPI extends BaseAPI {
 
    async getById (id: string): Promise<PaymentMethodDTO> {
        const response = await this._request({
-           path: `/config/payment-methods/${id}`,
+           path: `/config/payment-methods/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -39,7 +39,7 @@ export class PaymentMethodsAPI extends BaseAPI {
 
    async update (id: string, dto: PaymentMethodDraftDTO): Promise<PaymentMethodDTO> {
        const response = await this._request({
-           path: `/config/payment-methods/${id}`,
+           path: `/config/payment-methods/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -50,7 +50,7 @@ export class PaymentMethodsAPI extends BaseAPI {
 
    async delete (id: string): Promise<PaymentMethodDTO> {
        const response = await this._request({
-           path: `/config/payment-methods/${id}`,
+           path: `/config/payment-methods/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

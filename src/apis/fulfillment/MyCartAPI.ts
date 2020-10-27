@@ -58,7 +58,7 @@ export class MyCartAPI extends BaseAPI {
 
    async deleteLineItem (id: string): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/my-cart/line-items/${id}`,
+           path: `/fulfillment/my-cart/line-items/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
@@ -69,7 +69,7 @@ export class MyCartAPI extends BaseAPI {
 
    async setLineItemQuantity (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/my-cart/line-items/${lineItemId}/quantity`,
+           path: `/fulfillment/my-cart/line-items/${encodeURIComponent(lineItemId)}/quantity`,
            method: 'PATCH',
            
            body: dto,
@@ -102,7 +102,7 @@ export class MyCartAPI extends BaseAPI {
 
    async addWallet (type: string): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/my-cart/wallet/type=${type}`,
+           path: `/fulfillment/my-cart/wallet/type=${encodeURIComponent(type)}`,
            method: 'POST',
            
            
@@ -113,7 +113,7 @@ export class MyCartAPI extends BaseAPI {
 
    async deleteWallet (type: string): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/my-cart/wallet/type=${type}`,
+           path: `/fulfillment/my-cart/wallet/type=${encodeURIComponent(type)}`,
            method: 'DELETE',
            
            

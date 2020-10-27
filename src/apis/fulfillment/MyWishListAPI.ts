@@ -27,7 +27,7 @@ export class MyWishListAPI extends BaseAPI {
 
    async addProduct (id: string): Promise<WishListDTO> {
        const response = await this._request({
-           path: `/fulfillment/my-wish-list/products/${id}`,
+           path: `/fulfillment/my-wish-list/products/${encodeURIComponent(id)}`,
            method: 'POST',
            
            
@@ -38,7 +38,7 @@ export class MyWishListAPI extends BaseAPI {
 
    async deleteProduct (id: string): Promise<WishListDTO> {
        const response = await this._request({
-           path: `/fulfillment/my-wish-list/products/${id}`,
+           path: `/fulfillment/my-wish-list/products/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

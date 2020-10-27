@@ -27,7 +27,7 @@ export class CustomerGroupsAPI extends BaseAPI {
 
    async getById (id: string): Promise<CustomerGroupDTO> {
        const response = await this._request({
-           path: `/users/customer-groups/${id}`,
+           path: `/users/customer-groups/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -38,7 +38,7 @@ export class CustomerGroupsAPI extends BaseAPI {
 
    async update (id: string, dto: CustomerGroupDTO): Promise<CustomerGroupDTO> {
        const response = await this._request({
-           path: `/users/customer-groups/${id}`,
+           path: `/users/customer-groups/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -49,7 +49,7 @@ export class CustomerGroupsAPI extends BaseAPI {
 
    async delete (id: string): Promise<CustomerGroupDTO> {
        const response = await this._request({
-           path: `/users/customer-groups/${id}`,
+           path: `/users/customer-groups/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

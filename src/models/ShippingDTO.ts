@@ -17,7 +17,7 @@ export interface ShippingDTO {
   type: ShippingDTOTypeEnum;
   authority?: ShippingDTOAuthorityEnum;
   merchant?: KeyReferenceDTO;
-  providerType?: ShippingDTOProviderTypeEnum;
+  moduleKey?: string;
   price?: MoneyDTO;
   taxedPrice?: TaxedPriceDTO;
   taxCategory: IdReferenceDTO;
@@ -44,13 +44,10 @@ export enum ShippingDTOStatusEnum {
 }
 export enum ShippingDTOTypeEnum {
     ShippingServiceProvider = 'ShippingServiceProvider',  
+    PickUpFromStore = 'PickUpFromStore',  
+    Custom = 'Custom',  
 }
 export enum ShippingDTOAuthorityEnum {
     Platform = 'Platform',  
     Merchant = 'Merchant',  
-}
-export enum ShippingDTOProviderTypeEnum {
-    Speedy = 'Speedy',  
-    Econt = 'Econt',  
-    Custom = 'Custom',  
 }

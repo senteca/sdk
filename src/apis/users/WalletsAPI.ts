@@ -30,7 +30,7 @@ export class WalletsAPI extends BaseAPI {
 
    async getById (id: string): Promise<WalletDTO> {
        const response = await this._request({
-           path: `/users/wallets/${id}`,
+           path: `/users/wallets/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -41,7 +41,7 @@ export class WalletsAPI extends BaseAPI {
 
    async update (id: string, dto: WalletDraftDTO): Promise<WalletDTO> {
        const response = await this._request({
-           path: `/users/wallets/${id}`,
+           path: `/users/wallets/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -52,7 +52,7 @@ export class WalletsAPI extends BaseAPI {
 
    async delete (id: string): Promise<WalletDTO> {
        const response = await this._request({
-           path: `/users/wallets/${id}`,
+           path: `/users/wallets/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
@@ -63,7 +63,7 @@ export class WalletsAPI extends BaseAPI {
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<WalletDTO> {
        const response = await this._request({
-           path: `/users/wallets/${id}/custom`,
+           path: `/users/wallets/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
            
            body: dto,

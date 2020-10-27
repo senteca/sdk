@@ -1,10 +1,10 @@
 import { BaseAPI } from '../../runtime';
-import { ContentDraftDTO } from '../../models/ContentDraftDTO';
-import { ContentDTO } from '../../models/ContentDTO';
-import { ContentFilterResultDTO } from '../../models/ContentFilterResultDTO';
+import { CmsContentDraftDTO } from '../../models/CmsContentDraftDTO';
+import { CmsContentDTO } from '../../models/CmsContentDTO';
+import { CmsContentFilterResultDTO } from '../../models/CmsContentFilterResultDTO';
 
 export class ContentsAPI extends BaseAPI {
-   async create (dto: ContentDraftDTO): Promise<ContentDTO> {
+   async create (dto: CmsContentDraftDTO): Promise<CmsContentDTO> {
        const response = await this._request({
            path: `/cms/contents`,
            method: 'POST',
@@ -12,10 +12,10 @@ export class ContentsAPI extends BaseAPI {
            body: dto,
            
         });
-       return (response.json() as unknown) as ContentDTO;
+       return (response.json() as unknown) as CmsContentDTO;
    }
 
-   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<ContentFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<CmsContentFilterResultDTO> {
        const response = await this._request({
            path: `/cms/contents`,
            method: 'GET',
@@ -23,29 +23,29 @@ export class ContentsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ContentFilterResultDTO;
+       return (response.json() as unknown) as CmsContentFilterResultDTO;
    }
 
-   async update (id: string, dto: ContentDraftDTO): Promise<ContentDTO> {
+   async update (id: string, dto: CmsContentDraftDTO): Promise<CmsContentDTO> {
        const response = await this._request({
-           path: `/cms/contents/${id}`,
+           path: `/cms/contents/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
            
         });
-       return (response.json() as unknown) as ContentDTO;
+       return (response.json() as unknown) as CmsContentDTO;
    }
 
-   async delete (id: string): Promise<ContentDTO> {
+   async delete (id: string): Promise<CmsContentDTO> {
        const response = await this._request({
-           path: `/cms/contents/${id}`,
+           path: `/cms/contents/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
            
         });
-       return (response.json() as unknown) as ContentDTO;
+       return (response.json() as unknown) as CmsContentDTO;
    }
 
 }

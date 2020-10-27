@@ -29,7 +29,7 @@ export class MyOrdersAPI extends BaseAPI {
 
    async pay (id: string, paymentId: string): Promise<MakePaymentResponse> {
        const response = await this._request({
-           path: `/fulfillment/my-orders/${id}/payments/${paymentId}/pay`,
+           path: `/fulfillment/my-orders/${encodeURIComponent(id)}/payments/${encodeURIComponent(paymentId)}/pay`,
            method: 'POST',
            
            

@@ -40,7 +40,7 @@ export class AttributesAPI extends BaseAPI {
 
    async getById (id: string): Promise<AttributeDTO> {
        const response = await this._request({
-           path: `/merchandise/attributes/${id}`,
+           path: `/merchandise/attributes/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -51,7 +51,7 @@ export class AttributesAPI extends BaseAPI {
 
    async update (id: string, dto: AttributeDraftDTO): Promise<AttributeDTO> {
        const response = await this._request({
-           path: `/merchandise/attributes/${id}`,
+           path: `/merchandise/attributes/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -62,7 +62,7 @@ export class AttributesAPI extends BaseAPI {
 
    async delete (id: string): Promise<AttributeDTO> {
        const response = await this._request({
-           path: `/merchandise/attributes/${id}`,
+           path: `/merchandise/attributes/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
@@ -84,7 +84,7 @@ export class AttributesAPI extends BaseAPI {
 
    async updateByName (name: string, dto: AttributeDraftDTO): Promise<AttributeDTO> {
        const response = await this._request({
-           path: `/merchandise/attributes/name=${name}`,
+           path: `/merchandise/attributes/name=${encodeURIComponent(name)}`,
            method: 'PUT',
            
            body: dto,
@@ -95,7 +95,7 @@ export class AttributesAPI extends BaseAPI {
 
    async deleteByName (name: string): Promise<AttributeDTO> {
        const response = await this._request({
-           path: `/merchandise/attributes/name=${name}`,
+           path: `/merchandise/attributes/name=${encodeURIComponent(name)}`,
            method: 'DELETE',
            
            

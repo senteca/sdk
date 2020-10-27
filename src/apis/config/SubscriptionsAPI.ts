@@ -27,7 +27,7 @@ export class SubscriptionsAPI extends BaseAPI {
 
    async getByKey (key: string): Promise<SubscriptionDTO> {
        const response = await this._request({
-           path: `/config/subscriptions/key=${key}`,
+           path: `/config/subscriptions/key=${encodeURIComponent(key)}`,
            method: 'GET',
            
            
@@ -38,7 +38,7 @@ export class SubscriptionsAPI extends BaseAPI {
 
    async getById (id: string): Promise<SubscriptionDTO> {
        const response = await this._request({
-           path: `/config/subscriptions/${id}`,
+           path: `/config/subscriptions/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -49,7 +49,7 @@ export class SubscriptionsAPI extends BaseAPI {
 
    async update (id: string, dto: SubscriptionDTO): Promise<SubscriptionDTO> {
        const response = await this._request({
-           path: `/config/subscriptions/${id}`,
+           path: `/config/subscriptions/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -60,7 +60,7 @@ export class SubscriptionsAPI extends BaseAPI {
 
    async delete (id: string): Promise<SubscriptionDTO> {
        const response = await this._request({
-           path: `/config/subscriptions/${id}`,
+           path: `/config/subscriptions/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

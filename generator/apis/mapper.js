@@ -21,7 +21,7 @@ module.exports = class ApiMapper {
   }
 
   static mapActionMethod(actionMethod, url, relatedModels) {
-    url = url.replace(/\{/g, "${"); // {id} -> ${id} to be used for sting interpolation
+    url = url.replace(/\{([^}]+)}/g, "${encodeURIComponent($1)}"); // {key} -> ${encodeURIComponent(key)} to be used for sting interpolation
     const name = actionMethod.operationId; // TODO: operationId alternative ?
     const method = actionMethod.method.toUpperCase();
     const authMethods = this.mapAuth(actionMethod.security);

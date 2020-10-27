@@ -39,7 +39,7 @@ export class RolesAPI extends BaseAPI {
 
    async getById (id: string): Promise<object> {
        const response = await this._request({
-           path: `/auth/roles/${id}`,
+           path: `/auth/roles/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -50,7 +50,7 @@ export class RolesAPI extends BaseAPI {
 
    async update (id: string, dto: RoleDTO): Promise<object> {
        const response = await this._request({
-           path: `/auth/roles/${id}`,
+           path: `/auth/roles/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -61,7 +61,7 @@ export class RolesAPI extends BaseAPI {
 
    async delete (id: string): Promise<object> {
        const response = await this._request({
-           path: `/auth/roles/${id}`,
+           path: `/auth/roles/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

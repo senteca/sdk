@@ -65,7 +65,7 @@ export class OrdersAPI extends BaseAPI {
 
    async getCartByCustomerId (customerId: string): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/cart/customerId=${customerId}`,
+           path: `/fulfillment/orders/cart/customerId=${encodeURIComponent(customerId)}`,
            method: 'GET',
            
            
@@ -87,7 +87,7 @@ export class OrdersAPI extends BaseAPI {
 
    async createFromCart (id: string): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}`,
            method: 'POST',
            
            
@@ -98,7 +98,7 @@ export class OrdersAPI extends BaseAPI {
 
    async getById (id: string): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -120,7 +120,7 @@ export class OrdersAPI extends BaseAPI {
 
    async deleteCartsOlderThan (days: number): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/carts/olderThan=${days}`,
+           path: `/fulfillment/orders/carts/olderThan=${encodeURIComponent(days)}`,
            method: 'DELETE',
            
            
@@ -131,7 +131,7 @@ export class OrdersAPI extends BaseAPI {
 
    async setState (id: string, dto: TransitionOrderStateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/state`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/state`,
            method: 'PATCH',
            
            body: dto,
@@ -142,7 +142,7 @@ export class OrdersAPI extends BaseAPI {
 
    async setNote (id: string, dto: OrderNoteUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/note`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/note`,
            method: 'PATCH',
            
            body: dto,
@@ -153,7 +153,7 @@ export class OrdersAPI extends BaseAPI {
 
    async setStatus (id: string, dto: OrderStatusUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/status`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/status`,
            method: 'PATCH',
            
            body: dto,
@@ -164,7 +164,7 @@ export class OrdersAPI extends BaseAPI {
 
    async setLineItemQuantityState (id: string, dto: TransitionLineItemQuantityState): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/line-items`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/line-items`,
            method: 'PATCH',
            
            body: dto,
@@ -175,7 +175,7 @@ export class OrdersAPI extends BaseAPI {
 
    async addLineItem (id: string, dto: LineItemDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/line-items`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/line-items`,
            method: 'POST',
            
            body: dto,
@@ -186,7 +186,7 @@ export class OrdersAPI extends BaseAPI {
 
    async deleteLineItem (id: string, lineItemId: string): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/line-items/${lineItemId}`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/line-items/${encodeURIComponent(lineItemId)}`,
            method: 'DELETE',
            
            
@@ -197,7 +197,7 @@ export class OrdersAPI extends BaseAPI {
 
    async setLineItemQuantity (id: string, lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/line-items/${lineItemId}/quantity`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/line-items/${encodeURIComponent(lineItemId)}/quantity`,
            method: 'PATCH',
            
            body: dto,
@@ -208,7 +208,7 @@ export class OrdersAPI extends BaseAPI {
 
    async setOrderDiscountCode (id: string, dto: DiscountCodeUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/discount-code`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/discount-code`,
            method: 'PATCH',
            
            body: dto,
@@ -219,7 +219,7 @@ export class OrdersAPI extends BaseAPI {
 
    async deleteDiscountCode (id: string, dto: DiscountCodeUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/discount-code`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/discount-code`,
            method: 'DELETE',
            
            body: dto,
@@ -230,7 +230,7 @@ export class OrdersAPI extends BaseAPI {
 
    async setShippingAddress (id: string, dto: ShippingAddressDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/shipping-address`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/shipping-address`,
            method: 'PATCH',
            
            body: dto,
@@ -241,7 +241,7 @@ export class OrdersAPI extends BaseAPI {
 
    async setBillingAddress (id: string, dto: AddressDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/billing-address`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/billing-address`,
            method: 'PATCH',
            
            body: dto,
@@ -252,7 +252,7 @@ export class OrdersAPI extends BaseAPI {
 
    async getShippingMethods (id: string): Promise<ShippingMethodsInfo> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/shipping-methods`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/shipping-methods`,
            method: 'GET',
            
            
@@ -263,7 +263,7 @@ export class OrdersAPI extends BaseAPI {
 
    async getPaymentMethods (id: string): Promise<PaymentMethodsInfo> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/payment-methods`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/payment-methods`,
            method: 'GET',
            
            
@@ -274,7 +274,7 @@ export class OrdersAPI extends BaseAPI {
 
    async setPlatformShippingMethod (id: string, dto: PlatformMethodUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/platform-shipping-method`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/platform-shipping-method`,
            method: 'PATCH',
            
            body: dto,
@@ -285,7 +285,7 @@ export class OrdersAPI extends BaseAPI {
 
    async setMerchantsShippingMethods (id: string, dto: MerchantsMethodsUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/merchants-shipping-methods`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/merchants-shipping-methods`,
            method: 'PATCH',
            
            body: dto,
@@ -296,7 +296,7 @@ export class OrdersAPI extends BaseAPI {
 
    async setPlatformPaymentMethod (id: string, dto: PlatformMethodUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/platform-payment-method`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/platform-payment-method`,
            method: 'PATCH',
            
            body: dto,
@@ -307,7 +307,7 @@ export class OrdersAPI extends BaseAPI {
 
    async setMerchantsPaymentMethods (id: string, dto: MerchantsMethodsUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/merchants-payment-methods`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/merchants-payment-methods`,
            method: 'PATCH',
            
            body: dto,
@@ -318,7 +318,7 @@ export class OrdersAPI extends BaseAPI {
 
    async setShippingStatus (id: string, shippingId: string, dto: ShippingStatusUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/shippings/${shippingId}/status`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/status`,
            method: 'PATCH',
            
            body: dto,
@@ -329,7 +329,7 @@ export class OrdersAPI extends BaseAPI {
 
    async createShippingDelivery (id: string, shippingId: string, dto: ShippingDeliveryDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/shippings/${shippingId}/deliveries`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/deliveries`,
            method: 'POST',
            
            body: dto,
@@ -340,7 +340,7 @@ export class OrdersAPI extends BaseAPI {
 
    async getShippingDeliveryParcelById (id: string, shippingId: string, deliveryId: string, parcelId: string): Promise<ShippingDeliveryParcelDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/shippings/${shippingId}/deliveries/${deliveryId}/parcels/${parcelId}`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}`,
            method: 'GET',
            
            
@@ -351,7 +351,7 @@ export class OrdersAPI extends BaseAPI {
 
    async updateShippingDeliveryParcel (id: string, shippingId: string, deliveryId: string, parcelId: string, dto: ShippingDeliveryParcelDraftDTO): Promise<ShippingDeliveryParcelDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/shippings/${shippingId}/deliveries/${deliveryId}/parcels/${parcelId}`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}`,
            method: 'PUT',
            
            body: dto,
@@ -362,7 +362,7 @@ export class OrdersAPI extends BaseAPI {
 
    async createShippingDeliveryParcel (id: string, shippingId: string, deliveryId: string, dto: ShippingDeliveryParcelDraftDTO): Promise<ShippingDeliveryParcelDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/shippings/${shippingId}/deliveries/${deliveryId}/parcels`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels`,
            method: 'POST',
            
            body: dto,
@@ -373,7 +373,7 @@ export class OrdersAPI extends BaseAPI {
 
    async createShippingInterfaceInteraction (id: string, shippingId: string, dto: ShippingInterfaceInteractionDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/shippings/${shippingId}/interface-interactions`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/interface-interactions`,
            method: 'POST',
            
            body: dto,
@@ -384,7 +384,7 @@ export class OrdersAPI extends BaseAPI {
 
    async makeShippingInterfaceInteraction (id: string, shippingId: string, deliveryId: string, parcelId: string, dto: MakeShippingInteractionDTO): Promise<object> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/shippings/${shippingId}/deliveries/${deliveryId}/parcels/${parcelId}/interface-interactions`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/interface-interactions`,
            method: 'POST',
            
            body: dto,
@@ -395,7 +395,7 @@ export class OrdersAPI extends BaseAPI {
 
    async setPaymentStatus (id: string, paymentId: string, dto: PaymentStatusUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/payments/${paymentId}/status`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/payments/${encodeURIComponent(paymentId)}/status`,
            method: 'PATCH',
            
            body: dto,
@@ -406,7 +406,7 @@ export class OrdersAPI extends BaseAPI {
 
    async createPaymentTransaction (id: string, paymentId: string, dto: PaymentTransactionDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/payments/${paymentId}/transactions`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/payments/${encodeURIComponent(paymentId)}/transactions`,
            method: 'POST',
            
            body: dto,
@@ -417,7 +417,7 @@ export class OrdersAPI extends BaseAPI {
 
    async createPaymentInterfaceInteraction (id: string, paymentId: string, dto: PaymentInterfaceInteractionDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/payments/${paymentId}/interface-interactions`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/payments/${encodeURIComponent(paymentId)}/interface-interactions`,
            method: 'POST',
            
            body: dto,
@@ -428,7 +428,7 @@ export class OrdersAPI extends BaseAPI {
 
    async createPaymentTransactionInterfaceInteraction (id: string, paymentId: string, transactionId: string, dto: MakePaymentInteractionDTO): Promise<object> {
        const response = await this._request({
-           path: `/fulfillment/orders/${id}/payments/${paymentId}/transactions/${transactionId}/interface-interactions`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/payments/${encodeURIComponent(paymentId)}/transactions/${encodeURIComponent(transactionId)}/interface-interactions`,
            method: 'POST',
            
            body: dto,

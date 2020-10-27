@@ -51,7 +51,7 @@ export class DiscountCodesAPI extends BaseAPI {
 
    async getById (id: string): Promise<DiscountCodeDTO> {
        const response = await this._request({
-           path: `/fulfillment/discount-codes/${id}`,
+           path: `/fulfillment/discount-codes/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -62,7 +62,7 @@ export class DiscountCodesAPI extends BaseAPI {
 
    async update (id: string, dto: DiscountCodeDraftDTO): Promise<DiscountCodeDTO> {
        const response = await this._request({
-           path: `/fulfillment/discount-codes/${id}`,
+           path: `/fulfillment/discount-codes/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -73,7 +73,7 @@ export class DiscountCodesAPI extends BaseAPI {
 
    async delete (id: string): Promise<DiscountCodeDTO> {
        const response = await this._request({
-           path: `/fulfillment/discount-codes/${id}`,
+           path: `/fulfillment/discount-codes/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

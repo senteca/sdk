@@ -28,7 +28,7 @@ export class ApiClientsAPI extends BaseAPI {
 
    async getById (id: string): Promise<ApiClientDTO> {
        const response = await this._request({
-           path: `/auth/api-clients/${id}`,
+           path: `/auth/api-clients/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -39,7 +39,7 @@ export class ApiClientsAPI extends BaseAPI {
 
    async update (id: string, dto: ApiClientDraftDTO): Promise<ApiClientDTO> {
        const response = await this._request({
-           path: `/auth/api-clients/${id}`,
+           path: `/auth/api-clients/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -50,7 +50,7 @@ export class ApiClientsAPI extends BaseAPI {
 
    async delete (id: string): Promise<ApiClientDTO> {
        const response = await this._request({
-           path: `/auth/api-clients/${id}`,
+           path: `/auth/api-clients/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

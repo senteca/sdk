@@ -9,7 +9,7 @@ import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 export class CollectionsAPI extends BaseAPI {
    async createAsset (id: string, dto: AssetDTO): Promise<CollectionDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/${id}/assets`,
+           path: `/merchandise/collections/${encodeURIComponent(id)}/assets`,
            method: 'POST',
            
            body: dto,
@@ -20,7 +20,7 @@ export class CollectionsAPI extends BaseAPI {
 
    async updateAssetByIndex (id: string, index: number, dto: AssetDTO): Promise<CollectionDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/${id}/assets/index=${index}`,
+           path: `/merchandise/collections/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
            method: 'PUT',
            
            body: dto,
@@ -31,7 +31,7 @@ export class CollectionsAPI extends BaseAPI {
 
    async deleteAssetByIndex (id: string, index: number): Promise<CollectionDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/${id}/assets/index=${index}`,
+           path: `/merchandise/collections/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
            method: 'DELETE',
            
            
@@ -75,7 +75,7 @@ export class CollectionsAPI extends BaseAPI {
 
    async getById (id: string): Promise<CollectionDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/${id}`,
+           path: `/merchandise/collections/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -86,7 +86,7 @@ export class CollectionsAPI extends BaseAPI {
 
    async update (id: string, dto: CollectionDraftDTO): Promise<CollectionDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/${id}`,
+           path: `/merchandise/collections/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -97,7 +97,7 @@ export class CollectionsAPI extends BaseAPI {
 
    async delete (id: string): Promise<CollectionDraftDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/${id}`,
+           path: `/merchandise/collections/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
@@ -108,7 +108,7 @@ export class CollectionsAPI extends BaseAPI {
 
    async getByExternalId (externalId: string): Promise<CollectionDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/externalId=${externalId}`,
+           path: `/merchandise/collections/externalId=${encodeURIComponent(externalId)}`,
            method: 'GET',
            
            
@@ -119,7 +119,7 @@ export class CollectionsAPI extends BaseAPI {
 
    async getBySlug (slug: string, lang: string): Promise<CollectionDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/slug=${slug}/lang=${lang}`,
+           path: `/merchandise/collections/slug=${encodeURIComponent(slug)}/lang=${encodeURIComponent(lang)}`,
            method: 'GET',
            
            
@@ -130,7 +130,7 @@ export class CollectionsAPI extends BaseAPI {
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<CollectionDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/${id}/custom`,
+           path: `/merchandise/collections/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
            
            body: dto,

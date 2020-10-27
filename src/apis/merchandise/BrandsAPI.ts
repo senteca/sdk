@@ -10,7 +10,7 @@ import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 export class BrandsAPI extends BaseAPI {
    async createAsset (id: string, dto: AssetDTO): Promise<BrandDTO> {
        const response = await this._request({
-           path: `/merchandise/brands/${id}/assets`,
+           path: `/merchandise/brands/${encodeURIComponent(id)}/assets`,
            method: 'POST',
            
            body: dto,
@@ -21,7 +21,7 @@ export class BrandsAPI extends BaseAPI {
 
    async updateAssetByIndex (id: string, index: number, dto: AssetDTO): Promise<BrandDTO> {
        const response = await this._request({
-           path: `/merchandise/brands/${id}/assets/index=${index}`,
+           path: `/merchandise/brands/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
            method: 'PUT',
            
            body: dto,
@@ -32,7 +32,7 @@ export class BrandsAPI extends BaseAPI {
 
    async deleteAssetByIndex (id: string, index: number): Promise<BrandDTO> {
        const response = await this._request({
-           path: `/merchandise/brands/${id}/assets/index=${index}`,
+           path: `/merchandise/brands/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
            method: 'DELETE',
            
            
@@ -76,7 +76,7 @@ export class BrandsAPI extends BaseAPI {
 
    async getSlugs (lang: string): Promise<string[]> {
        const response = await this._request({
-           path: `/merchandise/brands/slugs/lang=${lang}`,
+           path: `/merchandise/brands/slugs/lang=${encodeURIComponent(lang)}`,
            method: 'GET',
            
            
@@ -87,7 +87,7 @@ export class BrandsAPI extends BaseAPI {
 
    async getById (id: string, query?: { statuses?: string[], expand?: string }): Promise<BrandDTO> {
        const response = await this._request({
-           path: `/merchandise/brands/${id}`,
+           path: `/merchandise/brands/${encodeURIComponent(id)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
            
@@ -98,7 +98,7 @@ export class BrandsAPI extends BaseAPI {
 
    async update (id: string, dto: BrandDraftDTO): Promise<BrandDTO> {
        const response = await this._request({
-           path: `/merchandise/brands/${id}`,
+           path: `/merchandise/brands/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -109,7 +109,7 @@ export class BrandsAPI extends BaseAPI {
 
    async delete (id: string): Promise<BrandDTO> {
        const response = await this._request({
-           path: `/merchandise/brands/${id}`,
+           path: `/merchandise/brands/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
@@ -120,7 +120,7 @@ export class BrandsAPI extends BaseAPI {
 
    async getByExternalId (externalId: string, query?: { statuses?: string[], expand?: string }): Promise<BrandDTO> {
        const response = await this._request({
-           path: `/merchandise/brands/externalId=${externalId}`,
+           path: `/merchandise/brands/externalId=${encodeURIComponent(externalId)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
            
@@ -131,7 +131,7 @@ export class BrandsAPI extends BaseAPI {
 
    async updateByExternalId (externalId: string, dto: BrandDraftDTO): Promise<BrandDTO> {
        const response = await this._request({
-           path: `/merchandise/brands/externalId=${externalId}`,
+           path: `/merchandise/brands/externalId=${encodeURIComponent(externalId)}`,
            method: 'PUT',
            
            body: dto,
@@ -142,7 +142,7 @@ export class BrandsAPI extends BaseAPI {
 
    async deleteByExternalId (externalId: string): Promise<BrandDTO> {
        const response = await this._request({
-           path: `/merchandise/brands/externalId=${externalId}`,
+           path: `/merchandise/brands/externalId=${encodeURIComponent(externalId)}`,
            method: 'DELETE',
            
            
@@ -153,7 +153,7 @@ export class BrandsAPI extends BaseAPI {
 
    async getBySlug (slug: string, lang: string, query?: { statuses?: string[], expand?: string }): Promise<BrandDTO> {
        const response = await this._request({
-           path: `/merchandise/brands/slug=${slug}/lang=${lang}`,
+           path: `/merchandise/brands/slug=${encodeURIComponent(slug)}/lang=${encodeURIComponent(lang)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
            
@@ -164,7 +164,7 @@ export class BrandsAPI extends BaseAPI {
 
    async setStatus (id: string, dto: BrandStatusUpdateDTO): Promise<BrandDTO> {
        const response = await this._request({
-           path: `/merchandise/brands/${id}/status`,
+           path: `/merchandise/brands/${encodeURIComponent(id)}/status`,
            method: 'PATCH',
            
            body: dto,
@@ -175,7 +175,7 @@ export class BrandsAPI extends BaseAPI {
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<BrandDTO> {
        const response = await this._request({
-           path: `/merchandise/brands/${id}/custom`,
+           path: `/merchandise/brands/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
            
            body: dto,
