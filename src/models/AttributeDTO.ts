@@ -2,7 +2,7 @@ import { LangValue } from './LangValue';
 import { AttributeValueDTO } from './AttributeValueDTO';
 
 export interface AttributeDTO {
-  id: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
   version?: number;

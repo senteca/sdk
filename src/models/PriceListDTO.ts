@@ -7,7 +7,7 @@ export interface PriceListDTO {
   countryCode: string;
   currencyCode: string;
   taxIncluded: boolean;
-  id: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
 }

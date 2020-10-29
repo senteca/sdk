@@ -1,6 +1,6 @@
 
 export interface MerchantDTO {
-  id: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
   version?: number;

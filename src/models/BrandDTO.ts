@@ -1,18 +1,18 @@
-import { IdReferenceDTO } from './IdReferenceDTO';
 import { LangValue } from './LangValue';
+import { IdReferenceDTO } from './IdReferenceDTO';
 import { AssetDTO } from './AssetDTO';
 import { CustomField } from './CustomField';
 
 export interface BrandDTO {
-  id: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
-  parent?: IdReferenceDTO;
-  ancestors?: IdReferenceDTO[];
   version?: number;
   name: LangValue[];
   description?: LangValue[];
   weight: number;
+  parent?: IdReferenceDTO;
+  ancestors?: IdReferenceDTO[];
   status: BrandDTOStatusEnum;
   assets?: AssetDTO[];
   slug: LangValue[];

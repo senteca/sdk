@@ -3,7 +3,7 @@ import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
 
 export interface ProductDTO {
   version: number;
-  id: string;
+  _id: string;
   externalId: string;
   createdAt: number;
   updatedAt: number;

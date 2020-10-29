@@ -4,7 +4,7 @@ import { AssetDTO } from './AssetDTO';
 import { CustomField } from './CustomField';
 
 export interface CategoryDTO {
-  id: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
   version?: number;

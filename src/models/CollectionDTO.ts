@@ -3,7 +3,7 @@ import { AssetDTO } from './AssetDTO';
 import { CustomField } from './CustomField';
 
 export interface CollectionDTO {
-  id: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
   version?: number;
