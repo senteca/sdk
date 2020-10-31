@@ -128,6 +128,8 @@ export * from "./PackageDTO";
 export * from "./PageDTO";
 export * from "./PageDraftDTO";
 export * from "./PageFilterResultDTO";
+export * from "./PageNameUpdateDTO";
+export * from "./PageStatusUpdateDTO";
 export * from "./PasswordChangeDTO";
 export * from "./PasswordGrantTokenRequestDTO";
 export * from "./PasswordResetDTO";

@@ -9,5 +9,6 @@ export interface PageDTO {
   _id: string;
   createdAt: number;
   updatedAt: number;
+  stagedNodes: object[];
 }
 
