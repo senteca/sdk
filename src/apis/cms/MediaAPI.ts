@@ -2,7 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { MediaFilterResultDTO } from '../../models/MediaFilterResultDTO';
 
 export class MediaAPI extends BaseAPI {
-   async uploadAssets (folderId: string, dto: void): Promise<void> {
+   async uploadAssets (folderId: string, dto: any): Promise<void> {
        const response = await this._request({
            path: `/cms/media/${encodeURIComponent(folderId)}`,
            method: 'POST',
@@ -26,7 +26,7 @@ export class MediaAPI extends BaseAPI {
        return (response.json() as unknown) as MediaFilterResultDTO;
    }
 
-   async delete (): Promise<object> {
+   async delete (): Promise<any> {
        const response = await this._request({
            path: `/cms/media`,
            method: 'DELETE',
@@ -35,7 +35,7 @@ export class MediaAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as any;
    }
 
 }

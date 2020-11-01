@@ -115,7 +115,9 @@ module.exports = class ApiMapper {
       return;
     }
 
-    const schema = getIn(requestBody, "content.application/json.schema");
+    const content = getIn(requestBody, "content");
+    const contentType = Object.keys(content)[0];
+    const schema = getIn(content, `${contentType}.schema`);
     const { realType, relatedModel } = this.schemaToType(schema);
 
     if (relatedModel && !relatedModels.includes(relatedModel)) {
@@ -162,13 +164,13 @@ module.exports = class ApiMapper {
       }
     }
 
-    if (realType === "Object") {
-      realType = "any";
-      relatedModel = undefined;
-    }
-
     if (!realType) {
       realType = "void";
+    }
+
+    if (realType.toLowerCase() === "object") {
+      realType = "any";
+      relatedModel = undefined;
     }
 
     return { realType, relatedModel };

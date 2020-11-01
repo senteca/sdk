@@ -352,7 +352,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async uploadImage (id: string, variantId: string, dto: void): Promise<void> {
+   async uploadImage (id: string, variantId: string, dto: any): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/variants/${encodeURIComponent(variantId)}/images/upload`,
            method: 'POST',
@@ -388,7 +388,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async deleteImage (id: string, variantId: string, index: number): Promise<object> {
+   async deleteImage (id: string, variantId: string, index: number): Promise<any> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/variants/${encodeURIComponent(variantId)}/images/${encodeURIComponent(index)}`,
            method: 'DELETE',
@@ -397,10 +397,10 @@ export class ProductsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as any;
    }
 
-   async deleteImages (id: string): Promise<object> {
+   async deleteImages (id: string): Promise<any> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/images`,
            method: 'DELETE',
@@ -409,7 +409,7 @@ export class ProductsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as any;
    }
 
 }

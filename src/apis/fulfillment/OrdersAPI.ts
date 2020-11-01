@@ -414,7 +414,7 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async makeShippingInterfaceInteraction (id: string, shippingId: string, deliveryId: string, parcelId: string, dto: MakeShippingInteractionDTO): Promise<object> {
+   async makeShippingInterfaceInteraction (id: string, shippingId: string, deliveryId: string, parcelId: string, dto: MakeShippingInteractionDTO): Promise<any> {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/interface-interactions`,
            method: 'POST',
@@ -423,7 +423,7 @@ export class OrdersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as any;
    }
 
    async setPaymentStatus (id: string, paymentId: string, dto: PaymentStatusUpdateDTO): Promise<OrderDTO> {
@@ -462,7 +462,7 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async createPaymentTransactionInterfaceInteraction (id: string, paymentId: string, transactionId: string, dto: MakePaymentInteractionDTO): Promise<object> {
+   async createPaymentTransactionInterfaceInteraction (id: string, paymentId: string, transactionId: string, dto: MakePaymentInteractionDTO): Promise<any> {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/payments/${encodeURIComponent(paymentId)}/transactions/${encodeURIComponent(transactionId)}/interface-interactions`,
            method: 'POST',
@@ -471,7 +471,7 @@ export class OrdersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as any;
    }
 
 }

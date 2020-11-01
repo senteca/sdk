@@ -181,7 +181,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async delete (id: string): Promise<object> {
+   async delete (id: string): Promise<CustomerDTO> {
        const response = await this._request({
            path: `/users/customers/${encodeURIComponent(id)}`,
            method: 'DELETE',
@@ -190,7 +190,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as CustomerDTO;
    }
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<CustomerDTO> {
@@ -205,7 +205,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async register (dto: CustomerRegisterDTO): Promise<object> {
+   async register (dto: CustomerRegisterDTO): Promise<any> {
        const response = await this._request({
            path: `/users/customers/register`,
            method: 'POST',
@@ -214,10 +214,10 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as any;
    }
 
-   async registerFacebook (dto: CustomerRegisterFacebookDTO): Promise<object> {
+   async registerFacebook (dto: CustomerRegisterFacebookDTO): Promise<any> {
        const response = await this._request({
            path: `/users/customers/register/facebook`,
            method: 'POST',
@@ -226,10 +226,10 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as any;
    }
 
-   async createPasswordToken (dto: PasswordTokenDTO): Promise<object> {
+   async createPasswordToken (dto: PasswordTokenDTO): Promise<any> {
        const response = await this._request({
            path: `/users/customers/password-token`,
            method: 'POST',
@@ -238,7 +238,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as any;
    }
 
    async resetPassword (dto: PasswordResetDTO): Promise<CustomerDTO> {
@@ -301,7 +301,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
-   async deleteAddress (customerId: string, addressId: string): Promise<object> {
+   async deleteAddress (customerId: string, addressId: string): Promise<any> {
        const response = await this._request({
            path: `/users/customers/${encodeURIComponent(customerId)}/addresses/${encodeURIComponent(addressId)}`,
            method: 'DELETE',
@@ -310,7 +310,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as any;
    }
 
    async import (dto: CustomerCreateDTO[]): Promise<CustomerDTO[]> {

@@ -28,7 +28,7 @@ export class RolesAPI extends BaseAPI {
        return (response.json() as unknown) as RoleFilterResultDTO;
    }
 
-   async create (dto: RoleDTO): Promise<object> {
+   async create (dto: RoleDTO): Promise<RoleDTO> {
        const response = await this._request({
            path: `/auth/roles`,
            method: 'POST',
@@ -37,10 +37,10 @@ export class RolesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as RoleDTO;
    }
 
-   async getById (id: string): Promise<object> {
+   async getById (id: string): Promise<RoleDTO> {
        const response = await this._request({
            path: `/auth/roles/${encodeURIComponent(id)}`,
            method: 'GET',
@@ -49,10 +49,10 @@ export class RolesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as RoleDTO;
    }
 
-   async update (id: string, dto: RoleDTO): Promise<object> {
+   async update (id: string, dto: RoleDTO): Promise<RoleDTO> {
        const response = await this._request({
            path: `/auth/roles/${encodeURIComponent(id)}`,
            method: 'PUT',
@@ -61,10 +61,10 @@ export class RolesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as RoleDTO;
    }
 
-   async delete (id: string): Promise<object> {
+   async delete (id: string): Promise<RoleDTO> {
        const response = await this._request({
            path: `/auth/roles/${encodeURIComponent(id)}`,
            method: 'DELETE',
@@ -73,7 +73,7 @@ export class RolesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as object;
+       return (response.json() as unknown) as RoleDTO;
    }
 
 }
