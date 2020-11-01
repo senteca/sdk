@@ -25,7 +25,13 @@ export class BaseAPI {
     if (context.query) {
       url += `?${context.query}`;
     }
-    const body = context.body ? JSON.stringify(context.body) : undefined;
+    let body;
+    if (context.body) {
+      body =
+        context.contentType === "multipart/form-data"
+          ? context.body
+          : JSON.stringify(context.body);
+    }
 
     const headers = {};
     if (context.contentType !== "multipart/form-data") {
