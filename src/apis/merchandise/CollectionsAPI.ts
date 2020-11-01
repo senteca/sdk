@@ -14,6 +14,7 @@ export class CollectionsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CollectionDTO;
    }
@@ -25,6 +26,7 @@ export class CollectionsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CollectionDTO;
    }
@@ -33,6 +35,7 @@ export class CollectionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/collections/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
            method: 'DELETE',
+           
            
            
            
@@ -47,6 +50,7 @@ export class CollectionsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as CollectionSearchResultDTO;
    }
@@ -58,6 +62,7 @@ export class CollectionsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CollectionDTO;
    }
@@ -69,6 +74,7 @@ export class CollectionsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as CollectionFilterResultDTO;
    }
@@ -77,6 +83,7 @@ export class CollectionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/collections/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -91,6 +98,7 @@ export class CollectionsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CollectionDTO;
    }
@@ -99,6 +107,7 @@ export class CollectionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/collections/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            
@@ -113,6 +122,7 @@ export class CollectionsAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as CollectionDTO;
    }
@@ -121,6 +131,7 @@ export class CollectionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/collections/slug=${encodeURIComponent(slug)}/lang=${encodeURIComponent(lang)}`,
            method: 'GET',
+           
            
            
            
@@ -135,6 +146,7 @@ export class CollectionsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CollectionDTO;
    }

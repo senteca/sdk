@@ -12,6 +12,7 @@ export class WalletTypesAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as WalletTypeFilterResultDTO;
    }
@@ -23,6 +24,7 @@ export class WalletTypesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as WalletTypeDTO;
    }
@@ -31,6 +33,7 @@ export class WalletTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/wallet-types/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -45,6 +48,7 @@ export class WalletTypesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as WalletTypeDTO;
    }
@@ -53,6 +57,7 @@ export class WalletTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/wallet-types/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            
@@ -65,6 +70,7 @@ export class WalletTypesAPI extends BaseAPI {
            path: `/users/wallet-types/search`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
            
            
         });

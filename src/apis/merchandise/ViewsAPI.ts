@@ -14,6 +14,7 @@ export class ViewsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ViewDTO;
    }
@@ -25,6 +26,7 @@ export class ViewsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ViewDTO;
    }
@@ -33,6 +35,7 @@ export class ViewsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/views/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
            method: 'DELETE',
+           
            
            
            
@@ -47,6 +50,7 @@ export class ViewsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as ViewSearchResultDTO;
    }
@@ -58,6 +62,7 @@ export class ViewsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ViewDTO;
    }
@@ -69,6 +74,7 @@ export class ViewsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as ViewFilterResultDTO;
    }
@@ -77,6 +83,7 @@ export class ViewsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/views/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -91,6 +98,7 @@ export class ViewsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ViewDTO;
    }
@@ -99,6 +107,7 @@ export class ViewsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/views/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            
@@ -113,6 +122,7 @@ export class ViewsAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as ViewDTO;
    }
@@ -124,6 +134,7 @@ export class ViewsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ViewDTO;
    }

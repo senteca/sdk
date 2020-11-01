@@ -12,6 +12,7 @@ export class DiscountCodesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as DiscountCodeDTO[];
    }
@@ -21,6 +22,7 @@ export class DiscountCodesAPI extends BaseAPI {
            path: `/fulfillment/discount-codes/search`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
            
            
         });
@@ -34,6 +36,7 @@ export class DiscountCodesAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as DiscountCodeFilterResultDTO;
    }
@@ -45,6 +48,7 @@ export class DiscountCodesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as DiscountCodeDTO;
    }
@@ -53,6 +57,7 @@ export class DiscountCodesAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/discount-codes/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -67,6 +72,7 @@ export class DiscountCodesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as DiscountCodeDTO;
    }
@@ -75,6 +81,7 @@ export class DiscountCodesAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/discount-codes/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

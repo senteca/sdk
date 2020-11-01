@@ -12,6 +12,7 @@ export class TokenAPI extends BaseAPI {
            
            body: dto,
            basicAuth,
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as AccessTokenDTO;
    }
@@ -23,6 +24,7 @@ export class TokenAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as AccessTokenDTO;
    }
@@ -34,6 +36,7 @@ export class TokenAPI extends BaseAPI {
            
            body: dto,
            basicAuth,
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as AccessTokenDTO;
    }
@@ -45,6 +48,7 @@ export class TokenAPI extends BaseAPI {
            
            body: dto,
            basicAuth,
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as AccessTokenDTO;
    }

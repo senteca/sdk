@@ -11,6 +11,7 @@ export class ApiClientsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as ApiClientFilterResultDTO;
    }
@@ -22,6 +23,7 @@ export class ApiClientsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ApiClientDTO;
    }
@@ -30,6 +32,7 @@ export class ApiClientsAPI extends BaseAPI {
        const response = await this._request({
            path: `/auth/api-clients/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -44,6 +47,7 @@ export class ApiClientsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ApiClientDTO;
    }
@@ -52,6 +56,7 @@ export class ApiClientsAPI extends BaseAPI {
        const response = await this._request({
            path: `/auth/api-clients/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

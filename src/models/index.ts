@@ -115,6 +115,7 @@ export * from "./MerchantsMethodsUpdateDTO";
 export * from "./MessageDTO";
 export * from "./MoneyDTO";
 export * from "./NewOrders";
+export * from "./Object";
 export * from "./OfferDTO";
 export * from "./OfferDraftDTO";
 export * from "./OfferUpdateDTO";

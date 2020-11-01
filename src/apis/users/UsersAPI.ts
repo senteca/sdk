@@ -16,6 +16,7 @@ export class UsersAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as UserDTO;
    }
@@ -27,6 +28,7 @@ export class UsersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as UserDTO;
    }
@@ -38,6 +40,7 @@ export class UsersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as UserDTO;
    }
@@ -49,6 +52,7 @@ export class UsersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as object;
    }
@@ -60,6 +64,7 @@ export class UsersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as UserDTO;
    }
@@ -69,6 +74,7 @@ export class UsersAPI extends BaseAPI {
            path: `/users/users`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
            
            
         });
@@ -82,6 +88,7 @@ export class UsersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as UserDTO;
    }
@@ -90,6 +97,7 @@ export class UsersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/users/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -104,6 +112,7 @@ export class UsersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as UserDTO;
    }
@@ -112,6 +121,7 @@ export class UsersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/users/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

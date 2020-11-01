@@ -11,6 +11,7 @@ export class PriceListsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as PriceListDTO;
    }
@@ -22,6 +23,7 @@ export class PriceListsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as PriceListFilterResultDTO;
    }
@@ -30,6 +32,7 @@ export class PriceListsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/price-lists/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -44,6 +47,7 @@ export class PriceListsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as PriceListDTO;
    }
@@ -55,6 +59,7 @@ export class PriceListsAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as PriceListDTO;
    }
@@ -63,6 +68,7 @@ export class PriceListsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/price-lists/key=${encodeURIComponent(key)}`,
            method: 'GET',
+           
            
            
            

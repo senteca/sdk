@@ -11,6 +11,7 @@ export class PaymentMethodsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as PaymentMethodDTO;
    }
@@ -22,6 +23,7 @@ export class PaymentMethodsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as PaymentMethodFilterResultDTO;
    }
@@ -30,6 +32,7 @@ export class PaymentMethodsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/payment-methods/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -44,6 +47,7 @@ export class PaymentMethodsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as PaymentMethodDTO;
    }
@@ -52,6 +56,7 @@ export class PaymentMethodsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/payment-methods/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

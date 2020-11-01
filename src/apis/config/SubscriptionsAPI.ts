@@ -10,6 +10,7 @@ export class SubscriptionsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as SubscriptionDTO;
    }
@@ -18,6 +19,7 @@ export class SubscriptionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/subscriptions`,
            method: 'GET',
+           
            
            
            
@@ -32,6 +34,7 @@ export class SubscriptionsAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as SubscriptionDTO;
    }
@@ -40,6 +43,7 @@ export class SubscriptionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/subscriptions/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -54,6 +58,7 @@ export class SubscriptionsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as SubscriptionDTO;
    }
@@ -62,6 +67,7 @@ export class SubscriptionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/subscriptions/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

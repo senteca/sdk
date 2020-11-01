@@ -10,6 +10,7 @@ export class MyWalletAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as WalletDTO;
    }
@@ -21,6 +22,7 @@ export class MyWalletAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as WalletDTO;
    }
@@ -32,6 +34,7 @@ export class MyWalletAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as WalletDTO;
    }

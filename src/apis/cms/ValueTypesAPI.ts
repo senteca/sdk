@@ -11,6 +11,7 @@ export class ValueTypesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ValueTypeDTO;
    }
@@ -20,6 +21,7 @@ export class ValueTypesAPI extends BaseAPI {
            path: `/cms/value-types`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
            
            
         });
@@ -33,6 +35,7 @@ export class ValueTypesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ValueTypeDTO;
    }
@@ -41,6 +44,7 @@ export class ValueTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/value-types/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

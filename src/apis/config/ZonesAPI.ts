@@ -11,6 +11,7 @@ export class ZonesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ZoneDTO;
    }
@@ -22,6 +23,7 @@ export class ZonesAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as ZoneFilterResultDTO;
    }
@@ -30,6 +32,7 @@ export class ZonesAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/zones/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -44,6 +47,7 @@ export class ZonesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ZoneDTO;
    }
@@ -52,6 +56,7 @@ export class ZonesAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/zones/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

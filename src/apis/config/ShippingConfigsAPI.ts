@@ -10,6 +10,7 @@ export class ShippingConfigsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ShippingConfigDTO;
    }
@@ -21,6 +22,7 @@ export class ShippingConfigsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as void;
    }
@@ -29,6 +31,7 @@ export class ShippingConfigsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/shipping-configs/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -43,6 +46,7 @@ export class ShippingConfigsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ShippingConfigDTO;
    }
@@ -51,6 +55,7 @@ export class ShippingConfigsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/shipping-configs/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

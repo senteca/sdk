@@ -10,6 +10,7 @@ export class InternationalsAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as InternationalsDTO;
    }
@@ -21,6 +22,7 @@ export class InternationalsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as InternationalsDTO;
    }

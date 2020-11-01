@@ -11,6 +11,7 @@ export class StockLocationsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as StockLocationDTO;
    }
@@ -22,6 +23,7 @@ export class StockLocationsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as StockLocationFilterResultDTO;
    }
@@ -30,6 +32,7 @@ export class StockLocationsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -44,6 +47,7 @@ export class StockLocationsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as StockLocationDTO;
    }
@@ -52,6 +56,7 @@ export class StockLocationsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

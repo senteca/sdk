@@ -11,6 +11,7 @@ export class RolesAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as Permission[];
    }
@@ -20,6 +21,7 @@ export class RolesAPI extends BaseAPI {
            path: `/auth/roles`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
            
            
         });
@@ -33,6 +35,7 @@ export class RolesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as object;
    }
@@ -41,6 +44,7 @@ export class RolesAPI extends BaseAPI {
        const response = await this._request({
            path: `/auth/roles/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -55,6 +59,7 @@ export class RolesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as object;
    }
@@ -63,6 +68,7 @@ export class RolesAPI extends BaseAPI {
        const response = await this._request({
            path: `/auth/roles/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

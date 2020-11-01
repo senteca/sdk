@@ -12,6 +12,7 @@ export class FoldersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as FolderDTO;
    }
@@ -21,6 +22,7 @@ export class FoldersAPI extends BaseAPI {
            path: `/cms/folders`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
            
            
         });
@@ -34,6 +36,7 @@ export class FoldersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as FolderDTO;
    }
@@ -42,6 +45,7 @@ export class FoldersAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/folders/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            
@@ -56,6 +60,7 @@ export class FoldersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as void;
    }

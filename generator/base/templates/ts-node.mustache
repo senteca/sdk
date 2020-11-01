@@ -28,7 +28,10 @@ export class BaseAPI {
     const body = context.body ? JSON.stringify(context.body) : undefined;
 
     const headers = {};
-    headers["Content-Type"] = "application/json";
+    if (context.contentType !== "multipart/form-data") {
+      // do not set explicit Content-Type "multipart/form-data" so that the boundary can be added
+      headers["Content-Type"] = context.contentType || "application/json";
+    }
     if (options.token) {
       headers["Authorization"] = `Bearer ${options.token}`;
     }
@@ -84,6 +87,7 @@ export interface RequestOptions {
   method: string;
   query?: string;
   body?: any;
+  contentType?: "application/json" | "multipart/form-data";
   basicAuth?: { username: string; password: string };
 }
 

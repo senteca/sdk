@@ -10,6 +10,7 @@ export class MySubscriptionsAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as CustomerSubscriptionDTO;
    }
@@ -21,6 +22,7 @@ export class MySubscriptionsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerSubscriptionDTO;
    }
@@ -32,6 +34,7 @@ export class MySubscriptionsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerSubscriptionDTO;
    }

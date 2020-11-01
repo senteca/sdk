@@ -15,6 +15,7 @@ export class BrandsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -26,6 +27,7 @@ export class BrandsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -34,6 +36,7 @@ export class BrandsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/brands/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
            method: 'DELETE',
+           
            
            
            
@@ -48,6 +51,7 @@ export class BrandsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as BrandSearchResultDTO;
    }
@@ -57,6 +61,7 @@ export class BrandsAPI extends BaseAPI {
            path: `/merchandise/brands`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
            
            
         });
@@ -70,6 +75,7 @@ export class BrandsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -78,6 +84,7 @@ export class BrandsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/brands/slugs/lang=${encodeURIComponent(lang)}`,
            method: 'GET',
+           
            
            
            
@@ -92,6 +99,7 @@ export class BrandsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -103,6 +111,7 @@ export class BrandsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -111,6 +120,7 @@ export class BrandsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/brands/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            
@@ -125,6 +135,7 @@ export class BrandsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -136,6 +147,7 @@ export class BrandsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -144,6 +156,7 @@ export class BrandsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/brands/externalId=${encodeURIComponent(externalId)}`,
            method: 'DELETE',
+           
            
            
            
@@ -158,6 +171,7 @@ export class BrandsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -169,6 +183,7 @@ export class BrandsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -180,6 +195,7 @@ export class BrandsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as BrandDTO;
    }
@@ -191,6 +207,7 @@ export class BrandsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as BrandDTO[];
    }

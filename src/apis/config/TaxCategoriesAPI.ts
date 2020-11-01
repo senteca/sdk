@@ -11,6 +11,7 @@ export class TaxCategoriesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as TaxCategoryDTO;
    }
@@ -22,6 +23,7 @@ export class TaxCategoriesAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as TaxCategoryFilterResultDTO;
    }
@@ -30,6 +32,7 @@ export class TaxCategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/tax-categories/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -44,6 +47,7 @@ export class TaxCategoriesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as TaxCategoryDTO;
    }
@@ -55,6 +59,7 @@ export class TaxCategoriesAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -63,6 +68,7 @@ export class TaxCategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/tax-categories/key=${encodeURIComponent(key)}`,
            method: 'GET',
+           
            
            
            

@@ -11,6 +11,7 @@ export class StoreViewsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as StoreViewDTO;
    }
@@ -22,6 +23,7 @@ export class StoreViewsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as StoreViewFilterResultDTO;
    }
@@ -30,6 +32,7 @@ export class StoreViewsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/store-views/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -44,6 +47,7 @@ export class StoreViewsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as StoreViewDTO;
    }
@@ -52,6 +56,7 @@ export class StoreViewsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/store-views/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

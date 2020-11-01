@@ -12,6 +12,7 @@ export class MyOrdersAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as OrderFilterResultDTO;
    }
@@ -20,6 +21,7 @@ export class MyOrdersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-orders`,
            method: 'POST',
+           
            
            
            
@@ -34,6 +36,7 @@ export class MyOrdersAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as MakePaymentResponse;
    }
@@ -45,6 +48,7 @@ export class MyOrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as MakePaymentResponse;
    }

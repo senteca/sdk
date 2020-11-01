@@ -10,6 +10,7 @@ export class MyWishListAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as WishListDTO;
    }
@@ -18,6 +19,7 @@ export class MyWishListAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-wish-list`,
            method: 'GET',
+           
            
            
            
@@ -32,6 +34,7 @@ export class MyWishListAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as WishListDTO;
    }
@@ -40,6 +43,7 @@ export class MyWishListAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-wish-list/products/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

@@ -12,6 +12,7 @@ export class AttributesAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as AttributeSearchResultDTO;
    }
@@ -21,6 +22,7 @@ export class AttributesAPI extends BaseAPI {
            path: `/merchandise/attributes`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
            
            
         });
@@ -34,6 +36,7 @@ export class AttributesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as AttributeDTO;
    }
@@ -42,6 +45,7 @@ export class AttributesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/attributes/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -56,6 +60,7 @@ export class AttributesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as AttributeDTO;
    }
@@ -64,6 +69,7 @@ export class AttributesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/attributes/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            
@@ -78,6 +84,7 @@ export class AttributesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as AttributeDTO[];
    }
@@ -89,6 +96,7 @@ export class AttributesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as AttributeDTO;
    }
@@ -97,6 +105,7 @@ export class AttributesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/attributes/name=${encodeURIComponent(name)}`,
            method: 'DELETE',
+           
            
            
            

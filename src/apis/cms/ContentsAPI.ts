@@ -11,6 +11,7 @@ export class ContentsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CmsContentDTO;
    }
@@ -20,6 +21,7 @@ export class ContentsAPI extends BaseAPI {
            path: `/cms/contents`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
            
            
         });
@@ -33,6 +35,7 @@ export class ContentsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CmsContentDTO;
    }
@@ -41,6 +44,7 @@ export class ContentsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/contents/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

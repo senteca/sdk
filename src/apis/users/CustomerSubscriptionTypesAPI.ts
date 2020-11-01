@@ -11,6 +11,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerSubscriptionTypeDTO;
    }
@@ -22,6 +23,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as CustomerSubscriptionTypeFilterResultDTO;
    }
@@ -30,6 +32,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-subscription-types/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -44,6 +47,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerSubscriptionTypeDTO;
    }
@@ -52,6 +56,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-subscription-types/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

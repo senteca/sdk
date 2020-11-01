@@ -37,6 +37,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO[];
    }
@@ -45,6 +46,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/orders/shippings/sync`,
            method: 'POST',
+           
            
            
            
@@ -59,6 +61,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -67,6 +70,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/orders/cart/customerId=${encodeURIComponent(customerId)}`,
            method: 'GET',
+           
            
            
            
@@ -81,6 +85,7 @@ export class OrdersAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as NewOrders;
    }
@@ -89,6 +94,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}`,
            method: 'POST',
+           
            
            
            
@@ -103,6 +109,7 @@ export class OrdersAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -114,6 +121,7 @@ export class OrdersAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as OrderFilterResultDTO;
    }
@@ -122,6 +130,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/orders/carts/olderThan=${encodeURIComponent(days)}`,
            method: 'DELETE',
+           
            
            
            
@@ -136,6 +145,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -147,6 +157,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -158,6 +169,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -169,6 +181,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -180,6 +193,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -188,6 +202,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/line-items/${encodeURIComponent(lineItemId)}`,
            method: 'DELETE',
+           
            
            
            
@@ -202,6 +217,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -213,6 +229,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -224,6 +241,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -235,6 +253,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -246,6 +265,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -254,6 +274,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/shipping-methods`,
            method: 'GET',
+           
            
            
            
@@ -268,6 +289,7 @@ export class OrdersAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as PaymentMethodsInfo;
    }
@@ -279,6 +301,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -290,6 +313,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -301,6 +325,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -312,6 +337,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -323,6 +349,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -334,6 +361,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -342,6 +370,7 @@ export class OrdersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}`,
            method: 'GET',
+           
            
            
            
@@ -356,6 +385,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ShippingDeliveryParcelDTO;
    }
@@ -367,6 +397,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ShippingDeliveryParcelDTO;
    }
@@ -378,6 +409,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -389,6 +421,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as object;
    }
@@ -400,6 +433,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -411,6 +445,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -422,6 +457,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -433,6 +469,7 @@ export class OrdersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as object;
    }

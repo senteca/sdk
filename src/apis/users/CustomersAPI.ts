@@ -20,6 +20,7 @@ export class CustomersAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as CustomerDTO;
    }
@@ -31,6 +32,7 @@ export class CustomersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerDTO;
    }
@@ -39,6 +41,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customers/my-profile`,
            method: 'DELETE',
+           
            
            
            
@@ -53,6 +56,7 @@ export class CustomersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerDTO;
    }
@@ -61,6 +65,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customers/my-addresses`,
            method: 'GET',
+           
            
            
            
@@ -75,6 +80,7 @@ export class CustomersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as AddressDTO;
    }
@@ -83,6 +89,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customers/my-addresses/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -97,6 +104,7 @@ export class CustomersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as AddressDTO;
    }
@@ -105,6 +113,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customers/my-addresses/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            
@@ -119,6 +128,7 @@ export class CustomersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerDTO;
    }
@@ -128,6 +138,7 @@ export class CustomersAPI extends BaseAPI {
            path: `/users/customers`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
            
            
         });
@@ -141,6 +152,7 @@ export class CustomersAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as CustomerSearchResultDTO;
    }
@@ -149,6 +161,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customers/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -163,6 +176,7 @@ export class CustomersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerDTO;
    }
@@ -171,6 +185,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customers/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            
@@ -185,6 +200,7 @@ export class CustomersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerDTO;
    }
@@ -196,6 +212,7 @@ export class CustomersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as object;
    }
@@ -207,6 +224,7 @@ export class CustomersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as object;
    }
@@ -218,6 +236,7 @@ export class CustomersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as object;
    }
@@ -229,6 +248,7 @@ export class CustomersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerDTO;
    }
@@ -237,6 +257,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customers/${encodeURIComponent(customerId)}/addresses`,
            method: 'GET',
+           
            
            
            
@@ -251,6 +272,7 @@ export class CustomersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as AddressDTO;
    }
@@ -259,6 +281,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customers/${encodeURIComponent(customerId)}/addresses/${encodeURIComponent(addressId)}`,
            method: 'GET',
+           
            
            
            
@@ -273,6 +296,7 @@ export class CustomersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as AddressDTO;
    }
@@ -281,6 +305,7 @@ export class CustomersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customers/${encodeURIComponent(customerId)}/addresses/${encodeURIComponent(addressId)}`,
            method: 'DELETE',
+           
            
            
            
@@ -295,6 +320,7 @@ export class CustomersAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerDTO[];
    }
@@ -304,6 +330,7 @@ export class CustomersAPI extends BaseAPI {
            path: `/users/customers/export/csv`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
            
            
         });

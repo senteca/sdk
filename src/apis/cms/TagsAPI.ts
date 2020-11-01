@@ -11,6 +11,7 @@ export class TagsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as TagDTO;
    }
@@ -20,6 +21,7 @@ export class TagsAPI extends BaseAPI {
            path: `/cms/tags`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
            
            
         });
@@ -33,6 +35,7 @@ export class TagsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as TagDTO;
    }
@@ -41,6 +44,7 @@ export class TagsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/tags/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

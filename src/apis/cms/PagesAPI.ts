@@ -13,6 +13,7 @@ export class PagesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as PageDTO;
    }
@@ -24,6 +25,7 @@ export class PagesAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as PageFilterResultDTO;
    }
@@ -32,6 +34,7 @@ export class PagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/pages/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -46,6 +49,7 @@ export class PagesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as PageDTO;
    }
@@ -54,6 +58,7 @@ export class PagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/pages/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            
@@ -68,6 +73,7 @@ export class PagesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as PageDTO;
    }
@@ -79,6 +85,7 @@ export class PagesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as PageDTO;
    }
@@ -87,6 +94,7 @@ export class PagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/pages/${encodeURIComponent(id)}/apply`,
            method: 'POST',
+           
            
            
            

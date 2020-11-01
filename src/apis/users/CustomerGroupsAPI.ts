@@ -10,6 +10,7 @@ export class CustomerGroupsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerGroupDTO;
    }
@@ -21,6 +22,7 @@ export class CustomerGroupsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as CustomerGroupFilterResultDTO;
    }
@@ -29,6 +31,7 @@ export class CustomerGroupsAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-groups/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -43,6 +46,7 @@ export class CustomerGroupsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerGroupDTO;
    }
@@ -51,6 +55,7 @@ export class CustomerGroupsAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-groups/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

@@ -11,6 +11,7 @@ export class StatesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as StateDTO;
    }
@@ -22,6 +23,7 @@ export class StatesAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as StateFilterResultDTO;
    }
@@ -30,6 +32,7 @@ export class StatesAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/states/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -44,6 +47,7 @@ export class StatesAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as StateDTO;
    }
@@ -55,6 +59,7 @@ export class StatesAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as StateDTO;
    }
@@ -63,6 +68,7 @@ export class StatesAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/states/key=${encodeURIComponent(key)}`,
            method: 'GET',
+           
            
            
            

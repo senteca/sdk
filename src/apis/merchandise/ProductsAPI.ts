@@ -23,6 +23,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO[];
    }
@@ -34,6 +35,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO[];
    }
@@ -45,6 +47,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO[];
    }
@@ -56,6 +59,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO[];
    }
@@ -67,6 +71,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDraftDTO[];
    }
@@ -78,6 +83,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -89,6 +95,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -97,6 +104,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/${encodeURIComponent(variantId)}/offers/priceListKey=${encodeURIComponent(priceListKey)}/merchantKey=${encodeURIComponent(merchantKey)}`,
            method: 'DELETE',
+           
            
            
            
@@ -111,6 +119,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -122,6 +131,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -133,6 +143,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -144,6 +155,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -155,6 +167,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -166,6 +179,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -177,6 +191,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -188,6 +203,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -196,6 +212,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
            method: 'DELETE',
+           
            
            
            
@@ -210,6 +227,7 @@ export class ProductsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as ProductSearchResultDTO;
    }
@@ -219,6 +237,7 @@ export class ProductsAPI extends BaseAPI {
            path: `/merchandise/products`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
            
            
         });
@@ -232,6 +251,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -240,6 +260,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/slugs/lang=${encodeURIComponent(lang)}`,
            method: 'GET',
+           
            
            
            
@@ -254,6 +275,7 @@ export class ProductsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -265,6 +287,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -273,6 +296,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            
@@ -287,6 +311,7 @@ export class ProductsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -296,6 +321,7 @@ export class ProductsAPI extends BaseAPI {
            path: `/merchandise/products/externalId=${encodeURIComponent(externalId)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
            
            
         });
@@ -309,6 +335,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -320,17 +347,19 @@ export class ProductsAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async uploadImage (id: string, variantId: string): Promise<void> {
+   async uploadImage (id: string, variantId: string, dto: void): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/variants/${encodeURIComponent(variantId)}/images/upload`,
            method: 'POST',
            
+           body: dto,
            
-           
+           contentType: 'multipart/form-data',
         });
        return (response.json() as unknown) as void;
    }
@@ -339,6 +368,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/variants/${encodeURIComponent(variantId)}/images/${encodeURIComponent(imageId)}`,
            method: 'PATCH',
+           
            
            
            
@@ -353,6 +383,7 @@ export class ProductsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -364,6 +395,7 @@ export class ProductsAPI extends BaseAPI {
            
            
            
+           
         });
        return (response.json() as unknown) as object;
    }
@@ -372,6 +404,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/images`,
            method: 'DELETE',
+           
            
            
            

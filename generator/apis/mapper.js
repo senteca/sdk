@@ -42,7 +42,10 @@ module.exports = class ApiMapper {
     }
 
     const response = this.mapResponse(actionMethod.responses, relatedModels);
-
+    const contentType = Object.keys(
+      getIn(actionMethod, "requestBody.content") || {}
+    )[0];
+    const hasContentType = contentType !== undefined;
     const hasBasicAuth = parameters.some((m) => m.text.startsWith("basicAuth"));
     const hasQueryParam = parameters.some((p) => /^query\??\:/.test(p.text));
     const hasBodyParam = !!bodyParam;
@@ -51,8 +54,10 @@ module.exports = class ApiMapper {
       url,
       name,
       method,
+      contentType,
       parameters,
       response,
+      hasContentType,
       hasBasicAuth,
       hasQueryParam,
       hasBodyParam,
@@ -155,6 +160,11 @@ module.exports = class ApiMapper {
       if (ref) {
         relatedModel = ref;
       }
+    }
+
+    if (realType === "Object") {
+      realType = "any";
+      relatedModel = undefined;
     }
 
     if (!realType) {

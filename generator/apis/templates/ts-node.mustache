@@ -12,6 +12,7 @@ export class {{name}} extends BaseAPI {
            {{#hasQueryParam}}query: this._stringifyQuery(query),{{/hasQueryParam}}
            {{#hasBodyParam}}body: dto,{{/hasBodyParam}}
            {{#hasBasicAuth}}basicAuth,{{/hasBasicAuth}}
+           {{#hasContentType}}contentType: '{{{contentType}}}',{{/hasContentType}}
         });
        return (response.json() as unknown) as {{response}};
    }

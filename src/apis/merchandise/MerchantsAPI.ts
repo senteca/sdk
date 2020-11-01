@@ -11,6 +11,7 @@ export class MerchantsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as MerchantFilterResultDTO;
    }
@@ -22,6 +23,7 @@ export class MerchantsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as MerchantDTO;
    }
@@ -30,6 +32,7 @@ export class MerchantsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/merchants/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -44,6 +47,7 @@ export class MerchantsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as MerchantDTO;
    }
@@ -52,6 +56,7 @@ export class MerchantsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/merchants/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            

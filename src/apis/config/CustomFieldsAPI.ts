@@ -11,6 +11,7 @@ export class CustomFieldsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomFieldDTO;
    }
@@ -22,6 +23,7 @@ export class CustomFieldsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
            
            
+           
         });
        return (response.json() as unknown) as CustomFieldFilterResultDTO;
    }
@@ -30,6 +32,7 @@ export class CustomFieldsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/custom-fields/${encodeURIComponent(id)}`,
            method: 'GET',
+           
            
            
            
@@ -44,6 +47,7 @@ export class CustomFieldsAPI extends BaseAPI {
            
            body: dto,
            
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomFieldDTO;
    }
@@ -52,6 +56,7 @@ export class CustomFieldsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/custom-fields/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
            
            
            
