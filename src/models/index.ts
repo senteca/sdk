@@ -130,6 +130,7 @@ export * from "./PageDTO";
 export * from "./PageDraftDTO";
 export * from "./PageFilterResultDTO";
 export * from "./PageNameUpdateDTO";
+export * from "./PageNodesUpdateDTO";
 export * from "./PageStatusUpdateDTO";
 export * from "./PasswordChangeDTO";
 export * from "./PasswordGrantTokenRequestDTO";

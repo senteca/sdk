@@ -2,6 +2,7 @@ import { LangValue } from './LangValue';
 import { IdReferenceDTO } from './IdReferenceDTO';
 
 export interface DiscountCodeDraftDTO {
+  version?: number;
   authority?: DiscountCodeDraftDTOAuthorityEnum;
   merchantKey?: string;
   name: LangValue[];

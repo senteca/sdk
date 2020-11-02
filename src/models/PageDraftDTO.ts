@@ -1,6 +1,7 @@
 
 export interface PageDraftDTO {
   version?: number;
+  status: PageDraftDTOStatusEnum;
   name: string;
   storeKey: string;
   interfaceKey: string;
@@ -8,3 +9,7 @@ export interface PageDraftDTO {
   nodes: object[];
 }
 
+export enum PageDraftDTOStatusEnum {
+    Published = 'published',  
+    Unpublished = 'unpublished',  
+}

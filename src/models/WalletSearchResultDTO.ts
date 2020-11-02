@@ -5,6 +5,5 @@ export interface WalletSearchResultDTO {
   offset: number;
   limit: number;
   count: number;
-  total: number;
 }
 

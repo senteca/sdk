@@ -3,9 +3,10 @@ import { CartDiscountValueDTO } from './CartDiscountValueDTO';
 import { CartDiscountTargetDTO } from './CartDiscountTargetDTO';
 
 export interface CartDiscountDTO {
-  id: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
+  version?: number;
   authority?: CartDiscountDTOAuthorityEnum;
   merchantKey?: string;
   name: LangValue[];

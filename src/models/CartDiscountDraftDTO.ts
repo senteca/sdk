@@ -3,6 +3,7 @@ import { CartDiscountValueDTO } from './CartDiscountValueDTO';
 import { CartDiscountTargetDTO } from './CartDiscountTargetDTO';
 
 export interface CartDiscountDraftDTO {
+  version?: number;
   authority?: CartDiscountDraftDTOAuthorityEnum;
   merchantKey?: string;
   name: LangValue[];

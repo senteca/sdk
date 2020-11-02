@@ -4,6 +4,7 @@ import { PageDTO } from '../../models/PageDTO';
 import { PageFilterResultDTO } from '../../models/PageFilterResultDTO';
 import { PageStatusUpdateDTO } from '../../models/PageStatusUpdateDTO';
 import { PageNameUpdateDTO } from '../../models/PageNameUpdateDTO';
+import { PageNodesUpdateDTO } from '../../models/PageNodesUpdateDTO';
 
 export class PagesAPI extends BaseAPI {
    async create (dto: PageDraftDTO): Promise<PageDTO> {
@@ -90,9 +91,33 @@ export class PagesAPI extends BaseAPI {
        return (response.json() as unknown) as PageDTO;
    }
 
+   async setNodes (id: string, dto: PageNodesUpdateDTO): Promise<PageDTO> {
+       const response = await this._request({
+           path: `/cms/pages/${encodeURIComponent(id)}/nodes`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as PageDTO;
+   }
+
    async applyChanges (id: string): Promise<PageDTO> {
        const response = await this._request({
            path: `/cms/pages/${encodeURIComponent(id)}/apply`,
+           method: 'POST',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as PageDTO;
+   }
+
+   async revertChanges (id: string): Promise<PageDTO> {
+       const response = await this._request({
+           path: `/cms/pages/${encodeURIComponent(id)}/revert`,
            method: 'POST',
            
            
