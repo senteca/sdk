@@ -5,5 +5,6 @@ export interface DiscountCodeSearchResultDTO {
   offset: number;
   limit: number;
   count: number;
+  total: number;
 }
 

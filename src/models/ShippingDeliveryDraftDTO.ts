@@ -1,10 +1,11 @@
-import { AddressDTO } from './AddressDTO';
 import { ShippingDeliveryItemDTO } from './ShippingDeliveryItemDTO';
+import { AddressDTO } from './AddressDTO';
 
 export interface ShippingDeliveryDraftDTO {
   status: ShippingDeliveryDraftDTOStatusEnum;
-  address: AddressDTO;
   items: ShippingDeliveryItemDTO[];
+  address: AddressDTO;
+  providerData?: object;
 }
 
 export enum ShippingDeliveryDraftDTOStatusEnum {

@@ -1,7 +1,6 @@
 import { BaseAPI } from '../../runtime';
 import { OrderImportDTO } from '../../models/OrderImportDTO';
 import { OrderDTO } from '../../models/OrderDTO';
-import { ShippingDTO } from '../../models/ShippingDTO';
 import { CartDraftDTO } from '../../models/CartDraftDTO';
 import { NewOrders } from '../../models/NewOrders';
 import { OrderFilterResultDTO } from '../../models/OrderFilterResultDTO';
@@ -19,11 +18,10 @@ import { PaymentMethodsInfo } from '../../models/PaymentMethodsInfo';
 import { PlatformMethodUpdateDTO } from '../../models/PlatformMethodUpdateDTO';
 import { MerchantsMethodsUpdateDTO } from '../../models/MerchantsMethodsUpdateDTO';
 import { ShippingStatusUpdateDTO } from '../../models/ShippingStatusUpdateDTO';
+import { ShippingMethodUpdateDTO } from '../../models/ShippingMethodUpdateDTO';
 import { ShippingDeliveryDraftDTO } from '../../models/ShippingDeliveryDraftDTO';
 import { ShippingDeliveryParcelDTO } from '../../models/ShippingDeliveryParcelDTO';
 import { ShippingDeliveryParcelDraftDTO } from '../../models/ShippingDeliveryParcelDraftDTO';
-import { ShippingInterfaceInteractionDraftDTO } from '../../models/ShippingInterfaceInteractionDraftDTO';
-import { MakeShippingInteractionDTO } from '../../models/MakeShippingInteractionDTO';
 import { PaymentStatusUpdateDTO } from '../../models/PaymentStatusUpdateDTO';
 import { PaymentTransactionDraftDTO } from '../../models/PaymentTransactionDraftDTO';
 import { PaymentInterfaceInteractionDraftDTO } from '../../models/PaymentInterfaceInteractionDraftDTO';
@@ -40,18 +38,6 @@ export class OrdersAPI extends BaseAPI {
            contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO[];
-   }
-
-   async syncShippings (): Promise<ShippingDTO[]> {
-       const response = await this._request({
-           path: `/fulfillment/orders/shippings/sync`,
-           method: 'POST',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as ShippingDTO[];
    }
 
    async createCart (dto: CartDraftDTO): Promise<OrderDTO> {
@@ -354,6 +340,18 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
+   async setShippingMethod (id: string, shippingId: string, dto: ShippingMethodUpdateDTO): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/method`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
    async createShippingDelivery (id: string, shippingId: string, dto: ShippingDeliveryDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/deliveries`,
@@ -400,30 +398,6 @@ export class OrdersAPI extends BaseAPI {
            contentType: 'application/json',
         });
        return (response.json() as unknown) as ShippingDeliveryParcelDTO;
-   }
-
-   async createShippingInterfaceInteraction (id: string, shippingId: string, dto: ShippingInterfaceInteractionDraftDTO): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/interface-interactions`,
-           method: 'POST',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as OrderDTO;
-   }
-
-   async makeShippingInterfaceInteraction (id: string, shippingId: string, deliveryId: string, parcelId: string, dto: MakeShippingInteractionDTO): Promise<any> {
-       const response = await this._request({
-           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/interface-interactions`,
-           method: 'POST',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as any;
    }
 
    async setPaymentStatus (id: string, paymentId: string, dto: PaymentStatusUpdateDTO): Promise<OrderDTO> {

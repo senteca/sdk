@@ -1,6 +1,6 @@
 import { ShippingDeliveryParcelDTO } from './ShippingDeliveryParcelDTO';
-import { AddressDTO } from './AddressDTO';
 import { ShippingDeliveryItemDTO } from './ShippingDeliveryItemDTO';
+import { AddressDTO } from './AddressDTO';
 
 export interface ShippingDeliveryDTO {
   createdAt: number;
@@ -8,8 +8,9 @@ export interface ShippingDeliveryDTO {
   id: string;
   parcels?: ShippingDeliveryParcelDTO[];
   status: ShippingDeliveryDTOStatusEnum;
-  address: AddressDTO;
   items: ShippingDeliveryItemDTO[];
+  address: AddressDTO;
+  providerData?: object;
 }
 
 export enum ShippingDeliveryDTOStatusEnum {

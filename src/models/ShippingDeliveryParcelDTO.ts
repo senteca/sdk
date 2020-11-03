@@ -1,6 +1,5 @@
 import { ShippingDeliveryItemDTO } from './ShippingDeliveryItemDTO';
 import { ShippingParcelMeasurementDTO } from './ShippingParcelMeasurementDTO';
-import { ShippingParcelTrackingDataDTO } from './ShippingParcelTrackingDataDTO';
 
 export interface ShippingDeliveryParcelDTO {
   createdAt: number;
@@ -9,9 +8,7 @@ export interface ShippingDeliveryParcelDTO {
   status: ShippingDeliveryParcelDTOStatusEnum;
   items: ShippingDeliveryItemDTO[];
   measurements: ShippingParcelMeasurementDTO;
-  trackingData: ShippingParcelTrackingDataDTO;
-  providerPayload?: object;
-  providerMeta?: object;
+  providerData?: object;
 }
 
 export enum ShippingDeliveryParcelDTOStatusEnum {
@@ -20,5 +17,6 @@ export enum ShippingDeliveryParcelDTOStatusEnum {
     Delayed = 'Delayed',  
     Partial = 'Partial',  
     Shipped = 'Shipped',  
+    Canceled = 'Canceled',  
     BackOrder = 'BackOrder',  
 }

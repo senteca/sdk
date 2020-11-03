@@ -6,7 +6,6 @@ import { TaxRateDTO } from './TaxRateDTO';
 import { DiscountedLineItemPriceDTO } from './DiscountedLineItemPriceDTO';
 import { ShippingDeliveryItemDTO } from './ShippingDeliveryItemDTO';
 import { ShippingDeliveryDTO } from './ShippingDeliveryDTO';
-import { ShippingInterfaceInteractionDTO } from './ShippingInterfaceInteractionDTO';
 
 export interface ShippingDTO {
   createdAt?: number;
@@ -31,7 +30,7 @@ export interface ShippingDTO {
   paymentId?: string;
   items: ShippingDeliveryItemDTO[];
   deliveries?: ShippingDeliveryDTO[];
-  interfaceInteractions?: ShippingInterfaceInteractionDTO[];
+  providerData?: object;
 }
 
 export enum ShippingDTOStatusEnum {
