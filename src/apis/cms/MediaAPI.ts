@@ -26,14 +26,14 @@ export class MediaAPI extends BaseAPI {
        return (response.json() as unknown) as MediaFilterResultDTO;
    }
 
-   async delete (): Promise<any> {
+   async delete (dto: string[]): Promise<any> {
        const response = await this._request({
            path: `/cms/media`,
            method: 'DELETE',
            
+           body: dto,
            
-           
-           
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as any;
    }

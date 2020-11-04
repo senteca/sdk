@@ -1,6 +1,6 @@
 import { LangValue } from './LangValue';
 import { IdReferenceDTO } from './IdReferenceDTO';
-import { ShippingFeeTableOrderTotalWeightInGramsDTO } from './ShippingFeeTableOrderTotalWeightInGramsDTO';
+import { ZoneRateDTO } from './ZoneRateDTO';
 import { CodFeeTableOrderTotalAmountDTO } from './CodFeeTableOrderTotalAmountDTO';
 
 export interface ShippingMethodDraftDTO {
@@ -12,12 +12,11 @@ export interface ShippingMethodDraftDTO {
   taxCategory: IdReferenceDTO;
   storeKey: string;
   authority: ShippingMethodDraftDTOAuthorityEnum;
-  merchantKey: string;
+  merchantKey?: string;
   type: ShippingMethodDraftDTOTypeEnum;
-  moduleKey: string;
-  methodKey: string;
-  shippingFeeRateCalculationType?: ShippingMethodDraftDTOShippingFeeRateCalculationTypeEnum;
-  shippingFeeTableOrderTotalWeightInGrams?: ShippingFeeTableOrderTotalWeightInGramsDTO[];
+  moduleKey?: string;
+  methodKey?: string;
+  zoneRates: ZoneRateDTO[];
   isCOD?: boolean;
   codFeeRateCalculationType?: ShippingMethodDraftDTOCodFeeRateCalculationTypeEnum;
   codFeeTableOrderTotalAmount?: CodFeeTableOrderTotalAmountDTO[];
@@ -31,9 +30,6 @@ export enum ShippingMethodDraftDTOTypeEnum {
     ShippingServiceProvider = 'ShippingServiceProvider',  
     PickUpFromStore = 'PickUpFromStore',  
     Custom = 'Custom',  
-}
-export enum ShippingMethodDraftDTOShippingFeeRateCalculationTypeEnum {
-    OrderTotalWeightInGrams = 'OrderTotalWeightInGrams',  
 }
 export enum ShippingMethodDraftDTOCodFeeRateCalculationTypeEnum {
     OrderTotalAmount = 'OrderTotalAmount',  

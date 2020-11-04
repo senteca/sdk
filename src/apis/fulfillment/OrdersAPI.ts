@@ -17,8 +17,9 @@ import { ShippingMethodsInfo } from '../../models/ShippingMethodsInfo';
 import { PaymentMethodsInfo } from '../../models/PaymentMethodsInfo';
 import { PlatformMethodUpdateDTO } from '../../models/PlatformMethodUpdateDTO';
 import { MerchantsMethodsUpdateDTO } from '../../models/MerchantsMethodsUpdateDTO';
-import { ShippingStatusUpdateDTO } from '../../models/ShippingStatusUpdateDTO';
+import { ShippingMethodDTO } from '../../models/ShippingMethodDTO';
 import { ShippingMethodUpdateDTO } from '../../models/ShippingMethodUpdateDTO';
+import { ShippingStatusUpdateDTO } from '../../models/ShippingStatusUpdateDTO';
 import { ShippingDeliveryDraftDTO } from '../../models/ShippingDeliveryDraftDTO';
 import { ShippingDeliveryParcelDTO } from '../../models/ShippingDeliveryParcelDTO';
 import { ShippingDeliveryParcelDraftDTO } from '../../models/ShippingDeliveryParcelDraftDTO';
@@ -256,7 +257,7 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async getShippingMethods (id: string): Promise<ShippingMethodsInfo> {
+   async getOrderShippingMethods (id: string): Promise<ShippingMethodsInfo> {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/shipping-methods`,
            method: 'GET',
@@ -328,9 +329,21 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setShippingStatus (id: string, shippingId: string, dto: ShippingStatusUpdateDTO): Promise<OrderDTO> {
+   async getShippingMethods (id: string, shippingId: string): Promise<ShippingMethodDTO[]> {
        const response = await this._request({
-           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/status`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/shipping-methods`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as ShippingMethodDTO[];
+   }
+
+   async setShippingMethod (id: string, shippingId: string, dto: ShippingMethodUpdateDTO): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/shipping-method`,
            method: 'PATCH',
            
            body: dto,
@@ -340,9 +353,9 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setShippingMethod (id: string, shippingId: string, dto: ShippingMethodUpdateDTO): Promise<OrderDTO> {
+   async setShippingStatus (id: string, shippingId: string, dto: ShippingStatusUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
-           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/method`,
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/status`,
            method: 'PATCH',
            
            body: dto,

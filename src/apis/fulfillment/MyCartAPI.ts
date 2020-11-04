@@ -156,7 +156,7 @@ export class MyCartAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async getShippingMethods (): Promise<ShippingMethodsInfo> {
+   async getMyShippingMethods (): Promise<ShippingMethodsInfo> {
        const response = await this._request({
            path: `/fulfillment/my-cart/shipping-methods`,
            method: 'GET',

@@ -4,9 +4,8 @@ import { SpeedyLocationCityDTO } from '../../models/SpeedyLocationCityDTO';
 import { SpeedyLocationQuarterDTO } from '../../models/SpeedyLocationQuarterDTO';
 import { SpeedyLocationStreetDTO } from '../../models/SpeedyLocationStreetDTO';
 import { SpeedyLocationOfficeDTO } from '../../models/SpeedyLocationOfficeDTO';
-import { IdReferenceDTO } from '../../models/IdReferenceDTO';
-import { OrderDTO } from '../../models/OrderDTO';
 import { SpeedyCountryDTO } from '../../models/SpeedyCountryDTO';
+import { OrderDTO } from '../../models/OrderDTO';
 import { SpeedyCityDTO } from '../../models/SpeedyCityDTO';
 import { SpeedyQuarterDTO } from '../../models/SpeedyQuarterDTO';
 import { SpeedyStreetDTO } from '../../models/SpeedyStreetDTO';
@@ -71,18 +70,6 @@ export class MyShippingsAPI extends BaseAPI {
            
         });
        return (response.json() as unknown) as SpeedyLocationOfficeDTO[];
-   }
-
-   async setMethod (dto: IdReferenceDTO): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/my-shippings/speedy/set-method`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as OrderDTO;
    }
 
    async setCountry (dto: SpeedyCountryDTO): Promise<OrderDTO> {

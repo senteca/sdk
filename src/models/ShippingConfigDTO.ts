@@ -2,6 +2,7 @@
 export interface ShippingConfigDTO {
   version?: number;
   storeKey: string;
+  authority: ShippingConfigDTOAuthorityEnum;
   merchantKey: string;
   moduleKey: string;
   config?: object;
@@ -10,3 +11,7 @@ export interface ShippingConfigDTO {
   updatedAt: number;
 }
 
+export enum ShippingConfigDTOAuthorityEnum {
+    Platform = 'Platform',  
+    Merchant = 'Merchant',  
+}
