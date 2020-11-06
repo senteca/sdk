@@ -100,6 +100,7 @@ export * from "./LocationDTO";
 export * from "./MakePaymentInteractionDTO";
 export * from "./MakePaymentResponse";
 export * from "./MediaDTO";
+export * from "./MediaDeleteDTO";
 export * from "./MediaFilterResultDTO";
 export * from "./MerchantDTO";
 export * from "./MerchantDraftDTO";

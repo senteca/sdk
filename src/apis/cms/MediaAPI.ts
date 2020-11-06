@@ -1,5 +1,6 @@
 import { BaseAPI } from '../../runtime';
 import { MediaFilterResultDTO } from '../../models/MediaFilterResultDTO';
+import { MediaDeleteDTO } from '../../models/MediaDeleteDTO';
 
 export class MediaAPI extends BaseAPI {
    async uploadAssets (folderId: string, dto: any): Promise<void> {
@@ -26,7 +27,7 @@ export class MediaAPI extends BaseAPI {
        return (response.json() as unknown) as MediaFilterResultDTO;
    }
 
-   async delete (dto: string[]): Promise<any> {
+   async delete (dto: MediaDeleteDTO): Promise<any> {
        const response = await this._request({
            path: `/cms/media`,
            method: 'DELETE',
