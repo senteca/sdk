@@ -13,6 +13,7 @@ export interface SpeedyCreateRequestDTO {
   service_pay_after_accept?: boolean;
   service_pay_after_test?: boolean;
   service_partial_delivery?: boolean;
+  return_service?: number;
   order_description?: string;
   pickup_date?: string;
 }

@@ -7,8 +7,6 @@ export interface ShippingMethodDraftDTO {
   version?: number;
   name: LangValue[];
   description?: LangValue[];
-  countryCode: string;
-  currencyCode: string;
   taxCategory: IdReferenceDTO;
   storeKey: string;
   authority: ShippingMethodDraftDTOAuthorityEnum;
@@ -16,7 +14,9 @@ export interface ShippingMethodDraftDTO {
   type: ShippingMethodDraftDTOTypeEnum;
   moduleKey?: string;
   methodKey?: string;
+  predicate?: string;
   zoneRates: ZoneRateDTO[];
+  stockLocations: string[];
   isCOD?: boolean;
   codFeeRateCalculationType?: ShippingMethodDraftDTOCodFeeRateCalculationTypeEnum;
   codFeeTableOrderTotalAmount?: CodFeeTableOrderTotalAmountDTO[];

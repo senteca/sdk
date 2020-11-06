@@ -6,7 +6,7 @@ export interface PaymentMethodDTO {
   version?: number;
   authority: PaymentMethodDTOAuthorityEnum;
   type: PaymentMethodDTOTypeEnum;
-  providerType: PaymentMethodDTOProviderTypeEnum;
+  providerType?: PaymentMethodDTOProviderTypeEnum;
   merchantKey?: string;
   key: string;
   description?: string;

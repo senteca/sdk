@@ -3,7 +3,7 @@ export interface PaymentMethodDraftDTO {
   version?: number;
   authority: PaymentMethodDraftDTOAuthorityEnum;
   type: PaymentMethodDraftDTOTypeEnum;
-  providerType: PaymentMethodDraftDTOProviderTypeEnum;
+  providerType?: PaymentMethodDraftDTOProviderTypeEnum;
   merchantKey?: string;
   key: string;
   description?: string;
