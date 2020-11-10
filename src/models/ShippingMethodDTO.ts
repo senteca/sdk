@@ -19,7 +19,6 @@ export interface ShippingMethodDTO {
   methodKey?: string;
   predicate?: string;
   zoneRates: ZoneRateDTO[];
-  stockLocations: string[];
   isCOD?: boolean;
   codFeeRateCalculationType?: ShippingMethodDTOCodFeeRateCalculationTypeEnum;
   codFeeTableOrderTotalAmount?: CodFeeTableOrderTotalAmountDTO[];

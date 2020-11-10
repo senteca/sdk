@@ -5,4 +5,3 @@ export * from "./MediaAPI";
 export * from "./PagesAPI";
 export * from "./TagsAPI";
 export * from "./ThemeAPI";
-export * from "./ValueTypesAPI";

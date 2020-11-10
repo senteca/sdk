@@ -9,6 +9,7 @@ export interface ProductDataDTO {
   taxCategory: IdReferenceDTO;
   name: LangValue[];
   description: LangValue[];
+  shortDescription: LangValue[];
   weight: number;
   contents: ContentDTO[];
   categories?: IdReferenceDTO[];

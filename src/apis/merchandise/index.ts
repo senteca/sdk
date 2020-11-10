@@ -3,6 +3,7 @@ export * from "./BrandsAPI";
 export * from "./CatalogAPI";
 export * from "./CategoriesAPI";
 export * from "./CollectionsAPI";
+export * from "./InventoriesAPI";
 export * from "./MerchantsAPI";
 export * from "./PriceListsAPI";
 export * from "./ProductsAPI";

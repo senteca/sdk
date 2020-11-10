@@ -8,9 +8,9 @@ import { ShippingDeliveryItemDTO } from './ShippingDeliveryItemDTO';
 import { ShippingDeliveryDTO } from './ShippingDeliveryDTO';
 
 export interface ShippingDTO {
+  id?: string;
   createdAt?: number;
   updatedAt?: number;
-  id?: string;
   status: ShippingDTOStatusEnum;
   method: IdReferenceDTO;
   type: ShippingDTOTypeEnum;
@@ -31,7 +31,7 @@ export interface ShippingDTO {
   paymentId?: string;
   items: ShippingDeliveryItemDTO[];
   deliveries?: ShippingDeliveryDTO[];
-  providerData?: object;
+  moduleData?: object;
 }
 
 export enum ShippingDTOStatusEnum {
