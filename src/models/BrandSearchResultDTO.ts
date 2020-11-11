@@ -5,6 +5,5 @@ export interface BrandSearchResultDTO {
   offset: number;
   limit: number;
   count: number;
-  total: number;
 }
 

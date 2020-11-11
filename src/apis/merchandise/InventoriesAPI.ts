@@ -42,6 +42,18 @@ export class InventoriesAPI extends BaseAPI {
        return (response.json() as unknown) as InventoryFilterResultDTO;
    }
 
+   async getById (id: string): Promise<InventoryDTONew> {
+       const response = await this._request({
+           path: `/merchandise/inventories/${encodeURIComponent(id)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as InventoryDTONew;
+   }
+
    async update (id: string, dto: InventoryDraftDTONew): Promise<InventoryDTONew> {
        const response = await this._request({
            path: `/merchandise/inventories/${encodeURIComponent(id)}`,

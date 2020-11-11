@@ -5,6 +5,5 @@ export interface CategorySearchResultDTO {
   offset: number;
   limit: number;
   count: number;
-  total: number;
 }
 

@@ -3,7 +3,10 @@ import { AddressDTO } from './AddressDTO';
 import { CustomField } from './CustomField';
 
 export interface CustomerDTO {
-  customerNumber: number;
+  _id: string;
+  createdAt?: number;
+  updatedAt?: number;
+  customerNumber?: number;
   store?: KeyReferenceDTO;
   email: string;
   salutation?: string;
