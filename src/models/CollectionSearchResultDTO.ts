@@ -5,5 +5,6 @@ export interface CollectionSearchResultDTO {
   offset: number;
   limit: number;
   count: number;
+  total: number;
 }
 

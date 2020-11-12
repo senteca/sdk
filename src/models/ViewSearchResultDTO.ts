@@ -5,5 +5,6 @@ export interface ViewSearchResultDTO {
   offset: number;
   limit: number;
   count: number;
+  total: number;
 }
 
