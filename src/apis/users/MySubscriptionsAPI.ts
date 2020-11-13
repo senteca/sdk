@@ -18,7 +18,7 @@ export class MySubscriptionsAPI extends BaseAPI {
    async subscribe (dto: CustomerSubscribeDTO): Promise<CustomerSubscriptionDTO> {
        const response = await this._request({
            path: `/users/my-subscriptions/subscribe`,
-           method: 'POST',
+           method: 'PUT',
            
            body: dto,
            
@@ -30,7 +30,7 @@ export class MySubscriptionsAPI extends BaseAPI {
    async unsubscribe (dto: CustomerSubscribeDTO): Promise<CustomerSubscriptionDTO> {
        const response = await this._request({
            path: `/users/my-subscriptions/unsubscribe`,
-           method: 'POST',
+           method: 'PUT',
            
            body: dto,
            

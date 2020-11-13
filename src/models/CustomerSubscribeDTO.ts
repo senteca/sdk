@@ -1,6 +1,6 @@
 
 export interface CustomerSubscribeDTO {
-  email?: string;
+  email: string;
   subscription: string;
 }
 

@@ -2,7 +2,7 @@ import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { CustomField } from './CustomField';
 
 export interface CustomerUpdateDTO {
-  id: string;
+  _id: string;
   createdAt?: number;
   updatedAt?: number;
   store?: KeyReferenceDTO;

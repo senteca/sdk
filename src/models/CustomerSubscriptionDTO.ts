@@ -1,11 +1,11 @@
 
 export interface CustomerSubscriptionDTO {
-  id: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
   customerId?: string;
-  email: string;
   anonymousId?: string;
+  email: string;
   subscriptions: string[];
 }
 
