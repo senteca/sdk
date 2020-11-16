@@ -222,7 +222,7 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setOrderDiscountCode (id: string, dto: DiscountCodeUpdateDTO): Promise<OrderDTO> {
+   async setDiscountCode (id: string, dto: DiscountCodeUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/discount-code`,
            method: 'PATCH',
