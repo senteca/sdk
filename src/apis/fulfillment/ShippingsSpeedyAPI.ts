@@ -20,10 +20,8 @@ import { SpeedyCancelRequestDTO } from '../../models/SpeedyCancelRequestDTO';
 import { SpeedyCancelResponseDTO } from '../../models/SpeedyCancelResponseDTO';
 import { SpeedyTrackRequestDTO } from '../../models/SpeedyTrackRequestDTO';
 import { SpeedyTrackResponseDTO } from '../../models/SpeedyTrackResponseDTO';
-import { StockLocationDTO } from '../../models/StockLocationDTO';
-import { PickUpFromStoreStockLocationUpdateDTO } from '../../models/PickUpFromStoreStockLocationUpdateDTO';
 
-export class ShippingsAPI extends BaseAPI {
+export class ShippingsSpeedyAPI extends BaseAPI {
    async syncLocations (dto: SpeedyAuthenticationCredentialsDTO): Promise<any> {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/sync-locations`,
@@ -346,30 +344,6 @@ export class ShippingsAPI extends BaseAPI {
            contentType: 'application/json',
         });
        return (response.json() as unknown) as SpeedyTrackResponseDTO;
-   }
-
-   async getStockLocations (orderId: string, shippingId: string): Promise<StockLocationDTO[]> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/pick-up-from-store/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/stock-locations`,
-           method: 'GET',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as StockLocationDTO[];
-   }
-
-   async setStockLocation (orderId: string, shippingId: string, dto: PickUpFromStoreStockLocationUpdateDTO): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/pick-up-from-store/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/stock-location`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as OrderDTO;
    }
 
 }

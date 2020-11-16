@@ -1,10 +1,12 @@
 import { KeyReferenceDTO } from './KeyReferenceDTO';
 
-export interface UserUpdateDTO {
+export interface UserDraftDTO {
   firstName: string;
-  middleName?: string;
   lastName?: string;
   email: string;
+  password: string;
   role: KeyReferenceDTO;
+  passwordResetTokenExpirationDate?: number;
+  isSystem: boolean;
 }
 

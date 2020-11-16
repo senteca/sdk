@@ -10,7 +10,7 @@ export interface StateDTO {
   color?: string;
   initial: boolean;
   transitions: KeyReferenceDTO[];
-  id: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
   system: boolean;

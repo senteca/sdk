@@ -2,6 +2,7 @@ import { LangValue } from './LangValue';
 import { CustomFieldValueDTO } from './CustomFieldValueDTO';
 
 export interface CustomFieldDraftDTO {
+  version?: number;
   type: CustomFieldDraftDTOTypeEnum;
   resourceTypeId: CustomFieldDraftDTOResourceTypeIdEnum;
   name: string;

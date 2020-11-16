@@ -1,12 +1,14 @@
-import { IdReferenceDTO } from './IdReferenceDTO';
+import { KeyReferenceDTO } from './KeyReferenceDTO';
 
 export interface UserDTO {
-  id: string;
+  _id: string;
+  createdAt: number;
+  updatedAt: number;
   firstName: string;
   lastName?: string;
   email: string;
   password: string;
-  role: IdReferenceDTO;
+  role: KeyReferenceDTO;
   passwordResetTokenExpirationDate?: number;
   isSystem: boolean;
 }

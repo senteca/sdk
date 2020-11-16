@@ -2,9 +2,10 @@ import { LangValue } from './LangValue';
 import { CustomFieldValueDTO } from './CustomFieldValueDTO';
 
 export interface CustomFieldDTO {
-  id: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
+  version?: number;
   type: CustomFieldDTOTypeEnum;
   resourceTypeId: CustomFieldDTOResourceTypeIdEnum;
   name: string;

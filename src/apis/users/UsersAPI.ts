@@ -5,7 +5,7 @@ import { PasswordChangeDTO } from '../../models/PasswordChangeDTO';
 import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
 import { PasswordResetDTO } from '../../models/PasswordResetDTO';
 import { UserFilterResultDTO } from '../../models/UserFilterResultDTO';
-import { UserCreateDTO } from '../../models/UserCreateDTO';
+import { UserDraftDTO } from '../../models/UserDraftDTO';
 import { UserUpdateDTO } from '../../models/UserUpdateDTO';
 
 export class UsersAPI extends BaseAPI {
@@ -81,7 +81,7 @@ export class UsersAPI extends BaseAPI {
        return (response.json() as unknown) as UserFilterResultDTO;
    }
 
-   async create (dto: UserCreateDTO): Promise<UserDTO> {
+   async create (dto: UserDraftDTO): Promise<UserDTO> {
        const response = await this._request({
            path: `/users/users`,
            method: 'POST',

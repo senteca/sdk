@@ -4,7 +4,9 @@ import { MoneyDTO } from './MoneyDTO';
 import { CustomField } from './CustomField';
 
 export interface WalletDTO {
-  id: string;
+  _id: string;
+  createdAt: number;
+  updatedAt: number;
   version?: number;
   type: KeyReferenceDTO;
   key: string;

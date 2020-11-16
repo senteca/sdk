@@ -35,11 +35,13 @@ module.exports = class ApisRoutine {
   static groupPathsByApi(paths) {
     const pathKeys = Object.keys(paths);
     return pathKeys.reduce((map, curr) => {
-      const [_, appKey, apiKey] = curr.split("/");
+      const methods = Object.keys(paths[curr]);
+      const apiKey = paths[curr][methods[0]].tags[0];
+
       const api = map[apiKey] || { key: apiKey, actions: [] };
       api.actions.push({
         url: curr,
-        methods: Object.keys(paths[curr]).map((method) => ({
+        methods: methods.map((method) => ({
           // TODO: quite messy
           method,
           ...paths[curr][method],

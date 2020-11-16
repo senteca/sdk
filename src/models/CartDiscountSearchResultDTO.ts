@@ -5,6 +5,5 @@ export interface CartDiscountSearchResultDTO {
   offset: number;
   limit: number;
   count: number;
-  total: number;
 }
 

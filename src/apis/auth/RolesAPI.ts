@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { Permission } from '../../models/Permission';
 import { RoleFilterResultDTO } from '../../models/RoleFilterResultDTO';
+import { RoleDraftDTO } from '../../models/RoleDraftDTO';
 import { RoleDTO } from '../../models/RoleDTO';
 
 export class RolesAPI extends BaseAPI {
@@ -28,7 +29,7 @@ export class RolesAPI extends BaseAPI {
        return (response.json() as unknown) as RoleFilterResultDTO;
    }
 
-   async create (dto: RoleDTO): Promise<RoleDTO> {
+   async create (dto: RoleDraftDTO): Promise<RoleDTO> {
        const response = await this._request({
            path: `/auth/roles`,
            method: 'POST',
@@ -52,7 +53,7 @@ export class RolesAPI extends BaseAPI {
        return (response.json() as unknown) as RoleDTO;
    }
 
-   async update (id: string, dto: RoleDTO): Promise<RoleDTO> {
+   async update (id: string, dto: RoleDraftDTO): Promise<RoleDTO> {
        const response = await this._request({
            path: `/auth/roles/${encodeURIComponent(id)}`,
            method: 'PUT',

@@ -1,9 +1,9 @@
 const { getIn } = require("../utils/data");
-const { kebabToPascal } = require("../utils/string");
+const { anyToPascal } = require("../utils/string");
 
 module.exports = class ApiMapper {
   static map(api) {
-    const name = `${kebabToPascal(api.key)}API`;
+    const name = `${anyToPascal(api.key)}API`;
     const methods = [];
     const relatedModels = [];
 

@@ -2,7 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { WishListDraftDTO } from '../../models/WishListDraftDTO';
 import { WishListDTO } from '../../models/WishListDTO';
 
-export class MyWishListAPI extends BaseAPI {
+export class MyWishListsAPI extends BaseAPI {
    async create (dto: WishListDraftDTO): Promise<WishListDTO> {
        const response = await this._request({
            path: `/fulfillment/my-wish-list`,

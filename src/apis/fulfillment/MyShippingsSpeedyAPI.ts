@@ -10,10 +10,8 @@ import { SpeedyCityDTO } from '../../models/SpeedyCityDTO';
 import { SpeedyQuarterDTO } from '../../models/SpeedyQuarterDTO';
 import { SpeedyStreetDTO } from '../../models/SpeedyStreetDTO';
 import { SpeedyOfficeDTO } from '../../models/SpeedyOfficeDTO';
-import { StockLocationDTO } from '../../models/StockLocationDTO';
-import { PickUpFromStoreStockLocationUpdateDTO } from '../../models/PickUpFromStoreStockLocationUpdateDTO';
 
-export class MyShippingsAPI extends BaseAPI {
+export class MyShippingsSpeedyAPI extends BaseAPI {
    async findCountry (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<SpeedyLocationCountryDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/find-country`,
@@ -125,30 +123,6 @@ export class MyShippingsAPI extends BaseAPI {
    async setOffice (dto: SpeedyOfficeDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/office`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as OrderDTO;
-   }
-
-   async getMyStockLocations (): Promise<StockLocationDTO[]> {
-       const response = await this._request({
-           path: `/fulfillment/my-shippings/pick-up-from-store/stock-locations`,
-           method: 'GET',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as StockLocationDTO[];
-   }
-
-   async setMyStockLocation (dto: PickUpFromStoreStockLocationUpdateDTO): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/my-shippings/pick-up-from-store/stock-location`,
            method: 'PATCH',
            
            body: dto,
