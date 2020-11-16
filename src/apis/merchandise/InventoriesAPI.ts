@@ -78,9 +78,33 @@ export class InventoriesAPI extends BaseAPI {
        return (response.json() as unknown) as InventoryDraftDTONew;
    }
 
-   async updateQuantity (id: string, dto: InventoryQuantityDTO): Promise<InventoryDTONew> {
+   async addQuantity (id: string, dto: InventoryQuantityDTO): Promise<InventoryDTONew> {
        const response = await this._request({
-           path: `/merchandise/inventories/${encodeURIComponent(id)}/quantity`,
+           path: `/merchandise/inventories/${encodeURIComponent(id)}/add-quantity`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as InventoryDTONew;
+   }
+
+   async removeQuantity (id: string, dto: InventoryQuantityDTO): Promise<InventoryDTONew> {
+       const response = await this._request({
+           path: `/merchandise/inventories/${encodeURIComponent(id)}/remove-quantity`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as InventoryDTONew;
+   }
+
+   async setQuantity (id: string, dto: InventoryQuantityDTO): Promise<InventoryDTONew> {
+       const response = await this._request({
+           path: `/merchandise/inventories/${encodeURIComponent(id)}/set-quantity`,
            method: 'PATCH',
            
            body: dto,

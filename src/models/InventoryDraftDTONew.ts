@@ -7,7 +7,7 @@ export interface InventoryDraftDTONew {
   restockableInDays?: number;
   expectedDelivery?: number;
   acceptsBackorders?: boolean;
-  stockLocationKey: KeyReferenceDTO;
-  merchantKey: KeyReferenceDTO;
+  stockLocation: KeyReferenceDTO;
+  merchant: KeyReferenceDTO;
 }
 
