@@ -29,25 +29,25 @@ export class TokenAPI extends BaseAPI {
        return (response.json() as unknown) as AccessTokenDTO;
    }
 
-   async createFacebookToken (basicAuth: { username: string, password: string }, dto: FacebookTokenRequestDTO): Promise<AccessTokenDTO> {
+   async createFacebookToken (dto: FacebookTokenRequestDTO): Promise<AccessTokenDTO> {
        const response = await this._request({
            path: `/auth/token/facebook`,
            method: 'POST',
            
            body: dto,
-           basicAuth,
+           
            contentType: 'application/json',
         });
        return (response.json() as unknown) as AccessTokenDTO;
    }
 
-   async createAnonymousToken (basicAuth: { username: string, password: string }, dto: TokenRequestDTO): Promise<AccessTokenDTO> {
+   async createAnonymousToken (dto: TokenRequestDTO): Promise<AccessTokenDTO> {
        const response = await this._request({
            path: `/auth/token/anonymous`,
            method: 'POST',
            
            body: dto,
-           basicAuth,
+           
            contentType: 'application/json',
         });
        return (response.json() as unknown) as AccessTokenDTO;
