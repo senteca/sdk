@@ -3,12 +3,10 @@ import { CustomerDTO } from '../../models/CustomerDTO';
 import { CustomerUpdateDTO } from '../../models/CustomerUpdateDTO';
 import { PasswordChangeDTO } from '../../models/PasswordChangeDTO';
 import { AddressDTO } from '../../models/AddressDTO';
-import { CustomerCreateDTO } from '../../models/CustomerCreateDTO';
+import { CustomerDraftDTO } from '../../models/CustomerDraftDTO';
 import { CustomerFilterResultDTO } from '../../models/CustomerFilterResultDTO';
 import { CustomerSearchResultDTO } from '../../models/CustomerSearchResultDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
-import { CustomerRegisterDTO } from '../../models/CustomerRegisterDTO';
-import { CustomerRegisterFacebookDTO } from '../../models/CustomerRegisterFacebookDTO';
 import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
 import { PasswordResetDTO } from '../../models/PasswordResetDTO';
 
@@ -121,7 +119,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
-   async create (dto: CustomerCreateDTO): Promise<CustomerDTO> {
+   async create (dto: CustomerDraftDTO): Promise<CustomerDTO> {
        const response = await this._request({
            path: `/users/customers`,
            method: 'POST',
@@ -203,30 +201,6 @@ export class CustomersAPI extends BaseAPI {
            contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerDTO;
-   }
-
-   async register (dto: CustomerRegisterDTO): Promise<any> {
-       const response = await this._request({
-           path: `/users/customers/register`,
-           method: 'POST',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as any;
-   }
-
-   async registerFacebook (dto: CustomerRegisterFacebookDTO): Promise<any> {
-       const response = await this._request({
-           path: `/users/customers/register/facebook`,
-           method: 'POST',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as any;
    }
 
    async createPasswordToken (dto: PasswordTokenDTO): Promise<any> {
@@ -313,7 +287,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as any;
    }
 
-   async import (dto: CustomerCreateDTO[]): Promise<CustomerDTO[]> {
+   async import (dto: CustomerDraftDTO[]): Promise<CustomerDTO[]> {
        const response = await this._request({
            path: `/users/customers/import`,
            method: 'POST',

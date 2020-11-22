@@ -29,8 +29,6 @@ export interface CustomerDTO {
   defaultBillingAddress?: string;
   defaultShippingAddress?: string;
   customerAddresses: AddressDTO[];
-  passwordResetToken?: string;
-  passwordResetTokenExpirationDate?: number;
   custom?: CustomField[];
 }
 

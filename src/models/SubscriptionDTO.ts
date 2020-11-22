@@ -2,6 +2,7 @@ import { GoogleCloudPubSubDestinationDTO } from './GoogleCloudPubSubDestinationD
 import { MessageDTO } from './MessageDTO';
 
 export interface SubscriptionDTO {
+  version?: number;
   key: string;
   type: SubscriptionDTOTypeEnum;
   destination: GoogleCloudPubSubDestinationDTO;

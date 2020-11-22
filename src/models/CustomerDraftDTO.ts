@@ -1,16 +1,17 @@
 import { KeyReferenceDTO } from './KeyReferenceDTO';
+import { AddressDTO } from './AddressDTO';
 import { CustomField } from './CustomField';
 
-export interface CustomerCreateDTO {
+export interface CustomerDraftDTO {
+  customerNumber?: number;
   store?: KeyReferenceDTO;
   email: string;
-  password: string;
   salutation?: string;
   title?: string;
   firstName?: string;
   middleName?: string;
   lastName?: string;
-  gender: CustomerCreateDTOGenderEnum;
+  gender?: CustomerDraftDTOGenderEnum;
   dayOfBirth?: number;
   monthOfBirth?: number;
   yearOfBirth?: number;
@@ -18,19 +19,22 @@ export interface CustomerCreateDTO {
   vatId?: string;
   externalId?: string;
   customerGroup?: KeyReferenceDTO;
-  status: CustomerCreateDTOStatusEnum;
+  status: CustomerDraftDTOStatusEnum;
   locale?: string;
   phoneNumber?: string;
-  customerNumber?: number;
+  anonymousId?: string;
+  defaultBillingAddress?: string;
+  defaultShippingAddress?: string;
+  customerAddresses: AddressDTO[];
   custom?: CustomField[];
 }
 
-export enum CustomerCreateDTOGenderEnum {
+export enum CustomerDraftDTOGenderEnum {
     Unspecified = 'Unspecified',  
     Male = 'Male',  
     Female = 'Female',  
 }
-export enum CustomerCreateDTOStatusEnum {
+export enum CustomerDraftDTOStatusEnum {
     Active = 'active',  
     Disabled = 'disabled',  
     AwaitingApproval = 'awaiting-approval',  

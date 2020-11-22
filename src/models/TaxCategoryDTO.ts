@@ -6,7 +6,7 @@ export interface TaxCategoryDTO {
   name?: string;
   description?: string;
   rates: TaxRateDTO[];
-  id: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
 }

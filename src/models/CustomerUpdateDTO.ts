@@ -1,10 +1,12 @@
 import { KeyReferenceDTO } from './KeyReferenceDTO';
+import { AddressDTO } from './AddressDTO';
 import { CustomField } from './CustomField';
 
 export interface CustomerUpdateDTO {
   _id: string;
   createdAt?: number;
   updatedAt?: number;
+  customerNumber?: number;
   store?: KeyReferenceDTO;
   email: string;
   salutation?: string;
@@ -12,7 +14,7 @@ export interface CustomerUpdateDTO {
   firstName?: string;
   middleName?: string;
   lastName?: string;
-  gender: CustomerUpdateDTOGenderEnum;
+  gender?: CustomerUpdateDTOGenderEnum;
   dayOfBirth?: number;
   monthOfBirth?: number;
   yearOfBirth?: number;
@@ -23,6 +25,10 @@ export interface CustomerUpdateDTO {
   status: CustomerUpdateDTOStatusEnum;
   locale?: string;
   phoneNumber?: string;
+  anonymousId?: string;
+  defaultBillingAddress?: string;
+  defaultShippingAddress?: string;
+  customerAddresses: AddressDTO[];
   custom?: CustomField[];
 }
 

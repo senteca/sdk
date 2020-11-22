@@ -2,9 +2,10 @@ import { AddressVerifiedDTO } from './AddressVerifiedDTO';
 import { CustomField } from './CustomField';
 
 export interface ShippingAddressDTO {
-  id?: string;
-  createdAt?: number;
-  updatedAt?: number;
+  _id: string;
+  createdAt: number;
+  updatedAt: number;
+  version?: number;
   firstName?: string;
   lastName?: string;
   email: string;
