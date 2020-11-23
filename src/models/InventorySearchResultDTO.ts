@@ -5,6 +5,5 @@ export interface InventorySearchResultDTO {
   offset: number;
   limit: number;
   count: number;
-  total: number;
 }
 

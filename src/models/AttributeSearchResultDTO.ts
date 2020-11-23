@@ -5,6 +5,5 @@ export interface AttributeSearchResultDTO {
   offset: number;
   limit: number;
   count: number;
-  total: number;
 }
 
