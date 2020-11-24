@@ -30,6 +30,7 @@ export interface CustomerDTO {
   defaultShippingAddress?: string;
   customerAddresses: AddressDTO[];
   custom?: CustomField[];
+  password: string;
 }
 
 export enum CustomerDTOGenderEnum {

@@ -27,6 +27,7 @@ export interface CustomerDraftDTO {
   defaultShippingAddress?: string;
   customerAddresses: AddressDTO[];
   custom?: CustomField[];
+  password: string;
 }
 
 export enum CustomerDraftDTOGenderEnum {
