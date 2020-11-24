@@ -27,7 +27,7 @@ export interface ProductDraftDTO {
   metaKeywords?: LangValue[];
   masterVariantId?: string;
   variants?: ProductVariantDraftDTO[];
-  metadata?: object;
+  metadata?: any;
   custom?: CustomField[];
   externalId?: string;
 }

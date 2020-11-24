@@ -1,5 +1,5 @@
 
 export interface PaymentInterfaceInteractionDraftDTO {
-  interactionPayload: object;
+  interactionPayload: any;
 }
 

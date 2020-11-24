@@ -5,7 +5,7 @@ export interface ShippingConfigDTO {
   authority: ShippingConfigDTOAuthorityEnum;
   merchantKey: string;
   moduleKey: string;
-  config?: object;
+  config?: any;
   _id: string;
   createdAt: number;
   updatedAt: number;

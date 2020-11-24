@@ -4,10 +4,10 @@ export interface ThemeDTO {
   version?: number;
   key: string;
   package: PackageDTO;
-  components: object[];
-  pages: object[];
-  config: object;
-  defaultConfig: object;
+  components: any[];
+  pages: any[];
+  config: any;
+  defaultConfig: any;
   _id: string;
   createdAt: number;
   updatedAt: number;

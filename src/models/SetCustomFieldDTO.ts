@@ -1,6 +1,6 @@
 
 export interface SetCustomFieldDTO {
   field: string;
-  value: object;
+  value: any;
 }
 

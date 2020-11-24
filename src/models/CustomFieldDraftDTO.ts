@@ -11,7 +11,7 @@ export interface CustomFieldDraftDTO {
   isRequired: boolean;
   isSearchable: boolean;
   values?: CustomFieldValueDTO[];
-  defaultValue?: object;
+  defaultValue?: any;
 }
 
 export enum CustomFieldDraftDTOTypeEnum {

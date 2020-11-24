@@ -31,7 +31,7 @@ export interface ShippingDTO {
   paymentId?: string;
   items: ShippingDeliveryItemDTO[];
   deliveries?: ShippingDeliveryDTO[];
-  moduleData?: object;
+  moduleData?: any;
 }
 
 export enum ShippingDTOStatusEnum {

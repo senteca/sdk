@@ -6,8 +6,8 @@ export interface StoreViewDTO {
   languageCode: string;
   themeKey?: string;
   themeVersion?: string;
-  themeConfig?: object;
-  themeConfigSchema?: object;
+  themeConfig?: any;
+  themeConfigSchema?: any;
   _id: string;
   createdAt: number;
   updatedAt: number;

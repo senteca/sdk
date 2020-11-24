@@ -48,7 +48,7 @@ export interface OrderImportDTO {
   grandTaxedPrice?: TaxedPriceDTO;
   discountCodes: DiscountCodeInfoDTO[];
   wallet?: OrderWalletDTO;
-  payments: object[];
+  payments: any[];
   paymentsAuthority?: OrderImportDTOPaymentsAuthorityEnum;
   merchantPaymentMethods?: MerchantMethodDTO[];
   platformPaymentMethod?: IdReferenceDTO;

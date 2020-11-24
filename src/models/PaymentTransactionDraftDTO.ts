@@ -1,12 +1,12 @@
 import { MoneyDTO } from './MoneyDTO';
 
 export interface PaymentTransactionDraftDTO {
-  _id?: object;
+  _id?: any;
   status?: PaymentTransactionDraftDTOStatusEnum;
   type: PaymentTransactionDraftDTOTypeEnum;
   amount: MoneyDTO;
   transactionNumber: string;
-  providerPayload?: object;
+  providerPayload?: any;
 }
 
 export enum PaymentTransactionDraftDTOStatusEnum {

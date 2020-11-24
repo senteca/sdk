@@ -1,6 +1,6 @@
 
 export interface MakePaymentResponse {
   orderId: string;
-  providerPayload: object;
+  providerPayload: any;
 }
 

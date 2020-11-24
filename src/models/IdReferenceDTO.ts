@@ -2,7 +2,7 @@
 export interface IdReferenceDTO {
   resourceId: string;
   resourceType: IdReferenceDTOResourceTypeEnum;
-  resource?: object;
+  resource?: any;
 }
 
 export enum IdReferenceDTOResourceTypeEnum {

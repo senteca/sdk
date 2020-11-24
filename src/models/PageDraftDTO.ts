@@ -6,7 +6,7 @@ export interface PageDraftDTO {
   storeKey: string;
   interfaceKey: string;
   themeKey: string;
-  nodes: object[];
+  nodes: any[];
 }
 
 export enum PageDraftDTOStatusEnum {

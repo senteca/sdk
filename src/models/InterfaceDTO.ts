@@ -7,8 +7,8 @@ export interface InterfaceDTO {
   languageCode: string;
   defaultCurrencyCode: string;
   themeKey?: string;
-  themeConfig?: object;
-  themeConfigType?: object;
+  themeConfig?: any;
+  themeConfigType?: any;
   secret?: string;
 }
 

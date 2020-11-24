@@ -1,6 +1,6 @@
 
 export interface CustomField {
   field: string;
-  value: object;
+  value: any;
 }
 

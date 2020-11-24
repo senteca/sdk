@@ -5,7 +5,7 @@ export interface ShippingDeliveryParcelDraftDTO {
   status: ShippingDeliveryParcelDraftDTOStatusEnum;
   items: ShippingDeliveryItemDTO[];
   measurements: ShippingParcelMeasurementDTO;
-  moduleData?: object;
+  moduleData?: any;
 }
 
 export enum ShippingDeliveryParcelDraftDTOStatusEnum {

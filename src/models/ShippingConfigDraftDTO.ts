@@ -5,7 +5,7 @@ export interface ShippingConfigDraftDTO {
   authority: ShippingConfigDraftDTOAuthorityEnum;
   merchantKey: string;
   moduleKey: string;
-  config?: object;
+  config?: any;
 }
 
 export enum ShippingConfigDraftDTOAuthorityEnum {

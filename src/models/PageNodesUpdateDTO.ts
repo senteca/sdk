@@ -1,6 +1,6 @@
 
 export interface PageNodesUpdateDTO {
-  nodes: object[];
+  nodes: any[];
   staged: boolean;
 }
 

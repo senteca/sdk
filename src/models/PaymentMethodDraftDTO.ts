@@ -9,7 +9,7 @@ export interface PaymentMethodDraftDTO {
   description?: string;
   countryCode: string;
   currencyCode: string;
-  providerConfig: object;
+  providerConfig: any;
 }
 
 export enum PaymentMethodDraftDTOAuthorityEnum {

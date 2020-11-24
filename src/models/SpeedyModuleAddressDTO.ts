@@ -9,7 +9,7 @@ export interface SpeedyModuleAddressDTO {
   email: string;
   phoneNumber: string;
   office: SpeedyOfficeDTO;
-  country: object;
+  country: any;
   city: SpeedyCityDTO;
   postCode: number;
   quarter: SpeedyQuarterDTO;

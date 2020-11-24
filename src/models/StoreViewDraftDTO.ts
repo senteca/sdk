@@ -6,7 +6,7 @@ export interface StoreViewDraftDTO {
   languageCode: string;
   themeKey?: string;
   themeVersion?: string;
-  themeConfig?: object;
-  themeConfigSchema?: object;
+  themeConfig?: any;
+  themeConfigSchema?: any;
 }
 

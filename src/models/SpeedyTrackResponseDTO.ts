@@ -1,5 +1,5 @@
 
 export interface SpeedyTrackResponseDTO {
-  providerPayload: object;
+  providerPayload: any;
 }
 

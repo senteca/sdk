@@ -6,7 +6,7 @@ export interface FolderDTO {
   name: string;
   weight: number;
   description?: string;
-  _id: object;
+  _id: any;
   createdAt: number;
   updatedAt: number;
 }

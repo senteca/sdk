@@ -68,7 +68,12 @@ module.exports = class ModelsMapper {
         relatedModel = mappedItem.relatedModel;
         relatedEnum = mappedItem.relatedEnum;
       } else {
-        realType = definition.type; // base types
+        // base types
+        if (definition.type === "object") {
+          realType = "any";
+        } else {
+          realType = definition.type;
+        }
       }
     } else {
       if (definition.$ref) {

@@ -4,9 +4,9 @@ export interface ThemeDraftDTO {
   version?: number;
   key: string;
   package: PackageDTO;
-  components: object[];
-  pages: object[];
-  config: object;
-  defaultConfig: object;
+  components: any[];
+  pages: any[];
+  config: any;
+  defaultConfig: any;
 }
 

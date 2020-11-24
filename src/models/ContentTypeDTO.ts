@@ -2,7 +2,7 @@
 export interface ContentTypeDTO {
   version?: number;
   name: string;
-  dataSchema: object;
+  dataSchema: any;
   _id: string;
   createdAt: number;
   updatedAt: number;

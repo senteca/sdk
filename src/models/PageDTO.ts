@@ -6,12 +6,12 @@ export interface PageDTO {
   storeKey: string;
   interfaceKey: string;
   themeKey: string;
-  nodes: object[];
+  nodes: any[];
   _id: string;
   createdAt: number;
   updatedAt: number;
   hasStagedChanges: boolean;
-  stagedNodes: object[];
+  stagedNodes: any[];
 }
 
 export enum PageDTOStatusEnum {

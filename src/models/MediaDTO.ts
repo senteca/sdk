@@ -12,6 +12,6 @@ export interface MediaDTO {
   name: string;
   alt?: string;
   caption?: string;
-  meta: object;
+  meta: any;
 }
 

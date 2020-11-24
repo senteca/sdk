@@ -23,7 +23,7 @@ export interface ProductDataDTO {
   metaKeywords?: LangValue[];
   masterVariantId?: string;
   variants?: ProductVariantDTO[];
-  metadata?: object;
+  metadata?: any;
   custom?: CustomField[];
 }
 

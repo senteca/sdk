@@ -1,16 +1,21 @@
-import { KeyReferenceDTO } from './KeyReferenceDTO';
+import { BaseCurrencyConversion } from './BaseCurrencyConversion';
+import { FacebookCredentialsDto } from './FacebookCredentialsDto';
+import { GoogleCredentialsDto } from './GoogleCredentialsDto';
+import { AppleCredentialsDto } from './AppleCredentialsDto';
 import { InterfaceDTO } from './InterfaceDTO';
+import { ChannelAssignmentDto } from './ChannelAssignmentDto';
 
 export interface StoreDraftDTO {
   version?: number;
   key: string;
-  name?: string;
-  description?: string;
-  tags?: string[];
-  languages: string[];
-  merchants: KeyReferenceDTO[];
-  priceLists: KeyReferenceDTO[];
-  stockLocations: KeyReferenceDTO[];
+  label?: string;
+  baseCurrency: string;
+  baseCurrencyConversions: BaseCurrencyConversion[];
+  facebookCredentials?: FacebookCredentialsDto;
+  googleCredentials?: GoogleCredentialsDto;
+  appleCredentials?: AppleCredentialsDto;
   interfaces: InterfaceDTO[];
+  defaultCustomerGroupKey?: string;
+  customerGroupChannels: ChannelAssignmentDto[];
 }
 

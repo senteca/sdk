@@ -1,7 +1,7 @@
 
 export interface MakePaymentInteractionDTO {
   type: MakePaymentInteractionDTOTypeEnum;
-  payload: object;
+  payload: any;
 }
 
 export enum MakePaymentInteractionDTOTypeEnum {

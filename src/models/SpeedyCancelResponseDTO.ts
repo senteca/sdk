@@ -1,5 +1,5 @@
 
 export interface SpeedyCancelResponseDTO {
-  providerPayload: object;
+  providerPayload: any;
 }
 

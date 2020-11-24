@@ -6,7 +6,6 @@ export interface CustomerMessageDTO {
   version?: number;
   customerId: string;
   type?: string;
-  message: string;
-  data?: object;
+  message: any;
 }
 

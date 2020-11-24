@@ -2,7 +2,7 @@
 export interface KeyReferenceDTO {
   resourceKey: string;
   resourceType: KeyReferenceDTOResourceTypeEnum;
-  resource?: object;
+  resource?: any;
 }
 
 export enum KeyReferenceDTOResourceTypeEnum {

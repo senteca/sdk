@@ -1,5 +1,5 @@
 
 export interface SpeedyCreateResponseDTO {
-  providerPayload: object;
+  providerPayload: any;
 }
 
