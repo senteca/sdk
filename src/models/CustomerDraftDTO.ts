@@ -3,6 +3,7 @@ import { AddressDTO } from './AddressDTO';
 import { CustomField } from './CustomField';
 
 export interface CustomerDraftDTO {
+  password: string;
   customerNumber?: number;
   store?: KeyReferenceDTO;
   email: string;
@@ -27,7 +28,6 @@ export interface CustomerDraftDTO {
   defaultShippingAddress?: string;
   customerAddresses?: AddressDTO[];
   custom?: CustomField[];
-  password: string;
 }
 
 export enum CustomerDraftDTOGenderEnum {
