@@ -25,7 +25,7 @@ export interface CustomerDraftDTO {
   anonymousId?: string;
   defaultBillingAddress?: string;
   defaultShippingAddress?: string;
-  customerAddresses: AddressDTO[];
+  customerAddresses?: AddressDTO[];
   custom?: CustomField[];
   password: string;
 }

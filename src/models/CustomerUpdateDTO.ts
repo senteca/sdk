@@ -28,8 +28,9 @@ export interface CustomerUpdateDTO {
   anonymousId?: string;
   defaultBillingAddress?: string;
   defaultShippingAddress?: string;
-  customerAddresses: AddressDTO[];
+  customerAddresses?: AddressDTO[];
   custom?: CustomField[];
+  password: string;
 }
 
 export enum CustomerUpdateDTOGenderEnum {
