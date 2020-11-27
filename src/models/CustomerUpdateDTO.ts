@@ -22,7 +22,7 @@ export interface CustomerUpdateDTO {
   vatId?: string;
   externalId?: string;
   customerGroup?: KeyReferenceDTO;
-  status: CustomerUpdateDTOStatusEnum;
+  status?: CustomerUpdateDTOStatusEnum;
   locale?: string;
   phoneNumber?: string;
   anonymousId?: string;

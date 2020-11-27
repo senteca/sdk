@@ -20,7 +20,7 @@ export interface CustomerDraftDTO {
   vatId?: string;
   externalId?: string;
   customerGroup?: KeyReferenceDTO;
-  status: CustomerDraftDTOStatusEnum;
+  status?: CustomerDraftDTOStatusEnum;
   locale?: string;
   phoneNumber?: string;
   anonymousId?: string;
