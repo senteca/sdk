@@ -268,6 +268,42 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as string[];
    }
 
+   async getByExternalId (externalId: string, query?: { statuses?: string[], expand?: string }): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/externalId=${encodeURIComponent(externalId)}`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async updateByExternalId (externalId: string, dto: ProductDraftDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/externalId=${encodeURIComponent(externalId)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async deleteByExternalId (externalId: string): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/externalId=${encodeURIComponent(externalId)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
    async getById (id: string, query?: { statuses?: string[], expand?: string }): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}`,
@@ -309,42 +345,6 @@ export class ProductsAPI extends BaseAPI {
            path: `/merchandise/products/slug=${encodeURIComponent(slug)}/lang=${encodeURIComponent(lang)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as ProductDTO;
-   }
-
-   async getByExternalId (externalId: string, query?: { statuses?: string[], expand?: string }): Promise<ProductDTO> {
-       const response = await this._request({
-           path: `/merchandise/products/externalId=${encodeURIComponent(externalId)}`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as ProductDTO;
-   }
-
-   async updateByExternalId (externalId: string, dto: ProductDraftDTO): Promise<ProductDTO> {
-       const response = await this._request({
-           path: `/merchandise/products/externalId=${encodeURIComponent(externalId)}`,
-           method: 'PUT',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as ProductDTO;
-   }
-
-   async deleteByExternalId (externalId: string): Promise<ProductDTO> {
-       const response = await this._request({
-           path: `/merchandise/products/externalId=${encodeURIComponent(externalId)}`,
-           method: 'DELETE',
-           
            
            
            

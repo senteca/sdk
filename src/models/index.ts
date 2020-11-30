@@ -42,6 +42,7 @@ export * from "./CollectionDTO";
 export * from "./CollectionDraftDTO";
 export * from "./CollectionFilterResultDTO";
 export * from "./CollectionSearchResultDTO";
+export * from "./CompanyDetailsDTO";
 export * from "./ContentDTO";
 export * from "./ContentTypeDTO";
 export * from "./ContentTypeDraftDTO";

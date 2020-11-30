@@ -29,6 +29,7 @@ export interface CustomerUpdateDTO {
   defaultBillingAddress?: string;
   defaultShippingAddress?: string;
   customerAddresses?: AddressDTO[];
+  companyDetails?: AddressDTO[];
   custom?: CustomField[];
 }
 
