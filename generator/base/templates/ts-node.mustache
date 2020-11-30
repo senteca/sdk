@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 export class BaseAPI {
   private config: Configuration;
 
