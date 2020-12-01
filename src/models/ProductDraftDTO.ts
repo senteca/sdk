@@ -33,7 +33,7 @@ export interface ProductDraftDTO {
 }
 
 export enum ProductDraftDTOStatusEnum {
-  Published = 'published',
-  Unpublished = 'unpublished',
-  Delisted = 'delisted',
+    Published = 'published',  
+    Unpublished = 'unpublished',  
+    Delisted = 'delisted',  
 }
