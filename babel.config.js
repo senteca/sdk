@@ -19,7 +19,15 @@ module.exports = function (api) {
     '@babel/preset-typescript',
   ];
 
-  const plugins = ['@babel/plugin-proposal-class-properties'];
+  const plugins = [
+    '@babel/plugin-proposal-class-properties',
+    [
+      '@babel/plugin-transform-runtime',
+      {
+        regenerator: true,
+      },
+    ],
+  ]
 
   return {
     presets,
