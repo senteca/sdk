@@ -3,12 +3,10 @@
   "plugins": [
     "@typescript-eslint",
     "import",
-    "tree-shaking"
   ],
   "extends": ["eslint:recommended"],
   "rules": {
     "no-explicit-any": "off",
     "no-unused-vars": "off",
-    "tree-shaking/no-side-effects-in-initialization": 2
   }
 }

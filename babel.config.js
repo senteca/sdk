@@ -1,9 +1,9 @@
-const BABEL_ENV = process.env.BABEL_ENV
-const isCommonJS = BABEL_ENV !== undefined && BABEL_ENV === 'cjs'
-const isESM = BABEL_ENV !== undefined && BABEL_ENV === 'esm'
+const BABEL_ENV = process.env.BABEL_ENV;
+const isCommonJS = BABEL_ENV !== undefined && BABEL_ENV === 'cjs';
+const isESM = BABEL_ENV !== undefined && BABEL_ENV === 'esm';
 
 module.exports = function (api) {
-  api.cache(true)
+  api.cache(true);
 
   const presets = [
     [
@@ -17,13 +17,12 @@ module.exports = function (api) {
       },
     ],
     '@babel/preset-typescript',
-    '@babel/preset-react',
-  ]
+  ];
 
-  const plugins = ['@babel/plugin-proposal-class-properties']
+  const plugins = ['@babel/plugin-proposal-class-properties'];
 
   return {
     presets,
     plugins,
-  }
-}
+  };
+};

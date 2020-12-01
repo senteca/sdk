@@ -1,29 +1,32 @@
 /* eslint-disable */
 
 export class BaseAPI {
-  private config: Configuration;
+  private config?: Configuration;
 
-  constructor(config: Configuration = null) {
+  constructor(config?: Configuration) {
     this.config = config;
   }
 
-  private getOptions(): ConfigOptions {
-    return this.config ? this.config.options : Configuration.getGlobal();
+  private getOptions(): ConfigOptions | undefined {
+    return this.config?.options;
   }
 
   protected async _request(context: RequestOptions): Promise<Response> {
     const { url, init } = this.createFetchParams(context);
     const response = await this.fetchApi(url, init);
-    if (response.status >= 200 && response.status < 300) {
-      return response;
+    if (response) {
+      if (response.status >= 200 && response.status < 300) {
+        return response;
+      }
+      throw await response.json();
     }
-    throw await response.json();
+    return undefined as any;
   }
 
   private createFetchParams(context: RequestOptions) {
     const options = this.getOptions();
 
-    let url = options.basePath + context.path;
+    let url = options?.basePath + context.path;
     if (context.query) {
       url += `?${context.query}`;
     }
@@ -40,7 +43,7 @@ export class BaseAPI {
       // do not set explicit Content-Type "multipart/form-data" so that the boundary can be added
       headers["Content-Type"] = context.contentType || "application/json";
     }
-    if (options.token) {
+    if (options?.token) {
       headers["Authorization"] = `Bearer ${options.token}`;
     }
 
@@ -59,7 +62,7 @@ export class BaseAPI {
     return { url, init };
   }
 
-  protected _stringifyQuery(queryObj): string {
+  protected _stringifyQuery(queryObj: any): string {
     if (!queryObj) {
       return "";
     }
@@ -72,7 +75,7 @@ export class BaseAPI {
     let fetchParams = { url, init };
 
     const fetch =
-      this.getOptions().fetchApi ||
+      this.getOptions()?.fetchApi ||
       (typeof window !== "undefined" ? window.fetch.bind(window) : null);
 
     if (fetch) {
@@ -111,15 +114,5 @@ export class Configuration {
   public options: ConfigOptions;
   constructor(options: ConfigOptions) {
     this.options = options;
-  }
-
-  static options: ConfigOptions;
-
-  static setGlobal(options: ConfigOptions): void {
-    Configuration.options = options;
-  }
-
-  static getGlobal(): ConfigOptions {
-    return Configuration.options;
   }
 }
