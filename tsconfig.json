@@ -1,15 +1,26 @@
 {
   "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
     "declaration": true,
-    "declarationDir": "dist/types",
-    "baseUrl": "./src",
-    "rootDir": "./src",
-    "esModuleInterop": true,
-    "target": "es6",
-    "module": "ESNext",
+    "sourceMap": true,
     "moduleResolution": "node",
-    "outDir": "dist",
-    "typeRoots": ["node_modules/@types"]
+    "skipLibCheck": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noImplicitAny": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true
   },
-  "include": ["./src"]
+  "include": ["src"],
+  "exclude": [
+    "**/*.d.ts",
+    "node_modules",
+  ]
 }

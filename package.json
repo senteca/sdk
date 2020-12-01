@@ -4,40 +4,52 @@
   "version": "0.1.56",
   "description": "OpenAPI client for sentecacommerce platform",
   "author": "Stanislav Bogdanov",
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.esm.js",
-  "types": "./dist/types",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "lint": "eslint \"src/**/*.ts\" --fix",
     "update": "npm run generate && npm run bump-version && npm publish",
     "bump-version": "npm version patch -no-git-tag-version --force",
     "prebuild": "rm -rf dist",
-    "build": "rollup -c rollup.config.ts",
+    "build": "concurrently yarn:build:*",
+    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
     "prepare": "npm run build",
     "pregenerate": "rm -rf src",
     "generate": "node ./generator/index.js"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^14.0.0",
-    "@rollup/plugin-node-resolve": "^8.4.0",
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "7.11.5",
+    "@babel/preset-typescript": "7.10.4",
+    "@babel/runtime": "^7.12.5",
     "@typescript-eslint/eslint-plugin": "^4.8.2",
     "@typescript-eslint/parser": "^4.8.2",
     "eslint": "^7.14.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-tree-shaking": "^1.8.0",
+    "babel-loader": "8.1.0",
+    "concurrently": "^5.3.0",
+    "cross-env": "7.0.2",
     "mustache": "^4.0.1",
     "node-fetch": "^2.6.1",
-    "rollup": "^2.23.0",
-    "rollup-plugin-peer-deps-external": "^2.2.3",
-    "rollup-plugin-terser": "^6.1.0",
-    "rollup-plugin-typescript2": "^0.27.1",
     "typescript": "^3.9.7"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/senteca/sdk.git"
-  },
-  "files": [
-    "dist/*"
-  ]
+  }
 }
