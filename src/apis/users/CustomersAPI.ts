@@ -119,6 +119,66 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
+   async getMyCompanies (): Promise<AddressDTO[]> {
+       const response = await this._request({
+           path: `/users/customers/my-companies`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as AddressDTO[];
+   }
+
+   async createMyCompany (dto: AddressDTO): Promise<AddressDTO> {
+       const response = await this._request({
+           path: `/users/customers/my-companies`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as AddressDTO;
+   }
+
+   async getMyCompanyById (id: string): Promise<AddressDTO> {
+       const response = await this._request({
+           path: `/users/customers/my-companies/${encodeURIComponent(id)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as AddressDTO;
+   }
+
+   async updateMyCompany (id: string, dto: AddressDTO): Promise<AddressDTO> {
+       const response = await this._request({
+           path: `/users/customers/my-companies/${encodeURIComponent(id)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as AddressDTO;
+   }
+
+   async deleteMyCompany (id: string): Promise<AddressDTO> {
+       const response = await this._request({
+           path: `/users/customers/my-companies/${encodeURIComponent(id)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as AddressDTO;
+   }
+
    async create (dto: CustomerDraftDTO): Promise<CustomerDTO> {
        const response = await this._request({
            path: `/users/customers`,
@@ -278,6 +338,66 @@ export class CustomersAPI extends BaseAPI {
    async deleteAddress (customerId: string, addressId: string): Promise<any> {
        const response = await this._request({
            path: `/users/customers/${encodeURIComponent(customerId)}/addresses/${encodeURIComponent(addressId)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as any;
+   }
+
+   async getCompanies (customerId: string): Promise<AddressDTO[]> {
+       const response = await this._request({
+           path: `/users/customers/${encodeURIComponent(customerId)}/companies`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as AddressDTO[];
+   }
+
+   async createCompany (customerId: string, dto: AddressDTO): Promise<AddressDTO> {
+       const response = await this._request({
+           path: `/users/customers/${encodeURIComponent(customerId)}/companies`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as AddressDTO;
+   }
+
+   async getCompanyById (customerId: string, companyId: string): Promise<AddressDTO> {
+       const response = await this._request({
+           path: `/users/customers/${encodeURIComponent(customerId)}/companies/${encodeURIComponent(companyId)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as AddressDTO;
+   }
+
+   async updateCompany (customerId: string, companyId: string, dto: AddressDTO): Promise<AddressDTO> {
+       const response = await this._request({
+           path: `/users/customers/${encodeURIComponent(customerId)}/companies/${encodeURIComponent(companyId)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as AddressDTO;
+   }
+
+   async deleteCompany (customerId: string, companyId: string): Promise<any> {
+       const response = await this._request({
+           path: `/users/customers/${encodeURIComponent(customerId)}/companies/${encodeURIComponent(companyId)}`,
            method: 'DELETE',
            
            
