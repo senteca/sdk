@@ -59,6 +59,7 @@ export * from "./CustomerGroupDTO";
 export * from "./CustomerGroupFilterResultDTO";
 export * from "./CustomerMessageDTO";
 export * from "./CustomerMessageFilterResultDTO";
+export * from "./CustomerMessageStatusUpdateDTO";
 export * from "./CustomerSearchResultDTO";
 export * from "./CustomerSubscribeDTO";
 export * from "./CustomerSubscriptionDTO";

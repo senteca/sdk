@@ -7,5 +7,10 @@ export interface CustomerMessageDTO {
   customerId: string;
   type?: string;
   message: any;
+  status?: CustomerMessageDTOStatusEnum;
 }
 
+export enum CustomerMessageDTOStatusEnum {
+    Read = 'read',  
+    Unread = 'unread',  
+}
