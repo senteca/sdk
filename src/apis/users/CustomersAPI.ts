@@ -3,6 +3,7 @@ import { CustomerDTO } from '../../models/CustomerDTO';
 import { CustomerUpdateDTO } from '../../models/CustomerUpdateDTO';
 import { PasswordChangeDTO } from '../../models/PasswordChangeDTO';
 import { AddressDTO } from '../../models/AddressDTO';
+import { AddressDraftDTO } from '../../models/AddressDraftDTO';
 import { CustomerDraftDTO } from '../../models/CustomerDraftDTO';
 import { CustomerFilterResultDTO } from '../../models/CustomerFilterResultDTO';
 import { CustomerSearchResultDTO } from '../../models/CustomerSearchResultDTO';
@@ -71,7 +72,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO[];
    }
 
-   async createMyAddress (dto: AddressDTO): Promise<AddressDTO> {
+   async createMyAddress (dto: AddressDraftDTO): Promise<AddressDTO> {
        const response = await this._request({
            path: `/users/customers/my-addresses`,
            method: 'POST',
@@ -95,7 +96,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
-   async updateMyAddress (id: string, dto: AddressDTO): Promise<AddressDTO> {
+   async updateMyAddress (id: string, dto: AddressDraftDTO): Promise<AddressDTO> {
        const response = await this._request({
            path: `/users/customers/my-addresses/${encodeURIComponent(id)}`,
            method: 'PUT',
@@ -131,7 +132,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO[];
    }
 
-   async createMyCompany (dto: AddressDTO): Promise<AddressDTO> {
+   async createMyCompany (dto: AddressDraftDTO): Promise<AddressDTO> {
        const response = await this._request({
            path: `/users/customers/my-companies`,
            method: 'POST',
@@ -155,7 +156,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
-   async updateMyCompany (id: string, dto: AddressDTO): Promise<AddressDTO> {
+   async updateMyCompany (id: string, dto: AddressDraftDTO): Promise<AddressDTO> {
        const response = await this._request({
            path: `/users/customers/my-companies/${encodeURIComponent(id)}`,
            method: 'PUT',
@@ -299,7 +300,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO[];
    }
 
-   async createAddress (customerId: string, dto: AddressDTO): Promise<AddressDTO> {
+   async createAddress (customerId: string, dto: AddressDraftDTO): Promise<AddressDTO> {
        const response = await this._request({
            path: `/users/customers/${encodeURIComponent(customerId)}/addresses`,
            method: 'POST',
@@ -323,7 +324,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
-   async updateAddress (customerId: string, addressId: string, dto: AddressDTO): Promise<AddressDTO> {
+   async updateAddress (customerId: string, addressId: string, dto: AddressDraftDTO): Promise<AddressDTO> {
        const response = await this._request({
            path: `/users/customers/${encodeURIComponent(customerId)}/addresses/${encodeURIComponent(addressId)}`,
            method: 'PUT',
@@ -359,7 +360,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO[];
    }
 
-   async createCompany (customerId: string, dto: AddressDTO): Promise<AddressDTO> {
+   async createCompany (customerId: string, dto: AddressDraftDTO): Promise<AddressDTO> {
        const response = await this._request({
            path: `/users/customers/${encodeURIComponent(customerId)}/companies`,
            method: 'POST',
@@ -383,7 +384,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as AddressDTO;
    }
 
-   async updateCompany (customerId: string, companyId: string, dto: AddressDTO): Promise<AddressDTO> {
+   async updateCompany (customerId: string, companyId: string, dto: AddressDraftDTO): Promise<AddressDTO> {
        const response = await this._request({
            path: `/users/customers/${encodeURIComponent(customerId)}/companies/${encodeURIComponent(companyId)}`,
            method: 'PUT',

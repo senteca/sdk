@@ -1,5 +1,6 @@
 export * from "./AccessTokenDTO";
 export * from "./AddressDTO";
+export * from "./AddressDraftDTO";
 export * from "./AddressVerifiedDTO";
 export * from "./ApiClientDTO";
 export * from "./ApiClientDraftDTO";
