@@ -27,7 +27,7 @@ export interface AddressDTO {
   additionalAddressInfo?: string;
   isDefaultBillingAddress?: boolean;
   isDefaultShippingAddress?: boolean;
-  verified: AddressVerifiedDTO;
+  verified?: AddressVerifiedDTO;
   custom?: CustomField[];
 }
 
