@@ -53,6 +53,18 @@ export class AuthAPI extends BaseAPI {
        return (response.json() as unknown) as AccessTokenDTO;
    }
 
+   async createAppleToken (query: { lastName?: string, firstName?: string, id_token: string }): Promise<AccessTokenDTO> {
+       const response = await this._request({
+           path: `/auth/apple/token`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as AccessTokenDTO;
+   }
+
    async createAnonymousToken (dto: TokenRequestDTO): Promise<AccessTokenDTO> {
        const response = await this._request({
            path: `/auth/anonymous`,
