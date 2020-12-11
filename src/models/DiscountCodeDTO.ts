@@ -11,6 +11,7 @@ export interface DiscountCodeDTO {
   name: LangValue[];
   description?: LangValue[];
   code: string;
+  customer?: IdReferenceDTO;
   cartDiscounts: IdReferenceDTO[];
   cartPredicate: string;
   groups?: string[];

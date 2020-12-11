@@ -1,6 +1,7 @@
 export * from "./CartDiscountsAPI";
 export * from "./DiscountCodesAPI";
 export * from "./MyCartAPI";
+export * from "./MyDiscountCodesAPI";
 export * from "./MyOrdersAPI";
 export * from "./MyShippingsPickUpFromStoreAPI";
 export * from "./MyShippingsSpeedyAPI";

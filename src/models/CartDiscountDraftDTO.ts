@@ -1,5 +1,6 @@
 import { LangValue } from './LangValue';
 import { CartDiscountValueDTO } from './CartDiscountValueDTO';
+import { MoneyDTO } from './MoneyDTO';
 import { CartDiscountTargetDTO } from './CartDiscountTargetDTO';
 
 export interface CartDiscountDraftDTO {
@@ -9,6 +10,7 @@ export interface CartDiscountDraftDTO {
   name: LangValue[];
   description?: LangValue[];
   value: CartDiscountValueDTO;
+  maxDiscountValue?: MoneyDTO;
   cartPredicate: string;
   target?: CartDiscountTargetDTO;
   sortOrder: number;
