@@ -5,6 +5,8 @@ export interface DiscountCodeDTO {
   _id: string;
   createdAt: number;
   updatedAt: number;
+  totalApplications: number;
+  applicationsPerCustomer: any;
   version?: number;
   authority?: DiscountCodeDTOAuthorityEnum;
   merchantKey?: string;
