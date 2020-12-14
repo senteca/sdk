@@ -11,7 +11,7 @@ export interface AddressDTO {
   lastName?: string;
   email?: string;
   phoneNumber?: string;
-  countryCode: string;
+  countryCode?: string;
   region?: string;
   city?: string;
   quarter?: string;
