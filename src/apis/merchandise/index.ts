@@ -6,6 +6,7 @@ export * from "./CollectionsAPI";
 export * from "./InventoriesAPI";
 export * from "./MerchantsAPI";
 export * from "./PriceListsAPI";
+export * from "./ProductTypesAPI";
 export * from "./ProductsAPI";
 export * from "./StockLocationsAPI";
 export * from "./ViewsAPI";
