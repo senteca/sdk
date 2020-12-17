@@ -40,4 +40,28 @@ export class ProductTypesAPI extends BaseAPI {
        return (response.json() as unknown) as ProductType;
    }
 
+   async update (id: string, dto: ProductTypeDraftDTO): Promise<ProductType> {
+       const response = await this._request({
+           path: `/merchandise/product-types/${encodeURIComponent(id)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ProductType;
+   }
+
+   async delete (id: string): Promise<ProductType> {
+       const response = await this._request({
+           path: `/merchandise/product-types/${encodeURIComponent(id)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as ProductType;
+   }
+
 }

@@ -1,3 +1,4 @@
+import { BasketRequestDTO } from './BasketRequestDTO';
 
 export interface TokenRequestDTO {
   grantType: TokenRequestDTOGrantTypeEnum;
@@ -6,6 +7,8 @@ export interface TokenRequestDTO {
   refreshToken?: string;
   isOrgUser?: boolean;
   anonymousId?: string;
+  responseMode?: TokenRequestDTOResponseModeEnum;
+  basketRequest: BasketRequestDTO;
 }
 
 export enum TokenRequestDTOGrantTypeEnum {
@@ -14,4 +17,8 @@ export enum TokenRequestDTOGrantTypeEnum {
     ClientCredentials = 'client-credentials',  
     Implicit = 'implicit',  
     RefreshToken = 'refresh-token',  
+}
+export enum TokenRequestDTOResponseModeEnum {
+    Compact = 'compact',  
+    Full = 'full',  
 }
