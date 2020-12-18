@@ -270,7 +270,7 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async getOrderShippingMethods (id: string): Promise<ShippingMethodsInfo> {
+   async getShippingMethods (id: string): Promise<ShippingMethodsInfo> {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/shipping-methods`,
            method: 'GET',
@@ -342,7 +342,7 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async getShippingMethods (id: string, shippingId: string): Promise<ShippingMethodDTO[]> {
+   async getShippingMethodsPerShipping (id: string, shippingId: string): Promise<ShippingMethodDTO[]> {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/shipping-methods`,
            method: 'GET',

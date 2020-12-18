@@ -4,7 +4,6 @@ import { TokenResponseDTO } from '../../models/TokenResponseDTO';
 import { LoginRequestDTO } from '../../models/LoginRequestDTO';
 import { OAuthTokenRequestDTO } from '../../models/OAuthTokenRequestDTO';
 import { CustomerDraftDTO } from '../../models/CustomerDraftDTO';
-import { AccessTokenDTO } from '../../models/AccessTokenDTO';
 
 export class AuthAPI extends BaseAPI {
    async createToken (basicAuth: { username: string, password: string }, dto: TokenRequestDTO): Promise<TokenResponseDTO> {
@@ -79,7 +78,7 @@ export class AuthAPI extends BaseAPI {
        return (response.json() as unknown) as TokenResponseDTO;
    }
 
-   async register (dto: CustomerDraftDTO): Promise<AccessTokenDTO> {
+   async register (dto: CustomerDraftDTO): Promise<TokenResponseDTO> {
        const response = await this._request({
            path: `/auth/register`,
            method: 'POST',
@@ -88,7 +87,7 @@ export class AuthAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as AccessTokenDTO;
+       return (response.json() as unknown) as TokenResponseDTO;
    }
 
 }

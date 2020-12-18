@@ -5,7 +5,7 @@ export interface LoginRequestDTO {
   password: string;
   isOrgUser?: boolean;
   responseMode?: LoginRequestDTOResponseModeEnum;
-  basketRequest: BasketRequestDTO;
+  basketRequest?: BasketRequestDTO;
 }
 
 export enum LoginRequestDTOResponseModeEnum {
