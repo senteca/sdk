@@ -12,7 +12,6 @@ import { TransitionLineItemQuantityState } from '../../models/TransitionLineItem
 import { LineItemDraftDTO } from '../../models/LineItemDraftDTO';
 import { QuantityUpdateDTO } from '../../models/QuantityUpdateDTO';
 import { DiscountCodeUpdateDTO } from '../../models/DiscountCodeUpdateDTO';
-import { ShippingAddressDTO } from '../../models/ShippingAddressDTO';
 import { AddressDTO } from '../../models/AddressDTO';
 import { ShippingMethodsInfo } from '../../models/ShippingMethodsInfo';
 import { PaymentMethodsInfo } from '../../models/PaymentMethodsInfo';
@@ -246,7 +245,7 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setShippingAddress (id: string, dto: ShippingAddressDTO): Promise<OrderDTO> {
+   async setShippingAddress (id: string, dto: AddressDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/shipping-address`,
            method: 'PATCH',

@@ -190,7 +190,6 @@ export * from "./RoleDTO";
 export * from "./RoleDraftDTO";
 export * from "./RoleFilterResultDTO";
 export * from "./SetCustomFieldDTO";
-export * from "./ShippingAddressDTO";
 export * from "./ShippingConfigDTO";
 export * from "./ShippingConfigDraftDTO";
 export * from "./ShippingDTO";
