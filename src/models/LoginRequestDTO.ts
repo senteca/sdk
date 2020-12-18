@@ -1,14 +1,14 @@
 import { BasketRequestDTO } from './BasketRequestDTO';
 
-export interface PasswordGrantTokenRequestDTO {
+export interface LoginRequestDTO {
   email: string;
   password: string;
   isOrgUser?: boolean;
-  responseMode?: PasswordGrantTokenRequestDTOResponseModeEnum;
+  responseMode?: LoginRequestDTOResponseModeEnum;
   basketRequest: BasketRequestDTO;
 }
 
-export enum PasswordGrantTokenRequestDTOResponseModeEnum {
+export enum LoginRequestDTOResponseModeEnum {
     Compact = 'compact',  
     Full = 'full',  
 }

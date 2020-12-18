@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { TokenRequestDTO } from '../../models/TokenRequestDTO';
 import { TokenResponseDTO } from '../../models/TokenResponseDTO';
-import { PasswordGrantTokenRequestDTO } from '../../models/PasswordGrantTokenRequestDTO';
+import { LoginRequestDTO } from '../../models/LoginRequestDTO';
 import { OAuthTokenRequestDTO } from '../../models/OAuthTokenRequestDTO';
 import { CustomerDraftDTO } from '../../models/CustomerDraftDTO';
 import { AccessTokenDTO } from '../../models/AccessTokenDTO';
@@ -19,9 +19,9 @@ export class AuthAPI extends BaseAPI {
        return (response.json() as unknown) as TokenResponseDTO;
    }
 
-   async createPasswordToken (dto: PasswordGrantTokenRequestDTO): Promise<TokenResponseDTO> {
+   async login (dto: LoginRequestDTO): Promise<TokenResponseDTO> {
        const response = await this._request({
-           path: `/auth/password`,
+           path: `/auth/login`,
            method: 'POST',
            
            body: dto,
@@ -34,7 +34,7 @@ export class AuthAPI extends BaseAPI {
    async createFacebookToken (query: { access_token: string }, dto: OAuthTokenRequestDTO): Promise<TokenResponseDTO> {
        const response = await this._request({
            path: `/auth/facebook/token`,
-           method: 'GET',
+           method: 'POST',
            query: this._stringifyQuery(query),
            body: dto,
            
@@ -46,7 +46,7 @@ export class AuthAPI extends BaseAPI {
    async createGoogleToken (query: { access_token: string }, dto: OAuthTokenRequestDTO): Promise<TokenResponseDTO> {
        const response = await this._request({
            path: `/auth/google/token`,
-           method: 'GET',
+           method: 'POST',
            query: this._stringifyQuery(query),
            body: dto,
            
@@ -55,10 +55,10 @@ export class AuthAPI extends BaseAPI {
        return (response.json() as unknown) as TokenResponseDTO;
    }
 
-   async createAppleToken (query: { lastName?: string, firstName?: string, id_token: string }, dto: OAuthTokenRequestDTO): Promise<TokenResponseDTO> {
+   async createAppleToken (query: { id_token: string }, dto: OAuthTokenRequestDTO): Promise<TokenResponseDTO> {
        const response = await this._request({
            path: `/auth/apple/token`,
-           method: 'GET',
+           method: 'POST',
            query: this._stringifyQuery(query),
            body: dto,
            
