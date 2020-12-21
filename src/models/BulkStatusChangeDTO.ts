@@ -1,11 +1,12 @@
 
 export interface BulkStatusChangeDTO {
-  filters: string;
+  filter: string;
+  storeKey: string;
   status: BulkStatusChangeDTOStatusEnum;
 }
 
 export enum BulkStatusChangeDTOStatusEnum {
     Published = 'published',  
-    Unpublished = 'unpublished',  
+    Address = 'address',  
     Delisted = 'delisted',  
 }

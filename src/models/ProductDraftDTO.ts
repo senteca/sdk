@@ -1,39 +1,43 @@
-import { IdReferenceDTO } from './IdReferenceDTO';
+import { KeyReferenceDTO } from './KeyReferenceDTO';
+import { StoreStatusDTO } from './StoreStatusDTO';
 import { LangValue } from './LangValue';
 import { ContentDTO } from './ContentDTO';
-import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
+import { ProductAttributeDraftDTO } from './ProductAttributeDraftDTO';
+import { IdReferenceDTO } from './IdReferenceDTO';
 import { AssetDTO } from './AssetDTO';
-import { ProductVariantDraftDTO } from './ProductVariantDraftDTO';
 import { CustomField } from './CustomField';
+import { ProductVariantDraftDTO } from './ProductVariantDraftDTO';
+import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
 
 export interface ProductDraftDTO {
   version?: number;
-  taxCategory: IdReferenceDTO;
+  type: KeyReferenceDTO;
+  externalId?: string;
+  storeStatus?: StoreStatusDTO[];
+  taxCategory: KeyReferenceDTO;
   name: LangValue[];
-  description: LangValue[];
-  shortDescription?: LangValue[];
-  weight: number;
-  contents: ContentDTO[];
+  description?: LangValue[];
+  content?: ContentDTO[];
+  collapseKey?: string;
+  collapseMode?: ProductDraftDTOCollapseModeEnum;
+  attributes?: ProductAttributeDraftDTO[];
   categories?: IdReferenceDTO[];
-  masterCategoriesPath?: IdReferenceDTO[];
   brands?: IdReferenceDTO[];
   collections?: IdReferenceDTO[];
-  status: ProductDraftDTOStatusEnum;
-  reviewRatingStatistics?: ReviewRatingStatisticsDTO;
   assets?: AssetDTO[];
+  custom?: CustomField[];
+  masterVariantId?: string;
+  variants?: ProductVariantDraftDTO[];
   slug: LangValue[];
   metaTitle?: LangValue[];
   metaDescription?: LangValue[];
   metaKeywords?: LangValue[];
-  masterVariantId?: string;
-  variants?: ProductVariantDraftDTO[];
-  metadata?: any;
-  custom?: CustomField[];
-  externalId?: string;
+  score?: number;
+  reviewRatingStatistics?: ReviewRatingStatisticsDTO;
 }
 
-export enum ProductDraftDTOStatusEnum {
-    Published = 'published',  
-    Unpublished = 'unpublished',  
-    Delisted = 'delisted',  
+export enum ProductDraftDTOCollapseModeEnum {
+    None = 'none',  
+    Id = 'id',  
+    Color = 'color',  
 }

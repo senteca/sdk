@@ -1,6 +1,7 @@
 import { LineItemStateForQuantityDTO } from './LineItemStateForQuantityDTO';
 import { LangValue } from './LangValue';
 import { IdReferenceDTO } from './IdReferenceDTO';
+import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { ProductVariantDTO } from './ProductVariantDTO';
 import { OfferDTO } from './OfferDTO';
 import { TaxedItemPriceDTO } from './TaxedItemPriceDTO';
@@ -8,10 +9,11 @@ import { TaxRateDTO } from './TaxRateDTO';
 import { MoneyDTO } from './MoneyDTO';
 import { DiscountedLineItemPriceForQuantity } from './DiscountedLineItemPriceForQuantity';
 import { ItemShippingDetailsDTO } from './ItemShippingDetailsDTO';
+import { ReservationDTO } from './ReservationDTO';
 
 export interface LineItemDTO {
   updatedAt: number;
-  id: string;
+  _id: string;
   states: LineItemStateForQuantityDTO[];
   productId: string;
   productName: LangValue[];
@@ -20,7 +22,7 @@ export interface LineItemDTO {
   productCategories?: IdReferenceDTO[];
   productBrands?: IdReferenceDTO[];
   productCollections?: IdReferenceDTO[];
-  productTaxCategory: IdReferenceDTO;
+  productTaxCategory: KeyReferenceDTO;
   variant: ProductVariantDTO;
   offer: OfferDTO;
   quantity: number;
@@ -30,6 +32,8 @@ export interface LineItemDTO {
   discountedPricePerQuantity?: DiscountedLineItemPriceForQuantity[];
   lineItemMode: LineItemDTOLineItemModeEnum;
   shippingDetails?: ItemShippingDetailsDTO;
+  reservations?: ReservationDTO[];
+  reservedUntil?: number;
 }
 
 export enum LineItemDTOLineItemModeEnum {

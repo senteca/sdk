@@ -1,9 +1,10 @@
 import { BaseAPI } from '../../runtime';
+import { CustomerGroupDraftDTO } from '../../models/CustomerGroupDraftDTO';
 import { CustomerGroupDTO } from '../../models/CustomerGroupDTO';
 import { CustomerGroupFilterResultDTO } from '../../models/CustomerGroupFilterResultDTO';
 
 export class CustomerGroupsAPI extends BaseAPI {
-   async create (dto: CustomerGroupDTO): Promise<CustomerGroupDTO> {
+   async create (dto: CustomerGroupDraftDTO): Promise<CustomerGroupDTO> {
        const response = await this._request({
            path: `/users/customer-groups`,
            method: 'POST',
@@ -15,7 +16,7 @@ export class CustomerGroupsAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerGroupDTO;
    }
 
-   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<CustomerGroupFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, limit?: number, offset?: number, storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerGroupFilterResultDTO> {
        const response = await this._request({
            path: `/users/customer-groups`,
            method: 'GET',
@@ -55,6 +56,18 @@ export class CustomerGroupsAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-groups/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CustomerGroupDTO;
+   }
+
+   async getByKey (key: string): Promise<CustomerGroupDTO> {
+       const response = await this._request({
+           path: `/users/customer-groups/key=${encodeURIComponent(key)}`,
+           method: 'GET',
            
            
            

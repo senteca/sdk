@@ -1,30 +1,18 @@
 import { OfferDTO } from './OfferDTO';
-import { InventoryDTO } from './InventoryDTO';
 import { ProductAttributeDTO } from './ProductAttributeDTO';
-import { ImageSetDTO } from './ImageSetDTO';
+import { ImageDTO } from './ImageDTO';
+import { ShippingDataDTO } from './ShippingDataDTO';
 
 export interface ProductVariantDTO {
+  offer?: OfferDTO;
   offers: OfferDTO[];
-  id: string;
+  attributes: ProductAttributeDTO[];
+  _id: string;
   sku: string;
   masterBarcode?: string;
-  barcodes: string[];
-  inventories: InventoryDTO[];
-  attributes: ProductAttributeDTO[];
-  imageSets: ImageSetDTO[];
-  weight?: number;
-  unitOfWeight?: ProductVariantDTOUnitOfWeightEnum;
-  length?: number;
-  width?: number;
-  height?: number;
-  unitOfMetric?: ProductVariantDTOUnitOfMetricEnum;
+  barcodes?: string[];
+  aliasImagesFrom?: string;
+  images?: ImageDTO[];
+  shippingData?: ShippingDataDTO;
 }
 
-export enum ProductVariantDTOUnitOfWeightEnum {
-    Gr = 'gr',  
-    Oz = 'oz',  
-}
-export enum ProductVariantDTOUnitOfMetricEnum {
-    Cm = 'cm',  
-    Inch = 'inch',  
-}

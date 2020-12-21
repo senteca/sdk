@@ -15,7 +15,7 @@ export class CustomerMessagesAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerMessageDTO;
    }
 
-   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<CustomerMessageFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, limit?: number, offset?: number, storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerMessageFilterResultDTO> {
        const response = await this._request({
            path: `/users/customer-messages`,
            method: 'GET',

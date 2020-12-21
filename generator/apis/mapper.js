@@ -1,5 +1,5 @@
-const { getIn } = require("../utils/data");
-const { anyToPascal } = require("../utils/string");
+const { getIn } = require('../utils/data');
+const { anyToPascal } = require('../utils/string');
 
 module.exports = class ApiMapper {
   static map(api) {
@@ -21,15 +21,15 @@ module.exports = class ApiMapper {
   }
 
   static mapActionMethod(actionMethod, url, relatedModels) {
-    url = url.replace(/\{([^}]+)}/g, "${encodeURIComponent($1)}"); // {key} -> ${encodeURIComponent(key)} to be used for sting interpolation
+    url = url.replace(/\{([^}]+)}/g, '${encodeURIComponent($1)}'); // {key} -> ${encodeURIComponent(key)} to be used for sting interpolation
     const name = actionMethod.operationId; // TODO: operationId alternative ?
     const method = actionMethod.method.toUpperCase();
     const authMethods = this.mapAuth(actionMethod.security);
-    const parameters = this.mapParameters(actionMethod.parameters);
     const bodyParam = this.mapRequestBody(
       actionMethod.requestBody,
-      relatedModels
+      relatedModels,
     );
+    const parameters = this.mapParameters(actionMethod.parameters, !!bodyParam);
 
     while (authMethods.length) parameters.unshift(authMethods.shift()); // auth methods always come first
 
@@ -43,10 +43,10 @@ module.exports = class ApiMapper {
 
     const response = this.mapResponse(actionMethod.responses, relatedModels);
     const contentType = Object.keys(
-      getIn(actionMethod, "requestBody.content") || {}
+      getIn(actionMethod, 'requestBody.content') || {},
     )[0];
     const hasContentType = contentType !== undefined;
-    const hasBasicAuth = parameters.some((m) => m.text.startsWith("basicAuth"));
+    const hasBasicAuth = parameters.some((m) => m.text.startsWith('basicAuth'));
     const hasQueryParam = parameters.some((p) => /^query\??\:/.test(p.text));
     const hasBodyParam = !!bodyParam;
 
@@ -71,7 +71,7 @@ module.exports = class ApiMapper {
 
     const authMethods = security
       .map((auth) => {
-        if (auth.hasOwnProperty("basic")) {
+        if (auth.hasOwnProperty('basic')) {
           return { text: `basicAuth: { username: string, password: string }` };
         }
       })
@@ -80,30 +80,30 @@ module.exports = class ApiMapper {
     return authMethods;
   }
 
-  static mapParameters(parameters) {
+  static mapParameters(parameters, hasBody) {
     const mappedParams = parameters.map((p) => ({
       target: p.in,
       name: p.name,
       required: p.required,
-      type: p.schema.type == "array" ? "string[]" : p.schema.type, // quick fix - other array types available?
+      type: p.schema.type == 'array' ? 'string[]' : p.schema.type, // quick fix - other array types available?
     }));
 
     const toSignature = (param) =>
-      `${param.name}${param.required ? "" : "?"}: ${param.type}`;
+      `${param.name}${param.required ? '' : '?'}: ${param.type}`;
 
-    const pathParams = mappedParams.filter((p) => p.target === "path");
-    const queryParams = mappedParams.filter((p) => p.target === "query");
+    const pathParams = mappedParams.filter((p) => p.target === 'path');
+    const queryParams = mappedParams.filter((p) => p.target === 'query');
 
     const paramSignatures = pathParams.map((x) => ({ text: toSignature(x) }));
 
     if (queryParams.length) {
       // anonymous type for query params:
       // query: { filter: string[]; sort?: string; }
-      const isRequired = queryParams.some((p) => p.required);
+      const isRequired = queryParams.some((p) => p.required) || hasBody;
       const queryParamSignatures = queryParams.map(toSignature);
       const querySignature = `query${
-        isRequired ? "" : "?"
-      }: { ${queryParamSignatures.join(", ")} }`;
+        isRequired ? '' : '?'
+      }: { ${queryParamSignatures.join(', ')} }`;
       paramSignatures.push({ text: querySignature });
     }
 
@@ -115,7 +115,7 @@ module.exports = class ApiMapper {
       return;
     }
 
-    const content = getIn(requestBody, "content");
+    const content = getIn(requestBody, 'content');
     const contentType = Object.keys(content)[0];
     const schema = getIn(content, `${contentType}.schema`);
     const { realType, relatedModel } = this.schemaToType(schema);
@@ -129,8 +129,8 @@ module.exports = class ApiMapper {
   }
 
   static mapResponse(response, relatedModels) {
-    const successStatus = response["200"] || response["201"];
-    const schema = getIn(successStatus, "content.application/json.schema");
+    const successStatus = response['200'] || response['201'];
+    const schema = getIn(successStatus, 'content.application/json.schema');
     const { realType, relatedModel } = this.schemaToType(schema);
 
     if (relatedModel && !relatedModels.includes(relatedModel)) {
@@ -141,18 +141,18 @@ module.exports = class ApiMapper {
   }
 
   static schemaToType(schema) {
-    const ref = getIn(schema, "$ref", "").replace("#/components/schemas/", "");
-    const type = getIn(schema, "type", "");
+    const ref = getIn(schema, '$ref', '').replace('#/components/schemas/', '');
+    const type = getIn(schema, 'type', '');
 
-    let realType = "";
-    let relatedModel = "";
+    let realType = '';
+    let relatedModel = '';
 
-    if (type === "array") {
-      const itemsRef = getIn(schema, "items.$ref", "").replace(
-        "#/components/schemas/",
-        ""
+    if (type === 'array') {
+      const itemsRef = getIn(schema, 'items.$ref', '').replace(
+        '#/components/schemas/',
+        '',
       );
-      const itemsType = getIn(schema, "items.type", "");
+      const itemsType = getIn(schema, 'items.type', '');
       realType = `${itemsRef || itemsType}[]`;
       if (itemsRef) {
         relatedModel = itemsRef;
@@ -165,11 +165,11 @@ module.exports = class ApiMapper {
     }
 
     if (!realType) {
-      realType = "void";
+      realType = 'void';
     }
 
-    if (realType.toLowerCase() === "object") {
-      realType = "any";
+    if (realType.toLowerCase() === 'object') {
+      realType = 'any';
       relatedModel = undefined;
     }
 

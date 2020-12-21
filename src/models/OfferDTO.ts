@@ -1,20 +1,35 @@
 import { MoneyDTO } from './MoneyDTO';
+import { OfferDiscountDTO } from './OfferDiscountDTO';
+import { OfferTierDTO } from './OfferTierDTO';
 
 export interface OfferDTO {
-  isBest: boolean;
-  priceListKey: string;
-  merchantKey: string;
-  price: MoneyDTO;
+  _id: string;
+  price?: MoneyDTO;
   discountedPrice?: MoneyDTO;
-  unit: OfferDTOUnitEnum;
-  quantity: number;
-  minQuantity: number;
-  maxQuantity: number;
-  step: number;
+  discount?: OfferDiscountDTO;
+  discounts?: OfferDiscountDTO[];
+  priceListKey?: string;
+  merchantKey: string;
+  validFrom?: number;
+  validTo?: number;
+  status: OfferDTOStatusEnum;
+  originalPrice: MoneyDTO;
+  tiers: OfferTierDTO[];
+  externalDiscount?: OfferDiscountDTO;
+  unit?: OfferDTOUnitEnum;
+  quantity?: number;
+  minQuantity?: number;
+  maxQuantity?: number;
+  step?: number;
   sellUnit: OfferDTOSellUnitEnum;
-  conversionRate: number;
+  conversionRate?: number;
 }
 
+export enum OfferDTOStatusEnum {
+    Active = 'active',  
+    Inactive = 'inactive',  
+    Paused = 'paused',  
+}
 export enum OfferDTOUnitEnum {
     G = 'g',  
     Kg = 'kg',  

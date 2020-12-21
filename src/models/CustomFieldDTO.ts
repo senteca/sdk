@@ -45,6 +45,7 @@ export enum CustomFieldDTOResourceTypeIdEnum {
     Payment = 'payment',  
     Merchant = 'merchant',  
     Product = 'product',  
+    ProductType = 'product-type',  
     Shipping = 'shipping',  
     TaxCategory = 'tax-category',  
     PriceList = 'price-list',  

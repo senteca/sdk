@@ -1,7 +1,12 @@
+import { ImageSource } from './ImageSource';
 
 export interface ImageDTO {
-  width: number;
-  height: number;
-  url: string;
+  thumb: ImageSource;
+  small: ImageSource;
+  medium: ImageSource;
+  large: ImageSource;
+  zoom: ImageSource;
+  zoom2x: ImageSource;
+  original: ImageSource;
 }
 

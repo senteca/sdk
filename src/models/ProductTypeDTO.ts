@@ -1,6 +1,6 @@
 import { AttributeRuleDTO } from './AttributeRuleDTO';
 
-export interface ProductType {
+export interface ProductTypeDTO {
   version?: number;
   key: string;
   label?: string;

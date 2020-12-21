@@ -1,7 +1,7 @@
 import { IdReferenceDTO } from './IdReferenceDTO';
 
 export interface BulkLinkUpdateDTO {
-  filters: string;
+  filter: string;
   linkType: BulkLinkUpdateDTOLinkTypeEnum;
   links: IdReferenceDTO[];
 }
@@ -25,6 +25,7 @@ export enum BulkLinkUpdateDTOLinkTypeEnum {
     Payment = 'payment',  
     Merchant = 'merchant',  
     Product = 'product',  
+    ProductType = 'product-type',  
     Shipping = 'shipping',  
     TaxCategory = 'tax-category',  
     PriceList = 'price-list',  
