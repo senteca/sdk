@@ -35,4 +35,5 @@ export enum KeyReferenceDTOResourceTypeEnum {
     CmsType = 'cms-type',  
     StockLocation = 'stock-location',  
     Role = 'role',  
+    Zone = 'zone',  
 }

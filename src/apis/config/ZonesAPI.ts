@@ -28,6 +28,18 @@ export class ZonesAPI extends BaseAPI {
        return (response.json() as unknown) as ZoneFilterResultDTO;
    }
 
+   async getByKey (key: string): Promise<ZoneDTO> {
+       const response = await this._request({
+           path: `/config/zones/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as ZoneDTO;
+   }
+
    async getById (id: string): Promise<ZoneDTO> {
        const response = await this._request({
            path: `/config/zones/${encodeURIComponent(id)}`,

@@ -53,4 +53,5 @@ export enum CustomFieldDraftDTOResourceTypeIdEnum {
     CmsType = 'cms-type',  
     StockLocation = 'stock-location',  
     Role = 'role',  
+    Zone = 'zone',  
 }
