@@ -4,7 +4,6 @@ import { OrderDTO } from '../../models/OrderDTO';
 import { LineItemDraftDTO } from '../../models/LineItemDraftDTO';
 import { QuantityUpdateDTO } from '../../models/QuantityUpdateDTO';
 import { DiscountCodeUpdateDTO } from '../../models/DiscountCodeUpdateDTO';
-import { ShippingAddressDTO } from '../../models/ShippingAddressDTO';
 import { AddressDTO } from '../../models/AddressDTO';
 import { ShippingMethodsInfo } from '../../models/ShippingMethodsInfo';
 import { PaymentMethodsInfo } from '../../models/PaymentMethodsInfo';
@@ -120,7 +119,7 @@ export class MyCartAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setShippingAddress (dto: ShippingAddressDTO): Promise<OrderDTO> {
+   async setShippingAddress (dto: AddressDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/shipping-address`,
            method: 'PATCH',

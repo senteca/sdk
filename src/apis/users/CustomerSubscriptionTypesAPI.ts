@@ -64,4 +64,16 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerSubscriptionTypeDTO;
    }
 
+   async getByKey (key: string): Promise<CustomerSubscriptionTypeDTO> {
+       const response = await this._request({
+           path: `/users/customer-subscription-types/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CustomerSubscriptionTypeDTO;
+   }
+
 }
