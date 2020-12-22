@@ -1,5 +1,5 @@
 import { LangValue } from './LangValue';
-import { AddressDTO } from './AddressDTO';
+import { AddressDraftDTO } from './AddressDraftDTO';
 
 export interface StockLocationDTO {
   version?: number;
@@ -9,7 +9,7 @@ export interface StockLocationDTO {
   storeAvailability?: string[];
   name: LangValue[];
   description?: LangValue[];
-  address: AddressDTO;
+  address: AddressDraftDTO;
   _id: string;
   createdAt: number;
   updatedAt: number;
