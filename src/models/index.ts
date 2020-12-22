@@ -197,6 +197,7 @@ export * from "./RoleFilterResultDTO";
 export * from "./SetCustomFieldDTO";
 export * from "./ShippingConfigDTO";
 export * from "./ShippingConfigDraftDTO";
+export * from "./ShippingConfigFilterResultDTO";
 export * from "./ShippingDTO";
 export * from "./ShippingDataDTO";
 export * from "./ShippingDeliveryDTO";

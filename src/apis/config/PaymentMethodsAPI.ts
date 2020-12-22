@@ -28,6 +28,18 @@ export class PaymentMethodsAPI extends BaseAPI {
        return (response.json() as unknown) as PaymentMethodFilterResultDTO;
    }
 
+   async getByKey (key: string): Promise<PaymentMethodDTO> {
+       const response = await this._request({
+           path: `/config/payment-methods/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as PaymentMethodDTO;
+   }
+
    async getById (id: string): Promise<PaymentMethodDTO> {
        const response = await this._request({
            path: `/config/payment-methods/${encodeURIComponent(id)}`,

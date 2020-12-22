@@ -28,6 +28,18 @@ export class MerchantsAPI extends BaseAPI {
        return (response.json() as unknown) as MerchantDTO;
    }
 
+   async getByKey (key: string): Promise<MerchantDTO> {
+       const response = await this._request({
+           path: `/merchandise/merchants/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as MerchantDTO;
+   }
+
    async getById (id: string): Promise<MerchantDTO> {
        const response = await this._request({
            path: `/merchandise/merchants/${encodeURIComponent(id)}`,
@@ -56,18 +68,6 @@ export class MerchantsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/merchants/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as MerchantDTO;
-   }
-
-   async getByKey (key: string): Promise<MerchantDTO> {
-       const response = await this._request({
-           path: `/merchandise/merchants/key=${encodeURIComponent(key)}`,
-           method: 'GET',
            
            
            

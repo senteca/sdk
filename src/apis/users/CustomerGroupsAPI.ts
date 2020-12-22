@@ -28,6 +28,18 @@ export class CustomerGroupsAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerGroupFilterResultDTO;
    }
 
+   async getByKey (key: string): Promise<CustomerGroupDTO> {
+       const response = await this._request({
+           path: `/users/customer-groups/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CustomerGroupDTO;
+   }
+
    async getById (id: string): Promise<CustomerGroupDTO> {
        const response = await this._request({
            path: `/users/customer-groups/${encodeURIComponent(id)}`,
@@ -56,18 +68,6 @@ export class CustomerGroupsAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-groups/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as CustomerGroupDTO;
-   }
-
-   async getByKey (key: string): Promise<CustomerGroupDTO> {
-       const response = await this._request({
-           path: `/users/customer-groups/key=${encodeURIComponent(key)}`,
-           method: 'GET',
            
            
            
