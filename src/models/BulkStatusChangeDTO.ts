@@ -7,6 +7,6 @@ export interface BulkStatusChangeDTO {
 
 export enum BulkStatusChangeDTOStatusEnum {
     Published = 'published',  
-    Address = 'address',  
+    Unpublished = 'unpublished',  
     Delisted = 'delisted',  
 }

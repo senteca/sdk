@@ -28,6 +28,18 @@ export class TaxCategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as TaxCategoryFilterResultDTO;
    }
 
+   async getByKey (key: string): Promise<TaxCategoryDTO> {
+       const response = await this._request({
+           path: `/config/tax-categories/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as TaxCategoryDTO;
+   }
+
    async getById (id: string): Promise<TaxCategoryDTO> {
        const response = await this._request({
            path: `/config/tax-categories/${encodeURIComponent(id)}`,
@@ -56,18 +68,6 @@ export class TaxCategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/tax-categories/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as TaxCategoryDTO;
-   }
-
-   async getByKey (key: string): Promise<TaxCategoryDTO> {
-       const response = await this._request({
-           path: `/config/tax-categories/key=${encodeURIComponent(key)}`,
-           method: 'GET',
            
            
            

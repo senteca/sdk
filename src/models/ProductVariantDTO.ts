@@ -11,8 +11,15 @@ export interface ProductVariantDTO {
   sku: string;
   masterBarcode?: string;
   barcodes?: string[];
+  collapseKey?: string;
+  collapseMode?: ProductVariantDTOCollapseModeEnum;
   aliasImagesFrom?: string;
   images?: ImageDTO[];
   shippingData?: ShippingDataDTO;
 }
 
+export enum ProductVariantDTOCollapseModeEnum {
+    None = 'none',  
+    Id = 'id',  
+    Custom = 'custom',  
+}

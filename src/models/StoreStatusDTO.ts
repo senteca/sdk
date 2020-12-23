@@ -6,6 +6,6 @@ export interface StoreStatusDTO {
 
 export enum StoreStatusDTOStatusEnum {
     Published = 'published',  
-    Address = 'address',  
+    Unpublished = 'unpublished',  
     Delisted = 'delisted',  
 }

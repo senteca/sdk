@@ -40,6 +40,30 @@ export class StockLocationsAPI extends BaseAPI {
        return (response.json() as unknown) as void;
    }
 
+   async getByKey (key: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<StockLocationDTO> {
+       const response = await this._request({
+           path: `/merchandise/stock-locations/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as StockLocationDTO;
+   }
+
+   async updateByKey (key: string, dto: StockLocationDraftDTO): Promise<StockLocationDTO> {
+       const response = await this._request({
+           path: `/merchandise/stock-locations/key=${encodeURIComponent(key)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as StockLocationDTO;
+   }
+
    async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<StockLocationDTO> {
        const response = await this._request({
            path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
@@ -72,30 +96,6 @@ export class StockLocationsAPI extends BaseAPI {
            
            
            
-        });
-       return (response.json() as unknown) as StockLocationDTO;
-   }
-
-   async getByKey (key: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<StockLocationDTO> {
-       const response = await this._request({
-           path: `/merchandise/stock-locations/key=${encodeURIComponent(key)}`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as StockLocationDTO;
-   }
-
-   async updateByKey (key: string, dto: StockLocationDraftDTO): Promise<StockLocationDTO> {
-       const response = await this._request({
-           path: `/merchandise/stock-locations/key=${encodeURIComponent(key)}`,
-           method: 'PUT',
-           
-           body: dto,
-           
-           contentType: 'application/json',
         });
        return (response.json() as unknown) as StockLocationDTO;
    }

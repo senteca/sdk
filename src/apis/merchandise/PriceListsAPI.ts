@@ -28,6 +28,18 @@ export class PriceListsAPI extends BaseAPI {
        return (response.json() as unknown) as PriceListFilterResultDTO;
    }
 
+   async getByKey (key: string): Promise<PriceListDTO> {
+       const response = await this._request({
+           path: `/merchandise/price-lists/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as PriceListDTO;
+   }
+
    async getById (id: string): Promise<PriceListDTO> {
        const response = await this._request({
            path: `/merchandise/price-lists/${encodeURIComponent(id)}`,
@@ -56,18 +68,6 @@ export class PriceListsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/price-lists/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as PriceListDTO;
-   }
-
-   async getByKey (key: string): Promise<PriceListDTO> {
-       const response = await this._request({
-           path: `/merchandise/price-lists/key=${encodeURIComponent(key)}`,
-           method: 'GET',
            
            
            

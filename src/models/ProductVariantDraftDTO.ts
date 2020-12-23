@@ -8,6 +8,8 @@ export interface ProductVariantDraftDTO {
   sku: string;
   masterBarcode?: string;
   barcodes?: string[];
+  collapseKey?: string;
+  collapseMode?: ProductVariantDraftDTOCollapseModeEnum;
   attributes?: ProductAttributeDraftDTO[];
   offers?: OfferDraftDTO[];
   aliasImagesFrom?: string;
@@ -15,3 +17,8 @@ export interface ProductVariantDraftDTO {
   shippingData?: ShippingDataDTO;
 }
 
+export enum ProductVariantDraftDTOCollapseModeEnum {
+    None = 'none',  
+    Id = 'id',  
+    Custom = 'custom',  
+}

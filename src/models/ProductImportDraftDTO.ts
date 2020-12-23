@@ -18,8 +18,6 @@ export interface ProductImportDraftDTO {
   name: LangValue[];
   description?: LangValue[];
   content?: ContentDTO[];
-  collapseKey?: string;
-  collapseMode?: ProductImportDraftDTOCollapseModeEnum;
   attributes?: ProductAttributeDraftDTO[];
   categories?: IdReferenceDTO[];
   brands?: IdReferenceDTO[];
@@ -39,8 +37,3 @@ export interface ProductImportDraftDTO {
   externalCollections?: IdReferenceDTO[];
 }
 
-export enum ProductImportDraftDTOCollapseModeEnum {
-    None = 'none',  
-    Id = 'id',  
-    Color = 'color',  
-}
