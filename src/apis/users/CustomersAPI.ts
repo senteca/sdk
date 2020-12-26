@@ -429,7 +429,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       
    }
 
 }

@@ -14,7 +14,7 @@ export class {{name}} extends BaseAPI {
            {{#hasBasicAuth}}basicAuth,{{/hasBasicAuth}}
            {{#hasContentType}}contentType: '{{{contentType}}}',{{/hasContentType}}
         });
-       return (response.json() as unknown) as {{response}};
+       {{#isNotVoid}}return (response.json() as unknown) as {{response}};{{/isNotVoid}}
    }
 
  {{/methods}}

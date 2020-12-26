@@ -10,7 +10,7 @@ export class WishListsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       
    }
 
 }

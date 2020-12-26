@@ -20,7 +20,7 @@ export class ProductsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as void;
+       
    }
 
    async bulkUnlink (dto: BulkLinkUpdateDTO): Promise<void> {
@@ -32,7 +32,7 @@ export class ProductsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as void;
+       
    }
 
    async bulkDelete (dto: BulkDeleteDTO): Promise<void> {
@@ -44,7 +44,7 @@ export class ProductsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as void;
+       
    }
 
    async bulkSetStatus (dto: BulkStatusChangeDTO): Promise<void> {
@@ -56,7 +56,7 @@ export class ProductsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as void;
+       
    }
 
    async create (dto: ProductDraftDTO): Promise<ProductDTO> {
@@ -92,7 +92,7 @@ export class ProductsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as void;
+       
    }
 
    async search (query?: { sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string, storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ProductSearchResultDTO> {
@@ -176,7 +176,7 @@ export class ProductsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as void;
+       
    }
 
    async setAssets (id: string, dto: string[]): Promise<void> {
@@ -188,7 +188,7 @@ export class ProductsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as void;
+       
    }
 
    async uploadImages (sku: string, dto: any): Promise<void> {
@@ -200,7 +200,7 @@ export class ProductsAPI extends BaseAPI {
            
            contentType: 'multipart/form-data',
         });
-       return (response.json() as unknown) as void;
+       
    }
 
    async deleteImage (sku: string, query: { indexes: string[] }): Promise<void> {
@@ -212,7 +212,7 @@ export class ProductsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as void;
+       
    }
 
    async swapImageIndex (sku: string, dto: SwapIndexDTO): Promise<void> {
@@ -224,7 +224,7 @@ export class ProductsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as void;
+       
    }
 
 }

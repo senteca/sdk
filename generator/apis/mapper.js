@@ -49,6 +49,7 @@ module.exports = class ApiMapper {
     const hasBasicAuth = parameters.some((m) => m.text.startsWith('basicAuth'));
     const hasQueryParam = parameters.some((p) => /^query\??\:/.test(p.text));
     const hasBodyParam = !!bodyParam;
+    const isNotVoid = response !== 'void';
 
     return {
       url,
@@ -61,6 +62,7 @@ module.exports = class ApiMapper {
       hasBasicAuth,
       hasQueryParam,
       hasBodyParam,
+      isNotVoid,
     };
   }
 

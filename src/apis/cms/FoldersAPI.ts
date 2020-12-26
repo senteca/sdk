@@ -62,7 +62,7 @@ export class FoldersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as void;
+       
    }
 
 }

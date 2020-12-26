@@ -12,7 +12,7 @@ export class MediaAPI extends BaseAPI {
            
            contentType: 'multipart/form-data',
         });
-       return (response.json() as unknown) as void;
+       
    }
 
    async filter (query?: { filter?: string, sort?: string, limit?: number, offset?: number, storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<MediaFilterResultDTO> {
