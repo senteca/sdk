@@ -20,7 +20,7 @@ export interface ShippingDTO {
   moduleMethodKey?: string;
   price?: MoneyDTO;
   taxedPrice?: TaxedPriceDTO;
-  taxCategory: KeyReferenceDTO;
+  taxCategory: IdReferenceDTO;
   taxRate: TaxRateDTO;
   discountedPrice?: DiscountedLineItemPriceDTO;
   isCOD?: boolean;
@@ -44,7 +44,6 @@ export enum ShippingDTOStatusEnum {
 }
 export enum ShippingDTOTypeEnum {
     ShippingServiceProvider = 'ShippingServiceProvider',  
-    PickUpFromStore = 'PickUpFromStore',  
     Custom = 'Custom',  
 }
 export enum ShippingDTOAuthorityEnum {

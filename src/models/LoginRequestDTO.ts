@@ -1,11 +1,10 @@
-import { BasketRequestDTO } from './BasketRequestDTO';
 
 export interface LoginRequestDTO {
   email: string;
   password: string;
   isOrgUser?: boolean;
   responseMode?: LoginRequestDTOResponseModeEnum;
-  basketRequest?: BasketRequestDTO;
+  basketRequest?: undefined;
 }
 
 export enum LoginRequestDTOResponseModeEnum {

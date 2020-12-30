@@ -1,36 +1,39 @@
-import { KeyReferenceDTO } from './KeyReferenceDTO';
-import { StoreStatusDTO } from './StoreStatusDTO';
+import { IdReferenceDTO } from './IdReferenceDTO';
 import { LangValue } from './LangValue';
 import { ContentDTO } from './ContentDTO';
-import { ProductAttributeDraftDTO } from './ProductAttributeDraftDTO';
-import { IdReferenceDTO } from './IdReferenceDTO';
-import { AssetDTO } from './AssetDTO';
-import { CustomField } from './CustomField';
-import { ProductVariantDraftDTO } from './ProductVariantDraftDTO';
 import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
+import { AssetDTO } from './AssetDTO';
+import { ProductVariantDraftDTO } from './ProductVariantDraftDTO';
+import { CustomField } from './CustomField';
 
 export interface ProductDraftDTO {
   version?: number;
-  type: KeyReferenceDTO;
-  externalId?: string;
-  storeStatus?: StoreStatusDTO[];
-  taxCategory: KeyReferenceDTO;
+  taxCategory: IdReferenceDTO;
   name: LangValue[];
-  description?: LangValue[];
-  content?: ContentDTO[];
-  attributes?: ProductAttributeDraftDTO[];
+  description: LangValue[];
+  shortDescription?: LangValue[];
+  weight: number;
+  contents: ContentDTO[];
   categories?: IdReferenceDTO[];
+  masterCategoriesPath?: IdReferenceDTO[];
   brands?: IdReferenceDTO[];
   collections?: IdReferenceDTO[];
+  status: ProductDraftDTOStatusEnum;
+  reviewRatingStatistics?: ReviewRatingStatisticsDTO;
   assets?: AssetDTO[];
-  custom?: CustomField[];
-  masterVariantId?: string;
-  variants?: ProductVariantDraftDTO[];
   slug: LangValue[];
   metaTitle?: LangValue[];
   metaDescription?: LangValue[];
   metaKeywords?: LangValue[];
-  score?: number;
-  reviewRatingStatistics?: ReviewRatingStatisticsDTO;
+  masterVariantId?: string;
+  variants?: ProductVariantDraftDTO[];
+  metadata?: any;
+  custom?: CustomField[];
+  externalId?: string;
 }
 
+export enum ProductDraftDTOStatusEnum {
+    Published = 'published',  
+    Unpublished = 'unpublished',  
+    Delisted = 'delisted',  
+}

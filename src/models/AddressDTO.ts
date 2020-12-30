@@ -3,7 +3,7 @@ import { AddressVerifiedDTO } from './AddressVerifiedDTO';
 import { CustomField } from './CustomField';
 
 export interface AddressDTO {
-  _id: string;
+  _id?: string;
   createdAt: number;
   updatedAt: number;
   version?: number;

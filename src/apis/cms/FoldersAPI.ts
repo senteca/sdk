@@ -17,7 +17,7 @@ export class FoldersAPI extends BaseAPI {
        return (response.json() as unknown) as FolderDTO;
    }
 
-   async filter (query?: { filter?: string, sort?: string, limit?: number, offset?: number, storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<FolderFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<FolderFilterResultDTO> {
        const response = await this._request({
            path: `/cms/folders`,
            method: 'GET',

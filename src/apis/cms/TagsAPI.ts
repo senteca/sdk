@@ -16,7 +16,7 @@ export class TagsAPI extends BaseAPI {
        return (response.json() as unknown) as TagDTO;
    }
 
-   async filter (query?: { filter?: string, sort?: string, limit?: number, offset?: number, storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<TagFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<TagFilterResultDTO> {
        const response = await this._request({
            path: `/cms/tags`,
            method: 'GET',

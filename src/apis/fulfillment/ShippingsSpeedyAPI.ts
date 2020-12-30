@@ -178,6 +178,18 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
+   async unsetCountry (orderId: string, shippingId: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/country`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
    async setCity (orderId: string, shippingId: string, dto: SpeedyCityDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/city`,
@@ -186,6 +198,18 @@ export class ShippingsSpeedyAPI extends BaseAPI {
            body: dto,
            
            contentType: 'application/json',
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
+   async unsetCity (orderId: string, shippingId: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/city`,
+           method: 'DELETE',
+           
+           
+           
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -202,6 +226,18 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
+   async unsetQuarter (orderId: string, shippingId: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/quarter`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
    async setStreet (orderId: string, shippingId: string, dto: SpeedyStreetDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/street`,
@@ -214,6 +250,18 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
+   async unsetStreet (orderId: string, shippingId: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/street`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
    async setOffice (orderId: string, shippingId: string, dto: SpeedyOfficeDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/office`,
@@ -222,6 +270,18 @@ export class ShippingsSpeedyAPI extends BaseAPI {
            body: dto,
            
            contentType: 'application/json',
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
+   async unsetOffice (orderId: string, shippingId: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/office`,
+           method: 'DELETE',
+           
+           
+           
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }

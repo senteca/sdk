@@ -19,7 +19,7 @@ export class PagesAPI extends BaseAPI {
        return (response.json() as unknown) as PageDTO;
    }
 
-   async filter (query?: { filter?: string, sort?: string, limit?: number, offset?: number, storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<PageFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<PageFilterResultDTO> {
        const response = await this._request({
            path: `/cms/pages`,
            method: 'GET',

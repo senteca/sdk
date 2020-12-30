@@ -84,6 +84,18 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
+   async unsetCountry (): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-shippings/speedy/country`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
    async setCity (dto: SpeedyCityDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/city`,
@@ -92,6 +104,18 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            body: dto,
            
            contentType: 'application/json',
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
+   async unsetCity (): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-shippings/speedy/city`,
+           method: 'DELETE',
+           
+           
+           
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -108,6 +132,18 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
+   async unsetQuarter (): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-shippings/speedy/quarter`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
    async setStreet (dto: SpeedyStreetDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/street`,
@@ -120,6 +156,18 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
+   async unsetStreet (): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-shippings/speedy/street`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
    async setOffice (dto: SpeedyOfficeDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/office`,
@@ -128,6 +176,18 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            body: dto,
            
            contentType: 'application/json',
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
+   async unsetOffice (): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-shippings/speedy/office`,
+           method: 'DELETE',
+           
+           
+           
+           
         });
        return (response.json() as unknown) as OrderDTO;
    }

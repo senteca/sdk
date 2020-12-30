@@ -1,10 +1,34 @@
 import { BaseAPI } from '../../runtime';
+import { AttributeSearchResultDTO } from '../../models/AttributeSearchResultDTO';
+import { AttributeFilterResultDTO } from '../../models/AttributeFilterResultDTO';
 import { AttributeDraftDTO } from '../../models/AttributeDraftDTO';
 import { AttributeDTO } from '../../models/AttributeDTO';
-import { AttributeFilterResultDTO } from '../../models/AttributeFilterResultDTO';
-import { AttributeSearchResultDTO } from '../../models/AttributeSearchResultDTO';
 
 export class AttributesAPI extends BaseAPI {
+   async search (query: { language: string, term: string, expand?: string, limit?: number, offset?: number }): Promise<AttributeSearchResultDTO> {
+       const response = await this._request({
+           path: `/merchandise/attributes/search`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as AttributeSearchResultDTO;
+   }
+
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<AttributeFilterResultDTO> {
+       const response = await this._request({
+           path: `/merchandise/attributes`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as AttributeFilterResultDTO;
+   }
+
    async create (dto: AttributeDraftDTO): Promise<AttributeDTO> {
        const response = await this._request({
            path: `/merchandise/attributes`,
@@ -17,47 +41,11 @@ export class AttributesAPI extends BaseAPI {
        return (response.json() as unknown) as AttributeDTO;
    }
 
-   async filter (query?: { filter?: string, sort?: string, limit?: number, offset?: number, storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<AttributeFilterResultDTO> {
-       const response = await this._request({
-           path: `/merchandise/attributes`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as AttributeFilterResultDTO;
-   }
-
-   async import (dto: AttributeDraftDTO[]): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/attributes/import`,
-           method: 'POST',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       
-   }
-
-   async search (query?: { sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string, storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<AttributeSearchResultDTO> {
-       const response = await this._request({
-           path: `/merchandise/attributes/search`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as AttributeSearchResultDTO;
-   }
-
-   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<AttributeDTO> {
+   async getById (id: string): Promise<AttributeDTO> {
        const response = await this._request({
            path: `/merchandise/attributes/${encodeURIComponent(id)}`,
            method: 'GET',
-           query: this._stringifyQuery(query),
+           
            
            
            
@@ -65,7 +53,7 @@ export class AttributesAPI extends BaseAPI {
        return (response.json() as unknown) as AttributeDTO;
    }
 
-   async updateById (id: string, dto: AttributeDraftDTO): Promise<AttributeDTO> {
+   async update (id: string, dto: AttributeDraftDTO): Promise<AttributeDTO> {
        const response = await this._request({
            path: `/merchandise/attributes/${encodeURIComponent(id)}`,
            method: 'PUT',
@@ -77,7 +65,7 @@ export class AttributesAPI extends BaseAPI {
        return (response.json() as unknown) as AttributeDTO;
    }
 
-   async deleteById (id: string): Promise<AttributeDTO> {
+   async delete (id: string): Promise<AttributeDTO> {
        const response = await this._request({
            path: `/merchandise/attributes/${encodeURIComponent(id)}`,
            method: 'DELETE',
@@ -89,16 +77,16 @@ export class AttributesAPI extends BaseAPI {
        return (response.json() as unknown) as AttributeDTO;
    }
 
-   async getByName (externalId: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<AttributeDTO> {
+   async import (dto: AttributeDraftDTO[]): Promise<AttributeDTO[]> {
        const response = await this._request({
-           path: `/merchandise/attributes/name=${encodeURIComponent(name)}`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
+           path: `/merchandise/attributes/import`,
+           method: 'POST',
            
+           body: dto,
            
-           
+           contentType: 'application/json',
         });
-       return (response.json() as unknown) as AttributeDTO;
+       return (response.json() as unknown) as AttributeDTO[];
    }
 
    async updateByName (name: string, dto: AttributeDraftDTO): Promise<AttributeDTO> {

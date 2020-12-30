@@ -1,5 +1,5 @@
 import { LangValue } from './LangValue';
-import { KeyReferenceDTO } from './KeyReferenceDTO';
+import { IdReferenceDTO } from './IdReferenceDTO';
 import { ZoneRateDTO } from './ZoneRateDTO';
 import { CodFeeTableOrderTotalAmountDTO } from './CodFeeTableOrderTotalAmountDTO';
 
@@ -10,11 +10,9 @@ export interface ShippingMethodDTO {
   version?: number;
   name: LangValue[];
   description?: LangValue[];
-  taxCategory: KeyReferenceDTO;
-  storeKey: string;
-  authority: ShippingMethodDTOAuthorityEnum;
-  merchantKey?: string;
+  taxCategory: IdReferenceDTO;
   type: ShippingMethodDTOTypeEnum;
+  configKey?: undefined;
   moduleKey?: string;
   methodKey?: string;
   predicate?: string;
@@ -24,13 +22,8 @@ export interface ShippingMethodDTO {
   codFeeTableOrderTotalAmount?: CodFeeTableOrderTotalAmountDTO[];
 }
 
-export enum ShippingMethodDTOAuthorityEnum {
-    Platform = 'Platform',  
-    Merchant = 'Merchant',  
-}
 export enum ShippingMethodDTOTypeEnum {
     ShippingServiceProvider = 'ShippingServiceProvider',  
-    PickUpFromStore = 'PickUpFromStore',  
     Custom = 'Custom',  
 }
 export enum ShippingMethodDTOCodFeeRateCalculationTypeEnum {

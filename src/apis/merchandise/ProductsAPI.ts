@@ -1,17 +1,22 @@
 import { BaseAPI } from '../../runtime';
 import { BulkLinkUpdateDTO } from '../../models/BulkLinkUpdateDTO';
+import { ProductDTO } from '../../models/ProductDTO';
 import { BulkDeleteDTO } from '../../models/BulkDeleteDTO';
 import { BulkStatusChangeDTO } from '../../models/BulkStatusChangeDTO';
 import { ProductDraftDTO } from '../../models/ProductDraftDTO';
-import { ProductDTO } from '../../models/ProductDTO';
-import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
-import { ProductImportDraftDTO } from '../../models/ProductImportDraftDTO';
-import { ProductSearchResultDTO } from '../../models/ProductSearchResultDTO';
+import { OfferDraftDTO } from '../../models/OfferDraftDTO';
+import { OfferUpdateDTO } from '../../models/OfferUpdateDTO';
+import { ProductStatusUpdateDTO } from '../../models/ProductStatusUpdateDTO';
+import { ProductWeightUpdateDTO } from '../../models/ProductWeightUpdateDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { InventoryUpdateDTO } from '../../models/InventoryUpdateDTO';
+import { AssetDTO } from '../../models/AssetDTO';
+import { ProductSearchResultDTO } from '../../models/ProductSearchResultDTO';
+import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
 import { SwapIndexDTO } from '../../models/SwapIndexDTO';
 
 export class ProductsAPI extends BaseAPI {
-   async bulkLink (dto: BulkLinkUpdateDTO): Promise<void> {
+   async bulkLink (dto: BulkLinkUpdateDTO): Promise<ProductDTO[]> {
        const response = await this._request({
            path: `/merchandise/products/bulk/link`,
            method: 'PATCH',
@@ -20,10 +25,10 @@ export class ProductsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       
+       return (response.json() as unknown) as ProductDTO[];
    }
 
-   async bulkUnlink (dto: BulkLinkUpdateDTO): Promise<void> {
+   async bulkUnlink (dto: BulkLinkUpdateDTO): Promise<ProductDTO[]> {
        const response = await this._request({
            path: `/merchandise/products/bulk/unlink`,
            method: 'PATCH',
@@ -32,10 +37,10 @@ export class ProductsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       
+       return (response.json() as unknown) as ProductDTO[];
    }
 
-   async bulkDelete (dto: BulkDeleteDTO): Promise<void> {
+   async bulkDelete (dto: BulkDeleteDTO): Promise<ProductDTO[]> {
        const response = await this._request({
            path: `/merchandise/products/bulk/delete`,
            method: 'DELETE',
@@ -44,10 +49,10 @@ export class ProductsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       
+       return (response.json() as unknown) as ProductDTO[];
    }
 
-   async bulkSetStatus (dto: BulkStatusChangeDTO): Promise<void> {
+   async bulkSetStatus (dto: BulkStatusChangeDTO): Promise<ProductDTO[]> {
        const response = await this._request({
            path: `/merchandise/products/bulk/status`,
            method: 'PATCH',
@@ -56,7 +61,187 @@ export class ProductsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       
+       return (response.json() as unknown) as ProductDTO[];
+   }
+
+   async import (dto: ProductDraftDTO[]): Promise<ProductDraftDTO[]> {
+       const response = await this._request({
+           path: `/merchandise/products/import`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ProductDraftDTO[];
+   }
+
+   async createVariantOffer (id: string, variantId: string, dto: OfferDraftDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/variants/${encodeURIComponent(variantId)}/offers`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async updateVariantOffer (id: string, variantId: string, dto: OfferUpdateDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/variants/${encodeURIComponent(variantId)}/offers`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async deleteVariantOfferByKey (id: string, variantId: string, priceListKey: string, merchantKey: string): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/${encodeURIComponent(variantId)}/offers/priceListKey=${encodeURIComponent(priceListKey)}/merchantKey=${encodeURIComponent(merchantKey)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async setStatus (id: string, dto: ProductStatusUpdateDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/status`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async setWeight (id: string, dto: ProductWeightUpdateDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/weight`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/custom`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async increaseQuantity (id: string, variantId: string, dto: InventoryUpdateDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/variants/${encodeURIComponent(variantId)}/inventory/quantity/increase`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async decreaseQuantity (id: string, variantId: string, dto: InventoryUpdateDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/variants/${encodeURIComponent(variantId)}/inventory/quantity/decrease`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async setQuantity (id: string, variantId: string, dto: InventoryUpdateDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/variants/${encodeURIComponent(variantId)}/inventory/quantity`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async createAsset (id: string, dto: AssetDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/assets`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async updateAssetByIndex (id: string, index: number, dto: AssetDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async deleteAssetByIndex (id: string, index: number): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async search (query: { language: string, term: string, expand?: string, limit?: number, offset?: number }): Promise<ProductSearchResultDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/search`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as ProductSearchResultDTO;
+   }
+
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<ProductFilterResultDTO> {
+       const response = await this._request({
+           path: `/merchandise/products`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as ProductFilterResultDTO;
    }
 
    async create (dto: ProductDraftDTO): Promise<ProductDTO> {
@@ -71,79 +256,19 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async filter (query?: { filter?: string, sort?: string, limit?: number, offset?: number, storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ProductFilterResultDTO> {
+   async getSlugs (lang: string): Promise<string[]> {
        const response = await this._request({
-           path: `/merchandise/products`,
+           path: `/merchandise/products/slugs/lang=${encodeURIComponent(lang)}`,
            method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as ProductFilterResultDTO;
-   }
-
-   async import (dto: ProductImportDraftDTO[]): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/products/import`,
-           method: 'POST',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       
-   }
-
-   async search (query?: { sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string, storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ProductSearchResultDTO> {
-       const response = await this._request({
-           path: `/merchandise/products/search`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as ProductSearchResultDTO;
-   }
-
-   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ProductDTO> {
-       const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(id)}`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as ProductDTO;
-   }
-
-   async delete (id: string): Promise<ProductDTO> {
-       const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(id)}`,
-           method: 'DELETE',
            
            
            
            
         });
-       return (response.json() as unknown) as ProductDTO;
+       return (response.json() as unknown) as string[];
    }
 
-   async getBySlug (slug: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ProductDTO> {
-       const response = await this._request({
-           path: `/merchandise/products/slug=${encodeURIComponent(slug)}`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as ProductDTO;
-   }
-
-   async getByExternalId (externalId: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ProductDTO> {
+   async getByExternalId (externalId: string, query?: { statuses?: string[], expand?: string }): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products/externalId=${encodeURIComponent(externalId)}`,
            method: 'GET',
@@ -151,6 +276,18 @@ export class ProductsAPI extends BaseAPI {
            
            
            
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async updateByExternalId (externalId: string, dto: ProductDraftDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/externalId=${encodeURIComponent(externalId)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as ProductDTO;
    }
@@ -167,33 +304,57 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<void> {
+   async getById (id: string, query?: { statuses?: string[], expand?: string }): Promise<ProductDTO> {
        const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(id)}/custom`,
-           method: 'PATCH',
+           path: `/merchandise/products/${encodeURIComponent(id)}`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async update (id: string, dto: ProductDraftDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}`,
+           method: 'PUT',
            
            body: dto,
            
            contentType: 'application/json',
         });
-       
+       return (response.json() as unknown) as ProductDTO;
    }
 
-   async setAssets (id: string, dto: string[]): Promise<void> {
+   async delete (id: string): Promise<ProductDTO> {
        const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(id)}/assets`,
-           method: 'PATCH',
+           path: `/merchandise/products/${encodeURIComponent(id)}`,
+           method: 'DELETE',
            
-           body: dto,
            
-           contentType: 'application/json',
+           
+           
         });
-       
+       return (response.json() as unknown) as ProductDTO;
    }
 
-   async uploadImages (sku: string, dto: any): Promise<void> {
+   async getBySlug (slug: string, lang: string, query?: { statuses?: string[], expand?: string }): Promise<ProductDTO> {
        const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(sku)}/images`,
+           path: `/merchandise/products/slug=${encodeURIComponent(slug)}/lang=${encodeURIComponent(lang)}`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async uploadImage (id: string, variantId: string, dto: any): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/variants/${encodeURIComponent(variantId)}/images/upload`,
            method: 'POST',
            
            body: dto,
@@ -203,11 +364,11 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async deleteImage (sku: string, query: { indexes: string[] }): Promise<void> {
+   async uploadImageById (id: string, variantId: string, imageId: string): Promise<void> {
        const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(sku)}/images`,
-           method: 'DELETE',
-           query: this._stringifyQuery(query),
+           path: `/merchandise/products/${encodeURIComponent(id)}/variants/${encodeURIComponent(variantId)}/images/${encodeURIComponent(imageId)}`,
+           method: 'PATCH',
+           
            
            
            
@@ -215,16 +376,40 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async swapImageIndex (sku: string, dto: SwapIndexDTO): Promise<void> {
+   async swapImageIndex (id: string, variantId: string, dto: SwapIndexDTO): Promise<ProductDTO> {
        const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(sku)}/images/swap`,
-           method: 'PATCH',
+           path: `/merchandise/products/${encodeURIComponent(id)}/variants/${encodeURIComponent(variantId)}/images/index/swap`,
+           method: 'PUT',
            
            body: dto,
            
            contentType: 'application/json',
         });
-       
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async deleteImage (id: string, variantId: string, index: number): Promise<any> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/variants/${encodeURIComponent(variantId)}/images/${encodeURIComponent(index)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as any;
+   }
+
+   async deleteImages (id: string): Promise<any> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/images`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as any;
    }
 
 }

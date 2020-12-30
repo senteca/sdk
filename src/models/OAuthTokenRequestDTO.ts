@@ -1,8 +1,7 @@
-import { BasketRequestDTO } from './BasketRequestDTO';
 
 export interface OAuthTokenRequestDTO {
   responseMode?: OAuthTokenRequestDTOResponseModeEnum;
-  basketRequest: BasketRequestDTO;
+  basketRequest?: undefined;
 }
 
 export enum OAuthTokenRequestDTOResponseModeEnum {

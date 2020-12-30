@@ -1,6 +1,7 @@
 
 export interface ShippingConfigDraftDTO {
   version?: number;
+  key: string;
   storeKey: string;
   authority: ShippingConfigDraftDTOAuthorityEnum;
   merchantKey: string;

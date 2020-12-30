@@ -45,10 +45,10 @@ export enum CustomFieldDTOResourceTypeIdEnum {
     Payment = 'payment',  
     Merchant = 'merchant',  
     Product = 'product',  
-    ProductType = 'product-type',  
     Shipping = 'shipping',  
     TaxCategory = 'tax-category',  
     PriceList = 'price-list',  
+    ShippingConfig = 'shipping-config',  
     ShippingMethod = 'shipping-method',  
     PaymentMethod = 'payment-method',  
     State = 'state',  
@@ -56,5 +56,4 @@ export enum CustomFieldDTOResourceTypeIdEnum {
     CmsType = 'cms-type',  
     StockLocation = 'stock-location',  
     Role = 'role',  
-    Zone = 'zone',  
 }

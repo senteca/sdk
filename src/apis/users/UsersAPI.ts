@@ -69,7 +69,7 @@ export class UsersAPI extends BaseAPI {
        return (response.json() as unknown) as UserDTO;
    }
 
-   async filter (query?: { filter?: string, sort?: string, limit?: number, offset?: number, storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<UserFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<UserFilterResultDTO> {
        const response = await this._request({
            path: `/users/users`,
            method: 'GET',

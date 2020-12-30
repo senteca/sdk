@@ -25,8 +25,6 @@ import { ShippingDeliveryParcelDTO } from '../../models/ShippingDeliveryParcelDT
 import { ShippingDeliveryParcelDraftDTO } from '../../models/ShippingDeliveryParcelDraftDTO';
 import { PaymentStatusUpdateDTO } from '../../models/PaymentStatusUpdateDTO';
 import { PaymentTransactionDraftDTO } from '../../models/PaymentTransactionDraftDTO';
-import { PaymentInterfaceInteractionDraftDTO } from '../../models/PaymentInterfaceInteractionDraftDTO';
-import { MakePaymentInteractionDTO } from '../../models/MakePaymentInteractionDTO';
 
 export class OrdersAPI extends BaseAPI {
    async import (dto: OrderImportDTO[]): Promise<OrderDTO[]> {
@@ -101,7 +99,7 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async filter (query?: { filter?: string, sort?: string, limit?: number, offset?: number, storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<OrderFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
        const response = await this._request({
            path: `/fulfillment/orders`,
            method: 'GET',
@@ -447,30 +445,6 @@ export class OrdersAPI extends BaseAPI {
            contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
-   }
-
-   async createPaymentInterfaceInteraction (id: string, paymentId: string, dto: PaymentInterfaceInteractionDraftDTO): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/orders/${encodeURIComponent(id)}/payments/${encodeURIComponent(paymentId)}/interface-interactions`,
-           method: 'POST',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as OrderDTO;
-   }
-
-   async createPaymentTransactionInterfaceInteraction (id: string, paymentId: string, transactionId: string, dto: MakePaymentInteractionDTO): Promise<any> {
-       const response = await this._request({
-           path: `/fulfillment/orders/${encodeURIComponent(id)}/payments/${encodeURIComponent(paymentId)}/transactions/${encodeURIComponent(transactionId)}/interface-interactions`,
-           method: 'POST',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as any;
    }
 
 }
