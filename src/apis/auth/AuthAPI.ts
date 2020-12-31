@@ -78,6 +78,18 @@ export class AuthAPI extends BaseAPI {
        return (response.json() as unknown) as TokenResponseDTO;
    }
 
+   async refreshToken (dto: TokenRequestDTO): Promise<TokenResponseDTO> {
+       const response = await this._request({
+           path: `/auth/refresh`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as TokenResponseDTO;
+   }
+
    async register (dto: CustomerDraftDTO): Promise<TokenResponseDTO> {
        const response = await this._request({
            path: `/auth/register`,

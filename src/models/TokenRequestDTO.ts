@@ -1,4 +1,3 @@
-import { BasketRequestDTO } from './BasketRequestDTO';
 
 export interface TokenRequestDTO {
   grantType: TokenRequestDTOGrantTypeEnum;
@@ -8,7 +7,7 @@ export interface TokenRequestDTO {
   isOrgUser?: boolean;
   anonymousId?: string;
   responseMode?: TokenRequestDTOResponseModeEnum;
-  basketRequest?: BasketRequestDTO;
+  basketRequest?: undefined;
 }
 
 export enum TokenRequestDTOGrantTypeEnum {
