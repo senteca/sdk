@@ -6,6 +6,7 @@ export interface CmsContentDTO {
   key?: string;
   tags: string[];
   data: CmsContentDataDTO[];
+  dataSchema: any;
   _id: string;
   createdAt: number;
   updatedAt: number;

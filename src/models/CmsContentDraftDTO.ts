@@ -6,5 +6,6 @@ export interface CmsContentDraftDTO {
   key?: string;
   tags: string[];
   data: CmsContentDataDTO[];
+  dataSchema: any;
 }
 
