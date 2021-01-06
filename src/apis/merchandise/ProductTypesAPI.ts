@@ -28,6 +28,18 @@ export class ProductTypesAPI extends BaseAPI {
        return (response.json() as unknown) as ProductTypeFilterResultDTO;
    }
 
+   async getByKey (key: string): Promise<ProductTypeDTO> {
+       const response = await this._request({
+           path: `/merchandise/product-types/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as ProductTypeDTO;
+   }
+
    async getById (id: string): Promise<ProductTypeDTO> {
        const response = await this._request({
            path: `/merchandise/product-types/${encodeURIComponent(id)}`,
