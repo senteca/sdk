@@ -16,7 +16,7 @@ export class StockLocationsAPI extends BaseAPI {
        return (response.json() as unknown) as StockLocationDTO;
    }
 
-   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<StockLocationFilterResultDTO> {
+   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<StockLocationFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/stock-locations`,
            method: 'GET',
@@ -28,11 +28,23 @@ export class StockLocationsAPI extends BaseAPI {
        return (response.json() as unknown) as StockLocationFilterResultDTO;
    }
 
-   async getById (id: string): Promise<StockLocationDTO> {
+   async import (dto: StockLocationDraftDTO[]): Promise<void> {
        const response = await this._request({
-           path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
-           method: 'GET',
+           path: `/merchandise/stock-locations/import`,
+           method: 'POST',
            
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async getByKey (key: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<StockLocationDTO> {
+       const response = await this._request({
+           path: `/merchandise/stock-locations/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
            
            
            
@@ -40,7 +52,31 @@ export class StockLocationsAPI extends BaseAPI {
        return (response.json() as unknown) as StockLocationDTO;
    }
 
-   async update (id: string, dto: StockLocationDraftDTO): Promise<StockLocationDTO> {
+   async updateByKey (key: string, dto: StockLocationDraftDTO): Promise<StockLocationDTO> {
+       const response = await this._request({
+           path: `/merchandise/stock-locations/key=${encodeURIComponent(key)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as StockLocationDTO;
+   }
+
+   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<StockLocationDTO> {
+       const response = await this._request({
+           path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as StockLocationDTO;
+   }
+
+   async updateById (id: string, dto: StockLocationDraftDTO): Promise<StockLocationDTO> {
        const response = await this._request({
            path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
            method: 'PUT',
@@ -52,7 +88,7 @@ export class StockLocationsAPI extends BaseAPI {
        return (response.json() as unknown) as StockLocationDTO;
    }
 
-   async delete (id: string): Promise<StockLocationDTO> {
+   async deleteById (id: string): Promise<StockLocationDTO> {
        const response = await this._request({
            path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
            method: 'DELETE',

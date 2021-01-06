@@ -1,6 +1,7 @@
 
 export interface BulkStatusChangeDTO {
-  filters: string;
+  filter: string;
+  storeKey: string;
   status: BulkStatusChangeDTOStatusEnum;
 }
 

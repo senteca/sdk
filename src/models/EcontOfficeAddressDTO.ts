@@ -1,18 +1,15 @@
+import { EcontCityDTO } from './EcontCityDTO';
+import { EcontGeoLocationDTO } from './EcontGeoLocationDTO';
 
 export interface EcontOfficeAddressDTO {
-  countryId: number;
-  siteId: number;
-  siteType: string;
-  siteName: string;
-  postCode: string;
-  streetId: number;
-  streetType: string;
-  streetName: string;
-  streetNo: string;
-  x: number;
-  y: number;
-  fullAddressString: string;
-  siteAddressString: string;
-  localAddressString: string;
+  id: number;
+  city: EcontCityDTO;
+  fullAddress: string;
+  quarter: string;
+  street: string;
+  num: string;
+  other: string;
+  location: EcontGeoLocationDTO;
+  zip: string;
 }
 

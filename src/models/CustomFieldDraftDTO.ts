@@ -42,6 +42,7 @@ export enum CustomFieldDraftDTOResourceTypeIdEnum {
     Payment = 'payment',  
     Merchant = 'merchant',  
     Product = 'product',  
+    ProductType = 'product-type',  
     Shipping = 'shipping',  
     TaxCategory = 'tax-category',  
     PriceList = 'price-list',  
@@ -53,4 +54,5 @@ export enum CustomFieldDraftDTOResourceTypeIdEnum {
     CmsType = 'cms-type',  
     StockLocation = 'stock-location',  
     Role = 'role',  
+    Zone = 'zone',  
 }

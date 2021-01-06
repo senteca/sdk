@@ -3,9 +3,8 @@ import { AssetSourceDTO } from './AssetSourceDTO';
 import { CustomField } from './CustomField';
 
 export interface AssetDTO {
-  key?: string;
+  key: string;
   name: LangValue[];
-  link?: string;
   sources: AssetSourceDTO[];
   description?: LangValue[];
   tags?: string[];

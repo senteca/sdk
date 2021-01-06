@@ -1,6 +1,5 @@
 export * from "./AttributesAPI";
 export * from "./BrandsAPI";
-export * from "./CatalogAPI";
 export * from "./CategoriesAPI";
 export * from "./CollectionsAPI";
 export * from "./InventoriesAPI";

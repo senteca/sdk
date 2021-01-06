@@ -5,7 +5,7 @@ import { WalletTypeDTO } from '../../models/WalletTypeDTO';
 import { WalletTypeSearchResultDTO } from '../../models/WalletTypeSearchResultDTO';
 
 export class WalletTypesAPI extends BaseAPI {
-   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<WalletTypeFilterResultDTO> {
+   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletTypeFilterResultDTO> {
        const response = await this._request({
            path: `/users/wallet-types`,
            method: 'GET',
@@ -65,7 +65,7 @@ export class WalletTypesAPI extends BaseAPI {
        return (response.json() as unknown) as WalletTypeDTO;
    }
 
-   async search (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<WalletTypeSearchResultDTO> {
+   async search (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletTypeSearchResultDTO> {
        const response = await this._request({
            path: `/users/wallet-types/search`,
            method: 'GET',

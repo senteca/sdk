@@ -35,18 +35,6 @@ export class MyCartAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async check (): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/my-cart/check`,
-           method: 'POST',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as OrderDTO;
-   }
-
    async addLineItem (dto: LineItemDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/line-items`,

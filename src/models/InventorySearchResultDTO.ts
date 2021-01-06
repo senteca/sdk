@@ -1,7 +1,7 @@
-import { InventoryDTONew } from './InventoryDTONew';
+import { InventoryDTO } from './InventoryDTO';
 
 export interface InventorySearchResultDTO {
-  results: InventoryDTONew[];
+  results: InventoryDTO[];
   offset: number;
   limit: number;
   count: number;

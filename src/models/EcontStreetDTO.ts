@@ -1,11 +1,8 @@
 
 export interface EcontStreetDTO {
-  id: string;
-  siteId: string;
-  type: string;
-  typeEn: string;
+  id: number;
+  cityID: number;
   name: string;
   nameEn: string;
-  actualId: string;
 }
 

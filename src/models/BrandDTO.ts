@@ -1,30 +1,26 @@
 import { LangValue } from './LangValue';
 import { IdReferenceDTO } from './IdReferenceDTO';
-import { AssetDTO } from './AssetDTO';
+import { StoreStatusDTO } from './StoreStatusDTO';
+import { AssetDraftDTO } from './AssetDraftDTO';
 import { CustomField } from './CustomField';
 
 export interface BrandDTO {
-  _id: string;
-  createdAt: number;
-  updatedAt: number;
   version?: number;
   name: LangValue[];
   description?: LangValue[];
-  weight: number;
+  score?: number;
   parent?: IdReferenceDTO;
   ancestors?: IdReferenceDTO[];
-  status: BrandDTOStatusEnum;
-  assets?: AssetDTO[];
+  storeStatus?: StoreStatusDTO[];
+  assets?: AssetDraftDTO[];
   slug: LangValue[];
   metaTitle?: LangValue[];
   metaDescription?: LangValue[];
   metaKeywords?: LangValue[];
   externalId?: string;
   custom?: CustomField[];
+  _id: string;
+  createdAt: number;
+  updatedAt: number;
 }
 
-export enum BrandDTOStatusEnum {
-    Published = 'published',  
-    Unpublished = 'unpublished',  
-    Delisted = 'delisted',  
-}
