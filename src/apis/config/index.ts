@@ -8,6 +8,5 @@ export * from "./StatesAPI";
 export * from "./StoreViewsAPI";
 export * from "./StoresAPI";
 export * from "./SubscriptionsAPI";
-export * from "./TasksAPI";
 export * from "./TaxCategoriesAPI";
 export * from "./ZonesAPI";

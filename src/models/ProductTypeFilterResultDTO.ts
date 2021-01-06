@@ -1,7 +1,7 @@
-import { ProductTypeDTO } from './ProductTypeDTO';
+import { ProductType } from './ProductType';
 
 export interface ProductTypeFilterResultDTO {
-  results: ProductTypeDTO[];
+  results: ProductType[];
   offset: number;
   limit: number;
   count: number;

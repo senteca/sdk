@@ -1,11 +1,60 @@
 import { BaseAPI } from '../../runtime';
-import { CollectionDraftDTO } from '../../models/CollectionDraftDTO';
+import { AssetDTO } from '../../models/AssetDTO';
 import { CollectionDTO } from '../../models/CollectionDTO';
-import { CollectionFilterResultDTO } from '../../models/CollectionFilterResultDTO';
 import { CollectionSearchResultDTO } from '../../models/CollectionSearchResultDTO';
+import { CollectionDraftDTO } from '../../models/CollectionDraftDTO';
+import { CollectionFilterResultDTO } from '../../models/CollectionFilterResultDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 
 export class CollectionsAPI extends BaseAPI {
+   async createAsset (id: string, dto: AssetDTO): Promise<CollectionDTO> {
+       const response = await this._request({
+           path: `/merchandise/collections/${encodeURIComponent(id)}/assets`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as CollectionDTO;
+   }
+
+   async updateAssetByIndex (id: string, index: number, dto: AssetDTO): Promise<CollectionDTO> {
+       const response = await this._request({
+           path: `/merchandise/collections/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as CollectionDTO;
+   }
+
+   async deleteAssetByIndex (id: string, index: number): Promise<CollectionDTO> {
+       const response = await this._request({
+           path: `/merchandise/collections/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CollectionDTO;
+   }
+
+   async search (query: { language: string, term: string, expand?: string, limit?: number, offset?: number }): Promise<CollectionSearchResultDTO> {
+       const response = await this._request({
+           path: `/merchandise/collections/search`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as CollectionSearchResultDTO;
+   }
+
    async create (dto: CollectionDraftDTO): Promise<CollectionDTO> {
        const response = await this._request({
            path: `/merchandise/collections`,
@@ -18,7 +67,7 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionDTO;
    }
 
-   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CollectionFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<CollectionFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/collections`,
            method: 'GET',
@@ -30,35 +79,11 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionFilterResultDTO;
    }
 
-   async import (dto: CollectionDraftDTO[]): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/collections/import`,
-           method: 'POST',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       
-   }
-
-   async search (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<CollectionSearchResultDTO> {
-       const response = await this._request({
-           path: `/merchandise/collections/search`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as CollectionSearchResultDTO;
-   }
-
-   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CollectionDTO> {
+   async getById (id: string): Promise<CollectionDTO> {
        const response = await this._request({
            path: `/merchandise/collections/${encodeURIComponent(id)}`,
            method: 'GET',
-           query: this._stringifyQuery(query),
+           
            
            
            
@@ -66,7 +91,7 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionDTO;
    }
 
-   async updateById (id: string, dto: CollectionDraftDTO): Promise<CollectionDTO> {
+   async update (id: string, dto: CollectionDraftDTO): Promise<CollectionDTO> {
        const response = await this._request({
            path: `/merchandise/collections/${encodeURIComponent(id)}`,
            method: 'PUT',
@@ -78,7 +103,7 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionDTO;
    }
 
-   async deleteById (id: string): Promise<CollectionDTO> {
+   async delete (id: string): Promise<CollectionDraftDTO> {
        const response = await this._request({
            path: `/merchandise/collections/${encodeURIComponent(id)}`,
            method: 'DELETE',
@@ -87,26 +112,14 @@ export class CollectionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CollectionDTO;
+       return (response.json() as unknown) as CollectionDraftDTO;
    }
 
-   async getBySlug (slug: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CollectionDTO> {
-       const response = await this._request({
-           path: `/merchandise/collections/slug=${encodeURIComponent(slug)}`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as CollectionDTO;
-   }
-
-   async getByExternalId (externalId: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CollectionDTO> {
+   async getByExternalId (externalId: string): Promise<CollectionDTO> {
        const response = await this._request({
            path: `/merchandise/collections/externalId=${encodeURIComponent(externalId)}`,
            method: 'GET',
-           query: this._stringifyQuery(query),
+           
            
            
            
@@ -114,22 +127,10 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionDTO;
    }
 
-   async updateByExternalId (externalId: string, dto: CollectionDraftDTO): Promise<CollectionDTO> {
+   async getBySlug (slug: string, lang: string): Promise<CollectionDTO> {
        const response = await this._request({
-           path: `/merchandise/collections/externalId=${encodeURIComponent(externalId)}`,
-           method: 'PUT',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as CollectionDTO;
-   }
-
-   async deleteByExternalId (externalId: string): Promise<CollectionDTO> {
-       const response = await this._request({
-           path: `/merchandise/collections/externalId=${encodeURIComponent(externalId)}`,
-           method: 'DELETE',
+           path: `/merchandise/collections/slug=${encodeURIComponent(slug)}/lang=${encodeURIComponent(lang)}`,
+           method: 'GET',
            
            
            
@@ -138,7 +139,7 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionDTO;
    }
 
-   async setCustomById (id: string, dto: SetCustomFieldDTO[]): Promise<void> {
+   async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<CollectionDTO> {
        const response = await this._request({
            path: `/merchandise/collections/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
@@ -147,7 +148,7 @@ export class CollectionsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       
+       return (response.json() as unknown) as CollectionDTO;
    }
 
 }

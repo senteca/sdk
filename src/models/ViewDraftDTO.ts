@@ -7,7 +7,7 @@ export interface ViewDraftDTO {
   version?: number;
   name: LangValue[];
   description?: LangValue[];
-  filters?: FilterStateDTO[];
+  filters: FilterStateDTO[];
   assets?: AssetDTO[];
   slug: LangValue[];
   metaTitle?: LangValue[];

@@ -4,7 +4,7 @@ import { CustomerMessageStatusUpdateDTO } from '../../models/CustomerMessageStat
 import { CustomerMessageDTO } from '../../models/CustomerMessageDTO';
 
 export class MyMessagesAPI extends BaseAPI {
-   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerMessageFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<CustomerMessageFilterResultDTO> {
        const response = await this._request({
            path: `/users/my-messages`,
            method: 'GET',

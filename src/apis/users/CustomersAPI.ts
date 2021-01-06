@@ -192,7 +192,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO;
    }
 
-   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<CustomerFilterResultDTO> {
        const response = await this._request({
            path: `/users/customers`,
            method: 'GET',
@@ -204,7 +204,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerFilterResultDTO;
    }
 
-   async search (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<CustomerSearchResultDTO> {
+   async search (query: { language: string, term: string, expand?: string, limit?: number, offset?: number }): Promise<CustomerSearchResultDTO> {
        const response = await this._request({
            path: `/users/customers/search`,
            method: 'GET',
@@ -420,7 +420,7 @@ export class CustomersAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerDTO[];
    }
 
-   async exportCSV (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<void> {
+   async exportCSV (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<void> {
        const response = await this._request({
            path: `/users/customers/export/csv`,
            method: 'GET',

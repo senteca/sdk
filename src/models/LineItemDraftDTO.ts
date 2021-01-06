@@ -6,6 +6,5 @@ export interface LineItemDraftDTO {
   merchantKey: string;
   quantity: number;
   shippingDetails?: ItemShippingDetailsDraftDTO;
-  reserveFor?: number;
 }
 

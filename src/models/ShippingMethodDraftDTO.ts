@@ -1,5 +1,5 @@
 import { LangValue } from './LangValue';
-import { KeyReferenceDTO } from './KeyReferenceDTO';
+import { IdReferenceDTO } from './IdReferenceDTO';
 import { ZoneRateDTO } from './ZoneRateDTO';
 import { CodFeeTableOrderTotalAmountDTO } from './CodFeeTableOrderTotalAmountDTO';
 
@@ -7,7 +7,7 @@ export interface ShippingMethodDraftDTO {
   version?: number;
   name: LangValue[];
   description?: LangValue[];
-  taxCategory: KeyReferenceDTO;
+  taxCategory: IdReferenceDTO;
   type: ShippingMethodDraftDTOTypeEnum;
   configKey?: undefined;
   moduleKey?: string;

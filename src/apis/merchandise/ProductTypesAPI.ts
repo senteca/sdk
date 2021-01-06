@@ -1,10 +1,10 @@
 import { BaseAPI } from '../../runtime';
 import { ProductTypeDraftDTO } from '../../models/ProductTypeDraftDTO';
-import { ProductTypeDTO } from '../../models/ProductTypeDTO';
+import { ProductType } from '../../models/ProductType';
 import { ProductTypeFilterResultDTO } from '../../models/ProductTypeFilterResultDTO';
 
 export class ProductTypesAPI extends BaseAPI {
-   async create (dto: ProductTypeDraftDTO): Promise<ProductTypeDTO> {
+   async create (dto: ProductTypeDraftDTO): Promise<ProductType> {
        const response = await this._request({
            path: `/merchandise/product-types`,
            method: 'POST',
@@ -13,10 +13,10 @@ export class ProductTypesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ProductTypeDTO;
+       return (response.json() as unknown) as ProductType;
    }
 
-   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductTypeFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<ProductTypeFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/product-types`,
            method: 'GET',
@@ -28,19 +28,7 @@ export class ProductTypesAPI extends BaseAPI {
        return (response.json() as unknown) as ProductTypeFilterResultDTO;
    }
 
-   async getByKey (key: string): Promise<ProductTypeDTO> {
-       const response = await this._request({
-           path: `/merchandise/product-types/key=${encodeURIComponent(key)}`,
-           method: 'GET',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as ProductTypeDTO;
-   }
-
-   async getById (id: string): Promise<ProductTypeDTO> {
+   async getById (id: string): Promise<ProductType> {
        const response = await this._request({
            path: `/merchandise/product-types/${encodeURIComponent(id)}`,
            method: 'GET',
@@ -49,10 +37,10 @@ export class ProductTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ProductTypeDTO;
+       return (response.json() as unknown) as ProductType;
    }
 
-   async updateById (id: string, dto: ProductTypeDraftDTO): Promise<ProductTypeDTO> {
+   async update (id: string, dto: ProductTypeDraftDTO): Promise<ProductType> {
        const response = await this._request({
            path: `/merchandise/product-types/${encodeURIComponent(id)}`,
            method: 'PUT',
@@ -61,10 +49,10 @@ export class ProductTypesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ProductTypeDTO;
+       return (response.json() as unknown) as ProductType;
    }
 
-   async deleteById (id: string): Promise<ProductTypeDTO> {
+   async delete (id: string): Promise<ProductType> {
        const response = await this._request({
            path: `/merchandise/product-types/${encodeURIComponent(id)}`,
            method: 'DELETE',
@@ -73,7 +61,7 @@ export class ProductTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ProductTypeDTO;
+       return (response.json() as unknown) as ProductType;
    }
 
 }

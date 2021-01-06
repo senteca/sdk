@@ -1,14 +1,13 @@
 import { LangValue } from './LangValue';
-import { AddressDraftDTO } from './AddressDraftDTO';
+import { AddressDTO } from './AddressDTO';
 
 export interface StockLocationDraftDTO {
   version?: number;
   key: string;
   merchantKey: string;
   priority?: number;
-  storeAvailability?: string[];
   name: LangValue[];
   description?: LangValue[];
-  address: AddressDraftDTO;
+  address: AddressDTO;
 }
 

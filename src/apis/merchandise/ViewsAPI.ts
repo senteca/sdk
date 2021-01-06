@@ -1,11 +1,60 @@
 import { BaseAPI } from '../../runtime';
-import { ViewDraftDTO } from '../../models/ViewDraftDTO';
+import { AssetDTO } from '../../models/AssetDTO';
 import { ViewDTO } from '../../models/ViewDTO';
-import { ViewFilterResultDTO } from '../../models/ViewFilterResultDTO';
 import { ViewSearchResultDTO } from '../../models/ViewSearchResultDTO';
+import { ViewDraftDTO } from '../../models/ViewDraftDTO';
+import { ViewFilterResultDTO } from '../../models/ViewFilterResultDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 
 export class ViewsAPI extends BaseAPI {
+   async createAsset (id: string, dto: AssetDTO): Promise<ViewDTO> {
+       const response = await this._request({
+           path: `/merchandise/views/${encodeURIComponent(id)}/assets`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ViewDTO;
+   }
+
+   async updateAssetByIndex (id: string, index: number, dto: AssetDTO): Promise<ViewDTO> {
+       const response = await this._request({
+           path: `/merchandise/views/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ViewDTO;
+   }
+
+   async deleteAssetByIndex (id: string, index: number): Promise<ViewDTO> {
+       const response = await this._request({
+           path: `/merchandise/views/${encodeURIComponent(id)}/assets/index=${encodeURIComponent(index)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as ViewDTO;
+   }
+
+   async search (query: { language: string, term: string, expand?: string, limit?: number, offset?: number }): Promise<ViewSearchResultDTO> {
+       const response = await this._request({
+           path: `/merchandise/views/search`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as ViewSearchResultDTO;
+   }
+
    async create (dto: ViewDraftDTO): Promise<ViewDTO> {
        const response = await this._request({
            path: `/merchandise/views`,
@@ -18,7 +67,7 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ViewFilterResultDTO> {
+   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<ViewFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/views`,
            method: 'GET',
@@ -30,35 +79,11 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewFilterResultDTO;
    }
 
-   async import (dto: ViewDraftDTO[]): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/views/import`,
-           method: 'POST',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       
-   }
-
-   async search (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<ViewSearchResultDTO> {
-       const response = await this._request({
-           path: `/merchandise/views/search`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as ViewSearchResultDTO;
-   }
-
-   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ViewDTO> {
+   async getById (id: string): Promise<ViewDTO> {
        const response = await this._request({
            path: `/merchandise/views/${encodeURIComponent(id)}`,
            method: 'GET',
-           query: this._stringifyQuery(query),
+           
            
            
            
@@ -66,7 +91,7 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async updateById (id: string, dto: ViewDraftDTO): Promise<ViewDTO> {
+   async update (id: string, dto: ViewDraftDTO): Promise<ViewDTO> {
        const response = await this._request({
            path: `/merchandise/views/${encodeURIComponent(id)}`,
            method: 'PUT',
@@ -78,7 +103,7 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async deleteById (id: string): Promise<ViewDTO> {
+   async delete (id: string): Promise<ViewDTO> {
        const response = await this._request({
            path: `/merchandise/views/${encodeURIComponent(id)}`,
            method: 'DELETE',
@@ -90,11 +115,11 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async getBySlug (slug: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ViewDTO> {
+   async getBySlug (slug: string, lang: string): Promise<ViewDTO> {
        const response = await this._request({
-           path: `/merchandise/views/slug=${encodeURIComponent(slug)}`,
+           path: `/merchandise/views/slug=${encodeURIComponent(slug)}/lang=${encodeURIComponent(lang)}`,
            method: 'GET',
-           query: this._stringifyQuery(query),
+           
            
            
            
@@ -102,7 +127,7 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewDTO;
    }
 
-   async setCustomById (id: string, dto: SetCustomFieldDTO[]): Promise<void> {
+   async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<ViewDTO> {
        const response = await this._request({
            path: `/merchandise/views/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
@@ -111,7 +136,7 @@ export class ViewsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       
+       return (response.json() as unknown) as ViewDTO;
    }
 
 }

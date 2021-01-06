@@ -1,5 +1,4 @@
 import { CompanyDetailsDTO } from './CompanyDetailsDTO';
-import { AddressVerifiedDTO } from './AddressVerifiedDTO';
 import { CustomField } from './CustomField';
 
 export interface AddressDraftDTO {
@@ -24,7 +23,7 @@ export interface AddressDraftDTO {
   additionalAddressInfo?: string;
   isDefaultBillingAddress?: boolean;
   isDefaultShippingAddress?: boolean;
-  verified?: AddressVerifiedDTO;
+  moduleData?: any;
   custom?: CustomField[];
 }
 
