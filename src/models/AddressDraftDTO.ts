@@ -1,4 +1,5 @@
 import { CompanyDetailsDTO } from './CompanyDetailsDTO';
+import { AddressModuleDataDTO } from './AddressModuleDataDTO';
 import { CustomField } from './CustomField';
 
 export interface AddressDraftDTO {
@@ -23,7 +24,7 @@ export interface AddressDraftDTO {
   additionalAddressInfo?: string;
   isDefaultBillingAddress?: boolean;
   isDefaultShippingAddress?: boolean;
-  moduleData?: any;
+  moduleData?: AddressModuleDataDTO[];
   custom?: CustomField[];
 }
 

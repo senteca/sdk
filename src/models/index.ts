@@ -1,5 +1,6 @@
 export * from "./AddressDTO";
 export * from "./AddressDraftDTO";
+export * from "./AddressModuleDataDTO";
 export * from "./ApiClientDTO";
 export * from "./ApiClientDraftDTO";
 export * from "./ApiClientFilterResultDTO";
