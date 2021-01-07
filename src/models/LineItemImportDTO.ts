@@ -1,6 +1,7 @@
 import { LineItemStateForQuantityDTO } from './LineItemStateForQuantityDTO';
 import { LangValue } from './LangValue';
 import { IdReferenceDTO } from './IdReferenceDTO';
+import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { ProductVariantDTO } from './ProductVariantDTO';
 import { OfferDTO } from './OfferDTO';
 import { TaxedItemPriceDTO } from './TaxedItemPriceDTO';
@@ -19,7 +20,7 @@ export interface LineItemImportDTO {
   productCategories?: IdReferenceDTO[];
   productBrands?: IdReferenceDTO[];
   productCollections?: IdReferenceDTO[];
-  productTaxCategory?: IdReferenceDTO;
+  productTaxCategory?: KeyReferenceDTO;
   variant?: ProductVariantDTO;
   offer: OfferDTO;
   quantity: number;

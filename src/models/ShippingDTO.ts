@@ -20,7 +20,7 @@ export interface ShippingDTO {
   moduleMethodKey?: string;
   price?: MoneyDTO;
   taxedPrice?: TaxedPriceDTO;
-  taxCategory: IdReferenceDTO;
+  taxCategory: KeyReferenceDTO;
   taxRate: TaxRateDTO;
   discountedPrice?: DiscountedLineItemPriceDTO;
   isCOD?: boolean;

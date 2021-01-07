@@ -1,17 +1,18 @@
 import { LangValue } from './LangValue';
 import { IdReferenceDTO } from './IdReferenceDTO';
-import { AssetDTO } from './AssetDTO';
+import { StoreStatusDTO } from './StoreStatusDTO';
+import { AssetDraftDTO } from './AssetDraftDTO';
 import { CustomField } from './CustomField';
 
 export interface BrandDraftDTO {
   version?: number;
   name: LangValue[];
   description?: LangValue[];
-  weight: number;
+  score?: number;
   parent?: IdReferenceDTO;
   ancestors?: IdReferenceDTO[];
-  status: BrandDraftDTOStatusEnum;
-  assets?: AssetDTO[];
+  storeStatus?: StoreStatusDTO[];
+  assets?: AssetDraftDTO[];
   slug: LangValue[];
   metaTitle?: LangValue[];
   metaDescription?: LangValue[];
@@ -20,8 +21,3 @@ export interface BrandDraftDTO {
   custom?: CustomField[];
 }
 
-export enum BrandDraftDTOStatusEnum {
-    Published = 'published',  
-    Unpublished = 'unpublished',  
-    Delisted = 'delisted',  
-}

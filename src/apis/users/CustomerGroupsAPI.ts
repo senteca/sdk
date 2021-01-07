@@ -1,9 +1,10 @@
 import { BaseAPI } from '../../runtime';
+import { CustomerGroupDraftDTO } from '../../models/CustomerGroupDraftDTO';
 import { CustomerGroupDTO } from '../../models/CustomerGroupDTO';
 import { CustomerGroupFilterResultDTO } from '../../models/CustomerGroupFilterResultDTO';
 
 export class CustomerGroupsAPI extends BaseAPI {
-   async create (dto: CustomerGroupDTO): Promise<CustomerGroupDTO> {
+   async create (dto: CustomerGroupDraftDTO): Promise<CustomerGroupDTO> {
        const response = await this._request({
            path: `/users/customer-groups`,
            method: 'POST',
@@ -15,7 +16,7 @@ export class CustomerGroupsAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerGroupDTO;
    }
 
-   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<CustomerGroupFilterResultDTO> {
+   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerGroupFilterResultDTO> {
        const response = await this._request({
            path: `/users/customer-groups`,
            method: 'GET',
@@ -25,6 +26,18 @@ export class CustomerGroupsAPI extends BaseAPI {
            
         });
        return (response.json() as unknown) as CustomerGroupFilterResultDTO;
+   }
+
+   async getByKey (key: string): Promise<CustomerGroupDTO> {
+       const response = await this._request({
+           path: `/users/customer-groups/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CustomerGroupDTO;
    }
 
    async getById (id: string): Promise<CustomerGroupDTO> {

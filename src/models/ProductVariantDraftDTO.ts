@@ -1,30 +1,24 @@
+import { ProductAttributeDraftDTO } from './ProductAttributeDraftDTO';
 import { OfferDraftDTO } from './OfferDraftDTO';
-import { InventoryDTO } from './InventoryDTO';
-import { ProductAttributeDTO } from './ProductAttributeDTO';
-import { ImageSetDTO } from './ImageSetDTO';
+import { ImageDTO } from './ImageDTO';
+import { ShippingDataDTO } from './ShippingDataDTO';
 
 export interface ProductVariantDraftDTO {
-  id: string;
+  _id: string;
   sku: string;
   masterBarcode?: string;
-  barcodes: string[];
-  offers: OfferDraftDTO[];
-  inventories: InventoryDTO[];
-  attributes: ProductAttributeDTO[];
-  imageSets: ImageSetDTO[];
-  weight?: number;
-  unitOfWeight?: ProductVariantDraftDTOUnitOfWeightEnum;
-  length?: number;
-  width?: number;
-  height?: number;
-  unitOfMetric?: ProductVariantDraftDTOUnitOfMetricEnum;
+  barcodes?: string[];
+  collapseKey?: string;
+  collapseMode?: ProductVariantDraftDTOCollapseModeEnum;
+  attributes?: ProductAttributeDraftDTO[];
+  offers?: OfferDraftDTO[];
+  aliasImagesFrom?: string;
+  images?: ImageDTO[];
+  shippingData?: ShippingDataDTO;
 }
 
-export enum ProductVariantDraftDTOUnitOfWeightEnum {
-    Gr = 'gr',  
-    Oz = 'oz',  
-}
-export enum ProductVariantDraftDTOUnitOfMetricEnum {
-    Cm = 'cm',  
-    Inch = 'inch',  
+export enum ProductVariantDraftDTOCollapseModeEnum {
+    None = 'none',  
+    Id = 'id',  
+    Custom = 'custom',  
 }

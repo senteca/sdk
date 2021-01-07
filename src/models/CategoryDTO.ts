@@ -1,20 +1,18 @@
 import { LangValue } from './LangValue';
 import { IdReferenceDTO } from './IdReferenceDTO';
+import { StoreStatusDTO } from './StoreStatusDTO';
 import { AssetDTO } from './AssetDTO';
 import { CustomField } from './CustomField';
 
 export interface CategoryDTO {
-  _id: string;
-  createdAt: number;
-  updatedAt: number;
   version?: number;
   name: LangValue[];
   description?: LangValue[];
-  weight: number;
+  score?: number;
   parent?: IdReferenceDTO;
   ancestors?: IdReferenceDTO[];
   alias?: IdReferenceDTO;
-  status: CategoryDTOStatusEnum;
+  storeStatus?: StoreStatusDTO[];
   assets?: AssetDTO[];
   slug: LangValue[];
   metaTitle?: LangValue[];
@@ -22,10 +20,8 @@ export interface CategoryDTO {
   metaKeywords?: LangValue[];
   custom?: CustomField[];
   externalId?: string;
+  _id: string;
+  createdAt: number;
+  updatedAt: number;
 }
 
-export enum CategoryDTOStatusEnum {
-    Published = 'published',  
-    Unpublished = 'unpublished',  
-    Delisted = 'delisted',  
-}

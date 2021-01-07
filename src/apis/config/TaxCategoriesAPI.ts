@@ -16,7 +16,7 @@ export class TaxCategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as TaxCategoryDTO;
    }
 
-   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<TaxCategoryFilterResultDTO> {
+   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<TaxCategoryFilterResultDTO> {
        const response = await this._request({
            path: `/config/tax-categories`,
            method: 'GET',
@@ -26,6 +26,18 @@ export class TaxCategoriesAPI extends BaseAPI {
            
         });
        return (response.json() as unknown) as TaxCategoryFilterResultDTO;
+   }
+
+   async getByKey (key: string): Promise<TaxCategoryDTO> {
+       const response = await this._request({
+           path: `/config/tax-categories/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as TaxCategoryDTO;
    }
 
    async getById (id: string): Promise<TaxCategoryDTO> {
@@ -56,18 +68,6 @@ export class TaxCategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/tax-categories/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as TaxCategoryDTO;
-   }
-
-   async getByKey (key: string): Promise<TaxCategoryDTO> {
-       const response = await this._request({
-           path: `/config/tax-categories/key=${encodeURIComponent(key)}`,
-           method: 'GET',
            
            
            

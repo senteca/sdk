@@ -4,7 +4,7 @@ import { MerchantDraftDTO } from '../../models/MerchantDraftDTO';
 import { MerchantDTO } from '../../models/MerchantDTO';
 
 export class MerchantsAPI extends BaseAPI {
-   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<MerchantFilterResultDTO> {
+   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<MerchantFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/merchants`,
            method: 'GET',
@@ -24,6 +24,18 @@ export class MerchantsAPI extends BaseAPI {
            body: dto,
            
            contentType: 'application/json',
+        });
+       return (response.json() as unknown) as MerchantDTO;
+   }
+
+   async getByKey (key: string): Promise<MerchantDTO> {
+       const response = await this._request({
+           path: `/merchandise/merchants/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
         });
        return (response.json() as unknown) as MerchantDTO;
    }

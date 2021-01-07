@@ -24,6 +24,7 @@ export enum IdReferenceDTOResourceTypeEnum {
     Payment = 'payment',  
     Merchant = 'merchant',  
     Product = 'product',  
+    ProductType = 'product-type',  
     Shipping = 'shipping',  
     TaxCategory = 'tax-category',  
     PriceList = 'price-list',  
@@ -35,4 +36,5 @@ export enum IdReferenceDTOResourceTypeEnum {
     CmsType = 'cms-type',  
     StockLocation = 'stock-location',  
     Role = 'role',  
+    Zone = 'zone',  
 }

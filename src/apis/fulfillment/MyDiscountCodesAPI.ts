@@ -2,7 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { DiscountCodeFilterResultDTO } from '../../models/DiscountCodeFilterResultDTO';
 
 export class MyDiscountCodesAPI extends BaseAPI {
-   async filter (query?: { filter?: string, sort?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<DiscountCodeFilterResultDTO> {
+   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<DiscountCodeFilterResultDTO> {
        const response = await this._request({
            path: `/fulfillment/my-discount-codes`,
            method: 'GET',
