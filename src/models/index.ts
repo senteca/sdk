@@ -241,6 +241,7 @@ export * from "./ProductVariantDTO";
 export * from "./ProductVariantDraftDTO";
 export * from "./ProviderConfigField";
 export * from "./QuantityUpdateDTO";
+export * from "./RegisterRequestDTO";
 export * from "./ReservationDTO";
 export * from "./ReviewRatingStatisticsDTO";
 export * from "./RoleDTO";

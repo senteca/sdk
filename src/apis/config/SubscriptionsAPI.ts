@@ -51,7 +51,7 @@ export class SubscriptionsAPI extends BaseAPI {
        return (response.json() as unknown) as SubscriptionDTO;
    }
 
-   async update (id: string, dto: SubscriptionDTO): Promise<SubscriptionDTO> {
+   async update (id: string, dto: SubscriptionDraftDTO): Promise<SubscriptionDTO> {
        const response = await this._request({
            path: `/config/subscriptions/${encodeURIComponent(id)}`,
            method: 'PUT',

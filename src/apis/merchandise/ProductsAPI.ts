@@ -107,30 +107,6 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductSearchResultDTO;
    }
 
-   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ProductDTO> {
-       const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(id)}`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as ProductDTO;
-   }
-
-   async delete (id: string): Promise<ProductDTO> {
-       const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(id)}`,
-           method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as ProductDTO;
-   }
-
    async getBySlug (slug: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products/slug=${encodeURIComponent(slug)}`,
@@ -158,6 +134,30 @@ export class ProductsAPI extends BaseAPI {
    async deleteByExternalId (externalId: string): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products/externalId=${encodeURIComponent(externalId)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async delete (id: string): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
