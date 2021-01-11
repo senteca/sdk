@@ -55,42 +55,6 @@ export class BrandsAPI extends BaseAPI {
        return (response.json() as unknown) as BrandSearchResultDTO;
    }
 
-   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> {
-       const response = await this._request({
-           path: `/merchandise/brands/${encodeURIComponent(id)}`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as BrandDTO;
-   }
-
-   async updateById (id: string, dto: BrandDraftDTO): Promise<BrandDTO> {
-       const response = await this._request({
-           path: `/merchandise/brands/${encodeURIComponent(id)}`,
-           method: 'PUT',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as BrandDTO;
-   }
-
-   async deleteById (id: string): Promise<BrandDTO> {
-       const response = await this._request({
-           path: `/merchandise/brands/${encodeURIComponent(id)}`,
-           method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as BrandDTO;
-   }
-
    async getBySlug (slug: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> {
        const response = await this._request({
            path: `/merchandise/brands/slug=${encodeURIComponent(slug)}`,
@@ -130,6 +94,42 @@ export class BrandsAPI extends BaseAPI {
    async deleteByExternalId (externalId: string): Promise<BrandDTO> {
        const response = await this._request({
            path: `/merchandise/brands/externalId=${encodeURIComponent(externalId)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as BrandDTO;
+   }
+
+   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> {
+       const response = await this._request({
+           path: `/merchandise/brands/${encodeURIComponent(id)}`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as BrandDTO;
+   }
+
+   async updateById (id: string, dto: BrandDraftDTO): Promise<BrandDTO> {
+       const response = await this._request({
+           path: `/merchandise/brands/${encodeURIComponent(id)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as BrandDTO;
+   }
+
+   async deleteById (id: string): Promise<BrandDTO> {
+       const response = await this._request({
+           path: `/merchandise/brands/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

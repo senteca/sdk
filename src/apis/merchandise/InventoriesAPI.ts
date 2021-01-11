@@ -57,6 +57,30 @@ export class InventoriesAPI extends BaseAPI {
        return (response.json() as unknown) as InventorySearchResultDTO;
    }
 
+   async getByKey (key: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<InventoryDTO> {
+       const response = await this._request({
+           path: `/merchandise/inventories/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as InventoryDTO;
+   }
+
+   async deleteByKey (key: string): Promise<InventoryDTO> {
+       const response = await this._request({
+           path: `/merchandise/inventories/key=${encodeURIComponent(key)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as InventoryDTO;
+   }
+
    async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<InventoryDTO> {
        const response = await this._request({
            path: `/merchandise/inventories/${encodeURIComponent(id)}`,
@@ -84,30 +108,6 @@ export class InventoriesAPI extends BaseAPI {
    async deleteById (id: string): Promise<InventoryDTO> {
        const response = await this._request({
            path: `/merchandise/inventories/${encodeURIComponent(id)}`,
-           method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as InventoryDTO;
-   }
-
-   async getByKey (key: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<InventoryDTO> {
-       const response = await this._request({
-           path: `/merchandise/inventories/key=${encodeURIComponent(key)}`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as InventoryDTO;
-   }
-
-   async deleteByKey (key: string): Promise<InventoryDTO> {
-       const response = await this._request({
-           path: `/merchandise/inventories/key=${encodeURIComponent(key)}`,
            method: 'DELETE',
            
            

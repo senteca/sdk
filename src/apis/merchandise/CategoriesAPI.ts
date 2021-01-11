@@ -55,42 +55,6 @@ export class CategoriesAPI extends BaseAPI {
        return (response.json() as unknown) as CategorySearchResultDTO;
    }
 
-   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CategoryDTO> {
-       const response = await this._request({
-           path: `/merchandise/categories/${encodeURIComponent(id)}`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as CategoryDTO;
-   }
-
-   async updateById (id: string, dto: CategoryDraftDTO): Promise<CategoryDTO> {
-       const response = await this._request({
-           path: `/merchandise/categories/${encodeURIComponent(id)}`,
-           method: 'PUT',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as CategoryDTO;
-   }
-
-   async deleteById (id: string): Promise<CategoryDTO> {
-       const response = await this._request({
-           path: `/merchandise/categories/${encodeURIComponent(id)}`,
-           method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as CategoryDTO;
-   }
-
    async getBySlug (slug: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CategoryDTO> {
        const response = await this._request({
            path: `/merchandise/categories/slug=${encodeURIComponent(slug)}`,
@@ -130,6 +94,42 @@ export class CategoriesAPI extends BaseAPI {
    async deleteByExternalId (externalId: string): Promise<CategoryDTO> {
        const response = await this._request({
            path: `/merchandise/categories/externalId=${encodeURIComponent(externalId)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CategoryDTO;
+   }
+
+   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CategoryDTO> {
+       const response = await this._request({
+           path: `/merchandise/categories/${encodeURIComponent(id)}`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as CategoryDTO;
+   }
+
+   async updateById (id: string, dto: CategoryDraftDTO): Promise<CategoryDTO> {
+       const response = await this._request({
+           path: `/merchandise/categories/${encodeURIComponent(id)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as CategoryDTO;
+   }
+
+   async deleteById (id: string): Promise<CategoryDTO> {
+       const response = await this._request({
+           path: `/merchandise/categories/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

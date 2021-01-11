@@ -54,42 +54,6 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionSearchResultDTO;
    }
 
-   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CollectionDTO> {
-       const response = await this._request({
-           path: `/merchandise/collections/${encodeURIComponent(id)}`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as CollectionDTO;
-   }
-
-   async updateById (id: string, dto: CollectionDraftDTO): Promise<CollectionDTO> {
-       const response = await this._request({
-           path: `/merchandise/collections/${encodeURIComponent(id)}`,
-           method: 'PUT',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as CollectionDTO;
-   }
-
-   async deleteById (id: string): Promise<CollectionDTO> {
-       const response = await this._request({
-           path: `/merchandise/collections/${encodeURIComponent(id)}`,
-           method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as CollectionDTO;
-   }
-
    async getBySlug (slug: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CollectionDTO> {
        const response = await this._request({
            path: `/merchandise/collections/slug=${encodeURIComponent(slug)}`,
@@ -129,6 +93,42 @@ export class CollectionsAPI extends BaseAPI {
    async deleteByExternalId (externalId: string): Promise<CollectionDTO> {
        const response = await this._request({
            path: `/merchandise/collections/externalId=${encodeURIComponent(externalId)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CollectionDTO;
+   }
+
+   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CollectionDTO> {
+       const response = await this._request({
+           path: `/merchandise/collections/${encodeURIComponent(id)}`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as CollectionDTO;
+   }
+
+   async updateById (id: string, dto: CollectionDraftDTO): Promise<CollectionDTO> {
+       const response = await this._request({
+           path: `/merchandise/collections/${encodeURIComponent(id)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as CollectionDTO;
+   }
+
+   async deleteById (id: string): Promise<CollectionDTO> {
+       const response = await this._request({
+           path: `/merchandise/collections/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

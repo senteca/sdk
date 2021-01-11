@@ -53,42 +53,6 @@ export class AttributesAPI extends BaseAPI {
        return (response.json() as unknown) as AttributeSearchResultDTO;
    }
 
-   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<AttributeDTO> {
-       const response = await this._request({
-           path: `/merchandise/attributes/${encodeURIComponent(id)}`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as AttributeDTO;
-   }
-
-   async updateById (id: string, dto: AttributeDraftDTO): Promise<AttributeDTO> {
-       const response = await this._request({
-           path: `/merchandise/attributes/${encodeURIComponent(id)}`,
-           method: 'PUT',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as AttributeDTO;
-   }
-
-   async deleteById (id: string): Promise<AttributeDTO> {
-       const response = await this._request({
-           path: `/merchandise/attributes/${encodeURIComponent(id)}`,
-           method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as AttributeDTO;
-   }
-
    async getByName (externalId: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<AttributeDTO> {
        const response = await this._request({
            path: `/merchandise/attributes/name=${encodeURIComponent(name)}`,
@@ -116,6 +80,42 @@ export class AttributesAPI extends BaseAPI {
    async deleteByName (name: string): Promise<AttributeDTO> {
        const response = await this._request({
            path: `/merchandise/attributes/name=${encodeURIComponent(name)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as AttributeDTO;
+   }
+
+   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<AttributeDTO> {
+       const response = await this._request({
+           path: `/merchandise/attributes/${encodeURIComponent(id)}`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as AttributeDTO;
+   }
+
+   async updateById (id: string, dto: AttributeDraftDTO): Promise<AttributeDTO> {
+       const response = await this._request({
+           path: `/merchandise/attributes/${encodeURIComponent(id)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as AttributeDTO;
+   }
+
+   async deleteById (id: string): Promise<AttributeDTO> {
+       const response = await this._request({
+           path: `/merchandise/attributes/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
