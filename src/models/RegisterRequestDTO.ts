@@ -4,7 +4,6 @@ import { CustomField } from './CustomField';
 
 export interface RegisterRequestDTO {
   responseMode?: RegisterRequestDTOResponseModeEnum;
-  basketRequest?: undefined;
   password: string;
   customerNumber?: number;
   store?: KeyReferenceDTO;

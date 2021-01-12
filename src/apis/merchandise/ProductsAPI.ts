@@ -8,8 +8,12 @@ import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
 import { ProductImportDraftDTO } from '../../models/ProductImportDraftDTO';
 import { ProductSearchResultDTO } from '../../models/ProductSearchResultDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { AssetDTO } from '../../models/AssetDTO';
+import { StoreStatusDTO } from '../../models/StoreStatusDTO';
 import { KeyReferenceDTO } from '../../models/KeyReferenceDTO';
+import { LangValue } from '../../models/LangValue';
 import { ProductScoreUpdateDTO } from '../../models/ProductScoreUpdateDTO';
+import { IdReferenceDTO } from '../../models/IdReferenceDTO';
 import { ContentDTO } from '../../models/ContentDTO';
 import { SwapIndexDTO } from '../../models/SwapIndexDTO';
 
@@ -182,7 +186,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setAssets (id: string, dto: string[]): Promise<void> {
+   async setAssets (id: string, dto: AssetDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/assets`,
            method: 'PATCH',
@@ -194,7 +198,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setStoreStatus (id: string, dto: string[]): Promise<void> {
+   async setStoreStatus (id: string, dto: StoreStatusDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/store-status`,
            method: 'PATCH',
@@ -218,7 +222,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setName (id: string, dto: string[]): Promise<void> {
+   async setName (id: string, dto: LangValue[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/name`,
            method: 'PATCH',
@@ -230,7 +234,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setDescription (id: string, dto: string[]): Promise<void> {
+   async setDescription (id: string, dto: LangValue[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/description`,
            method: 'PATCH',
@@ -242,7 +246,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setSlug (id: string, dto: string[]): Promise<void> {
+   async setSlug (id: string, dto: LangValue[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/slug`,
            method: 'PATCH',
@@ -254,7 +258,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setMetaTitle (id: string, dto: string[]): Promise<void> {
+   async setMetaTitle (id: string, dto: LangValue[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/meta-title`,
            method: 'PATCH',
@@ -266,7 +270,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setMetaDescription (id: string, dto: string[]): Promise<void> {
+   async setMetaDescription (id: string, dto: LangValue[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/meta-description`,
            method: 'PATCH',
@@ -278,7 +282,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setMetaKeywords (id: string, dto: string[]): Promise<void> {
+   async setMetaKeywords (id: string, dto: LangValue[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/meta-keywords`,
            method: 'PATCH',
@@ -302,7 +306,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setBrands (id: string, dto: string[]): Promise<void> {
+   async setBrands (id: string, dto: IdReferenceDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/brands`,
            method: 'PATCH',
@@ -314,7 +318,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setCategories (id: string, dto: string[]): Promise<void> {
+   async setCategories (id: string, dto: IdReferenceDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/categories`,
            method: 'PATCH',
@@ -326,7 +330,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setCollections (id: string, dto: string[]): Promise<void> {
+   async setCollections (id: string, dto: IdReferenceDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/collections`,
            method: 'PATCH',

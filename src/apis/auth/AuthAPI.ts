@@ -90,11 +90,11 @@ export class AuthAPI extends BaseAPI {
        return (response.json() as unknown) as TokenResponseDTO;
    }
 
-   async register (dto: RegisterRequestDTO): Promise<TokenResponseDTO> {
+   async register (query: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: RegisterRequestDTO): Promise<TokenResponseDTO> {
        const response = await this._request({
            path: `/auth/register`,
            method: 'POST',
-           
+           query: this._stringifyQuery(query),
            body: dto,
            
            contentType: 'application/json',
