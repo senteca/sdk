@@ -8,6 +8,9 @@ import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
 import { ProductImportDraftDTO } from '../../models/ProductImportDraftDTO';
 import { ProductSearchResultDTO } from '../../models/ProductSearchResultDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { KeyReferenceDTO } from '../../models/KeyReferenceDTO';
+import { ProductScoreUpdateDTO } from '../../models/ProductScoreUpdateDTO';
+import { ContentDTO } from '../../models/ContentDTO';
 import { SwapIndexDTO } from '../../models/SwapIndexDTO';
 
 export class ProductsAPI extends BaseAPI {
@@ -187,6 +190,186 @@ export class ProductsAPI extends BaseAPI {
            body: dto,
            
            contentType: 'application/json',
+        });
+       
+   }
+
+   async setStoreStatus (id: string, dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/store-status`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setTaxCategory (id: string, dto: KeyReferenceDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/tax-category`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setName (id: string, dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/name`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setDescription (id: string, dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/description`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setSlug (id: string, dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/slug`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setMetaTitle (id: string, dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/meta-title`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setMetaDescription (id: string, dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/meta-description`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setMetaKeywords (id: string, dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/meta-keywords`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setScore (id: string, dto: ProductScoreUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/score`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setBrands (id: string, dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/brands`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setCategories (id: string, dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/categories`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setCollections (id: string, dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/collections`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async createContent (id: string, dto: ContentDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/content`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async updateContent (id: string, idx: number, dto: ContentDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/content/${encodeURIComponent(idx)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async deleteContent (id: string, idx: number): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/content/${encodeURIComponent(idx)}`,
+           method: 'DELETE',
+           
+           
+           
+           
         });
        
    }

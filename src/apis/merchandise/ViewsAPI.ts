@@ -54,6 +54,18 @@ export class ViewsAPI extends BaseAPI {
        return (response.json() as unknown) as ViewSearchResultDTO;
    }
 
+   async getBySlug (slug: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ViewDTO> {
+       const response = await this._request({
+           path: `/merchandise/views/slug=${encodeURIComponent(slug)}`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as ViewDTO;
+   }
+
    async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ViewDTO> {
        const response = await this._request({
            path: `/merchandise/views/${encodeURIComponent(id)}`,
@@ -83,18 +95,6 @@ export class ViewsAPI extends BaseAPI {
            path: `/merchandise/views/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
-           
-           
-           
-        });
-       return (response.json() as unknown) as ViewDTO;
-   }
-
-   async getBySlug (slug: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ViewDTO> {
-       const response = await this._request({
-           path: `/merchandise/views/slug=${encodeURIComponent(slug)}`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
            
            
            

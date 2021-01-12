@@ -235,6 +235,7 @@ export * from "./ProductDiscountValueDTO";
 export * from "./ProductDraftDTO";
 export * from "./ProductFilterResultDTO";
 export * from "./ProductImportDraftDTO";
+export * from "./ProductScoreUpdateDTO";
 export * from "./ProductSearchResultDTO";
 export * from "./ProductTypeDTO";
 export * from "./ProductTypeDraftDTO";
