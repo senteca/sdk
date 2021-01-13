@@ -1,5 +1,4 @@
 export * from "./CustomFieldsAPI";
-export * from "./FulfillmentAPI";
 export * from "./InternationalsAPI";
 export * from "./PaymentMethodsAPI";
 export * from "./ShippingConfigsAPI";

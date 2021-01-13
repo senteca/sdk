@@ -1,17 +1,17 @@
-import { LangValue } from './LangValue';
 import { KeyReferenceDTO } from './KeyReferenceDTO';
+import { LangValue } from './LangValue';
 import { ZoneRateDTO } from './ZoneRateDTO';
 import { CodFeeTableOrderTotalAmountDTO } from './CodFeeTableOrderTotalAmountDTO';
 
 export interface ShippingMethodDraftDTO {
   version?: number;
+  type: ShippingMethodDraftDTOTypeEnum;
+  configKey?: KeyReferenceDTO;
+  moduleKey?: string;
+  methodKey?: string;
   name: LangValue[];
   description?: LangValue[];
   taxCategory: KeyReferenceDTO;
-  type: ShippingMethodDraftDTOTypeEnum;
-  configKey?: undefined;
-  moduleKey?: string;
-  methodKey?: string;
   predicate?: string;
   zoneRates: ZoneRateDTO[];
   isCOD?: boolean;

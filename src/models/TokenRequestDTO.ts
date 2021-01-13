@@ -7,7 +7,6 @@ export interface TokenRequestDTO {
   isOrgUser?: boolean;
   anonymousId?: string;
   responseMode?: TokenRequestDTOResponseModeEnum;
-  basketRequest?: undefined;
 }
 
 export enum TokenRequestDTOGrantTypeEnum {

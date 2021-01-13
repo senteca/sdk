@@ -1,25 +1,25 @@
+import { LangValue } from './LangValue';
 
 export interface PaymentMethodDraftDTO {
   version?: number;
-  authority: PaymentMethodDraftDTOAuthorityEnum;
-  type: PaymentMethodDraftDTOTypeEnum;
-  providerType?: PaymentMethodDraftDTOProviderTypeEnum;
-  merchantKey?: string;
   key: string;
-  description?: string;
+  type: PaymentMethodDraftDTOTypeEnum;
+  moduleKey?: string;
+  authority: PaymentMethodDraftDTOAuthorityEnum;
+  merchantKey?: string;
+  name: LangValue[];
+  description?: LangValue[];
   countryCode: string;
   currencyCode: string;
-  providerConfig: any;
+  config: any;
 }
 
-export enum PaymentMethodDraftDTOAuthorityEnum {
-    Platform = 'Platform',  
-    Merchant = 'Merchant',  
-}
 export enum PaymentMethodDraftDTOTypeEnum {
     PaymentServiceProvider = 'PaymentServiceProvider',  
     CashOnDelivery = 'CashOnDelivery',  
+    Custom = 'Custom',  
 }
-export enum PaymentMethodDraftDTOProviderTypeEnum {
-    Borica = 'Borica',  
+export enum PaymentMethodDraftDTOAuthorityEnum {
+    Platform = 'Platform',  
+    Merchant = 'Merchant',  
 }
