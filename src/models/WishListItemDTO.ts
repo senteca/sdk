@@ -6,6 +6,7 @@ export interface WishListItemDTO {
   addedAt: number;
   deactivatedAt?: number;
   productName: LangValue[];
+  productSlug: LangValue[];
   productVariant: ProductVariantDTO;
   productId: string;
   variantId?: string;
