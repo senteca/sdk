@@ -16,6 +16,14 @@ import { ProductScoreUpdateDTO } from '../../models/ProductScoreUpdateDTO';
 import { IdReferenceDTO } from '../../models/IdReferenceDTO';
 import { ContentDTO } from '../../models/ContentDTO';
 import { SwapIndexDTO } from '../../models/SwapIndexDTO';
+import { ProductVariantDTO } from '../../models/ProductVariantDTO';
+import { ProductSkuUpdateDTO } from '../../models/ProductSkuUpdateDTO';
+import { ProductBarcodeUpdateDTO } from '../../models/ProductBarcodeUpdateDTO';
+import { ProductCollapseKeyUpdateDTO } from '../../models/ProductCollapseKeyUpdateDTO';
+import { ProductCollapseModeUpdateDTO } from '../../models/ProductCollapseModeUpdateDTO';
+import { OfferDTO } from '../../models/OfferDTO';
+import { ProductAliasImagesFromUpdateDTO } from '../../models/ProductAliasImagesFromUpdateDTO';
+import { ShippingDataDTO } from '../../models/ShippingDataDTO';
 
 export class ProductsAPI extends BaseAPI {
    async bulkLink (dto: BulkLinkUpdateDTO): Promise<void> {
@@ -342,6 +350,18 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
+   async setAttributes (id: string, dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/attributes`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
    async createContent (id: string, dto: ContentDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/content`,
@@ -405,6 +425,162 @@ export class ProductsAPI extends BaseAPI {
    async swapImageIndex (sku: string, dto: SwapIndexDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/images/swap`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async createVariant (id: string, dto: ProductVariantDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/variants`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setVariantSku (sku: string, dto: ProductSkuUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setVariantMasterBarcode (sku: string, dto: ProductBarcodeUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/master-barcode`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async addVariantBarcode (sku: string, dto: ProductBarcodeUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/barcode`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async deleteVariantBarcode (idx: number, sku: string): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/barcode/${encodeURIComponent(idx)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       
+   }
+
+   async setVariantCollapseKey (sku: string, dto: ProductCollapseKeyUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/collapse-key`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setVariantCollapseMode (sku: string, dto: ProductCollapseModeUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/collapse-mode`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setVariantAttributes (sku: string, dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/variant-attributes`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async createVariantOffer (sku: string, dto: OfferDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/offers`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async updateVariantOffer (id: string, dto: OfferDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/offers/${encodeURIComponent(id)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async deleteVariantOffer (id: string): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/offers/${encodeURIComponent(id)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       
+   }
+
+   async setVariantAliasImagesFrom (sku: string, dto: ProductAliasImagesFromUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/alias-images-from`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setVariantShippingData (sku: string, dto: ShippingDataDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/shipping-data`,
            method: 'PATCH',
            
            body: dto,

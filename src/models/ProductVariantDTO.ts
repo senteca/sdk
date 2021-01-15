@@ -1,21 +1,22 @@
-import { OfferDTO } from './OfferDTO';
-import { ProductAttributeDTO } from './ProductAttributeDTO';
+import { ProductAttributeDraftDTO } from './ProductAttributeDraftDTO';
+import { OfferDraftDTO } from './OfferDraftDTO';
 import { ImageDTO } from './ImageDTO';
 import { ShippingDataDTO } from './ShippingDataDTO';
+import { OfferDTO } from './OfferDTO';
 
 export interface ProductVariantDTO {
-  offer?: OfferDTO;
-  offers: OfferDTO[];
-  attributes: ProductAttributeDTO[];
   _id: string;
   sku: string;
   masterBarcode?: string;
   barcodes?: string[];
   collapseKey?: string;
   collapseMode?: ProductVariantDTOCollapseModeEnum;
+  attributes?: ProductAttributeDraftDTO[];
+  offers?: OfferDraftDTO[];
   aliasImagesFrom?: string;
   images?: ImageDTO[];
   shippingData?: ShippingDataDTO;
+  offer?: OfferDTO;
 }
 
 export enum ProductVariantDTOCollapseModeEnum {
