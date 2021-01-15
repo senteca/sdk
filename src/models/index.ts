@@ -238,6 +238,7 @@ export * from "./ProductDiscountValueDTO";
 export * from "./ProductDraftDTO";
 export * from "./ProductFilterResultDTO";
 export * from "./ProductImportDraftDTO";
+export * from "./ProductMasterVariantUpdateDTO";
 export * from "./ProductScoreUpdateDTO";
 export * from "./ProductSearchResultDTO";
 export * from "./ProductSkuUpdateDTO";

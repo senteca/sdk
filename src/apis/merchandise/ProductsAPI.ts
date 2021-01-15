@@ -14,6 +14,7 @@ import { KeyReferenceDTO } from '../../models/KeyReferenceDTO';
 import { LangValue } from '../../models/LangValue';
 import { ProductScoreUpdateDTO } from '../../models/ProductScoreUpdateDTO';
 import { IdReferenceDTO } from '../../models/IdReferenceDTO';
+import { ProductMasterVariantUpdateDTO } from '../../models/ProductMasterVariantUpdateDTO';
 import { ContentDTO } from '../../models/ContentDTO';
 import { SwapIndexDTO } from '../../models/SwapIndexDTO';
 import { ProductVariantDTO } from '../../models/ProductVariantDTO';
@@ -353,6 +354,18 @@ export class ProductsAPI extends BaseAPI {
    async setAttributes (id: string, dto: string[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/attributes`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setMasterVariantId (id: string, dto: ProductMasterVariantUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/master-variant`,
            method: 'PATCH',
            
            body: dto,
