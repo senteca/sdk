@@ -459,6 +459,18 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
+   async deleteVariant (sku: string): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       
+   }
+
    async setVariantSku (sku: string, dto: ProductSkuUpdateDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
