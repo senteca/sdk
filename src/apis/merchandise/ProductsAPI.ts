@@ -435,6 +435,18 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
+   async setVariantImages (sku: string, dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/images`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
    async swapImageIndex (sku: string, dto: SwapIndexDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/images/swap`,
