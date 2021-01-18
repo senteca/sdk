@@ -14,10 +14,8 @@ import { SpeedyStreetDTO } from '../../models/SpeedyStreetDTO';
 import { SpeedyOfficeDTO } from '../../models/SpeedyOfficeDTO';
 import { SpeedyCreateRequestDTO } from '../../models/SpeedyCreateRequestDTO';
 import { SpeedyCreateResponseDTO } from '../../models/SpeedyCreateResponseDTO';
-import { SpeedySendRequestDTO } from '../../models/SpeedySendRequestDTO';
 import { SpeedySendResponseDTO } from '../../models/SpeedySendResponseDTO';
 import { SpeedyCancelRequestDTO } from '../../models/SpeedyCancelRequestDTO';
-import { SpeedyCancelResponseDTO } from '../../models/SpeedyCancelResponseDTO';
 import { SpeedyTrackRequestDTO } from '../../models/SpeedyTrackRequestDTO';
 import { SpeedyTrackResponseDTO } from '../../models/SpeedyTrackResponseDTO';
 
@@ -370,7 +368,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        return (response.json() as unknown) as SpeedyCreateResponseDTO;
    }
 
-   async sendRequest (orderId: string, shippingId: string, deliveryId: string, parcelId: string, dto: SpeedySendRequestDTO): Promise<SpeedySendResponseDTO> {
+   async sendRequest (orderId: string, shippingId: string, deliveryId: string, parcelId: string, dto: SpeedyCreateRequestDTO): Promise<SpeedySendResponseDTO> {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/send-request`,
            method: 'POST',
@@ -382,7 +380,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        return (response.json() as unknown) as SpeedySendResponseDTO;
    }
 
-   async cancelRequest (orderId: string, shippingId: string, deliveryId: string, parcelId: string, dto: SpeedyCancelRequestDTO): Promise<SpeedyCancelResponseDTO> {
+   async cancelRequest (orderId: string, shippingId: string, deliveryId: string, parcelId: string, dto: SpeedyCancelRequestDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/cancel-request`,
            method: 'POST',
@@ -391,7 +389,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as SpeedyCancelResponseDTO;
+       return (response.json() as unknown) as OrderDTO;
    }
 
    async trackRequest (orderId: string, shippingId: string, deliveryId: string, parcelId: string, dto: SpeedyTrackRequestDTO): Promise<SpeedyTrackResponseDTO> {

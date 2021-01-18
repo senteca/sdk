@@ -6,6 +6,7 @@ export interface AttributeRuleDTO {
   allowMultiple: boolean;
   constraint: AttributeRuleDTOConstraintEnum;
   selectability: AttributeRuleDTOSelectabilityEnum;
+  componentHint?: string;
 }
 
 export enum AttributeRuleDTOConstraintEnum {

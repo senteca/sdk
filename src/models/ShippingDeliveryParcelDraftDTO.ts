@@ -14,6 +14,6 @@ export enum ShippingDeliveryParcelDraftDTOStatusEnum {
     Delayed = 'Delayed',  
     Partial = 'Partial',  
     Shipped = 'Shipped',  
-    Canceled = 'Canceled',  
+    Cancelled = 'Cancelled',  
     BackOrder = 'BackOrder',  
 }

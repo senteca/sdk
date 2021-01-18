@@ -1,5 +1,6 @@
 
 export interface SpeedyCancelRequestDTO {
-  id: string;
+  shipmentId: string;
+  comment: string;
 }
 

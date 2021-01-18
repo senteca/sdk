@@ -23,6 +23,7 @@ import { ShippingStatusUpdateDTO } from '../../models/ShippingStatusUpdateDTO';
 import { ShippingDeliveryDraftDTO } from '../../models/ShippingDeliveryDraftDTO';
 import { ShippingDeliveryParcelDTO } from '../../models/ShippingDeliveryParcelDTO';
 import { ShippingDeliveryParcelDraftDTO } from '../../models/ShippingDeliveryParcelDraftDTO';
+import { ShippingDeliveryParcelStatusUpdateDTO } from '../../models/ShippingDeliveryParcelStatusUpdateDTO';
 import { PaymentStatusUpdateDTO } from '../../models/PaymentStatusUpdateDTO';
 import { PaymentTransactionDraftDTO } from '../../models/PaymentTransactionDraftDTO';
 
@@ -415,6 +416,18 @@ export class OrdersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels`,
            method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ShippingDeliveryParcelDTO;
+   }
+
+   async setShippingDeliveryParcelStatus (id: string, shippingId: string, deliveryId: string, parcelId: string, dto: ShippingDeliveryParcelStatusUpdateDTO): Promise<ShippingDeliveryParcelDTO> {
+       const response = await this._request({
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/status`,
+           method: 'PUT',
            
            body: dto,
            

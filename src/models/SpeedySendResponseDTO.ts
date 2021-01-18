@@ -1,7 +1,10 @@
 
 export interface SpeedySendResponseDTO {
-  waybillNumber: string;
-  pdfURL: string;
-  totalPrice: string;
+  waybillId: string;
+  price: string;
+  infoUrl: string;
+  printUrl: string;
+  printLabelsUrl: string;
+  trackUrl: string;
 }
 
