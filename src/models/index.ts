@@ -322,6 +322,8 @@ export * from "./SubscriptionDTO";
 export * from "./SubscriptionDraftDTO";
 export * from "./SubtotalDiscountDTO";
 export * from "./SwapIndexDTO";
+export * from "./SynonymDTO";
+export * from "./SynonymDraftDTO";
 export * from "./TagDTO";
 export * from "./TagDraftDTO";
 export * from "./TagFilterResultDTO";
