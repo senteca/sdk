@@ -4,6 +4,7 @@ export interface SpeedyCreateRequestDTO {
   pack_count?: number;
   enable_customer_share_sum?: boolean;
   share_type?: SpeedyCreateRequestDTOShare_typeEnum;
+  sender?: number;
   service_type?: number;
   receiver_pay_sum?: number;
   service_sms?: boolean;

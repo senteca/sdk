@@ -1,0 +1,79 @@
+import { BaseAPI } from '../../runtime';
+import { CustomerInvitationDraftDTO } from '../../models/CustomerInvitationDraftDTO';
+import { CustomerInvitationDTO } from '../../models/CustomerInvitationDTO';
+import { CustomerInvitationFilterResultDTO } from '../../models/CustomerInvitationFilterResultDTO';
+
+export class CustomerInvitationsAPI extends BaseAPI {
+   async create (dto: CustomerInvitationDraftDTO): Promise<CustomerInvitationDTO> {
+       const response = await this._request({
+           path: `/users/customer-invitations`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as CustomerInvitationDTO;
+   }
+
+   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerInvitationFilterResultDTO> {
+       const response = await this._request({
+           path: `/users/customer-invitations`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as CustomerInvitationFilterResultDTO;
+   }
+
+   async getByKey (key: string): Promise<CustomerInvitationDTO> {
+       const response = await this._request({
+           path: `/users/customer-invitations/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CustomerInvitationDTO;
+   }
+
+   async getById (id: string): Promise<CustomerInvitationDTO> {
+       const response = await this._request({
+           path: `/users/customer-invitations/${encodeURIComponent(id)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CustomerInvitationDTO;
+   }
+
+   async update (id: string, dto: CustomerInvitationDTO): Promise<CustomerInvitationDTO> {
+       const response = await this._request({
+           path: `/users/customer-invitations/${encodeURIComponent(id)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as CustomerInvitationDTO;
+   }
+
+   async delete (id: string): Promise<CustomerInvitationDTO> {
+       const response = await this._request({
+           path: `/users/customer-invitations/${encodeURIComponent(id)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CustomerInvitationDTO;
+   }
+
+}

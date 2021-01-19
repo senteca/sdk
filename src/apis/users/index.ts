@@ -1,4 +1,5 @@
 export * from "./CustomerGroupsAPI";
+export * from "./CustomerInvitationsAPI";
 export * from "./CustomerMessagesAPI";
 export * from "./CustomerSubscriptionTypesAPI";
 export * from "./CustomersAPI";
