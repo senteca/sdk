@@ -10,8 +10,8 @@ export interface {{name}} {
 
 {{#relatedEnums}}
 export enum {{name}} {
-  {{#values}}
-    {{name}} = '{{value}}',  
-  {{/values}}
+  {{#signatures}}
+    {{{.}}},  
+  {{/signatures}}
 }
 {{/relatedEnums}}

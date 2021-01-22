@@ -3,6 +3,7 @@ import { AddressDTO } from './AddressDTO';
 import { CustomField } from './CustomField';
 
 export interface CustomerDraftDTO {
+  gender?: CustomerDraftDTOGenderEnum;
   password: string;
   customerNumber?: number;
   store?: KeyReferenceDTO;
@@ -12,7 +13,6 @@ export interface CustomerDraftDTO {
   firstName?: string;
   middleName?: string;
   lastName?: string;
-  gender?: CustomerDraftDTOGenderEnum;
   dayOfBirth?: number;
   monthOfBirth?: number;
   yearOfBirth?: number;
@@ -33,9 +33,9 @@ export interface CustomerDraftDTO {
 }
 
 export enum CustomerDraftDTOGenderEnum {
-    Unspecified = 'Unspecified',  
-    Male = 'Male',  
-    Female = 'Female',  
+    Unspecified = 0,  
+    Male = 1,  
+    Female = 2,  
 }
 export enum CustomerDraftDTOStatusEnum {
     Active = 'active',  

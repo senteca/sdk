@@ -3,6 +3,7 @@ import { AddressDTO } from './AddressDTO';
 import { CustomField } from './CustomField';
 
 export interface RegisterRequestDTO {
+  gender?: RegisterRequestDTOGenderEnum;
   responseMode?: RegisterRequestDTOResponseModeEnum;
   password: string;
   customerNumber?: number;
@@ -13,7 +14,6 @@ export interface RegisterRequestDTO {
   firstName?: string;
   middleName?: string;
   lastName?: string;
-  gender?: RegisterRequestDTOGenderEnum;
   dayOfBirth?: number;
   monthOfBirth?: number;
   yearOfBirth?: number;
@@ -33,14 +33,14 @@ export interface RegisterRequestDTO {
   custom?: CustomField[];
 }
 
+export enum RegisterRequestDTOGenderEnum {
+    Unspecified = 0,  
+    Male = 1,  
+    Female = 2,  
+}
 export enum RegisterRequestDTOResponseModeEnum {
     Compact = 'compact',  
     Full = 'full',  
-}
-export enum RegisterRequestDTOGenderEnum {
-    Unspecified = 'Unspecified',  
-    Male = 'Male',  
-    Female = 'Female',  
 }
 export enum RegisterRequestDTOStatusEnum {
     Active = 'active',  

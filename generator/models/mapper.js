@@ -13,7 +13,7 @@ module.exports = class ModelsMapper {
         map[prop] = true;
         return map;
       },
-      {}
+      {},
     );
 
     const props = getIn(schema, "properties");
@@ -22,7 +22,7 @@ module.exports = class ModelsMapper {
         prop,
         props[prop],
         requiredMap,
-        name
+        name,
       );
 
       if (relatedModel && !relatedModels.includes(relatedModel)) {
@@ -56,10 +56,13 @@ module.exports = class ModelsMapper {
         realType = `${capitalize(prefix)}${capitalize(name)}Enum`;
         relatedEnum = {
           name: realType,
-          values: definition.enum.map((value) => ({
-            name: kebabToPascal(value),
-            value,
-          })),
+          signatures: definition.enum.map((value) => {
+            if (typeof value === "object") {
+              return `${Object.keys(value)[0]} = ${Object.values(value)[0]}`;
+            } else {
+              return `${kebabToPascal(value)} = '${value}'`;
+            }
+          }),
         };
       } else if (definition.type === "array") {
         // array

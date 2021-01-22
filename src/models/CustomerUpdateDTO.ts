@@ -3,6 +3,7 @@ import { AddressDTO } from './AddressDTO';
 import { CustomField } from './CustomField';
 
 export interface CustomerUpdateDTO {
+  gender?: CustomerUpdateDTOGenderEnum;
   _id: string;
   createdAt?: number;
   updatedAt?: number;
@@ -14,7 +15,6 @@ export interface CustomerUpdateDTO {
   firstName?: string;
   middleName?: string;
   lastName?: string;
-  gender?: CustomerUpdateDTOGenderEnum;
   dayOfBirth?: number;
   monthOfBirth?: number;
   yearOfBirth?: number;
@@ -35,9 +35,9 @@ export interface CustomerUpdateDTO {
 }
 
 export enum CustomerUpdateDTOGenderEnum {
-    Unspecified = 'Unspecified',  
-    Male = 'Male',  
-    Female = 'Female',  
+    Unspecified = 0,  
+    Male = 1,  
+    Female = 2,  
 }
 export enum CustomerUpdateDTOStatusEnum {
     Active = 'active',  

@@ -16,6 +16,7 @@ import { ProductScoreUpdateDTO } from '../../models/ProductScoreUpdateDTO';
 import { IdReferenceDTO } from '../../models/IdReferenceDTO';
 import { ProductMasterVariantUpdateDTO } from '../../models/ProductMasterVariantUpdateDTO';
 import { ContentDTO } from '../../models/ContentDTO';
+import { ImageDTO } from '../../models/ImageDTO';
 import { SwapIndexDTO } from '../../models/SwapIndexDTO';
 import { ProductVariantDTO } from '../../models/ProductVariantDTO';
 import { ProductSkuUpdateDTO } from '../../models/ProductSkuUpdateDTO';
@@ -411,6 +412,18 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
+   async getSKUImages (sku: string): Promise<ImageDTO[]> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/images`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as ImageDTO[];
+   }
+
    async uploadImages (sku: string, dto: any): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/images`,
@@ -423,7 +436,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async deleteImage (sku: string, query: { indexes: string[] }): Promise<void> {
+   async deleteImage (sku: string, query: { indexes: string }): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/images`,
            method: 'DELETE',
