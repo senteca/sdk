@@ -29,6 +29,30 @@ export class WalletTypesAPI extends BaseAPI {
        return (response.json() as unknown) as WalletTypeDTO;
    }
 
+   async search (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletTypeSearchResultDTO> {
+       const response = await this._request({
+           path: `/users/wallet-types/search`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as WalletTypeSearchResultDTO;
+   }
+
+   async getByKey (key: string): Promise<WalletTypeDTO> {
+       const response = await this._request({
+           path: `/users/wallet-types/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as WalletTypeDTO;
+   }
+
    async getById (id: string): Promise<WalletTypeDTO> {
        const response = await this._request({
            path: `/users/wallet-types/${encodeURIComponent(id)}`,
@@ -63,18 +87,6 @@ export class WalletTypesAPI extends BaseAPI {
            
         });
        return (response.json() as unknown) as WalletTypeDTO;
-   }
-
-   async search (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletTypeSearchResultDTO> {
-       const response = await this._request({
-           path: `/users/wallet-types/search`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as WalletTypeSearchResultDTO;
    }
 
 }
