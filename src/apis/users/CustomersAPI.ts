@@ -12,11 +12,11 @@ import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
 import { PasswordResetDTO } from '../../models/PasswordResetDTO';
 
 export class CustomersAPI extends BaseAPI {
-   async getMyProfile (): Promise<CustomerDTO> {
+   async getMyProfile (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> {
        const response = await this._request({
            path: `/users/customers/my-profile`,
            method: 'GET',
-           
+           query: this._stringifyQuery(query),
            
            
            
