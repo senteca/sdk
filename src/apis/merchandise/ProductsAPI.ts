@@ -2,6 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { BulkLinkUpdateDTO } from '../../models/BulkLinkUpdateDTO';
 import { BulkDeleteDTO } from '../../models/BulkDeleteDTO';
 import { BulkStatusChangeDTO } from '../../models/BulkStatusChangeDTO';
+import { BulkCustomFieldUpdateDTO } from '../../models/BulkCustomFieldUpdateDTO';
 import { ProductDraftDTO } from '../../models/ProductDraftDTO';
 import { ProductDTO } from '../../models/ProductDTO';
 import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
@@ -67,6 +68,18 @@ export class ProductsAPI extends BaseAPI {
    async bulkSetStatus (dto: BulkStatusChangeDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/bulk/status`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async bulkCustomFieldUpdate (dto: BulkCustomFieldUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/bulk/custom`,
            method: 'PATCH',
            
            body: dto,
