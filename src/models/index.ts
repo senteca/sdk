@@ -27,6 +27,8 @@ export * from "./BrandFilterResultDTO";
 export * from "./BrandImportDraftDTO";
 export * from "./BrandResultDTO";
 export * from "./BrandSearchResultDTO";
+export * from "./BulkAttributeDeleteDTO";
+export * from "./BulkAttributeUpdateDTO";
 export * from "./BulkCustomFieldUpdateDTO";
 export * from "./BulkDeleteDTO";
 export * from "./BulkLinkUpdateDTO";

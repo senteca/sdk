@@ -3,6 +3,8 @@ import { BulkLinkUpdateDTO } from '../../models/BulkLinkUpdateDTO';
 import { BulkDeleteDTO } from '../../models/BulkDeleteDTO';
 import { BulkStatusChangeDTO } from '../../models/BulkStatusChangeDTO';
 import { BulkCustomFieldUpdateDTO } from '../../models/BulkCustomFieldUpdateDTO';
+import { BulkAttributeUpdateDTO } from '../../models/BulkAttributeUpdateDTO';
+import { BulkAttributeDeleteDTO } from '../../models/BulkAttributeDeleteDTO';
 import { ProductDraftDTO } from '../../models/ProductDraftDTO';
 import { ProductDTO } from '../../models/ProductDTO';
 import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
@@ -80,6 +82,30 @@ export class ProductsAPI extends BaseAPI {
    async bulkCustomFieldUpdate (dto: BulkCustomFieldUpdateDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/bulk/custom`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async bulkAttributeSet (dto: BulkAttributeUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/bulk/attribute-set`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async bulkAttributeDelete (dto: BulkAttributeDeleteDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/bulk/attribute-delete`,
            method: 'PATCH',
            
            body: dto,
