@@ -1,18 +1,13 @@
+import { TaskParamDefinitionDTO } from './TaskParamDefinitionDTO';
+import { TaskExecutionDTO } from './TaskExecutionDTO';
 
 export interface TaskDTO {
   name: string;
   label: string;
-  startedAt?: number;
-  endedAt?: number;
-  isRunning?: boolean;
-  executionStatus?: TaskDTOExecutionStatusEnum;
+  paramDefinitions?: TaskParamDefinitionDTO[];
   externalUrl?: string;
   secret?: string;
-  meta?: any;
   _id: string;
+  executionHistory?: TaskExecutionDTO[];
 }
 
-export enum TaskDTOExecutionStatusEnum {
-    Completed = 'completed',  
-    Failed = 'failed',  
-}

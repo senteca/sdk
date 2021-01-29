@@ -2,9 +2,6 @@ import { BaseAPI } from '../../runtime';
 import { BulkLinkUpdateDTO } from '../../models/BulkLinkUpdateDTO';
 import { BulkDeleteDTO } from '../../models/BulkDeleteDTO';
 import { BulkStatusChangeDTO } from '../../models/BulkStatusChangeDTO';
-import { BulkCustomFieldUpdateDTO } from '../../models/BulkCustomFieldUpdateDTO';
-import { BulkAttributeUpdateDTO } from '../../models/BulkAttributeUpdateDTO';
-import { BulkAttributeDeleteDTO } from '../../models/BulkAttributeDeleteDTO';
 import { ProductDraftDTO } from '../../models/ProductDraftDTO';
 import { ProductDTO } from '../../models/ProductDTO';
 import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
@@ -79,42 +76,6 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async bulkCustomFieldUpdate (dto: BulkCustomFieldUpdateDTO): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/products/bulk/custom`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       
-   }
-
-   async bulkAttributeSet (dto: BulkAttributeUpdateDTO): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/products/bulk/attribute-set`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       
-   }
-
-   async bulkAttributeDelete (dto: BulkAttributeDeleteDTO): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/products/bulk/attribute-delete`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       
-   }
-
    async create (dto: ProductDraftDTO): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products`,
@@ -163,7 +124,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductSearchResultDTO;
    }
 
-   async getBySlug (slug: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ProductDTO> {
+   async getBySlug (slug: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, stockLocationKey?: string }): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products/slug=${encodeURIComponent(slug)}`,
            method: 'GET',
@@ -175,7 +136,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async getByExternalId (externalId: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ProductDTO> {
+   async getByExternalId (externalId: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, stockLocationKey?: string }): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products/externalId=${encodeURIComponent(externalId)}`,
            method: 'GET',
@@ -199,7 +160,7 @@ export class ProductsAPI extends BaseAPI {
        return (response.json() as unknown) as ProductDTO;
    }
 
-   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ProductDTO> {
+   async getById (id: string, query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, stockLocationKey?: string }): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}`,
            method: 'GET',

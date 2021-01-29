@@ -1,42 +1,41 @@
 import { BaseAPI } from '../../runtime';
-import { TaskActionPayloadDTO } from '../../models/TaskActionPayloadDTO';
 import { TaskDraftDTO } from '../../models/TaskDraftDTO';
 import { TaskDTO } from '../../models/TaskDTO';
 import { TaskFilterResultDTO } from '../../models/TaskFilterResultDTO';
 
 export class TasksAPI extends BaseAPI {
-   async start (name: string, dto: TaskActionPayloadDTO): Promise<void> {
+   async start (name: string): Promise<void> {
        const response = await this._request({
            path: `/config/tasks/start/${encodeURIComponent(name)}`,
            method: 'POST',
            
-           body: dto,
            
-           contentType: 'application/json',
+           
+           
         });
        
    }
 
-   async fail (name: string, dto: TaskActionPayloadDTO): Promise<void> {
+   async fail (name: string, executionId: string, query: { info: string }): Promise<void> {
        const response = await this._request({
-           path: `/config/tasks/fail/${encodeURIComponent(name)}`,
+           path: `/config/tasks/fail/${encodeURIComponent(name)}/execution/${encodeURIComponent(executionId)}`,
            method: 'POST',
+           query: this._stringifyQuery(query),
            
-           body: dto,
            
-           contentType: 'application/json',
+           
         });
        
    }
 
-   async complete (name: string, dto: TaskActionPayloadDTO): Promise<void> {
+   async complete (name: string, executionId: string, query: { info: string }): Promise<void> {
        const response = await this._request({
-           path: `/config/tasks/complete/${encodeURIComponent(name)}`,
+           path: `/config/tasks/comlete/${encodeURIComponent(name)}/execution/${encodeURIComponent(executionId)}`,
            method: 'POST',
+           query: this._stringifyQuery(query),
            
-           body: dto,
            
-           contentType: 'application/json',
+           
         });
        
    }

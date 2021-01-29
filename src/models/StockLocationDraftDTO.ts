@@ -7,6 +7,7 @@ export interface StockLocationDraftDTO {
   merchantKey: string;
   priority?: number;
   storeAvailability?: string[];
+  isPhysical: boolean;
   name: LangValue[];
   description?: LangValue[];
   address: AddressDraftDTO;
