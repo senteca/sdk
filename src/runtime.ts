@@ -46,6 +46,19 @@ export class BaseAPI {
     if (options?.token) {
       headers["Authorization"] = `Bearer ${options.token}`;
     }
+    if (options?.cookies) {
+      const cookieKeys = Object.keys(options.cookies);
+      if (cookieKeys.length > 0) {
+        const toCookie = (key: string) => {
+          const value = options.cookies[key];
+          if (value !== undefined) {
+            return `${key}=${value}`;
+          }
+        };
+        const isSet = (x: any) => !!x;
+        headers["cookie"] = cookieKeys.map(toCookie).filter(isSet).join("; ");
+      }
+    }
 
     if (context.basicAuth) {
       const { username, password } = context.basicAuth;
@@ -57,7 +70,7 @@ export class BaseAPI {
     const init = {
       method: context.method,
       headers: headers,
-      body,
+      body
     };
     return { url, init };
   }
@@ -108,6 +121,7 @@ export interface ConfigOptions {
   basePath?: string;
   fetchApi?: FetchAPI;
   token?: string;
+  cookies?: any;
 }
 
 export class Configuration {
