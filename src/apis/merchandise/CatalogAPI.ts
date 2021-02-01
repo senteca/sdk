@@ -54,7 +54,7 @@ export class CatalogAPI extends BaseAPI {
        return (response.json() as unknown) as SynonymDTO;
    }
 
-   async filterSynonyms (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<void> {
+   async filterSynonyms (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<any> {
        const response = await this._request({
            path: `/merchandise/catalog/synonyms`,
            method: 'GET',
@@ -63,7 +63,7 @@ export class CatalogAPI extends BaseAPI {
            
            
         });
-       
+       return (response.json() as unknown) as any;
    }
 
    async updateSynonym (synonymId: string, dto: SynonymDraftDTO): Promise<SynonymDTO> {
