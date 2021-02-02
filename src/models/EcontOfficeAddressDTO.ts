@@ -8,8 +8,8 @@ export interface EcontOfficeAddressDTO {
   quarter: string;
   street: string;
   num: string;
-  other: string;
+  other?: string;
   location: EcontGeoLocationDTO;
-  zip: string;
+  zip?: string;
 }
 

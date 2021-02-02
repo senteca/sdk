@@ -2,6 +2,7 @@ import { LangValue } from './LangValue';
 import { BrandResultDTO } from './BrandResultDTO';
 import { ImageDTO } from './ImageDTO';
 import { OfferDTO } from './OfferDTO';
+import { InventorySnapshotDTO } from './InventorySnapshotDTO';
 import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
 import { CustomField } from './CustomField';
 
@@ -15,7 +16,7 @@ export interface SearchResultDTO {
   images: ImageDTO[];
   offers: OfferDTO[];
   offer?: OfferDTO;
-  availableQuantity: number;
+  inventorySnapshot: InventorySnapshotDTO;
   reviewRatingStatistics: ReviewRatingStatisticsDTO;
   variantsCount: number;
   custom: CustomField[];

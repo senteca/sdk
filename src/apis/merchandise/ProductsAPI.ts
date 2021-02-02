@@ -2,6 +2,9 @@ import { BaseAPI } from '../../runtime';
 import { BulkLinkUpdateDTO } from '../../models/BulkLinkUpdateDTO';
 import { BulkDeleteDTO } from '../../models/BulkDeleteDTO';
 import { BulkStatusChangeDTO } from '../../models/BulkStatusChangeDTO';
+import { BulkCustomFieldUpdateDTO } from '../../models/BulkCustomFieldUpdateDTO';
+import { BulkAttributeUpdateDTO } from '../../models/BulkAttributeUpdateDTO';
+import { BulkAttributeDeleteDTO } from '../../models/BulkAttributeDeleteDTO';
 import { ProductDraftDTO } from '../../models/ProductDraftDTO';
 import { ProductDTO } from '../../models/ProductDTO';
 import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
@@ -67,6 +70,42 @@ export class ProductsAPI extends BaseAPI {
    async bulkSetStatus (dto: BulkStatusChangeDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/bulk/status`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async bulkCustomFieldUpdate (dto: BulkCustomFieldUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/bulk/custom`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async bulkAttributeSet (dto: BulkAttributeUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/bulk/attribute-set`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async bulkAttributeDelete (dto: BulkAttributeDeleteDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/bulk/attribute-delete`,
            method: 'PATCH',
            
            body: dto,
@@ -176,6 +215,18 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as ProductDTO;
+   }
+
+   async recalculateInventories (id: string): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/recalculate-inventories`,
+           method: 'PATCH',
            
            
            

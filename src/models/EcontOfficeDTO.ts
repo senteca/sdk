@@ -12,13 +12,13 @@ export interface EcontOfficeDTO {
   address: EcontOfficeAddressDTO;
   info: string;
   currency: string;
-  language: string;
+  language?: string;
   normalBusinessHoursFrom: number;
   normalBusinessHoursTo: number;
   halfDayBusinessHoursFrom: number;
   halfDayBusinessHoursTo: number;
   shipmentTypes: string[];
-  partnerCode: string;
+  partnerCode?: string;
   hubCode: string;
   hubName: string;
 }

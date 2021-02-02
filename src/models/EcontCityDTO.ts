@@ -7,10 +7,10 @@ export interface EcontCityDTO {
   postCode: string;
   name: string;
   nameEn: string;
-  regionName: string;
-  regionNameEn: string;
-  phoneCode: string;
+  regionName?: string;
+  regionNameEn?: string;
+  phoneCode?: string;
   location: EcontGeoLocationDTO;
-  expressCityDeliveries: boolean;
+  expressCityDeliveries?: boolean;
 }
 
