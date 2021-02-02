@@ -1,15 +1,15 @@
-const Mustache = require("mustache");
-const ApisMapper = require("./mapper");
-const ApisGenerator = require("./generator");
-const { getIn } = require("../utils/data");
+const Mustache = require('mustache');
+const ApisMapper = require('./mapper');
+const ApisGenerator = require('./generator');
+const { getIn } = require('../utils/data');
 const {
   readFileAsync,
   resolveRoot,
   readDirAsync,
   writeFileAsync,
   mkDirIfNotExists,
-} = require("../utils/io");
-const { target, outputDir } = require("../config");
+} = require('../utils/io');
+const { target, outputDir } = require('../config');
 
 module.exports = class ApisRoutine {
   static async run(apiDocuments) {
@@ -20,7 +20,7 @@ module.exports = class ApisRoutine {
       const appName = doc.info.title.toLowerCase();
       await this.createAppFolder(appName);
 
-      const paths = getIn(doc, "paths") || {};
+      const paths = getIn(doc, 'paths') || {};
       const groupedByApi = this.groupPathsByApi(paths);
 
       for (const rawApi of Object.values(groupedByApi)) {
@@ -53,34 +53,34 @@ module.exports = class ApisRoutine {
   }
 
   static async createAppFolder(appName) {
-    const path = resolveRoot(outputDir, "apis", appName);
+    const path = resolveRoot(outputDir, 'apis', appName);
     await mkDirIfNotExists(path);
   }
 
   static async createAppIndexFile(appName) {
-    const path = resolveRoot(outputDir, "apis", appName);
+    const path = resolveRoot(outputDir, 'apis', appName);
     const files = await readDirAsync(path);
     const content = files
-      .map((file) => `export * from "./${file.replace(".ts", "")}";`)
-      .join("\n");
+      .map((file) => `export * from "./${file.replace('.ts', '')}";`)
+      .join('\n');
     await writeFileAsync(`${path}/index.ts`, content, {
-      encoding: "utf-8",
+      encoding: 'utf-8',
     });
   }
 
   static async createIndexFile() {
-    const path = resolveRoot(outputDir, "apis");
+    const path = resolveRoot(outputDir, 'apis');
     const apps = await readDirAsync(path);
-    const content = apps.map((app) => `export * from "./${app}";`).join("\n");
+    const content = apps.map((app) => `export * from "./${app}";`).join('\n');
     await writeFileAsync(`${path}/index.ts`, content, {
-      encoding: "utf-8",
+      encoding: 'utf-8',
     });
   }
 
   static async loadTemplate() {
     return await readFileAsync(
       `${__dirname}/templates/${target}.mustache`,
-      "utf-8"
+      'utf-8',
     );
   }
 };

@@ -1,9 +1,9 @@
-const Loader = require("./loader");
-const BaseRoutine = require("./base/routine");
-const ModelsRoutine = require("./models/routine");
-const ApisRoutine = require("./apis/routine");
+const Loader = require('./loader');
+const BaseRoutine = require('./base/routine');
+const ModelsRoutine = require('./models/routine');
+const ApisRoutine = require('./apis/routine');
 
-const apps = ["auth", "cms", "config", "fulfillment", "merchandise", "users"];
+const apps = ['auth', 'cms', 'config', 'fulfillment', 'merchandise', 'users'];
 
 const start = async () => {
   try {
@@ -12,7 +12,7 @@ const start = async () => {
     await ModelsRoutine.run(apiDocuments);
     await ApisRoutine.run(apiDocuments);
   } catch (error) {
-    console.log("Error generating sdk: ", error);
+    console.log('Error generating sdk: ', error);
   }
 };
 

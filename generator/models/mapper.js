@@ -1,6 +1,6 @@
-const { toArray } = require("../utils/array");
-const { getIn } = require("../utils/data");
-const { capitalize, kebabToPascal } = require("../utils/string");
+const { toArray } = require('../utils/array');
+const { getIn } = require('../utils/data');
+const { capitalize, kebabToPascal } = require('../utils/string');
 
 module.exports = class ModelsMapper {
   static map(name, schema) {
@@ -8,7 +8,7 @@ module.exports = class ModelsMapper {
     const relatedEnums = [];
     const properties = [];
 
-    const requiredMap = toArray(getIn(schema, "required")).reduce(
+    const requiredMap = toArray(getIn(schema, 'required')).reduce(
       (map, prop) => {
         map[prop] = true;
         return map;
@@ -16,7 +16,7 @@ module.exports = class ModelsMapper {
       {},
     );
 
-    const props = getIn(schema, "properties");
+    const props = getIn(schema, 'properties');
     for (const prop in props) {
       const { signature, relatedModel, relatedEnum } = this.mapProp(
         prop,
@@ -57,14 +57,14 @@ module.exports = class ModelsMapper {
         relatedEnum = {
           name: realType,
           signatures: definition.enum.map((value) => {
-            if (typeof value === "object") {
+            if (typeof value === 'object') {
               return `${Object.keys(value)[0]} = ${Object.values(value)[0]}`;
             } else {
               return `${kebabToPascal(value)} = '${value}'`;
             }
           }),
         };
-      } else if (definition.type === "array") {
+      } else if (definition.type === 'array') {
         // array
         const mappedItem = this.mapProp(name, definition.items, {}, prefix);
         realType = `${mappedItem.realType}[]`;
@@ -72,8 +72,8 @@ module.exports = class ModelsMapper {
         relatedEnum = mappedItem.relatedEnum;
       } else {
         // base types
-        if (definition.type === "object") {
-          realType = "any";
+        if (definition.type === 'object') {
+          realType = 'any';
         } else {
           realType = definition.type;
         }
@@ -81,14 +81,14 @@ module.exports = class ModelsMapper {
     } else {
       if (definition.$ref) {
         // reference
-        realType = definition.$ref.replace("#/components/schemas/", "");
+        realType = definition.$ref.replace('#/components/schemas/', '');
         relatedModel = realType;
       }
     }
 
     const typeExpr = `: ${realType}`;
-    const requiredExpr = isRequired ? "" : "?";
-    let defaultExpr = "";
+    const requiredExpr = isRequired ? '' : '?';
+    let defaultExpr = '';
     // const hasDefault = definition.hasOwnProperty("default");
     // const isStr = realType === "string";
     // const isArray = definition.type === "array";

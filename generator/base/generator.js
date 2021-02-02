@@ -1,10 +1,10 @@
-const Mustache = require("mustache");
+const Mustache = require('mustache');
 const {
   mkDirIfNotExists,
   writeFileAsync,
   resolveRoot,
-} = require("../utils/io");
-const { outputDir } = require("../config");
+} = require('../utils/io');
+const { outputDir } = require('../config');
 
 module.exports = class BaseGenerator {
   static async generate(template, data) {
@@ -12,7 +12,7 @@ module.exports = class BaseGenerator {
     const path = resolveRoot(outputDir);
     await mkDirIfNotExists(path);
     await writeFileAsync(`${path}/runtime.ts`, content, {
-      encoding: "utf-8",
+      encoding: 'utf-8',
     });
   }
 };

@@ -1,6 +1,6 @@
-const { promisify } = require("util");
-const fs = require("fs");
-const path = require("path");
+const { promisify } = require('util');
+const fs = require('fs');
+const path = require('path');
 
 const readFileAsync = promisify(fs.readFile);
 const writeFileAsync = promisify(fs.writeFile);

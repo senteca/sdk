@@ -19,6 +19,7 @@
   ],
   "scripts": {
     "lint": "eslint \"src/**/*.ts\" --fix",
+    "format": "prettier --write \"generator/**/*.js\"",
     "update": "npm run generate && npm run bump-version && npm publish",
     "bump-version": "npm version patch -no-git-tag-version --force",
     "prebuild": "rm -rf dist",
@@ -46,6 +47,7 @@
     "eslint-plugin-import": "^2.22.1",
     "mustache": "^4.1.0",
     "node-fetch": "^2.6.1",
+    "prettier": "^2.2.1",
     "typescript": "^3.9.7"
   },
   "repository": {

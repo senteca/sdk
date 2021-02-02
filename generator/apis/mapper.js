@@ -102,10 +102,15 @@ module.exports = class ApiMapper {
       // anonymous type for query params:
       // query: { filter: string[]; sort?: string; }
       const isRequired = queryParams.some((p) => p.required) || hasBody;
-      const queryParamSignatures = queryParams.map(toSignature);
-      const querySignature = `query${
-        isRequired ? '' : '?'
-      }: { ${queryParamSignatures.join(', ')} }`;
+      const queryParamSignatures = queryParams
+        .filter((p) => p.name)
+        .map(toSignature);
+      const queryType =
+        queryParamSignatures.length > 0
+          ? `{ ${queryParamSignatures.join(', ')} }`
+          : 'any';
+
+      const querySignature = `query${isRequired ? '' : '?'}: ${queryType}`;
       paramSignatures.push({ text: querySignature });
     }
 
