@@ -101,7 +101,8 @@ module.exports = class ApiMapper {
     if (queryParams.length) {
       // anonymous type for query params:
       // query: { filter: string[]; sort?: string; }
-      const isRequired = queryParams.some((p) => p.required) || hasBody;
+      const isRequired =
+        queryParams.filter((p) => p.name).some((p) => p.required) || hasBody;
       const queryParamSignatures = queryParams
         .filter((p) => p.name)
         .map(toSignature);
