@@ -4,11 +4,11 @@ import { TaskDTO } from '../../models/TaskDTO';
 import { TaskFilterResultDTO } from '../../models/TaskFilterResultDTO';
 
 export class TasksAPI extends BaseAPI {
-   async start (name: string): Promise<void> {
+   async start (name: string, query: any): Promise<void> {
        const response = await this._request({
            path: `/config/tasks/start/${encodeURIComponent(name)}`,
            method: 'POST',
-           
+           query: this._stringifyQuery(query),
            
            
            
