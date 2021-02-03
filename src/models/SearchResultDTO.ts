@@ -16,7 +16,7 @@ export interface SearchResultDTO {
   images: ImageDTO[];
   offers: OfferDTO[];
   offer?: OfferDTO;
-  inventorySnapshot: InventorySnapshotDTO;
+  inventorySnapshot?: InventorySnapshotDTO;
   reviewRatingStatistics: ReviewRatingStatisticsDTO;
   variantsCount: number;
   custom: CustomField[];

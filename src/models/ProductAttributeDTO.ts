@@ -1,8 +1,8 @@
 
 export interface ProductAttributeDTO {
-  data?: any;
-  valueData?: any;
   name: string;
   value: any;
+  data?: any;
+  valueData?: any;
 }
 

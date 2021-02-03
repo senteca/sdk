@@ -1,4 +1,6 @@
-import { ProductAttributeDraftDTO } from './ProductAttributeDraftDTO';
+import { ProductAttributeDTO } from './ProductAttributeDTO';
+import { ProductVariantDTO } from './ProductVariantDTO';
+import { AttributeRuleDTO } from './AttributeRuleDTO';
 import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { StoreStatusDTO } from './StoreStatusDTO';
 import { LangValue } from './LangValue';
@@ -6,12 +8,15 @@ import { ContentDTO } from './ContentDTO';
 import { IdReferenceDTO } from './IdReferenceDTO';
 import { AssetDTO } from './AssetDTO';
 import { CustomField } from './CustomField';
-import { ProductVariantDraftDTO } from './ProductVariantDraftDTO';
 import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
-import { AttributeRuleDTO } from './AttributeRuleDTO';
 
 export interface ProductDTO {
-  attributes?: ProductAttributeDraftDTO[];
+  _id: string;
+  createdAt: number;
+  updatedAt: number;
+  attributes?: ProductAttributeDTO[];
+  variants?: ProductVariantDTO[];
+  attributeRules?: AttributeRuleDTO[];
   version?: number;
   type: KeyReferenceDTO;
   externalId?: string;
@@ -26,16 +31,11 @@ export interface ProductDTO {
   assets?: AssetDTO[];
   custom?: CustomField[];
   masterVariantId?: string;
-  variants?: ProductVariantDraftDTO[];
   slug: LangValue[];
   metaTitle?: LangValue[];
   metaDescription?: LangValue[];
   metaKeywords?: LangValue[];
   score?: number;
   reviewRatingStatistics?: ReviewRatingStatisticsDTO;
-  _id: string;
-  createdAt: number;
-  updatedAt: number;
-  attributeRules?: AttributeRuleDTO[];
 }
 
