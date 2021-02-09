@@ -214,6 +214,7 @@ export * from "./PackageDTO";
 export * from "./PageDTO";
 export * from "./PageDraftDTO";
 export * from "./PageFilterResultDTO";
+export * from "./PageLabelUpdateDTO";
 export * from "./PageNameUpdateDTO";
 export * from "./PageNodesUpdateDTO";
 export * from "./PageStatusUpdateDTO";

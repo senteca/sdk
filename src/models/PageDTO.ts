@@ -3,6 +3,7 @@ export interface PageDTO {
   version?: number;
   status: PageDTOStatusEnum;
   name: string;
+  label: string;
   storeKey: string;
   interfaceKey: string;
   themeKey: string;

@@ -3,7 +3,7 @@ import { PageDraftDTO } from '../../models/PageDraftDTO';
 import { PageDTO } from '../../models/PageDTO';
 import { PageFilterResultDTO } from '../../models/PageFilterResultDTO';
 import { PageStatusUpdateDTO } from '../../models/PageStatusUpdateDTO';
-import { PageNameUpdateDTO } from '../../models/PageNameUpdateDTO';
+import { PageLabelUpdateDTO } from '../../models/PageLabelUpdateDTO';
 import { PageNodesUpdateDTO } from '../../models/PageNodesUpdateDTO';
 
 export class PagesAPI extends BaseAPI {
@@ -79,7 +79,7 @@ export class PagesAPI extends BaseAPI {
        return (response.json() as unknown) as PageDTO;
    }
 
-   async setName (id: string, dto: PageNameUpdateDTO): Promise<PageDTO> {
+   async setLabel (id: string, dto: PageLabelUpdateDTO): Promise<PageDTO> {
        const response = await this._request({
            path: `/cms/pages/${encodeURIComponent(id)}/name`,
            method: 'PATCH',

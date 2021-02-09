@@ -7,7 +7,7 @@ import { SynonymDTO } from '../../models/SynonymDTO';
 import { SynonymFilterResultDTO } from '../../models/SynonymFilterResultDTO';
 
 export class CatalogAPI extends BaseAPI {
-   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, fuzzy?: boolean, fuzzyLevel?: string, count?: boolean, limit?: number, offset?: number, sort?: string }): Promise<CatalogFilterResultDTO> {
+   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, postFilter?: string, fuzzy?: boolean, fuzzyLevel?: string, count?: boolean, limit?: number, offset?: number, sort?: string }): Promise<CatalogFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/catalog/filter`,
            method: 'GET',
