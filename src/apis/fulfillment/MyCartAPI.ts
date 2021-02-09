@@ -3,6 +3,7 @@ import { CartDraftDTO } from '../../models/CartDraftDTO';
 import { OrderDTO } from '../../models/OrderDTO';
 import { LineItemDraftDTO } from '../../models/LineItemDraftDTO';
 import { QuantityUpdateDTO } from '../../models/QuantityUpdateDTO';
+import { CustomLineItemDraftDTO } from '../../models/CustomLineItemDraftDTO';
 import { DiscountCodeUpdateDTO } from '../../models/DiscountCodeUpdateDTO';
 import { AddressDTO } from '../../models/AddressDTO';
 import { ShippingMethodsInfo } from '../../models/ShippingMethodsInfo';
@@ -62,6 +63,42 @@ export class MyCartAPI extends BaseAPI {
    async setLineItemQuantity (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/line-items/${encodeURIComponent(lineItemId)}/quantity`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
+   async addCustomLineItem (dto: CustomLineItemDraftDTO): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-cart/custom-line-items`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
+   async deleteCustomLineItem (id: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-cart/custom-line-items/${encodeURIComponent(id)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
+   async setCustomLineItemQuantity (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-cart/custom-line-items/${encodeURIComponent(lineItemId)}/quantity`,
            method: 'PATCH',
            
            body: dto,

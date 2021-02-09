@@ -1,6 +1,7 @@
 import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { AddressDTO } from './AddressDTO';
 import { LineItemDTO } from './LineItemDTO';
+import { CustomLineItemDTO } from './CustomLineItemDTO';
 import { MerchantPriceDTO } from './MerchantPriceDTO';
 import { MoneyDTO } from './MoneyDTO';
 import { MerchantTaxedPriceDTO } from './MerchantTaxedPriceDTO';
@@ -47,6 +48,7 @@ export interface OrderDTO {
   itemShippingAddresses?: AddressDTO[];
   lineItems: LineItemDTO[];
   lineItemsCount: number;
+  customLineItems?: CustomLineItemDTO[];
   merchants?: KeyReferenceDTO[];
   merchantsTotalPrices: MerchantPriceDTO[];
   grandTotalPrice: MoneyDTO;

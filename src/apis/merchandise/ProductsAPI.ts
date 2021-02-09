@@ -21,7 +21,7 @@ import { ProductMasterVariantUpdateDTO } from '../../models/ProductMasterVariant
 import { ContentDTO } from '../../models/ContentDTO';
 import { ImageDTO } from '../../models/ImageDTO';
 import { SwapIndexDTO } from '../../models/SwapIndexDTO';
-import { ProductVariantDTO } from '../../models/ProductVariantDTO';
+import { ProductVariantDraftDTO } from '../../models/ProductVariantDraftDTO';
 import { ProductSkuUpdateDTO } from '../../models/ProductSkuUpdateDTO';
 import { ProductBarcodeUpdateDTO } from '../../models/ProductBarcodeUpdateDTO';
 import { ProductCollapseKeyUpdateDTO } from '../../models/ProductCollapseKeyUpdateDTO';
@@ -523,7 +523,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async createVariant (id: string, dto: ProductVariantDTO): Promise<void> {
+   async createVariant (id: string, dto: ProductVariantDraftDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/variants`,
            method: 'POST',

@@ -69,6 +69,8 @@ export * from "./CustomFieldDTO";
 export * from "./CustomFieldDraftDTO";
 export * from "./CustomFieldFilterResultDTO";
 export * from "./CustomFieldValueDTO";
+export * from "./CustomLineItemDTO";
+export * from "./CustomLineItemDraftDTO";
 export * from "./CustomerDTO";
 export * from "./CustomerDraftDTO";
 export * from "./CustomerFilterResultDTO";
