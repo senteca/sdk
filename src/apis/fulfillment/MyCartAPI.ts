@@ -60,7 +60,7 @@ export class MyCartAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setLineItemQuantity (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
+   async setCustomLineItemQuantity (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/line-items/${encodeURIComponent(lineItemId)}/quantity`,
            method: 'PATCH',
@@ -92,18 +92,6 @@ export class MyCartAPI extends BaseAPI {
            
            
            
-        });
-       return (response.json() as unknown) as OrderDTO;
-   }
-
-   async setCustomLineItemQuantity (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/my-cart/custom-line-items/${encodeURIComponent(lineItemId)}/quantity`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
