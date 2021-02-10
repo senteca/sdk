@@ -1,9 +1,11 @@
 import { IdReferenceDTO } from './IdReferenceDTO';
+import { MoneyDTO } from './MoneyDTO';
 
 export interface DiscountCodeInfoDTO {
   authority: DiscountCodeInfoDTOAuthorityEnum;
   discountCode: IdReferenceDTO;
   status: DiscountCodeInfoDTOStatusEnum;
+  discountedAmount?: MoneyDTO;
 }
 
 export enum DiscountCodeInfoDTOAuthorityEnum {

@@ -37,6 +37,7 @@ export enum CustomFieldDraftDTOResourceTypeIdEnum {
     ProductDiscount = 'product-discount',  
     CartDiscount = 'cart-discount',  
     DiscountCode = 'discount-code',  
+    Interface = 'interface',  
     Item = 'item',  
     Order = 'order',  
     Payment = 'payment',  
