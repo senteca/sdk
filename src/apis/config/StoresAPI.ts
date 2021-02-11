@@ -2,7 +2,6 @@ import { BaseAPI } from '../../runtime';
 import { StoreDraftDTO } from '../../models/StoreDraftDTO';
 import { StoreDTO } from '../../models/StoreDTO';
 import { StoreFilterResultDTO } from '../../models/StoreFilterResultDTO';
-import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 
 export class StoresAPI extends BaseAPI {
    async create (dto: StoreDraftDTO): Promise<StoreDTO> {
@@ -73,18 +72,6 @@ export class StoresAPI extends BaseAPI {
            
            
            
-        });
-       return (response.json() as unknown) as StoreDTO;
-   }
-
-   async setInterfaceCustom (id: string, interfaceKey: string, dto: SetCustomFieldDTO[]): Promise<StoreDTO> {
-       const response = await this._request({
-           path: `/config/stores/${encodeURIComponent(id)}/interface/interfaceKey=${encodeURIComponent(interfaceKey)}/custom`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
         });
        return (response.json() as unknown) as StoreDTO;
    }

@@ -1,4 +1,3 @@
-import { CustomField } from './CustomField';
 
 export interface InterfaceDTO {
   key: string;
@@ -11,6 +10,5 @@ export interface InterfaceDTO {
   themeConfig?: any;
   themeConfigType?: any;
   secret?: string;
-  custom?: CustomField[];
 }
 

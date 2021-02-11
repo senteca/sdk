@@ -10,6 +10,7 @@ import { ShippingMethodsInfo } from '../../models/ShippingMethodsInfo';
 import { PaymentMethodsInfo } from '../../models/PaymentMethodsInfo';
 import { PlatformMethodUpdateDTO } from '../../models/PlatformMethodUpdateDTO';
 import { MerchantsMethodsUpdateDTO } from '../../models/MerchantsMethodsUpdateDTO';
+import { MethodUpdateDTO } from '../../models/MethodUpdateDTO';
 
 export class MyCartAPI extends BaseAPI {
    async create (dto: CartDraftDTO): Promise<OrderDTO> {
@@ -60,7 +61,7 @@ export class MyCartAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async setCustomLineItemQuantity (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
+   async setLineItemQuantity (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/line-items/${encodeURIComponent(lineItemId)}/quantity`,
            method: 'PATCH',
@@ -92,6 +93,18 @@ export class MyCartAPI extends BaseAPI {
            
            
            
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
+   async setCustomLineItemQuantity (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-cart/custom-line-items/${encodeURIComponent(lineItemId)}/quantity`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
         });
        return (response.json() as unknown) as OrderDTO;
    }
@@ -207,6 +220,18 @@ export class MyCartAPI extends BaseAPI {
    async setMerchantsShippingMethods (dto: MerchantsMethodsUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/merchants-shipping-methods`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
+   async setShippingMethod (dto: MethodUpdateDTO): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-cart/shipping-method`,
            method: 'PATCH',
            
            body: dto,

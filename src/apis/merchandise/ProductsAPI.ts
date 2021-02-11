@@ -499,7 +499,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setVariantImages (sku: string, dto: string[]): Promise<void> {
+   async setVariantImages (sku: string, dto: ImageDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/images`,
            method: 'PATCH',

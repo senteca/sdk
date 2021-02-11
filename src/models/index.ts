@@ -196,6 +196,7 @@ export * from "./MerchantTaxedPriceDTO";
 export * from "./MerchantWeightDTO";
 export * from "./MerchantsMethodsUpdateDTO";
 export * from "./MessageDTO";
+export * from "./MethodUpdateDTO";
 export * from "./MoneyDTO";
 export * from "./NewOrders";
 export * from "./OAuthTokenRequestDTO";
