@@ -3,5 +3,6 @@ export * from "./ContentsAPI";
 export * from "./FoldersAPI";
 export * from "./MediaAPI";
 export * from "./PagesAPI";
+export * from "./RedirectsAPI";
 export * from "./TagsAPI";
 export * from "./ThemeAPI";

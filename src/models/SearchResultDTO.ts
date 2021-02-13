@@ -9,6 +9,8 @@ import { CustomField } from './CustomField';
 export interface SearchResultDTO {
   _id: string;
   variantId: string;
+  collapseKey: string;
+  attributeHint?: any;
   sku: string;
   slug: LangValue[];
   name: LangValue[];

@@ -28,6 +28,18 @@ export class MyWishListAPI extends BaseAPI {
        return (response.json() as unknown) as WishListItemDTO;
    }
 
+   async syncMy (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<WishListDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-wish-list/sync`,
+           method: 'POST',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as WishListDTO;
+   }
+
    async removeMyItem (itemId: string): Promise<WishListItemDTO> {
        const response = await this._request({
            path: `/fulfillment/my-wish-list/${encodeURIComponent(itemId)}`,
