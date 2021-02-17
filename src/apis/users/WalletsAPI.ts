@@ -90,7 +90,7 @@ export class WalletsAPI extends BaseAPI {
        return (response.json() as unknown) as WalletSearchResultDTO;
    }
 
-   async import (dto: string[]): Promise<WalletDTO[]> {
+   async import (dto: WalletDraftDTO[]): Promise<WalletDTO[]> {
        const response = await this._request({
            path: `/users/wallets/import`,
            method: 'POST',
