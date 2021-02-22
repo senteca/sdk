@@ -1,6 +1,7 @@
 
 export interface EcontTrackResponseDTO {
-  shipmentNumber: string;
-  trackingEvents: any[];
+  id: string;
+  isShipped: boolean;
+  providerPayload: any;
 }
 

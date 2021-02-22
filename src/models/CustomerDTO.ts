@@ -32,6 +32,7 @@ export interface CustomerDTO {
   customerAddresses?: AddressDTO[];
   customerCompanies?: AddressDTO[];
   companyDetails?: AddressDTO[];
+  invitationToken?: string;
   custom?: CustomField[];
 }
 

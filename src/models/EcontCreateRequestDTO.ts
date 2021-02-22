@@ -1,17 +1,30 @@
-import { EcontCustomerInfo } from './EcontCustomerInfo';
-import { EcontLineItem } from './EcontLineItem';
-import { EcontCreateSettingsDTO } from './EcontCreateSettingsDTO';
+import { EcontSenderClient } from './EcontSenderClient';
+import { EcontSenderAddress } from './EcontSenderAddress';
 
 export interface EcontCreateRequestDTO {
-  id: number;
-  orderNumber: string;
-  cod: boolean;
-  status: string;
-  currency: string;
-  shipmentDescription: string;
-  shipmentNumber: string;
-  customerInfo: EcontCustomerInfo;
-  items: EcontLineItem[];
-  settings: EcontCreateSettingsDTO;
+  shipmentType?: EcontCreateRequestDTOShipmentTypeEnum;
+  envelopeNumbers?: number;
+  packCount?: number;
+  sendDate?: string;
+  shipmentDescription?: string;
+  senderClient: EcontSenderClient;
+  senderAddress?: EcontSenderAddress;
+  senderOffice?: string;
+  smsNotification?: boolean;
+  declaredValue?: boolean;
+  deliveryReceipt?: boolean;
+  payAfterAccept?: boolean;
+  payAfterTest?: boolean;
+  partialDelivery?: boolean;
+  dimensionsWidth?: number;
+  dimensionsHeight?: number;
+  dimensionsLength?: number;
+  sizeUnder?: boolean;
+  keepUpright?: boolean;
 }
 
+export enum EcontCreateRequestDTOShipmentTypeEnum {
+    DOCUMENT = 'DOCUMENT',  
+    PACK = 'PACK',  
+    POST_PACK = 'POST_PACK',  
+}

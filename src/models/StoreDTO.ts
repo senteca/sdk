@@ -18,6 +18,7 @@ export interface StoreDTO {
   defaultCustomerGroupKey?: string;
   customerGroupChannels: ChannelAssignmentDto[];
   requiresEmailVerification?: boolean;
+  requiresInvitation?: boolean;
   _id: string;
   createdAt: number;
   updatedAt: number;

@@ -14,7 +14,6 @@ import { EcontStreetDTO } from '../../models/EcontStreetDTO';
 import { EcontOfficeDTO } from '../../models/EcontOfficeDTO';
 import { EcontCreateRequestDTO } from '../../models/EcontCreateRequestDTO';
 import { EcontCreateResponseDTO } from '../../models/EcontCreateResponseDTO';
-import { EcontSendRequestDTO } from '../../models/EcontSendRequestDTO';
 import { EcontSendResponseDTO } from '../../models/EcontSendResponseDTO';
 import { EcontCancelRequestDTO } from '../../models/EcontCancelRequestDTO';
 import { EcontCancelResponseDTO } from '../../models/EcontCancelResponseDTO';
@@ -370,7 +369,7 @@ export class ShippingsEcontAPI extends BaseAPI {
        return (response.json() as unknown) as EcontCreateResponseDTO;
    }
 
-   async sendRequest (orderId: string, shippingId: string, deliveryId: string, parcelId: string, dto: EcontSendRequestDTO): Promise<EcontSendResponseDTO> {
+   async sendRequest (orderId: string, shippingId: string, deliveryId: string, parcelId: string, dto: EcontCreateRequestDTO): Promise<EcontSendResponseDTO> {
        const response = await this._request({
            path: `/fulfillment/shippings/econt/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/send-request`,
            method: 'POST',

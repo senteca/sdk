@@ -30,6 +30,7 @@ export interface RegisterRequestDTO {
   customerAddresses?: AddressDTO[];
   customerCompanies?: AddressDTO[];
   companyDetails?: AddressDTO[];
+  invitationToken?: string;
   custom?: CustomField[];
 }
 

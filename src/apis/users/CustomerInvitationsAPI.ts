@@ -76,4 +76,16 @@ export class CustomerInvitationsAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerInvitationDTO;
    }
 
+   async resend (id: string): Promise<CustomerInvitationDTO> {
+       const response = await this._request({
+           path: `/users/customer-invitations/${encodeURIComponent(id)}/resend`,
+           method: 'PATCH',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CustomerInvitationDTO;
+   }
+
 }

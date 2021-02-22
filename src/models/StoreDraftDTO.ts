@@ -18,5 +18,6 @@ export interface StoreDraftDTO {
   defaultCustomerGroupKey?: string;
   customerGroupChannels: ChannelAssignmentDto[];
   requiresEmailVerification?: boolean;
+  requiresInvitation?: boolean;
 }
 

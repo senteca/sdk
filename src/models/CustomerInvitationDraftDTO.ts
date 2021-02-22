@@ -6,5 +6,12 @@ export interface CustomerInvitationDraftDTO {
   email: string;
   firstName?: string;
   lastName?: string;
+  status?: CustomerInvitationDraftDTOStatusEnum;
+  ttlMinutes?: number;
 }
 
+export enum CustomerInvitationDraftDTOStatusEnum {
+    Pending = 'pending',  
+    Accepted = 'accepted',  
+    Expired = 'expired',  
+}
