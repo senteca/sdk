@@ -17,6 +17,7 @@ export interface StoreDTO {
   interfaces: InterfaceDTO[];
   defaultCustomerGroupKey?: string;
   customerGroupChannels: ChannelAssignmentDto[];
+  requiresEmailVerification?: boolean;
   _id: string;
   createdAt: number;
   updatedAt: number;

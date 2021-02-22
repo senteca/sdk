@@ -4,6 +4,7 @@ import { CustomField } from './CustomField';
 
 export interface CustomerDTO {
   gender?: CustomerDTOGenderEnum;
+  isEmailVerified?: boolean;
   _id: string;
   createdAt?: number;
   updatedAt?: number;
