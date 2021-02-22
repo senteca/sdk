@@ -8,6 +8,7 @@ import { CustomerDraftDTO } from '../../models/CustomerDraftDTO';
 import { CustomerFilterResultDTO } from '../../models/CustomerFilterResultDTO';
 import { CustomerSearchResultDTO } from '../../models/CustomerSearchResultDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { EmailVerificationDTO } from '../../models/EmailVerificationDTO';
 import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
 import { PasswordResetDTO } from '../../models/PasswordResetDTO';
 
@@ -262,6 +263,18 @@ export class CustomersAPI extends BaseAPI {
            contentType: 'application/json',
         });
        return (response.json() as unknown) as CustomerDTO;
+   }
+
+   async verifyEmail (dto: EmailVerificationDTO): Promise<void> {
+       const response = await this._request({
+           path: `/users/customers/email-verify`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
    }
 
    async createPasswordToken (dto: PasswordTokenDTO): Promise<any> {

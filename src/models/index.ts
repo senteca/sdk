@@ -128,6 +128,7 @@ export * from "./EcontSendResponseDTO";
 export * from "./EcontStreetDTO";
 export * from "./EcontTrackRequestDTO";
 export * from "./EcontTrackResponseDTO";
+export * from "./EmailVerificationDTO";
 export * from "./EvropatAuthenticationCredentialsDTO";
 export * from "./EvropatCancelRequestDTO";
 export * from "./EvropatCancelResponseDTO";
