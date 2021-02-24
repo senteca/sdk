@@ -705,7 +705,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async deleteVartiantOptionDefinition (sku: string, index: number): Promise<void> {
+   async deleteVariantOptionDefinition (sku: string, index: number): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/options/${encodeURIComponent(index)}`,
            method: 'DELETE',
@@ -741,7 +741,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async deleteVartiantInventory (sku: string, stockLocationKey: string): Promise<void> {
+   async deleteVariantInventory (sku: string, stockLocationKey: string): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/inventories/${encodeURIComponent(stockLocationKey)}`,
            method: 'DELETE',
