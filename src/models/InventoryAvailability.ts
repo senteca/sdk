@@ -8,6 +8,7 @@ export interface InventoryAvailability {
   acceptsBackorders: boolean;
   restockableInDays: number;
   isPhysical: boolean;
+  isActive: boolean;
   stores: string[];
 }
 

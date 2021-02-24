@@ -12,8 +12,12 @@ import { ItemShippingDetailsDTO } from './ItemShippingDetailsDTO';
 import { ReservationDTO } from './ReservationDTO';
 
 export interface LineItemDTO {
-  updatedAt: number;
   _id: string;
+  addedAt: number;
+  snapshotFrom: number;
+  updatedAt: number;
+  status: LineItemDTOStatusEnum;
+  priceChanged: boolean;
   states: LineItemStateForQuantityDTO[];
   productId: string;
   productName: LangValue[];
@@ -36,6 +40,13 @@ export interface LineItemDTO {
   reservedUntil?: number;
 }
 
+export enum LineItemDTOStatusEnum {
+    CanPurchase = 'CanPurchase',  
+    SoldOut = 'SoldOut',  
+    NotEnoughQuantity = 'NotEnoughQuantity',  
+    NoVariant = 'NoVariant',  
+    NoOffer = 'NoOffer',  
+}
 export enum LineItemDTOLineItemModeEnum {
     Standard = 'Standard',  
     Gift = 'Gift',  

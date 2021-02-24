@@ -10,7 +10,6 @@ export interface SearchResultDTO {
   _id: string;
   variantId: string;
   collapseKey: string;
-  attributeHint?: any;
   sku: string;
   slug: LangValue[];
   name: LangValue[];
@@ -18,7 +17,7 @@ export interface SearchResultDTO {
   images: ImageDTO[];
   offers: OfferDTO[];
   offer?: OfferDTO;
-  inventorySnapshot?: InventorySnapshotDTO;
+  inventorySnapshot: InventorySnapshotDTO;
   reviewRatingStatistics: ReviewRatingStatisticsDTO;
   variantsCount: number;
   custom: CustomField[];

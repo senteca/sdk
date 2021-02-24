@@ -1,9 +1,7 @@
 import { InventoryAvailability } from './InventoryAvailability';
 
 export interface InventorySnapshotDTO {
-  updatedAt: number;
-  availabilities: InventoryAvailability[];
-  matchingAvailabilities?: InventoryAvailability[];
+  availabilities?: InventoryAvailability[];
   canOrder?: boolean;
   availableQuantity?: number;
 }

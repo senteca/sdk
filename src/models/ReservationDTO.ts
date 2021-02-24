@@ -1,6 +1,6 @@
 
 export interface ReservationDTO {
-  inventoryId: string;
+  stockLocationKey: string;
   quantity: number;
 }
 

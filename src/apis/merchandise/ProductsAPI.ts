@@ -29,6 +29,8 @@ import { ProductCollapseModeUpdateDTO } from '../../models/ProductCollapseModeUp
 import { OfferDTO } from '../../models/OfferDTO';
 import { ProductAliasImagesFromUpdateDTO } from '../../models/ProductAliasImagesFromUpdateDTO';
 import { ShippingDataDTO } from '../../models/ShippingDataDTO';
+import { OptionDefinitionDTO } from '../../models/OptionDefinitionDTO';
+import { InventoryDraftDTO } from '../../models/InventoryDraftDTO';
 
 export class ProductsAPI extends BaseAPI {
    async bulkLink (dto: BulkLinkUpdateDTO): Promise<void> {
@@ -215,18 +217,6 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as ProductDTO;
-   }
-
-   async recalculateInventories (id: string): Promise<ProductDTO> {
-       const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(id)}/recalculate-inventories`,
-           method: 'PATCH',
            
            
            
@@ -687,6 +677,78 @@ export class ProductsAPI extends BaseAPI {
            body: dto,
            
            contentType: 'application/json',
+        });
+       
+   }
+
+   async addVariantOptionDefinition (sku: string, dto: OptionDefinitionDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/options`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async updateVariantOptionDefinition (sku: string, index: number, dto: OptionDefinitionDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/options/${encodeURIComponent(index)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async deleteVartiantOptionDefinition (sku: string, index: number): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/options/${encodeURIComponent(index)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       
+   }
+
+   async addVariantInventory (sku: string, dto: InventoryDraftDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/inventories`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async updateVariantInventory (sku: string, stockLocationKey: string, dto: InventoryDraftDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/inventories/${encodeURIComponent(stockLocationKey)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async deleteVartiantInventory (sku: string, stockLocationKey: string): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/inventories/${encodeURIComponent(stockLocationKey)}`,
+           method: 'DELETE',
+           
+           
+           
+           
         });
        
    }

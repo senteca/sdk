@@ -1,4 +1,5 @@
 import { ItemShippingDetailsDraftDTO } from './ItemShippingDetailsDraftDTO';
+import { SelectedOptionDTO } from './SelectedOptionDTO';
 
 export interface LineItemDraftDTO {
   productId: string;
@@ -7,5 +8,6 @@ export interface LineItemDraftDTO {
   quantity: number;
   shippingDetails?: ItemShippingDetailsDraftDTO;
   reserveFor?: number;
+  selectedOptions?: SelectedOptionDTO[];
 }
 

@@ -30,6 +30,8 @@ export interface ProductDraftDTO {
   metaTitle?: LangValue[];
   metaDescription?: LangValue[];
   metaKeywords?: LangValue[];
+  totalAvailableQuantity?: number;
+  totalInStockQuantity?: number;
   score?: number;
   reviewRatingStatistics?: ReviewRatingStatisticsDTO;
 }

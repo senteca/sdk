@@ -8,6 +8,7 @@ export interface StockLocationDraftDTO {
   priority?: number;
   storeAvailability?: string[];
   isPhysical: boolean;
+  isActive: boolean;
   name: LangValue[];
   description?: LangValue[];
   address: AddressDraftDTO;

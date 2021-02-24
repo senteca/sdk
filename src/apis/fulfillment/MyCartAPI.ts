@@ -277,4 +277,16 @@ export class MyCartAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
+   async sybnc (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-cart/sync`,
+           method: 'POST',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
 }

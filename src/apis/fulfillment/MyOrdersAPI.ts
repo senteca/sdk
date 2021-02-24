@@ -15,11 +15,11 @@ export class MyOrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderFilterResultDTO;
    }
 
-   async create (): Promise<OrderDTO> {
+   async create (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-orders`,
            method: 'POST',
-           
+           query: this._stringifyQuery(query),
            
            
            

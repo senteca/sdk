@@ -16,8 +16,15 @@ export interface StoreDraftDTO {
   appleCredentials?: AppleCredentialsDto;
   interfaces: InterfaceDTO[];
   defaultCustomerGroupKey?: string;
+  defaultCustomerStatus?: StoreDraftDTODefaultCustomerStatusEnum;
   customerGroupChannels: ChannelAssignmentDto[];
   requiresEmailVerification?: boolean;
   requiresInvitation?: boolean;
 }
 
+export enum StoreDraftDTODefaultCustomerStatusEnum {
+    Active = 'active',  
+    Disabled = 'disabled',  
+    AwaitingApproval = 'awaiting-approval',  
+    Rejected = 'rejected',  
+}

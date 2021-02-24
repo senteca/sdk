@@ -2,6 +2,8 @@ import { ProductAttributeDraftDTO } from './ProductAttributeDraftDTO';
 import { OfferDraftDTO } from './OfferDraftDTO';
 import { ImageDTO } from './ImageDTO';
 import { ShippingDataDTO } from './ShippingDataDTO';
+import { OptionDefinitionDTO } from './OptionDefinitionDTO';
+import { InventoryDraftDTO } from './InventoryDraftDTO';
 
 export interface ProductVariantDraftDTO {
   _id: string;
@@ -15,6 +17,8 @@ export interface ProductVariantDraftDTO {
   aliasImagesFrom?: string;
   images?: ImageDTO[];
   shippingData?: ShippingDataDTO;
+  availableOptions?: OptionDefinitionDTO[];
+  inventories?: InventoryDraftDTO[];
 }
 
 export enum ProductVariantDraftDTOCollapseModeEnum {

@@ -16,6 +16,7 @@ import { ShippingDTO } from './ShippingDTO';
 import { CustomField } from './CustomField';
 
 export interface OrderDTO {
+  canPurchase?: boolean;
   _id: string;
   createdAt: number;
   updatedAt: number;
