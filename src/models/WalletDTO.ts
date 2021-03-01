@@ -11,7 +11,7 @@ export interface WalletDTO {
   type: KeyReferenceDTO;
   key: string;
   status: WalletDTOStatusEnum;
-  owners: IdReferenceDTO[];
+  owners?: IdReferenceDTO[];
   availableAmount?: MoneyDTO;
   lastKnownAvailableAmount?: MoneyDTO;
   lastSyncAt?: number;

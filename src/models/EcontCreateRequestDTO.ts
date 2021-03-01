@@ -1,5 +1,5 @@
-import { EcontSenderClient } from './EcontSenderClient';
-import { EcontSenderAddress } from './EcontSenderAddress';
+import { EcontClientProfile } from './EcontClientProfile';
+import { EcontAddress } from './EcontAddress';
 
 export interface EcontCreateRequestDTO {
   shipmentType?: EcontCreateRequestDTOShipmentTypeEnum;
@@ -7,8 +7,9 @@ export interface EcontCreateRequestDTO {
   packCount?: number;
   sendDate?: string;
   shipmentDescription?: string;
-  senderClient: EcontSenderClient;
-  senderAddress?: EcontSenderAddress;
+  senderClient: EcontClientProfile;
+  senderAgent: EcontClientProfile;
+  senderAddress?: EcontAddress;
   senderOffice?: string;
   smsNotification?: boolean;
   declaredValue?: boolean;

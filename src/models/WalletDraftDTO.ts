@@ -8,7 +8,7 @@ export interface WalletDraftDTO {
   type: KeyReferenceDTO;
   key: string;
   status: WalletDraftDTOStatusEnum;
-  owners: IdReferenceDTO[];
+  owners?: IdReferenceDTO[];
   availableAmount?: MoneyDTO;
   lastKnownAvailableAmount?: MoneyDTO;
   lastSyncAt?: number;

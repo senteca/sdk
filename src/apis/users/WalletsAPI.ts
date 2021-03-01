@@ -1,11 +1,23 @@
 import { BaseAPI } from '../../runtime';
+import { WalletSearchResultDTO } from '../../models/WalletSearchResultDTO';
 import { WalletFilterResultDTO } from '../../models/WalletFilterResultDTO';
 import { WalletDraftDTO } from '../../models/WalletDraftDTO';
 import { WalletDTO } from '../../models/WalletDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
-import { WalletSearchResultDTO } from '../../models/WalletSearchResultDTO';
 
 export class WalletsAPI extends BaseAPI {
+   async search (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletSearchResultDTO> {
+       const response = await this._request({
+           path: `/users/wallets/search`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as WalletSearchResultDTO;
+   }
+
    async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletFilterResultDTO> {
        const response = await this._request({
            path: `/users/wallets`,
@@ -76,18 +88,6 @@ export class WalletsAPI extends BaseAPI {
            contentType: 'application/json',
         });
        return (response.json() as unknown) as WalletDTO;
-   }
-
-   async search (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletSearchResultDTO> {
-       const response = await this._request({
-           path: `/users/wallets/search`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as WalletSearchResultDTO;
    }
 
    async import (dto: WalletDraftDTO[]): Promise<WalletDTO[]> {

@@ -1,8 +1,7 @@
 
-export interface EcontSenderClient {
+export interface EcontClientProfile {
   clientNumber: string;
   name: string;
-  molName: string;
   phones: string[];
   email: string;
 }
