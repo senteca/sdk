@@ -1,6 +1,7 @@
 
 export interface BoricaVerifyPaymentDataResponse {
   orderId: string;
+  orderNumber?: string;
   verified: boolean;
   successful: boolean;
   transactionAmount: number;
