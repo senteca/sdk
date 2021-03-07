@@ -633,18 +633,6 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setVariantOffers (sku: string, dto: OfferDTO[]): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(sku)}/offers`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       
-   }
-
    async updateVariantOffer (id: string, dto: OfferDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/offers/${encodeURIComponent(id)}`,

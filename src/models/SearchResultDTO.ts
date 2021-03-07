@@ -7,6 +7,7 @@ import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
 import { CustomField } from './CustomField';
 
 export interface SearchResultDTO {
+  attributes?: any;
   _id: string;
   variantId: string;
   collapseKey: string;
