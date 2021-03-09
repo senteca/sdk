@@ -27,4 +27,16 @@ export class MyOrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
+   async getById (id: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-orders/${encodeURIComponent(id)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as OrderDTO;
+   }
+
 }
