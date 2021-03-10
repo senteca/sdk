@@ -287,6 +287,7 @@ export * from "./ShippingMethodDraftDTO";
 export * from "./ShippingMethodFilterResultDTO";
 export * from "./ShippingMethodUpdateDTO";
 export * from "./ShippingMethodsInfo";
+export * from "./ShippingModulesInfo";
 export * from "./ShippingParcelMeasurementDTO";
 export * from "./ShippingRate";
 export * from "./ShippingRateWeightTable";

@@ -19,6 +19,7 @@ export enum CustomFieldDraftDTOTypeEnum {
     Boolean = 'boolean',  
     Number = 'number',  
     Enum = 'enum',  
+    Date = 'date',  
     StringArray = 'stringArray',  
     NumberArray = 'numberArray',  
     Custom = 'custom',  
