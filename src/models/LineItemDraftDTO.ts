@@ -9,5 +9,6 @@ export interface LineItemDraftDTO {
   shippingDetails?: ItemShippingDetailsDraftDTO;
   reserveFor?: number;
   selectedOptions?: SelectedOptionDTO[];
+  collapseKey?: string;
 }
 

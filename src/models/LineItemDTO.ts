@@ -3,6 +3,7 @@ import { LangValue } from './LangValue';
 import { IdReferenceDTO } from './IdReferenceDTO';
 import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { ProductVariantDTO } from './ProductVariantDTO';
+import { BrandSnapshot } from './BrandSnapshot';
 import { OfferDTO } from './OfferDTO';
 import { TaxedItemPriceDTO } from './TaxedItemPriceDTO';
 import { TaxRateDTO } from './TaxRateDTO';
@@ -28,6 +29,7 @@ export interface LineItemDTO {
   productCollections?: IdReferenceDTO[];
   productTaxCategory: KeyReferenceDTO;
   variant: ProductVariantDTO;
+  brandSnapshot?: BrandSnapshot;
   offer: OfferDTO;
   quantity: number;
   taxedPrice?: TaxedItemPriceDTO;
@@ -38,6 +40,7 @@ export interface LineItemDTO {
   shippingDetails?: ItemShippingDetailsDTO;
   reservations?: ReservationDTO[];
   reservedUntil?: number;
+  collapseKey?: string;
 }
 
 export enum LineItemDTOStatusEnum {

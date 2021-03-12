@@ -1,3 +1,4 @@
+import { BrandSnapshot } from './BrandSnapshot';
 import { LangValue } from './LangValue';
 import { ProductVariantDTO } from './ProductVariantDTO';
 
@@ -6,6 +7,7 @@ export interface WishListItemDTO {
   addedAt: number;
   snapshotFrom: number;
   deactivatedAt?: number;
+  brandSnapshot?: BrandSnapshot;
   productName: LangValue[];
   productSlug: LangValue[];
   productVariant: ProductVariantDTO;

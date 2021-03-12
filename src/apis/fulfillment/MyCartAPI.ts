@@ -25,11 +25,11 @@ export class MyCartAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async get (): Promise<OrderDTO> {
+   async get (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart`,
            method: 'GET',
-           
+           query: this._stringifyQuery(query),
            
            
            
@@ -37,11 +37,11 @@ export class MyCartAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO;
    }
 
-   async addLineItem (dto: LineItemDraftDTO): Promise<OrderDTO> {
+   async addLineItem (query: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: LineItemDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/line-items`,
            method: 'POST',
-           
+           query: this._stringifyQuery(query),
            body: dto,
            
            contentType: 'application/json',
