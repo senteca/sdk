@@ -70,6 +70,18 @@ export class CatalogAPI extends BaseAPI {
        return (response.json() as unknown) as CustomSortFilterResultDTO;
    }
 
+   async getCustomSortById (id: string): Promise<CustomSortDTO> {
+       const response = await this._request({
+           path: `/merchandise/catalog/custom-sorts/${encodeURIComponent(id)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CustomSortDTO;
+   }
+
    async updateCustomSort (id: string, dto: CustomSortDraftDTO): Promise<CustomSortDTO> {
        const response = await this._request({
            path: `/merchandise/catalog/custom-sorts/${encodeURIComponent(id)}`,
