@@ -1,7 +1,8 @@
 
 export interface FormulaDTO {
   field: string;
-  operator: string;
-  value: any;
+  condition: string;
+  conditionValue?: number;
+  value: number;
 }
 
