@@ -1,8 +1,8 @@
 
 export interface FormulaDTO {
   field: string;
-  option: string;
-  optionValues?: string[];
+  operator: string;
+  conditionValues?: string[];
   value: number;
 }
 
