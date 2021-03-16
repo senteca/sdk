@@ -20,6 +20,8 @@ export interface StoreDTO {
   customerGroupChannels: ChannelAssignmentDto[];
   requiresEmailVerification?: boolean;
   requiresInvitation?: boolean;
+  orderPrefix?: string;
+  orderSequence?: string;
   _id: string;
   createdAt: number;
   updatedAt: number;

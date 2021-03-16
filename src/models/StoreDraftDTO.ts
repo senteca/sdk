@@ -20,6 +20,8 @@ export interface StoreDraftDTO {
   customerGroupChannels: ChannelAssignmentDto[];
   requiresEmailVerification?: boolean;
   requiresInvitation?: boolean;
+  orderPrefix?: string;
+  orderSequence?: string;
 }
 
 export enum StoreDraftDTODefaultCustomerStatusEnum {

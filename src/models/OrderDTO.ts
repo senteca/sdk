@@ -30,6 +30,7 @@ export interface OrderDTO {
   languageCode?: string;
   priceList: KeyReferenceDTO;
   orderNumber: number;
+  orderRefNumber: string;
   store: KeyReferenceDTO;
   taxRoundingMode?: OrderDTOTaxRoundingModeEnum;
   taxCalculationMode?: OrderDTOTaxCalculationModeEnum;

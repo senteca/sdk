@@ -2,9 +2,6 @@ import { BaseAPI } from '../../runtime';
 import { CatalogFilterResultDTO } from '../../models/CatalogFilterResultDTO';
 import { CatalogSearchResultDTO } from '../../models/CatalogSearchResultDTO';
 import { CatalogAggregateResponseDTO } from '../../models/CatalogAggregateResponseDTO';
-import { CustomSortDraftDTO } from '../../models/CustomSortDraftDTO';
-import { CustomSortDTO } from '../../models/CustomSortDTO';
-import { CustomSortFilterResultDTO } from '../../models/CustomSortFilterResultDTO';
 import { SynonymDraftDTO } from '../../models/SynonymDraftDTO';
 import { SynonymDTO } from '../../models/SynonymDTO';
 import { SynonymFilterResultDTO } from '../../models/SynonymFilterResultDTO';
@@ -44,66 +41,6 @@ export class CatalogAPI extends BaseAPI {
            
         });
        return (response.json() as unknown) as CatalogAggregateResponseDTO;
-   }
-
-   async createCustomSort (dto: CustomSortDraftDTO): Promise<CustomSortDTO> {
-       const response = await this._request({
-           path: `/merchandise/catalog/custom-sorts`,
-           method: 'POST',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as CustomSortDTO;
-   }
-
-   async filterCustomSorts (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomSortFilterResultDTO> {
-       const response = await this._request({
-           path: `/merchandise/catalog/custom-sorts`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response.json() as unknown) as CustomSortFilterResultDTO;
-   }
-
-   async getCustomSortById (id: string): Promise<CustomSortDTO> {
-       const response = await this._request({
-           path: `/merchandise/catalog/custom-sorts/${encodeURIComponent(id)}`,
-           method: 'GET',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as CustomSortDTO;
-   }
-
-   async updateCustomSort (id: string, dto: CustomSortDraftDTO): Promise<CustomSortDTO> {
-       const response = await this._request({
-           path: `/merchandise/catalog/custom-sorts/${encodeURIComponent(id)}`,
-           method: 'PUT',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as CustomSortDTO;
-   }
-
-   async deleteCustomSortById (id: string): Promise<CustomSortDTO> {
-       const response = await this._request({
-           path: `/merchandise/catalog/custom-sorts/${encodeURIComponent(id)}`,
-           method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as CustomSortDTO;
    }
 
    async createSynonym (dto: SynonymDraftDTO): Promise<SynonymDTO> {
