@@ -45,7 +45,7 @@ export class UsersAPI extends BaseAPI {
        return (response.json() as unknown) as UserDTO;
    }
 
-   async createPasswordToken (dto: PasswordTokenDTO): Promise<any> {
+   async createPasswordToken (dto: PasswordTokenDTO): Promise<void> {
        const response = await this._request({
            path: `/users/users/password-token`,
            method: 'POST',
@@ -54,7 +54,7 @@ export class UsersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as any;
+       
    }
 
    async resetPassword (dto: PasswordResetDTO): Promise<UserDTO> {

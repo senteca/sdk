@@ -277,7 +277,7 @@ export class CustomersAPI extends BaseAPI {
        
    }
 
-   async createPasswordToken (dto: PasswordTokenDTO): Promise<any> {
+   async createPasswordToken (dto: PasswordTokenDTO): Promise<void> {
        const response = await this._request({
            path: `/users/customers/password-token`,
            method: 'POST',
@@ -286,7 +286,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as any;
+       
    }
 
    async resetPassword (dto: PasswordResetDTO): Promise<CustomerDTO> {

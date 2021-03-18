@@ -28,6 +28,30 @@ export class ContentsAPI extends BaseAPI {
        return (response.json() as unknown) as CmsContentFilterResultDTO;
    }
 
+   async getByKey (key: string): Promise<CmsContentFilterResultDTO> {
+       const response = await this._request({
+           path: `/cms/contents/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CmsContentFilterResultDTO;
+   }
+
+   async getById (id: string): Promise<CmsContentFilterResultDTO> {
+       const response = await this._request({
+           path: `/cms/contents/${encodeURIComponent(id)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CmsContentFilterResultDTO;
+   }
+
    async update (id: string, dto: CmsContentDraftDTO): Promise<CmsContentDTO> {
        const response = await this._request({
            path: `/cms/contents/${encodeURIComponent(id)}`,
