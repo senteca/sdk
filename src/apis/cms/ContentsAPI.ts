@@ -28,7 +28,7 @@ export class ContentsAPI extends BaseAPI {
        return (response.json() as unknown) as CmsContentFilterResultDTO;
    }
 
-   async getByKey (key: string): Promise<CmsContentFilterResultDTO> {
+   async getByKey (key: string): Promise<CmsContentDTO> {
        const response = await this._request({
            path: `/cms/contents/key=${encodeURIComponent(key)}`,
            method: 'GET',
@@ -37,10 +37,10 @@ export class ContentsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CmsContentFilterResultDTO;
+       return (response.json() as unknown) as CmsContentDTO;
    }
 
-   async getById (id: string): Promise<CmsContentFilterResultDTO> {
+   async getById (id: string): Promise<CmsContentDTO> {
        const response = await this._request({
            path: `/cms/contents/${encodeURIComponent(id)}`,
            method: 'GET',
@@ -49,7 +49,7 @@ export class ContentsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CmsContentFilterResultDTO;
+       return (response.json() as unknown) as CmsContentDTO;
    }
 
    async update (id: string, dto: CmsContentDraftDTO): Promise<CmsContentDTO> {
