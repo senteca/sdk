@@ -1,8 +1,8 @@
 
 export interface ConditionDTO {
+  conditionValues?: any[];
   field: string;
   operator: string;
-  conditionValues?: string[];
   value: number;
 }
 

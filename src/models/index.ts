@@ -326,6 +326,7 @@ export * from "./StateFilterResultDTO";
 export * from "./StockLocationDTO";
 export * from "./StockLocationDraftDTO";
 export * from "./StockLocationFilterResultDTO";
+export * from "./StockLocationSearchResultDTO";
 export * from "./StoreDTO";
 export * from "./StoreDraftDTO";
 export * from "./StoreFilterResultDTO";
