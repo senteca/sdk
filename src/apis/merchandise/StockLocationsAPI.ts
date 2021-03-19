@@ -4,6 +4,18 @@ import { StockLocationDTO } from '../../models/StockLocationDTO';
 import { StockLocationFilterResultDTO } from '../../models/StockLocationFilterResultDTO';
 
 export class StockLocationsAPI extends BaseAPI {
+   async search (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<any> {
+       const response = await this._request({
+           path: `/merchandise/stock-locations/search`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response.json() as unknown) as any;
+   }
+
    async create (dto: StockLocationDraftDTO): Promise<StockLocationDTO> {
        const response = await this._request({
            path: `/merchandise/stock-locations`,

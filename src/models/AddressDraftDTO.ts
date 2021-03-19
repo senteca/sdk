@@ -3,6 +3,7 @@ import { AddressModuleDataDTO } from './AddressModuleDataDTO';
 import { CustomField } from './CustomField';
 
 export interface AddressDraftDTO {
+  _id?: string;
   version?: number;
   firstName?: string;
   lastName?: string;
