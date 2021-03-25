@@ -8,6 +8,8 @@ export interface EcontCreateRequestDTO {
   sendDate?: string;
   shipmentDescription?: string;
   sender?: string;
+  senderId?: string;
+  senderName?: string;
   senderClient: EcontClientProfile;
   senderAgent: EcontClientProfile;
   senderAddress?: EcontAddress;

@@ -5,9 +5,9 @@ export interface ShippingDeliveryParcelDTO {
   _id: string;
   createdAt?: number;
   updatedAt?: number;
-  status: ShippingDeliveryParcelDTOStatusEnum;
-  items: ShippingDeliveryItemDTO[];
-  measurements: ShippingParcelMeasurementDTO;
+  status?: ShippingDeliveryParcelDTOStatusEnum;
+  items?: ShippingDeliveryItemDTO[];
+  measurements?: ShippingParcelMeasurementDTO;
   moduleData?: any;
 }
 

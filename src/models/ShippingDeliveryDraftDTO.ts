@@ -2,9 +2,9 @@ import { ShippingDeliveryItemDTO } from './ShippingDeliveryItemDTO';
 import { AddressDTO } from './AddressDTO';
 
 export interface ShippingDeliveryDraftDTO {
-  status: ShippingDeliveryDraftDTOStatusEnum;
-  items: ShippingDeliveryItemDTO[];
-  address: AddressDTO;
+  status?: ShippingDeliveryDraftDTOStatusEnum;
+  items?: ShippingDeliveryItemDTO[];
+  address?: AddressDTO;
   moduleData?: any;
 }
 

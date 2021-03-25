@@ -7,9 +7,9 @@ export interface ShippingDeliveryDTO {
   createdAt?: number;
   updatedAt?: number;
   parcels?: ShippingDeliveryParcelDTO[];
-  status: ShippingDeliveryDTOStatusEnum;
-  items: ShippingDeliveryItemDTO[];
-  address: AddressDTO;
+  status?: ShippingDeliveryDTOStatusEnum;
+  items?: ShippingDeliveryItemDTO[];
+  address?: AddressDTO;
   moduleData?: any;
 }
 
