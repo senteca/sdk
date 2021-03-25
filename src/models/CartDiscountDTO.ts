@@ -4,9 +4,6 @@ import { MoneyDTO } from './MoneyDTO';
 import { CartDiscountTargetDTO } from './CartDiscountTargetDTO';
 
 export interface CartDiscountDTO {
-  _id: string;
-  createdAt: number;
-  updatedAt: number;
   version?: number;
   authority?: CartDiscountDTOAuthorityEnum;
   merchantKey?: string;
@@ -22,6 +19,9 @@ export interface CartDiscountDTO {
   validTo?: number;
   requiresDiscountCode?: boolean;
   stackingMode: CartDiscountDTOStackingModeEnum;
+  _id: string;
+  createdAt: number;
+  updatedAt: number;
 }
 
 export enum CartDiscountDTOAuthorityEnum {

@@ -4,7 +4,6 @@ export interface LoginRequestDTO {
   password: string;
   isOrgUser?: boolean;
   responseMode?: LoginRequestDTOResponseModeEnum;
-  anonymousId?: string;
 }
 
 export enum LoginRequestDTOResponseModeEnum {

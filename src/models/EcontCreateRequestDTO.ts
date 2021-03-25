@@ -7,6 +7,7 @@ export interface EcontCreateRequestDTO {
   packCount?: number;
   sendDate?: string;
   shipmentDescription?: string;
+  sender?: string;
   senderClient: EcontClientProfile;
   senderAgent: EcontClientProfile;
   senderAddress?: EcontAddress;

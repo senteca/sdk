@@ -2,9 +2,9 @@ import { ShippingDeliveryItemDTO } from './ShippingDeliveryItemDTO';
 import { ShippingParcelMeasurementDTO } from './ShippingParcelMeasurementDTO';
 
 export interface ShippingDeliveryParcelDTO {
-  createdAt: number;
-  updatedAt: number;
-  id: string;
+  _id: string;
+  createdAt?: number;
+  updatedAt?: number;
   status: ShippingDeliveryParcelDTOStatusEnum;
   items: ShippingDeliveryItemDTO[];
   measurements: ShippingParcelMeasurementDTO;

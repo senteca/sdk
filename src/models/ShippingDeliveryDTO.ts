@@ -3,9 +3,9 @@ import { ShippingDeliveryItemDTO } from './ShippingDeliveryItemDTO';
 import { AddressDTO } from './AddressDTO';
 
 export interface ShippingDeliveryDTO {
-  createdAt: number;
-  updatedAt: number;
-  id: string;
+  _id: string;
+  createdAt?: number;
+  updatedAt?: number;
   parcels?: ShippingDeliveryParcelDTO[];
   status: ShippingDeliveryDTOStatusEnum;
   items: ShippingDeliveryItemDTO[];
