@@ -1,6 +1,6 @@
 
 export interface EcontClientProfile {
-  clientNumber: string;
+  clientNumber?: string;
   name: string;
   phones: string[];
   email: string;
