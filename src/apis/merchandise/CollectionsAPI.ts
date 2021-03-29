@@ -138,7 +138,7 @@ export class CollectionsAPI extends BaseAPI {
        return (response.json() as unknown) as CollectionDTO;
    }
 
-   async setCustomById (id: string, dto: SetCustomFieldDTO[]): Promise<void> {
+   async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/collections/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
