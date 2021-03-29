@@ -90,7 +90,7 @@ export class DiscountCodesAPI extends BaseAPI {
        return (response.json() as unknown) as DiscountCodeDTO;
    }
 
-   async setCustomById (id: string, dto: SetCustomFieldDTO[]): Promise<void> {
+   async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<void> {
        const response = await this._request({
            path: `/fulfillment/discount-codes/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
