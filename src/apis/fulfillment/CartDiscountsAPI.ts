@@ -3,6 +3,7 @@ import { CartDiscountDraftDTO } from '../../models/CartDiscountDraftDTO';
 import { CartDiscountDTO } from '../../models/CartDiscountDTO';
 import { CartDiscountSearchResultDTO } from '../../models/CartDiscountSearchResultDTO';
 import { CartDiscountFilterResultDTO } from '../../models/CartDiscountFilterResultDTO';
+import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 
 export class CartDiscountsAPI extends BaseAPI {
    async import (dto: CartDiscountDraftDTO[]): Promise<CartDiscountDTO[]> {
@@ -87,6 +88,18 @@ export class CartDiscountsAPI extends BaseAPI {
            
         });
        return (response.json() as unknown) as CartDiscountDTO;
+   }
+
+   async setCustomById (id: string, dto: SetCustomFieldDTO[]): Promise<void> {
+       const response = await this._request({
+           path: `/fulfillment/cart-discounts/${encodeURIComponent(id)}/custom`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
    }
 
 }

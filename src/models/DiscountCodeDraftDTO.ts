@@ -1,5 +1,6 @@
 import { LangValue } from './LangValue';
 import { IdReferenceDTO } from './IdReferenceDTO';
+import { CustomField } from './CustomField';
 
 export interface DiscountCodeDraftDTO {
   version?: number;
@@ -17,6 +18,7 @@ export interface DiscountCodeDraftDTO {
   validTo?: number;
   maxApplications?: number;
   maxApplicationsPerCustomer?: number;
+  custom?: CustomField[];
 }
 
 export enum DiscountCodeDraftDTOAuthorityEnum {

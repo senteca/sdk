@@ -2,6 +2,7 @@ import { LangValue } from './LangValue';
 import { CartDiscountValueDTO } from './CartDiscountValueDTO';
 import { MoneyDTO } from './MoneyDTO';
 import { CartDiscountTargetDTO } from './CartDiscountTargetDTO';
+import { CustomField } from './CustomField';
 
 export interface CartDiscountDraftDTO {
   version?: number;
@@ -19,6 +20,7 @@ export interface CartDiscountDraftDTO {
   validTo?: number;
   requiresDiscountCode?: boolean;
   stackingMode: CartDiscountDraftDTOStackingModeEnum;
+  custom?: CustomField[];
 }
 
 export enum CartDiscountDraftDTOAuthorityEnum {

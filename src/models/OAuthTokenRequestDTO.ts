@@ -1,6 +1,7 @@
 
 export interface OAuthTokenRequestDTO {
   responseMode?: OAuthTokenRequestDTOResponseModeEnum;
+  anonymousId?: string;
 }
 
 export enum OAuthTokenRequestDTOResponseModeEnum {
