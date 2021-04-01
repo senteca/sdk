@@ -1,13 +1,13 @@
 import { BaseAPI } from '../../runtime';
 import { StoreDTO } from '../../models/StoreDTO';
-import { ThemeDTO } from '../../models/ThemeDTO';
 import { ThemeDraftDTO } from '../../models/ThemeDraftDTO';
+import { ThemeDTO } from '../../models/ThemeDTO';
 import { ThemeFilterResultDTO } from '../../models/ThemeFilterResultDTO';
 
 export class ThemeAPI extends BaseAPI {
-   async install (themeId: string, storeKey: string, interfaceKey: string): Promise<StoreDTO> {
+   async install (themeKey: string, storeKey: string, interfaceKey: string): Promise<StoreDTO> {
        const response = await this._request({
-           path: `/cms/theme/install/${encodeURIComponent(themeId)}/${encodeURIComponent(storeKey)}/${encodeURIComponent(interfaceKey)}`,
+           path: `/cms/theme/install/${encodeURIComponent(themeKey)}/${encodeURIComponent(storeKey)}/${encodeURIComponent(interfaceKey)}`,
            method: 'POST',
            
            
@@ -17,62 +17,14 @@ export class ThemeAPI extends BaseAPI {
        return (response.json() as unknown) as StoreDTO;
    }
 
-   async uninstall (storeKey: string, interfaceKey: string): Promise<StoreDTO> {
+   async uninstall (themeKey: string, storeKey: string, interfaceKey: string): Promise<StoreDTO> {
        const response = await this._request({
-           path: `/cms/theme/uninstall/${encodeURIComponent(storeKey)}/${encodeURIComponent(interfaceKey)}`,
+           path: `/cms/theme/uninstall/${encodeURIComponent(themeKey)}/${encodeURIComponent(storeKey)}/${encodeURIComponent(interfaceKey)}`,
            method: 'POST',
            
            
            
            
-        });
-       return (response.json() as unknown) as StoreDTO;
-   }
-
-   async check (themeKey: string, themeVersion: string): Promise<ThemeDTO> {
-       const response = await this._request({
-           path: `/cms/theme/check/${encodeURIComponent(themeKey)}/${encodeURIComponent(themeVersion)}`,
-           method: 'GET',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as ThemeDTO;
-   }
-
-   async sync (themeId: string, storeKey: string, interfaceKey: string): Promise<StoreDTO> {
-       const response = await this._request({
-           path: `/cms/theme/sync/${encodeURIComponent(themeId)}/${encodeURIComponent(storeKey)}/${encodeURIComponent(interfaceKey)}`,
-           method: 'POST',
-           
-           
-           
-           
-        });
-       return (response.json() as unknown) as StoreDTO;
-   }
-
-   async setConfig (storeKey: string, interfaceKey: string, dto: any): Promise<StoreDTO> {
-       const response = await this._request({
-           path: `/cms/theme/config/${encodeURIComponent(storeKey)}/${encodeURIComponent(interfaceKey)}`,
-           method: 'POST',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response.json() as unknown) as StoreDTO;
-   }
-
-   async updateTemplate (storeKey: string, interfaceKey: string, componentName: string, templateName: string, dto: any): Promise<StoreDTO> {
-       const response = await this._request({
-           path: `/cms/theme/template/${encodeURIComponent(storeKey)}/${encodeURIComponent(interfaceKey)}/${encodeURIComponent(componentName)}/${encodeURIComponent(templateName)}`,
-           method: 'POST',
-           
-           body: dto,
-           
-           contentType: 'application/json',
         });
        return (response.json() as unknown) as StoreDTO;
    }
@@ -125,6 +77,18 @@ export class ThemeAPI extends BaseAPI {
        return (response.json() as unknown) as ThemeDTO;
    }
 
+   async update (id: string, dto: ThemeDraftDTO): Promise<ThemeDTO> {
+       const response = await this._request({
+           path: `/cms/theme/${encodeURIComponent(id)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as ThemeDTO;
+   }
+
    async delete (id: string): Promise<ThemeDTO> {
        const response = await this._request({
            path: `/cms/theme/${encodeURIComponent(id)}`,
@@ -135,6 +99,30 @@ export class ThemeAPI extends BaseAPI {
            
         });
        return (response.json() as unknown) as ThemeDTO;
+   }
+
+   async setConfig (themeKey: string, storeKey: string, interfaceKey: string, dto: any): Promise<StoreDTO> {
+       const response = await this._request({
+           path: `/cms/theme/config/${encodeURIComponent(themeKey)}/${encodeURIComponent(storeKey)}/${encodeURIComponent(interfaceKey)}`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as StoreDTO;
+   }
+
+   async updateTemplate (themeKey: string, componentName: string, templateName: string, dto: any): Promise<StoreDTO> {
+       const response = await this._request({
+           path: `/cms/theme/template/${encodeURIComponent(themeKey)}/${encodeURIComponent(componentName)}/${encodeURIComponent(templateName)}`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as StoreDTO;
    }
 
 }
