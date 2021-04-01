@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { ScriptDraftDTO } from '../../models/ScriptDraftDTO';
 import { ScriptDTO } from '../../models/ScriptDTO';
+import { ScriptFilterResultDTO } from '../../models/ScriptFilterResultDTO';
 
 export class ScriptsAPI extends BaseAPI {
    async create (dto: ScriptDraftDTO): Promise<ScriptDTO> {
@@ -15,16 +16,16 @@ export class ScriptsAPI extends BaseAPI {
        return (response.json() as unknown) as ScriptDTO;
    }
 
-   async filter (): Promise<ScriptDTO[]> {
+   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ScriptFilterResultDTO> {
        const response = await this._request({
            path: `/config/scripts`,
            method: 'GET',
-           
+           query: this._stringifyQuery(query),
            
            
            
         });
-       return (response.json() as unknown) as ScriptDTO[];
+       return (response.json() as unknown) as ScriptFilterResultDTO;
    }
 
    async getByKey (key: string): Promise<ScriptDTO> {
