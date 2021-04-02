@@ -1,6 +1,9 @@
 import { PackageDTO } from './PackageDTO';
 
 export interface ThemeDTO {
+  _id: string;
+  createdAt: number;
+  updatedAt: number;
   version?: number;
   key: string;
   package: PackageDTO;
@@ -8,8 +11,5 @@ export interface ThemeDTO {
   pages: any[];
   config: any;
   defaultConfig: any;
-  _id: string;
-  createdAt: number;
-  updatedAt: number;
 }
 
