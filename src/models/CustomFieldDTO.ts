@@ -2,6 +2,9 @@ import { LangValue } from './LangValue';
 import { CustomFieldValueDTO } from './CustomFieldValueDTO';
 
 export interface CustomFieldDTO {
+  _id: string;
+  createdAt: number;
+  updatedAt: number;
   version?: number;
   type: CustomFieldDTOTypeEnum;
   resourceTypeId: CustomFieldDTOResourceTypeIdEnum;
@@ -12,9 +15,6 @@ export interface CustomFieldDTO {
   isSearchable: boolean;
   values?: CustomFieldValueDTO[];
   defaultValue?: any;
-  _id: string;
-  createdAt: number;
-  updatedAt: number;
 }
 
 export enum CustomFieldDTOTypeEnum {
