@@ -2,6 +2,8 @@ import { BaseAPI } from '../../runtime';
 import { ScriptDraftDTO } from '../../models/ScriptDraftDTO';
 import { ScriptDTO } from '../../models/ScriptDTO';
 import { ScriptFilterResultDTO } from '../../models/ScriptFilterResultDTO';
+import { CookieDraftDTO } from '../../models/CookieDraftDTO';
+import { CookieDTO } from '../../models/CookieDTO';
 
 export class ScriptsAPI extends BaseAPI {
    async create (dto: ScriptDraftDTO): Promise<ScriptDTO> {
@@ -74,6 +76,66 @@ export class ScriptsAPI extends BaseAPI {
            
         });
        return (response.json() as unknown) as ScriptDTO;
+   }
+
+   async createCookie (id: string, dto: CookieDraftDTO): Promise<CookieDTO> {
+       const response = await this._request({
+           path: `/config/scripts/${encodeURIComponent(id)}/cookies`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as CookieDTO;
+   }
+
+   async getCookies (id: string): Promise<CookieDTO[]> {
+       const response = await this._request({
+           path: `/config/scripts/${encodeURIComponent(id)}/cookies`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CookieDTO[];
+   }
+
+   async getCookieById (id: string, cookieId: string): Promise<CookieDTO> {
+       const response = await this._request({
+           path: `/config/scripts/${encodeURIComponent(id)}/${encodeURIComponent(cookieId)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CookieDTO;
+   }
+
+   async updateCookie (id: string, cookieId: string, dto: CookieDraftDTO): Promise<CookieDTO> {
+       const response = await this._request({
+           path: `/config/scripts/${encodeURIComponent(id)}/${encodeURIComponent(cookieId)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as CookieDTO;
+   }
+
+   async deleteCookie (id: string, cookieId: string): Promise<CookieDTO> {
+       const response = await this._request({
+           path: `/config/scripts/${encodeURIComponent(id)}/cookies/${encodeURIComponent(cookieId)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as CookieDTO;
    }
 
 }

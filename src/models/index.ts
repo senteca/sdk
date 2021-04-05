@@ -69,6 +69,7 @@ export * from "./ContentTypeDTO";
 export * from "./ContentTypeDraftDTO";
 export * from "./ContentTypeFilterResultDTO";
 export * from "./CookieDTO";
+export * from "./CookieDraftDTO";
 export * from "./CustomField";
 export * from "./CustomFieldDTO";
 export * from "./CustomFieldDraftDTO";

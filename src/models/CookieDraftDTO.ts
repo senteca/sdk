@@ -1,12 +1,9 @@
 import { LangValue } from './LangValue';
 
-export interface CookieDTO {
+export interface CookieDraftDTO {
   key: string;
   name?: LangValue[];
   description?: LangValue[];
   maxAge?: LangValue[];
-  _id: string;
-  createdAt: number;
-  updatedAt: number;
 }
 
