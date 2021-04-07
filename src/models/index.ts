@@ -371,6 +371,7 @@ export * from "./UserDTO";
 export * from "./UserDraftDTO";
 export * from "./UserFilterResultDTO";
 export * from "./UserProfileUpdateDTO";
+export * from "./UserSearchHistoryDTO";
 export * from "./UserUpdateDTO";
 export * from "./ViewDTO";
 export * from "./ViewDraftDTO";

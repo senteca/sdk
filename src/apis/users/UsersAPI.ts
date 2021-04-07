@@ -7,6 +7,7 @@ import { PasswordResetDTO } from '../../models/PasswordResetDTO';
 import { UserFilterResultDTO } from '../../models/UserFilterResultDTO';
 import { UserDraftDTO } from '../../models/UserDraftDTO';
 import { UserUpdateDTO } from '../../models/UserUpdateDTO';
+import { UserSearchHistoryDTO } from '../../models/UserSearchHistoryDTO';
 
 export class UsersAPI extends BaseAPI {
    async getMyProfile (): Promise<UserDTO> {
@@ -120,6 +121,30 @@ export class UsersAPI extends BaseAPI {
    async delete (id: string): Promise<UserDTO> {
        const response = await this._request({
            path: `/users/users/${encodeURIComponent(id)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response.json() as unknown) as UserDTO;
+   }
+
+   async appendMySearchHistory (dto: UserSearchHistoryDTO): Promise<UserDTO> {
+       const response = await this._request({
+           path: `/users/users/my-search-history`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response.json() as unknown) as UserDTO;
+   }
+
+   async deleteMySearchHistoryByIdx (idx: number): Promise<UserDTO> {
+       const response = await this._request({
+           path: `/users/users/my-search-history/${encodeURIComponent(idx)}`,
            method: 'DELETE',
            
            
