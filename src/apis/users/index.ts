@@ -4,6 +4,7 @@ export * from "./CustomerMessagesAPI";
 export * from "./CustomerSubscriptionTypesAPI";
 export * from "./CustomersAPI";
 export * from "./MyMessagesAPI";
+export * from "./MySearchHistoryAPI";
 export * from "./MySubscriptionsAPI";
 export * from "./MyWalletAPI";
 export * from "./UsersAPI";

@@ -1,5 +1,4 @@
 import { KeyReferenceDTO } from './KeyReferenceDTO';
-import { UserSearchHistoryDTO } from './UserSearchHistoryDTO';
 
 export interface UserDraftDTO {
   firstName: string;
@@ -9,6 +8,5 @@ export interface UserDraftDTO {
   role: KeyReferenceDTO;
   passwordResetTokenExpirationDate?: number;
   isSystem: boolean;
-  searchHistory?: UserSearchHistoryDTO[];
 }
 
