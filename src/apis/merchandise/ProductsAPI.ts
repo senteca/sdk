@@ -93,6 +93,18 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
+   async bulkCustomFieldUpdateByFilter (dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/bulk/custom-by-filter`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
    async bulkAttributeSet (dto: BulkAttributeUpdateDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/bulk/attribute-set`,

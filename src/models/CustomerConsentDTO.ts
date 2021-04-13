@@ -1,11 +1,11 @@
 
-export interface CustomerSubscriptionDTO {
+export interface CustomerConsentDTO {
   _id: string;
   createdAt: number;
   updatedAt: number;
   customerId?: string;
   anonymousId?: string;
   email: string;
-  subscriptions: string[];
+  consentKey: string;
 }
 
