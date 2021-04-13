@@ -1,11 +1,9 @@
 import { LangValue } from './LangValue';
 
-export interface CustomerConsentTypeDraftDTO {
+export interface CustomerSubscriptionTypeDraftDTO {
   version?: number;
   key: string;
   label?: LangValue[];
   description?: LangValue[];
-  tags?: string[];
-  isRequired?: boolean;
 }
 
