@@ -5,5 +5,7 @@ export interface CustomerConsentTypeDraftDTO {
   key: string;
   label?: LangValue[];
   description?: LangValue[];
+  tags?: string[];
+  isRequired?: boolean;
 }
 

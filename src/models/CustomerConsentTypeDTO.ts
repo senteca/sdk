@@ -5,6 +5,8 @@ export interface CustomerConsentTypeDTO {
   key: string;
   label?: LangValue[];
   description?: LangValue[];
+  tags?: string[];
+  isRequired?: boolean;
   _id: string;
   createdAt: number;
   updatedAt: number;

@@ -1,23 +1,23 @@
 import { BaseAPI } from '../../runtime';
 import { CustomerConsentDTO } from '../../models/CustomerConsentDTO';
-import { CustomerSubscribeDTO } from '../../models/CustomerSubscribeDTO';
+import { CustomerConsentRequestDTO } from '../../models/CustomerConsentRequestDTO';
 
-export class MySubscriptionsAPI extends BaseAPI {
-   async getMySubscriptions (): Promise<CustomerConsentDTO> {
+export class MyConsentsAPI extends BaseAPI {
+   async getMyConsents (): Promise<CustomerConsentDTO[]> {
        const response = await this._request({
-           path: `/users/my-subscriptions`,
+           path: `/users/my-consents`,
            method: 'GET',
            
            
            
            
         });
-       return (response.json() as unknown) as CustomerConsentDTO;
+       return (response.json() as unknown) as CustomerConsentDTO[];
    }
 
-   async subscribe (dto: CustomerSubscribeDTO): Promise<CustomerConsentDTO> {
+   async approve (dto: CustomerConsentRequestDTO): Promise<CustomerConsentDTO> {
        const response = await this._request({
-           path: `/users/my-subscriptions/subscribe`,
+           path: `/users/my-consents/approve`,
            method: 'PUT',
            
            body: dto,
@@ -27,9 +27,9 @@ export class MySubscriptionsAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerConsentDTO;
    }
 
-   async unsubscribe (dto: CustomerSubscribeDTO): Promise<CustomerConsentDTO> {
+   async reject (dto: CustomerConsentRequestDTO): Promise<CustomerConsentDTO> {
        const response = await this._request({
-           path: `/users/my-subscriptions/unsubscribe`,
+           path: `/users/my-consents/reject`,
            method: 'PUT',
            
            body: dto,

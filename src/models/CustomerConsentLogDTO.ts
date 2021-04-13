@@ -1,11 +1,11 @@
 
-export interface CustomerConsentDTO {
+export interface CustomerConsentLogDTO {
   _id: string;
-  createdAt: number;
-  updatedAt: number;
   customerId?: string;
   anonymousId?: string;
   email: string;
   consentKey: string;
+  date: number;
+  consent: boolean;
 }
 
