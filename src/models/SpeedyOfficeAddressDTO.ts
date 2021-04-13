@@ -5,10 +5,10 @@ export interface SpeedyOfficeAddressDTO {
   siteType: string;
   siteName: string;
   postCode: string;
-  streetId?: number;
-  streetType?: string;
-  streetName?: string;
-  streetNo?: string;
+  streetId: number;
+  streetType: string;
+  streetName: string;
+  streetNo: string;
   x: number;
   y: number;
   fullAddressString: string;

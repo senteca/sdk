@@ -1,5 +1,5 @@
 
-export interface CustomerSubscriptionDTO {
+export interface CustomerConsentDTO {
   _id: string;
   createdAt: number;
   updatedAt: number;

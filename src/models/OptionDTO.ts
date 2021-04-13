@@ -4,6 +4,5 @@ export interface OptionDTO {
   key: string;
   label: LangValue[];
   imageIndex?: number;
-  disabled?: boolean;
 }
 
