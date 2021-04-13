@@ -16,7 +16,7 @@ export class CustomerInvitationsAPI extends BaseAPI {
        return (response.json() as unknown) as CustomerInvitationDTO;
    }
 
-   async filter (query?: { storeKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerInvitationFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerInvitationFilterResultDTO> {
        const response = await this._request({
            path: `/users/customer-invitations`,
            method: 'GET',
