@@ -14,7 +14,7 @@ export class MyOrdersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderFilterResultDTO;
+       return (response as unknown) as OrderFilterResultDTO;
    }
 
    async create (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<OrderDTO> {
@@ -26,7 +26,7 @@ export class MyOrdersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async getAvailableShippingModules (): Promise<ShippingModulesInfo> {
@@ -38,7 +38,7 @@ export class MyOrdersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ShippingModulesInfo;
+       return (response as unknown) as ShippingModulesInfo;
    }
 
    async getAvailableShippingMethods (): Promise<ShippingMethodsInfo> {
@@ -50,7 +50,7 @@ export class MyOrdersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ShippingMethodsInfo;
+       return (response as unknown) as ShippingMethodsInfo;
    }
 
    async getById (id: string): Promise<OrderDTO> {
@@ -62,7 +62,7 @@ export class MyOrdersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
 }

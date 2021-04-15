@@ -14,7 +14,7 @@ export class FoldersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as FolderDTO;
+       return (response as unknown) as FolderDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<FolderFilterResultDTO> {
@@ -26,7 +26,7 @@ export class FoldersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as FolderFilterResultDTO;
+       return (response as unknown) as FolderFilterResultDTO;
    }
 
    async update (id: string, dto: FolderDraftDTO): Promise<FolderDTO> {
@@ -38,7 +38,7 @@ export class FoldersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as FolderDTO;
+       return (response as unknown) as FolderDTO;
    }
 
    async delete (id: string): Promise<FolderDTO> {
@@ -50,7 +50,7 @@ export class FoldersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as FolderDTO;
+       return (response as unknown) as FolderDTO;
    }
 
    async flip (dto: FlipFoldersDTO): Promise<void> {

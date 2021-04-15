@@ -10,7 +10,7 @@ export class SitemapsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as string[];
+       return (response as unknown) as string[];
    }
 
 }

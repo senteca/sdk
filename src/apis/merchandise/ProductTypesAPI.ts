@@ -13,7 +13,7 @@ export class ProductTypesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ProductTypeDTO;
+       return (response as unknown) as ProductTypeDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductTypeFilterResultDTO> {
@@ -25,7 +25,7 @@ export class ProductTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ProductTypeFilterResultDTO;
+       return (response as unknown) as ProductTypeFilterResultDTO;
    }
 
    async getByKey (key: string): Promise<ProductTypeDTO> {
@@ -37,7 +37,7 @@ export class ProductTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ProductTypeDTO;
+       return (response as unknown) as ProductTypeDTO;
    }
 
    async getById (id: string): Promise<ProductTypeDTO> {
@@ -49,7 +49,7 @@ export class ProductTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ProductTypeDTO;
+       return (response as unknown) as ProductTypeDTO;
    }
 
    async updateById (id: string, dto: ProductTypeDraftDTO): Promise<ProductTypeDTO> {
@@ -61,7 +61,7 @@ export class ProductTypesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ProductTypeDTO;
+       return (response as unknown) as ProductTypeDTO;
    }
 
    async deleteById (id: string): Promise<ProductTypeDTO> {
@@ -73,7 +73,7 @@ export class ProductTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ProductTypeDTO;
+       return (response as unknown) as ProductTypeDTO;
    }
 
 }

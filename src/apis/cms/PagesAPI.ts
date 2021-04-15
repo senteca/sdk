@@ -17,7 +17,7 @@ export class PagesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as PageDTO;
+       return (response as unknown) as PageDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<PageFilterResultDTO> {
@@ -29,7 +29,7 @@ export class PagesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as PageFilterResultDTO;
+       return (response as unknown) as PageFilterResultDTO;
    }
 
    async getById (id: string): Promise<PageDTO> {
@@ -41,7 +41,7 @@ export class PagesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as PageDTO;
+       return (response as unknown) as PageDTO;
    }
 
    async update (id: string, dto: PageDraftDTO): Promise<PageDTO> {
@@ -53,7 +53,7 @@ export class PagesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as PageDTO;
+       return (response as unknown) as PageDTO;
    }
 
    async delete (id: string): Promise<PageDTO> {
@@ -65,7 +65,7 @@ export class PagesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as PageDTO;
+       return (response as unknown) as PageDTO;
    }
 
    async setStatus (id: string, dto: PageStatusUpdateDTO): Promise<PageDTO> {
@@ -77,7 +77,7 @@ export class PagesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as PageDTO;
+       return (response as unknown) as PageDTO;
    }
 
    async setName (id: string, dto: PageNameUpdateDTO): Promise<PageDTO> {
@@ -89,7 +89,7 @@ export class PagesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as PageDTO;
+       return (response as unknown) as PageDTO;
    }
 
    async setLabel (id: string, dto: PageLabelUpdateDTO): Promise<PageDTO> {
@@ -101,7 +101,7 @@ export class PagesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as PageDTO;
+       return (response as unknown) as PageDTO;
    }
 
    async setNodes (id: string, dto: PageNodesUpdateDTO): Promise<PageDTO> {
@@ -113,7 +113,7 @@ export class PagesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as PageDTO;
+       return (response as unknown) as PageDTO;
    }
 
    async applyChanges (id: string): Promise<PageDTO> {
@@ -125,7 +125,7 @@ export class PagesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as PageDTO;
+       return (response as unknown) as PageDTO;
    }
 
    async revertChanges (id: string): Promise<PageDTO> {
@@ -137,7 +137,7 @@ export class PagesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as PageDTO;
+       return (response as unknown) as PageDTO;
    }
 
 }

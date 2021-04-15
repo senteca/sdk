@@ -21,7 +21,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as SpeedyLocationCountryDTO[];
+       return (response as unknown) as SpeedyLocationCountryDTO[];
    }
 
    async findCity (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<SpeedyLocationCityDTO[]> {
@@ -33,7 +33,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as SpeedyLocationCityDTO[];
+       return (response as unknown) as SpeedyLocationCityDTO[];
    }
 
    async findQuarter (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<SpeedyLocationQuarterDTO[]> {
@@ -45,7 +45,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as SpeedyLocationQuarterDTO[];
+       return (response as unknown) as SpeedyLocationQuarterDTO[];
    }
 
    async findStreet (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<SpeedyLocationStreetDTO[]> {
@@ -57,7 +57,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as SpeedyLocationStreetDTO[];
+       return (response as unknown) as SpeedyLocationStreetDTO[];
    }
 
    async findOffice (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<SpeedyLocationOfficeDTO[]> {
@@ -69,7 +69,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as SpeedyLocationOfficeDTO[];
+       return (response as unknown) as SpeedyLocationOfficeDTO[];
    }
 
    async setCountry (dto: SpeedyCountryDTO): Promise<OrderDTO> {
@@ -81,7 +81,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetCountry (): Promise<OrderDTO> {
@@ -93,7 +93,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setCity (dto: SpeedyCityDTO): Promise<OrderDTO> {
@@ -105,7 +105,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetCity (): Promise<OrderDTO> {
@@ -117,7 +117,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setQuarter (dto: SpeedyQuarterDTO): Promise<OrderDTO> {
@@ -129,7 +129,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetQuarter (): Promise<OrderDTO> {
@@ -141,7 +141,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setStreet (dto: SpeedyStreetDTO): Promise<OrderDTO> {
@@ -153,7 +153,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetStreet (): Promise<OrderDTO> {
@@ -165,7 +165,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setOffice (dto: SpeedyOfficeDTO): Promise<OrderDTO> {
@@ -177,7 +177,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetOffice (): Promise<OrderDTO> {
@@ -189,7 +189,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
 }

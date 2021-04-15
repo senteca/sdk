@@ -138,7 +138,11 @@ module.exports = class ApiMapper {
 
   static mapResponse(response, relatedModels) {
     const successStatus = response['200'] || response['201'];
-    const schema = getIn(successStatus, 'content.application/json.schema');
+    const content = getIn(successStatus, 'content');
+    if (!content) {
+      return 'void';
+    }
+    const schema = getIn(content, `${Object.keys(content)[0]}.schema`);
     const { realType, relatedModel } = this.schemaToType(schema);
 
     if (relatedModel && !relatedModels.includes(relatedModel)) {

@@ -13,7 +13,7 @@ export class MySearchHistoryAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerSearchHistoryFilterResultDTO;
+       return (response as unknown) as CustomerSearchHistoryFilterResultDTO;
    }
 
    async appendMySearchHistory (dto: CustomerSearchHistoryCreateDraftDTO): Promise<CustomerSearchHistoryDTO> {
@@ -25,7 +25,7 @@ export class MySearchHistoryAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerSearchHistoryDTO;
+       return (response as unknown) as CustomerSearchHistoryDTO;
    }
 
    async deleteMySearchHistoryByIdx (id: string): Promise<CustomerSearchHistoryDTO> {
@@ -37,7 +37,7 @@ export class MySearchHistoryAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerSearchHistoryDTO;
+       return (response as unknown) as CustomerSearchHistoryDTO;
    }
 
 }

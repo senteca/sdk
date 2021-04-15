@@ -12,7 +12,7 @@ export class SubscriptionsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as SubscriptionDTO;
+       return (response as unknown) as SubscriptionDTO;
    }
 
    async filter (): Promise<SubscriptionDTO[]> {
@@ -24,7 +24,7 @@ export class SubscriptionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as SubscriptionDTO[];
+       return (response as unknown) as SubscriptionDTO[];
    }
 
    async getByKey (key: string): Promise<SubscriptionDTO> {
@@ -36,7 +36,7 @@ export class SubscriptionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as SubscriptionDTO;
+       return (response as unknown) as SubscriptionDTO;
    }
 
    async getById (id: string): Promise<SubscriptionDTO> {
@@ -48,7 +48,7 @@ export class SubscriptionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as SubscriptionDTO;
+       return (response as unknown) as SubscriptionDTO;
    }
 
    async update (id: string, dto: SubscriptionDraftDTO): Promise<SubscriptionDTO> {
@@ -60,7 +60,7 @@ export class SubscriptionsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as SubscriptionDTO;
+       return (response as unknown) as SubscriptionDTO;
    }
 
    async delete (id: string): Promise<SubscriptionDTO> {
@@ -72,7 +72,7 @@ export class SubscriptionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as SubscriptionDTO;
+       return (response as unknown) as SubscriptionDTO;
    }
 
 }

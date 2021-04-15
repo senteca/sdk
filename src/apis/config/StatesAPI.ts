@@ -13,7 +13,7 @@ export class StatesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as StateDTO;
+       return (response as unknown) as StateDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<StateFilterResultDTO> {
@@ -25,7 +25,7 @@ export class StatesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StateFilterResultDTO;
+       return (response as unknown) as StateFilterResultDTO;
    }
 
    async getById (id: string): Promise<StateDTO> {
@@ -37,7 +37,7 @@ export class StatesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StateDTO;
+       return (response as unknown) as StateDTO;
    }
 
    async update (id: string, dto: StateDraftDTO): Promise<StateDTO> {
@@ -49,7 +49,7 @@ export class StatesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as StateDTO;
+       return (response as unknown) as StateDTO;
    }
 
    async delete (id: string): Promise<StateDTO> {
@@ -61,7 +61,7 @@ export class StatesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StateDTO;
+       return (response as unknown) as StateDTO;
    }
 
    async getByKey (key: string): Promise<StateDTO> {
@@ -73,7 +73,7 @@ export class StatesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StateDTO;
+       return (response as unknown) as StateDTO;
    }
 
 }

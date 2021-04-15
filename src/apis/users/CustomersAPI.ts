@@ -22,7 +22,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerDTO;
+       return (response as unknown) as CustomerDTO;
    }
 
    async updateMyProfile (dto: CustomerUpdateDTO): Promise<CustomerDTO> {
@@ -34,7 +34,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerDTO;
+       return (response as unknown) as CustomerDTO;
    }
 
    async deleteMyProfile (): Promise<CustomerDTO> {
@@ -46,7 +46,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerDTO;
+       return (response as unknown) as CustomerDTO;
    }
 
    async changePassword (dto: PasswordChangeDTO): Promise<CustomerDTO> {
@@ -58,7 +58,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerDTO;
+       return (response as unknown) as CustomerDTO;
    }
 
    async getMyAddresses (): Promise<AddressDTO[]> {
@@ -70,7 +70,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AddressDTO[];
+       return (response as unknown) as AddressDTO[];
    }
 
    async createMyAddress (dto: AddressDraftDTO): Promise<AddressDTO> {
@@ -82,7 +82,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as AddressDTO;
+       return (response as unknown) as AddressDTO;
    }
 
    async getMyAddressById (id: string): Promise<AddressDTO> {
@@ -94,7 +94,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AddressDTO;
+       return (response as unknown) as AddressDTO;
    }
 
    async updateMyAddress (id: string, dto: AddressDraftDTO): Promise<AddressDTO> {
@@ -106,7 +106,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as AddressDTO;
+       return (response as unknown) as AddressDTO;
    }
 
    async deleteMyAddress (id: string): Promise<AddressDTO> {
@@ -118,7 +118,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AddressDTO;
+       return (response as unknown) as AddressDTO;
    }
 
    async getMyCompanies (): Promise<AddressDTO[]> {
@@ -130,7 +130,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AddressDTO[];
+       return (response as unknown) as AddressDTO[];
    }
 
    async createMyCompany (dto: AddressDraftDTO): Promise<AddressDTO> {
@@ -142,7 +142,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as AddressDTO;
+       return (response as unknown) as AddressDTO;
    }
 
    async getMyCompanyById (id: string): Promise<AddressDTO> {
@@ -154,7 +154,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AddressDTO;
+       return (response as unknown) as AddressDTO;
    }
 
    async updateMyCompany (id: string, dto: AddressDraftDTO): Promise<AddressDTO> {
@@ -166,7 +166,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as AddressDTO;
+       return (response as unknown) as AddressDTO;
    }
 
    async deleteMyCompany (id: string): Promise<AddressDTO> {
@@ -178,7 +178,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AddressDTO;
+       return (response as unknown) as AddressDTO;
    }
 
    async create (dto: CustomerDraftDTO): Promise<CustomerDTO> {
@@ -190,7 +190,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerDTO;
+       return (response as unknown) as CustomerDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerFilterResultDTO> {
@@ -202,7 +202,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerFilterResultDTO;
+       return (response as unknown) as CustomerFilterResultDTO;
    }
 
    async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<CustomerSearchResultDTO> {
@@ -214,7 +214,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerSearchResultDTO;
+       return (response as unknown) as CustomerSearchResultDTO;
    }
 
    async getById (id: string): Promise<CustomerDTO> {
@@ -226,7 +226,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerDTO;
+       return (response as unknown) as CustomerDTO;
    }
 
    async update (id: string, dto: CustomerUpdateDTO): Promise<CustomerDTO> {
@@ -238,7 +238,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerDTO;
+       return (response as unknown) as CustomerDTO;
    }
 
    async delete (id: string): Promise<CustomerDTO> {
@@ -250,7 +250,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerDTO;
+       return (response as unknown) as CustomerDTO;
    }
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<CustomerDTO> {
@@ -262,7 +262,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerDTO;
+       return (response as unknown) as CustomerDTO;
    }
 
    async verifyEmail (dto: EmailVerificationDTO): Promise<void> {
@@ -298,7 +298,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerDTO;
+       return (response as unknown) as CustomerDTO;
    }
 
    async getAddresses (customerId: string): Promise<AddressDTO[]> {
@@ -310,7 +310,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AddressDTO[];
+       return (response as unknown) as AddressDTO[];
    }
 
    async createAddress (customerId: string, dto: AddressDraftDTO): Promise<AddressDTO> {
@@ -322,7 +322,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as AddressDTO;
+       return (response as unknown) as AddressDTO;
    }
 
    async getAddressById (customerId: string, addressId: string): Promise<AddressDTO> {
@@ -334,7 +334,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AddressDTO;
+       return (response as unknown) as AddressDTO;
    }
 
    async updateAddress (customerId: string, addressId: string, dto: AddressDraftDTO): Promise<AddressDTO> {
@@ -346,7 +346,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as AddressDTO;
+       return (response as unknown) as AddressDTO;
    }
 
    async deleteAddress (customerId: string, addressId: string): Promise<any> {
@@ -358,7 +358,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as any;
+       return (response as unknown) as any;
    }
 
    async getCompanies (customerId: string): Promise<AddressDTO[]> {
@@ -370,7 +370,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AddressDTO[];
+       return (response as unknown) as AddressDTO[];
    }
 
    async createCompany (customerId: string, dto: AddressDraftDTO): Promise<AddressDTO> {
@@ -382,7 +382,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as AddressDTO;
+       return (response as unknown) as AddressDTO;
    }
 
    async getCompanyById (customerId: string, companyId: string): Promise<AddressDTO> {
@@ -394,7 +394,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AddressDTO;
+       return (response as unknown) as AddressDTO;
    }
 
    async updateCompany (customerId: string, companyId: string, dto: AddressDraftDTO): Promise<AddressDTO> {
@@ -406,7 +406,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as AddressDTO;
+       return (response as unknown) as AddressDTO;
    }
 
    async deleteCompany (customerId: string, companyId: string): Promise<any> {
@@ -418,7 +418,7 @@ export class CustomersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as any;
+       return (response as unknown) as any;
    }
 
    async import (dto: CustomerDraftDTO[]): Promise<CustomerDTO[]> {
@@ -430,7 +430,7 @@ export class CustomersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerDTO[];
+       return (response as unknown) as CustomerDTO[];
    }
 
    async exportCSV (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<void> {

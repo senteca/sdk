@@ -13,7 +13,7 @@ export class MediaAPI extends BaseAPI {
            
            contentType: 'multipart/form-data',
         });
-       return (response.json() as unknown) as MediaDTO[];
+       return (response as unknown) as MediaDTO[];
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<MediaFilterResultDTO> {
@@ -25,7 +25,7 @@ export class MediaAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as MediaFilterResultDTO;
+       return (response as unknown) as MediaFilterResultDTO;
    }
 
    async delete (dto: MediaDeleteDTO): Promise<any> {
@@ -37,7 +37,7 @@ export class MediaAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as any;
+       return (response as unknown) as any;
    }
 
 }

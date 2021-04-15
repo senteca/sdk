@@ -14,7 +14,7 @@ export class ThemeAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StoreDTO;
+       return (response as unknown) as StoreDTO;
    }
 
    async uninstall (storeKey: string, interfaceKey: string): Promise<StoreDTO> {
@@ -26,7 +26,7 @@ export class ThemeAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StoreDTO;
+       return (response as unknown) as StoreDTO;
    }
 
    async check (themeKey: string, themeVersion: string): Promise<ThemeDTO> {
@@ -38,7 +38,7 @@ export class ThemeAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ThemeDTO;
+       return (response as unknown) as ThemeDTO;
    }
 
    async sync (themeId: string, storeKey: string, interfaceKey: string): Promise<StoreDTO> {
@@ -50,7 +50,7 @@ export class ThemeAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StoreDTO;
+       return (response as unknown) as StoreDTO;
    }
 
    async setConfig (storeKey: string, interfaceKey: string, dto: any): Promise<StoreDTO> {
@@ -62,7 +62,7 @@ export class ThemeAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as StoreDTO;
+       return (response as unknown) as StoreDTO;
    }
 
    async updateTemplate (storeKey: string, interfaceKey: string, componentName: string, templateName: string, dto: any): Promise<StoreDTO> {
@@ -74,7 +74,7 @@ export class ThemeAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as StoreDTO;
+       return (response as unknown) as StoreDTO;
    }
 
    async create (dto: ThemeDraftDTO): Promise<ThemeDTO> {
@@ -86,7 +86,7 @@ export class ThemeAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ThemeDTO;
+       return (response as unknown) as ThemeDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ThemeFilterResultDTO> {
@@ -98,7 +98,7 @@ export class ThemeAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ThemeFilterResultDTO;
+       return (response as unknown) as ThemeFilterResultDTO;
    }
 
    async getByKey (key: string): Promise<ThemeDTO> {
@@ -110,7 +110,7 @@ export class ThemeAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ThemeDTO;
+       return (response as unknown) as ThemeDTO;
    }
 
    async getById (id: string): Promise<ThemeDTO> {
@@ -122,7 +122,7 @@ export class ThemeAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ThemeDTO;
+       return (response as unknown) as ThemeDTO;
    }
 
    async delete (id: string): Promise<ThemeDTO> {
@@ -134,7 +134,7 @@ export class ThemeAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ThemeDTO;
+       return (response as unknown) as ThemeDTO;
    }
 
 }

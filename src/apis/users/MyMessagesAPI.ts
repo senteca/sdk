@@ -13,7 +13,7 @@ export class MyMessagesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerMessageFilterResultDTO;
+       return (response as unknown) as CustomerMessageFilterResultDTO;
    }
 
    async setStatus (id: string, dto: CustomerMessageStatusUpdateDTO): Promise<CustomerMessageDTO> {
@@ -25,7 +25,7 @@ export class MyMessagesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerMessageDTO;
+       return (response as unknown) as CustomerMessageDTO;
    }
 
 }

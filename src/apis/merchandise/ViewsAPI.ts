@@ -15,7 +15,7 @@ export class ViewsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ViewDTO;
+       return (response as unknown) as ViewDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ViewFilterResultDTO> {
@@ -27,7 +27,7 @@ export class ViewsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ViewFilterResultDTO;
+       return (response as unknown) as ViewFilterResultDTO;
    }
 
    async import (dto: ViewDraftDTO[]): Promise<void> {
@@ -51,7 +51,7 @@ export class ViewsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ViewSearchResultDTO;
+       return (response as unknown) as ViewSearchResultDTO;
    }
 
    async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ViewDTO> {
@@ -63,7 +63,7 @@ export class ViewsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ViewDTO;
+       return (response as unknown) as ViewDTO;
    }
 
    async getById (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ViewDTO> {
@@ -75,7 +75,7 @@ export class ViewsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ViewDTO;
+       return (response as unknown) as ViewDTO;
    }
 
    async updateById (id: string, dto: ViewDraftDTO): Promise<ViewDTO> {
@@ -87,7 +87,7 @@ export class ViewsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ViewDTO;
+       return (response as unknown) as ViewDTO;
    }
 
    async deleteById (id: string): Promise<ViewDTO> {
@@ -99,7 +99,7 @@ export class ViewsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ViewDTO;
+       return (response as unknown) as ViewDTO;
    }
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<void> {

@@ -13,7 +13,7 @@ export class TaxCategoriesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as TaxCategoryDTO;
+       return (response as unknown) as TaxCategoryDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<TaxCategoryFilterResultDTO> {
@@ -25,7 +25,7 @@ export class TaxCategoriesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as TaxCategoryFilterResultDTO;
+       return (response as unknown) as TaxCategoryFilterResultDTO;
    }
 
    async getByKey (key: string): Promise<TaxCategoryDTO> {
@@ -37,7 +37,7 @@ export class TaxCategoriesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as TaxCategoryDTO;
+       return (response as unknown) as TaxCategoryDTO;
    }
 
    async getById (id: string): Promise<TaxCategoryDTO> {
@@ -49,7 +49,7 @@ export class TaxCategoriesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as TaxCategoryDTO;
+       return (response as unknown) as TaxCategoryDTO;
    }
 
    async update (id: string, dto: TaxCategoryDraftDTO): Promise<TaxCategoryDTO> {
@@ -61,7 +61,7 @@ export class TaxCategoriesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as TaxCategoryDTO;
+       return (response as unknown) as TaxCategoryDTO;
    }
 
    async delete (id: string): Promise<TaxCategoryDTO> {
@@ -73,7 +73,7 @@ export class TaxCategoriesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as TaxCategoryDTO;
+       return (response as unknown) as TaxCategoryDTO;
    }
 
 }

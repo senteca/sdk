@@ -16,7 +16,7 @@ export class BrandsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as BrandDTO;
+       return (response as unknown) as BrandDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<BrandFilterResultDTO> {
@@ -28,7 +28,7 @@ export class BrandsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as BrandFilterResultDTO;
+       return (response as unknown) as BrandFilterResultDTO;
    }
 
    async import (dto: BrandImportDraftDTO[]): Promise<void> {
@@ -52,7 +52,7 @@ export class BrandsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as BrandSearchResultDTO;
+       return (response as unknown) as BrandSearchResultDTO;
    }
 
    async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> {
@@ -64,7 +64,7 @@ export class BrandsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as BrandDTO;
+       return (response as unknown) as BrandDTO;
    }
 
    async getByExternalId (externalId: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> {
@@ -76,7 +76,7 @@ export class BrandsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as BrandDTO;
+       return (response as unknown) as BrandDTO;
    }
 
    async updateByExternalId (externalId: string, dto: BrandDraftDTO): Promise<BrandDTO> {
@@ -88,7 +88,7 @@ export class BrandsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as BrandDTO;
+       return (response as unknown) as BrandDTO;
    }
 
    async deleteByExternalId (externalId: string): Promise<BrandDTO> {
@@ -100,7 +100,7 @@ export class BrandsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as BrandDTO;
+       return (response as unknown) as BrandDTO;
    }
 
    async getById (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> {
@@ -112,7 +112,7 @@ export class BrandsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as BrandDTO;
+       return (response as unknown) as BrandDTO;
    }
 
    async updateById (id: string, dto: BrandDraftDTO): Promise<BrandDTO> {
@@ -124,7 +124,7 @@ export class BrandsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as BrandDTO;
+       return (response as unknown) as BrandDTO;
    }
 
    async deleteById (id: string): Promise<BrandDTO> {
@@ -136,7 +136,7 @@ export class BrandsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as BrandDTO;
+       return (response as unknown) as BrandDTO;
    }
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<void> {

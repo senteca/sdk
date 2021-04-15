@@ -16,7 +16,7 @@ export class CategoriesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CategoryDTO;
+       return (response as unknown) as CategoryDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CategoryFilterResultDTO> {
@@ -28,7 +28,7 @@ export class CategoriesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CategoryFilterResultDTO;
+       return (response as unknown) as CategoryFilterResultDTO;
    }
 
    async import (dto: CategoryImportDraftDTO[]): Promise<void> {
@@ -52,7 +52,7 @@ export class CategoriesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CategorySearchResultDTO;
+       return (response as unknown) as CategorySearchResultDTO;
    }
 
    async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CategoryDTO> {
@@ -64,7 +64,7 @@ export class CategoriesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CategoryDTO;
+       return (response as unknown) as CategoryDTO;
    }
 
    async getByExternalId (externalId: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CategoryDTO> {
@@ -76,7 +76,7 @@ export class CategoriesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CategoryDTO;
+       return (response as unknown) as CategoryDTO;
    }
 
    async updateByExternalId (externalId: string, dto: CategoryDraftDTO): Promise<CategoryDTO> {
@@ -88,7 +88,7 @@ export class CategoriesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CategoryDTO;
+       return (response as unknown) as CategoryDTO;
    }
 
    async deleteByExternalId (externalId: string): Promise<CategoryDTO> {
@@ -100,7 +100,7 @@ export class CategoriesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CategoryDTO;
+       return (response as unknown) as CategoryDTO;
    }
 
    async getById (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CategoryDTO> {
@@ -112,7 +112,7 @@ export class CategoriesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CategoryDTO;
+       return (response as unknown) as CategoryDTO;
    }
 
    async updateById (id: string, dto: CategoryDraftDTO): Promise<CategoryDTO> {
@@ -124,7 +124,7 @@ export class CategoriesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CategoryDTO;
+       return (response as unknown) as CategoryDTO;
    }
 
    async deleteById (id: string): Promise<CategoryDTO> {
@@ -136,7 +136,7 @@ export class CategoriesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CategoryDTO;
+       return (response as unknown) as CategoryDTO;
    }
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<void> {

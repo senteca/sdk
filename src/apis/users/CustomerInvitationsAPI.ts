@@ -13,7 +13,7 @@ export class CustomerInvitationsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerInvitationDTO;
+       return (response as unknown) as CustomerInvitationDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerInvitationFilterResultDTO> {
@@ -25,7 +25,7 @@ export class CustomerInvitationsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerInvitationFilterResultDTO;
+       return (response as unknown) as CustomerInvitationFilterResultDTO;
    }
 
    async getByKey (key: string): Promise<CustomerInvitationDTO> {
@@ -37,7 +37,7 @@ export class CustomerInvitationsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerInvitationDTO;
+       return (response as unknown) as CustomerInvitationDTO;
    }
 
    async getById (id: string): Promise<CustomerInvitationDTO> {
@@ -49,7 +49,7 @@ export class CustomerInvitationsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerInvitationDTO;
+       return (response as unknown) as CustomerInvitationDTO;
    }
 
    async update (id: string, dto: CustomerInvitationDTO): Promise<CustomerInvitationDTO> {
@@ -61,7 +61,7 @@ export class CustomerInvitationsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerInvitationDTO;
+       return (response as unknown) as CustomerInvitationDTO;
    }
 
    async delete (id: string): Promise<CustomerInvitationDTO> {
@@ -73,7 +73,7 @@ export class CustomerInvitationsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerInvitationDTO;
+       return (response as unknown) as CustomerInvitationDTO;
    }
 
    async resend (id: string): Promise<CustomerInvitationDTO> {
@@ -85,7 +85,7 @@ export class CustomerInvitationsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerInvitationDTO;
+       return (response as unknown) as CustomerInvitationDTO;
    }
 
 }

@@ -12,7 +12,7 @@ export class InternationalsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as InternationalsDTO;
+       return (response as unknown) as InternationalsDTO;
    }
 
    async set (dto: InternationalsDraftDTO): Promise<InternationalsDTO> {
@@ -24,7 +24,7 @@ export class InternationalsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as InternationalsDTO;
+       return (response as unknown) as InternationalsDTO;
    }
 
 }

@@ -13,7 +13,7 @@ export class ContentsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CmsContentDTO;
+       return (response as unknown) as CmsContentDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CmsContentFilterResultDTO> {
@@ -25,7 +25,7 @@ export class ContentsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CmsContentFilterResultDTO;
+       return (response as unknown) as CmsContentFilterResultDTO;
    }
 
    async getByKey (key: string): Promise<CmsContentDTO> {
@@ -37,7 +37,7 @@ export class ContentsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CmsContentDTO;
+       return (response as unknown) as CmsContentDTO;
    }
 
    async getById (id: string): Promise<CmsContentDTO> {
@@ -49,7 +49,7 @@ export class ContentsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CmsContentDTO;
+       return (response as unknown) as CmsContentDTO;
    }
 
    async update (id: string, dto: CmsContentDraftDTO): Promise<CmsContentDTO> {
@@ -61,7 +61,7 @@ export class ContentsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CmsContentDTO;
+       return (response as unknown) as CmsContentDTO;
    }
 
    async delete (id: string): Promise<CmsContentDTO> {
@@ -73,7 +73,7 @@ export class ContentsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CmsContentDTO;
+       return (response as unknown) as CmsContentDTO;
    }
 
 }

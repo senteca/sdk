@@ -15,7 +15,7 @@ export class CartDiscountsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CartDiscountDTO[];
+       return (response as unknown) as CartDiscountDTO[];
    }
 
    async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CartDiscountSearchResultDTO> {
@@ -27,7 +27,7 @@ export class CartDiscountsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CartDiscountSearchResultDTO;
+       return (response as unknown) as CartDiscountSearchResultDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CartDiscountFilterResultDTO> {
@@ -39,7 +39,7 @@ export class CartDiscountsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CartDiscountFilterResultDTO;
+       return (response as unknown) as CartDiscountFilterResultDTO;
    }
 
    async create (dto: CartDiscountDraftDTO): Promise<CartDiscountDTO> {
@@ -51,7 +51,7 @@ export class CartDiscountsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CartDiscountDTO;
+       return (response as unknown) as CartDiscountDTO;
    }
 
    async getById (id: string): Promise<CartDiscountDTO> {
@@ -63,7 +63,7 @@ export class CartDiscountsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CartDiscountDTO;
+       return (response as unknown) as CartDiscountDTO;
    }
 
    async update (id: string, dto: CartDiscountDraftDTO): Promise<CartDiscountDTO> {
@@ -75,7 +75,7 @@ export class CartDiscountsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CartDiscountDTO;
+       return (response as unknown) as CartDiscountDTO;
    }
 
    async delete (id: string): Promise<CartDiscountDTO> {
@@ -87,7 +87,7 @@ export class CartDiscountsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CartDiscountDTO;
+       return (response as unknown) as CartDiscountDTO;
    }
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<void> {

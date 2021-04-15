@@ -15,7 +15,7 @@ export class CollectionsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CollectionDTO;
+       return (response as unknown) as CollectionDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CollectionFilterResultDTO> {
@@ -27,7 +27,7 @@ export class CollectionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CollectionFilterResultDTO;
+       return (response as unknown) as CollectionFilterResultDTO;
    }
 
    async import (dto: CollectionDraftDTO[]): Promise<void> {
@@ -51,7 +51,7 @@ export class CollectionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CollectionSearchResultDTO;
+       return (response as unknown) as CollectionSearchResultDTO;
    }
 
    async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CollectionDTO> {
@@ -63,7 +63,7 @@ export class CollectionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CollectionDTO;
+       return (response as unknown) as CollectionDTO;
    }
 
    async getByExternalId (externalId: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CollectionDTO> {
@@ -75,7 +75,7 @@ export class CollectionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CollectionDTO;
+       return (response as unknown) as CollectionDTO;
    }
 
    async updateByExternalId (externalId: string, dto: CollectionDraftDTO): Promise<CollectionDTO> {
@@ -87,7 +87,7 @@ export class CollectionsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CollectionDTO;
+       return (response as unknown) as CollectionDTO;
    }
 
    async deleteByExternalId (externalId: string): Promise<CollectionDTO> {
@@ -99,7 +99,7 @@ export class CollectionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CollectionDTO;
+       return (response as unknown) as CollectionDTO;
    }
 
    async getById (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CollectionDTO> {
@@ -111,7 +111,7 @@ export class CollectionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CollectionDTO;
+       return (response as unknown) as CollectionDTO;
    }
 
    async updateById (id: string, dto: CollectionDraftDTO): Promise<CollectionDTO> {
@@ -123,7 +123,7 @@ export class CollectionsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CollectionDTO;
+       return (response as unknown) as CollectionDTO;
    }
 
    async deleteById (id: string): Promise<CollectionDTO> {
@@ -135,7 +135,7 @@ export class CollectionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CollectionDTO;
+       return (response as unknown) as CollectionDTO;
    }
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<void> {

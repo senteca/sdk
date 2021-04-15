@@ -14,7 +14,7 @@ export class ProductDiscountsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ProductDiscountSearchResultDTO;
+       return (response as unknown) as ProductDiscountSearchResultDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductDiscountFilterResultDTO> {
@@ -26,7 +26,7 @@ export class ProductDiscountsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ProductDiscountFilterResultDTO;
+       return (response as unknown) as ProductDiscountFilterResultDTO;
    }
 
    async create (dto: ProductDiscountDraftDTO): Promise<ProductDiscountDTO> {
@@ -38,7 +38,7 @@ export class ProductDiscountsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ProductDiscountDTO;
+       return (response as unknown) as ProductDiscountDTO;
    }
 
    async getById (id: string): Promise<ProductDiscountDTO> {
@@ -50,7 +50,7 @@ export class ProductDiscountsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ProductDiscountDTO;
+       return (response as unknown) as ProductDiscountDTO;
    }
 
    async update (id: string, dto: ProductDiscountDraftDTO): Promise<ProductDiscountDTO> {
@@ -62,7 +62,7 @@ export class ProductDiscountsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ProductDiscountDTO;
+       return (response as unknown) as ProductDiscountDTO;
    }
 
    async delete (id: string): Promise<ProductDiscountDTO> {
@@ -74,7 +74,7 @@ export class ProductDiscountsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ProductDiscountDTO;
+       return (response as unknown) as ProductDiscountDTO;
    }
 
 }

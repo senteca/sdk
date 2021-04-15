@@ -13,7 +13,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerSubscriptionTypeDTO;
+       return (response as unknown) as CustomerSubscriptionTypeDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerSubscriptionTypeFilterResultDTO> {
@@ -25,7 +25,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerSubscriptionTypeFilterResultDTO;
+       return (response as unknown) as CustomerSubscriptionTypeFilterResultDTO;
    }
 
    async getByKey (key: string): Promise<CustomerSubscriptionTypeDTO> {
@@ -37,7 +37,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerSubscriptionTypeDTO;
+       return (response as unknown) as CustomerSubscriptionTypeDTO;
    }
 
    async getById (id: string): Promise<CustomerSubscriptionTypeDTO> {
@@ -49,7 +49,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerSubscriptionTypeDTO;
+       return (response as unknown) as CustomerSubscriptionTypeDTO;
    }
 
    async update (id: string, dto: CustomerSubscriptionTypeDTO): Promise<CustomerSubscriptionTypeDTO> {
@@ -61,7 +61,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerSubscriptionTypeDTO;
+       return (response as unknown) as CustomerSubscriptionTypeDTO;
    }
 
    async delete (id: string): Promise<CustomerSubscriptionTypeDTO> {
@@ -73,7 +73,7 @@ export class CustomerSubscriptionTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerSubscriptionTypeDTO;
+       return (response as unknown) as CustomerSubscriptionTypeDTO;
    }
 
 }

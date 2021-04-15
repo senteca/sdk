@@ -11,7 +11,7 @@ export class MyDiscountCodesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as DiscountCodeFilterResultDTO;
+       return (response as unknown) as DiscountCodeFilterResultDTO;
    }
 
 }

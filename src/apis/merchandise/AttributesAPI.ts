@@ -14,7 +14,7 @@ export class AttributesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as AttributeDTO;
+       return (response as unknown) as AttributeDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<AttributeFilterResultDTO> {
@@ -26,7 +26,7 @@ export class AttributesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AttributeFilterResultDTO;
+       return (response as unknown) as AttributeFilterResultDTO;
    }
 
    async import (dto: AttributeDraftDTO[]): Promise<void> {
@@ -50,7 +50,7 @@ export class AttributesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AttributeSearchResultDTO;
+       return (response as unknown) as AttributeSearchResultDTO;
    }
 
    async getByName (name: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<AttributeDTO> {
@@ -62,7 +62,7 @@ export class AttributesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AttributeDTO;
+       return (response as unknown) as AttributeDTO;
    }
 
    async updateByName (name: string, dto: AttributeDraftDTO): Promise<AttributeDTO> {
@@ -74,7 +74,7 @@ export class AttributesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as AttributeDTO;
+       return (response as unknown) as AttributeDTO;
    }
 
    async deleteByName (name: string): Promise<AttributeDTO> {
@@ -86,7 +86,7 @@ export class AttributesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AttributeDTO;
+       return (response as unknown) as AttributeDTO;
    }
 
    async getById (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<AttributeDTO> {
@@ -98,7 +98,7 @@ export class AttributesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AttributeDTO;
+       return (response as unknown) as AttributeDTO;
    }
 
    async updateById (id: string, dto: AttributeDraftDTO): Promise<AttributeDTO> {
@@ -110,7 +110,7 @@ export class AttributesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as AttributeDTO;
+       return (response as unknown) as AttributeDTO;
    }
 
    async deleteById (id: string): Promise<AttributeDTO> {
@@ -122,7 +122,7 @@ export class AttributesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as AttributeDTO;
+       return (response as unknown) as AttributeDTO;
    }
 
 }

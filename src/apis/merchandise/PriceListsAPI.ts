@@ -13,7 +13,7 @@ export class PriceListsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as PriceListDTO;
+       return (response as unknown) as PriceListDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<PriceListFilterResultDTO> {
@@ -25,7 +25,7 @@ export class PriceListsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as PriceListFilterResultDTO;
+       return (response as unknown) as PriceListFilterResultDTO;
    }
 
    async getByKey (key: string): Promise<PriceListDTO> {
@@ -37,7 +37,7 @@ export class PriceListsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as PriceListDTO;
+       return (response as unknown) as PriceListDTO;
    }
 
    async getById (id: string): Promise<PriceListDTO> {
@@ -49,7 +49,7 @@ export class PriceListsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as PriceListDTO;
+       return (response as unknown) as PriceListDTO;
    }
 
    async update (id: string, dto: PriceListDraftDTO): Promise<PriceListDTO> {
@@ -61,7 +61,7 @@ export class PriceListsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as PriceListDTO;
+       return (response as unknown) as PriceListDTO;
    }
 
    async delete (id: string): Promise<PriceListDTO> {
@@ -73,7 +73,7 @@ export class PriceListsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as PriceListDTO;
+       return (response as unknown) as PriceListDTO;
    }
 
 }

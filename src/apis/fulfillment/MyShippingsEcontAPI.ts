@@ -21,7 +21,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as EcontLocationCountryDTO[];
+       return (response as unknown) as EcontLocationCountryDTO[];
    }
 
    async findCity (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EcontLocationCityDTO[]> {
@@ -33,7 +33,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as EcontLocationCityDTO[];
+       return (response as unknown) as EcontLocationCityDTO[];
    }
 
    async findQuarter (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EcontLocationQuarterDTO[]> {
@@ -45,7 +45,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as EcontLocationQuarterDTO[];
+       return (response as unknown) as EcontLocationQuarterDTO[];
    }
 
    async findStreet (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EcontLocationStreetDTO[]> {
@@ -57,7 +57,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as EcontLocationStreetDTO[];
+       return (response as unknown) as EcontLocationStreetDTO[];
    }
 
    async findOffice (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EcontLocationOfficeDTO[]> {
@@ -69,7 +69,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as EcontLocationOfficeDTO[];
+       return (response as unknown) as EcontLocationOfficeDTO[];
    }
 
    async setCountry (dto: EcontCountryDTO): Promise<OrderDTO> {
@@ -81,7 +81,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetCountry (): Promise<OrderDTO> {
@@ -93,7 +93,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setCity (dto: EcontCityDTO): Promise<OrderDTO> {
@@ -105,7 +105,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetCity (): Promise<OrderDTO> {
@@ -117,7 +117,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setQuarter (dto: EcontQuarterDTO): Promise<OrderDTO> {
@@ -129,7 +129,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetQuarter (): Promise<OrderDTO> {
@@ -141,7 +141,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setStreet (dto: EcontStreetDTO): Promise<OrderDTO> {
@@ -153,7 +153,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetStreet (): Promise<OrderDTO> {
@@ -165,7 +165,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setOffice (dto: EcontOfficeDTO): Promise<OrderDTO> {
@@ -177,7 +177,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetOffice (): Promise<OrderDTO> {
@@ -189,7 +189,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
 }

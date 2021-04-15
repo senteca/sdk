@@ -13,7 +13,7 @@ export class MyWishListAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as WishListDTO;
+       return (response as unknown) as WishListDTO;
    }
 
    async addMyItem (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: WishListItemDraftDTO): Promise<WishListItemDTO> {
@@ -25,7 +25,7 @@ export class MyWishListAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as WishListItemDTO;
+       return (response as unknown) as WishListItemDTO;
    }
 
    async syncMy (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<WishListDTO> {
@@ -37,7 +37,7 @@ export class MyWishListAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as WishListDTO;
+       return (response as unknown) as WishListDTO;
    }
 
    async removeMyItem (itemId: string): Promise<WishListItemDTO> {
@@ -49,7 +49,7 @@ export class MyWishListAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as WishListItemDTO;
+       return (response as unknown) as WishListItemDTO;
    }
 
 }

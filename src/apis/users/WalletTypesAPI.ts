@@ -14,7 +14,7 @@ export class WalletTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as WalletTypeFilterResultDTO;
+       return (response as unknown) as WalletTypeFilterResultDTO;
    }
 
    async create (dto: WalletTypeDraftDTO): Promise<WalletTypeDTO> {
@@ -26,7 +26,7 @@ export class WalletTypesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as WalletTypeDTO;
+       return (response as unknown) as WalletTypeDTO;
    }
 
    async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletTypeSearchResultDTO> {
@@ -38,7 +38,7 @@ export class WalletTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as WalletTypeSearchResultDTO;
+       return (response as unknown) as WalletTypeSearchResultDTO;
    }
 
    async getByKey (key: string): Promise<WalletTypeDTO> {
@@ -50,7 +50,7 @@ export class WalletTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as WalletTypeDTO;
+       return (response as unknown) as WalletTypeDTO;
    }
 
    async getById (id: string): Promise<WalletTypeDTO> {
@@ -62,7 +62,7 @@ export class WalletTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as WalletTypeDTO;
+       return (response as unknown) as WalletTypeDTO;
    }
 
    async update (id: string, dto: WalletTypeDraftDTO): Promise<WalletTypeDTO> {
@@ -74,7 +74,7 @@ export class WalletTypesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as WalletTypeDTO;
+       return (response as unknown) as WalletTypeDTO;
    }
 
    async delete (id: string): Promise<WalletTypeDTO> {
@@ -86,7 +86,7 @@ export class WalletTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as WalletTypeDTO;
+       return (response as unknown) as WalletTypeDTO;
    }
 
 }

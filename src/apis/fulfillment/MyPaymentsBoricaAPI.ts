@@ -16,7 +16,7 @@ export class MyPaymentsBoricaAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as BoricaGeneratePaymentUrlResponse;
+       return (response as unknown) as BoricaGeneratePaymentUrlResponse;
    }
 
    async verifyMyPaymentResult (dto: BoricaVerifyPaymentResultRequest): Promise<BoricaVerifyPaymentResultResponse> {
@@ -28,7 +28,7 @@ export class MyPaymentsBoricaAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as BoricaVerifyPaymentResultResponse;
+       return (response as unknown) as BoricaVerifyPaymentResultResponse;
    }
 
    async createMyPaymentTransactionRequest (orderId: string, paymentId: string): Promise<BoricaGeneratePaymentDataResponse> {
@@ -40,7 +40,7 @@ export class MyPaymentsBoricaAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as BoricaGeneratePaymentDataResponse;
+       return (response as unknown) as BoricaGeneratePaymentDataResponse;
    }
 
    async verifyMyPaymentTransactionResponse (dto: BoricaVerifyPaymentDataRequest): Promise<BoricaVerifyPaymentDataResponse> {
@@ -52,7 +52,7 @@ export class MyPaymentsBoricaAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as BoricaVerifyPaymentDataResponse;
+       return (response as unknown) as BoricaVerifyPaymentDataResponse;
    }
 
 }

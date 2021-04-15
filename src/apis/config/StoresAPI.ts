@@ -13,7 +13,7 @@ export class StoresAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as StoreDTO;
+       return (response as unknown) as StoreDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<StoreFilterResultDTO> {
@@ -25,7 +25,7 @@ export class StoresAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StoreFilterResultDTO;
+       return (response as unknown) as StoreFilterResultDTO;
    }
 
    async getByKey (key: string): Promise<StoreDTO> {
@@ -37,7 +37,7 @@ export class StoresAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StoreDTO;
+       return (response as unknown) as StoreDTO;
    }
 
    async getById (id: string): Promise<StoreDTO> {
@@ -49,7 +49,7 @@ export class StoresAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StoreDTO;
+       return (response as unknown) as StoreDTO;
    }
 
    async update (id: string, dto: StoreDraftDTO): Promise<StoreDTO> {
@@ -61,7 +61,7 @@ export class StoresAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as StoreDTO;
+       return (response as unknown) as StoreDTO;
    }
 
    async delete (id: string): Promise<StoreDTO> {
@@ -73,7 +73,7 @@ export class StoresAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StoreDTO;
+       return (response as unknown) as StoreDTO;
    }
 
 }

@@ -14,7 +14,7 @@ export class StockLocationsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StockLocationSearchResultDTO;
+       return (response as unknown) as StockLocationSearchResultDTO;
    }
 
    async create (dto: StockLocationDraftDTO): Promise<StockLocationDTO> {
@@ -26,7 +26,7 @@ export class StockLocationsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as StockLocationDTO;
+       return (response as unknown) as StockLocationDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<StockLocationFilterResultDTO> {
@@ -38,7 +38,7 @@ export class StockLocationsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StockLocationFilterResultDTO;
+       return (response as unknown) as StockLocationFilterResultDTO;
    }
 
    async import (dto: StockLocationDraftDTO[]): Promise<void> {
@@ -62,7 +62,7 @@ export class StockLocationsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StockLocationDTO;
+       return (response as unknown) as StockLocationDTO;
    }
 
    async updateByKey (key: string, dto: StockLocationDraftDTO): Promise<StockLocationDTO> {
@@ -74,7 +74,7 @@ export class StockLocationsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as StockLocationDTO;
+       return (response as unknown) as StockLocationDTO;
    }
 
    async getById (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<StockLocationDTO> {
@@ -86,7 +86,7 @@ export class StockLocationsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StockLocationDTO;
+       return (response as unknown) as StockLocationDTO;
    }
 
    async updateById (id: string, dto: StockLocationDraftDTO): Promise<StockLocationDTO> {
@@ -98,7 +98,7 @@ export class StockLocationsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as StockLocationDTO;
+       return (response as unknown) as StockLocationDTO;
    }
 
    async deleteById (id: string): Promise<StockLocationDTO> {
@@ -110,7 +110,7 @@ export class StockLocationsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StockLocationDTO;
+       return (response as unknown) as StockLocationDTO;
    }
 
 }

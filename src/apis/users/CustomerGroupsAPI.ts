@@ -13,7 +13,7 @@ export class CustomerGroupsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerGroupDTO;
+       return (response as unknown) as CustomerGroupDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerGroupFilterResultDTO> {
@@ -25,7 +25,7 @@ export class CustomerGroupsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerGroupFilterResultDTO;
+       return (response as unknown) as CustomerGroupFilterResultDTO;
    }
 
    async getByKey (key: string): Promise<CustomerGroupDTO> {
@@ -37,7 +37,7 @@ export class CustomerGroupsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerGroupDTO;
+       return (response as unknown) as CustomerGroupDTO;
    }
 
    async getById (id: string): Promise<CustomerGroupDTO> {
@@ -49,7 +49,7 @@ export class CustomerGroupsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerGroupDTO;
+       return (response as unknown) as CustomerGroupDTO;
    }
 
    async update (id: string, dto: CustomerGroupDTO): Promise<CustomerGroupDTO> {
@@ -61,7 +61,7 @@ export class CustomerGroupsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerGroupDTO;
+       return (response as unknown) as CustomerGroupDTO;
    }
 
    async delete (id: string): Promise<CustomerGroupDTO> {
@@ -73,7 +73,7 @@ export class CustomerGroupsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerGroupDTO;
+       return (response as unknown) as CustomerGroupDTO;
    }
 
 }

@@ -15,7 +15,7 @@ export class WalletsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as WalletSearchResultDTO;
+       return (response as unknown) as WalletSearchResultDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletFilterResultDTO> {
@@ -27,7 +27,7 @@ export class WalletsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as WalletFilterResultDTO;
+       return (response as unknown) as WalletFilterResultDTO;
    }
 
    async create (dto: WalletDraftDTO): Promise<WalletDTO> {
@@ -39,7 +39,7 @@ export class WalletsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as WalletDTO;
+       return (response as unknown) as WalletDTO;
    }
 
    async getById (id: string): Promise<WalletDTO> {
@@ -51,7 +51,7 @@ export class WalletsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as WalletDTO;
+       return (response as unknown) as WalletDTO;
    }
 
    async update (id: string, dto: WalletDraftDTO): Promise<WalletDTO> {
@@ -63,7 +63,7 @@ export class WalletsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as WalletDTO;
+       return (response as unknown) as WalletDTO;
    }
 
    async delete (id: string): Promise<WalletDTO> {
@@ -75,7 +75,7 @@ export class WalletsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as WalletDTO;
+       return (response as unknown) as WalletDTO;
    }
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<WalletDTO> {
@@ -87,7 +87,7 @@ export class WalletsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as WalletDTO;
+       return (response as unknown) as WalletDTO;
    }
 
    async import (dto: WalletDraftDTO[]): Promise<WalletDTO[]> {
@@ -99,7 +99,7 @@ export class WalletsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as WalletDTO[];
+       return (response as unknown) as WalletDTO[];
    }
 
 }

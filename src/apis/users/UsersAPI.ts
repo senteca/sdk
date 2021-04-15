@@ -18,7 +18,7 @@ export class UsersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as UserDTO;
+       return (response as unknown) as UserDTO;
    }
 
    async updateMyProfile (dto: UserProfileUpdateDTO): Promise<UserDTO> {
@@ -30,7 +30,7 @@ export class UsersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as UserDTO;
+       return (response as unknown) as UserDTO;
    }
 
    async changePassword (dto: PasswordChangeDTO): Promise<UserDTO> {
@@ -42,7 +42,7 @@ export class UsersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as UserDTO;
+       return (response as unknown) as UserDTO;
    }
 
    async createPasswordToken (dto: PasswordTokenDTO): Promise<void> {
@@ -66,7 +66,7 @@ export class UsersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as UserDTO;
+       return (response as unknown) as UserDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<UserFilterResultDTO> {
@@ -78,7 +78,7 @@ export class UsersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as UserFilterResultDTO;
+       return (response as unknown) as UserFilterResultDTO;
    }
 
    async create (dto: UserDraftDTO): Promise<UserDTO> {
@@ -90,7 +90,7 @@ export class UsersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as UserDTO;
+       return (response as unknown) as UserDTO;
    }
 
    async getById (id: string): Promise<UserDTO> {
@@ -102,7 +102,7 @@ export class UsersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as UserDTO;
+       return (response as unknown) as UserDTO;
    }
 
    async update (id: string, dto: UserUpdateDTO): Promise<UserDTO> {
@@ -114,7 +114,7 @@ export class UsersAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as UserDTO;
+       return (response as unknown) as UserDTO;
    }
 
    async delete (id: string): Promise<UserDTO> {
@@ -126,7 +126,7 @@ export class UsersAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as UserDTO;
+       return (response as unknown) as UserDTO;
    }
 
 }

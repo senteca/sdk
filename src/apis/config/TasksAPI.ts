@@ -49,7 +49,7 @@ export class TasksAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as TaskDTO;
+       return (response as unknown) as TaskDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<TaskFilterResultDTO> {
@@ -61,7 +61,7 @@ export class TasksAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as TaskFilterResultDTO;
+       return (response as unknown) as TaskFilterResultDTO;
    }
 
    async getByName (name: string): Promise<TaskDTO> {
@@ -73,7 +73,7 @@ export class TasksAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as TaskDTO;
+       return (response as unknown) as TaskDTO;
    }
 
    async getById (id: string): Promise<TaskDTO> {
@@ -85,7 +85,7 @@ export class TasksAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as TaskDTO;
+       return (response as unknown) as TaskDTO;
    }
 
    async delete (id: string): Promise<TaskDTO> {
@@ -97,7 +97,7 @@ export class TasksAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as TaskDTO;
+       return (response as unknown) as TaskDTO;
    }
 
 }

@@ -12,7 +12,7 @@ export class MyWalletAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as WalletDTO;
+       return (response as unknown) as WalletDTO;
    }
 
    async request (dto: WalletDraftDTO): Promise<WalletDTO> {
@@ -24,7 +24,7 @@ export class MyWalletAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as WalletDTO;
+       return (response as unknown) as WalletDTO;
    }
 
    async add (dto: WalletDraftDTO): Promise<WalletDTO> {
@@ -36,7 +36,7 @@ export class MyWalletAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as WalletDTO;
+       return (response as unknown) as WalletDTO;
    }
 
 }

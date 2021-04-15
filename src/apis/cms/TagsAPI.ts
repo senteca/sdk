@@ -13,7 +13,7 @@ export class TagsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as TagDTO;
+       return (response as unknown) as TagDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<TagFilterResultDTO> {
@@ -25,7 +25,7 @@ export class TagsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as TagFilterResultDTO;
+       return (response as unknown) as TagFilterResultDTO;
    }
 
    async update (id: string, dto: TagDraftDTO): Promise<TagDTO> {
@@ -37,7 +37,7 @@ export class TagsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as TagDTO;
+       return (response as unknown) as TagDTO;
    }
 
    async delete (id: string): Promise<TagDTO> {
@@ -49,7 +49,7 @@ export class TagsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as TagDTO;
+       return (response as unknown) as TagDTO;
    }
 
 }

@@ -22,7 +22,7 @@ export class MyCartAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async get (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<OrderDTO> {
@@ -34,7 +34,7 @@ export class MyCartAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async addLineItem (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: LineItemDraftDTO): Promise<OrderDTO> {
@@ -46,7 +46,7 @@ export class MyCartAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async deleteLineItem (id: string): Promise<OrderDTO> {
@@ -58,7 +58,7 @@ export class MyCartAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setLineItemQuantity (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
@@ -70,7 +70,7 @@ export class MyCartAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async addCustomLineItem (dto: CustomLineItemDraftDTO): Promise<OrderDTO> {
@@ -82,7 +82,7 @@ export class MyCartAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async deleteCustomLineItem (id: string): Promise<OrderDTO> {
@@ -94,7 +94,7 @@ export class MyCartAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setCustomLineItemQuantity (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
@@ -106,7 +106,7 @@ export class MyCartAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setDiscountCode (dto: DiscountCodeUpdateDTO): Promise<OrderDTO> {
@@ -118,7 +118,7 @@ export class MyCartAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async deleteDiscountCode (query: { code: string }): Promise<OrderDTO> {
@@ -130,7 +130,7 @@ export class MyCartAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async addWallet (type: string): Promise<OrderDTO> {
@@ -142,7 +142,7 @@ export class MyCartAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async deleteWallet (type: string): Promise<OrderDTO> {
@@ -154,7 +154,7 @@ export class MyCartAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setShippingAddress (dto: AddressDTO): Promise<OrderDTO> {
@@ -166,7 +166,7 @@ export class MyCartAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setBillingAddress (dto: AddressDTO): Promise<OrderDTO> {
@@ -178,7 +178,7 @@ export class MyCartAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async getMyShippingMethods (): Promise<ShippingMethodsInfo> {
@@ -190,7 +190,7 @@ export class MyCartAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ShippingMethodsInfo;
+       return (response as unknown) as ShippingMethodsInfo;
    }
 
    async getPaymentMethods (): Promise<PaymentMethodsInfo> {
@@ -202,7 +202,7 @@ export class MyCartAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as PaymentMethodsInfo;
+       return (response as unknown) as PaymentMethodsInfo;
    }
 
    async setPlatformShippingMethod (dto: PlatformMethodUpdateDTO): Promise<OrderDTO> {
@@ -214,7 +214,7 @@ export class MyCartAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setMerchantsShippingMethods (dto: MerchantsMethodsUpdateDTO): Promise<OrderDTO> {
@@ -226,7 +226,7 @@ export class MyCartAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setShippingMethod (dto: MethodUpdateDTO): Promise<OrderDTO> {
@@ -238,7 +238,7 @@ export class MyCartAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setPlatformPaymentMethod (dto: PlatformMethodUpdateDTO): Promise<OrderDTO> {
@@ -250,7 +250,7 @@ export class MyCartAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setMerchantsPaymentMethods (dto: MerchantsMethodsUpdateDTO): Promise<OrderDTO> {
@@ -262,7 +262,7 @@ export class MyCartAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setCartCustomField (): Promise<OrderDTO> {
@@ -274,7 +274,7 @@ export class MyCartAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async sync (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<OrderDTO> {
@@ -286,7 +286,7 @@ export class MyCartAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
 }

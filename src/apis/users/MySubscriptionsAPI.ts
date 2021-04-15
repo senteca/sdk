@@ -12,7 +12,7 @@ export class MySubscriptionsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerSubscriptionDTO;
+       return (response as unknown) as CustomerSubscriptionDTO;
    }
 
    async subscribe (dto: CustomerSubscribeDTO): Promise<CustomerSubscriptionDTO> {
@@ -24,7 +24,7 @@ export class MySubscriptionsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerSubscriptionDTO;
+       return (response as unknown) as CustomerSubscriptionDTO;
    }
 
    async unsubscribe (dto: CustomerSubscribeDTO): Promise<CustomerSubscriptionDTO> {
@@ -36,7 +36,7 @@ export class MySubscriptionsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerSubscriptionDTO;
+       return (response as unknown) as CustomerSubscriptionDTO;
    }
 
 }

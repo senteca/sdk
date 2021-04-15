@@ -12,7 +12,7 @@ export class CustomerMessagesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerMessageDTO;
+       return (response as unknown) as CustomerMessageDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerMessageFilterResultDTO> {
@@ -24,7 +24,7 @@ export class CustomerMessagesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerMessageFilterResultDTO;
+       return (response as unknown) as CustomerMessageFilterResultDTO;
    }
 
    async getById (id: string): Promise<CustomerMessageDTO> {
@@ -36,7 +36,7 @@ export class CustomerMessagesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerMessageDTO;
+       return (response as unknown) as CustomerMessageDTO;
    }
 
    async update (id: string, dto: CustomerMessageDTO): Promise<CustomerMessageDTO> {
@@ -48,7 +48,7 @@ export class CustomerMessagesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomerMessageDTO;
+       return (response as unknown) as CustomerMessageDTO;
    }
 
    async delete (id: string): Promise<CustomerMessageDTO> {
@@ -60,7 +60,7 @@ export class CustomerMessagesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomerMessageDTO;
+       return (response as unknown) as CustomerMessageDTO;
    }
 
 }

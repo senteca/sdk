@@ -14,7 +14,7 @@ export class RolesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as Permission[];
+       return (response as unknown) as Permission[];
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<RoleFilterResultDTO> {
@@ -26,7 +26,7 @@ export class RolesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as RoleFilterResultDTO;
+       return (response as unknown) as RoleFilterResultDTO;
    }
 
    async create (dto: RoleDraftDTO): Promise<RoleDTO> {
@@ -38,7 +38,7 @@ export class RolesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as RoleDTO;
+       return (response as unknown) as RoleDTO;
    }
 
    async getById (id: string): Promise<RoleDTO> {
@@ -50,7 +50,7 @@ export class RolesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as RoleDTO;
+       return (response as unknown) as RoleDTO;
    }
 
    async update (id: string, dto: RoleDraftDTO): Promise<RoleDTO> {
@@ -62,7 +62,7 @@ export class RolesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as RoleDTO;
+       return (response as unknown) as RoleDTO;
    }
 
    async delete (id: string): Promise<RoleDTO> {
@@ -74,7 +74,7 @@ export class RolesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as RoleDTO;
+       return (response as unknown) as RoleDTO;
    }
 
 }

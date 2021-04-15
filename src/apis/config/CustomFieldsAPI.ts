@@ -13,7 +13,7 @@ export class CustomFieldsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomFieldDTO;
+       return (response as unknown) as CustomFieldDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomFieldFilterResultDTO> {
@@ -25,7 +25,7 @@ export class CustomFieldsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomFieldFilterResultDTO;
+       return (response as unknown) as CustomFieldFilterResultDTO;
    }
 
    async getById (id: string): Promise<CustomFieldDTO> {
@@ -37,7 +37,7 @@ export class CustomFieldsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomFieldDTO;
+       return (response as unknown) as CustomFieldDTO;
    }
 
    async update (id: string, dto: CustomFieldDraftDTO): Promise<CustomFieldDTO> {
@@ -49,7 +49,7 @@ export class CustomFieldsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomFieldDTO;
+       return (response as unknown) as CustomFieldDTO;
    }
 
    async delete (id: string): Promise<CustomFieldDTO> {
@@ -61,7 +61,7 @@ export class CustomFieldsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomFieldDTO;
+       return (response as unknown) as CustomFieldDTO;
    }
 
 }

@@ -19,7 +19,7 @@ export class CatalogAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CatalogFilterResultDTO;
+       return (response as unknown) as CatalogFilterResultDTO;
    }
 
    async search (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, text: string, fuzzy?: boolean, fuzzyLevel?: string, includeProducts?: boolean, includeBrands?: boolean, includeCategories?: boolean, limit?: number }): Promise<CatalogSearchResultDTO> {
@@ -31,7 +31,7 @@ export class CatalogAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CatalogSearchResultDTO;
+       return (response as unknown) as CatalogSearchResultDTO;
    }
 
    async aggregate (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, postFilter?: string, fuzzy?: boolean, fuzzyLevel?: string, count?: boolean, unfilterSelected?: boolean, terms: string, ranges: string, stats: string }): Promise<CatalogAggregateResponseDTO> {
@@ -43,7 +43,7 @@ export class CatalogAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CatalogAggregateResponseDTO;
+       return (response as unknown) as CatalogAggregateResponseDTO;
    }
 
    async createCustomSort (dto: CustomSortDraftDTO): Promise<CustomSortDTO> {
@@ -55,7 +55,7 @@ export class CatalogAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomSortDTO;
+       return (response as unknown) as CustomSortDTO;
    }
 
    async filterCustomSorts (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomSortFilterResultDTO> {
@@ -67,7 +67,7 @@ export class CatalogAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomSortFilterResultDTO;
+       return (response as unknown) as CustomSortFilterResultDTO;
    }
 
    async getCustomSortById (id: string): Promise<CustomSortDTO> {
@@ -79,7 +79,7 @@ export class CatalogAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomSortDTO;
+       return (response as unknown) as CustomSortDTO;
    }
 
    async updateCustomSortById (id: string, dto: CustomSortDraftDTO): Promise<CustomSortDTO> {
@@ -91,7 +91,7 @@ export class CatalogAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CustomSortDTO;
+       return (response as unknown) as CustomSortDTO;
    }
 
    async deleteCustomSortById (id: string): Promise<CustomSortDTO> {
@@ -103,7 +103,7 @@ export class CatalogAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CustomSortDTO;
+       return (response as unknown) as CustomSortDTO;
    }
 
    async createSynonym (dto: SynonymDraftDTO): Promise<SynonymDTO> {
@@ -115,7 +115,7 @@ export class CatalogAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as SynonymDTO;
+       return (response as unknown) as SynonymDTO;
    }
 
    async filterSynonyms (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<SynonymFilterResultDTO> {
@@ -127,7 +127,7 @@ export class CatalogAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as SynonymFilterResultDTO;
+       return (response as unknown) as SynonymFilterResultDTO;
    }
 
    async updateSynonym (synonymId: string, dto: SynonymDraftDTO): Promise<SynonymDTO> {
@@ -139,7 +139,7 @@ export class CatalogAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as SynonymDTO;
+       return (response as unknown) as SynonymDTO;
    }
 
    async deleteSynonym (id: string): Promise<SynonymDTO> {
@@ -151,7 +151,7 @@ export class CatalogAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as SynonymDTO;
+       return (response as unknown) as SynonymDTO;
    }
 
    async syncSynonyms (): Promise<void> {

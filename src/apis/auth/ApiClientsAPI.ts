@@ -13,7 +13,7 @@ export class ApiClientsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ApiClientFilterResultDTO;
+       return (response as unknown) as ApiClientFilterResultDTO;
    }
 
    async create (dto: ApiClientDraftDTO): Promise<ApiClientDTO> {
@@ -25,7 +25,7 @@ export class ApiClientsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ApiClientDTO;
+       return (response as unknown) as ApiClientDTO;
    }
 
    async getById (id: string): Promise<ApiClientDTO> {
@@ -37,7 +37,7 @@ export class ApiClientsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ApiClientDTO;
+       return (response as unknown) as ApiClientDTO;
    }
 
    async update (id: string, dto: ApiClientDraftDTO): Promise<ApiClientDTO> {
@@ -49,7 +49,7 @@ export class ApiClientsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ApiClientDTO;
+       return (response as unknown) as ApiClientDTO;
    }
 
    async delete (id: string): Promise<ApiClientDTO> {
@@ -61,7 +61,7 @@ export class ApiClientsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ApiClientDTO;
+       return (response as unknown) as ApiClientDTO;
    }
 
 }

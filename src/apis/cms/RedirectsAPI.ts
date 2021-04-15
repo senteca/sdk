@@ -13,7 +13,7 @@ export class RedirectsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CmsRedirectDTO;
+       return (response as unknown) as CmsRedirectDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CmsRedirectFilterResultDTO> {
@@ -25,7 +25,7 @@ export class RedirectsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CmsRedirectFilterResultDTO;
+       return (response as unknown) as CmsRedirectFilterResultDTO;
    }
 
    async import (dto: CmsRedirectDraftDTO[]): Promise<void> {
@@ -49,7 +49,7 @@ export class RedirectsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CmsRedirectDTO;
+       return (response as unknown) as CmsRedirectDTO;
    }
 
    async getById (id: string): Promise<CmsRedirectDTO> {
@@ -61,7 +61,7 @@ export class RedirectsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CmsRedirectDTO;
+       return (response as unknown) as CmsRedirectDTO;
    }
 
    async update (id: string, dto: CmsRedirectDraftDTO): Promise<CmsRedirectDTO> {
@@ -73,7 +73,7 @@ export class RedirectsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as CmsRedirectDTO;
+       return (response as unknown) as CmsRedirectDTO;
    }
 
    async delete (id: string): Promise<CmsRedirectDTO> {
@@ -85,7 +85,7 @@ export class RedirectsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as CmsRedirectDTO;
+       return (response as unknown) as CmsRedirectDTO;
    }
 
 }

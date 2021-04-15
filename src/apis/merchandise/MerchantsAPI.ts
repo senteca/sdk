@@ -13,7 +13,7 @@ export class MerchantsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as MerchantFilterResultDTO;
+       return (response as unknown) as MerchantFilterResultDTO;
    }
 
    async create (dto: MerchantDraftDTO): Promise<MerchantDTO> {
@@ -25,7 +25,7 @@ export class MerchantsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as MerchantDTO;
+       return (response as unknown) as MerchantDTO;
    }
 
    async getByKey (key: string): Promise<MerchantDTO> {
@@ -37,7 +37,7 @@ export class MerchantsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as MerchantDTO;
+       return (response as unknown) as MerchantDTO;
    }
 
    async getById (id: string): Promise<MerchantDTO> {
@@ -49,7 +49,7 @@ export class MerchantsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as MerchantDTO;
+       return (response as unknown) as MerchantDTO;
    }
 
    async update (id: string, dto: MerchantDraftDTO): Promise<MerchantDTO> {
@@ -61,7 +61,7 @@ export class MerchantsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as MerchantDTO;
+       return (response as unknown) as MerchantDTO;
    }
 
    async delete (id: string): Promise<MerchantDTO> {
@@ -73,7 +73,7 @@ export class MerchantsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as MerchantDTO;
+       return (response as unknown) as MerchantDTO;
    }
 
 }

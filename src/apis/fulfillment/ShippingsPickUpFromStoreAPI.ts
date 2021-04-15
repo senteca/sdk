@@ -13,7 +13,7 @@ export class ShippingsPickUpFromStoreAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StockLocationDTO[];
+       return (response as unknown) as StockLocationDTO[];
    }
 
    async setStockLocation (orderId: string, shippingId: string, dto: PickUpFromStoreStockLocationUpdateDTO): Promise<OrderDTO> {
@@ -25,7 +25,7 @@ export class ShippingsPickUpFromStoreAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
 }

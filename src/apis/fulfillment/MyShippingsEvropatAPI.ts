@@ -21,7 +21,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as EvropatLocationCountryDTO[];
+       return (response as unknown) as EvropatLocationCountryDTO[];
    }
 
    async findCity (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EvropatLocationCityDTO[]> {
@@ -33,7 +33,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as EvropatLocationCityDTO[];
+       return (response as unknown) as EvropatLocationCityDTO[];
    }
 
    async findQuarter (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EvropatLocationQuarterDTO[]> {
@@ -45,7 +45,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as EvropatLocationQuarterDTO[];
+       return (response as unknown) as EvropatLocationQuarterDTO[];
    }
 
    async findStreet (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EvropatLocationStreetDTO[]> {
@@ -57,7 +57,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as EvropatLocationStreetDTO[];
+       return (response as unknown) as EvropatLocationStreetDTO[];
    }
 
    async findOffice (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EvropatLocationOfficeDTO[]> {
@@ -69,7 +69,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as EvropatLocationOfficeDTO[];
+       return (response as unknown) as EvropatLocationOfficeDTO[];
    }
 
    async setCountry (dto: EvropatCountryDTO): Promise<OrderDTO> {
@@ -81,7 +81,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetCountry (): Promise<OrderDTO> {
@@ -93,7 +93,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setCity (dto: EvropatCityDTO): Promise<OrderDTO> {
@@ -105,7 +105,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetCity (): Promise<OrderDTO> {
@@ -117,7 +117,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setQuarter (dto: EvropatQuarterDTO): Promise<OrderDTO> {
@@ -129,7 +129,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetQuarter (): Promise<OrderDTO> {
@@ -141,7 +141,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setStreet (dto: EvropatStreetDTO): Promise<OrderDTO> {
@@ -153,7 +153,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetStreet (): Promise<OrderDTO> {
@@ -165,7 +165,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async setOffice (dto: EvropatOfficeDTO): Promise<OrderDTO> {
@@ -177,7 +177,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
    async unsetOffice (): Promise<OrderDTO> {
@@ -189,7 +189,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as OrderDTO;
+       return (response as unknown) as OrderDTO;
    }
 
 }

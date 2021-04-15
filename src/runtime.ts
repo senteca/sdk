@@ -14,15 +14,19 @@ export class BaseAPI {
   protected async _request(context: RequestOptions): Promise<Response> {
     const { url, init } = this.createFetchParams(context);
     const response = await this.fetchApi(url, init);
+    let parsedResponse;
     if (response) {
-      if (response.status >= 200 && response.status < 300) {
-        return response;
-      }
       const contentType = response.headers?.get('content-type')?.split(';')[0];
       if (contentType === "application/json") {
-        throw await response.json();
+        parsedResponse = await response.json();
       } else {
-        throw await response.blob();
+        parsedResponse = await response.blob();
+      }
+
+      if (response.status >= 200 && response.status < 300) {
+        return parsedResponse;
+      } else {
+        throw parsedResponse;
       }
     }
     return undefined as any;

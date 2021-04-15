@@ -15,7 +15,7 @@ export class DiscountCodesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as DiscountCodeDTO[];
+       return (response as unknown) as DiscountCodeDTO[];
    }
 
    async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<DiscountCodeSearchResultDTO> {
@@ -27,7 +27,7 @@ export class DiscountCodesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as DiscountCodeSearchResultDTO;
+       return (response as unknown) as DiscountCodeSearchResultDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<DiscountCodeFilterResultDTO> {
@@ -39,7 +39,7 @@ export class DiscountCodesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as DiscountCodeFilterResultDTO;
+       return (response as unknown) as DiscountCodeFilterResultDTO;
    }
 
    async create (dto: DiscountCodeDraftDTO): Promise<DiscountCodeDTO> {
@@ -51,7 +51,7 @@ export class DiscountCodesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as DiscountCodeDTO;
+       return (response as unknown) as DiscountCodeDTO;
    }
 
    async getById (id: string): Promise<DiscountCodeDTO> {
@@ -63,7 +63,7 @@ export class DiscountCodesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as DiscountCodeDTO;
+       return (response as unknown) as DiscountCodeDTO;
    }
 
    async update (id: string, dto: DiscountCodeDraftDTO): Promise<DiscountCodeDTO> {
@@ -75,7 +75,7 @@ export class DiscountCodesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as DiscountCodeDTO;
+       return (response as unknown) as DiscountCodeDTO;
    }
 
    async delete (id: string): Promise<DiscountCodeDTO> {
@@ -87,7 +87,7 @@ export class DiscountCodesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as DiscountCodeDTO;
+       return (response as unknown) as DiscountCodeDTO;
    }
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<void> {

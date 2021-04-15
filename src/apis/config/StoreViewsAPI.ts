@@ -13,7 +13,7 @@ export class StoreViewsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as StoreViewDTO;
+       return (response as unknown) as StoreViewDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<StoreViewFilterResultDTO> {
@@ -25,7 +25,7 @@ export class StoreViewsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StoreViewFilterResultDTO;
+       return (response as unknown) as StoreViewFilterResultDTO;
    }
 
    async getById (id: string): Promise<StoreViewDTO> {
@@ -37,7 +37,7 @@ export class StoreViewsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StoreViewDTO;
+       return (response as unknown) as StoreViewDTO;
    }
 
    async update (id: string, dto: StoreViewDraftDTO): Promise<StoreViewDTO> {
@@ -49,7 +49,7 @@ export class StoreViewsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as StoreViewDTO;
+       return (response as unknown) as StoreViewDTO;
    }
 
    async delete (id: string): Promise<StoreViewDTO> {
@@ -61,7 +61,7 @@ export class StoreViewsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as StoreViewDTO;
+       return (response as unknown) as StoreViewDTO;
    }
 
 }

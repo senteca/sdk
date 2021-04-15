@@ -13,7 +13,7 @@ export class ShippingConfigsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ShippingConfigDTO;
+       return (response as unknown) as ShippingConfigDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ShippingConfigFilterResultDTO> {
@@ -25,7 +25,7 @@ export class ShippingConfigsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ShippingConfigFilterResultDTO;
+       return (response as unknown) as ShippingConfigFilterResultDTO;
    }
 
    async getById (id: string): Promise<ShippingConfigDTO> {
@@ -37,7 +37,7 @@ export class ShippingConfigsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ShippingConfigDTO;
+       return (response as unknown) as ShippingConfigDTO;
    }
 
    async update (id: string, dto: ShippingConfigDraftDTO): Promise<ShippingConfigDTO> {
@@ -49,7 +49,7 @@ export class ShippingConfigsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ShippingConfigDTO;
+       return (response as unknown) as ShippingConfigDTO;
    }
 
    async delete (id: string): Promise<ShippingConfigDTO> {
@@ -61,7 +61,7 @@ export class ShippingConfigsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ShippingConfigDTO;
+       return (response as unknown) as ShippingConfigDTO;
    }
 
 }

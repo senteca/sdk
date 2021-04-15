@@ -13,7 +13,7 @@ export class ZonesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ZoneDTO;
+       return (response as unknown) as ZoneDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ZoneFilterResultDTO> {
@@ -25,7 +25,7 @@ export class ZonesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ZoneFilterResultDTO;
+       return (response as unknown) as ZoneFilterResultDTO;
    }
 
    async getByKey (key: string): Promise<ZoneDTO> {
@@ -37,7 +37,7 @@ export class ZonesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ZoneDTO;
+       return (response as unknown) as ZoneDTO;
    }
 
    async getById (id: string): Promise<ZoneDTO> {
@@ -49,7 +49,7 @@ export class ZonesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ZoneDTO;
+       return (response as unknown) as ZoneDTO;
    }
 
    async update (id: string, dto: ZoneDraftDTO): Promise<ZoneDTO> {
@@ -61,7 +61,7 @@ export class ZonesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ZoneDTO;
+       return (response as unknown) as ZoneDTO;
    }
 
    async delete (id: string): Promise<ZoneDTO> {
@@ -73,7 +73,7 @@ export class ZonesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ZoneDTO;
+       return (response as unknown) as ZoneDTO;
    }
 
 }

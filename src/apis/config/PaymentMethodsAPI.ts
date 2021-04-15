@@ -13,7 +13,7 @@ export class PaymentMethodsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as PaymentMethodDTO;
+       return (response as unknown) as PaymentMethodDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<PaymentMethodFilterResultDTO> {
@@ -25,7 +25,7 @@ export class PaymentMethodsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as PaymentMethodFilterResultDTO;
+       return (response as unknown) as PaymentMethodFilterResultDTO;
    }
 
    async getByKey (key: string): Promise<PaymentMethodDTO> {
@@ -37,7 +37,7 @@ export class PaymentMethodsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as PaymentMethodDTO;
+       return (response as unknown) as PaymentMethodDTO;
    }
 
    async getById (id: string): Promise<PaymentMethodDTO> {
@@ -49,7 +49,7 @@ export class PaymentMethodsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as PaymentMethodDTO;
+       return (response as unknown) as PaymentMethodDTO;
    }
 
    async update (id: string, dto: PaymentMethodDraftDTO): Promise<PaymentMethodDTO> {
@@ -61,7 +61,7 @@ export class PaymentMethodsAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as PaymentMethodDTO;
+       return (response as unknown) as PaymentMethodDTO;
    }
 
    async delete (id: string): Promise<PaymentMethodDTO> {
@@ -73,7 +73,7 @@ export class PaymentMethodsAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as PaymentMethodDTO;
+       return (response as unknown) as PaymentMethodDTO;
    }
 
 }

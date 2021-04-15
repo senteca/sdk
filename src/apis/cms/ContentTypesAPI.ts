@@ -13,7 +13,7 @@ export class ContentTypesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ContentTypeDTO;
+       return (response as unknown) as ContentTypeDTO;
    }
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ContentTypeFilterResultDTO> {
@@ -25,7 +25,7 @@ export class ContentTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ContentTypeFilterResultDTO;
+       return (response as unknown) as ContentTypeFilterResultDTO;
    }
 
    async update (id: string, dto: ContentTypeDraftDTO): Promise<ContentTypeDTO> {
@@ -37,7 +37,7 @@ export class ContentTypesAPI extends BaseAPI {
            
            contentType: 'application/json',
         });
-       return (response.json() as unknown) as ContentTypeDTO;
+       return (response as unknown) as ContentTypeDTO;
    }
 
    async delete (id: string): Promise<ContentTypeDTO> {
@@ -49,7 +49,7 @@ export class ContentTypesAPI extends BaseAPI {
            
            
         });
-       return (response.json() as unknown) as ContentTypeDTO;
+       return (response as unknown) as ContentTypeDTO;
    }
 
 }
