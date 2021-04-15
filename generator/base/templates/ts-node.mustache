@@ -18,7 +18,12 @@ export class BaseAPI {
       if (response.status >= 200 && response.status < 300) {
         return response;
       }
-      throw await response.json();
+      const contentType = response.headers?.get('content-type')?.split(';')[0];
+      if (contentType === "application/json") {
+        throw await response.json();
+      } else {
+        throw await response.blob();
+      }
     }
     return undefined as any;
   }

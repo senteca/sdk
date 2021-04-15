@@ -40,6 +40,18 @@ export class OrdersAPI extends BaseAPI {
        return (response.json() as unknown) as OrderDTO[];
    }
 
+   async exportCSV (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<void> {
+       const response = await this._request({
+           path: `/fulfillment/orders/export/csv`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       
+   }
+
    async createCart (dto: CartDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/orders/cart`,
