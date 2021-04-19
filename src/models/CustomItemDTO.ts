@@ -1,8 +1,7 @@
-import { SectionItemDTO } from './SectionItemDTO';
 import { AssetDTO } from './AssetDTO';
 
-export interface SectionElementDraftDTO {
-  items: SectionItemDTO[];
+export interface CustomItemDTO {
+  _id: string;
   name: string;
   linkUrl: string;
   tags?: string[];

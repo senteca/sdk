@@ -1,7 +1,6 @@
 import { BaseAPI } from '../../runtime';
 import { MenuItemDraftDTO } from '../../models/MenuItemDraftDTO';
 import { MenuItemDTO } from '../../models/MenuItemDTO';
-import { SectionElementDraftDTO } from '../../models/SectionElementDraftDTO';
 import { SectionElementDTO } from '../../models/SectionElementDTO';
 import { SectionItemRequestDTO } from '../../models/SectionItemRequestDTO';
 
@@ -66,7 +65,7 @@ export class MenuMenuItemsAPI extends BaseAPI {
        return (response as unknown) as MenuItemDTO[];
    }
 
-   async createSectionElement (id: string, dto: SectionElementDraftDTO): Promise<MenuItemDTO> {
+   async createSectionElement (id: string, dto: SectionElementDTO): Promise<MenuItemDTO> {
        const response = await this._request({
            path: `/cms/menu/menuItems/${encodeURIComponent(id)}/sections`,
            method: 'POST',

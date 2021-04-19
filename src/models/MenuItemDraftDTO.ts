@@ -1,11 +1,11 @@
 import { SectionElementDTO } from './SectionElementDTO';
-import { CustomItemDraftDTO } from './CustomItemDraftDTO';
+import { CustomItemDTO } from './CustomItemDTO';
 import { AssetDTO } from './AssetDTO';
 
 export interface MenuItemDraftDTO {
   version?: number;
   sections?: SectionElementDTO[];
-  items?: CustomItemDraftDTO[];
+  items?: CustomItemDTO[];
   createdAt: number;
   updatedAt: number;
   name: string;
