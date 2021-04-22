@@ -49,6 +49,18 @@ export class CustomersAPI extends BaseAPI {
        return (response as unknown) as CustomerDTO;
    }
 
+   async anonymizeMe (): Promise<CustomerDTO> {
+       const response = await this._request({
+           path: `/users/customers/anonymize-me`,
+           method: 'PUT',
+           
+           
+           
+           
+        });
+       return (response as unknown) as CustomerDTO;
+   }
+
    async changePassword (dto: PasswordChangeDTO): Promise<CustomerDTO> {
        const response = await this._request({
            path: `/users/customers/password`,
@@ -245,6 +257,18 @@ export class CustomersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customers/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response as unknown) as CustomerDTO;
+   }
+
+   async anonymize (id: string): Promise<CustomerDTO> {
+       const response = await this._request({
+           path: `/users/customers/${encodeURIComponent(id)}/anonymize`,
+           method: 'PUT',
            
            
            
