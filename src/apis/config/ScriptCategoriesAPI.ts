@@ -2,6 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { ScriptCategoryDraftDTO } from '../../models/ScriptCategoryDraftDTO';
 import { ScriptCategoryDTO } from '../../models/ScriptCategoryDTO';
 import { ScriptCategoryFilterResultDTO } from '../../models/ScriptCategoryFilterResultDTO';
+import { ScriptCategoryAggregatedDTO } from '../../models/ScriptCategoryAggregatedDTO';
 
 export class ScriptCategoriesAPI extends BaseAPI {
    async create (dto: ScriptCategoryDraftDTO): Promise<ScriptCategoryDTO> {
@@ -26,6 +27,18 @@ export class ScriptCategoriesAPI extends BaseAPI {
            
         });
        return (response as unknown) as ScriptCategoryFilterResultDTO;
+   }
+
+   async getAggregated (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ScriptCategoryAggregatedDTO[]> {
+       const response = await this._request({
+           path: `/config/script-categories/aggregated`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response as unknown) as ScriptCategoryAggregatedDTO[];
    }
 
    async getByKey (key: string): Promise<ScriptCategoryDTO> {
