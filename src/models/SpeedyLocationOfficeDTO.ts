@@ -6,6 +6,7 @@ export interface SpeedyLocationOfficeDTO {
   type: SpeedyLocationOfficeDTOTypeEnum;
   parent?: string;
   value: string;
+  valueEn: string;
 }
 
 export enum SpeedyLocationOfficeDTOTypeEnum {

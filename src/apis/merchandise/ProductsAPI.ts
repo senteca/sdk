@@ -5,6 +5,7 @@ import { BulkStatusChangeDTO } from '../../models/BulkStatusChangeDTO';
 import { BulkCustomFieldUpdateDTO } from '../../models/BulkCustomFieldUpdateDTO';
 import { BulkAttributeUpdateDTO } from '../../models/BulkAttributeUpdateDTO';
 import { BulkAttributeDeleteDTO } from '../../models/BulkAttributeDeleteDTO';
+import { BulkOfferQuantityUpdateDTO } from '../../models/BulkOfferQuantityUpdateDTO';
 import { ProductDraftDTO } from '../../models/ProductDraftDTO';
 import { ProductDTO } from '../../models/ProductDTO';
 import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
@@ -120,6 +121,30 @@ export class ProductsAPI extends BaseAPI {
    async bulkAttributeDelete (dto: BulkAttributeDeleteDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/bulk/attribute-delete`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async bulkOfferMinQuantity (dto: BulkOfferQuantityUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/bulk/offer-min-quantity`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async bulkOfferMaxQuantity (dto: BulkOfferQuantityUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/bulk/offer-max-quantity`,
            method: 'PATCH',
            
            body: dto,

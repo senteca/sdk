@@ -6,6 +6,7 @@ export interface EcontLocationQuarterDTO {
   type: EcontLocationQuarterDTOTypeEnum;
   parent?: string;
   value: string;
+  valueEn: string;
 }
 
 export enum EcontLocationQuarterDTOTypeEnum {

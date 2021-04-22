@@ -6,6 +6,7 @@ export interface EcontLocationStreetDTO {
   type: EcontLocationStreetDTOTypeEnum;
   parent?: string;
   value: string;
+  valueEn: string;
 }
 
 export enum EcontLocationStreetDTOTypeEnum {

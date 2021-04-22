@@ -1,6 +1,7 @@
 import { BrandSnapshot } from './BrandSnapshot';
 import { LangValue } from './LangValue';
 import { ProductVariantDTO } from './ProductVariantDTO';
+import { CustomField } from './CustomField';
 
 export interface WishListItemDTO {
   _id: string;
@@ -15,5 +16,6 @@ export interface WishListItemDTO {
   variantId?: string;
   collapseKey?: string;
   quantity?: number;
+  custom?: CustomField[];
 }
 

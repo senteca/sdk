@@ -6,6 +6,7 @@ export interface EcontLocationOfficeDTO {
   type: EcontLocationOfficeDTOTypeEnum;
   parent?: string;
   value: string;
+  valueEn: string;
 }
 
 export enum EcontLocationOfficeDTOTypeEnum {

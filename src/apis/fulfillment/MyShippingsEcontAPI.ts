@@ -12,7 +12,7 @@ import { EcontStreetDTO } from '../../models/EcontStreetDTO';
 import { EcontOfficeDTO } from '../../models/EcontOfficeDTO';
 
 export class MyShippingsEcontAPI extends BaseAPI {
-   async findCountry (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EcontLocationCountryDTO[]> {
+   async findCountry (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EcontLocationCountryDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/find-country`,
            method: 'GET',
@@ -24,7 +24,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
        return (response as unknown) as EcontLocationCountryDTO[];
    }
 
-   async findCity (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EcontLocationCityDTO[]> {
+   async findCity (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EcontLocationCityDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/find-city`,
            method: 'GET',
@@ -36,7 +36,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
        return (response as unknown) as EcontLocationCityDTO[];
    }
 
-   async findQuarter (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EcontLocationQuarterDTO[]> {
+   async findQuarter (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EcontLocationQuarterDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/find-quarter`,
            method: 'GET',
@@ -48,7 +48,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
        return (response as unknown) as EcontLocationQuarterDTO[];
    }
 
-   async findStreet (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EcontLocationStreetDTO[]> {
+   async findStreet (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EcontLocationStreetDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/find-street`,
            method: 'GET',
@@ -60,7 +60,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
        return (response as unknown) as EcontLocationStreetDTO[];
    }
 
-   async findOffice (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EcontLocationOfficeDTO[]> {
+   async findOffice (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EcontLocationOfficeDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/find-office`,
            method: 'GET',

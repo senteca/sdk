@@ -12,7 +12,7 @@ import { EvropatStreetDTO } from '../../models/EvropatStreetDTO';
 import { EvropatOfficeDTO } from '../../models/EvropatOfficeDTO';
 
 export class MyShippingsEvropatAPI extends BaseAPI {
-   async findCountry (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EvropatLocationCountryDTO[]> {
+   async findCountry (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EvropatLocationCountryDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/evropat/find-country`,
            method: 'GET',
@@ -24,7 +24,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
        return (response as unknown) as EvropatLocationCountryDTO[];
    }
 
-   async findCity (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EvropatLocationCityDTO[]> {
+   async findCity (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EvropatLocationCityDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/evropat/find-city`,
            method: 'GET',
@@ -36,7 +36,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
        return (response as unknown) as EvropatLocationCityDTO[];
    }
 
-   async findQuarter (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EvropatLocationQuarterDTO[]> {
+   async findQuarter (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EvropatLocationQuarterDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/evropat/find-quarter`,
            method: 'GET',
@@ -48,7 +48,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
        return (response as unknown) as EvropatLocationQuarterDTO[];
    }
 
-   async findStreet (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EvropatLocationStreetDTO[]> {
+   async findStreet (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EvropatLocationStreetDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/evropat/find-street`,
            method: 'GET',
@@ -60,7 +60,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
        return (response as unknown) as EvropatLocationStreetDTO[];
    }
 
-   async findOffice (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<EvropatLocationOfficeDTO[]> {
+   async findOffice (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EvropatLocationOfficeDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/evropat/find-office`,
            method: 'GET',

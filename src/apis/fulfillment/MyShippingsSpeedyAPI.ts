@@ -12,7 +12,7 @@ import { SpeedyStreetDTO } from '../../models/SpeedyStreetDTO';
 import { SpeedyOfficeDTO } from '../../models/SpeedyOfficeDTO';
 
 export class MyShippingsSpeedyAPI extends BaseAPI {
-   async findCountry (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<SpeedyLocationCountryDTO[]> {
+   async findCountry (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<SpeedyLocationCountryDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/find-country`,
            method: 'GET',
@@ -24,7 +24,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        return (response as unknown) as SpeedyLocationCountryDTO[];
    }
 
-   async findCity (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<SpeedyLocationCityDTO[]> {
+   async findCity (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<SpeedyLocationCityDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/find-city`,
            method: 'GET',
@@ -36,7 +36,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        return (response as unknown) as SpeedyLocationCityDTO[];
    }
 
-   async findQuarter (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<SpeedyLocationQuarterDTO[]> {
+   async findQuarter (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<SpeedyLocationQuarterDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/find-quarter`,
            method: 'GET',
@@ -48,7 +48,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        return (response as unknown) as SpeedyLocationQuarterDTO[];
    }
 
-   async findStreet (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<SpeedyLocationStreetDTO[]> {
+   async findStreet (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<SpeedyLocationStreetDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/find-street`,
            method: 'GET',
@@ -60,7 +60,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        return (response as unknown) as SpeedyLocationStreetDTO[];
    }
 
-   async findOffice (query: { language?: string, parent?: string, text: string, maxResults?: number }): Promise<SpeedyLocationOfficeDTO[]> {
+   async findOffice (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<SpeedyLocationOfficeDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/find-office`,
            method: 'GET',

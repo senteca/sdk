@@ -6,6 +6,7 @@ export interface EvropatLocationOfficeDTO {
   type: EvropatLocationOfficeDTOTypeEnum;
   parent?: string;
   value: string;
+  valueEn: string;
 }
 
 export enum EvropatLocationOfficeDTOTypeEnum {
