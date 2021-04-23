@@ -6,7 +6,7 @@ import { PaymentMethodFilterResultDTO } from '../../models/PaymentMethodFilterRe
 export class PaymentMethodsAPI extends BaseAPI {
    async create (dto: PaymentMethodDraftDTO): Promise<PaymentMethodDTO> {
        const response = await this._request({
-           path: `/config/payment-methods`,
+           path: `/fulfillment/payment-methods`,
            method: 'POST',
            
            body: dto,
@@ -18,7 +18,7 @@ export class PaymentMethodsAPI extends BaseAPI {
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<PaymentMethodFilterResultDTO> {
        const response = await this._request({
-           path: `/config/payment-methods`,
+           path: `/fulfillment/payment-methods`,
            method: 'GET',
            query: this._stringifyQuery(query),
            
@@ -30,7 +30,7 @@ export class PaymentMethodsAPI extends BaseAPI {
 
    async getByKey (key: string): Promise<PaymentMethodDTO> {
        const response = await this._request({
-           path: `/config/payment-methods/key=${encodeURIComponent(key)}`,
+           path: `/fulfillment/payment-methods/key=${encodeURIComponent(key)}`,
            method: 'GET',
            
            
@@ -42,7 +42,7 @@ export class PaymentMethodsAPI extends BaseAPI {
 
    async getById (id: string): Promise<PaymentMethodDTO> {
        const response = await this._request({
-           path: `/config/payment-methods/${encodeURIComponent(id)}`,
+           path: `/fulfillment/payment-methods/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -54,7 +54,7 @@ export class PaymentMethodsAPI extends BaseAPI {
 
    async update (id: string, dto: PaymentMethodDraftDTO): Promise<PaymentMethodDTO> {
        const response = await this._request({
-           path: `/config/payment-methods/${encodeURIComponent(id)}`,
+           path: `/fulfillment/payment-methods/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -66,7 +66,7 @@ export class PaymentMethodsAPI extends BaseAPI {
 
    async delete (id: string): Promise<PaymentMethodDTO> {
        const response = await this._request({
-           path: `/config/payment-methods/${encodeURIComponent(id)}`,
+           path: `/fulfillment/payment-methods/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

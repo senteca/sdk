@@ -158,7 +158,6 @@ export * from "./EvropatLocationOfficeDTO";
 export * from "./EvropatLocationQuarterDTO";
 export * from "./EvropatLocationStreetDTO";
 export * from "./EvropatModuleAddressDTO";
-export * from "./EvropatOfficeAddressDTO";
 export * from "./EvropatOfficeDTO";
 export * from "./EvropatQuarterDTO";
 export * from "./EvropatSendRequestDTO";

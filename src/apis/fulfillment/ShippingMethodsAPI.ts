@@ -6,7 +6,7 @@ import { ShippingMethodFilterResultDTO } from '../../models/ShippingMethodFilter
 export class ShippingMethodsAPI extends BaseAPI {
    async create (dto: ShippingMethodDraftDTO): Promise<ShippingMethodDTO> {
        const response = await this._request({
-           path: `/config/shipping-methods`,
+           path: `/fulfillment/shipping-methods`,
            method: 'POST',
            
            body: dto,
@@ -18,7 +18,7 @@ export class ShippingMethodsAPI extends BaseAPI {
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ShippingMethodFilterResultDTO> {
        const response = await this._request({
-           path: `/config/shipping-methods`,
+           path: `/fulfillment/shipping-methods`,
            method: 'GET',
            query: this._stringifyQuery(query),
            
@@ -30,7 +30,7 @@ export class ShippingMethodsAPI extends BaseAPI {
 
    async getById (id: string): Promise<ShippingMethodDTO> {
        const response = await this._request({
-           path: `/config/shipping-methods/${encodeURIComponent(id)}`,
+           path: `/fulfillment/shipping-methods/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -42,7 +42,7 @@ export class ShippingMethodsAPI extends BaseAPI {
 
    async update (id: string, dto: ShippingMethodDraftDTO): Promise<ShippingMethodDTO> {
        const response = await this._request({
-           path: `/config/shipping-methods/${encodeURIComponent(id)}`,
+           path: `/fulfillment/shipping-methods/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -54,7 +54,7 @@ export class ShippingMethodsAPI extends BaseAPI {
 
    async delete (id: string): Promise<ShippingMethodDTO> {
        const response = await this._request({
-           path: `/config/shipping-methods/${encodeURIComponent(id)}`,
+           path: `/fulfillment/shipping-methods/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            

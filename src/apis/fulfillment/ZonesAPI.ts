@@ -6,7 +6,7 @@ import { ZoneFilterResultDTO } from '../../models/ZoneFilterResultDTO';
 export class ZonesAPI extends BaseAPI {
    async create (dto: ZoneDraftDTO): Promise<ZoneDTO> {
        const response = await this._request({
-           path: `/config/zones`,
+           path: `/fulfillment/zones`,
            method: 'POST',
            
            body: dto,
@@ -18,7 +18,7 @@ export class ZonesAPI extends BaseAPI {
 
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ZoneFilterResultDTO> {
        const response = await this._request({
-           path: `/config/zones`,
+           path: `/fulfillment/zones`,
            method: 'GET',
            query: this._stringifyQuery(query),
            
@@ -30,7 +30,7 @@ export class ZonesAPI extends BaseAPI {
 
    async getByKey (key: string): Promise<ZoneDTO> {
        const response = await this._request({
-           path: `/config/zones/key=${encodeURIComponent(key)}`,
+           path: `/fulfillment/zones/key=${encodeURIComponent(key)}`,
            method: 'GET',
            
            
@@ -42,7 +42,7 @@ export class ZonesAPI extends BaseAPI {
 
    async getById (id: string): Promise<ZoneDTO> {
        const response = await this._request({
-           path: `/config/zones/${encodeURIComponent(id)}`,
+           path: `/fulfillment/zones/${encodeURIComponent(id)}`,
            method: 'GET',
            
            
@@ -54,7 +54,7 @@ export class ZonesAPI extends BaseAPI {
 
    async update (id: string, dto: ZoneDraftDTO): Promise<ZoneDTO> {
        const response = await this._request({
-           path: `/config/zones/${encodeURIComponent(id)}`,
+           path: `/fulfillment/zones/${encodeURIComponent(id)}`,
            method: 'PUT',
            
            body: dto,
@@ -66,7 +66,7 @@ export class ZonesAPI extends BaseAPI {
 
    async delete (id: string): Promise<ZoneDTO> {
        const response = await this._request({
-           path: `/config/zones/${encodeURIComponent(id)}`,
+           path: `/fulfillment/zones/${encodeURIComponent(id)}`,
            method: 'DELETE',
            
            
