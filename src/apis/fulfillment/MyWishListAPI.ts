@@ -40,6 +40,18 @@ export class MyWishListAPI extends BaseAPI {
        return (response as unknown) as WishListDTO;
    }
 
+   async removeMyItemsBulk (dto: string[]): Promise<WishListItemDTO[]> {
+       const response = await this._request({
+           path: `/fulfillment/my-wish-list/bulk`,
+           method: 'DELETE',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response as unknown) as WishListItemDTO[];
+   }
+
    async removeMyItem (itemId: string): Promise<WishListItemDTO> {
        const response = await this._request({
            path: `/fulfillment/my-wish-list/${encodeURIComponent(itemId)}`,
