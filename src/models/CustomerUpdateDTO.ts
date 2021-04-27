@@ -8,7 +8,7 @@ export interface CustomerUpdateDTO {
   createdAt?: number;
   updatedAt?: number;
   customerNumber?: number;
-  store?: KeyReferenceDTO;
+  storeKey?: string;
   email: string;
   salutation?: string;
   title?: string;

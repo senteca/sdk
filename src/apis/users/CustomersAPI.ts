@@ -301,11 +301,11 @@ export class CustomersAPI extends BaseAPI {
        
    }
 
-   async createPasswordToken (dto: PasswordTokenDTO): Promise<void> {
+   async createPasswordToken (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: PasswordTokenDTO): Promise<void> {
        const response = await this._request({
            path: `/users/customers/password-token`,
            method: 'POST',
-           
+           query: this._stringifyQuery(query),
            body: dto,
            
            contentType: 'application/json',
@@ -313,11 +313,11 @@ export class CustomersAPI extends BaseAPI {
        
    }
 
-   async resetPassword (dto: PasswordResetDTO): Promise<CustomerDTO> {
+   async resetPassword (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: PasswordResetDTO): Promise<CustomerDTO> {
        const response = await this._request({
            path: `/users/customers/password/reset`,
            method: 'POST',
-           
+           query: this._stringifyQuery(query),
            body: dto,
            
            contentType: 'application/json',
