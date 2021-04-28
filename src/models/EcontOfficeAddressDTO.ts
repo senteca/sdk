@@ -5,7 +5,7 @@ export interface EcontOfficeAddressDTO {
   id: number;
   city: EcontCityDTO;
   fullAddress: string;
-  quarter: string;
+  quarter?: string;
   street: string;
   num: string;
   other?: string;

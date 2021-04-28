@@ -1,6 +1,6 @@
 
 export interface CustomerConsentRequestDTO {
-  email: string;
+  email?: string;
   consentKey: string;
 }
 

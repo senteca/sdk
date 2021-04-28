@@ -40,6 +40,18 @@ export class CustomerConsentTypesAPI extends BaseAPI {
        return (response as unknown) as CustomerConsentTypeDTO;
    }
 
+   async getByTag (tag: string): Promise<CustomerConsentTypeDTO[]> {
+       const response = await this._request({
+           path: `/users/customer-consent-types/tag=${encodeURIComponent(tag)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response as unknown) as CustomerConsentTypeDTO[];
+   }
+
    async getById (id: string): Promise<CustomerConsentTypeDTO> {
        const response = await this._request({
            path: `/users/customer-consent-types/${encodeURIComponent(id)}`,
