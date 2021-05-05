@@ -85,6 +85,7 @@ export * from "./CustomSortFilterResultDTO";
 export * from "./CustomerConsentDTO";
 export * from "./CustomerConsentLogDTO";
 export * from "./CustomerConsentLogFilterResultDTO";
+export * from "./CustomerConsentRequestBulkDTO";
 export * from "./CustomerConsentRequestDTO";
 export * from "./CustomerConsentTypeDTO";
 export * from "./CustomerConsentTypeDraftDTO";
