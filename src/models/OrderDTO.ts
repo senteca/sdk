@@ -1,3 +1,4 @@
+import { CompactBasketDTO } from './CompactBasketDTO';
 import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { AddressDTO } from './AddressDTO';
 import { LineItemDTO } from './LineItemDTO';
@@ -17,6 +18,7 @@ import { CustomField } from './CustomField';
 
 export interface OrderDTO {
   canPurchase?: boolean;
+  compact?: CompactBasketDTO;
   _id: string;
   createdAt: number;
   updatedAt: number;
