@@ -16,7 +16,7 @@ export interface OrderImportDTO {
   id?: string;
   createdAt: number;
   updatedAt: number;
-  version: number;
+  version?: number;
   status: OrderImportDTOStatusEnum;
   state?: KeyReferenceDTO;
   countryCode: string;
@@ -45,13 +45,13 @@ export interface OrderImportDTO {
   lineItems: LineItemImportDTO[];
   customLineItems?: CustomLineItemDTO[];
   merchants: KeyReferenceDTO[];
-  merchantsTotalPrices: MerchantPriceDTO[];
+  merchantsTotalPrices?: MerchantPriceDTO[];
   grandTotalPrice: MoneyDTO;
-  merchantsTaxedPrices: MerchantTaxedPriceDTO[];
+  merchantsTaxedPrices?: MerchantTaxedPriceDTO[];
   grandTaxedPrice?: TaxedPriceDTO;
-  discountCodes: DiscountCodeInfoDTO[];
+  discountCodes?: DiscountCodeInfoDTO[];
   wallet?: OrderWalletDTO;
-  payments: any[];
+  payments?: any[];
   paymentsAuthority?: OrderImportDTOPaymentsAuthorityEnum;
   merchantPaymentMethods?: MerchantMethodDTO[];
   platformPaymentMethod?: IdReferenceDTO;
