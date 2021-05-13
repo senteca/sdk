@@ -161,7 +161,7 @@ export class OrdersAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
-   async setGroup (id: string, dto: OrderCustomerGroupUpdateDTO): Promise<OrderDTO> {
+   async setCustomerGroup (id: string, dto: OrderCustomerGroupUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/group`,
            method: 'PATCH',
