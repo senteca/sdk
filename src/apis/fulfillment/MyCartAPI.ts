@@ -241,6 +241,18 @@ export class MyCartAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
+   async unsetShippingMethod (id: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-cart/shipping-method/${encodeURIComponent(id)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
    async setPlatformPaymentMethod (dto: PlatformMethodUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/platform-payment-method`,
