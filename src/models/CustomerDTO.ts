@@ -1,5 +1,5 @@
-import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { AddressDTO } from './AddressDTO';
+import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { CustomField } from './CustomField';
 
 export interface CustomerDTO {
@@ -8,6 +8,8 @@ export interface CustomerDTO {
   _id: string;
   createdAt?: number;
   updatedAt?: number;
+  customerAddresses?: AddressDTO[];
+  customerCompanies?: AddressDTO[];
   customerNumber?: number;
   storeKey?: string;
   email: string;
@@ -29,8 +31,6 @@ export interface CustomerDTO {
   anonymousId?: string;
   defaultBillingAddress?: string;
   defaultShippingAddress?: string;
-  customerAddresses?: AddressDTO[];
-  customerCompanies?: AddressDTO[];
   companyDetails?: AddressDTO[];
   invitationToken?: string;
   custom?: CustomField[];

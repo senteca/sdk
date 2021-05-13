@@ -11,6 +11,7 @@ import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 import { EmailVerificationDTO } from '../../models/EmailVerificationDTO';
 import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
 import { PasswordResetDTO } from '../../models/PasswordResetDTO';
+import { SetCustomerGroupDTO } from '../../models/SetCustomerGroupDTO';
 
 export class CustomersAPI extends BaseAPI {
    async getMyProfile (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> {
@@ -318,6 +319,18 @@ export class CustomersAPI extends BaseAPI {
            path: `/users/customers/password/reset`,
            method: 'POST',
            query: this._stringifyQuery(query),
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response as unknown) as CustomerDTO;
+   }
+
+   async setCustomerGroup (customerId: string, dto: SetCustomerGroupDTO): Promise<CustomerDTO> {
+       const response = await this._request({
+           path: `/users/customers/${encodeURIComponent(customerId)}/group`,
+           method: 'PATCH',
+           
            body: dto,
            
            contentType: 'application/json',

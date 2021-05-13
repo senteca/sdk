@@ -1,7 +1,7 @@
 {
   "name": "@sentecacommerce/sdk",
   "sideEffects": false,
-  "version": "0.3.102",
+  "version": "0.3.103",
   "description": "OpenAPI client for sentecacommerce platform",
   "author": "Stanislav Bogdanov",
   "main": "dist/cjs/index.js",

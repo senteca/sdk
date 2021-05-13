@@ -28,8 +28,6 @@ export interface CustomerUpdateDTO {
   anonymousId?: string;
   defaultBillingAddress?: string;
   defaultShippingAddress?: string;
-  customerAddresses?: AddressDTO[];
-  customerCompanies?: AddressDTO[];
   companyDetails?: AddressDTO[];
   invitationToken?: string;
   custom?: CustomField[];

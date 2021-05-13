@@ -1,10 +1,12 @@
-import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { AddressDTO } from './AddressDTO';
+import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { CustomField } from './CustomField';
 
 export interface CustomerDraftDTO {
   gender?: CustomerDraftDTOGenderEnum;
   password: string;
+  customerAddresses?: AddressDTO[];
+  customerCompanies?: AddressDTO[];
   customerNumber?: number;
   storeKey?: string;
   email: string;
@@ -26,8 +28,6 @@ export interface CustomerDraftDTO {
   anonymousId?: string;
   defaultBillingAddress?: string;
   defaultShippingAddress?: string;
-  customerAddresses?: AddressDTO[];
-  customerCompanies?: AddressDTO[];
   companyDetails?: AddressDTO[];
   invitationToken?: string;
   custom?: CustomField[];
