@@ -4,6 +4,7 @@ import { DiscountCodeSearchResultDTO } from '../../models/DiscountCodeSearchResu
 import { DiscountCodeFilterResultDTO } from '../../models/DiscountCodeFilterResultDTO';
 import { DiscountCodeDraftDTO } from '../../models/DiscountCodeDraftDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { DiscountCodeBulkDeleteDTO } from '../../models/DiscountCodeBulkDeleteDTO';
 
 export class DiscountCodesAPI extends BaseAPI {
    async import (dto: string[]): Promise<DiscountCodeDTO[]> {
@@ -94,6 +95,18 @@ export class DiscountCodesAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/discount-codes/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async bulkDelete (dto: DiscountCodeBulkDeleteDTO): Promise<void> {
+       const response = await this._request({
+           path: `/fulfillment/discount-codes/bulk/delete`,
+           method: 'DELETE',
            
            body: dto,
            

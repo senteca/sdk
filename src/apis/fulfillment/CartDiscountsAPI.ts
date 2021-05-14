@@ -4,6 +4,7 @@ import { CartDiscountDTO } from '../../models/CartDiscountDTO';
 import { CartDiscountSearchResultDTO } from '../../models/CartDiscountSearchResultDTO';
 import { CartDiscountFilterResultDTO } from '../../models/CartDiscountFilterResultDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { CartDiscountBulkDeleteDTO } from '../../models/CartDiscountBulkDeleteDTO';
 
 export class CartDiscountsAPI extends BaseAPI {
    async import (dto: CartDiscountDraftDTO[]): Promise<CartDiscountDTO[]> {
@@ -94,6 +95,18 @@ export class CartDiscountsAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/cart-discounts/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async bulkDelete (dto: CartDiscountBulkDeleteDTO): Promise<void> {
+       const response = await this._request({
+           path: `/fulfillment/cart-discounts/bulk/delete`,
+           method: 'DELETE',
            
            body: dto,
            
