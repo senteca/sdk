@@ -8,11 +8,10 @@ const {
   readDirAsync,
   writeFileAsync,
 } = require('../utils/io');
-const { target, outputDir } = require('../config');
 
 module.exports = class ModelsRoutine {
-  static async run(apiDocuments) {
-    const template = await this.loadTemplate();
+  static async run(config, apiDocuments) {
+    const template = await this.loadTemplate(config.target);
     Mustache.parse(template); // pre-parse and caching template
 
     for (const doc of apiDocuments) {
@@ -20,14 +19,14 @@ module.exports = class ModelsRoutine {
       for (let schemaKey in schemas) {
         const schema = schemas[schemaKey];
         const model = ModelsMapper.map(schemaKey, schema);
-        await ModelGenerator.generate(template, model);
+        await ModelGenerator.generate(config, template, model);
       }
     }
 
-    await this.createIndexFile();
+    await this.createIndexFile(config.outputDir);
   }
 
-  static async createIndexFile() {
+  static async createIndexFile(outputDir) {
     const path = resolveRoot(outputDir, 'models');
     const files = await readDirAsync(path);
     const content = files
@@ -38,7 +37,7 @@ module.exports = class ModelsRoutine {
     });
   }
 
-  static async loadTemplate() {
+  static async loadTemplate(target) {
     return await readFileAsync(
       `${__dirname}/templates/${target}.mustache`,
       'utf-8',

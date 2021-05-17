@@ -9,27 +9,26 @@ const {
   writeFileAsync,
   mkDirIfNotExists,
 } = require('../utils/io');
-const { target, outputDir } = require('../config');
 
 module.exports = class ApisRoutine {
-  static async run(apiDocuments) {
-    const template = await this.loadTemplate();
+  static async run(config, apiDocuments) {
+    const template = await this.loadTemplate(config.target);
     Mustache.parse(template); // pre-parse and caching template
 
     for (const doc of apiDocuments) {
       const appName = doc.info.title.toLowerCase();
-      await this.createAppFolder(appName);
+      await this.createAppFolder(config.outputDir, appName);
 
       const paths = getIn(doc, 'paths') || {};
       const groupedByApi = this.groupPathsByApi(paths);
 
       for (const rawApi of Object.values(groupedByApi)) {
         const api = ApisMapper.map(rawApi);
-        await ApisGenerator.generate(template, appName, api);
+        await ApisGenerator.generate(config, template, appName, api);
       }
-      await this.createAppIndexFile(appName);
+      await this.createAppIndexFile(config.outputDir, appName);
     }
-    await this.createIndexFile();
+    await this.createIndexFile(config.outputDir);
   }
 
   static groupPathsByApi(paths) {
@@ -52,12 +51,12 @@ module.exports = class ApisRoutine {
     }, {});
   }
 
-  static async createAppFolder(appName) {
+  static async createAppFolder(outputDir, appName) {
     const path = resolveRoot(outputDir, 'apis', appName);
     await mkDirIfNotExists(path);
   }
 
-  static async createAppIndexFile(appName) {
+  static async createAppIndexFile(outputDir, appName) {
     const path = resolveRoot(outputDir, 'apis', appName);
     const files = await readDirAsync(path);
     const content = files
@@ -68,7 +67,7 @@ module.exports = class ApisRoutine {
     });
   }
 
-  static async createIndexFile() {
+  static async createIndexFile(outputDir) {
     const path = resolveRoot(outputDir, 'apis');
     const apps = await readDirAsync(path);
     const content = apps.map((app) => `export * from "./${app}";`).join('\n');
@@ -77,7 +76,7 @@ module.exports = class ApisRoutine {
     });
   }
 
-  static async loadTemplate() {
+  static async loadTemplate(target) {
     return await readFileAsync(
       `${__dirname}/templates/${target}.mustache`,
       'utf-8',
