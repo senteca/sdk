@@ -44,6 +44,15 @@ const apiKey: AccessTokenDTO = await tokenApi.createToken(
     { grantType: "client-credentials" }
 );
 
+// v2
+HttpClient.defaultConfig = new Configuration({
+    basePath: <base path>,
+    token: <access token | api key>,
+    fetchApi: fetch, // optional, if not provided, window.fetch will be used by default on the client
+  });
+
+const store: StoreDTO = await StoreGetById("<id>");
+
 ```
 
 ## API methods

@@ -1,17 +1,16 @@
 const { readFileAsync, resolveRoot, writeFileAsync } = require('../utils/io');
-const { target, outputDir } = require('../config');
 
 const BaseGenerator = require('./generator');
 
 module.exports = class BaseRoutine {
-  static async run() {
-    const template = await this.loadTemplate();
+  static async run(config) {
+    const template = await this.loadTemplate(config.target);
     const data = { hello: 'Hello world!' };
-    await BaseGenerator.generate(template, data);
-    await this.createIndexFile();
+    await BaseGenerator.generate(config, template, data);
+    await this.createIndexFile(config.outputDir);
   }
 
-  static async createIndexFile() {
+  static async createIndexFile(outputDir) {
     const path = resolveRoot(outputDir);
     const exportPaths = ['apis', 'models', 'runtime'];
     const content = exportPaths
@@ -22,7 +21,7 @@ module.exports = class BaseRoutine {
     });
   }
 
-  static async loadTemplate() {
+  static async loadTemplate(target) {
     return await readFileAsync(
       `${__dirname}/templates/${target}.mustache`,
       'utf-8',

@@ -9,7 +9,9 @@ module.exports = class ApiMapper {
 
     api.actions.forEach((action) => {
       action.methods.forEach((method) => {
-        methods.push(this.mapActionMethod(method, action.url, relatedModels));
+        methods.push(
+          this.mapActionMethod(api, method, action.url, relatedModels),
+        );
       });
     });
 
@@ -20,9 +22,10 @@ module.exports = class ApiMapper {
     };
   }
 
-  static mapActionMethod(actionMethod, url, relatedModels) {
+  static mapActionMethod(api, actionMethod, url, relatedModels) {
     url = url.replace(/\{([^}]+)}/g, '${encodeURIComponent($1)}'); // {key} -> ${encodeURIComponent(key)} to be used for sting interpolation
-    const name = actionMethod.operationId; // TODO: operationId alternative ?
+    const name = actionMethod.operationId;
+    const fullName = anyToPascal(`${api.key}-${actionMethod.operationId}`);
     const method = actionMethod.method.toUpperCase();
     const authMethods = this.mapAuth(actionMethod.security);
     const bodyParam = this.mapRequestBody(
@@ -54,6 +57,7 @@ module.exports = class ApiMapper {
     return {
       url,
       name,
+      fullName,
       method,
       contentType,
       parameters,
