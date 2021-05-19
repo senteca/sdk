@@ -6,6 +6,7 @@ export interface EvropatSendRequestDTO {
   share_type?: EvropatSendRequestDTOShare_typeEnum;
   sender?: string;
   senderId?: string;
+  senderData?: any;
   receiver_pay_sum?: number;
   service_sms?: boolean;
   service_oc?: boolean;

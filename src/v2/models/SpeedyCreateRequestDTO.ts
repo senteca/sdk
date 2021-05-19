@@ -6,7 +6,7 @@ export interface SpeedyCreateRequestDTO {
   share_type?: SpeedyCreateRequestDTOShare_typeEnum;
   sender?: string;
   senderId?: string;
-  senderName?: string;
+  senderData?: any;
   service_type?: number;
   receiver_pay_sum?: number;
   service_sms?: boolean;

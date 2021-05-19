@@ -9,7 +9,7 @@ export interface EcontCreateRequestDTO {
   shipmentDescription?: string;
   sender?: string;
   senderId?: string;
-  senderName?: string;
+  senderData?: any;
   senderClient: EcontClientProfile;
   senderAgent: EcontClientProfile;
   senderAddress?: EcontAddress;
