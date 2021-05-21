@@ -29,7 +29,7 @@ import { ProductSkuUpdateDTO } from '../../models/ProductSkuUpdateDTO';
 import { ProductBarcodeUpdateDTO } from '../../models/ProductBarcodeUpdateDTO';
 import { ProductCollapseKeyUpdateDTO } from '../../models/ProductCollapseKeyUpdateDTO';
 import { ProductCollapseModeUpdateDTO } from '../../models/ProductCollapseModeUpdateDTO';
-import { OfferDTO } from '../../models/OfferDTO';
+import { OfferDraftDTO } from '../../models/OfferDraftDTO';
 import { ProductAliasImagesFromUpdateDTO } from '../../models/ProductAliasImagesFromUpdateDTO';
 import { ShippingDataDTO } from '../../models/ShippingDataDTO';
 import { OptionDefinitionDTO } from '../../models/OptionDefinitionDTO';
@@ -659,9 +659,9 @@ export const ProductsSetVariantAttributes = async (sku: string, dto: string[]): 
     
 }
 
-export const ProductsCreateVariantOffer = async (sku: string, dto: OfferDTO): Promise<void> => {
+export const ProductsCreateVariantOffer = async (sku: string, dto: OfferDraftDTO): Promise<void> => {
     const response = await HttpClient.request({
-        path: `/merchandise/products/${encodeURIComponent(sku)}/offers`,
+        path: `/merchandise/products/sku=${encodeURIComponent(sku)}/offers`,
         method: 'POST',
         
         body: dto,
@@ -671,9 +671,9 @@ export const ProductsCreateVariantOffer = async (sku: string, dto: OfferDTO): Pr
     
 }
 
-export const ProductsSetVariantOffers = async (sku: string, dto: OfferDTO[]): Promise<void> => {
+export const ProductsSetVariantOffers = async (sku: string, dto: OfferDraftDTO[]): Promise<void> => {
     const response = await HttpClient.request({
-        path: `/merchandise/products/${encodeURIComponent(sku)}/offers`,
+        path: `/merchandise/products/sku=${encodeURIComponent(sku)}/offers`,
         method: 'PATCH',
         
         body: dto,
@@ -683,9 +683,9 @@ export const ProductsSetVariantOffers = async (sku: string, dto: OfferDTO[]): Pr
     
 }
 
-export const ProductsUpdateVariantOffer = async (id: string, dto: OfferDTO): Promise<void> => {
+export const ProductsUpdateVariantOffer = async (sku: string, offerId: string, dto: OfferDraftDTO): Promise<void> => {
     const response = await HttpClient.request({
-        path: `/merchandise/products/offers/${encodeURIComponent(id)}`,
+        path: `/merchandise/products/sku=${encodeURIComponent(sku)}/offers/offerId=${encodeURIComponent(offerId)}`,
         method: 'PUT',
         
         body: dto,
@@ -695,9 +695,9 @@ export const ProductsUpdateVariantOffer = async (id: string, dto: OfferDTO): Pro
     
 }
 
-export const ProductsDeleteVariantOffer = async (id: string): Promise<void> => {
+export const ProductsDeleteVariantOffer = async (sku: string, offerId: string): Promise<void> => {
     const response = await HttpClient.request({
-        path: `/merchandise/products/offers/${encodeURIComponent(id)}`,
+        path: `/merchandise/products/sku=${encodeURIComponent(sku)}/offers/offerId=${encodeURIComponent(offerId)}`,
         method: 'DELETE',
         
         

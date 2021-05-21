@@ -17,11 +17,11 @@ export const MyConsentsGetMyConsents = async (query?: { storeKey?: string, inter
     return (response as unknown) as CustomerConsentDTO[];
 }
 
-export const MyConsentsApprove = async (dto: CustomerConsentRequestDTO): Promise<CustomerConsentDTO> => {
+export const MyConsentsApprove = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentRequestDTO): Promise<CustomerConsentDTO> => {
     const response = await HttpClient.request({
         path: `/users/my-consents/approve`,
         method: 'PUT',
-        
+        query: toQueryString(query),
         body: dto,
         
         contentType: 'application/json',
@@ -29,11 +29,11 @@ export const MyConsentsApprove = async (dto: CustomerConsentRequestDTO): Promise
     return (response as unknown) as CustomerConsentDTO;
 }
 
-export const MyConsentsApproveBulk = async (dto: CustomerConsentRequestBulkDTO): Promise<CustomerConsentDTO[]> => {
+export const MyConsentsApproveBulk = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentRequestBulkDTO): Promise<CustomerConsentDTO[]> => {
     const response = await HttpClient.request({
         path: `/users/my-consents/approve/bulk`,
         method: 'PUT',
-        
+        query: toQueryString(query),
         body: dto,
         
         contentType: 'application/json',
@@ -41,11 +41,11 @@ export const MyConsentsApproveBulk = async (dto: CustomerConsentRequestBulkDTO):
     return (response as unknown) as CustomerConsentDTO[];
 }
 
-export const MyConsentsReject = async (dto: CustomerConsentRequestDTO): Promise<CustomerConsentDTO> => {
+export const MyConsentsReject = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentRequestDTO): Promise<CustomerConsentDTO> => {
     const response = await HttpClient.request({
         path: `/users/my-consents/reject`,
         method: 'PUT',
-        
+        query: toQueryString(query),
         body: dto,
         
         contentType: 'application/json',

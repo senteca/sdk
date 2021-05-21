@@ -270,6 +270,8 @@ export * from "./ProductMasterVariantUpdateDTO";
 export * from "./ProductScoreUpdateDTO";
 export * from "./ProductSearchResultDTO";
 export * from "./ProductSkuUpdateDTO";
+export * from "./ProductSubscriptionCreateDTO";
+export * from "./ProductSubscriptionDTO";
 export * from "./ProductTypeDTO";
 export * from "./ProductTypeDraftDTO";
 export * from "./ProductTypeFilterResultDTO";

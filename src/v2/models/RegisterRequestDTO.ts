@@ -1,6 +1,7 @@
 import { AddressDTO } from './AddressDTO';
 import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { CustomField } from './CustomField';
+import { ProductSubscriptionDTO } from './ProductSubscriptionDTO';
 
 export interface RegisterRequestDTO {
   gender?: RegisterRequestDTOGenderEnum;
@@ -32,6 +33,7 @@ export interface RegisterRequestDTO {
   companyDetails?: AddressDTO[];
   invitationToken?: string;
   custom?: CustomField[];
+  productSubscriptions?: ProductSubscriptionDTO[];
 }
 
 export enum RegisterRequestDTOGenderEnum {

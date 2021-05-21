@@ -27,7 +27,7 @@ import { ProductSkuUpdateDTO } from '../../models/ProductSkuUpdateDTO';
 import { ProductBarcodeUpdateDTO } from '../../models/ProductBarcodeUpdateDTO';
 import { ProductCollapseKeyUpdateDTO } from '../../models/ProductCollapseKeyUpdateDTO';
 import { ProductCollapseModeUpdateDTO } from '../../models/ProductCollapseModeUpdateDTO';
-import { OfferDTO } from '../../models/OfferDTO';
+import { OfferDraftDTO } from '../../models/OfferDraftDTO';
 import { ProductAliasImagesFromUpdateDTO } from '../../models/ProductAliasImagesFromUpdateDTO';
 import { ShippingDataDTO } from '../../models/ShippingDataDTO';
 import { OptionDefinitionDTO } from '../../models/OptionDefinitionDTO';
@@ -658,9 +658,9 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async createVariantOffer (sku: string, dto: OfferDTO): Promise<void> {
+   async createVariantOffer (sku: string, dto: OfferDraftDTO): Promise<void> {
        const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(sku)}/offers`,
+           path: `/merchandise/products/sku=${encodeURIComponent(sku)}/offers`,
            method: 'POST',
            
            body: dto,
@@ -670,9 +670,9 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setVariantOffers (sku: string, dto: OfferDTO[]): Promise<void> {
+   async setVariantOffers (sku: string, dto: OfferDraftDTO[]): Promise<void> {
        const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(sku)}/offers`,
+           path: `/merchandise/products/sku=${encodeURIComponent(sku)}/offers`,
            method: 'PATCH',
            
            body: dto,
@@ -682,9 +682,9 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async updateVariantOffer (id: string, dto: OfferDTO): Promise<void> {
+   async updateVariantOffer (sku: string, offerId: string, dto: OfferDraftDTO): Promise<void> {
        const response = await this._request({
-           path: `/merchandise/products/offers/${encodeURIComponent(id)}`,
+           path: `/merchandise/products/sku=${encodeURIComponent(sku)}/offers/offerId=${encodeURIComponent(offerId)}`,
            method: 'PUT',
            
            body: dto,
@@ -694,9 +694,9 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async deleteVariantOffer (id: string): Promise<void> {
+   async deleteVariantOffer (sku: string, offerId: string): Promise<void> {
        const response = await this._request({
-           path: `/merchandise/products/offers/${encodeURIComponent(id)}`,
+           path: `/merchandise/products/sku=${encodeURIComponent(sku)}/offers/offerId=${encodeURIComponent(offerId)}`,
            method: 'DELETE',
            
            

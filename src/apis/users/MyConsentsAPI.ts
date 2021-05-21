@@ -16,11 +16,11 @@ export class MyConsentsAPI extends BaseAPI {
        return (response as unknown) as CustomerConsentDTO[];
    }
 
-   async approve (dto: CustomerConsentRequestDTO): Promise<CustomerConsentDTO> {
+   async approve (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentRequestDTO): Promise<CustomerConsentDTO> {
        const response = await this._request({
            path: `/users/my-consents/approve`,
            method: 'PUT',
-           
+           query: this._stringifyQuery(query),
            body: dto,
            
            contentType: 'application/json',
@@ -28,11 +28,11 @@ export class MyConsentsAPI extends BaseAPI {
        return (response as unknown) as CustomerConsentDTO;
    }
 
-   async approveBulk (dto: CustomerConsentRequestBulkDTO): Promise<CustomerConsentDTO[]> {
+   async approveBulk (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentRequestBulkDTO): Promise<CustomerConsentDTO[]> {
        const response = await this._request({
            path: `/users/my-consents/approve/bulk`,
            method: 'PUT',
-           
+           query: this._stringifyQuery(query),
            body: dto,
            
            contentType: 'application/json',
@@ -40,11 +40,11 @@ export class MyConsentsAPI extends BaseAPI {
        return (response as unknown) as CustomerConsentDTO[];
    }
 
-   async reject (dto: CustomerConsentRequestDTO): Promise<CustomerConsentDTO> {
+   async reject (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentRequestDTO): Promise<CustomerConsentDTO> {
        const response = await this._request({
            path: `/users/my-consents/reject`,
            method: 'PUT',
-           
+           query: this._stringifyQuery(query),
            body: dto,
            
            contentType: 'application/json',
