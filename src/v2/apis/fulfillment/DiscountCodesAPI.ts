@@ -20,6 +20,18 @@ export const DiscountCodesImport = async (dto: string[]): Promise<DiscountCodeDT
     return (response as unknown) as DiscountCodeDTO[];
 }
 
+export const DiscountCodesGetPublic = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<DiscountCodeSearchResultDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/discount-codes/public`,
+        method: 'GET',
+        query: toQueryString(query),
+        
+        
+        
+    });
+    return (response as unknown) as DiscountCodeSearchResultDTO;
+}
+
 export const DiscountCodesSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<DiscountCodeSearchResultDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/discount-codes/search`,

@@ -19,6 +19,18 @@ export class DiscountCodesAPI extends BaseAPI {
        return (response as unknown) as DiscountCodeDTO[];
    }
 
+   async getPublic (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<DiscountCodeSearchResultDTO> {
+       const response = await this._request({
+           path: `/fulfillment/discount-codes/public`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response as unknown) as DiscountCodeSearchResultDTO;
+   }
+
    async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<DiscountCodeSearchResultDTO> {
        const response = await this._request({
            path: `/fulfillment/discount-codes/search`,

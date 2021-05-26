@@ -9,6 +9,7 @@ export interface DiscountCodeDTO {
   totalApplications: number;
   applicationsPerCustomer: any;
   version?: number;
+  storeKey?: string;
   authority?: DiscountCodeDTOAuthorityEnum;
   merchantKey?: string;
   name: LangValue[];
@@ -19,6 +20,7 @@ export interface DiscountCodeDTO {
   cartPredicate: string;
   groups?: string[];
   isActive?: boolean;
+  isPublic?: boolean;
   validFrom?: number;
   validTo?: number;
   maxApplications?: number;

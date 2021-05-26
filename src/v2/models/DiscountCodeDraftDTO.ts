@@ -4,6 +4,7 @@ import { CustomField } from './CustomField';
 
 export interface DiscountCodeDraftDTO {
   version?: number;
+  storeKey?: string;
   authority?: DiscountCodeDraftDTOAuthorityEnum;
   merchantKey?: string;
   name: LangValue[];
@@ -14,6 +15,7 @@ export interface DiscountCodeDraftDTO {
   cartPredicate: string;
   groups?: string[];
   isActive?: boolean;
+  isPublic?: boolean;
   validFrom?: number;
   validTo?: number;
   maxApplications?: number;
