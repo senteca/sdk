@@ -138,6 +138,18 @@ export const OrdersGetByMeta = async (name: string, value: string): Promise<Orde
     return (response as unknown) as OrderDTO;
 }
 
+export const OrdersAddMeta = async (orderId: string, name: string, value: string): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/orders/${encodeURIComponent(orderId)}/meta/name=${encodeURIComponent(name)}/value=${encodeURIComponent(value)}`,
+        method: 'PATCH',
+        
+        
+        
+        
+    });
+    
+}
+
 export const OrdersDeleteCartsOlderThan = async (days: number): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/orders/carts/olderThan=${encodeURIComponent(days)}`,

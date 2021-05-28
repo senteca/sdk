@@ -137,6 +137,18 @@ export class OrdersAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
+   async addMeta (orderId: string, name: string, value: string): Promise<void> {
+       const response = await this._request({
+           path: `/fulfillment/orders/${encodeURIComponent(orderId)}/meta/name=${encodeURIComponent(name)}/value=${encodeURIComponent(value)}`,
+           method: 'PATCH',
+           
+           
+           
+           
+        });
+       
+   }
+
    async deleteCartsOlderThan (days: number): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/orders/carts/olderThan=${encodeURIComponent(days)}`,
