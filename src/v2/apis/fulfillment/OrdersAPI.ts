@@ -126,6 +126,18 @@ export const OrdersFilter = async (query?: { storeKey?: string, interfaceKey?: s
     return (response as unknown) as OrderFilterResultDTO;
 }
 
+export const OrdersGetByMeta = async (name: string, value: string): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/orders/meta/name=${encodeURIComponent(name)}/value=${encodeURIComponent(value)}`,
+        method: 'GET',
+        
+        
+        
+        
+    });
+    return (response as unknown) as OrderDTO;
+}
+
 export const OrdersDeleteCartsOlderThan = async (days: number): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/orders/carts/olderThan=${encodeURIComponent(days)}`,

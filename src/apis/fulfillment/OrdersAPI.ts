@@ -125,6 +125,18 @@ export class OrdersAPI extends BaseAPI {
        return (response as unknown) as OrderFilterResultDTO;
    }
 
+   async getByMeta (name: string, value: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/orders/meta/name=${encodeURIComponent(name)}/value=${encodeURIComponent(value)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
    async deleteCartsOlderThan (days: number): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/orders/carts/olderThan=${encodeURIComponent(days)}`,
