@@ -17,6 +17,7 @@ import { StoreStatusDTO } from '../../models/StoreStatusDTO';
 import { KeyReferenceDTO } from '../../models/KeyReferenceDTO';
 import { LangValue } from '../../models/LangValue';
 import { ProductScoreUpdateDTO } from '../../models/ProductScoreUpdateDTO';
+import { ProductOwnerUpdateDTO } from '../../models/ProductOwnerUpdateDTO';
 import { IdReferenceDTO } from '../../models/IdReferenceDTO';
 import { ProductMasterVariantUpdateDTO } from '../../models/ProductMasterVariantUpdateDTO';
 import { ContentDTO } from '../../models/ContentDTO';
@@ -385,6 +386,18 @@ export class ProductsAPI extends BaseAPI {
    async setScore (id: string, dto: ProductScoreUpdateDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/score`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setOwner (id: string, dto: ProductOwnerUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/owner`,
            method: 'PATCH',
            
            body: dto,

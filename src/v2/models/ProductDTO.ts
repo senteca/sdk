@@ -19,6 +19,7 @@ export interface ProductDTO {
   attributeRules?: AttributeRuleDTO[];
   version?: number;
   type: KeyReferenceDTO;
+  owner?: string;
   externalId?: string;
   storeStatus?: StoreStatusDTO[];
   taxCategory: KeyReferenceDTO;

@@ -5,6 +5,7 @@ import { OrderFilterResultDTO } from '../../models/OrderFilterResultDTO';
 import { OrderDTO } from '../../models/OrderDTO';
 import { ShippingModulesInfo } from '../../models/ShippingModulesInfo';
 import { ShippingMethodsInfo } from '../../models/ShippingMethodsInfo';
+import { StockLocationsInfo } from '../../models/StockLocationsInfo';
 
 export const MyOrdersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> => {
     const response = await HttpClient.request({
@@ -52,6 +53,18 @@ export const MyOrdersGetAvailableShippingMethods = async (): Promise<ShippingMet
         
     });
     return (response as unknown) as ShippingMethodsInfo;
+}
+
+export const MyOrdersGetAvailableStockLocations = async (): Promise<StockLocationsInfo> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/my-orders/available-stock-locations`,
+        method: 'GET',
+        
+        
+        
+        
+    });
+    return (response as unknown) as StockLocationsInfo;
 }
 
 export const MyOrdersGetById = async (id: string): Promise<OrderDTO> => {

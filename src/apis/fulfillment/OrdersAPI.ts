@@ -125,6 +125,30 @@ export class OrdersAPI extends BaseAPI {
        return (response as unknown) as OrderFilterResultDTO;
    }
 
+   async getByOrderNumber (number: number): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/orders/number=${encodeURIComponent(number)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
+   async getByOrderRefNumber (ref: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/orders/ref=${encodeURIComponent(ref)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
    async getByMeta (name: string, value: string): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/orders/meta/name=${encodeURIComponent(name)}/value=${encodeURIComponent(value)}`,

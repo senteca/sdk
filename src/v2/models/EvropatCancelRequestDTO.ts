@@ -1,6 +1,6 @@
 
 export interface EvropatCancelRequestDTO {
-  orderId: number;
-  providerPayload: any;
+  shipmentId: string;
+  comment: string;
 }
 

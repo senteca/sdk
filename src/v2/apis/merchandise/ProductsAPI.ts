@@ -19,6 +19,7 @@ import { StoreStatusDTO } from '../../models/StoreStatusDTO';
 import { KeyReferenceDTO } from '../../models/KeyReferenceDTO';
 import { LangValue } from '../../models/LangValue';
 import { ProductScoreUpdateDTO } from '../../models/ProductScoreUpdateDTO';
+import { ProductOwnerUpdateDTO } from '../../models/ProductOwnerUpdateDTO';
 import { IdReferenceDTO } from '../../models/IdReferenceDTO';
 import { ProductMasterVariantUpdateDTO } from '../../models/ProductMasterVariantUpdateDTO';
 import { ContentDTO } from '../../models/ContentDTO';
@@ -386,6 +387,18 @@ export const ProductsSetMetaKeywords = async (id: string, dto: LangValue[]): Pro
 export const ProductsSetScore = async (id: string, dto: ProductScoreUpdateDTO): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(id)}/score`,
+        method: 'PATCH',
+        
+        body: dto,
+        
+        contentType: 'application/json',
+    });
+    
+}
+
+export const ProductsSetOwner = async (id: string, dto: ProductOwnerUpdateDTO): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/${encodeURIComponent(id)}/owner`,
         method: 'PATCH',
         
         body: dto,

@@ -3,6 +3,7 @@ import { OrderFilterResultDTO } from '../../models/OrderFilterResultDTO';
 import { OrderDTO } from '../../models/OrderDTO';
 import { ShippingModulesInfo } from '../../models/ShippingModulesInfo';
 import { ShippingMethodsInfo } from '../../models/ShippingMethodsInfo';
+import { StockLocationsInfo } from '../../models/StockLocationsInfo';
 
 export class MyOrdersAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
@@ -51,6 +52,18 @@ export class MyOrdersAPI extends BaseAPI {
            
         });
        return (response as unknown) as ShippingMethodsInfo;
+   }
+
+   async getAvailableStockLocations (): Promise<StockLocationsInfo> {
+       const response = await this._request({
+           path: `/fulfillment/my-orders/available-stock-locations`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response as unknown) as StockLocationsInfo;
    }
 
    async getById (id: string): Promise<OrderDTO> {

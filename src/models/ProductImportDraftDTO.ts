@@ -14,6 +14,7 @@ export interface ProductImportDraftDTO {
   variants?: ProductVariantDraftDTO[];
   version?: number;
   type: KeyReferenceDTO;
+  owner?: string;
   externalId?: string;
   storeStatus?: StoreStatusDTO[];
   taxCategory: KeyReferenceDTO;

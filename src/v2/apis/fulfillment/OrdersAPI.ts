@@ -126,6 +126,30 @@ export const OrdersFilter = async (query?: { storeKey?: string, interfaceKey?: s
     return (response as unknown) as OrderFilterResultDTO;
 }
 
+export const OrdersGetByOrderNumber = async (number: number): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/orders/number=${encodeURIComponent(number)}`,
+        method: 'GET',
+        
+        
+        
+        
+    });
+    return (response as unknown) as OrderDTO;
+}
+
+export const OrdersGetByOrderRefNumber = async (ref: string): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/orders/ref=${encodeURIComponent(ref)}`,
+        method: 'GET',
+        
+        
+        
+        
+    });
+    return (response as unknown) as OrderDTO;
+}
+
 export const OrdersGetByMeta = async (name: string, value: string): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/orders/meta/name=${encodeURIComponent(name)}/value=${encodeURIComponent(value)}`,
