@@ -1,8 +1,10 @@
 
 export interface FancourierCityDTO {
+  id: string;
   fanCityId: string;
   county: string;
-  city: string;
+  name: string;
+  nameEn: string;
   fanAgency: string;
   externalKm: string;
   routingCode: string;

@@ -5,6 +5,7 @@ import { AssetDraftDTO } from './AssetDraftDTO';
 import { CustomField } from './CustomField';
 
 export interface BrandImportDraftDTO {
+  _id?: string;
   version?: number;
   name: LangValue[];
   description?: LangValue[];

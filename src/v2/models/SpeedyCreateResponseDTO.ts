@@ -1,5 +1,6 @@
+import { SpeedyCalculationDTO } from './SpeedyCalculationDTO';
 
 export interface SpeedyCreateResponseDTO {
-  providerPayload: any;
+  calculations: SpeedyCalculationDTO;
 }
 

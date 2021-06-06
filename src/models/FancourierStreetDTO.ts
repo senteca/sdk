@@ -3,7 +3,8 @@ export interface FancourierStreetDTO {
   streetId: string;
   county: string;
   city: string;
-  street: string;
+  name: string;
+  nameEn: string;
   from: string;
   to: string;
   parity: string;

@@ -2,6 +2,7 @@
 
 import { HttpClient, toQueryString } from '../../runtime';
 import { EcontAuthenticationCredentialsDTO } from '../../models/EcontAuthenticationCredentialsDTO';
+import { EcontProfilesResponseElement } from '../../models/EcontProfilesResponseElement';
 import { EcontLocationCountryDTO } from '../../models/EcontLocationCountryDTO';
 import { EcontLocationCityDTO } from '../../models/EcontLocationCityDTO';
 import { EcontLocationQuarterDTO } from '../../models/EcontLocationQuarterDTO';
@@ -21,6 +22,18 @@ import { EcontCancelRequestDTO } from '../../models/EcontCancelRequestDTO';
 import { EcontCancelResponseDTO } from '../../models/EcontCancelResponseDTO';
 import { EcontTrackRequestDTO } from '../../models/EcontTrackRequestDTO';
 import { EcontTrackResponseDTO } from '../../models/EcontTrackResponseDTO';
+
+export const ShippingsEcontClientProfile = async (dto: EcontAuthenticationCredentialsDTO): Promise<EcontProfilesResponseElement> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/shippings/econt/client-profile`,
+        method: 'GET',
+        
+        body: dto,
+        
+        contentType: 'application/json',
+    });
+    return (response as unknown) as EcontProfilesResponseElement;
+}
 
 export const ShippingsEcontSyncLocations = async (dto: EcontAuthenticationCredentialsDTO): Promise<any> => {
     const response = await HttpClient.request({

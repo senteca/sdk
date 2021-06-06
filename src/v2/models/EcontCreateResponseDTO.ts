@@ -1,5 +1,7 @@
+import { EcontShipmentStatus } from './EcontShipmentStatus';
 
 export interface EcontCreateResponseDTO {
-  providerPayload: any;
+  blockingPaymentURL?: string;
+  label: EcontShipmentStatus;
 }
 

@@ -5,6 +5,7 @@ import { AssetDraftDTO } from './AssetDraftDTO';
 import { CustomField } from './CustomField';
 
 export interface BrandDTO {
+  _id?: string;
   version?: number;
   name: LangValue[];
   description?: LangValue[];
@@ -19,7 +20,6 @@ export interface BrandDTO {
   metaKeywords?: LangValue[];
   externalId?: string;
   custom?: CustomField[];
-  _id: string;
   createdAt: number;
   updatedAt: number;
 }

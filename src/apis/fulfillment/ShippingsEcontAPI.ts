@@ -1,5 +1,6 @@
 import { BaseAPI } from '../../runtime';
 import { EcontAuthenticationCredentialsDTO } from '../../models/EcontAuthenticationCredentialsDTO';
+import { EcontProfilesResponseElement } from '../../models/EcontProfilesResponseElement';
 import { EcontLocationCountryDTO } from '../../models/EcontLocationCountryDTO';
 import { EcontLocationCityDTO } from '../../models/EcontLocationCityDTO';
 import { EcontLocationQuarterDTO } from '../../models/EcontLocationQuarterDTO';
@@ -21,6 +22,18 @@ import { EcontTrackRequestDTO } from '../../models/EcontTrackRequestDTO';
 import { EcontTrackResponseDTO } from '../../models/EcontTrackResponseDTO';
 
 export class ShippingsEcontAPI extends BaseAPI {
+   async clientProfile (dto: EcontAuthenticationCredentialsDTO): Promise<EcontProfilesResponseElement> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/econt/client-profile`,
+           method: 'GET',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response as unknown) as EcontProfilesResponseElement;
+   }
+
    async syncLocations (dto: EcontAuthenticationCredentialsDTO): Promise<any> {
        const response = await this._request({
            path: `/fulfillment/shippings/econt/sync-locations`,
