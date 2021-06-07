@@ -6,5 +6,6 @@ export interface CatalogFilterResultDTO {
   limit: number;
   count: number;
   total: number;
+  didYouMean?: string;
 }
 
