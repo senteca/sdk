@@ -4,6 +4,7 @@ import { AssetDTO } from './AssetDTO';
 import { CustomField } from './CustomField';
 
 export interface CollectionDraftDTO {
+  _id?: string;
   version?: number;
   name: LangValue[];
   description?: LangValue[];

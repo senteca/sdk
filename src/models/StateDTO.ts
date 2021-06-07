@@ -21,4 +21,5 @@ export enum StateDTOTypeEnum {
     LineItemState = 'LineItemState',  
     PaymentState = 'PaymentState',  
     WalletState = 'WalletState',  
+    ProductState = 'ProductState',  
 }

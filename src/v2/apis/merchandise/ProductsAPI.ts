@@ -16,6 +16,7 @@ import { ProductSearchResultDTO } from '../../models/ProductSearchResultDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 import { AssetDTO } from '../../models/AssetDTO';
 import { StoreStatusDTO } from '../../models/StoreStatusDTO';
+import { TransitionProductStateDTO } from '../../models/TransitionProductStateDTO';
 import { KeyReferenceDTO } from '../../models/KeyReferenceDTO';
 import { LangValue } from '../../models/LangValue';
 import { ProductScoreUpdateDTO } from '../../models/ProductScoreUpdateDTO';
@@ -298,6 +299,18 @@ export const ProductsSetStoreStatus = async (id: string, dto: StoreStatusDTO[]):
         contentType: 'application/json',
     });
     
+}
+
+export const ProductsSetState = async (id: string, dto: TransitionProductStateDTO): Promise<ProductDTO> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/${encodeURIComponent(id)}/state`,
+        method: 'PATCH',
+        
+        body: dto,
+        
+        contentType: 'application/json',
+    });
+    return (response as unknown) as ProductDTO;
 }
 
 export const ProductsSetTaxCategory = async (id: string, dto: KeyReferenceDTO): Promise<void> => {

@@ -12,11 +12,13 @@ import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
 export interface ProductImportDraftDTO {
   attributes?: ProductAttributeDraftDTO[];
   variants?: ProductVariantDraftDTO[];
+  _id?: string;
   version?: number;
   type: KeyReferenceDTO;
   owner?: string;
   externalId?: string;
   storeStatus?: StoreStatusDTO[];
+  state?: KeyReferenceDTO;
   taxCategory: KeyReferenceDTO;
   name: LangValue[];
   description?: LangValue[];

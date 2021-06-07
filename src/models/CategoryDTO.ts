@@ -5,6 +5,7 @@ import { AssetDTO } from './AssetDTO';
 import { CustomField } from './CustomField';
 
 export interface CategoryDTO {
+  _id?: string;
   version?: number;
   name: LangValue[];
   description?: LangValue[];
@@ -20,7 +21,6 @@ export interface CategoryDTO {
   metaKeywords?: LangValue[];
   custom?: CustomField[];
   externalId?: string;
-  _id: string;
   createdAt: number;
   updatedAt: number;
 }

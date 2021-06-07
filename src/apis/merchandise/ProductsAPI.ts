@@ -14,6 +14,7 @@ import { ProductSearchResultDTO } from '../../models/ProductSearchResultDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 import { AssetDTO } from '../../models/AssetDTO';
 import { StoreStatusDTO } from '../../models/StoreStatusDTO';
+import { TransitionProductStateDTO } from '../../models/TransitionProductStateDTO';
 import { KeyReferenceDTO } from '../../models/KeyReferenceDTO';
 import { LangValue } from '../../models/LangValue';
 import { ProductScoreUpdateDTO } from '../../models/ProductScoreUpdateDTO';
@@ -297,6 +298,18 @@ export class ProductsAPI extends BaseAPI {
            contentType: 'application/json',
         });
        
+   }
+
+   async setState (id: string, dto: TransitionProductStateDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/state`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response as unknown) as ProductDTO;
    }
 
    async setTaxCategory (id: string, dto: KeyReferenceDTO): Promise<void> {

@@ -4,6 +4,7 @@ import { AssetDTO } from './AssetDTO';
 import { CustomField } from './CustomField';
 
 export interface CollectionDTO {
+  _id?: string;
   version?: number;
   name: LangValue[];
   description?: LangValue[];
@@ -17,7 +18,6 @@ export interface CollectionDTO {
   metaKeywords?: LangValue[];
   custom?: CustomField[];
   externalId?: string;
-  _id: string;
   createdAt: number;
   updatedAt: number;
 }

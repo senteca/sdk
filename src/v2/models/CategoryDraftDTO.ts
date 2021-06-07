@@ -5,6 +5,7 @@ import { AssetDTO } from './AssetDTO';
 import { CustomField } from './CustomField';
 
 export interface CategoryDraftDTO {
+  _id?: string;
   version?: number;
   name: LangValue[];
   description?: LangValue[];

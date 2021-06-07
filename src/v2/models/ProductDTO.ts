@@ -11,17 +11,18 @@ import { CustomField } from './CustomField';
 import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
 
 export interface ProductDTO {
-  _id: string;
   createdAt: number;
   updatedAt: number;
   attributes?: ProductAttributeDTO[];
   variants?: ProductVariantDTO[];
   attributeRules?: AttributeRuleDTO[];
+  _id?: string;
   version?: number;
   type: KeyReferenceDTO;
   owner?: string;
   externalId?: string;
   storeStatus?: StoreStatusDTO[];
+  state?: KeyReferenceDTO;
   taxCategory: KeyReferenceDTO;
   name: LangValue[];
   description?: LangValue[];
