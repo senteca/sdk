@@ -187,6 +187,7 @@ export * from "./FlipFoldersDTO";
 export * from "./FolderDTO";
 export * from "./FolderDraftDTO";
 export * from "./FolderFilterResultDTO";
+export * from "./GeographicalCoordinatesDTO";
 export * from "./GoogleCloudPubSubDestinationDTO";
 export * from "./GoogleCredentialsDto";
 export * from "./IdReferenceDTO";

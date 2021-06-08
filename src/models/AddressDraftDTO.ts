@@ -1,4 +1,5 @@
 import { CompanyDetailsDTO } from './CompanyDetailsDTO';
+import { GeographicalCoordinatesDTO } from './GeographicalCoordinatesDTO';
 import { AddressModuleDataDTO } from './AddressModuleDataDTO';
 import { CustomField } from './CustomField';
 
@@ -21,6 +22,7 @@ export interface AddressDraftDTO {
   floor?: string;
   apartment?: string;
   company?: CompanyDetailsDTO;
+  geographicalCoordinates?: GeographicalCoordinatesDTO;
   additionalStreetInfo?: string;
   additionalAddressInfo?: string;
   isDefaultBillingAddress?: boolean;

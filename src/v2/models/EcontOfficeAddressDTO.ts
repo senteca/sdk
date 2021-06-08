@@ -6,8 +6,8 @@ export interface EcontOfficeAddressDTO {
   city: EcontCityDTO;
   fullAddress: string;
   quarter?: string;
-  street: string;
-  num: string;
+  street?: string;
+  num?: string;
   other?: string;
   location: EcontGeoLocationDTO;
   zip?: string;
