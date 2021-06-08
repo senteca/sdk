@@ -30,6 +30,7 @@ export * from "./BrandSearchResultDTO";
 export * from "./BrandSnapshot";
 export * from "./BulkAttributeDeleteDTO";
 export * from "./BulkAttributeUpdateDTO";
+export * from "./BulkCustomFieldUpdateByFilterDTO";
 export * from "./BulkCustomFieldUpdateDTO";
 export * from "./BulkDeleteDTO";
 export * from "./BulkLinkUpdateDTO";

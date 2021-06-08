@@ -3,6 +3,7 @@ import { BulkLinkUpdateDTO } from '../../models/BulkLinkUpdateDTO';
 import { BulkDeleteDTO } from '../../models/BulkDeleteDTO';
 import { BulkStatusChangeDTO } from '../../models/BulkStatusChangeDTO';
 import { BulkCustomFieldUpdateDTO } from '../../models/BulkCustomFieldUpdateDTO';
+import { BulkCustomFieldUpdateByFilterDTO } from '../../models/BulkCustomFieldUpdateByFilterDTO';
 import { BulkAttributeUpdateDTO } from '../../models/BulkAttributeUpdateDTO';
 import { BulkAttributeDeleteDTO } from '../../models/BulkAttributeDeleteDTO';
 import { BulkOfferQuantityUpdateDTO } from '../../models/BulkOfferQuantityUpdateDTO';
@@ -20,6 +21,7 @@ import { LangValue } from '../../models/LangValue';
 import { ProductScoreUpdateDTO } from '../../models/ProductScoreUpdateDTO';
 import { ProductOwnerUpdateDTO } from '../../models/ProductOwnerUpdateDTO';
 import { IdReferenceDTO } from '../../models/IdReferenceDTO';
+import { ProductAttributeDTO } from '../../models/ProductAttributeDTO';
 import { ProductMasterVariantUpdateDTO } from '../../models/ProductMasterVariantUpdateDTO';
 import { ContentDTO } from '../../models/ContentDTO';
 import { ImageDTO } from '../../models/ImageDTO';
@@ -29,6 +31,7 @@ import { ProductSkuUpdateDTO } from '../../models/ProductSkuUpdateDTO';
 import { ProductBarcodeUpdateDTO } from '../../models/ProductBarcodeUpdateDTO';
 import { ProductCollapseKeyUpdateDTO } from '../../models/ProductCollapseKeyUpdateDTO';
 import { ProductCollapseModeUpdateDTO } from '../../models/ProductCollapseModeUpdateDTO';
+import { ProductAttributeDraftDTO } from '../../models/ProductAttributeDraftDTO';
 import { OfferDraftDTO } from '../../models/OfferDraftDTO';
 import { ProductAliasImagesFromUpdateDTO } from '../../models/ProductAliasImagesFromUpdateDTO';
 import { ShippingDataDTO } from '../../models/ShippingDataDTO';
@@ -96,7 +99,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async bulkCustomFieldUpdateByFilter (dto: string[]): Promise<void> {
+   async bulkCustomFieldUpdateByFilter (dto: BulkCustomFieldUpdateByFilterDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/bulk/custom-by-filter`,
            method: 'PATCH',
@@ -456,7 +459,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setAttributes (id: string, dto: string[]): Promise<void> {
+   async setAttributes (id: string, dto: ProductAttributeDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/attributes`,
            method: 'PATCH',
@@ -672,7 +675,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setVariantAttributes (sku: string, dto: string[]): Promise<void> {
+   async setVariantAttributes (sku: string, dto: ProductAttributeDraftDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/variant-attributes`,
            method: 'PATCH',

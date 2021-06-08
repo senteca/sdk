@@ -5,6 +5,7 @@ import { BulkLinkUpdateDTO } from '../../models/BulkLinkUpdateDTO';
 import { BulkDeleteDTO } from '../../models/BulkDeleteDTO';
 import { BulkStatusChangeDTO } from '../../models/BulkStatusChangeDTO';
 import { BulkCustomFieldUpdateDTO } from '../../models/BulkCustomFieldUpdateDTO';
+import { BulkCustomFieldUpdateByFilterDTO } from '../../models/BulkCustomFieldUpdateByFilterDTO';
 import { BulkAttributeUpdateDTO } from '../../models/BulkAttributeUpdateDTO';
 import { BulkAttributeDeleteDTO } from '../../models/BulkAttributeDeleteDTO';
 import { BulkOfferQuantityUpdateDTO } from '../../models/BulkOfferQuantityUpdateDTO';
@@ -22,6 +23,7 @@ import { LangValue } from '../../models/LangValue';
 import { ProductScoreUpdateDTO } from '../../models/ProductScoreUpdateDTO';
 import { ProductOwnerUpdateDTO } from '../../models/ProductOwnerUpdateDTO';
 import { IdReferenceDTO } from '../../models/IdReferenceDTO';
+import { ProductAttributeDTO } from '../../models/ProductAttributeDTO';
 import { ProductMasterVariantUpdateDTO } from '../../models/ProductMasterVariantUpdateDTO';
 import { ContentDTO } from '../../models/ContentDTO';
 import { ImageDTO } from '../../models/ImageDTO';
@@ -31,6 +33,7 @@ import { ProductSkuUpdateDTO } from '../../models/ProductSkuUpdateDTO';
 import { ProductBarcodeUpdateDTO } from '../../models/ProductBarcodeUpdateDTO';
 import { ProductCollapseKeyUpdateDTO } from '../../models/ProductCollapseKeyUpdateDTO';
 import { ProductCollapseModeUpdateDTO } from '../../models/ProductCollapseModeUpdateDTO';
+import { ProductAttributeDraftDTO } from '../../models/ProductAttributeDraftDTO';
 import { OfferDraftDTO } from '../../models/OfferDraftDTO';
 import { ProductAliasImagesFromUpdateDTO } from '../../models/ProductAliasImagesFromUpdateDTO';
 import { ShippingDataDTO } from '../../models/ShippingDataDTO';
@@ -97,7 +100,7 @@ export const ProductsBulkCustomFieldUpdate = async (dto: BulkCustomFieldUpdateDT
     
 }
 
-export const ProductsBulkCustomFieldUpdateByFilter = async (dto: string[]): Promise<void> => {
+export const ProductsBulkCustomFieldUpdateByFilter = async (dto: BulkCustomFieldUpdateByFilterDTO[]): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/bulk/custom-by-filter`,
         method: 'PATCH',
@@ -457,7 +460,7 @@ export const ProductsSetCollections = async (id: string, dto: IdReferenceDTO[]):
     
 }
 
-export const ProductsSetAttributes = async (id: string, dto: string[]): Promise<void> => {
+export const ProductsSetAttributes = async (id: string, dto: ProductAttributeDTO[]): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(id)}/attributes`,
         method: 'PATCH',
@@ -673,7 +676,7 @@ export const ProductsSetVariantCollapseMode = async (sku: string, dto: ProductCo
     
 }
 
-export const ProductsSetVariantAttributes = async (sku: string, dto: string[]): Promise<void> => {
+export const ProductsSetVariantAttributes = async (sku: string, dto: ProductAttributeDraftDTO[]): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(sku)}/variant-attributes`,
         method: 'PATCH',

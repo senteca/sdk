@@ -13,6 +13,7 @@ import { PaymentMethodsInfo } from '../../models/PaymentMethodsInfo';
 import { PlatformMethodUpdateDTO } from '../../models/PlatformMethodUpdateDTO';
 import { MerchantsMethodsUpdateDTO } from '../../models/MerchantsMethodsUpdateDTO';
 import { MethodUpdateDTO } from '../../models/MethodUpdateDTO';
+import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 
 export const MyCartCreate = async (dto: CartDraftDTO): Promise<OrderDTO> => {
     const response = await HttpClient.request({
@@ -290,14 +291,14 @@ export const MyCartSetMerchantsPaymentMethods = async (dto: MerchantsMethodsUpda
     return (response as unknown) as OrderDTO;
 }
 
-export const MyCartSetCartCustomField = async (): Promise<OrderDTO> => {
+export const MyCartSetCartCustomField = async (dto: SetCustomFieldDTO[]): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-cart/custom-field`,
         method: 'PATCH',
         
+        body: dto,
         
-        
-        
+        contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
 }
