@@ -1,7 +1,6 @@
 import { AddressDTO } from './AddressDTO';
 import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { CustomField } from './CustomField';
-import { ProductSubscriptionDTO } from './ProductSubscriptionDTO';
 
 export interface CustomerDTO {
   gender?: CustomerDTOGenderEnum;
@@ -36,7 +35,6 @@ export interface CustomerDTO {
   companyDetails?: AddressDTO[];
   invitationToken?: string;
   custom?: CustomField[];
-  productSubscriptions?: ProductSubscriptionDTO[];
 }
 
 export enum CustomerDTOGenderEnum {

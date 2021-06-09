@@ -12,7 +12,6 @@ import { EmailVerificationDTO } from '../../models/EmailVerificationDTO';
 import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
 import { PasswordResetDTO } from '../../models/PasswordResetDTO';
 import { SetCustomerGroupDTO } from '../../models/SetCustomerGroupDTO';
-import { ProductSubscriptionCreateDTO } from '../../models/ProductSubscriptionCreateDTO';
 
 export class CustomersAPI extends BaseAPI {
    async getMyProfile (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> {
@@ -476,30 +475,6 @@ export class CustomersAPI extends BaseAPI {
            path: `/users/customers/export/csv`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       
-   }
-
-   async subscribeForSku (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: ProductSubscriptionCreateDTO): Promise<void> {
-       const response = await this._request({
-           path: `/users/customers/subscribe/sku`,
-           method: 'POST',
-           query: this._stringifyQuery(query),
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       
-   }
-
-   async unsubscribeForSku (sku: string): Promise<void> {
-       const response = await this._request({
-           path: `/users/customers/subscribe/sku/${encodeURIComponent(sku)}`,
-           method: 'DELETE',
-           
            
            
            
