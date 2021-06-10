@@ -1,9 +1,11 @@
 import { BaseAPI } from '../../runtime';
 import { FancourierAuthenticationCredentialsDTO } from '../../models/FancourierAuthenticationCredentialsDTO';
+import { FancourierLocationRegionDTO } from '../../models/FancourierLocationRegionDTO';
 import { FancourierLocationCityDTO } from '../../models/FancourierLocationCityDTO';
 import { FancourierLocationStreetDTO } from '../../models/FancourierLocationStreetDTO';
 import { FancourierModuleAddressDTO } from '../../models/FancourierModuleAddressDTO';
 import { OrderDTO } from '../../models/OrderDTO';
+import { FancourierRegionDTO } from '../../models/FancourierRegionDTO';
 import { FancourierCityDTO } from '../../models/FancourierCityDTO';
 import { FancourierStreetDTO } from '../../models/FancourierStreetDTO';
 import { FancourierCreateRequestDTO } from '../../models/FancourierCreateRequestDTO';
@@ -26,28 +28,52 @@ export class ShippingsFancourierAPI extends BaseAPI {
        return (response as unknown) as any;
    }
 
-   async fetchCities (dto: FancourierAuthenticationCredentialsDTO): Promise<FancourierLocationCityDTO[]> {
+   async fetchRegions (query: { username: string, user_pass: string, client_id: string, language: string }): Promise<FancourierLocationRegionDTO[]> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/fancourier/fetch/regions`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response as unknown) as FancourierLocationRegionDTO[];
+   }
+
+   async fetchCities (query: { username: string, user_pass: string, client_id: string, language: string }): Promise<FancourierLocationCityDTO[]> {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/fetch/cities`,
            method: 'GET',
+           query: this._stringifyQuery(query),
            
-           body: dto,
            
-           contentType: 'application/json',
+           
         });
        return (response as unknown) as FancourierLocationCityDTO[];
    }
 
-   async fetchStreets (dto: FancourierAuthenticationCredentialsDTO): Promise<FancourierLocationStreetDTO[]> {
+   async fetchStreets (query: { username: string, user_pass: string, client_id: string, language: string }): Promise<FancourierLocationStreetDTO[]> {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/fetch/streets`,
            method: 'GET',
+           query: this._stringifyQuery(query),
            
-           body: dto,
            
-           contentType: 'application/json',
+           
         });
        return (response as unknown) as FancourierLocationStreetDTO[];
+   }
+
+   async searchRegion (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<FancourierLocationRegionDTO[]> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/fancourier/search/region`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response as unknown) as FancourierLocationRegionDTO[];
    }
 
    async searchCity (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<FancourierLocationCityDTO[]> {
@@ -78,6 +104,18 @@ export class ShippingsFancourierAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address`,
            method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
+   async setRegion (orderId: string, shippingId: string, dto: FancourierRegionDTO): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/region`,
+           method: 'PATCH',
            
            body: dto,
            

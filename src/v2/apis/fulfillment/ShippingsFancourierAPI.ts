@@ -2,10 +2,12 @@
 
 import { HttpClient, toQueryString } from '../../runtime';
 import { FancourierAuthenticationCredentialsDTO } from '../../models/FancourierAuthenticationCredentialsDTO';
+import { FancourierLocationRegionDTO } from '../../models/FancourierLocationRegionDTO';
 import { FancourierLocationCityDTO } from '../../models/FancourierLocationCityDTO';
 import { FancourierLocationStreetDTO } from '../../models/FancourierLocationStreetDTO';
 import { FancourierModuleAddressDTO } from '../../models/FancourierModuleAddressDTO';
 import { OrderDTO } from '../../models/OrderDTO';
+import { FancourierRegionDTO } from '../../models/FancourierRegionDTO';
 import { FancourierCityDTO } from '../../models/FancourierCityDTO';
 import { FancourierStreetDTO } from '../../models/FancourierStreetDTO';
 import { FancourierCreateRequestDTO } from '../../models/FancourierCreateRequestDTO';
@@ -27,28 +29,52 @@ export const ShippingsFancourierSyncLocations = async (dto: FancourierAuthentica
     return (response as unknown) as any;
 }
 
-export const ShippingsFancourierFetchCities = async (dto: FancourierAuthenticationCredentialsDTO): Promise<FancourierLocationCityDTO[]> => {
+export const ShippingsFancourierFetchRegions = async (query: { username: string, user_pass: string, client_id: string, language: string }): Promise<FancourierLocationRegionDTO[]> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/shippings/fancourier/fetch/regions`,
+        method: 'GET',
+        query: toQueryString(query),
+        
+        
+        
+    });
+    return (response as unknown) as FancourierLocationRegionDTO[];
+}
+
+export const ShippingsFancourierFetchCities = async (query: { username: string, user_pass: string, client_id: string, language: string }): Promise<FancourierLocationCityDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/fetch/cities`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as FancourierLocationCityDTO[];
 }
 
-export const ShippingsFancourierFetchStreets = async (dto: FancourierAuthenticationCredentialsDTO): Promise<FancourierLocationStreetDTO[]> => {
+export const ShippingsFancourierFetchStreets = async (query: { username: string, user_pass: string, client_id: string, language: string }): Promise<FancourierLocationStreetDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/fetch/streets`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as FancourierLocationStreetDTO[];
+}
+
+export const ShippingsFancourierSearchRegion = async (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<FancourierLocationRegionDTO[]> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/shippings/fancourier/search/region`,
+        method: 'GET',
+        query: toQueryString(query),
+        
+        
+        
+    });
+    return (response as unknown) as FancourierLocationRegionDTO[];
 }
 
 export const ShippingsFancourierSearchCity = async (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<FancourierLocationCityDTO[]> => {
@@ -79,6 +105,18 @@ export const ShippingsFancourierUpdateShippingAddress = async (orderId: string, 
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address`,
         method: 'PUT',
+        
+        body: dto,
+        
+        contentType: 'application/json',
+    });
+    return (response as unknown) as OrderDTO;
+}
+
+export const ShippingsFancourierSetRegion = async (orderId: string, shippingId: string, dto: FancourierRegionDTO): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/region`,
+        method: 'PATCH',
         
         body: dto,
         

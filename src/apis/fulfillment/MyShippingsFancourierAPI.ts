@@ -1,4 +1,5 @@
 import { BaseAPI } from '../../runtime';
+import { FancourierLocationRegionDTO } from '../../models/FancourierLocationRegionDTO';
 import { FancourierLocationCityDTO } from '../../models/FancourierLocationCityDTO';
 import { FancourierLocationStreetDTO } from '../../models/FancourierLocationStreetDTO';
 import { FancourierCityDTO } from '../../models/FancourierCityDTO';
@@ -6,6 +7,18 @@ import { OrderDTO } from '../../models/OrderDTO';
 import { FancourierStreetDTO } from '../../models/FancourierStreetDTO';
 
 export class MyShippingsFancourierAPI extends BaseAPI {
+   async findRegion (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<FancourierLocationRegionDTO[]> {
+       const response = await this._request({
+           path: `/fulfillment/my-shippings/fancourier/find-region`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response as unknown) as FancourierLocationRegionDTO[];
+   }
+
    async findCity (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<FancourierLocationCityDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-shippings/fancourier/find-city`,

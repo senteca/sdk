@@ -7,6 +7,8 @@ import { BulkCustomFieldUpdateByFilterDTO } from '../../models/BulkCustomFieldUp
 import { BulkAttributeUpdateDTO } from '../../models/BulkAttributeUpdateDTO';
 import { BulkAttributeDeleteDTO } from '../../models/BulkAttributeDeleteDTO';
 import { BulkOfferQuantityUpdateDTO } from '../../models/BulkOfferQuantityUpdateDTO';
+import { BulkLabelAddDTO } from '../../models/BulkLabelAddDTO';
+import { BulkLabelRemoveDTO } from '../../models/BulkLabelRemoveDTO';
 import { ProductDraftDTO } from '../../models/ProductDraftDTO';
 import { ProductDTO } from '../../models/ProductDTO';
 import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
@@ -150,6 +152,30 @@ export class ProductsAPI extends BaseAPI {
    async bulkOfferMaxQuantity (dto: BulkOfferQuantityUpdateDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/bulk/offer-max-quantity`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async bulkLabelSet (dto: BulkLabelAddDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/bulk/label-add`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async bulkLabelDelete (dto: BulkLabelRemoveDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/bulk/label-remove`,
            method: 'PATCH',
            
            body: dto,

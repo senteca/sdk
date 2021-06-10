@@ -2,6 +2,8 @@ import { BaseAPI } from '../../runtime';
 import { CustomerDTO } from '../../models/CustomerDTO';
 import { CustomerUpdateDTO } from '../../models/CustomerUpdateDTO';
 import { PasswordChangeDTO } from '../../models/PasswordChangeDTO';
+import { EmailChangeRequestDTO } from '../../models/EmailChangeRequestDTO';
+import { EmailChangeDTO } from '../../models/EmailChangeDTO';
 import { AddressDTO } from '../../models/AddressDTO';
 import { AddressDraftDTO } from '../../models/AddressDraftDTO';
 import { CustomerDraftDTO } from '../../models/CustomerDraftDTO';
@@ -72,6 +74,30 @@ export class CustomersAPI extends BaseAPI {
            contentType: 'application/json',
         });
        return (response as unknown) as CustomerDTO;
+   }
+
+   async requestEmailChange (dto: EmailChangeRequestDTO): Promise<void> {
+       const response = await this._request({
+           path: `/users/customers/email/request`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async changeEmail (dto: EmailChangeDTO): Promise<void> {
+       const response = await this._request({
+           path: `/users/customers/email`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
    }
 
    async getMyAddresses (): Promise<AddressDTO[]> {

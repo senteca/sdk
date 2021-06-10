@@ -11,6 +11,7 @@ export interface SpeedyLocationOfficeDTO {
 
 export enum SpeedyLocationOfficeDTOTypeEnum {
     Country = 'Country',  
+    Region = 'Region',  
     City = 'City',  
     Quarter = 'Quarter',  
     Street = 'Street',  
