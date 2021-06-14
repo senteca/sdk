@@ -1,7 +1,11 @@
-import { IdReferenceDTO } from './IdReferenceDTO';
+import { LangValue } from './LangValue';
 
 export interface ProductLabelDTO {
-  label: IdReferenceDTO;
+  _id: string;
+  key: string;
+  tags: string[];
+  name: LangValue[];
+  description: string;
   validFrom?: number;
   validTo?: number;
 }

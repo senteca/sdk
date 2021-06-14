@@ -2,8 +2,9 @@ import { BaseAPI } from '../../runtime';
 import { FancourierLocationRegionDTO } from '../../models/FancourierLocationRegionDTO';
 import { FancourierLocationCityDTO } from '../../models/FancourierLocationCityDTO';
 import { FancourierLocationStreetDTO } from '../../models/FancourierLocationStreetDTO';
-import { FancourierCityDTO } from '../../models/FancourierCityDTO';
+import { FancourierRegionDTO } from '../../models/FancourierRegionDTO';
 import { OrderDTO } from '../../models/OrderDTO';
+import { FancourierCityDTO } from '../../models/FancourierCityDTO';
 import { FancourierStreetDTO } from '../../models/FancourierStreetDTO';
 
 export class MyShippingsFancourierAPI extends BaseAPI {
@@ -41,6 +42,30 @@ export class MyShippingsFancourierAPI extends BaseAPI {
            
         });
        return (response as unknown) as FancourierLocationStreetDTO[];
+   }
+
+   async setRegion (dto: FancourierRegionDTO): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-shippings/fancourier/region`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
+   async unsetRegion (): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-shippings/fancourier/region`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response as unknown) as OrderDTO;
    }
 
    async setCity (dto: FancourierCityDTO): Promise<OrderDTO> {

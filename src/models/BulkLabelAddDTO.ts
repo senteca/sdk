@@ -1,7 +1,9 @@
-import { ProductLabelDTO } from './ProductLabelDTO';
 
 export interface BulkLabelAddDTO {
   filter: string;
-  productLabel: ProductLabelDTO;
+  tags: string[];
+  labelId: string;
+  validFrom?: number;
+  validTo?: number;
 }
 
