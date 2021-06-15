@@ -1,5 +1,6 @@
 const { getIn } = require('../utils/data');
 const { anyToPascal } = require('../utils/string');
+const { getContentType } = require('../utils/content');
 
 module.exports = class ApiMapper {
   static map(api) {
@@ -128,7 +129,7 @@ module.exports = class ApiMapper {
     }
 
     const content = getIn(requestBody, 'content');
-    const contentType = Object.keys(content)[0];
+    const contentType = getContentType(content);
     const schema = getIn(content, `${contentType}.schema`);
     const { realType, relatedModel } = this.schemaToType(schema);
 
@@ -146,7 +147,8 @@ module.exports = class ApiMapper {
     if (!content) {
       return 'void';
     }
-    const schema = getIn(content, `${Object.keys(content)[0]}.schema`);
+    const contentType = getContentType(content);
+    const schema = getIn(content, `${contentType}.schema`);
     const { realType, relatedModel } = this.schemaToType(schema);
 
     if (relatedModel && !relatedModels.includes(relatedModel)) {
