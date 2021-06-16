@@ -222,6 +222,18 @@ export const ProductsImport = async (dto: ProductImportDraftDTO[]): Promise<void
     
 }
 
+export const ProductsExportToCSV = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number, lang: string, columnDelimiter: string, recordDelimiter: string, allVariants: boolean }): Promise<any> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/export/csv`,
+        method: 'GET',
+        query: toQueryString(query),
+        
+        
+        
+    });
+    return (response as unknown) as any;
+}
+
 export const ProductsSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<ProductSearchResultDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/search`,

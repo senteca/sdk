@@ -5,7 +5,7 @@ export interface StockLocationDTO {
   _id: string;
   createdAt: number;
   updatedAt: number;
-  address: AddressDTO;
+  address?: AddressDTO;
   version?: number;
   key: string;
   merchantKey: string;

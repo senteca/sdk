@@ -221,6 +221,18 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
+   async exportToCSV (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number, lang: string, columnDelimiter: string, recordDelimiter: string, allVariants: boolean }): Promise<any> {
+       const response = await this._request({
+           path: `/merchandise/products/export/csv`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response as unknown) as any;
+   }
+
    async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<ProductSearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/products/search`,
