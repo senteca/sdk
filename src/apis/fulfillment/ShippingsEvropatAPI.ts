@@ -22,18 +22,6 @@ import { EvropatTrackRequestDTO } from '../../models/EvropatTrackRequestDTO';
 import { EvropatTrackResponseDTO } from '../../models/EvropatTrackResponseDTO';
 
 export class ShippingsEvropatAPI extends BaseAPI {
-   async clientAddresses (query: { clientKey: string }): Promise<any> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/client-addresses`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response as unknown) as any;
-   }
-
    async syncLocations (dto: EvropatAuthenticationCredentialsDTO): Promise<any> {
        const response = await this._request({
            path: `/fulfillment/shippings/evropat/sync-locations`,

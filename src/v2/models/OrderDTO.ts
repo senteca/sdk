@@ -23,6 +23,7 @@ export interface OrderDTO {
   _id: string;
   createdAt: number;
   updatedAt: number;
+  syncedAt: number;
   version: number;
   status: OrderDTOStatusEnum;
   state?: KeyReferenceDTO;

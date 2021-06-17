@@ -1,8 +1,8 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { EcontProfilesResponseElement } from '../../models/EcontProfilesResponseElement';
 import { EcontAuthenticationCredentialsDTO } from '../../models/EcontAuthenticationCredentialsDTO';
+import { EcontProfilesResponseElement } from '../../models/EcontProfilesResponseElement';
 import { EcontLocationCountryDTO } from '../../models/EcontLocationCountryDTO';
 import { EcontLocationCityDTO } from '../../models/EcontLocationCityDTO';
 import { EcontLocationQuarterDTO } from '../../models/EcontLocationQuarterDTO';
@@ -23,14 +23,14 @@ import { EcontCancelResponseDTO } from '../../models/EcontCancelResponseDTO';
 import { EcontTrackRequestDTO } from '../../models/EcontTrackRequestDTO';
 import { EcontTrackResponseDTO } from '../../models/EcontTrackResponseDTO';
 
-export const ShippingsEcontClientProfile = async (query: { username: string, password: string }): Promise<EcontProfilesResponseElement> => {
+export const ShippingsEcontClientProfile = async (dto: EcontAuthenticationCredentialsDTO): Promise<EcontProfilesResponseElement> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/econt/client-profile`,
         method: 'GET',
-        query: toQueryString(query),
         
+        body: dto,
         
-        
+        contentType: 'application/json',
     });
     return (response as unknown) as EcontProfilesResponseElement;
 }

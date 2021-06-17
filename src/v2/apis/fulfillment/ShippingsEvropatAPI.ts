@@ -23,18 +23,6 @@ import { EvropatCancelResponseDTO } from '../../models/EvropatCancelResponseDTO'
 import { EvropatTrackRequestDTO } from '../../models/EvropatTrackRequestDTO';
 import { EvropatTrackResponseDTO } from '../../models/EvropatTrackResponseDTO';
 
-export const ShippingsEvropatClientAddresses = async (query: { clientKey: string }): Promise<any> => {
-    const response = await HttpClient.request({
-        path: `/fulfillment/shippings/evropat/client-addresses`,
-        method: 'GET',
-        query: toQueryString(query),
-        
-        
-        
-    });
-    return (response as unknown) as any;
-}
-
 export const ShippingsEvropatSyncLocations = async (dto: EvropatAuthenticationCredentialsDTO): Promise<any> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/sync-locations`,

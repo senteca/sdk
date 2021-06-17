@@ -59,6 +59,7 @@ export interface OrderImportDTO {
   shippingsAuthority?: OrderImportDTOShippingsAuthorityEnum;
   merchantShippingMethods?: MerchantMethodDTO[];
   platformShippingMethod?: IdReferenceDTO;
+  canPurchase?: boolean;
 }
 
 export enum OrderImportDTOStatusEnum {
