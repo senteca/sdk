@@ -1,4 +1,5 @@
 import { BaseAPI } from '../../runtime';
+import { SpeedyClientsDetailsDTO } from '../../models/SpeedyClientsDetailsDTO';
 import { SpeedyAuthenticationCredentialsDTO } from '../../models/SpeedyAuthenticationCredentialsDTO';
 import { SpeedyLocationCountryDTO } from '../../models/SpeedyLocationCountryDTO';
 import { SpeedyLocationCityDTO } from '../../models/SpeedyLocationCityDTO';
@@ -20,6 +21,18 @@ import { SpeedyTrackRequestDTO } from '../../models/SpeedyTrackRequestDTO';
 import { SpeedyTrackResponseDTO } from '../../models/SpeedyTrackResponseDTO';
 
 export class ShippingsSpeedyAPI extends BaseAPI {
+   async clientDetails (query: { username: string, password: string }): Promise<SpeedyClientsDetailsDTO> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/speedy/client-details`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response as unknown) as SpeedyClientsDetailsDTO;
+   }
+
    async syncLocations (dto: SpeedyAuthenticationCredentialsDTO): Promise<any> {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/sync-locations`,

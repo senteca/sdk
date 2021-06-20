@@ -1,6 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
+import { SpeedyClientsDetailsDTO } from '../../models/SpeedyClientsDetailsDTO';
 import { SpeedyAuthenticationCredentialsDTO } from '../../models/SpeedyAuthenticationCredentialsDTO';
 import { SpeedyLocationCountryDTO } from '../../models/SpeedyLocationCountryDTO';
 import { SpeedyLocationCityDTO } from '../../models/SpeedyLocationCityDTO';
@@ -20,6 +21,18 @@ import { SpeedySendResponseDTO } from '../../models/SpeedySendResponseDTO';
 import { SpeedyCancelRequestDTO } from '../../models/SpeedyCancelRequestDTO';
 import { SpeedyTrackRequestDTO } from '../../models/SpeedyTrackRequestDTO';
 import { SpeedyTrackResponseDTO } from '../../models/SpeedyTrackResponseDTO';
+
+export const ShippingsSpeedyClientDetails = async (query: { username: string, password: string }): Promise<SpeedyClientsDetailsDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/shippings/speedy/client-details`,
+        method: 'GET',
+        query: toQueryString(query),
+        
+        
+        
+    });
+    return (response as unknown) as SpeedyClientsDetailsDTO;
+}
 
 export const ShippingsSpeedySyncLocations = async (dto: SpeedyAuthenticationCredentialsDTO): Promise<any> => {
     const response = await HttpClient.request({

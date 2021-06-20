@@ -1,4 +1,5 @@
 import { BaseAPI } from '../../runtime';
+import { EvropatClientAddressDTO } from '../../models/EvropatClientAddressDTO';
 import { EvropatAuthenticationCredentialsDTO } from '../../models/EvropatAuthenticationCredentialsDTO';
 import { EvropatLocationCountryDTO } from '../../models/EvropatLocationCountryDTO';
 import { EvropatLocationCityDTO } from '../../models/EvropatLocationCityDTO';
@@ -22,6 +23,18 @@ import { EvropatTrackRequestDTO } from '../../models/EvropatTrackRequestDTO';
 import { EvropatTrackResponseDTO } from '../../models/EvropatTrackResponseDTO';
 
 export class ShippingsEvropatAPI extends BaseAPI {
+   async clientAddresses (query: { clientKey: string }): Promise<EvropatClientAddressDTO[]> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/evropat/client-addresses`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response as unknown) as EvropatClientAddressDTO[];
+   }
+
    async syncLocations (dto: EvropatAuthenticationCredentialsDTO): Promise<any> {
        const response = await this._request({
            path: `/fulfillment/shippings/evropat/sync-locations`,

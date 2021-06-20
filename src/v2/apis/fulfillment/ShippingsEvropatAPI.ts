@@ -1,6 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
+import { EvropatClientAddressDTO } from '../../models/EvropatClientAddressDTO';
 import { EvropatAuthenticationCredentialsDTO } from '../../models/EvropatAuthenticationCredentialsDTO';
 import { EvropatLocationCountryDTO } from '../../models/EvropatLocationCountryDTO';
 import { EvropatLocationCityDTO } from '../../models/EvropatLocationCityDTO';
@@ -22,6 +23,18 @@ import { EvropatCancelRequestDTO } from '../../models/EvropatCancelRequestDTO';
 import { EvropatCancelResponseDTO } from '../../models/EvropatCancelResponseDTO';
 import { EvropatTrackRequestDTO } from '../../models/EvropatTrackRequestDTO';
 import { EvropatTrackResponseDTO } from '../../models/EvropatTrackResponseDTO';
+
+export const ShippingsEvropatClientAddresses = async (query: { clientKey: string }): Promise<EvropatClientAddressDTO[]> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/shippings/evropat/client-addresses`,
+        method: 'GET',
+        query: toQueryString(query),
+        
+        
+        
+    });
+    return (response as unknown) as EvropatClientAddressDTO[];
+}
 
 export const ShippingsEvropatSyncLocations = async (dto: EvropatAuthenticationCredentialsDTO): Promise<any> => {
     const response = await HttpClient.request({
