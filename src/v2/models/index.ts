@@ -423,6 +423,7 @@ export * from "./TaxCategoryDraftDTO";
 export * from "./TaxCategoryFilterResultDTO";
 export * from "./TaxPortionDTO";
 export * from "./TaxRateDTO";
+export * from "./TaxRateDraftDTO";
 export * from "./TaxedItemPriceDTO";
 export * from "./TaxedPriceDTO";
 export * from "./TermAggregation";

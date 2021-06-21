@@ -52,7 +52,7 @@ export class TaxCategoriesAPI extends BaseAPI {
        return (response as unknown) as TaxCategoryDTO;
    }
 
-   async update (id: string, dto: TaxCategoryDraftDTO): Promise<TaxCategoryDTO> {
+   async update (id: string, dto: TaxCategoryDTO): Promise<TaxCategoryDTO> {
        const response = await this._request({
            path: `/config/tax-categories/${encodeURIComponent(id)}`,
            method: 'PUT',

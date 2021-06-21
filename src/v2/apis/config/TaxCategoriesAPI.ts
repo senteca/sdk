@@ -53,7 +53,7 @@ export const TaxCategoriesGetById = async (id: string): Promise<TaxCategoryDTO> 
     return (response as unknown) as TaxCategoryDTO;
 }
 
-export const TaxCategoriesUpdate = async (id: string, dto: TaxCategoryDraftDTO): Promise<TaxCategoryDTO> => {
+export const TaxCategoriesUpdate = async (id: string, dto: TaxCategoryDTO): Promise<TaxCategoryDTO> => {
     const response = await HttpClient.request({
         path: `/config/tax-categories/${encodeURIComponent(id)}`,
         method: 'PUT',
