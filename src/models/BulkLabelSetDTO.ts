@@ -1,5 +1,5 @@
 
-export interface BulkLabelAddDTO {
+export interface BulkLabelSetDTO {
   filter: string;
   tags: string[];
   labelId: string;

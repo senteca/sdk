@@ -42,7 +42,7 @@ export const OrdersImport = async (dto: OrderImportDTO[]): Promise<OrderDTO[]> =
     return (response as unknown) as OrderDTO[];
 }
 
-export const OrdersExportCSV = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<any> => {
+export const OrdersExportCSV = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number, lang: string }): Promise<any> => {
     const response = await HttpClient.request({
         path: `/fulfillment/orders/export/csv`,
         method: 'GET',

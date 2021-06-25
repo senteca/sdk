@@ -5,7 +5,7 @@ export interface LabelDTO {
   version?: number;
   key: string;
   name: LangValue[];
-  description: string;
+  description: LangValue[];
   createdAt: number;
   updatedAt: number;
 }

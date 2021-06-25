@@ -9,7 +9,7 @@ import { BulkCustomFieldUpdateByFilterDTO } from '../../models/BulkCustomFieldUp
 import { BulkAttributeUpdateDTO } from '../../models/BulkAttributeUpdateDTO';
 import { BulkAttributeDeleteDTO } from '../../models/BulkAttributeDeleteDTO';
 import { BulkOfferQuantityUpdateDTO } from '../../models/BulkOfferQuantityUpdateDTO';
-import { BulkLabelAddDTO } from '../../models/BulkLabelAddDTO';
+import { BulkLabelSetDTO } from '../../models/BulkLabelSetDTO';
 import { BulkLabelRemoveDTO } from '../../models/BulkLabelRemoveDTO';
 import { ProductDraftDTO } from '../../models/ProductDraftDTO';
 import { ProductDTO } from '../../models/ProductDTO';
@@ -43,6 +43,7 @@ import { ShippingDataDTO } from '../../models/ShippingDataDTO';
 import { ProductVariantOverridesDTO } from '../../models/ProductVariantOverridesDTO';
 import { OptionDefinitionDTO } from '../../models/OptionDefinitionDTO';
 import { InventoryDraftDTO } from '../../models/InventoryDraftDTO';
+import { ProductVariantLabelDTO } from '../../models/ProductVariantLabelDTO';
 
 export const ProductsBulkLink = async (dto: BulkLinkUpdateDTO): Promise<void> => {
     const response = await HttpClient.request({
@@ -164,9 +165,9 @@ export const ProductsBulkOfferMaxQuantity = async (dto: BulkOfferQuantityUpdateD
     
 }
 
-export const ProductsBulkLabelSet = async (dto: BulkLabelAddDTO): Promise<void> => {
+export const ProductsBulkLabelSet = async (dto: BulkLabelSetDTO): Promise<void> => {
     const response = await HttpClient.request({
-        path: `/merchandise/products/bulk/label-add`,
+        path: `/merchandise/products/bulk/label-set`,
         method: 'PATCH',
         
         body: dto,
@@ -224,7 +225,7 @@ export const ProductsImport = async (dto: ProductImportDraftDTO[]): Promise<void
     
 }
 
-export const ProductsExportToCSV = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number, lang: string, columnDelimiter: string, recordDelimiter: string, allVariants: boolean }): Promise<any> => {
+export const ProductsExportToCSV = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number, lang: string, allVariants: boolean }): Promise<any> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/export/csv`,
         method: 'GET',
@@ -892,6 +893,18 @@ export const ProductsDeleteVariantInventory = async (sku: string, stockLocationK
         
         
         
+    });
+    
+}
+
+export const ProductsSetVariantLabels = async (sku: string, dto: ProductVariantLabelDTO[]): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/${encodeURIComponent(sku)}/labels`,
+        method: 'PATCH',
+        
+        body: dto,
+        
+        contentType: 'application/json',
     });
     
 }
