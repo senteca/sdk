@@ -7,7 +7,7 @@ import { BulkCustomFieldUpdateByFilterDTO } from '../../models/BulkCustomFieldUp
 import { BulkAttributeUpdateDTO } from '../../models/BulkAttributeUpdateDTO';
 import { BulkAttributeDeleteDTO } from '../../models/BulkAttributeDeleteDTO';
 import { BulkOfferQuantityUpdateDTO } from '../../models/BulkOfferQuantityUpdateDTO';
-import { BulkLabelSetDTO } from '../../models/BulkLabelSetDTO';
+import { BulkLabelAddDTO } from '../../models/BulkLabelAddDTO';
 import { BulkLabelRemoveDTO } from '../../models/BulkLabelRemoveDTO';
 import { ProductDraftDTO } from '../../models/ProductDraftDTO';
 import { ProductDTO } from '../../models/ProductDTO';
@@ -41,7 +41,6 @@ import { ShippingDataDTO } from '../../models/ShippingDataDTO';
 import { ProductVariantOverridesDTO } from '../../models/ProductVariantOverridesDTO';
 import { OptionDefinitionDTO } from '../../models/OptionDefinitionDTO';
 import { InventoryDraftDTO } from '../../models/InventoryDraftDTO';
-import { ProductVariantLabelDTO } from '../../models/ProductVariantLabelDTO';
 
 export class ProductsAPI extends BaseAPI {
    async bulkLink (dto: BulkLinkUpdateDTO): Promise<void> {
@@ -164,9 +163,9 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async bulkLabelSet (dto: BulkLabelSetDTO): Promise<void> {
+   async bulkLabelSet (dto: BulkLabelAddDTO): Promise<void> {
        const response = await this._request({
-           path: `/merchandise/products/bulk/label-set`,
+           path: `/merchandise/products/bulk/label-add`,
            method: 'PATCH',
            
            body: dto,
@@ -892,18 +891,6 @@ export class ProductsAPI extends BaseAPI {
            
            
            
-        });
-       
-   }
-
-   async setVariantLabels (sku: string, dto: ProductVariantLabelDTO[]): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(sku)}/labels`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
         });
        
    }

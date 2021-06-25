@@ -5,7 +5,7 @@ import { OfferDTO } from './OfferDTO';
 import { InventorySnapshotDTO } from './InventorySnapshotDTO';
 import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
 import { CustomField } from './CustomField';
-import { ProductVariantLabelDTO } from './ProductVariantLabelDTO';
+import { ProductLabelDTO } from './ProductLabelDTO';
 
 export interface SearchResultDTO {
   attributes?: any;
@@ -24,6 +24,6 @@ export interface SearchResultDTO {
   variantsCount: number;
   variantOptions: number;
   custom: CustomField[];
-  labels?: ProductVariantLabelDTO[];
+  labels?: ProductLabelDTO[];
 }
 

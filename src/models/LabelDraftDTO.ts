@@ -5,6 +5,6 @@ export interface LabelDraftDTO {
   version?: number;
   key: string;
   name: LangValue[];
-  description: LangValue[];
+  description: string;
 }
 

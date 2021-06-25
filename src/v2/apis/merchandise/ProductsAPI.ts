@@ -9,7 +9,7 @@ import { BulkCustomFieldUpdateByFilterDTO } from '../../models/BulkCustomFieldUp
 import { BulkAttributeUpdateDTO } from '../../models/BulkAttributeUpdateDTO';
 import { BulkAttributeDeleteDTO } from '../../models/BulkAttributeDeleteDTO';
 import { BulkOfferQuantityUpdateDTO } from '../../models/BulkOfferQuantityUpdateDTO';
-import { BulkLabelSetDTO } from '../../models/BulkLabelSetDTO';
+import { BulkLabelAddDTO } from '../../models/BulkLabelAddDTO';
 import { BulkLabelRemoveDTO } from '../../models/BulkLabelRemoveDTO';
 import { ProductDraftDTO } from '../../models/ProductDraftDTO';
 import { ProductDTO } from '../../models/ProductDTO';
@@ -43,7 +43,6 @@ import { ShippingDataDTO } from '../../models/ShippingDataDTO';
 import { ProductVariantOverridesDTO } from '../../models/ProductVariantOverridesDTO';
 import { OptionDefinitionDTO } from '../../models/OptionDefinitionDTO';
 import { InventoryDraftDTO } from '../../models/InventoryDraftDTO';
-import { ProductVariantLabelDTO } from '../../models/ProductVariantLabelDTO';
 
 export const ProductsBulkLink = async (dto: BulkLinkUpdateDTO): Promise<void> => {
     const response = await HttpClient.request({
@@ -165,9 +164,9 @@ export const ProductsBulkOfferMaxQuantity = async (dto: BulkOfferQuantityUpdateD
     
 }
 
-export const ProductsBulkLabelSet = async (dto: BulkLabelSetDTO): Promise<void> => {
+export const ProductsBulkLabelSet = async (dto: BulkLabelAddDTO): Promise<void> => {
     const response = await HttpClient.request({
-        path: `/merchandise/products/bulk/label-set`,
+        path: `/merchandise/products/bulk/label-add`,
         method: 'PATCH',
         
         body: dto,
@@ -893,18 +892,6 @@ export const ProductsDeleteVariantInventory = async (sku: string, stockLocationK
         
         
         
-    });
-    
-}
-
-export const ProductsSetVariantLabels = async (sku: string, dto: ProductVariantLabelDTO[]): Promise<void> => {
-    const response = await HttpClient.request({
-        path: `/merchandise/products/${encodeURIComponent(sku)}/labels`,
-        method: 'PATCH',
-        
-        body: dto,
-        
-        contentType: 'application/json',
     });
     
 }

@@ -1,11 +1,11 @@
 import { LangValue } from './LangValue';
 
-export interface ProductVariantLabelDTO {
+export interface ProductLabelDTO {
   _id: string;
   key: string;
   tags: string[];
   name: LangValue[];
-  description: LangValue[];
+  description: string;
   validFrom?: number;
   validTo?: number;
 }

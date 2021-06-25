@@ -8,7 +8,6 @@ import { InventorySnapshotDTO } from './InventorySnapshotDTO';
 import { InventoryDTO } from './InventoryDTO';
 import { LangValue } from './LangValue';
 import { ContentDTO } from './ContentDTO';
-import { ProductVariantLabelDTO } from './ProductVariantLabelDTO';
 
 export interface ProductVariantDTO {
   offer?: OfferDTO;
@@ -33,7 +32,6 @@ export interface ProductVariantDTO {
   metaTitle?: LangValue[];
   metaDescription?: LangValue[];
   metaKeywords?: LangValue[];
-  labels?: ProductVariantLabelDTO[];
 }
 
 export enum ProductVariantDTOCollapseModeEnum {

@@ -5,6 +5,7 @@ import { StoreStatusDTO } from './StoreStatusDTO';
 import { LangValue } from './LangValue';
 import { ContentDTO } from './ContentDTO';
 import { IdReferenceDTO } from './IdReferenceDTO';
+import { ProductLabelDTO } from './ProductLabelDTO';
 import { AssetDTO } from './AssetDTO';
 import { CustomField } from './CustomField';
 import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
@@ -26,6 +27,7 @@ export interface ProductDraftDTO {
   categories?: IdReferenceDTO[];
   brands?: IdReferenceDTO[];
   collections?: IdReferenceDTO[];
+  labels?: ProductLabelDTO[];
   assets?: AssetDTO[];
   custom?: CustomField[];
   masterVariantId?: string;
