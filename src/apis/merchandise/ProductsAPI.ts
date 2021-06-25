@@ -7,8 +7,6 @@ import { BulkCustomFieldUpdateByFilterDTO } from '../../models/BulkCustomFieldUp
 import { BulkAttributeUpdateDTO } from '../../models/BulkAttributeUpdateDTO';
 import { BulkAttributeDeleteDTO } from '../../models/BulkAttributeDeleteDTO';
 import { BulkOfferQuantityUpdateDTO } from '../../models/BulkOfferQuantityUpdateDTO';
-import { BulkLabelAddDTO } from '../../models/BulkLabelAddDTO';
-import { BulkLabelRemoveDTO } from '../../models/BulkLabelRemoveDTO';
 import { ProductDraftDTO } from '../../models/ProductDraftDTO';
 import { ProductDTO } from '../../models/ProductDTO';
 import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
@@ -161,30 +159,6 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async bulkLabelSet (dto: BulkLabelAddDTO): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/products/bulk/label-add`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       
-   }
-
-   async bulkLabelDelete (dto: BulkLabelRemoveDTO): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/products/bulk/label-remove`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       
-   }
-
    async create (dto: ProductDraftDTO): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products`,
@@ -219,18 +193,6 @@ export class ProductsAPI extends BaseAPI {
            contentType: 'application/json',
         });
        
-   }
-
-   async exportToCSV (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number, lang: string, columnDelimiter: string, recordDelimiter: string, allVariants: boolean }): Promise<any> {
-       const response = await this._request({
-           path: `/merchandise/products/export/csv`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response as unknown) as any;
    }
 
    async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<ProductSearchResultDTO> {

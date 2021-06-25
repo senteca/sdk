@@ -11,6 +11,6 @@ export interface StockLocationDraftDTO {
   isActive: boolean;
   name: LangValue[];
   description?: LangValue[];
-  address?: AddressDraftDTO;
+  address: AddressDraftDTO;
 }
 

@@ -11,7 +11,6 @@ export interface EcontLocationQuarterDTO {
 
 export enum EcontLocationQuarterDTOTypeEnum {
     Country = 'Country',  
-    Region = 'Region',  
     City = 'City',  
     Quarter = 'Quarter',  
     Street = 'Street',  

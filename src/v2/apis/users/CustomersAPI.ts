@@ -4,8 +4,6 @@ import { HttpClient, toQueryString } from '../../runtime';
 import { CustomerDTO } from '../../models/CustomerDTO';
 import { CustomerUpdateDTO } from '../../models/CustomerUpdateDTO';
 import { PasswordChangeDTO } from '../../models/PasswordChangeDTO';
-import { EmailChangeRequestDTO } from '../../models/EmailChangeRequestDTO';
-import { EmailChangeDTO } from '../../models/EmailChangeDTO';
 import { AddressDTO } from '../../models/AddressDTO';
 import { AddressDraftDTO } from '../../models/AddressDraftDTO';
 import { CustomerDraftDTO } from '../../models/CustomerDraftDTO';
@@ -16,6 +14,7 @@ import { EmailVerificationDTO } from '../../models/EmailVerificationDTO';
 import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
 import { PasswordResetDTO } from '../../models/PasswordResetDTO';
 import { SetCustomerGroupDTO } from '../../models/SetCustomerGroupDTO';
+import { ProductSubscriptionCreateDTO } from '../../models/ProductSubscriptionCreateDTO';
 
 export const CustomersGetMyProfile = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> => {
     const response = await HttpClient.request({
@@ -75,30 +74,6 @@ export const CustomersChangePassword = async (dto: PasswordChangeDTO): Promise<C
         contentType: 'application/json',
     });
     return (response as unknown) as CustomerDTO;
-}
-
-export const CustomersRequestEmailChange = async (dto: EmailChangeRequestDTO): Promise<void> => {
-    const response = await HttpClient.request({
-        path: `/users/customers/email/request`,
-        method: 'POST',
-        
-        body: dto,
-        
-        contentType: 'application/json',
-    });
-    
-}
-
-export const CustomersChangeEmail = async (dto: EmailChangeDTO): Promise<void> => {
-    const response = await HttpClient.request({
-        path: `/users/customers/email`,
-        method: 'POST',
-        
-        body: dto,
-        
-        contentType: 'application/json',
-    });
-    
 }
 
 export const CustomersGetMyAddresses = async (): Promise<AddressDTO[]> => {
@@ -502,6 +477,30 @@ export const CustomersExportCSV = async (query?: { storeKey?: string, interfaceK
         path: `/users/customers/export/csv`,
         method: 'GET',
         query: toQueryString(query),
+        
+        
+        
+    });
+    
+}
+
+export const CustomersSubscribeForSku = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: ProductSubscriptionCreateDTO): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/users/customers/subscribe/sku`,
+        method: 'POST',
+        query: toQueryString(query),
+        body: dto,
+        
+        contentType: 'application/json',
+    });
+    
+}
+
+export const CustomersUnsubscribeForSku = async (sku: string): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/users/customers/subscribe/sku/${encodeURIComponent(sku)}`,
+        method: 'DELETE',
+        
         
         
         

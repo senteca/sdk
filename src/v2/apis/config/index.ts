@@ -1,6 +1,5 @@
 export * from "./CustomFieldsAPI";
 export * from "./InternationalsAPI";
-export * from "./LabelsAPI";
 export * from "./ScriptCategoriesAPI";
 export * from "./ScriptsAPI";
 export * from "./StatesAPI";

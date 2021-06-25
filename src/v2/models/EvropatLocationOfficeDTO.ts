@@ -11,7 +11,6 @@ export interface EvropatLocationOfficeDTO {
 
 export enum EvropatLocationOfficeDTOTypeEnum {
     Country = 'Country',  
-    Region = 'Region',  
     City = 'City',  
     Quarter = 'Quarter',  
     Street = 'Street',  

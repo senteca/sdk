@@ -7,7 +7,6 @@ export * from "./CustomersAPI";
 export * from "./MyConsentLogAPI";
 export * from "./MyConsentsAPI";
 export * from "./MyMessagesAPI";
-export * from "./MyProductSubscriptionsAPI";
 export * from "./MySearchHistoryAPI";
 export * from "./MyWalletAPI";
 export * from "./UsersAPI";

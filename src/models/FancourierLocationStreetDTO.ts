@@ -11,7 +11,6 @@ export interface FancourierLocationStreetDTO {
 
 export enum FancourierLocationStreetDTOTypeEnum {
     Country = 'Country',  
-    Region = 'Region',  
     City = 'City',  
     Quarter = 'Quarter',  
     Street = 'Street',  
