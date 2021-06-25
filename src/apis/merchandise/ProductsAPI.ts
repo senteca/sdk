@@ -7,13 +7,14 @@ import { BulkCustomFieldUpdateByFilterDTO } from '../../models/BulkCustomFieldUp
 import { BulkAttributeUpdateDTO } from '../../models/BulkAttributeUpdateDTO';
 import { BulkAttributeDeleteDTO } from '../../models/BulkAttributeDeleteDTO';
 import { BulkOfferQuantityUpdateDTO } from '../../models/BulkOfferQuantityUpdateDTO';
-import { BulkLabelAddDTO } from '../../models/BulkLabelAddDTO';
+import { BulkLabelSetDTO } from '../../models/BulkLabelSetDTO';
 import { BulkLabelRemoveDTO } from '../../models/BulkLabelRemoveDTO';
 import { ProductDraftDTO } from '../../models/ProductDraftDTO';
 import { ProductDTO } from '../../models/ProductDTO';
 import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
 import { ProductImportDraftDTO } from '../../models/ProductImportDraftDTO';
 import { ProductSearchResultDTO } from '../../models/ProductSearchResultDTO';
+import { AttributeValueDTO } from '../../models/AttributeValueDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 import { AssetDTO } from '../../models/AssetDTO';
 import { StoreStatusDTO } from '../../models/StoreStatusDTO';
@@ -37,8 +38,10 @@ import { ProductAttributeDraftDTO } from '../../models/ProductAttributeDraftDTO'
 import { OfferDraftDTO } from '../../models/OfferDraftDTO';
 import { ProductAliasImagesFromUpdateDTO } from '../../models/ProductAliasImagesFromUpdateDTO';
 import { ShippingDataDTO } from '../../models/ShippingDataDTO';
+import { ProductVariantOverridesDTO } from '../../models/ProductVariantOverridesDTO';
 import { OptionDefinitionDTO } from '../../models/OptionDefinitionDTO';
 import { InventoryDraftDTO } from '../../models/InventoryDraftDTO';
+import { ProductVariantLabelDTO } from '../../models/ProductVariantLabelDTO';
 
 export class ProductsAPI extends BaseAPI {
    async bulkLink (dto: BulkLinkUpdateDTO): Promise<void> {
@@ -161,9 +164,9 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async bulkLabelSet (dto: BulkLabelAddDTO): Promise<void> {
+   async bulkLabelSet (dto: BulkLabelSetDTO): Promise<void> {
        const response = await this._request({
-           path: `/merchandise/products/bulk/label-add`,
+           path: `/merchandise/products/bulk/label-set`,
            method: 'PATCH',
            
            body: dto,
@@ -279,6 +282,18 @@ export class ProductsAPI extends BaseAPI {
            
         });
        return (response as unknown) as ProductDTO;
+   }
+
+   async getAttributeLabel (selector: string, value: string): Promise<AttributeValueDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/attribute/${encodeURIComponent(selector)}=${encodeURIComponent(value)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response as unknown) as AttributeValueDTO;
    }
 
    async getById (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, stockLocationKey?: string }): Promise<ProductDTO> {
@@ -797,6 +812,18 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
+   async setVariantOverrides (sku: string, dto: ProductVariantOverridesDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/overrides`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
    async addVariantOptionDefinition (sku: string, dto: OptionDefinitionDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/options`,
@@ -865,6 +892,18 @@ export class ProductsAPI extends BaseAPI {
            
            
            
+        });
+       
+   }
+
+   async setVariantLabels (sku: string, dto: ProductVariantLabelDTO[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/labels`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
         });
        
    }

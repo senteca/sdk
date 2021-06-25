@@ -65,6 +65,18 @@ export const CustomersAnonymizeMe = async (): Promise<CustomerDTO> => {
     return (response as unknown) as CustomerDTO;
 }
 
+export const CustomersRequestAnonymization = async (): Promise<CustomerDTO> => {
+    const response = await HttpClient.request({
+        path: `/users/customers/request-anonymization`,
+        method: 'PUT',
+        
+        
+        
+        
+    });
+    return (response as unknown) as CustomerDTO;
+}
+
 export const CustomersChangePassword = async (dto: PasswordChangeDTO): Promise<CustomerDTO> => {
     const response = await HttpClient.request({
         path: `/users/customers/password`,

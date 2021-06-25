@@ -9,13 +9,14 @@ import { BulkCustomFieldUpdateByFilterDTO } from '../../models/BulkCustomFieldUp
 import { BulkAttributeUpdateDTO } from '../../models/BulkAttributeUpdateDTO';
 import { BulkAttributeDeleteDTO } from '../../models/BulkAttributeDeleteDTO';
 import { BulkOfferQuantityUpdateDTO } from '../../models/BulkOfferQuantityUpdateDTO';
-import { BulkLabelAddDTO } from '../../models/BulkLabelAddDTO';
+import { BulkLabelSetDTO } from '../../models/BulkLabelSetDTO';
 import { BulkLabelRemoveDTO } from '../../models/BulkLabelRemoveDTO';
 import { ProductDraftDTO } from '../../models/ProductDraftDTO';
 import { ProductDTO } from '../../models/ProductDTO';
 import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
 import { ProductImportDraftDTO } from '../../models/ProductImportDraftDTO';
 import { ProductSearchResultDTO } from '../../models/ProductSearchResultDTO';
+import { AttributeValueDTO } from '../../models/AttributeValueDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 import { AssetDTO } from '../../models/AssetDTO';
 import { StoreStatusDTO } from '../../models/StoreStatusDTO';
@@ -39,8 +40,10 @@ import { ProductAttributeDraftDTO } from '../../models/ProductAttributeDraftDTO'
 import { OfferDraftDTO } from '../../models/OfferDraftDTO';
 import { ProductAliasImagesFromUpdateDTO } from '../../models/ProductAliasImagesFromUpdateDTO';
 import { ShippingDataDTO } from '../../models/ShippingDataDTO';
+import { ProductVariantOverridesDTO } from '../../models/ProductVariantOverridesDTO';
 import { OptionDefinitionDTO } from '../../models/OptionDefinitionDTO';
 import { InventoryDraftDTO } from '../../models/InventoryDraftDTO';
+import { ProductVariantLabelDTO } from '../../models/ProductVariantLabelDTO';
 
 export const ProductsBulkLink = async (dto: BulkLinkUpdateDTO): Promise<void> => {
     const response = await HttpClient.request({
@@ -162,9 +165,9 @@ export const ProductsBulkOfferMaxQuantity = async (dto: BulkOfferQuantityUpdateD
     
 }
 
-export const ProductsBulkLabelSet = async (dto: BulkLabelAddDTO): Promise<void> => {
+export const ProductsBulkLabelSet = async (dto: BulkLabelSetDTO): Promise<void> => {
     const response = await HttpClient.request({
-        path: `/merchandise/products/bulk/label-add`,
+        path: `/merchandise/products/bulk/label-set`,
         method: 'PATCH',
         
         body: dto,
@@ -280,6 +283,18 @@ export const ProductsDeleteByExternalId = async (externalId: string): Promise<Pr
         
     });
     return (response as unknown) as ProductDTO;
+}
+
+export const ProductsGetAttributeLabel = async (selector: string, value: string): Promise<AttributeValueDTO> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/attribute/${encodeURIComponent(selector)}=${encodeURIComponent(value)}`,
+        method: 'GET',
+        
+        
+        
+        
+    });
+    return (response as unknown) as AttributeValueDTO;
 }
 
 export const ProductsGetById = async (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, stockLocationKey?: string }): Promise<ProductDTO> => {
@@ -798,6 +813,18 @@ export const ProductsSetVariantShippingData = async (sku: string, dto: ShippingD
     
 }
 
+export const ProductsSetVariantOverrides = async (sku: string, dto: ProductVariantOverridesDTO): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/${encodeURIComponent(sku)}/overrides`,
+        method: 'PATCH',
+        
+        body: dto,
+        
+        contentType: 'application/json',
+    });
+    
+}
+
 export const ProductsAddVariantOptionDefinition = async (sku: string, dto: OptionDefinitionDTO): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(sku)}/options`,
@@ -866,6 +893,18 @@ export const ProductsDeleteVariantInventory = async (sku: string, stockLocationK
         
         
         
+    });
+    
+}
+
+export const ProductsSetVariantLabels = async (sku: string, dto: ProductVariantLabelDTO[]): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/${encodeURIComponent(sku)}/labels`,
+        method: 'PATCH',
+        
+        body: dto,
+        
+        contentType: 'application/json',
     });
     
 }

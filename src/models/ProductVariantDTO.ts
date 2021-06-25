@@ -6,6 +6,9 @@ import { OptionDefinitionDTO } from './OptionDefinitionDTO';
 import { SelectedOptionDTO } from './SelectedOptionDTO';
 import { InventorySnapshotDTO } from './InventorySnapshotDTO';
 import { InventoryDTO } from './InventoryDTO';
+import { LangValue } from './LangValue';
+import { ContentDTO } from './ContentDTO';
+import { ProductVariantLabelDTO } from './ProductVariantLabelDTO';
 
 export interface ProductVariantDTO {
   offer?: OfferDTO;
@@ -24,6 +27,13 @@ export interface ProductVariantDTO {
   selectedOptions?: SelectedOptionDTO[];
   inventorySnapshot?: InventorySnapshotDTO;
   inventories?: InventoryDTO[];
+  name?: LangValue[];
+  description?: LangValue[];
+  content?: ContentDTO[];
+  metaTitle?: LangValue[];
+  metaDescription?: LangValue[];
+  metaKeywords?: LangValue[];
+  labels?: ProductVariantLabelDTO[];
 }
 
 export enum ProductVariantDTOCollapseModeEnum {

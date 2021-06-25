@@ -64,6 +64,18 @@ export class CustomersAPI extends BaseAPI {
        return (response as unknown) as CustomerDTO;
    }
 
+   async requestAnonymization (): Promise<CustomerDTO> {
+       const response = await this._request({
+           path: `/users/customers/request-anonymization`,
+           method: 'PUT',
+           
+           
+           
+           
+        });
+       return (response as unknown) as CustomerDTO;
+   }
+
    async changePassword (dto: PasswordChangeDTO): Promise<CustomerDTO> {
        const response = await this._request({
            path: `/users/customers/password`,
