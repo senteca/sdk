@@ -2,7 +2,7 @@
 export interface BulkLabelSetDTO {
   filter: string;
   tags: string[];
-  labelId: string;
+  labelKey: string;
   validFrom?: number;
   validTo?: number;
 }

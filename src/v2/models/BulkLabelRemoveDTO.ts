@@ -1,6 +1,6 @@
 
 export interface BulkLabelRemoveDTO {
   filter: string;
-  labelId: string;
+  labelKey: string;
 }
 
