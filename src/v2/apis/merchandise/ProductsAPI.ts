@@ -213,6 +213,18 @@ export const ProductsFilter = async (query?: { storeKey?: string, interfaceKey?:
     return (response as unknown) as ProductFilterResultDTO;
 }
 
+export const ProductsCreateNoValidation = async (dto: ProductDraftDTO): Promise<ProductDTO> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/no-validation`,
+        method: 'POST',
+        
+        body: dto,
+        
+        contentType: 'application/json',
+    });
+    return (response as unknown) as ProductDTO;
+}
+
 export const ProductsImport = async (dto: ProductImportDraftDTO[]): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/import`,

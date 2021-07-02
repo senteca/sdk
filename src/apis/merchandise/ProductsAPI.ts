@@ -212,6 +212,18 @@ export class ProductsAPI extends BaseAPI {
        return (response as unknown) as ProductFilterResultDTO;
    }
 
+   async createNoValidation (dto: ProductDraftDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/no-validation`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response as unknown) as ProductDTO;
+   }
+
    async import (dto: ProductImportDraftDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/import`,

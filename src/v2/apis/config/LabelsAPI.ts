@@ -41,6 +41,18 @@ export const LabelsGetById = async (id: string): Promise<LabelDTO> => {
     return (response as unknown) as LabelDTO;
 }
 
+export const LabelsUpdateById = async (id: string, dto: LabelDraftDTO): Promise<LabelDTO> => {
+    const response = await HttpClient.request({
+        path: `/config/labels/${encodeURIComponent(id)}`,
+        method: 'PUT',
+        
+        body: dto,
+        
+        contentType: 'application/json',
+    });
+    return (response as unknown) as LabelDTO;
+}
+
 export const LabelsDeleteById = async (id: string): Promise<LabelDTO> => {
     const response = await HttpClient.request({
         path: `/config/labels/${encodeURIComponent(id)}`,

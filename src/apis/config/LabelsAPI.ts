@@ -40,6 +40,18 @@ export class LabelsAPI extends BaseAPI {
        return (response as unknown) as LabelDTO;
    }
 
+   async updateById (id: string, dto: LabelDraftDTO): Promise<LabelDTO> {
+       const response = await this._request({
+           path: `/config/labels/${encodeURIComponent(id)}`,
+           method: 'PUT',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response as unknown) as LabelDTO;
+   }
+
    async deleteById (id: string): Promise<LabelDTO> {
        const response = await this._request({
            path: `/config/labels/${encodeURIComponent(id)}`,
