@@ -13,6 +13,7 @@ export interface EcontCreateRequestDTO {
   senderClient: EcontClientProfile;
   senderAgent: EcontClientProfile;
   senderAddress?: EcontAddress;
+  cashOnDeliveryAgreement: string;
   senderOffice?: string;
   smsNotification?: boolean;
   declaredValue?: boolean;

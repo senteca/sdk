@@ -269,6 +269,18 @@ export const CustomersSearch = async (query?: { storeKey?: string, interfaceKey?
     return (response as unknown) as CustomerSearchResultDTO;
 }
 
+export const CustomersGetByExternalId = async (externalId: string): Promise<CustomerDTO> => {
+    const response = await HttpClient.request({
+        path: `/users/customers/externalId=${encodeURIComponent(externalId)}`,
+        method: 'GET',
+        
+        
+        
+        
+    });
+    return (response as unknown) as CustomerDTO;
+}
+
 export const CustomersGetById = async (id: string): Promise<CustomerDTO> => {
     const response = await HttpClient.request({
         path: `/users/customers/${encodeURIComponent(id)}`,

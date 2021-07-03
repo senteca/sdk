@@ -268,6 +268,18 @@ export class CustomersAPI extends BaseAPI {
        return (response as unknown) as CustomerSearchResultDTO;
    }
 
+   async getByExternalId (externalId: string): Promise<CustomerDTO> {
+       const response = await this._request({
+           path: `/users/customers/externalId=${encodeURIComponent(externalId)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response as unknown) as CustomerDTO;
+   }
+
    async getById (id: string): Promise<CustomerDTO> {
        const response = await this._request({
            path: `/users/customers/${encodeURIComponent(id)}`,

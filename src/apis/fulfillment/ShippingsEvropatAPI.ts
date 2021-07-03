@@ -47,62 +47,62 @@ export class ShippingsEvropatAPI extends BaseAPI {
        return (response as unknown) as any;
    }
 
-   async fetchCountries (dto: EvropatAuthenticationCredentialsDTO): Promise<EvropatLocationCountryDTO[]> {
+   async fetchCountries (query: { clientKey: string }): Promise<EvropatLocationCountryDTO[]> {
        const response = await this._request({
            path: `/fulfillment/shippings/evropat/fetch/countries`,
            method: 'GET',
+           query: this._stringifyQuery(query),
            
-           body: dto,
            
-           contentType: 'application/json',
+           
         });
        return (response as unknown) as EvropatLocationCountryDTO[];
    }
 
-   async fetchCities (dto: EvropatAuthenticationCredentialsDTO): Promise<EvropatLocationCityDTO[]> {
+   async fetchCities (query: { clientKey: string }): Promise<EvropatLocationCityDTO[]> {
        const response = await this._request({
            path: `/fulfillment/shippings/evropat/fetch/cities`,
            method: 'GET',
+           query: this._stringifyQuery(query),
            
-           body: dto,
            
-           contentType: 'application/json',
+           
         });
        return (response as unknown) as EvropatLocationCityDTO[];
    }
 
-   async fetchQuarters (dto: EvropatAuthenticationCredentialsDTO): Promise<EvropatLocationQuarterDTO[]> {
+   async fetchQuarters (query: { clientKey: string }): Promise<EvropatLocationQuarterDTO[]> {
        const response = await this._request({
            path: `/fulfillment/shippings/evropat/fetch/quarters`,
            method: 'GET',
+           query: this._stringifyQuery(query),
            
-           body: dto,
            
-           contentType: 'application/json',
+           
         });
        return (response as unknown) as EvropatLocationQuarterDTO[];
    }
 
-   async fetchStreets (dto: EvropatAuthenticationCredentialsDTO): Promise<EvropatLocationStreetDTO[]> {
+   async fetchStreets (query: { clientKey: string }): Promise<EvropatLocationStreetDTO[]> {
        const response = await this._request({
            path: `/fulfillment/shippings/evropat/fetch/streets`,
            method: 'GET',
+           query: this._stringifyQuery(query),
            
-           body: dto,
            
-           contentType: 'application/json',
+           
         });
        return (response as unknown) as EvropatLocationStreetDTO[];
    }
 
-   async fetchOffices (dto: EvropatAuthenticationCredentialsDTO): Promise<EvropatLocationOfficeDTO[]> {
+   async fetchOffices (query: { clientKey: string }): Promise<EvropatLocationOfficeDTO[]> {
        const response = await this._request({
            path: `/fulfillment/shippings/evropat/fetch/offices`,
            method: 'GET',
+           query: this._stringifyQuery(query),
            
-           body: dto,
            
-           contentType: 'application/json',
+           
         });
        return (response as unknown) as EvropatLocationOfficeDTO[];
    }

@@ -46,62 +46,62 @@ export const ShippingsSpeedySyncLocations = async (dto: SpeedyAuthenticationCred
     return (response as unknown) as any;
 }
 
-export const ShippingsSpeedyFetchCountries = async (dto: SpeedyAuthenticationCredentialsDTO): Promise<SpeedyLocationCountryDTO[]> => {
+export const ShippingsSpeedyFetchCountries = async (query: { username: string, password: string }): Promise<SpeedyLocationCountryDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/speedy/fetch/countries`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as SpeedyLocationCountryDTO[];
 }
 
-export const ShippingsSpeedyFetchCities = async (dto: SpeedyAuthenticationCredentialsDTO): Promise<SpeedyLocationCityDTO[]> => {
+export const ShippingsSpeedyFetchCities = async (query: { username: string, password: string }): Promise<SpeedyLocationCityDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/speedy/fetch/cities`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as SpeedyLocationCityDTO[];
 }
 
-export const ShippingsSpeedyFetchQuarters = async (dto: SpeedyAuthenticationCredentialsDTO): Promise<SpeedyLocationQuarterDTO[]> => {
+export const ShippingsSpeedyFetchQuarters = async (query: { username: string, password: string }): Promise<SpeedyLocationQuarterDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/speedy/fetch/quarters`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as SpeedyLocationQuarterDTO[];
 }
 
-export const ShippingsSpeedyFetchStreets = async (dto: SpeedyAuthenticationCredentialsDTO): Promise<SpeedyLocationStreetDTO[]> => {
+export const ShippingsSpeedyFetchStreets = async (query: { username: string, password: string }): Promise<SpeedyLocationStreetDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/speedy/fetch/streets`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as SpeedyLocationStreetDTO[];
 }
 
-export const ShippingsSpeedyFetchOffices = async (dto: SpeedyAuthenticationCredentialsDTO): Promise<SpeedyLocationOfficeDTO[]> => {
+export const ShippingsSpeedyFetchOffices = async (query: { username: string, password: string }): Promise<SpeedyLocationOfficeDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/speedy/fetch/offices`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as SpeedyLocationOfficeDTO[];
 }

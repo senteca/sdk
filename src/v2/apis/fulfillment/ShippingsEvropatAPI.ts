@@ -48,62 +48,62 @@ export const ShippingsEvropatSyncLocations = async (dto: EvropatAuthenticationCr
     return (response as unknown) as any;
 }
 
-export const ShippingsEvropatFetchCountries = async (dto: EvropatAuthenticationCredentialsDTO): Promise<EvropatLocationCountryDTO[]> => {
+export const ShippingsEvropatFetchCountries = async (query: { clientKey: string }): Promise<EvropatLocationCountryDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/fetch/countries`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as EvropatLocationCountryDTO[];
 }
 
-export const ShippingsEvropatFetchCities = async (dto: EvropatAuthenticationCredentialsDTO): Promise<EvropatLocationCityDTO[]> => {
+export const ShippingsEvropatFetchCities = async (query: { clientKey: string }): Promise<EvropatLocationCityDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/fetch/cities`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as EvropatLocationCityDTO[];
 }
 
-export const ShippingsEvropatFetchQuarters = async (dto: EvropatAuthenticationCredentialsDTO): Promise<EvropatLocationQuarterDTO[]> => {
+export const ShippingsEvropatFetchQuarters = async (query: { clientKey: string }): Promise<EvropatLocationQuarterDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/fetch/quarters`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as EvropatLocationQuarterDTO[];
 }
 
-export const ShippingsEvropatFetchStreets = async (dto: EvropatAuthenticationCredentialsDTO): Promise<EvropatLocationStreetDTO[]> => {
+export const ShippingsEvropatFetchStreets = async (query: { clientKey: string }): Promise<EvropatLocationStreetDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/fetch/streets`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as EvropatLocationStreetDTO[];
 }
 
-export const ShippingsEvropatFetchOffices = async (dto: EvropatAuthenticationCredentialsDTO): Promise<EvropatLocationOfficeDTO[]> => {
+export const ShippingsEvropatFetchOffices = async (query: { clientKey: string }): Promise<EvropatLocationOfficeDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/fetch/offices`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as EvropatLocationOfficeDTO[];
 }

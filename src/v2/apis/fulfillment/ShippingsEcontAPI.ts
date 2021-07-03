@@ -47,62 +47,62 @@ export const ShippingsEcontSyncLocations = async (dto: EcontAuthenticationCreden
     return (response as unknown) as any;
 }
 
-export const ShippingsEcontFetchCountries = async (dto: EcontAuthenticationCredentialsDTO): Promise<EcontLocationCountryDTO[]> => {
+export const ShippingsEcontFetchCountries = async (query: { username: string, password: string }): Promise<EcontLocationCountryDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/econt/fetch/countries`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as EcontLocationCountryDTO[];
 }
 
-export const ShippingsEcontFetchCities = async (dto: EcontAuthenticationCredentialsDTO): Promise<EcontLocationCityDTO[]> => {
+export const ShippingsEcontFetchCities = async (query: { username: string, password: string }): Promise<EcontLocationCityDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/econt/fetch/cities`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as EcontLocationCityDTO[];
 }
 
-export const ShippingsEcontFetchQuarters = async (dto: EcontAuthenticationCredentialsDTO): Promise<EcontLocationQuarterDTO[]> => {
+export const ShippingsEcontFetchQuarters = async (query: { username: string, password: string }): Promise<EcontLocationQuarterDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/econt/fetch/quarters`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as EcontLocationQuarterDTO[];
 }
 
-export const ShippingsEcontFetchStreets = async (dto: EcontAuthenticationCredentialsDTO): Promise<EcontLocationStreetDTO[]> => {
+export const ShippingsEcontFetchStreets = async (query: { username: string, password: string }): Promise<EcontLocationStreetDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/econt/fetch/streets`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as EcontLocationStreetDTO[];
 }
 
-export const ShippingsEcontFetchOffices = async (dto: EcontAuthenticationCredentialsDTO): Promise<EcontLocationOfficeDTO[]> => {
+export const ShippingsEcontFetchOffices = async (query: { username: string, password: string }): Promise<EcontLocationOfficeDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/econt/fetch/offices`,
         method: 'GET',
+        query: toQueryString(query),
         
-        body: dto,
         
-        contentType: 'application/json',
+        
     });
     return (response as unknown) as EcontLocationOfficeDTO[];
 }
