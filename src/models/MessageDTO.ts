@@ -36,4 +36,5 @@ export enum MessageDTOResourceTypeIdEnum {
     StockLocation = 'stock-location',  
     Role = 'role',  
     Zone = 'zone',  
+    ProductVariant = 'product-variant',  
 }

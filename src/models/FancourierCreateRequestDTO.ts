@@ -17,6 +17,7 @@ export interface FancourierCreateRequestDTO {
   width?: number;
   height?: number;
   length?: number;
+  weight?: number;
 }
 
 export enum FancourierCreateRequestDTOShare_typeEnum {

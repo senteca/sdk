@@ -37,4 +37,5 @@ export enum IdReferenceDTOResourceTypeEnum {
     StockLocation = 'stock-location',  
     Role = 'role',  
     Zone = 'zone',  
+    ProductVariant = 'product-variant',  
 }

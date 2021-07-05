@@ -7,5 +7,6 @@ export interface EvropatOfficeDTO {
   workTimeFrom: string;
   workTimeTo: string;
   destinationID: string;
+  origDestinationID: string;
 }
 

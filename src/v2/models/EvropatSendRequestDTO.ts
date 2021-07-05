@@ -18,6 +18,10 @@ export interface EvropatSendRequestDTO {
   return_service?: number;
   order_description?: string;
   pickup_date?: string;
+  dimensionsWidth?: number;
+  dimensionsHeight?: number;
+  dimensionsLength?: number;
+  weight?: number;
 }
 
 export enum EvropatSendRequestDTOShare_typeEnum {

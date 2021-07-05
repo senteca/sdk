@@ -59,4 +59,5 @@ export enum CustomFieldDTOResourceTypeIdEnum {
     StockLocation = 'stock-location',  
     Role = 'role',  
     Zone = 'zone',  
+    ProductVariant = 'product-variant',  
 }

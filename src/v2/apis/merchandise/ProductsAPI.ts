@@ -837,6 +837,18 @@ export const ProductsSetVariantOverrides = async (sku: string, dto: ProductVaria
     
 }
 
+export const ProductsSetVariantCustom = async (sku: string, dto: SetCustomFieldDTO[]): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/sku=${encodeURIComponent(sku)}/variant-custom`,
+        method: 'PATCH',
+        
+        body: dto,
+        
+        contentType: 'application/json',
+    });
+    
+}
+
 export const ProductsAddVariantOptionDefinition = async (sku: string, dto: OptionDefinitionDTO): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(sku)}/options`,

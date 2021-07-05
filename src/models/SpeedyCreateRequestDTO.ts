@@ -19,6 +19,10 @@ export interface SpeedyCreateRequestDTO {
   return_service?: number;
   order_description?: string;
   pickup_date?: string;
+  width?: number;
+  height?: number;
+  length?: number;
+  weight?: number;
 }
 
 export enum SpeedyCreateRequestDTOShare_typeEnum {

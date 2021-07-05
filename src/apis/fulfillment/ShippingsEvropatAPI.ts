@@ -1,17 +1,11 @@
 import { BaseAPI } from '../../runtime';
 import { EvropatClientAddressDTO } from '../../models/EvropatClientAddressDTO';
 import { EvropatAuthenticationCredentialsDTO } from '../../models/EvropatAuthenticationCredentialsDTO';
-import { EvropatLocationCountryDTO } from '../../models/EvropatLocationCountryDTO';
 import { EvropatLocationCityDTO } from '../../models/EvropatLocationCityDTO';
-import { EvropatLocationQuarterDTO } from '../../models/EvropatLocationQuarterDTO';
-import { EvropatLocationStreetDTO } from '../../models/EvropatLocationStreetDTO';
 import { EvropatLocationOfficeDTO } from '../../models/EvropatLocationOfficeDTO';
 import { EvropatModuleAddressDTO } from '../../models/EvropatModuleAddressDTO';
 import { OrderDTO } from '../../models/OrderDTO';
-import { EvropatCountryDTO } from '../../models/EvropatCountryDTO';
 import { EvropatCityDTO } from '../../models/EvropatCityDTO';
-import { EvropatQuarterDTO } from '../../models/EvropatQuarterDTO';
-import { EvropatStreetDTO } from '../../models/EvropatStreetDTO';
 import { EvropatOfficeDTO } from '../../models/EvropatOfficeDTO';
 import { EvropatCreateRequestDTO } from '../../models/EvropatCreateRequestDTO';
 import { EvropatCreateResponseDTO } from '../../models/EvropatCreateResponseDTO';
@@ -47,18 +41,6 @@ export class ShippingsEvropatAPI extends BaseAPI {
        return (response as unknown) as any;
    }
 
-   async fetchCountries (query: { clientKey: string }): Promise<EvropatLocationCountryDTO[]> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/fetch/countries`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response as unknown) as EvropatLocationCountryDTO[];
-   }
-
    async fetchCities (query: { clientKey: string }): Promise<EvropatLocationCityDTO[]> {
        const response = await this._request({
            path: `/fulfillment/shippings/evropat/fetch/cities`,
@@ -69,30 +51,6 @@ export class ShippingsEvropatAPI extends BaseAPI {
            
         });
        return (response as unknown) as EvropatLocationCityDTO[];
-   }
-
-   async fetchQuarters (query: { clientKey: string }): Promise<EvropatLocationQuarterDTO[]> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/fetch/quarters`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response as unknown) as EvropatLocationQuarterDTO[];
-   }
-
-   async fetchStreets (query: { clientKey: string }): Promise<EvropatLocationStreetDTO[]> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/fetch/streets`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response as unknown) as EvropatLocationStreetDTO[];
    }
 
    async fetchOffices (query: { clientKey: string }): Promise<EvropatLocationOfficeDTO[]> {
@@ -107,18 +65,6 @@ export class ShippingsEvropatAPI extends BaseAPI {
        return (response as unknown) as EvropatLocationOfficeDTO[];
    }
 
-   async searchCountry (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EvropatLocationCountryDTO[]> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/search/country`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response as unknown) as EvropatLocationCountryDTO[];
-   }
-
    async searchCity (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EvropatLocationCityDTO[]> {
        const response = await this._request({
            path: `/fulfillment/shippings/evropat/search/city`,
@@ -129,30 +75,6 @@ export class ShippingsEvropatAPI extends BaseAPI {
            
         });
        return (response as unknown) as EvropatLocationCityDTO[];
-   }
-
-   async searchQuarter (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EvropatLocationQuarterDTO[]> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/search/quarter`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response as unknown) as EvropatLocationQuarterDTO[];
-   }
-
-   async searchStreet (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EvropatLocationStreetDTO[]> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/search/street`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response as unknown) as EvropatLocationStreetDTO[];
    }
 
    async searchOffice (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EvropatLocationOfficeDTO[]> {
@@ -179,30 +101,6 @@ export class ShippingsEvropatAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
-   async setCountry (orderId: string, shippingId: string, dto: EvropatCountryDTO): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/country`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response as unknown) as OrderDTO;
-   }
-
-   async unsetCountry (orderId: string, shippingId: string): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/country`,
-           method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response as unknown) as OrderDTO;
-   }
-
    async setCity (orderId: string, shippingId: string, dto: EvropatCityDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/city`,
@@ -218,54 +116,6 @@ export class ShippingsEvropatAPI extends BaseAPI {
    async unsetCity (orderId: string, shippingId: string): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/city`,
-           method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response as unknown) as OrderDTO;
-   }
-
-   async setQuarter (orderId: string, shippingId: string, dto: EvropatQuarterDTO): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/quarter`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response as unknown) as OrderDTO;
-   }
-
-   async unsetQuarter (orderId: string, shippingId: string): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/quarter`,
-           method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response as unknown) as OrderDTO;
-   }
-
-   async setStreet (orderId: string, shippingId: string, dto: EvropatStreetDTO): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/street`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response as unknown) as OrderDTO;
-   }
-
-   async unsetStreet (orderId: string, shippingId: string): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/street`,
            method: 'DELETE',
            
            
@@ -311,45 +161,9 @@ export class ShippingsEvropatAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
-   async setDeliveryCountry (orderId: string, shippingId: string, deliveryId: string, dto: EvropatCountryDTO): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/country`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response as unknown) as OrderDTO;
-   }
-
    async setDeliveryCity (orderId: string, shippingId: string, deliveryId: string, dto: EvropatCityDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/city`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response as unknown) as OrderDTO;
-   }
-
-   async setDeliveryQuarter (orderId: string, shippingId: string, deliveryId: string, dto: EvropatQuarterDTO): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/quarter`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       return (response as unknown) as OrderDTO;
-   }
-
-   async setDeliveryStreet (orderId: string, shippingId: string, deliveryId: string, dto: EvropatStreetDTO): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/street`,
            method: 'PATCH',
            
            body: dto,

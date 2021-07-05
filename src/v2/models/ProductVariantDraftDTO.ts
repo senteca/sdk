@@ -7,6 +7,7 @@ import { InventoryDraftDTO } from './InventoryDraftDTO';
 import { LangValue } from './LangValue';
 import { ContentDTO } from './ContentDTO';
 import { ProductVariantLabelDTO } from './ProductVariantLabelDTO';
+import { CustomField } from './CustomField';
 
 export interface ProductVariantDraftDTO {
   _id: string;
@@ -29,6 +30,7 @@ export interface ProductVariantDraftDTO {
   metaDescription?: LangValue[];
   metaKeywords?: LangValue[];
   labels?: ProductVariantLabelDTO[];
+  custom?: CustomField[];
 }
 
 export enum ProductVariantDraftDTOCollapseModeEnum {

@@ -24,6 +24,7 @@ export interface EcontCreateRequestDTO {
   dimensionsWidth?: number;
   dimensionsHeight?: number;
   dimensionsLength?: number;
+  weight?: number;
   sizeUnder?: boolean;
   keepUpright?: boolean;
 }

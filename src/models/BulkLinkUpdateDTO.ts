@@ -38,4 +38,5 @@ export enum BulkLinkUpdateDTOLinkTypeEnum {
     StockLocation = 'stock-location',  
     Role = 'role',  
     Zone = 'zone',  
+    ProductVariant = 'product-variant',  
 }

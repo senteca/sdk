@@ -836,6 +836,18 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
+   async setVariantCustom (sku: string, dto: SetCustomFieldDTO[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/sku=${encodeURIComponent(sku)}/variant-custom`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
    async addVariantOptionDefinition (sku: string, dto: OptionDefinitionDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/options`,
