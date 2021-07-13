@@ -1,3 +1,4 @@
+export * from "./AddonsAPI";
 export * from "./CustomFieldsAPI";
 export * from "./InternationalsAPI";
 export * from "./LabelsAPI";

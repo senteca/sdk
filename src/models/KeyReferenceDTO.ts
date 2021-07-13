@@ -38,4 +38,5 @@ export enum KeyReferenceDTOResourceTypeEnum {
     Role = 'role',  
     Zone = 'zone',  
     ProductVariant = 'product-variant',  
+    Addon = 'addon',  
 }

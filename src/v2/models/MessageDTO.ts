@@ -37,4 +37,5 @@ export enum MessageDTOResourceTypeIdEnum {
     Role = 'role',  
     Zone = 'zone',  
     ProductVariant = 'product-variant',  
+    Addon = 'addon',  
 }
