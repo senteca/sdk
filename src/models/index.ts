@@ -307,6 +307,7 @@ export * from "./ProductFilterResultDTO";
 export * from "./ProductImportDraftDTO";
 export * from "./ProductMasterVariantUpdateDTO";
 export * from "./ProductOwnerUpdateDTO";
+export * from "./ProductRelationsDTO";
 export * from "./ProductScoreUpdateDTO";
 export * from "./ProductSearchResultDTO";
 export * from "./ProductSkuUpdateDTO";
