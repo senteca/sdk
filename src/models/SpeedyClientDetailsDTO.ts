@@ -8,7 +8,8 @@ export interface SpeedyClientDetailsDTO {
   contactName: string;
   email: string;
   objectName: string;
-  additionalServices: SpeedyPhoneDTO[];
+  additionalServices?: SpeedyPhoneDTO[];
   privatePerson: boolean;
+  phones?: SpeedyPhoneDTO[];
 }
 

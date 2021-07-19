@@ -38,5 +38,6 @@ export enum IdReferenceDTOResourceTypeEnum {
     Role = 'role',  
     Zone = 'zone',  
     ProductVariant = 'product-variant',  
+    ShippingSender = 'shipping-sender',  
     Addon = 'addon',  
 }

@@ -15,6 +15,7 @@ export * from "./PaymentMethodsAPI";
 export * from "./ProductDiscountsAPI";
 export * from "./ShippingConfigsAPI";
 export * from "./ShippingMethodsAPI";
+export * from "./ShippingSendersAPI";
 export * from "./ShippingsEcontAPI";
 export * from "./ShippingsEvropatAPI";
 export * from "./ShippingsFancourierAPI";

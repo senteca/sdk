@@ -525,18 +525,6 @@ export const ProductsSetCollections = async (id: string, dto: IdReferenceDTO[]):
     
 }
 
-export const ProductsSetRelations = async (id: string, dto: IdReferenceDTO[]): Promise<void> => {
-    const response = await HttpClient.request({
-        path: `/merchandise/products/${encodeURIComponent(id)}/relations`,
-        method: 'PATCH',
-        
-        body: dto,
-        
-        contentType: 'application/json',
-    });
-    
-}
-
 export const ProductsSetAttributes = async (id: string, dto: ProductAttributeDTO[]): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(id)}/attributes`,

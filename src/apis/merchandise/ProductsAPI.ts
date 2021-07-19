@@ -524,18 +524,6 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setRelations (id: string, dto: IdReferenceDTO[]): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(id)}/relations`,
-           method: 'PATCH',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       
-   }
-
    async setAttributes (id: string, dto: ProductAttributeDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/attributes`,
