@@ -1,5 +1,6 @@
 import { BaseAPI } from '../../runtime';
 import { OrderFilterResultDTO } from '../../models/OrderFilterResultDTO';
+import { SendOrderDTO } from '../../models/SendOrderDTO';
 import { OrderDTO } from '../../models/OrderDTO';
 import { ShippingModulesInfo } from '../../models/ShippingModulesInfo';
 import { ShippingMethodsInfo } from '../../models/ShippingMethodsInfo';
@@ -18,14 +19,14 @@ export class MyOrdersAPI extends BaseAPI {
        return (response as unknown) as OrderFilterResultDTO;
    }
 
-   async create (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<OrderDTO> {
+   async create (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: SendOrderDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-orders`,
            method: 'POST',
            query: this._stringifyQuery(query),
+           body: dto,
            
-           
-           
+           contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
    }

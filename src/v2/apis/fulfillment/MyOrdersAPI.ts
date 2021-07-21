@@ -2,6 +2,7 @@
 
 import { HttpClient, toQueryString } from '../../runtime';
 import { OrderFilterResultDTO } from '../../models/OrderFilterResultDTO';
+import { SendOrderDTO } from '../../models/SendOrderDTO';
 import { OrderDTO } from '../../models/OrderDTO';
 import { ShippingModulesInfo } from '../../models/ShippingModulesInfo';
 import { ShippingMethodsInfo } from '../../models/ShippingMethodsInfo';
@@ -19,14 +20,14 @@ export const MyOrdersFilter = async (query?: { storeKey?: string, interfaceKey?:
     return (response as unknown) as OrderFilterResultDTO;
 }
 
-export const MyOrdersCreate = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<OrderDTO> => {
+export const MyOrdersCreate = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: SendOrderDTO): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-orders`,
         method: 'POST',
         query: toQueryString(query),
+        body: dto,
         
-        
-        
+        contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
 }

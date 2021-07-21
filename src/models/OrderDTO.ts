@@ -76,6 +76,7 @@ export interface OrderDTO {
   platformShippingMethod?: IdReferenceDTO;
   custom?: CustomField[];
   meta?: MetaItemDTO[];
+  ip?: string;
 }
 
 export enum OrderDTOStatusEnum {
