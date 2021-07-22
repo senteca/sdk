@@ -6,5 +6,7 @@ export interface AddonPageDTO {
 }
 
 export enum AddonPageDTOTypeEnum {
-    Settings = 'settings',  
+    Settings = 'settings',
+    Products = 'products',
+    Categories = 'categories'
 }
