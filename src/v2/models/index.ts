@@ -4,7 +4,6 @@ export * from "./AddonFilterResultDTO";
 export * from "./AddonPageDTO";
 export * from "./AddonRequestBodyDTO";
 export * from "./AddonRequestDTO";
-export * from "./AddonResponseDTO";
 export * from "./AddressDTO";
 export * from "./AddressDraftDTO";
 export * from "./AddressModuleDataDTO";

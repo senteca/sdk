@@ -4,5 +4,6 @@ export interface AddonDraftDTO {
   version?: number;
   name: string;
   pages: AddonPageDTO[];
+  settings: any;
 }
 
