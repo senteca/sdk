@@ -5,6 +5,7 @@ import { CategoryFilterResultDTO } from '../../models/CategoryFilterResultDTO';
 import { CategoryImportDraftDTO } from '../../models/CategoryImportDraftDTO';
 import { CategorySearchResultDTO } from '../../models/CategorySearchResultDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { Map } from '../../models/Map';
 
 export class CategoriesAPI extends BaseAPI {
    async create (dto: CategoryDraftDTO): Promise<CategoryDTO> {
@@ -142,6 +143,18 @@ export class CategoriesAPI extends BaseAPI {
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/categories/${encodeURIComponent(id)}/custom`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setAddonData (id: string, dto: Map): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/categories/${encodeURIComponent(id)}/addon-data`,
            method: 'PATCH',
            
            body: dto,

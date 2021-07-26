@@ -21,6 +21,7 @@ export interface CategoryImportDraftDTO {
   metaKeywords?: LangValue[];
   custom?: CustomField[];
   externalId?: string;
+  addonData?: any;
   externalParent?: IdReferenceDTO;
 }
 
