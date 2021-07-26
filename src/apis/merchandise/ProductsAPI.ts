@@ -42,6 +42,7 @@ import { ProductVariantOverridesDTO } from '../../models/ProductVariantOverrides
 import { OptionDefinitionDTO } from '../../models/OptionDefinitionDTO';
 import { InventoryDraftDTO } from '../../models/InventoryDraftDTO';
 import { ProductVariantLabelDTO } from '../../models/ProductVariantLabelDTO';
+import { Map } from '../../models/Map';
 
 export class ProductsAPI extends BaseAPI {
    async bulkLink (dto: BulkLinkUpdateDTO): Promise<void> {
@@ -935,6 +936,18 @@ export class ProductsAPI extends BaseAPI {
    async setVariantLabels (sku: string, dto: ProductVariantLabelDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/labels`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async setAddonData (id: string, dto: Map): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}/addon-data`,
            method: 'PATCH',
            
            body: dto,

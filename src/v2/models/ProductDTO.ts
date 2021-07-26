@@ -43,5 +43,6 @@ export interface ProductDTO {
   score?: number;
   reviewRatingStatistics?: ReviewRatingStatisticsDTO;
   relations?: ProductRelationsDTO;
+  addonData?: any;
 }
 

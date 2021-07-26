@@ -44,6 +44,7 @@ import { ProductVariantOverridesDTO } from '../../models/ProductVariantOverrides
 import { OptionDefinitionDTO } from '../../models/OptionDefinitionDTO';
 import { InventoryDraftDTO } from '../../models/InventoryDraftDTO';
 import { ProductVariantLabelDTO } from '../../models/ProductVariantLabelDTO';
+import { Map } from '../../models/Map';
 
 export const ProductsBulkLink = async (dto: BulkLinkUpdateDTO): Promise<void> => {
     const response = await HttpClient.request({
@@ -936,6 +937,18 @@ export const ProductsDeleteVariantInventory = async (sku: string, stockLocationK
 export const ProductsSetVariantLabels = async (sku: string, dto: ProductVariantLabelDTO[]): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(sku)}/labels`,
+        method: 'PATCH',
+        
+        body: dto,
+        
+        contentType: 'application/json',
+    });
+    
+}
+
+export const ProductsSetAddonData = async (id: string, dto: Map): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/${encodeURIComponent(id)}/addon-data`,
         method: 'PATCH',
         
         body: dto,

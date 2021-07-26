@@ -232,6 +232,7 @@ export * from "./LineItemImportDTO";
 export * from "./LineItemStateForQuantityDTO";
 export * from "./LocationDTO";
 export * from "./LoginRequestDTO";
+export * from "./Map";
 export * from "./MediaDTO";
 export * from "./MediaDeleteDTO";
 export * from "./MediaFilterResultDTO";
