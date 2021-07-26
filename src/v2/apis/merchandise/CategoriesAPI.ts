@@ -7,6 +7,7 @@ import { CategoryFilterResultDTO } from '../../models/CategoryFilterResultDTO';
 import { CategoryImportDraftDTO } from '../../models/CategoryImportDraftDTO';
 import { CategorySearchResultDTO } from '../../models/CategorySearchResultDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { Map } from '../../models/Map';
 
 export const CategoriesCreate = async (dto: CategoryDraftDTO): Promise<CategoryDTO> => {
     const response = await HttpClient.request({
@@ -143,6 +144,18 @@ export const CategoriesDeleteById = async (id: string): Promise<CategoryDTO> => 
 export const CategoriesSetCustom = async (id: string, dto: SetCustomFieldDTO[]): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/categories/${encodeURIComponent(id)}/custom`,
+        method: 'PATCH',
+        
+        body: dto,
+        
+        contentType: 'application/json',
+    });
+    
+}
+
+export const CategoriesSetAddonData = async (id: string, dto: Map): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/categories/${encodeURIComponent(id)}/addon-data`,
         method: 'PATCH',
         
         body: dto,

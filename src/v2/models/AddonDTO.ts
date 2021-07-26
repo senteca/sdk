@@ -7,5 +7,6 @@ export interface AddonDTO {
   version?: number;
   name: string;
   pages: AddonPageDTO[];
+  settings: any;
 }
 

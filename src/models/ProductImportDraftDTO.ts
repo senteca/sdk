@@ -39,6 +39,7 @@ export interface ProductImportDraftDTO {
   score?: number;
   reviewRatingStatistics?: ReviewRatingStatisticsDTO;
   relations?: ProductRelationsDTO;
+  addonData?: any;
   externalCategories?: IdReferenceDTO[];
   externalBrands?: IdReferenceDTO[];
   externalCollections?: IdReferenceDTO[];

@@ -21,6 +21,7 @@ export interface CategoryDTO {
   metaKeywords?: LangValue[];
   custom?: CustomField[];
   externalId?: string;
+  addonData?: any;
   createdAt: number;
   updatedAt: number;
 }

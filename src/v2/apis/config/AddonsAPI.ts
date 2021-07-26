@@ -5,7 +5,6 @@ import { AddonFilterResultDTO } from '../../models/AddonFilterResultDTO';
 import { AddonDraftDTO } from '../../models/AddonDraftDTO';
 import { AddonDTO } from '../../models/AddonDTO';
 import { AddonRequestDTO } from '../../models/AddonRequestDTO';
-import { AddonResponseDTO } from '../../models/AddonResponseDTO';
 
 export const AddonsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<AddonFilterResultDTO> => {
     const response = await HttpClient.request({
@@ -43,21 +42,9 @@ export const AddonsBulkRegister = async (dto: AddonDraftDTO[]): Promise<AddonDra
     return (response as unknown) as AddonDraftDTO[];
 }
 
-export const AddonsRequest = async (dto: AddonRequestDTO): Promise<AddonResponseDTO> => {
+export const AddonsRequest = async (dto: AddonRequestDTO): Promise<void> => {
     const response = await HttpClient.request({
         path: `/config/addons/request`,
-        method: 'POST',
-        
-        body: dto,
-        
-        contentType: 'application/json',
-    });
-    return (response as unknown) as AddonResponseDTO;
-}
-
-export const AddonsReply = async (dto: AddonResponseDTO): Promise<void> => {
-    const response = await HttpClient.request({
-        path: `/config/addons/reply`,
         method: 'POST',
         
         body: dto,
