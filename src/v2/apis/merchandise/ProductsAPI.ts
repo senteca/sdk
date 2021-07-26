@@ -15,6 +15,7 @@ import { ProductDraftDTO } from '../../models/ProductDraftDTO';
 import { ProductDTO } from '../../models/ProductDTO';
 import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
 import { ProductImportDraftDTO } from '../../models/ProductImportDraftDTO';
+import { FilterQueryDTO } from '../../models/FilterQueryDTO';
 import { ProductSearchResultDTO } from '../../models/ProductSearchResultDTO';
 import { AttributeValueDTO } from '../../models/AttributeValueDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
@@ -239,14 +240,14 @@ export const ProductsImport = async (dto: ProductImportDraftDTO[]): Promise<void
     
 }
 
-export const ProductsExportToCSV = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number, lang: string, allVariants: boolean }): Promise<any> => {
+export const ProductsExportToCSV = async (dto: FilterQueryDTO): Promise<any> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/export/csv`,
-        method: 'GET',
-        query: toQueryString(query),
+        method: 'POST',
         
+        body: dto,
         
-        
+        contentType: 'application/json',
     });
     return (response as unknown) as any;
 }

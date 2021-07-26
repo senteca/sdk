@@ -199,6 +199,7 @@ export * from "./FancourierSendResponseDTO";
 export * from "./FancourierStreetDTO";
 export * from "./FancourierTrackRequestDTO";
 export * from "./FancourierTrackResponseDTO";
+export * from "./FilterQueryDTO";
 export * from "./FlipFoldersDTO";
 export * from "./FolderDTO";
 export * from "./FolderDraftDTO";

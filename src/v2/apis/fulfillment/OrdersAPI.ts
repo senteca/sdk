@@ -3,6 +3,7 @@
 import { HttpClient, toQueryString } from '../../runtime';
 import { OrderImportDTO } from '../../models/OrderImportDTO';
 import { OrderDTO } from '../../models/OrderDTO';
+import { FilterQueryDTO } from '../../models/FilterQueryDTO';
 import { CartDraftDTO } from '../../models/CartDraftDTO';
 import { NewOrders } from '../../models/NewOrders';
 import { OrderFilterResultDTO } from '../../models/OrderFilterResultDTO';
@@ -42,14 +43,14 @@ export const OrdersImport = async (dto: OrderImportDTO[]): Promise<OrderDTO[]> =
     return (response as unknown) as OrderDTO[];
 }
 
-export const OrdersExportCSV = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number, lang: string }): Promise<any> => {
+export const OrdersExportCSV = async (dto: FilterQueryDTO): Promise<any> => {
     const response = await HttpClient.request({
         path: `/fulfillment/orders/export/csv`,
-        method: 'GET',
-        query: toQueryString(query),
+        method: 'POST',
         
+        body: dto,
         
-        
+        contentType: 'application/json',
     });
     return (response as unknown) as any;
 }

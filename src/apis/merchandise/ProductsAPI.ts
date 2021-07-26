@@ -13,6 +13,7 @@ import { ProductDraftDTO } from '../../models/ProductDraftDTO';
 import { ProductDTO } from '../../models/ProductDTO';
 import { ProductFilterResultDTO } from '../../models/ProductFilterResultDTO';
 import { ProductImportDraftDTO } from '../../models/ProductImportDraftDTO';
+import { FilterQueryDTO } from '../../models/FilterQueryDTO';
 import { ProductSearchResultDTO } from '../../models/ProductSearchResultDTO';
 import { AttributeValueDTO } from '../../models/AttributeValueDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
@@ -238,14 +239,14 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async exportToCSV (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number, lang: string, allVariants: boolean }): Promise<any> {
+   async exportToCSV (dto: FilterQueryDTO): Promise<any> {
        const response = await this._request({
            path: `/merchandise/products/export/csv`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
+           method: 'POST',
            
+           body: dto,
            
-           
+           contentType: 'application/json',
         });
        return (response as unknown) as any;
    }

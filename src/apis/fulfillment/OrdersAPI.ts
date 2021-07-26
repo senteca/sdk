@@ -1,6 +1,7 @@
 import { BaseAPI } from '../../runtime';
 import { OrderImportDTO } from '../../models/OrderImportDTO';
 import { OrderDTO } from '../../models/OrderDTO';
+import { FilterQueryDTO } from '../../models/FilterQueryDTO';
 import { CartDraftDTO } from '../../models/CartDraftDTO';
 import { NewOrders } from '../../models/NewOrders';
 import { OrderFilterResultDTO } from '../../models/OrderFilterResultDTO';
@@ -41,14 +42,14 @@ export class OrdersAPI extends BaseAPI {
        return (response as unknown) as OrderDTO[];
    }
 
-   async exportCSV (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number, lang: string }): Promise<any> {
+   async exportCSV (dto: FilterQueryDTO): Promise<any> {
        const response = await this._request({
            path: `/fulfillment/orders/export/csv`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
+           method: 'POST',
            
+           body: dto,
            
-           
+           contentType: 'application/json',
         });
        return (response as unknown) as any;
    }
