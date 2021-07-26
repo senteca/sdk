@@ -29,5 +29,6 @@ export interface AddressDraftDTO {
   isDefaultShippingAddress?: boolean;
   moduleData?: AddressModuleDataDTO[];
   custom?: CustomField[];
+  externalId?: string;
 }
 

@@ -1,5 +1,5 @@
 import { KeyReferenceDTO } from './KeyReferenceDTO';
-import { AddressDTO } from './AddressDTO';
+import { AddressDraftDTO } from './AddressDraftDTO';
 import { LineItemImportDTO } from './LineItemImportDTO';
 import { CustomLineItemDTO } from './CustomLineItemDTO';
 import { MerchantPriceDTO } from './MerchantPriceDTO';
@@ -13,7 +13,7 @@ import { IdReferenceDTO } from './IdReferenceDTO';
 import { ShippingDTO } from './ShippingDTO';
 
 export interface OrderImportDTO {
-  id?: string;
+  _id?: string;
   createdAt: number;
   updatedAt: number;
   version?: number;
@@ -40,8 +40,8 @@ export interface OrderImportDTO {
   customerEmail?: string;
   customerGroup?: KeyReferenceDTO;
   anonymousId?: string;
-  shippingAddress: AddressDTO;
-  billingAddress: AddressDTO;
+  shippingAddress: AddressDraftDTO;
+  billingAddress: AddressDraftDTO;
   lineItems: LineItemImportDTO[];
   customLineItems?: CustomLineItemDTO[];
   merchants: KeyReferenceDTO[];

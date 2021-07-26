@@ -1,6 +1,8 @@
 
 export interface EvropatTrackResponseDTO {
-  shipmentNumber: string;
-  trackingEvents: any[];
+  id: string;
+  isShipped: boolean;
+  deliveryTime?: number;
+  providerPayload: any;
 }
 

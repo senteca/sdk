@@ -24,6 +24,7 @@ import { LangValue } from '../../models/LangValue';
 import { ProductScoreUpdateDTO } from '../../models/ProductScoreUpdateDTO';
 import { ProductOwnerUpdateDTO } from '../../models/ProductOwnerUpdateDTO';
 import { IdReferenceDTO } from '../../models/IdReferenceDTO';
+import { ProductRelationsDTO } from '../../models/ProductRelationsDTO';
 import { ProductAttributeDTO } from '../../models/ProductAttributeDTO';
 import { ProductMasterVariantUpdateDTO } from '../../models/ProductMasterVariantUpdateDTO';
 import { ContentDTO } from '../../models/ContentDTO';
@@ -524,7 +525,7 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setRelations (id: string, dto: IdReferenceDTO[]): Promise<void> {
+   async setRelations (id: string, dto: ProductRelationsDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/relations`,
            method: 'PATCH',

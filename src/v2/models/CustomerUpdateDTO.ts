@@ -30,6 +30,7 @@ export interface CustomerUpdateDTO {
   defaultShippingAddress?: string;
   companyDetails?: AddressDTO[];
   invitationToken?: string;
+  anonymizationRequested?: boolean;
   custom?: CustomField[];
 }
 

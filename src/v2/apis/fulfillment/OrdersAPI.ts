@@ -114,6 +114,18 @@ export const OrdersGetById = async (id: string): Promise<OrderDTO> => {
     return (response as unknown) as OrderDTO;
 }
 
+export const OrdersDeleteById = async (id: string): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/orders/${encodeURIComponent(id)}`,
+        method: 'DELETE',
+        
+        
+        
+        
+    });
+    return (response as unknown) as OrderDTO;
+}
+
 export const OrdersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/orders`,
@@ -138,10 +150,34 @@ export const OrdersGetByOrderNumber = async (number: number): Promise<OrderDTO> 
     return (response as unknown) as OrderDTO;
 }
 
+export const OrdersDeleteByOrderNumber = async (number: number): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/orders/number=${encodeURIComponent(number)}`,
+        method: 'DELETE',
+        
+        
+        
+        
+    });
+    return (response as unknown) as OrderDTO;
+}
+
 export const OrdersGetByOrderRefNumber = async (ref: string): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/orders/ref=${encodeURIComponent(ref)}`,
         method: 'GET',
+        
+        
+        
+        
+    });
+    return (response as unknown) as OrderDTO;
+}
+
+export const OrdersDeleteByOrderRefNumber = async (ref: string): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/orders/ref=${encodeURIComponent(ref)}`,
+        method: 'DELETE',
         
         
         

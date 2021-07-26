@@ -17,6 +17,7 @@ export interface ShippingDTO {
   authority?: ShippingDTOAuthorityEnum;
   merchant?: KeyReferenceDTO;
   moduleKey?: string;
+  moduleConfigKey?: string;
   moduleMethodKey?: string;
   price?: MoneyDTO;
   taxedPrice?: TaxedPriceDTO;

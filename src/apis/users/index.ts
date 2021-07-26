@@ -1,3 +1,4 @@
+export * from "./ConsentsAPI";
 export * from "./CustomerConsentLogAPI";
 export * from "./CustomerConsentTypesAPI";
 export * from "./CustomerGroupsAPI";

@@ -28,6 +28,18 @@ export class StatesAPI extends BaseAPI {
        return (response as unknown) as StateFilterResultDTO;
    }
 
+   async getByKey (key: string): Promise<StateDTO> {
+       const response = await this._request({
+           path: `/config/states/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response as unknown) as StateDTO;
+   }
+
    async getById (id: string): Promise<StateDTO> {
        const response = await this._request({
            path: `/config/states/${encodeURIComponent(id)}`,
@@ -56,18 +68,6 @@ export class StatesAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/states/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
-        });
-       return (response as unknown) as StateDTO;
-   }
-
-   async getByKey (key: string): Promise<StateDTO> {
-       const response = await this._request({
-           path: `/config/states/key=${encodeURIComponent(key)}`,
-           method: 'GET',
            
            
            

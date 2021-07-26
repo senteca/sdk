@@ -26,6 +26,7 @@ import { LangValue } from '../../models/LangValue';
 import { ProductScoreUpdateDTO } from '../../models/ProductScoreUpdateDTO';
 import { ProductOwnerUpdateDTO } from '../../models/ProductOwnerUpdateDTO';
 import { IdReferenceDTO } from '../../models/IdReferenceDTO';
+import { ProductRelationsDTO } from '../../models/ProductRelationsDTO';
 import { ProductAttributeDTO } from '../../models/ProductAttributeDTO';
 import { ProductMasterVariantUpdateDTO } from '../../models/ProductMasterVariantUpdateDTO';
 import { ContentDTO } from '../../models/ContentDTO';
@@ -525,7 +526,7 @@ export const ProductsSetCollections = async (id: string, dto: IdReferenceDTO[]):
     
 }
 
-export const ProductsSetRelations = async (id: string, dto: IdReferenceDTO[]): Promise<void> => {
+export const ProductsSetRelations = async (id: string, dto: ProductRelationsDTO): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(id)}/relations`,
         method: 'PATCH',

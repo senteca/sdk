@@ -1,13 +1,14 @@
-import { AddressDTO } from './AddressDTO';
+import { AddressDraftDTO } from './AddressDraftDTO';
 import { KeyReferenceDTO } from './KeyReferenceDTO';
+import { AddressDTO } from './AddressDTO';
 import { CustomField } from './CustomField';
 
 export interface RegisterRequestDTO {
   gender?: RegisterRequestDTOGenderEnum;
   responseMode?: RegisterRequestDTOResponseModeEnum;
   password: string;
-  customerAddresses?: AddressDTO[];
-  customerCompanies?: AddressDTO[];
+  customerAddresses?: AddressDraftDTO[];
+  customerCompanies?: AddressDraftDTO[];
   customerNumber?: number;
   storeKey?: string;
   email: string;
@@ -31,6 +32,7 @@ export interface RegisterRequestDTO {
   defaultShippingAddress?: string;
   companyDetails?: AddressDTO[];
   invitationToken?: string;
+  anonymizationRequested?: boolean;
   custom?: CustomField[];
 }
 

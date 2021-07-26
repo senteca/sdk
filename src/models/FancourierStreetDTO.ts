@@ -7,13 +7,7 @@ export interface FancourierStreetDTO {
   nameEn: string;
   from: string;
   to: string;
-  parity: string;
   zipCode: string;
   type: string;
-  routingCode: string;
-  depotNo: string;
-  sortingCode: string;
-  routingLetter: string;
-  agency: string;
 }
 

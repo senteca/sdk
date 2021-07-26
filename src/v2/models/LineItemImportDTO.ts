@@ -11,7 +11,7 @@ import { DiscountedLineItemPriceForQuantity } from './DiscountedLineItemPriceFor
 import { ItemShippingDetailsDTO } from './ItemShippingDetailsDTO';
 
 export interface LineItemImportDTO {
-  id?: string;
+  _id?: string;
   addedAt?: number;
   snapshotFrom?: number;
   updatedAt?: number;

@@ -27,11 +27,11 @@ export const MyCartCreate = async (dto: CartDraftDTO): Promise<OrderDTO> => {
     return (response as unknown) as OrderDTO;
 }
 
-export const MyCartGet = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<OrderDTO> => {
+export const MyCartGet = async (): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-cart`,
         method: 'GET',
-        query: toQueryString(query),
+        
         
         
         

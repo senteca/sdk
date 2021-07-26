@@ -113,6 +113,18 @@ export class OrdersAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
+   async deleteById (id: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/orders/${encodeURIComponent(id)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
        const response = await this._request({
            path: `/fulfillment/orders`,
@@ -137,10 +149,34 @@ export class OrdersAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
+   async deleteByOrderNumber (number: number): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/orders/number=${encodeURIComponent(number)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
    async getByOrderRefNumber (ref: string): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/orders/ref=${encodeURIComponent(ref)}`,
            method: 'GET',
+           
+           
+           
+           
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
+   async deleteByOrderRefNumber (ref: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/orders/ref=${encodeURIComponent(ref)}`,
+           method: 'DELETE',
            
            
            

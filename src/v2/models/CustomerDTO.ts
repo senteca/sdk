@@ -7,13 +7,13 @@ export interface CustomerDTO {
   isEmailVerified?: boolean;
   emailVerificationToken?: string;
   _id: string;
-  createdAt?: number;
-  updatedAt?: number;
+  createdAt: number;
+  updatedAt: number;
   customerAddresses?: AddressDTO[];
   customerCompanies?: AddressDTO[];
   customerNumber?: number;
   storeKey?: string;
-  email: string;
+  email?: string;
   salutation?: string;
   title?: string;
   firstName?: string;
@@ -34,7 +34,9 @@ export interface CustomerDTO {
   defaultShippingAddress?: string;
   companyDetails?: AddressDTO[];
   invitationToken?: string;
+  anonymizationRequested?: boolean;
   custom?: CustomField[];
+  password?: string;
 }
 
 export enum CustomerDTOGenderEnum {

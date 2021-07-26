@@ -29,6 +29,18 @@ export const StatesFilter = async (query?: { storeKey?: string, interfaceKey?: s
     return (response as unknown) as StateFilterResultDTO;
 }
 
+export const StatesGetByKey = async (key: string): Promise<StateDTO> => {
+    const response = await HttpClient.request({
+        path: `/config/states/key=${encodeURIComponent(key)}`,
+        method: 'GET',
+        
+        
+        
+        
+    });
+    return (response as unknown) as StateDTO;
+}
+
 export const StatesGetById = async (id: string): Promise<StateDTO> => {
     const response = await HttpClient.request({
         path: `/config/states/${encodeURIComponent(id)}`,
@@ -57,18 +69,6 @@ export const StatesDelete = async (id: string): Promise<StateDTO> => {
     const response = await HttpClient.request({
         path: `/config/states/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
-    });
-    return (response as unknown) as StateDTO;
-}
-
-export const StatesGetByKey = async (key: string): Promise<StateDTO> => {
-    const response = await HttpClient.request({
-        path: `/config/states/key=${encodeURIComponent(key)}`,
-        method: 'GET',
         
         
         

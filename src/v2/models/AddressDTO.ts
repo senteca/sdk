@@ -4,7 +4,7 @@ import { AddressModuleDataDTO } from './AddressModuleDataDTO';
 import { CustomField } from './CustomField';
 
 export interface AddressDTO {
-  _id?: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
   version?: number;
@@ -31,5 +31,6 @@ export interface AddressDTO {
   isDefaultShippingAddress?: boolean;
   moduleData?: AddressModuleDataDTO[];
   custom?: CustomField[];
+  externalId?: string;
 }
 

@@ -7,5 +7,6 @@ export interface CustomerConsentDTO {
   anonymousId?: string;
   email: string;
   consentKey: string;
+  storeKey: string;
 }
 
