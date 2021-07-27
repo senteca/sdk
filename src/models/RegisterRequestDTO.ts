@@ -6,6 +6,7 @@ import { CustomField } from './CustomField';
 export interface RegisterRequestDTO {
   gender?: RegisterRequestDTOGenderEnum;
   responseMode?: RegisterRequestDTOResponseModeEnum;
+  _id?: string;
   password: string;
   customerAddresses?: AddressDraftDTO[];
   customerCompanies?: AddressDraftDTO[];

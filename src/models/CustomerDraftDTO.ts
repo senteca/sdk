@@ -5,6 +5,7 @@ import { CustomField } from './CustomField';
 
 export interface CustomerDraftDTO {
   gender?: CustomerDraftDTOGenderEnum;
+  _id?: string;
   password: string;
   customerAddresses?: AddressDraftDTO[];
   customerCompanies?: AddressDraftDTO[];
