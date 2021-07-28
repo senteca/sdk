@@ -67,6 +67,7 @@ export * from "./CmsContentDraftDTO";
 export * from "./CmsContentFilterResultDTO";
 export * from "./CmsContentInjectionDTO";
 export * from "./CmsContentInjectionDraftDTO";
+export * from "./CmsContentInjectionFilterValidDTO";
 export * from "./CmsContentInjectionsFilterResultDTO";
 export * from "./CmsRedirectDTO";
 export * from "./CmsRedirectDraftDTO";
