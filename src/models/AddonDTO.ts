@@ -1,4 +1,5 @@
 import { AddonPageDTO } from './AddonPageDTO';
+import { SetAddonDataDTO } from './SetAddonDataDTO';
 
 export interface AddonDTO {
   _id: string;
@@ -7,6 +8,6 @@ export interface AddonDTO {
   version?: number;
   name: string;
   pages: AddonPageDTO[];
-  settings: any;
+  settings: SetAddonDataDTO[];
 }
 

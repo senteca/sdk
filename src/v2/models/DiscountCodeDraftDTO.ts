@@ -16,6 +16,7 @@ export interface DiscountCodeDraftDTO {
   groups?: string[];
   isActive?: boolean;
   isPublic?: boolean;
+  tags?: string[];
   validFrom?: number;
   validTo?: number;
   maxApplications?: number;

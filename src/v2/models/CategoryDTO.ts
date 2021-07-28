@@ -3,6 +3,7 @@ import { IdReferenceDTO } from './IdReferenceDTO';
 import { StoreStatusDTO } from './StoreStatusDTO';
 import { AssetDTO } from './AssetDTO';
 import { CustomField } from './CustomField';
+import { AddonDataDTO } from './AddonDataDTO';
 
 export interface CategoryDTO {
   _id?: string;
@@ -21,7 +22,7 @@ export interface CategoryDTO {
   metaKeywords?: LangValue[];
   custom?: CustomField[];
   externalId?: string;
-  addonData?: any;
+  addonData?: AddonDataDTO[];
   createdAt: number;
   updatedAt: number;
 }

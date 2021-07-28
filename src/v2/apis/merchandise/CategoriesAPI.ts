@@ -7,7 +7,6 @@ import { CategoryFilterResultDTO } from '../../models/CategoryFilterResultDTO';
 import { CategoryImportDraftDTO } from '../../models/CategoryImportDraftDTO';
 import { CategorySearchResultDTO } from '../../models/CategorySearchResultDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
-import { Map } from '../../models/Map';
 
 export const CategoriesCreate = async (dto: CategoryDraftDTO): Promise<CategoryDTO> => {
     const response = await HttpClient.request({
@@ -153,7 +152,7 @@ export const CategoriesSetCustom = async (id: string, dto: SetCustomFieldDTO[]):
     
 }
 
-export const CategoriesSetAddonData = async (id: string, dto: Map): Promise<void> => {
+export const CategoriesSetAddonData = async (id: string, dto: string[]): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/categories/${encodeURIComponent(id)}/addon-data`,
         method: 'PATCH',

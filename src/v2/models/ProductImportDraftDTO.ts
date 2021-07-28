@@ -9,6 +9,7 @@ import { AssetDTO } from './AssetDTO';
 import { CustomField } from './CustomField';
 import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
 import { ProductRelationsDTO } from './ProductRelationsDTO';
+import { AddonDataDTO } from './AddonDataDTO';
 
 export interface ProductImportDraftDTO {
   attributes?: ProductAttributeDraftDTO[];
@@ -39,7 +40,7 @@ export interface ProductImportDraftDTO {
   score?: number;
   reviewRatingStatistics?: ReviewRatingStatisticsDTO;
   relations?: ProductRelationsDTO;
-  addonData?: any;
+  addonData?: AddonDataDTO[];
   externalCategories?: IdReferenceDTO[];
   externalBrands?: IdReferenceDTO[];
   externalCollections?: IdReferenceDTO[];
