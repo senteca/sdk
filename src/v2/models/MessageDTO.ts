@@ -1,7 +1,7 @@
 
 export interface MessageDTO {
-  resourceTypeId: MessageDTOResourceTypeIdEnum;
-  types: string[];
+  resourceTypeId?: MessageDTOResourceTypeIdEnum;
+  types?: string[];
 }
 
 export enum MessageDTOResourceTypeIdEnum {

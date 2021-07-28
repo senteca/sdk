@@ -4,7 +4,6 @@ import { HttpClient, toQueryString } from '../../runtime';
 import { CmsContentInjectionDraftDTO } from '../../models/CmsContentInjectionDraftDTO';
 import { CmsContentInjectionDTO } from '../../models/CmsContentInjectionDTO';
 import { CmsContentInjectionsFilterResultDTO } from '../../models/CmsContentInjectionsFilterResultDTO';
-import { CmsContentInjectionFilterValidDTO } from '../../models/CmsContentInjectionFilterValidDTO';
 
 export const ContentInjectionsCreate = async (dto: CmsContentInjectionDraftDTO): Promise<CmsContentInjectionDTO> => {
     const response = await HttpClient.request({
@@ -30,16 +29,16 @@ export const ContentInjectionsFilter = async (query?: { storeKey?: string, inter
     return (response as unknown) as CmsContentInjectionsFilterResultDTO;
 }
 
-export const ContentInjectionsGetAllValid = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CmsContentInjectionFilterValidDTO[]> => {
+export const ContentInjectionsBaseFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CmsContentInjectionsFilterResultDTO> => {
     const response = await HttpClient.request({
-        path: `/cms/content-injections/valid`,
+        path: `/cms/content-injections/base-filter`,
         method: 'GET',
         query: toQueryString(query),
         
         
         
     });
-    return (response as unknown) as CmsContentInjectionFilterValidDTO[];
+    return (response as unknown) as CmsContentInjectionsFilterResultDTO;
 }
 
 export const ContentInjectionsGetById = async (id: string): Promise<CmsContentInjectionDTO> => {

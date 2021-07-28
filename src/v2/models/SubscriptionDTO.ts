@@ -1,11 +1,10 @@
-import { GoogleCloudPubSubDestinationDTO } from './GoogleCloudPubSubDestinationDTO';
 import { MessageDTO } from './MessageDTO';
 
 export interface SubscriptionDTO {
   version?: number;
   key: string;
   type: SubscriptionDTOTypeEnum;
-  destination: GoogleCloudPubSubDestinationDTO;
+  destination: any;
   messages: MessageDTO[];
   _id: string;
   createdAt: number;
@@ -14,8 +13,5 @@ export interface SubscriptionDTO {
 
 export enum SubscriptionDTOTypeEnum {
     GoogleCloudPubSub = 'GoogleCloudPubSub',  
-    SQS = 'SQS',  
-    SNS = 'SNS',  
-    AzureServiceBus = 'AzureServiceBus',  
-    EventGrid = 'EventGrid',  
+    ServiceBroker = 'ServiceBroker',  
 }
