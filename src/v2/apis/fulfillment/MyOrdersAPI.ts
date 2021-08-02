@@ -80,15 +80,3 @@ export const MyOrdersGetById = async (id: string): Promise<OrderDTO> => {
     return (response as unknown) as OrderDTO;
 }
 
-export const MyOrdersExportMyOrders = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<any> => {
-    const response = await HttpClient.request({
-        path: `/fulfillment/my-orders/export`,
-        method: 'POST',
-        query: toQueryString(query),
-        
-        
-        
-    });
-    return (response as unknown) as any;
-}
-

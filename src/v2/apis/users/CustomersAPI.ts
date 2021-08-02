@@ -16,7 +16,6 @@ import { EmailVerificationDTO } from '../../models/EmailVerificationDTO';
 import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
 import { PasswordResetDTO } from '../../models/PasswordResetDTO';
 import { SetCustomerGroupDTO } from '../../models/SetCustomerGroupDTO';
-import { FilterQueryDTO } from '../../models/FilterQueryDTO';
 
 export const CustomersGetMyProfile = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> => {
     const response = await HttpClient.request({
@@ -522,39 +521,15 @@ export const CustomersImport = async (dto: CustomerDraftDTO[]): Promise<Customer
     return (response as unknown) as CustomerDTO[];
 }
 
-export const CustomersExportCSV = async (dto: FilterQueryDTO): Promise<any> => {
+export const CustomersExportCSV = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<void> => {
     const response = await HttpClient.request({
         path: `/users/customers/export/csv`,
-        method: 'POST',
-        
-        body: dto,
-        
-        contentType: 'application/json',
-    });
-    return (response as unknown) as any;
-}
-
-export const CustomersExportMyProfile = async (): Promise<any> => {
-    const response = await HttpClient.request({
-        path: `/users/customers/export/my-profile`,
-        method: 'POST',
-        
+        method: 'GET',
+        query: toQueryString(query),
         
         
         
     });
-    return (response as unknown) as any;
-}
-
-export const CustomersExportMyAddresses = async (): Promise<any> => {
-    const response = await HttpClient.request({
-        path: `/users/customers/export/my-addresses`,
-        method: 'POST',
-        
-        
-        
-        
-    });
-    return (response as unknown) as any;
+    
 }
 

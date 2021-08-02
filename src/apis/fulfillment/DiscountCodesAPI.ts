@@ -5,6 +5,7 @@ import { DiscountCodeFilterResultDTO } from '../../models/DiscountCodeFilterResu
 import { DiscountCodeDraftDTO } from '../../models/DiscountCodeDraftDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 import { DiscountCodeBulkDeleteDTO } from '../../models/DiscountCodeBulkDeleteDTO';
+import { FilterQueryDTO } from '../../models/FilterQueryDTO';
 
 export class DiscountCodesAPI extends BaseAPI {
    async import (dto: string[]): Promise<DiscountCodeDTO[]> {
@@ -125,6 +126,18 @@ export class DiscountCodesAPI extends BaseAPI {
            contentType: 'application/json',
         });
        
+   }
+
+   async exportToCSV (dto: FilterQueryDTO): Promise<any> {
+       const response = await this._request({
+           path: `/fulfillment/discount-codes/export/csv`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response as unknown) as any;
    }
 
 }
