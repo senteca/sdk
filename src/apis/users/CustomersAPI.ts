@@ -14,6 +14,7 @@ import { EmailVerificationDTO } from '../../models/EmailVerificationDTO';
 import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
 import { PasswordResetDTO } from '../../models/PasswordResetDTO';
 import { SetCustomerGroupDTO } from '../../models/SetCustomerGroupDTO';
+import { FilterQueryDTO } from '../../models/FilterQueryDTO';
 
 export class CustomersAPI extends BaseAPI {
    async getMyProfile (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> {
@@ -520,16 +521,40 @@ export class CustomersAPI extends BaseAPI {
        return (response as unknown) as CustomerDTO[];
    }
 
-   async exportCSV (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<void> {
+   async exportCSV (dto: FilterQueryDTO): Promise<any> {
        const response = await this._request({
            path: `/users/customers/export/csv`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response as unknown) as any;
+   }
+
+   async exportMyProfile (): Promise<any> {
+       const response = await this._request({
+           path: `/users/customers/export/my-profile`,
+           method: 'POST',
+           
            
            
            
         });
-       
+       return (response as unknown) as any;
+   }
+
+   async exportMyAddresses (): Promise<any> {
+       const response = await this._request({
+           path: `/users/customers/export/my-addresses`,
+           method: 'POST',
+           
+           
+           
+           
+        });
+       return (response as unknown) as any;
    }
 
 }

@@ -79,4 +79,16 @@ export class MyOrdersAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
+   async exportMyOrders (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<any> {
+       const response = await this._request({
+           path: `/fulfillment/my-orders/export`,
+           method: 'POST',
+           query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response as unknown) as any;
+   }
+
 }
