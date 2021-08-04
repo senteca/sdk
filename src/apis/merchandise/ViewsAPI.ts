@@ -54,11 +54,35 @@ export class ViewsAPI extends BaseAPI {
        return (response as unknown) as ViewSearchResultDTO;
    }
 
+   async getByTag (tag: string): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/views/tag=${encodeURIComponent(tag)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       
+   }
+
    async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ViewDTO> {
        const response = await this._request({
            path: `/merchandise/views/slug=${encodeURIComponent(slug)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
+           
+           
+           
+        });
+       return (response as unknown) as ViewDTO;
+   }
+
+   async getByKey (key: string): Promise<ViewDTO> {
+       const response = await this._request({
+           path: `/merchandise/views/key=${encodeURIComponent(key)}`,
+           method: 'GET',
+           
            
            
            

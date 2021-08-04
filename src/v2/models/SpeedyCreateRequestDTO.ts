@@ -23,6 +23,7 @@ export interface SpeedyCreateRequestDTO {
   height?: number;
   length?: number;
   weight?: number;
+  moneyTransfer?: boolean;
 }
 
 export enum SpeedyCreateRequestDTOShare_typeEnum {

@@ -55,11 +55,35 @@ export const ViewsSearch = async (query?: { storeKey?: string, interfaceKey?: st
     return (response as unknown) as ViewSearchResultDTO;
 }
 
+export const ViewsGetByTag = async (tag: string): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/views/tag=${encodeURIComponent(tag)}`,
+        method: 'GET',
+        
+        
+        
+        
+    });
+    
+}
+
 export const ViewsGetBySlug = async (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ViewDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/views/slug=${encodeURIComponent(slug)}`,
         method: 'GET',
         query: toQueryString(query),
+        
+        
+        
+    });
+    return (response as unknown) as ViewDTO;
+}
+
+export const ViewsGetByKey = async (key: string): Promise<ViewDTO> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/views/key=${encodeURIComponent(key)}`,
+        method: 'GET',
+        
         
         
         
