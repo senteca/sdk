@@ -22,6 +22,7 @@ export interface EvropatSendRequestDTO {
   dimensionsHeight?: number;
   dimensionsLength?: number;
   weight?: number;
+  postalMoneyOrder?: boolean;
 }
 
 export enum EvropatSendRequestDTOShare_typeEnum {
