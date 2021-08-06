@@ -3,6 +3,7 @@ import { DiscountCodeDTO } from '../../models/DiscountCodeDTO';
 import { DiscountCodeSearchResultDTO } from '../../models/DiscountCodeSearchResultDTO';
 import { DiscountCodeFilterResultDTO } from '../../models/DiscountCodeFilterResultDTO';
 import { DiscountCodeDraftDTO } from '../../models/DiscountCodeDraftDTO';
+import { DiscountCodeBulkCreateDTO } from '../../models/DiscountCodeBulkCreateDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 import { DiscountCodeBulkDeleteDTO } from '../../models/DiscountCodeBulkDeleteDTO';
 import { FilterQueryDTO } from '../../models/FilterQueryDTO';
@@ -102,6 +103,18 @@ export class DiscountCodesAPI extends BaseAPI {
            
         });
        return (response as unknown) as DiscountCodeDTO;
+   }
+
+   async createBulk (dto: DiscountCodeBulkCreateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/fulfillment/discount-codes/bulk`,
+           method: 'POST',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
    }
 
    async setCustom (id: string, dto: SetCustomFieldDTO[]): Promise<void> {
