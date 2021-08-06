@@ -11,6 +11,7 @@ import { OrderWalletDTO } from './OrderWalletDTO';
 import { MerchantMethodDTO } from './MerchantMethodDTO';
 import { IdReferenceDTO } from './IdReferenceDTO';
 import { ShippingDTO } from './ShippingDTO';
+import { CustomField } from './CustomField';
 
 export interface OrderImportDTO {
   _id?: string;
@@ -60,6 +61,7 @@ export interface OrderImportDTO {
   merchantShippingMethods?: MerchantMethodDTO[];
   platformShippingMethod?: IdReferenceDTO;
   canPurchase?: boolean;
+  custom?: CustomField[];
 }
 
 export enum OrderImportDTOStatusEnum {
