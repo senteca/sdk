@@ -13,6 +13,7 @@ export interface MenuItemDTO {
   linkUrl: string;
   tags?: string[];
   key?: string;
+  interfaceKey: string;
   assets?: AssetDTO[];
   hideOnDesktop?: boolean;
   hideOnMobile?: boolean;

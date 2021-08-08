@@ -31,18 +31,6 @@ export const MenuCreate = async (dto: MenuItemDraftDTO): Promise<MenuItemDTO[]> 
     return (response as unknown) as MenuItemDTO[];
 }
 
-export const MenuSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<any> => {
-    const response = await HttpClient.request({
-        path: `/cms/menu/search`,
-        method: 'GET',
-        query: toQueryString(query),
-        
-        
-        
-    });
-    return (response as unknown) as any;
-}
-
 export const MenuGetMenuById = async (id: string): Promise<MenuItemDTO> => {
     const response = await HttpClient.request({
         path: `/cms/menu/${encodeURIComponent(id)}`,

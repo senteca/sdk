@@ -30,18 +30,6 @@ export class MenuAPI extends BaseAPI {
        return (response as unknown) as MenuItemDTO[];
    }
 
-   async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<any> {
-       const response = await this._request({
-           path: `/cms/menu/search`,
-           method: 'GET',
-           query: this._stringifyQuery(query),
-           
-           
-           
-        });
-       return (response as unknown) as any;
-   }
-
    async getMenuById (id: string): Promise<MenuItemDTO> {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}`,

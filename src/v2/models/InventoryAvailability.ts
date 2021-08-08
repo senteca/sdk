@@ -1,4 +1,5 @@
 import { LangValue } from './LangValue';
+import { GeographicalCoordinatesDTO } from './GeographicalCoordinatesDTO';
 
 export interface InventoryAvailability {
   stockLocationName: LangValue[];
@@ -10,5 +11,6 @@ export interface InventoryAvailability {
   isPhysical: boolean;
   isActive: boolean;
   stores: string[];
+  geographicalCoordinates?: GeographicalCoordinatesDTO;
 }
 
