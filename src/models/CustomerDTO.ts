@@ -9,11 +9,11 @@ export interface CustomerDTO {
   _id: string;
   createdAt: number;
   updatedAt: number;
+  email: string;
   customerAddresses?: AddressDTO[];
   customerCompanies?: AddressDTO[];
   customerNumber?: number;
   storeKey?: string;
-  email?: string;
   salutation?: string;
   title?: string;
   firstName?: string;

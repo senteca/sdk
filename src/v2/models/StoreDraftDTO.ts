@@ -21,6 +21,7 @@ export interface StoreDraftDTO {
   requiresEmailVerification?: boolean;
   requiresInvitation?: boolean;
   orderPrefix?: string;
+  orderRefNumberFormula?: string;
   orderSequence?: string;
 }
 

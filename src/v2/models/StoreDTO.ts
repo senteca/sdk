@@ -21,6 +21,7 @@ export interface StoreDTO {
   requiresEmailVerification?: boolean;
   requiresInvitation?: boolean;
   orderPrefix?: string;
+  orderRefNumberFormula?: string;
   orderSequence?: string;
   _id: string;
   createdAt: number;
