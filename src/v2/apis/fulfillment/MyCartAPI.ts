@@ -39,11 +39,11 @@ export const MyCartGet = async (): Promise<OrderDTO> => {
     return (response as unknown) as OrderDTO;
 }
 
-export const MyCartAddLineItem = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: LineItemDraftDTO): Promise<OrderDTO> => {
+export const MyCartAddLineItem = async (dto: LineItemDraftDTO): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-cart/line-items`,
         method: 'POST',
-        query: toQueryString(query),
+        
         body: dto,
         
         contentType: 'application/json',
