@@ -1,5 +1,5 @@
 
 export interface DiscountCodeBulkDeleteDTO {
-  ids: string[];
+  filter: string;
 }
 

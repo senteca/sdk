@@ -7,5 +7,6 @@ export interface CustomerConsentTypeDraftDTO {
   description?: LangValue[];
   tags?: string[];
   isRequired?: boolean;
+  requiresConfirmation?: boolean;
 }
 

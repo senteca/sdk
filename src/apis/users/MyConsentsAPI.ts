@@ -2,6 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { CustomerConsentDTO } from '../../models/CustomerConsentDTO';
 import { CustomerConsentRequestDTO } from '../../models/CustomerConsentRequestDTO';
 import { CustomerConsentRequestBulkDTO } from '../../models/CustomerConsentRequestBulkDTO';
+import { CustomerConsentConfirmDTO } from '../../models/CustomerConsentConfirmDTO';
 
 export class MyConsentsAPI extends BaseAPI {
    async getMyConsents (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerConsentDTO[]> {
@@ -50,6 +51,18 @@ export class MyConsentsAPI extends BaseAPI {
            contentType: 'application/json',
         });
        return (response as unknown) as CustomerConsentDTO;
+   }
+
+   async confirm (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentConfirmDTO): Promise<void> {
+       const response = await this._request({
+           path: `/users/my-consents/confirm`,
+           method: 'PUT',
+           query: this._stringifyQuery(query),
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
    }
 
 }

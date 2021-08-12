@@ -7,6 +7,8 @@ import { DiscountCodeBulkCreateDTO } from '../../models/DiscountCodeBulkCreateDT
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 import { DiscountCodeBulkDeleteDTO } from '../../models/DiscountCodeBulkDeleteDTO';
 import { FilterQueryDTO } from '../../models/FilterQueryDTO';
+import { DiscountCodeBulkSetIsActiveDTO } from '../../models/DiscountCodeBulkSetIsActiveDTO';
+import { DiscountCodeBulkSetValidRangeDTO } from '../../models/DiscountCodeBulkSetValidRangeDTO';
 
 export class DiscountCodesAPI extends BaseAPI {
    async import (dto: string[]): Promise<DiscountCodeDTO[]> {
@@ -151,6 +153,30 @@ export class DiscountCodesAPI extends BaseAPI {
            contentType: 'application/json',
         });
        return (response as unknown) as any;
+   }
+
+   async bulkSetIsActive (dto: DiscountCodeBulkSetIsActiveDTO): Promise<void> {
+       const response = await this._request({
+           path: `/fulfillment/discount-codes/bulk/active`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async bulkSetValidRange (dto: DiscountCodeBulkSetValidRangeDTO): Promise<void> {
+       const response = await this._request({
+           path: `/fulfillment/discount-codes/bulk/valid`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
    }
 
 }
