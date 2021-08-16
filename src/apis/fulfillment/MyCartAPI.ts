@@ -12,6 +12,7 @@ import { PlatformMethodUpdateDTO } from '../../models/PlatformMethodUpdateDTO';
 import { MerchantsMethodsUpdateDTO } from '../../models/MerchantsMethodsUpdateDTO';
 import { MethodUpdateDTO } from '../../models/MethodUpdateDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { OrderAdditionalInfoUpdateDTO } from '../../models/OrderAdditionalInfoUpdateDTO';
 
 export class MyCartAPI extends BaseAPI {
    async create (dto: CartDraftDTO): Promise<OrderDTO> {
@@ -293,6 +294,18 @@ export class MyCartAPI extends BaseAPI {
    async setCartCustomField (dto: SetCustomFieldDTO[]): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/custom-field`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
+   async setCartAdditionalInfo (dto: OrderAdditionalInfoUpdateDTO): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-cart/additionalInfo`,
            method: 'PATCH',
            
            body: dto,

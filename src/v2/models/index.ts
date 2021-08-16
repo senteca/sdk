@@ -269,6 +269,7 @@ export * from "./OfferDraftDTO";
 export * from "./OfferTierDTO";
 export * from "./OptionDTO";
 export * from "./OptionDefinitionDTO";
+export * from "./OrderAdditionalInfoUpdateDTO";
 export * from "./OrderCustomerGroupUpdateDTO";
 export * from "./OrderDTO";
 export * from "./OrderFilterResultDTO";

@@ -74,6 +74,7 @@ export interface OrderDTO {
   shippingsAuthority?: OrderDTOShippingsAuthorityEnum;
   merchantShippingMethods?: MerchantMethodDTO[];
   platformShippingMethod?: IdReferenceDTO;
+  additionalInfo?: string;
   custom?: CustomField[];
   mergedCartIds?: string[];
   meta?: MetaItemDTO[];

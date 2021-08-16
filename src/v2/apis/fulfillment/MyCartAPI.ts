@@ -14,6 +14,7 @@ import { PlatformMethodUpdateDTO } from '../../models/PlatformMethodUpdateDTO';
 import { MerchantsMethodsUpdateDTO } from '../../models/MerchantsMethodsUpdateDTO';
 import { MethodUpdateDTO } from '../../models/MethodUpdateDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { OrderAdditionalInfoUpdateDTO } from '../../models/OrderAdditionalInfoUpdateDTO';
 
 export const MyCartCreate = async (dto: CartDraftDTO): Promise<OrderDTO> => {
     const response = await HttpClient.request({
@@ -294,6 +295,18 @@ export const MyCartSetMerchantsPaymentMethods = async (dto: MerchantsMethodsUpda
 export const MyCartSetCartCustomField = async (dto: SetCustomFieldDTO[]): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-cart/custom-field`,
+        method: 'PATCH',
+        
+        body: dto,
+        
+        contentType: 'application/json',
+    });
+    return (response as unknown) as OrderDTO;
+}
+
+export const MyCartSetCartAdditionalInfo = async (dto: OrderAdditionalInfoUpdateDTO): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/my-cart/additionalInfo`,
         method: 'PATCH',
         
         body: dto,

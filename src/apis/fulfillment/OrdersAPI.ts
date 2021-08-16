@@ -7,6 +7,7 @@ import { NewOrders } from '../../models/NewOrders';
 import { OrderFilterResultDTO } from '../../models/OrderFilterResultDTO';
 import { TransitionOrderStateDTO } from '../../models/TransitionOrderStateDTO';
 import { OrderNoteUpdateDTO } from '../../models/OrderNoteUpdateDTO';
+import { OrderAdditionalInfoUpdateDTO } from '../../models/OrderAdditionalInfoUpdateDTO';
 import { OrderCustomerGroupUpdateDTO } from '../../models/OrderCustomerGroupUpdateDTO';
 import { OrderStatusUpdateDTO } from '../../models/OrderStatusUpdateDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
@@ -237,6 +238,18 @@ export class OrdersAPI extends BaseAPI {
    async setNote (id: string, dto: OrderNoteUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/note`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
+   async setAdditionalInfo (id: string, dto: OrderAdditionalInfoUpdateDTO): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/additionalInfo`,
            method: 'PATCH',
            
            body: dto,
