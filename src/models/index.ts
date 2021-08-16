@@ -45,7 +45,7 @@ export * from "./BulkLabelSetDTO";
 export * from "./BulkLinkUpdateDTO";
 export * from "./BulkOfferQuantityUpdateDTO";
 export * from "./BulkStatusChangeDTO";
-export * from "./CSVParameters";
+export * from "./CSVParametersDTO";
 export * from "./CartDiscountBulkDeleteDTO";
 export * from "./CartDiscountDTO";
 export * from "./CartDiscountDraftDTO";
