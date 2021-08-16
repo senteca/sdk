@@ -17,6 +17,7 @@ import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
 import { PasswordResetDTO } from '../../models/PasswordResetDTO';
 import { SetCustomerGroupDTO } from '../../models/SetCustomerGroupDTO';
 import { FilterQueryDTO } from '../../models/FilterQueryDTO';
+import { CSVParameters } from '../../models/CSVParameters';
 
 export const CustomersGetMyProfile = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> => {
     const response = await HttpClient.request({
@@ -534,26 +535,26 @@ export const CustomersExportCSV = async (dto: FilterQueryDTO): Promise<any> => {
     return (response as unknown) as any;
 }
 
-export const CustomersExportMyProfile = async (): Promise<any> => {
+export const CustomersExportMyProfile = async (dto: CSVParameters): Promise<any> => {
     const response = await HttpClient.request({
         path: `/users/customers/export/my-profile`,
         method: 'POST',
         
+        body: dto,
         
-        
-        
+        contentType: 'application/json',
     });
     return (response as unknown) as any;
 }
 
-export const CustomersExportMyAddresses = async (): Promise<any> => {
+export const CustomersExportMyAddresses = async (dto: CSVParameters): Promise<any> => {
     const response = await HttpClient.request({
         path: `/users/customers/export/my-addresses`,
         method: 'POST',
         
+        body: dto,
         
-        
-        
+        contentType: 'application/json',
     });
     return (response as unknown) as any;
 }
