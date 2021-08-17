@@ -537,7 +537,7 @@ export class CustomersAPI extends BaseAPI {
    async exportMyProfile (dto: CSVParametersDTO): Promise<any> {
        const response = await this._request({
            path: `/users/customers/export/my-profile`,
-           method: 'POST',
+           method: 'GET',
            
            body: dto,
            
@@ -549,7 +549,7 @@ export class CustomersAPI extends BaseAPI {
    async exportMyAddresses (dto: CSVParametersDTO): Promise<any> {
        const response = await this._request({
            path: `/users/customers/export/my-addresses`,
-           method: 'POST',
+           method: 'GET',
            
            body: dto,
            

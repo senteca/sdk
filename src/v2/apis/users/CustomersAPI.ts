@@ -538,7 +538,7 @@ export const CustomersExportCSV = async (dto: FilterQueryDTO): Promise<any> => {
 export const CustomersExportMyProfile = async (dto: CSVParametersDTO): Promise<any> => {
     const response = await HttpClient.request({
         path: `/users/customers/export/my-profile`,
-        method: 'POST',
+        method: 'GET',
         
         body: dto,
         
@@ -550,7 +550,7 @@ export const CustomersExportMyProfile = async (dto: CSVParametersDTO): Promise<a
 export const CustomersExportMyAddresses = async (dto: CSVParametersDTO): Promise<any> => {
     const response = await HttpClient.request({
         path: `/users/customers/export/my-addresses`,
-        method: 'POST',
+        method: 'GET',
         
         body: dto,
         

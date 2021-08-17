@@ -7,6 +7,7 @@ import { CustomLineItemDraftDTO } from '../../models/CustomLineItemDraftDTO';
 import { DiscountCodeUpdateDTO } from '../../models/DiscountCodeUpdateDTO';
 import { AddressDTO } from '../../models/AddressDTO';
 import { ShippingMethodsInfo } from '../../models/ShippingMethodsInfo';
+import { ShippingFeesDTO } from '../../models/ShippingFeesDTO';
 import { PaymentMethodsInfo } from '../../models/PaymentMethodsInfo';
 import { PlatformMethodUpdateDTO } from '../../models/PlatformMethodUpdateDTO';
 import { MerchantsMethodsUpdateDTO } from '../../models/MerchantsMethodsUpdateDTO';
@@ -205,6 +206,18 @@ export class MyCartAPI extends BaseAPI {
            
         });
        return (response as unknown) as OrderDTO;
+   }
+
+   async getShippingPrice (shippingMethodId: string, dto: LineItemDraftDTO): Promise<ShippingFeesDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-cart/shipping-price/shippingMethodId=${encodeURIComponent(shippingMethodId)}`,
+           method: 'GET',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response as unknown) as ShippingFeesDTO;
    }
 
    async getPaymentMethods (): Promise<PaymentMethodsInfo> {

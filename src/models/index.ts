@@ -366,6 +366,7 @@ export * from "./ShippingDeliveryItemDTO";
 export * from "./ShippingDeliveryParcelDTO";
 export * from "./ShippingDeliveryParcelDraftDTO";
 export * from "./ShippingDeliveryParcelStatusUpdateDTO";
+export * from "./ShippingFeesDTO";
 export * from "./ShippingMethodDTO";
 export * from "./ShippingMethodDraftDTO";
 export * from "./ShippingMethodFilterResultDTO";

@@ -84,7 +84,7 @@ export const MyOrdersGetById = async (id: string): Promise<OrderDTO> => {
 export const MyOrdersExportMyOrders = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CSVParametersDTO): Promise<any> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-orders/export`,
-        method: 'POST',
+        method: 'GET',
         query: toQueryString(query),
         body: dto,
         

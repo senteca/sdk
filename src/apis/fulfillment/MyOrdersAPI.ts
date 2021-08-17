@@ -83,7 +83,7 @@ export class MyOrdersAPI extends BaseAPI {
    async exportMyOrders (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CSVParametersDTO): Promise<any> {
        const response = await this._request({
            path: `/fulfillment/my-orders/export`,
-           method: 'POST',
+           method: 'GET',
            query: this._stringifyQuery(query),
            body: dto,
            
