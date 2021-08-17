@@ -67,18 +67,6 @@ export class MyOrdersAPI extends BaseAPI {
        return (response as unknown) as StockLocationsInfo;
    }
 
-   async getById (id: string): Promise<OrderDTO> {
-       const response = await this._request({
-           path: `/fulfillment/my-orders/${encodeURIComponent(id)}`,
-           method: 'GET',
-           
-           
-           
-           
-        });
-       return (response as unknown) as OrderDTO;
-   }
-
    async exportMyOrders (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, columnDelimiter?: string, recordDelimiter?: string, prettyKeys?: boolean, prettyValues?: boolean }): Promise<any> {
        const response = await this._request({
            path: `/fulfillment/my-orders/export`,
@@ -89,6 +77,18 @@ export class MyOrdersAPI extends BaseAPI {
            
         });
        return (response as unknown) as any;
+   }
+
+   async getById (id: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-orders/${encodeURIComponent(id)}`,
+           method: 'GET',
+           
+           
+           
+           
+        });
+       return (response as unknown) as OrderDTO;
    }
 
 }

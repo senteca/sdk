@@ -3,7 +3,7 @@ import { WishListDTO } from '../../models/WishListDTO';
 import { WishListItemDraftDTO } from '../../models/WishListItemDraftDTO';
 
 export class MyWishListAPI extends BaseAPI {
-   async getMy (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<WishListDTO> {
+   async getMy (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<WishListDTO> {
        const response = await this._request({
            path: `/fulfillment/my-wish-list`,
            method: 'GET',

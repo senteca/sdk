@@ -7,6 +7,10 @@ export interface WishListDTO {
   updatedAt: number;
   items?: WishListItemDTO[];
   compact?: WishListCompactDTO;
+  offset?: number;
+  limit?: number;
+  count?: number;
+  total?: number;
   customerId?: string;
   anonymousId?: string;
 }

@@ -4,7 +4,7 @@ import { HttpClient, toQueryString } from '../../runtime';
 import { WishListDTO } from '../../models/WishListDTO';
 import { WishListItemDraftDTO } from '../../models/WishListItemDraftDTO';
 
-export const MyWishListGetMy = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<WishListDTO> => {
+export const MyWishListGetMy = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<WishListDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-wish-list`,
         method: 'GET',
