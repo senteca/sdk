@@ -7,7 +7,6 @@ import { OrderDTO } from '../../models/OrderDTO';
 import { ShippingModulesInfo } from '../../models/ShippingModulesInfo';
 import { ShippingMethodsInfo } from '../../models/ShippingMethodsInfo';
 import { StockLocationsInfo } from '../../models/StockLocationsInfo';
-import { CSVParametersDTO } from '../../models/CSVParametersDTO';
 
 export const MyOrdersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> => {
     const response = await HttpClient.request({
@@ -81,14 +80,14 @@ export const MyOrdersGetById = async (id: string): Promise<OrderDTO> => {
     return (response as unknown) as OrderDTO;
 }
 
-export const MyOrdersExportMyOrders = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CSVParametersDTO): Promise<any> => {
+export const MyOrdersExportMyOrders = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, columnDelimiter?: string, recordDelimiter?: string, prettyKeys?: boolean, prettyValues?: boolean }): Promise<any> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-orders/export`,
         method: 'GET',
         query: toQueryString(query),
-        body: dto,
         
-        contentType: 'application/json',
+        
+        
     });
     return (response as unknown) as any;
 }

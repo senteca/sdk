@@ -15,7 +15,6 @@ import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
 import { PasswordResetDTO } from '../../models/PasswordResetDTO';
 import { SetCustomerGroupDTO } from '../../models/SetCustomerGroupDTO';
 import { FilterQueryDTO } from '../../models/FilterQueryDTO';
-import { CSVParametersDTO } from '../../models/CSVParametersDTO';
 
 export class CustomersAPI extends BaseAPI {
    async getMyProfile (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> {
@@ -534,26 +533,26 @@ export class CustomersAPI extends BaseAPI {
        return (response as unknown) as any;
    }
 
-   async exportMyProfile (dto: CSVParametersDTO): Promise<any> {
+   async exportMyProfile (query?: { columnDelimiter?: string, recordDelimiter?: string, prettyKeys?: boolean, prettyValues?: boolean }): Promise<any> {
        const response = await this._request({
            path: `/users/customers/export/my-profile`,
            method: 'GET',
+           query: this._stringifyQuery(query),
            
-           body: dto,
            
-           contentType: 'application/json',
+           
         });
        return (response as unknown) as any;
    }
 
-   async exportMyAddresses (dto: CSVParametersDTO): Promise<any> {
+   async exportMyAddresses (query?: { columnDelimiter?: string, recordDelimiter?: string, prettyKeys?: boolean, prettyValues?: boolean }): Promise<any> {
        const response = await this._request({
            path: `/users/customers/export/my-addresses`,
            method: 'GET',
+           query: this._stringifyQuery(query),
            
-           body: dto,
            
-           contentType: 'application/json',
+           
         });
        return (response as unknown) as any;
    }
