@@ -16,6 +16,7 @@ import { ProductImportDraftDTO } from '../../models/ProductImportDraftDTO';
 import { FilterQueryDTO } from '../../models/FilterQueryDTO';
 import { ProductSearchResultDTO } from '../../models/ProductSearchResultDTO';
 import { AttributeValueDTO } from '../../models/AttributeValueDTO';
+import { ProductUpdateDTO } from '../../models/ProductUpdateDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 import { AssetDTO } from '../../models/AssetDTO';
 import { StoreStatusDTO } from '../../models/StoreStatusDTO';
@@ -29,10 +30,10 @@ import { ProductRelationsDTO } from '../../models/ProductRelationsDTO';
 import { ProductAttributeDTO } from '../../models/ProductAttributeDTO';
 import { ProductMasterVariantUpdateDTO } from '../../models/ProductMasterVariantUpdateDTO';
 import { ContentDTO } from '../../models/ContentDTO';
+import { ProductSkuUpdateDTO } from '../../models/ProductSkuUpdateDTO';
 import { ImageDTO } from '../../models/ImageDTO';
 import { SwapIndexDTO } from '../../models/SwapIndexDTO';
 import { ProductVariantDraftDTO } from '../../models/ProductVariantDraftDTO';
-import { ProductSkuUpdateDTO } from '../../models/ProductSkuUpdateDTO';
 import { ProductBarcodeUpdateDTO } from '../../models/ProductBarcodeUpdateDTO';
 import { ProductCollapseKeyUpdateDTO } from '../../models/ProductCollapseKeyUpdateDTO';
 import { ProductCollapseModeUpdateDTO } from '../../models/ProductCollapseModeUpdateDTO';
@@ -322,6 +323,18 @@ export class ProductsAPI extends BaseAPI {
        return (response as unknown) as ProductDTO;
    }
 
+   async updateProduct (id: string, dto: ProductUpdateDTO): Promise<ProductDTO> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(id)}`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       return (response as unknown) as ProductDTO;
+   }
+
    async delete (id: string): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}`,
@@ -598,6 +611,30 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
+   async setVariantSku (sku: string, dto: ProductSkuUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
+           method: 'PATCH',
+           
+           body: dto,
+           
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async deleteVariant (sku: string): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
+           method: 'DELETE',
+           
+           
+           
+           
+        });
+       
+   }
+
    async getSKUImages (sku: string): Promise<ImageDTO[]> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/images`,
@@ -662,30 +699,6 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/variants`,
            method: 'POST',
-           
-           body: dto,
-           
-           contentType: 'application/json',
-        });
-       
-   }
-
-   async deleteVariant (sku: string): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
-           method: 'DELETE',
-           
-           
-           
-           
-        });
-       
-   }
-
-   async setVariantSku (sku: string, dto: ProductSkuUpdateDTO): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
-           method: 'PATCH',
            
            body: dto,
            

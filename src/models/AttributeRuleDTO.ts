@@ -7,6 +7,7 @@ export interface AttributeRuleDTO {
   constraint: AttributeRuleDTOConstraintEnum;
   selectability: AttributeRuleDTOSelectabilityEnum;
   componentHint?: string;
+  tags?: string[];
 }
 
 export enum AttributeRuleDTOConstraintEnum {

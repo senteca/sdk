@@ -18,6 +18,7 @@ import { ProductImportDraftDTO } from '../../models/ProductImportDraftDTO';
 import { FilterQueryDTO } from '../../models/FilterQueryDTO';
 import { ProductSearchResultDTO } from '../../models/ProductSearchResultDTO';
 import { AttributeValueDTO } from '../../models/AttributeValueDTO';
+import { ProductUpdateDTO } from '../../models/ProductUpdateDTO';
 import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
 import { AssetDTO } from '../../models/AssetDTO';
 import { StoreStatusDTO } from '../../models/StoreStatusDTO';
@@ -31,10 +32,10 @@ import { ProductRelationsDTO } from '../../models/ProductRelationsDTO';
 import { ProductAttributeDTO } from '../../models/ProductAttributeDTO';
 import { ProductMasterVariantUpdateDTO } from '../../models/ProductMasterVariantUpdateDTO';
 import { ContentDTO } from '../../models/ContentDTO';
+import { ProductSkuUpdateDTO } from '../../models/ProductSkuUpdateDTO';
 import { ImageDTO } from '../../models/ImageDTO';
 import { SwapIndexDTO } from '../../models/SwapIndexDTO';
 import { ProductVariantDraftDTO } from '../../models/ProductVariantDraftDTO';
-import { ProductSkuUpdateDTO } from '../../models/ProductSkuUpdateDTO';
 import { ProductBarcodeUpdateDTO } from '../../models/ProductBarcodeUpdateDTO';
 import { ProductCollapseKeyUpdateDTO } from '../../models/ProductCollapseKeyUpdateDTO';
 import { ProductCollapseModeUpdateDTO } from '../../models/ProductCollapseModeUpdateDTO';
@@ -323,6 +324,18 @@ export const ProductsGetById = async (id: string, query?: { storeKey?: string, i
     return (response as unknown) as ProductDTO;
 }
 
+export const ProductsUpdateProduct = async (id: string, dto: ProductUpdateDTO): Promise<ProductDTO> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/${encodeURIComponent(id)}`,
+        method: 'PATCH',
+        
+        body: dto,
+        
+        contentType: 'application/json',
+    });
+    return (response as unknown) as ProductDTO;
+}
+
 export const ProductsDelete = async (id: string): Promise<ProductDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(id)}`,
@@ -599,6 +612,30 @@ export const ProductsDeleteContent = async (id: string, idx: number): Promise<vo
     
 }
 
+export const ProductsSetVariantSku = async (sku: string, dto: ProductSkuUpdateDTO): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
+        method: 'PATCH',
+        
+        body: dto,
+        
+        contentType: 'application/json',
+    });
+    
+}
+
+export const ProductsDeleteVariant = async (sku: string): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
+        method: 'DELETE',
+        
+        
+        
+        
+    });
+    
+}
+
 export const ProductsGetSKUImages = async (sku: string): Promise<ImageDTO[]> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(sku)}/images`,
@@ -663,30 +700,6 @@ export const ProductsCreateVariant = async (id: string, dto: ProductVariantDraft
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(id)}/variants`,
         method: 'POST',
-        
-        body: dto,
-        
-        contentType: 'application/json',
-    });
-    
-}
-
-export const ProductsDeleteVariant = async (sku: string): Promise<void> => {
-    const response = await HttpClient.request({
-        path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
-        method: 'DELETE',
-        
-        
-        
-        
-    });
-    
-}
-
-export const ProductsSetVariantSku = async (sku: string, dto: ProductSkuUpdateDTO): Promise<void> => {
-    const response = await HttpClient.request({
-        path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
-        method: 'PATCH',
         
         body: dto,
         
