@@ -1,11 +1,11 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { ViewDraftDTO } from '../../models/ViewDraftDTO';
-import { ViewDTO } from '../../models/ViewDTO';
-import { ViewFilterResultDTO } from '../../models/ViewFilterResultDTO';
-import { ViewSearchResultDTO } from '../../models/ViewSearchResultDTO';
-import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { ViewDraftDTO } from '@models';
+import { ViewDTO } from '@models';
+import { ViewFilterResultDTO } from '@models';
+import { ViewSearchResultDTO } from '@models';
+import { SetCustomFieldDTO } from '@models';
 
 export const ViewsCreate = async (dto: ViewDraftDTO): Promise<ViewDTO> => {
     const response = await HttpClient.request({

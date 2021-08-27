@@ -11,6 +11,10 @@ const {
 
 module.exports = class ModelsRoutine {
   static async run(config, apiDocuments) {
+    if (config.outputDir.includes('/v2')) {
+      return;
+    }
+
     const template = await this.loadTemplate(config.target);
     Mustache.parse(template); // pre-parse and caching template
 

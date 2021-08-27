@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../runtime';
-import { CustomFieldDraftDTO } from '../../models/CustomFieldDraftDTO';
-import { CustomFieldDTO } from '../../models/CustomFieldDTO';
-import { CustomFieldFilterResultDTO } from '../../models/CustomFieldFilterResultDTO';
+import { CustomFieldDraftDTO } from '@models';
+import { CustomFieldDTO } from '@models';
+import { CustomFieldFilterResultDTO } from '@models';
 
 export class CustomFieldsAPI extends BaseAPI {
    async create (dto: CustomFieldDraftDTO): Promise<CustomFieldDTO> {

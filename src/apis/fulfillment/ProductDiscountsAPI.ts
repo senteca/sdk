@@ -1,8 +1,8 @@
 import { BaseAPI } from '../../runtime';
-import { ProductDiscountSearchResultDTO } from '../../models/ProductDiscountSearchResultDTO';
-import { ProductDiscountFilterResultDTO } from '../../models/ProductDiscountFilterResultDTO';
-import { ProductDiscountDraftDTO } from '../../models/ProductDiscountDraftDTO';
-import { ProductDiscountDTO } from '../../models/ProductDiscountDTO';
+import { ProductDiscountSearchResultDTO } from '@models';
+import { ProductDiscountFilterResultDTO } from '@models';
+import { ProductDiscountDraftDTO } from '@models';
+import { ProductDiscountDTO } from '@models';
 
 export class ProductDiscountsAPI extends BaseAPI {
    async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductDiscountSearchResultDTO> {

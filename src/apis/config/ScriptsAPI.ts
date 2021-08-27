@@ -1,9 +1,9 @@
 import { BaseAPI } from '../../runtime';
-import { ScriptDraftDTO } from '../../models/ScriptDraftDTO';
-import { ScriptDTO } from '../../models/ScriptDTO';
-import { ScriptFilterResultDTO } from '../../models/ScriptFilterResultDTO';
-import { CookieDraftDTO } from '../../models/CookieDraftDTO';
-import { CookieDTO } from '../../models/CookieDTO';
+import { ScriptDraftDTO } from '@models';
+import { ScriptDTO } from '@models';
+import { ScriptFilterResultDTO } from '@models';
+import { CookieDraftDTO } from '@models';
+import { CookieDTO } from '@models';
 
 export class ScriptsAPI extends BaseAPI {
    async create (dto: ScriptDraftDTO): Promise<ScriptDTO> {

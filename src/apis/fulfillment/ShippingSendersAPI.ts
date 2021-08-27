@@ -1,8 +1,8 @@
 import { BaseAPI } from '../../runtime';
-import { ShippingSenderDTO } from '../../models/ShippingSenderDTO';
-import { ShippingSenderDraftDTO } from '../../models/ShippingSenderDraftDTO';
-import { ShippingSenderFilterResultDTO } from '../../models/ShippingSenderFilterResultDTO';
-import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { ShippingSenderDTO } from '@models';
+import { ShippingSenderDraftDTO } from '@models';
+import { ShippingSenderFilterResultDTO } from '@models';
+import { SetCustomFieldDTO } from '@models';
 
 export class ShippingSendersAPI extends BaseAPI {
    async updateEcontSenders (moduleConfigId: string): Promise<void> {

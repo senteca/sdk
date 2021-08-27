@@ -1,10 +1,10 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { StockLocationSearchResultDTO } from '../../models/StockLocationSearchResultDTO';
-import { StockLocationDraftDTO } from '../../models/StockLocationDraftDTO';
-import { StockLocationDTO } from '../../models/StockLocationDTO';
-import { StockLocationFilterResultDTO } from '../../models/StockLocationFilterResultDTO';
+import { StockLocationSearchResultDTO } from '@models';
+import { StockLocationDraftDTO } from '@models';
+import { StockLocationDTO } from '@models';
+import { StockLocationFilterResultDTO } from '@models';
 
 export const StockLocationsSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<StockLocationSearchResultDTO> => {
     const response = await HttpClient.request({

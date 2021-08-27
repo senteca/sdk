@@ -1,6 +1,6 @@
 import { BaseAPI } from '../../runtime';
-import { WalletDTO } from '../../models/WalletDTO';
-import { WalletDraftDTO } from '../../models/WalletDraftDTO';
+import { WalletDTO } from '@models';
+import { WalletDraftDTO } from '@models';
 
 export class MyWalletAPI extends BaseAPI {
    async getByType (type: string): Promise<WalletDTO> {

@@ -1,8 +1,8 @@
 import { BaseAPI } from '../../runtime';
-import { CmsContentInjectionDraftDTO } from '../../models/CmsContentInjectionDraftDTO';
-import { CmsContentInjectionDTO } from '../../models/CmsContentInjectionDTO';
-import { CmsContentInjectionsFilterResultDTO } from '../../models/CmsContentInjectionsFilterResultDTO';
-import { CmsContentInjectionFilterValidDTO } from '../../models/CmsContentInjectionFilterValidDTO';
+import { CmsContentInjectionDraftDTO } from '@models';
+import { CmsContentInjectionDTO } from '@models';
+import { CmsContentInjectionsFilterResultDTO } from '@models';
+import { CmsContentInjectionFilterValidDTO } from '@models';
 
 export class ContentInjectionsAPI extends BaseAPI {
    async create (dto: CmsContentInjectionDraftDTO): Promise<CmsContentInjectionDTO> {

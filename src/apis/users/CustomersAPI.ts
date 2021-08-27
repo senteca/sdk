@@ -1,20 +1,20 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerDTO } from '../../models/CustomerDTO';
-import { CustomerUpdateDTO } from '../../models/CustomerUpdateDTO';
-import { PasswordChangeDTO } from '../../models/PasswordChangeDTO';
-import { EmailChangeRequestDTO } from '../../models/EmailChangeRequestDTO';
-import { EmailChangeDTO } from '../../models/EmailChangeDTO';
-import { AddressDTO } from '../../models/AddressDTO';
-import { AddressDraftDTO } from '../../models/AddressDraftDTO';
-import { CustomerDraftDTO } from '../../models/CustomerDraftDTO';
-import { CustomerFilterResultDTO } from '../../models/CustomerFilterResultDTO';
-import { CustomerSearchResultDTO } from '../../models/CustomerSearchResultDTO';
-import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
-import { EmailVerificationDTO } from '../../models/EmailVerificationDTO';
-import { PasswordTokenDTO } from '../../models/PasswordTokenDTO';
-import { PasswordResetDTO } from '../../models/PasswordResetDTO';
-import { SetCustomerGroupDTO } from '../../models/SetCustomerGroupDTO';
-import { FilterQueryDTO } from '../../models/FilterQueryDTO';
+import { CustomerDTO } from '@models';
+import { CustomerUpdateDTO } from '@models';
+import { PasswordChangeDTO } from '@models';
+import { EmailChangeRequestDTO } from '@models';
+import { EmailChangeDTO } from '@models';
+import { AddressDTO } from '@models';
+import { AddressDraftDTO } from '@models';
+import { CustomerDraftDTO } from '@models';
+import { CustomerFilterResultDTO } from '@models';
+import { CustomerSearchResultDTO } from '@models';
+import { SetCustomFieldDTO } from '@models';
+import { EmailVerificationDTO } from '@models';
+import { PasswordTokenDTO } from '@models';
+import { PasswordResetDTO } from '@models';
+import { SetCustomerGroupDTO } from '@models';
+import { FilterQueryDTO } from '@models';
 
 export class CustomersAPI extends BaseAPI {
    async getMyProfile (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> {

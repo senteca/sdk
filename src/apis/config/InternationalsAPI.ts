@@ -1,6 +1,6 @@
 import { BaseAPI } from '../../runtime';
-import { InternationalsDTO } from '../../models/InternationalsDTO';
-import { InternationalsDraftDTO } from '../../models/InternationalsDraftDTO';
+import { InternationalsDTO } from '@models';
+import { InternationalsDraftDTO } from '@models';
 
 export class InternationalsAPI extends BaseAPI {
    async get (): Promise<InternationalsDTO> {

@@ -1,10 +1,10 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { ScriptCategoryDraftDTO } from '../../models/ScriptCategoryDraftDTO';
-import { ScriptCategoryDTO } from '../../models/ScriptCategoryDTO';
-import { ScriptCategoryFilterResultDTO } from '../../models/ScriptCategoryFilterResultDTO';
-import { ScriptCategoryAggregatedDTO } from '../../models/ScriptCategoryAggregatedDTO';
+import { ScriptCategoryDraftDTO } from '@models';
+import { ScriptCategoryDTO } from '@models';
+import { ScriptCategoryFilterResultDTO } from '@models';
+import { ScriptCategoryAggregatedDTO } from '@models';
 
 export const ScriptCategoriesCreate = async (dto: ScriptCategoryDraftDTO): Promise<ScriptCategoryDTO> => {
     const response = await HttpClient.request({

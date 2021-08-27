@@ -1,27 +1,27 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { EcontProfilesResponseElement } from '../../models/EcontProfilesResponseElement';
-import { EcontAuthenticationCredentialsDTO } from '../../models/EcontAuthenticationCredentialsDTO';
-import { EcontLocationCountryDTO } from '../../models/EcontLocationCountryDTO';
-import { EcontLocationCityDTO } from '../../models/EcontLocationCityDTO';
-import { EcontLocationQuarterDTO } from '../../models/EcontLocationQuarterDTO';
-import { EcontLocationStreetDTO } from '../../models/EcontLocationStreetDTO';
-import { EcontLocationOfficeDTO } from '../../models/EcontLocationOfficeDTO';
-import { EcontModuleAddressDTO } from '../../models/EcontModuleAddressDTO';
-import { OrderDTO } from '../../models/OrderDTO';
-import { EcontCountryDTO } from '../../models/EcontCountryDTO';
-import { EcontCityDTO } from '../../models/EcontCityDTO';
-import { EcontQuarterDTO } from '../../models/EcontQuarterDTO';
-import { EcontStreetDTO } from '../../models/EcontStreetDTO';
-import { EcontOfficeDTO } from '../../models/EcontOfficeDTO';
-import { EcontCreateRequestDTO } from '../../models/EcontCreateRequestDTO';
-import { EcontCreateResponseDTO } from '../../models/EcontCreateResponseDTO';
-import { EcontSendResponseDTO } from '../../models/EcontSendResponseDTO';
-import { EcontCancelRequestDTO } from '../../models/EcontCancelRequestDTO';
-import { EcontCancelResponseDTO } from '../../models/EcontCancelResponseDTO';
-import { EcontTrackRequestDTO } from '../../models/EcontTrackRequestDTO';
-import { EcontTrackResponseDTO } from '../../models/EcontTrackResponseDTO';
+import { EcontProfilesResponseElement } from '@models';
+import { EcontAuthenticationCredentialsDTO } from '@models';
+import { EcontLocationCountryDTO } from '@models';
+import { EcontLocationCityDTO } from '@models';
+import { EcontLocationQuarterDTO } from '@models';
+import { EcontLocationStreetDTO } from '@models';
+import { EcontLocationOfficeDTO } from '@models';
+import { EcontModuleAddressDTO } from '@models';
+import { OrderDTO } from '@models';
+import { EcontCountryDTO } from '@models';
+import { EcontCityDTO } from '@models';
+import { EcontQuarterDTO } from '@models';
+import { EcontStreetDTO } from '@models';
+import { EcontOfficeDTO } from '@models';
+import { EcontCreateRequestDTO } from '@models';
+import { EcontCreateResponseDTO } from '@models';
+import { EcontSendResponseDTO } from '@models';
+import { EcontCancelRequestDTO } from '@models';
+import { EcontCancelResponseDTO } from '@models';
+import { EcontTrackRequestDTO } from '@models';
+import { EcontTrackResponseDTO } from '@models';
 
 export const ShippingsEcontClientProfile = async (query: { username: string, password: string }): Promise<EcontProfilesResponseElement> => {
     const response = await HttpClient.request({

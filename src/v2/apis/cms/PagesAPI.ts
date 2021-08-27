@@ -1,13 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { PageDraftDTO } from '../../models/PageDraftDTO';
-import { PageDTO } from '../../models/PageDTO';
-import { PageFilterResultDTO } from '../../models/PageFilterResultDTO';
-import { PageStatusUpdateDTO } from '../../models/PageStatusUpdateDTO';
-import { PageNameUpdateDTO } from '../../models/PageNameUpdateDTO';
-import { PageLabelUpdateDTO } from '../../models/PageLabelUpdateDTO';
-import { PageNodesUpdateDTO } from '../../models/PageNodesUpdateDTO';
+import { PageDraftDTO } from '@models';
+import { PageDTO } from '@models';
+import { PageFilterResultDTO } from '@models';
+import { PageStatusUpdateDTO } from '@models';
+import { PageNameUpdateDTO } from '@models';
+import { PageLabelUpdateDTO } from '@models';
+import { PageNodesUpdateDTO } from '@models';
 
 export const PagesCreate = async (dto: PageDraftDTO): Promise<PageDTO> => {
     const response = await HttpClient.request({

@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../runtime';
-import { StoreViewDraftDTO } from '../../models/StoreViewDraftDTO';
-import { StoreViewDTO } from '../../models/StoreViewDTO';
-import { StoreViewFilterResultDTO } from '../../models/StoreViewFilterResultDTO';
+import { StoreViewDraftDTO } from '@models';
+import { StoreViewDTO } from '@models';
+import { StoreViewFilterResultDTO } from '@models';
 
 export class StoreViewsAPI extends BaseAPI {
    async create (dto: StoreViewDraftDTO): Promise<StoreViewDTO> {

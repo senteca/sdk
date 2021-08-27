@@ -1,10 +1,10 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { FolderDraftDTO } from '../../models/FolderDraftDTO';
-import { FolderDTO } from '../../models/FolderDTO';
-import { FolderFilterResultDTO } from '../../models/FolderFilterResultDTO';
-import { FlipFoldersDTO } from '../../models/FlipFoldersDTO';
+import { FolderDraftDTO } from '@models';
+import { FolderDTO } from '@models';
+import { FolderFilterResultDTO } from '@models';
+import { FlipFoldersDTO } from '@models';
 
 export const FoldersCreate = async (dto: FolderDraftDTO): Promise<FolderDTO> => {
     const response = await HttpClient.request({

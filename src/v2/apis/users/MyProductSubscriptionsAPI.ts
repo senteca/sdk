@@ -1,8 +1,8 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CustomerProductSubscriptionCreateDTO } from '../../models/CustomerProductSubscriptionCreateDTO';
-import { CustomerProductSubscriptionDTO } from '../../models/CustomerProductSubscriptionDTO';
+import { CustomerProductSubscriptionCreateDTO } from '@models';
+import { CustomerProductSubscriptionDTO } from '@models';
 
 export const MyProductSubscriptionsSubscribe = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CustomerProductSubscriptionCreateDTO): Promise<CustomerProductSubscriptionDTO> => {
     const response = await HttpClient.request({

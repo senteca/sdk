@@ -1,9 +1,9 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { ContentTypeDraftDTO } from '../../models/ContentTypeDraftDTO';
-import { ContentTypeDTO } from '../../models/ContentTypeDTO';
-import { ContentTypeFilterResultDTO } from '../../models/ContentTypeFilterResultDTO';
+import { ContentTypeDraftDTO } from '@models';
+import { ContentTypeDTO } from '@models';
+import { ContentTypeFilterResultDTO } from '@models';
 
 export const ContentTypesCreate = async (dto: ContentTypeDraftDTO): Promise<ContentTypeDTO> => {
     const response = await HttpClient.request({

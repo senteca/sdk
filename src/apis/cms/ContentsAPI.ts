@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../runtime';
-import { CmsContentDraftDTO } from '../../models/CmsContentDraftDTO';
-import { CmsContentDTO } from '../../models/CmsContentDTO';
-import { CmsContentFilterResultDTO } from '../../models/CmsContentFilterResultDTO';
+import { CmsContentDraftDTO } from '@models';
+import { CmsContentDTO } from '@models';
+import { CmsContentFilterResultDTO } from '@models';
 
 export class ContentsAPI extends BaseAPI {
    async create (dto: CmsContentDraftDTO): Promise<CmsContentDTO> {

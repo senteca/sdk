@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerMessageFilterResultDTO } from '../../models/CustomerMessageFilterResultDTO';
-import { CustomerMessageStatusUpdateDTO } from '../../models/CustomerMessageStatusUpdateDTO';
-import { CustomerMessageDTO } from '../../models/CustomerMessageDTO';
+import { CustomerMessageFilterResultDTO } from '@models';
+import { CustomerMessageStatusUpdateDTO } from '@models';
+import { CustomerMessageDTO } from '@models';
 
 export class MyMessagesAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerMessageFilterResultDTO> {

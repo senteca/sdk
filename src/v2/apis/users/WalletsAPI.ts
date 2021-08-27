@@ -1,11 +1,11 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { WalletSearchResultDTO } from '../../models/WalletSearchResultDTO';
-import { WalletFilterResultDTO } from '../../models/WalletFilterResultDTO';
-import { WalletDraftDTO } from '../../models/WalletDraftDTO';
-import { WalletDTO } from '../../models/WalletDTO';
-import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { WalletSearchResultDTO } from '@models';
+import { WalletFilterResultDTO } from '@models';
+import { WalletDraftDTO } from '@models';
+import { WalletDTO } from '@models';
+import { SetCustomFieldDTO } from '@models';
 
 export const WalletsSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletSearchResultDTO> => {
     const response = await HttpClient.request({

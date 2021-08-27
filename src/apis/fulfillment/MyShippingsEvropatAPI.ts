@@ -1,9 +1,9 @@
 import { BaseAPI } from '../../runtime';
-import { EvropatLocationCityDTO } from '../../models/EvropatLocationCityDTO';
-import { EvropatLocationOfficeDTO } from '../../models/EvropatLocationOfficeDTO';
-import { EvropatCityDTO } from '../../models/EvropatCityDTO';
-import { OrderDTO } from '../../models/OrderDTO';
-import { EvropatOfficeDTO } from '../../models/EvropatOfficeDTO';
+import { EvropatLocationCityDTO } from '@models';
+import { EvropatLocationOfficeDTO } from '@models';
+import { EvropatCityDTO } from '@models';
+import { OrderDTO } from '@models';
+import { EvropatOfficeDTO } from '@models';
 
 export class MyShippingsEvropatAPI extends BaseAPI {
    async findCity (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EvropatLocationCityDTO[]> {

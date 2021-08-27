@@ -1,8 +1,8 @@
 import { BaseAPI } from '../../runtime';
-import { FolderDraftDTO } from '../../models/FolderDraftDTO';
-import { FolderDTO } from '../../models/FolderDTO';
-import { FolderFilterResultDTO } from '../../models/FolderFilterResultDTO';
-import { FlipFoldersDTO } from '../../models/FlipFoldersDTO';
+import { FolderDraftDTO } from '@models';
+import { FolderDTO } from '@models';
+import { FolderFilterResultDTO } from '@models';
+import { FlipFoldersDTO } from '@models';
 
 export class FoldersAPI extends BaseAPI {
    async create (dto: FolderDraftDTO): Promise<FolderDTO> {

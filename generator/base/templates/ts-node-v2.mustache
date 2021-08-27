@@ -1,10 +1,10 @@
 /* eslint-disable */
 
 export class HttpClient {
-  public static defaultConfig?: Configuration;
-  public static transientConfig?: Configuration;
+  public static defaultConfig?: ConfigurationV2;
+  public static transientConfig?: ConfigurationV2;
 
-  public static async request(context: RequestOptions): Promise<Response> {
+  public static async request(context: RequestOptionsV2): Promise<Response> {
     const { url, init } = HttpClient.createFetchParams(context);
     const response = await HttpClient.fetch(url, init);
     let parsedResponse;
@@ -25,11 +25,11 @@ export class HttpClient {
     return undefined as any;
   }
 
-  private static getOptions(): ConfigOptions | undefined {
+  private static getOptions(): ConfigOptionsV2 | undefined {
     return (this.transientConfig || this.defaultConfig)?.options;
   }
 
-  private static createFetchParams(context: RequestOptions) {
+  private static createFetchParams(context: RequestOptionsV2) {
     const options = this.getOptions();
 
     let url = options?.basePath + context.path;
@@ -109,7 +109,7 @@ export class HttpClient {
   }
 }
 
-export interface RequestOptions {
+export interface RequestOptionsV2 {
   path: string;
   method: string;
   query?: string;
@@ -118,18 +118,18 @@ export interface RequestOptions {
   basicAuth?: { username: string; password: string };
 }
 
-export type FetchAPI = WindowOrWorkerGlobalScope['fetch'];
+export type FetchAPIV2 = WindowOrWorkerGlobalScope['fetch'];
 
-export interface ConfigOptions {
+export interface ConfigOptionsV2 {
   basePath?: string;
-  fetchApi?: FetchAPI;
+  fetchApi?: FetchAPIV2;
   token?: string;
   cookies?: any;
 }
 
-export class Configuration {
-  public options: ConfigOptions;
-  constructor(options: ConfigOptions) {
+export class ConfigurationV2 {
+  public options: ConfigOptionsV2;
+  constructor(options: ConfigOptionsV2) {
     this.options = options;
   }
 }

@@ -1,12 +1,12 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { OrderFilterResultDTO } from '../../models/OrderFilterResultDTO';
-import { SendOrderDTO } from '../../models/SendOrderDTO';
-import { OrderDTO } from '../../models/OrderDTO';
-import { ShippingModulesInfo } from '../../models/ShippingModulesInfo';
-import { ShippingMethodsInfo } from '../../models/ShippingMethodsInfo';
-import { StockLocationsInfo } from '../../models/StockLocationsInfo';
+import { OrderFilterResultDTO } from '@models';
+import { SendOrderDTO } from '@models';
+import { OrderDTO } from '@models';
+import { ShippingModulesInfo } from '@models';
+import { ShippingMethodsInfo } from '@models';
+import { StockLocationsInfo } from '@models';
 
 export const MyOrdersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> => {
     const response = await HttpClient.request({

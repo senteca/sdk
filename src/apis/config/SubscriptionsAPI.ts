@@ -1,6 +1,6 @@
 import { BaseAPI } from '../../runtime';
-import { SubscriptionDraftDTO } from '../../models/SubscriptionDraftDTO';
-import { SubscriptionDTO } from '../../models/SubscriptionDTO';
+import { SubscriptionDraftDTO } from '@models';
+import { SubscriptionDTO } from '@models';
 
 export class SubscriptionsAPI extends BaseAPI {
    async create (dto: SubscriptionDraftDTO): Promise<SubscriptionDTO> {

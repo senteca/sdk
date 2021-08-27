@@ -1,14 +1,14 @@
 import { BaseAPI } from '../../runtime';
-import { DiscountCodeDTO } from '../../models/DiscountCodeDTO';
-import { DiscountCodeSearchResultDTO } from '../../models/DiscountCodeSearchResultDTO';
-import { DiscountCodeFilterResultDTO } from '../../models/DiscountCodeFilterResultDTO';
-import { DiscountCodeDraftDTO } from '../../models/DiscountCodeDraftDTO';
-import { DiscountCodeBulkCreateDTO } from '../../models/DiscountCodeBulkCreateDTO';
-import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
-import { DiscountCodeBulkDeleteDTO } from '../../models/DiscountCodeBulkDeleteDTO';
-import { FilterQueryDTO } from '../../models/FilterQueryDTO';
-import { DiscountCodeBulkSetIsActiveDTO } from '../../models/DiscountCodeBulkSetIsActiveDTO';
-import { DiscountCodeBulkSetValidRangeDTO } from '../../models/DiscountCodeBulkSetValidRangeDTO';
+import { DiscountCodeDTO } from '@models';
+import { DiscountCodeSearchResultDTO } from '@models';
+import { DiscountCodeFilterResultDTO } from '@models';
+import { DiscountCodeDraftDTO } from '@models';
+import { DiscountCodeBulkCreateDTO } from '@models';
+import { SetCustomFieldDTO } from '@models';
+import { DiscountCodeBulkDeleteDTO } from '@models';
+import { FilterQueryDTO } from '@models';
+import { DiscountCodeBulkSetIsActiveDTO } from '@models';
+import { DiscountCodeBulkSetValidRangeDTO } from '@models';
 
 export class DiscountCodesAPI extends BaseAPI {
    async import (dto: string[]): Promise<DiscountCodeDTO[]> {

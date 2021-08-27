@@ -1,10 +1,10 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { DiscountTemplateFilterResultDTO } from '../../models/DiscountTemplateFilterResultDTO';
-import { DiscountTemplateDraftDTO } from '../../models/DiscountTemplateDraftDTO';
-import { DiscountTemplateDTO } from '../../models/DiscountTemplateDTO';
-import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { DiscountTemplateFilterResultDTO } from '@models';
+import { DiscountTemplateDraftDTO } from '@models';
+import { DiscountTemplateDTO } from '@models';
+import { SetCustomFieldDTO } from '@models';
 
 export const DiscountTemplatesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<DiscountTemplateFilterResultDTO> => {
     const response = await HttpClient.request({

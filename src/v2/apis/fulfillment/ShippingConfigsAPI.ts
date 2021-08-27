@@ -1,9 +1,9 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { ShippingConfigDraftDTO } from '../../models/ShippingConfigDraftDTO';
-import { ShippingConfigDTO } from '../../models/ShippingConfigDTO';
-import { ShippingConfigFilterResultDTO } from '../../models/ShippingConfigFilterResultDTO';
+import { ShippingConfigDraftDTO } from '@models';
+import { ShippingConfigDTO } from '@models';
+import { ShippingConfigFilterResultDTO } from '@models';
 
 export const ShippingConfigsCreate = async (dto: ShippingConfigDraftDTO): Promise<ShippingConfigDTO> => {
     const response = await HttpClient.request({

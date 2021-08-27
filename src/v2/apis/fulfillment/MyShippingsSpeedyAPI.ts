@@ -1,17 +1,17 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { SpeedyLocationCountryDTO } from '../../models/SpeedyLocationCountryDTO';
-import { SpeedyLocationCityDTO } from '../../models/SpeedyLocationCityDTO';
-import { SpeedyLocationQuarterDTO } from '../../models/SpeedyLocationQuarterDTO';
-import { SpeedyLocationStreetDTO } from '../../models/SpeedyLocationStreetDTO';
-import { SpeedyLocationOfficeDTO } from '../../models/SpeedyLocationOfficeDTO';
-import { SpeedyCountryDTO } from '../../models/SpeedyCountryDTO';
-import { OrderDTO } from '../../models/OrderDTO';
-import { SpeedyCityDTO } from '../../models/SpeedyCityDTO';
-import { SpeedyQuarterDTO } from '../../models/SpeedyQuarterDTO';
-import { SpeedyStreetDTO } from '../../models/SpeedyStreetDTO';
-import { SpeedyOfficeDTO } from '../../models/SpeedyOfficeDTO';
+import { SpeedyLocationCountryDTO } from '@models';
+import { SpeedyLocationCityDTO } from '@models';
+import { SpeedyLocationQuarterDTO } from '@models';
+import { SpeedyLocationStreetDTO } from '@models';
+import { SpeedyLocationOfficeDTO } from '@models';
+import { SpeedyCountryDTO } from '@models';
+import { OrderDTO } from '@models';
+import { SpeedyCityDTO } from '@models';
+import { SpeedyQuarterDTO } from '@models';
+import { SpeedyStreetDTO } from '@models';
+import { SpeedyOfficeDTO } from '@models';
 
 export const MyShippingsSpeedyFindCountry = async (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<SpeedyLocationCountryDTO[]> => {
     const response = await HttpClient.request({

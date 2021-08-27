@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../runtime';
-import { MediaDTO } from '../../models/MediaDTO';
-import { MediaFilterResultDTO } from '../../models/MediaFilterResultDTO';
-import { MediaDeleteDTO } from '../../models/MediaDeleteDTO';
+import { MediaDTO } from '@models';
+import { MediaFilterResultDTO } from '@models';
+import { MediaDeleteDTO } from '@models';
 
 export class MediaAPI extends BaseAPI {
    async uploadAssets (folderId: string, dto: any): Promise<MediaDTO[]> {

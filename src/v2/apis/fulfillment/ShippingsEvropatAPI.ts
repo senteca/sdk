@@ -1,22 +1,22 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { EvropatClientAddressDTO } from '../../models/EvropatClientAddressDTO';
-import { EvropatAuthenticationCredentialsDTO } from '../../models/EvropatAuthenticationCredentialsDTO';
-import { EvropatLocationCityDTO } from '../../models/EvropatLocationCityDTO';
-import { EvropatLocationOfficeDTO } from '../../models/EvropatLocationOfficeDTO';
-import { EvropatModuleAddressDTO } from '../../models/EvropatModuleAddressDTO';
-import { OrderDTO } from '../../models/OrderDTO';
-import { EvropatCityDTO } from '../../models/EvropatCityDTO';
-import { EvropatOfficeDTO } from '../../models/EvropatOfficeDTO';
-import { EvropatCreateRequestDTO } from '../../models/EvropatCreateRequestDTO';
-import { EvropatCreateResponseDTO } from '../../models/EvropatCreateResponseDTO';
-import { EvropatSendRequestDTO } from '../../models/EvropatSendRequestDTO';
-import { EvropatSendResponseDTO } from '../../models/EvropatSendResponseDTO';
-import { EvropatCancelRequestDTO } from '../../models/EvropatCancelRequestDTO';
-import { EvropatCancelResponseDTO } from '../../models/EvropatCancelResponseDTO';
-import { EvropatTrackRequestDTO } from '../../models/EvropatTrackRequestDTO';
-import { EvropatTrackResponseDTO } from '../../models/EvropatTrackResponseDTO';
+import { EvropatClientAddressDTO } from '@models';
+import { EvropatAuthenticationCredentialsDTO } from '@models';
+import { EvropatLocationCityDTO } from '@models';
+import { EvropatLocationOfficeDTO } from '@models';
+import { EvropatModuleAddressDTO } from '@models';
+import { OrderDTO } from '@models';
+import { EvropatCityDTO } from '@models';
+import { EvropatOfficeDTO } from '@models';
+import { EvropatCreateRequestDTO } from '@models';
+import { EvropatCreateResponseDTO } from '@models';
+import { EvropatSendRequestDTO } from '@models';
+import { EvropatSendResponseDTO } from '@models';
+import { EvropatCancelRequestDTO } from '@models';
+import { EvropatCancelResponseDTO } from '@models';
+import { EvropatTrackRequestDTO } from '@models';
+import { EvropatTrackResponseDTO } from '@models';
 
 export const ShippingsEvropatClientAddresses = async (query: { clientKey: string }): Promise<EvropatClientAddressDTO[]> => {
     const response = await HttpClient.request({

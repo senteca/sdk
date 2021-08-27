@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerSearchHistoryFilterResultDTO } from '../../models/CustomerSearchHistoryFilterResultDTO';
-import { CustomerSearchHistoryCreateDraftDTO } from '../../models/CustomerSearchHistoryCreateDraftDTO';
-import { CustomerSearchHistoryDTO } from '../../models/CustomerSearchHistoryDTO';
+import { CustomerSearchHistoryFilterResultDTO } from '@models';
+import { CustomerSearchHistoryCreateDraftDTO } from '@models';
+import { CustomerSearchHistoryDTO } from '@models';
 
 export class MySearchHistoryAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerSearchHistoryFilterResultDTO> {

@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../runtime';
-import { StateDraftDTO } from '../../models/StateDraftDTO';
-import { StateDTO } from '../../models/StateDTO';
-import { StateFilterResultDTO } from '../../models/StateFilterResultDTO';
+import { StateDraftDTO } from '@models';
+import { StateDTO } from '@models';
+import { StateFilterResultDTO } from '@models';
 
 export class StatesAPI extends BaseAPI {
    async create (dto: StateDraftDTO): Promise<StateDTO> {

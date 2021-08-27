@@ -1,8 +1,8 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { WishListDTO } from '../../models/WishListDTO';
-import { WishListItemDraftDTO } from '../../models/WishListItemDraftDTO';
+import { WishListDTO } from '@models';
+import { WishListItemDraftDTO } from '@models';
 
 export const MyWishListGetMy = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<WishListDTO> => {
     const response = await HttpClient.request({

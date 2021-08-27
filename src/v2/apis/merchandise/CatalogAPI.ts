@@ -1,15 +1,15 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CatalogFilterResultDTO } from '../../models/CatalogFilterResultDTO';
-import { CatalogSearchResultDTO } from '../../models/CatalogSearchResultDTO';
-import { CatalogAggregateResponseDTO } from '../../models/CatalogAggregateResponseDTO';
-import { CustomSortDraftDTO } from '../../models/CustomSortDraftDTO';
-import { CustomSortDTO } from '../../models/CustomSortDTO';
-import { CustomSortFilterResultDTO } from '../../models/CustomSortFilterResultDTO';
-import { SynonymDraftDTO } from '../../models/SynonymDraftDTO';
-import { SynonymDTO } from '../../models/SynonymDTO';
-import { SynonymFilterResultDTO } from '../../models/SynonymFilterResultDTO';
+import { CatalogFilterResultDTO } from '@models';
+import { CatalogSearchResultDTO } from '@models';
+import { CatalogAggregateResponseDTO } from '@models';
+import { CustomSortDraftDTO } from '@models';
+import { CustomSortDTO } from '@models';
+import { CustomSortFilterResultDTO } from '@models';
+import { SynonymDraftDTO } from '@models';
+import { SynonymDTO } from '@models';
+import { SynonymFilterResultDTO } from '@models';
 
 export const CatalogFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, postFilter?: string, fuzzy?: boolean, fuzzyLevel?: string, count?: boolean, limit?: number, offset?: number, sort?: string, secondarySort?: string, geographicalCoordinates?: string }): Promise<CatalogFilterResultDTO> => {
     const response = await HttpClient.request({

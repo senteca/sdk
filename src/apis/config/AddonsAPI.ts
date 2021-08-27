@@ -1,8 +1,8 @@
 import { BaseAPI } from '../../runtime';
-import { AddonFilterResultDTO } from '../../models/AddonFilterResultDTO';
-import { AddonDraftDTO } from '../../models/AddonDraftDTO';
-import { AddonDTO } from '../../models/AddonDTO';
-import { AddonRequestDTO } from '../../models/AddonRequestDTO';
+import { AddonFilterResultDTO } from '@models';
+import { AddonDraftDTO } from '@models';
+import { AddonDTO } from '@models';
+import { AddonRequestDTO } from '@models';
 
 export class AddonsAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<AddonFilterResultDTO> {

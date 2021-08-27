@@ -1,8 +1,8 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { SubscriptionDraftDTO } from '../../models/SubscriptionDraftDTO';
-import { SubscriptionDTO } from '../../models/SubscriptionDTO';
+import { SubscriptionDraftDTO } from '@models';
+import { SubscriptionDTO } from '@models';
 
 export const SubscriptionsCreate = async (dto: SubscriptionDraftDTO): Promise<SubscriptionDTO> => {
     const response = await HttpClient.request({

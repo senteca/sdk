@@ -1,8 +1,8 @@
 import { BaseAPI } from '../../runtime';
-import { StoreDTO } from '../../models/StoreDTO';
-import { ThemeDTO } from '../../models/ThemeDTO';
-import { ThemeDraftDTO } from '../../models/ThemeDraftDTO';
-import { ThemeFilterResultDTO } from '../../models/ThemeFilterResultDTO';
+import { StoreDTO } from '@models';
+import { ThemeDTO } from '@models';
+import { ThemeDraftDTO } from '@models';
+import { ThemeFilterResultDTO } from '@models';
 
 export class ThemeAPI extends BaseAPI {
    async install (themeId: string, storeKey: string, interfaceKey: string): Promise<StoreDTO> {

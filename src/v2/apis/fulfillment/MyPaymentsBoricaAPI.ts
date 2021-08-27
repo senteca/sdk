@@ -1,12 +1,12 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { BoricaGeneratePaymentUrlResponse } from '../../models/BoricaGeneratePaymentUrlResponse';
-import { BoricaVerifyPaymentResultRequest } from '../../models/BoricaVerifyPaymentResultRequest';
-import { BoricaVerifyPaymentResultResponse } from '../../models/BoricaVerifyPaymentResultResponse';
-import { BoricaGeneratePaymentDataResponse } from '../../models/BoricaGeneratePaymentDataResponse';
-import { BoricaVerifyPaymentDataRequest } from '../../models/BoricaVerifyPaymentDataRequest';
-import { BoricaVerifyPaymentDataResponse } from '../../models/BoricaVerifyPaymentDataResponse';
+import { BoricaGeneratePaymentUrlResponse } from '@models';
+import { BoricaVerifyPaymentResultRequest } from '@models';
+import { BoricaVerifyPaymentResultResponse } from '@models';
+import { BoricaGeneratePaymentDataResponse } from '@models';
+import { BoricaVerifyPaymentDataRequest } from '@models';
+import { BoricaVerifyPaymentDataResponse } from '@models';
 
 export const MyPaymentsBoricaPayMyOrder = async (orderId: string, paymentId: string): Promise<BoricaGeneratePaymentUrlResponse> => {
     const response = await HttpClient.request({

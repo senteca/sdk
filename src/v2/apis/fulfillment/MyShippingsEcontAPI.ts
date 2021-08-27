@@ -1,17 +1,17 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { EcontLocationCountryDTO } from '../../models/EcontLocationCountryDTO';
-import { EcontLocationCityDTO } from '../../models/EcontLocationCityDTO';
-import { EcontLocationQuarterDTO } from '../../models/EcontLocationQuarterDTO';
-import { EcontLocationStreetDTO } from '../../models/EcontLocationStreetDTO';
-import { EcontLocationOfficeDTO } from '../../models/EcontLocationOfficeDTO';
-import { EcontCountryDTO } from '../../models/EcontCountryDTO';
-import { OrderDTO } from '../../models/OrderDTO';
-import { EcontCityDTO } from '../../models/EcontCityDTO';
-import { EcontQuarterDTO } from '../../models/EcontQuarterDTO';
-import { EcontStreetDTO } from '../../models/EcontStreetDTO';
-import { EcontOfficeDTO } from '../../models/EcontOfficeDTO';
+import { EcontLocationCountryDTO } from '@models';
+import { EcontLocationCityDTO } from '@models';
+import { EcontLocationQuarterDTO } from '@models';
+import { EcontLocationStreetDTO } from '@models';
+import { EcontLocationOfficeDTO } from '@models';
+import { EcontCountryDTO } from '@models';
+import { OrderDTO } from '@models';
+import { EcontCityDTO } from '@models';
+import { EcontQuarterDTO } from '@models';
+import { EcontStreetDTO } from '@models';
+import { EcontOfficeDTO } from '@models';
 
 export const MyShippingsEcontFindCountry = async (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EcontLocationCountryDTO[]> => {
     const response = await HttpClient.request({

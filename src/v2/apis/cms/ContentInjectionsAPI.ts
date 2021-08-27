@@ -1,10 +1,10 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CmsContentInjectionDraftDTO } from '../../models/CmsContentInjectionDraftDTO';
-import { CmsContentInjectionDTO } from '../../models/CmsContentInjectionDTO';
-import { CmsContentInjectionsFilterResultDTO } from '../../models/CmsContentInjectionsFilterResultDTO';
-import { CmsContentInjectionFilterValidDTO } from '../../models/CmsContentInjectionFilterValidDTO';
+import { CmsContentInjectionDraftDTO } from '@models';
+import { CmsContentInjectionDTO } from '@models';
+import { CmsContentInjectionsFilterResultDTO } from '@models';
+import { CmsContentInjectionFilterValidDTO } from '@models';
 
 export const ContentInjectionsCreate = async (dto: CmsContentInjectionDraftDTO): Promise<CmsContentInjectionDTO> => {
     const response = await HttpClient.request({

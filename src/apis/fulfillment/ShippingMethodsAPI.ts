@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../runtime';
-import { ShippingMethodDraftDTO } from '../../models/ShippingMethodDraftDTO';
-import { ShippingMethodDTO } from '../../models/ShippingMethodDTO';
-import { ShippingMethodFilterResultDTO } from '../../models/ShippingMethodFilterResultDTO';
+import { ShippingMethodDraftDTO } from '@models';
+import { ShippingMethodDTO } from '@models';
+import { ShippingMethodFilterResultDTO } from '@models';
 
 export class ShippingMethodsAPI extends BaseAPI {
    async create (dto: ShippingMethodDraftDTO): Promise<ShippingMethodDTO> {

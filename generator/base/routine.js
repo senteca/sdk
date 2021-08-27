@@ -12,7 +12,11 @@ module.exports = class BaseRoutine {
 
   static async createIndexFile(outputDir) {
     const path = resolveRoot(outputDir);
-    const exportPaths = ['apis', 'models', 'runtime'];
+    const isV2 = outputDir.includes('/v2');
+
+    const exportPaths = isV2
+      ? ['apis', 'runtime']
+      : ['apis', 'models', 'runtime', 'v2'];
     let content = exportPaths
       .map((path) => `export * from "./${path}";`)
       .join('\n');

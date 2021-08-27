@@ -4,6 +4,8 @@
     "module": "esnext",
     "lib": ["dom", "esnext"],
     "declaration": true,
+    "declarationMap": true,
+    "declarationDir": "types",
     "sourceMap": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
@@ -16,7 +18,11 @@
     "strictPropertyInitialization": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "baseUrl": ".",
+    "paths": {
+      "@models": ["src/models"]
+    }
   },
   "include": ["src"],
   "exclude": [

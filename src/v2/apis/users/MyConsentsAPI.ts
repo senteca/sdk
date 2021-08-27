@@ -1,10 +1,10 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CustomerConsentDTO } from '../../models/CustomerConsentDTO';
-import { CustomerConsentRequestDTO } from '../../models/CustomerConsentRequestDTO';
-import { CustomerConsentRequestBulkDTO } from '../../models/CustomerConsentRequestBulkDTO';
-import { CustomerConsentConfirmDTO } from '../../models/CustomerConsentConfirmDTO';
+import { CustomerConsentDTO } from '@models';
+import { CustomerConsentRequestDTO } from '@models';
+import { CustomerConsentRequestBulkDTO } from '@models';
+import { CustomerConsentConfirmDTO } from '@models';
 
 export const MyConsentsGetMyConsents = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerConsentDTO[]> => {
     const response = await HttpClient.request({

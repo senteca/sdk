@@ -1,9 +1,9 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { PriceListDraftDTO } from '../../models/PriceListDraftDTO';
-import { PriceListDTO } from '../../models/PriceListDTO';
-import { PriceListFilterResultDTO } from '../../models/PriceListFilterResultDTO';
+import { PriceListDraftDTO } from '@models';
+import { PriceListDTO } from '@models';
+import { PriceListFilterResultDTO } from '@models';
 
 export const PriceListsCreate = async (dto: PriceListDraftDTO): Promise<PriceListDTO> => {
     const response = await HttpClient.request({

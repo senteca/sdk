@@ -1,11 +1,11 @@
 import { BaseAPI } from '../../runtime';
-import { FancourierLocationRegionDTO } from '../../models/FancourierLocationRegionDTO';
-import { FancourierLocationCityDTO } from '../../models/FancourierLocationCityDTO';
-import { FancourierLocationStreetDTO } from '../../models/FancourierLocationStreetDTO';
-import { FancourierRegionDTO } from '../../models/FancourierRegionDTO';
-import { OrderDTO } from '../../models/OrderDTO';
-import { FancourierCityDTO } from '../../models/FancourierCityDTO';
-import { FancourierStreetDTO } from '../../models/FancourierStreetDTO';
+import { FancourierLocationRegionDTO } from '@models';
+import { FancourierLocationCityDTO } from '@models';
+import { FancourierLocationStreetDTO } from '@models';
+import { FancourierRegionDTO } from '@models';
+import { OrderDTO } from '@models';
+import { FancourierCityDTO } from '@models';
+import { FancourierStreetDTO } from '@models';
 
 export class MyShippingsFancourierAPI extends BaseAPI {
    async findRegion (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<FancourierLocationRegionDTO[]> {

@@ -1,7 +1,7 @@
 import { BaseAPI } from '../../runtime';
-import { LabelDraftDTO } from '../../models/LabelDraftDTO';
-import { LabelDTO } from '../../models/LabelDTO';
-import { LabelFilterResultDTO } from '../../models/LabelFilterResultDTO';
+import { LabelDraftDTO } from '@models';
+import { LabelDTO } from '@models';
+import { LabelFilterResultDTO } from '@models';
 
 export class LabelsAPI extends BaseAPI {
    async create (dto: LabelDraftDTO): Promise<LabelDTO> {

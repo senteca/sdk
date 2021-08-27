@@ -1,12 +1,12 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CategoryDraftDTO } from '../../models/CategoryDraftDTO';
-import { CategoryDTO } from '../../models/CategoryDTO';
-import { CategoryFilterResultDTO } from '../../models/CategoryFilterResultDTO';
-import { CategoryImportDraftDTO } from '../../models/CategoryImportDraftDTO';
-import { CategorySearchResultDTO } from '../../models/CategorySearchResultDTO';
-import { SetCustomFieldDTO } from '../../models/SetCustomFieldDTO';
+import { CategoryDraftDTO } from '@models';
+import { CategoryDTO } from '@models';
+import { CategoryFilterResultDTO } from '@models';
+import { CategoryImportDraftDTO } from '@models';
+import { CategorySearchResultDTO } from '@models';
+import { SetCustomFieldDTO } from '@models';
 
 export const CategoriesCreate = async (dto: CategoryDraftDTO): Promise<CategoryDTO> => {
     const response = await HttpClient.request({
