@@ -1,15 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { PaymentMethodDraftDTO,PaymentMethodDTO,PaymentMethodFilterResultDTO } from '../../../models';
+import { PaymentMethodDraftDTO, PaymentMethodDTO, PaymentMethodFilterResultDTO } from '../../../models';
 
 export const PaymentMethodsCreate = async (dto: PaymentMethodDraftDTO): Promise<PaymentMethodDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/payment-methods`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as PaymentMethodDTO;
@@ -20,9 +18,6 @@ export const PaymentMethodsFilter = async (query?: { storeKey?: string, interfac
         path: `/fulfillment/payment-methods`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as PaymentMethodFilterResultDTO;
 }
@@ -31,10 +26,6 @@ export const PaymentMethodsGetByKey = async (key: string): Promise<PaymentMethod
     const response = await HttpClient.request({
         path: `/fulfillment/payment-methods/key=${encodeURIComponent(key)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as PaymentMethodDTO;
 }
@@ -43,10 +34,6 @@ export const PaymentMethodsGetById = async (id: string): Promise<PaymentMethodDT
     const response = await HttpClient.request({
         path: `/fulfillment/payment-methods/${encodeURIComponent(id)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as PaymentMethodDTO;
 }
@@ -55,9 +42,7 @@ export const PaymentMethodsUpdate = async (id: string, dto: PaymentMethodDraftDT
     const response = await HttpClient.request({
         path: `/fulfillment/payment-methods/${encodeURIComponent(id)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as PaymentMethodDTO;
@@ -67,10 +52,6 @@ export const PaymentMethodsDelete = async (id: string): Promise<PaymentMethodDTO
     const response = await HttpClient.request({
         path: `/fulfillment/payment-methods/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as PaymentMethodDTO;
 }

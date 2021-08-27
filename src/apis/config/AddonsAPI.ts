@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { AddonFilterResultDTO,AddonDraftDTO,AddonDTO,AddonRequestDTO } from '../../models';
+import { AddonFilterResultDTO, AddonDraftDTO, AddonDTO, AddonRequestDTO } from '../../models';
 
 export class AddonsAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<AddonFilterResultDTO> {
@@ -7,9 +7,6 @@ export class AddonsAPI extends BaseAPI {
            path: `/config/addons`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as AddonFilterResultDTO;
    }
@@ -18,9 +15,7 @@ export class AddonsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/addons`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as AddonDTO;
@@ -30,9 +25,7 @@ export class AddonsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/addons/bulk-register`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as AddonDraftDTO[];
@@ -42,9 +35,7 @@ export class AddonsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/addons/request`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        

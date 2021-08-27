@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CatalogFilterResultDTO,CatalogSearchResultDTO,CatalogAggregateResponseDTO,CustomSortDraftDTO,CustomSortDTO,CustomSortFilterResultDTO,SynonymDraftDTO,SynonymDTO,SynonymFilterResultDTO } from '../../models';
+import { CatalogFilterResultDTO, CatalogSearchResultDTO, CatalogAggregateResponseDTO, CustomSortDraftDTO, CustomSortDTO, CustomSortFilterResultDTO, SynonymDraftDTO, SynonymDTO, SynonymFilterResultDTO } from '../../models';
 
 export class CatalogAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, postFilter?: string, fuzzy?: boolean, fuzzyLevel?: string, count?: boolean, limit?: number, offset?: number, sort?: string, secondarySort?: string, geographicalCoordinates?: string }): Promise<CatalogFilterResultDTO> {
@@ -7,9 +7,6 @@ export class CatalogAPI extends BaseAPI {
            path: `/merchandise/catalog/filter`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CatalogFilterResultDTO;
    }
@@ -19,9 +16,6 @@ export class CatalogAPI extends BaseAPI {
            path: `/merchandise/catalog/search`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CatalogSearchResultDTO;
    }
@@ -31,9 +25,6 @@ export class CatalogAPI extends BaseAPI {
            path: `/merchandise/catalog/aggregate`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CatalogAggregateResponseDTO;
    }
@@ -42,9 +33,7 @@ export class CatalogAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/catalog/custom-sorts`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomSortDTO;
@@ -55,9 +44,6 @@ export class CatalogAPI extends BaseAPI {
            path: `/merchandise/catalog/custom-sorts`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CustomSortFilterResultDTO;
    }
@@ -66,10 +52,6 @@ export class CatalogAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/catalog/custom-sorts/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomSortDTO;
    }
@@ -78,9 +60,7 @@ export class CatalogAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/catalog/custom-sorts/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomSortDTO;
@@ -90,10 +70,6 @@ export class CatalogAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/catalog/custom-sorts/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomSortDTO;
    }
@@ -102,9 +78,7 @@ export class CatalogAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/catalog/synonyms`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as SynonymDTO;
@@ -115,9 +89,6 @@ export class CatalogAPI extends BaseAPI {
            path: `/merchandise/catalog/synonyms`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SynonymFilterResultDTO;
    }
@@ -126,9 +97,7 @@ export class CatalogAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/catalog/synonyms/${encodeURIComponent(synonymId)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as SynonymDTO;
@@ -138,10 +107,6 @@ export class CatalogAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/catalog/synonyms/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as SynonymDTO;
    }
@@ -150,10 +115,6 @@ export class CatalogAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/catalog/synonyms/sync`,
            method: 'POST',
-           
-           
-           
-           
         });
        
    }

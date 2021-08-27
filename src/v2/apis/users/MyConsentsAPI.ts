@@ -1,16 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CustomerConsentDTO,CustomerConsentRequestDTO,CustomerConsentRequestBulkDTO,CustomerConsentConfirmDTO } from '../../../models';
+import { CustomerConsentDTO, CustomerConsentRequestDTO, CustomerConsentRequestBulkDTO, CustomerConsentConfirmDTO } from '../../../models';
 
 export const MyConsentsGetMyConsents = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerConsentDTO[]> => {
     const response = await HttpClient.request({
         path: `/users/my-consents`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as CustomerConsentDTO[];
 }
@@ -21,7 +18,6 @@ export const MyConsentsApprove = async (query: { storeKey?: string, interfaceKey
         method: 'PUT',
         query: toQueryString(query),
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as CustomerConsentDTO;
@@ -33,7 +29,6 @@ export const MyConsentsApproveBulk = async (query: { storeKey?: string, interfac
         method: 'PUT',
         query: toQueryString(query),
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as CustomerConsentDTO[];
@@ -45,7 +40,6 @@ export const MyConsentsReject = async (query: { storeKey?: string, interfaceKey?
         method: 'PUT',
         query: toQueryString(query),
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as CustomerConsentDTO;
@@ -57,7 +51,6 @@ export const MyConsentsConfirm = async (query: { storeKey?: string, interfaceKey
         method: 'PUT',
         query: toQueryString(query),
         body: dto,
-        
         contentType: 'application/json',
     });
     

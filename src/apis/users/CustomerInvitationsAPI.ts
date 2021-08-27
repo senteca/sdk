@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerInvitationDraftDTO,CustomerInvitationDTO,CustomerInvitationFilterResultDTO } from '../../models';
+import { CustomerInvitationDraftDTO, CustomerInvitationDTO, CustomerInvitationFilterResultDTO } from '../../models';
 
 export class CustomerInvitationsAPI extends BaseAPI {
    async create (dto: CustomerInvitationDraftDTO): Promise<CustomerInvitationDTO> {
        const response = await this._request({
            path: `/users/customer-invitations`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomerInvitationDTO;
@@ -19,9 +17,6 @@ export class CustomerInvitationsAPI extends BaseAPI {
            path: `/users/customer-invitations`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CustomerInvitationFilterResultDTO;
    }
@@ -30,10 +25,6 @@ export class CustomerInvitationsAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-invitations/key=${encodeURIComponent(key)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomerInvitationDTO;
    }
@@ -42,10 +33,6 @@ export class CustomerInvitationsAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-invitations/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomerInvitationDTO;
    }
@@ -54,9 +41,7 @@ export class CustomerInvitationsAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-invitations/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomerInvitationDTO;
@@ -66,10 +51,6 @@ export class CustomerInvitationsAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-invitations/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomerInvitationDTO;
    }
@@ -78,10 +59,6 @@ export class CustomerInvitationsAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-invitations/${encodeURIComponent(id)}/resend`,
            method: 'PATCH',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomerInvitationDTO;
    }

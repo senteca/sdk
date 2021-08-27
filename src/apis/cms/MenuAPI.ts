@@ -1,15 +1,11 @@
 import { BaseAPI } from '../../runtime';
-import { MenuItemDTO,MenuItemDraftDTO,CustomItemDTO,SectionElementDTO,SectionItemDTO } from '../../models';
+import { MenuItemDTO, MenuItemDraftDTO, CustomItemDTO, SectionElementDTO, SectionItemDTO } from '../../models';
 
 export class MenuAPI extends BaseAPI {
    async getAll (): Promise<MenuItemDTO[]> {
        const response = await this._request({
            path: `/cms/menu`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as MenuItemDTO[];
    }
@@ -18,9 +14,7 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as MenuItemDTO[];
@@ -30,10 +24,6 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as MenuItemDTO;
    }
@@ -42,9 +32,7 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as MenuItemDTO;
@@ -54,10 +42,6 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as MenuItemDTO[];
    }
@@ -66,10 +50,6 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}/items`,
            method: 'POST',
-           
-           
-           
-           
         });
        return (response as unknown) as MenuItemDTO;
    }
@@ -78,9 +58,7 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}/items/${encodeURIComponent(itemId)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomItemDTO;
@@ -90,10 +68,6 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}/items/${encodeURIComponent(itemId)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as MenuItemDTO;
    }
@@ -102,10 +76,6 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}/sections`,
            method: 'POST',
-           
-           
-           
-           
         });
        return (response as unknown) as MenuItemDTO;
    }
@@ -114,10 +84,6 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}/sections/${encodeURIComponent(sectionId)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as MenuItemDTO;
    }
@@ -126,9 +92,7 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}/sections/${encodeURIComponent(sectionId)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as MenuItemDTO;
@@ -138,10 +102,6 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}/sections/${encodeURIComponent(sectionId)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as SectionElementDTO;
    }
@@ -150,10 +110,6 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}/sections/${encodeURIComponent(sectionId)}/items`,
            method: 'POST',
-           
-           
-           
-           
         });
        return (response as unknown) as MenuItemDTO;
    }
@@ -162,10 +118,6 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}/sections/${encodeURIComponent(sectionId)}/items/${encodeURIComponent(itemId)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as SectionItemDTO;
    }
@@ -174,9 +126,7 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}/sections/${encodeURIComponent(sectionId)}/items/${encodeURIComponent(itemId)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as MenuItemDTO;
@@ -186,10 +136,6 @@ export class MenuAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/menu/${encodeURIComponent(id)}/sections/${encodeURIComponent(sectionId)}/items/${encodeURIComponent(itemId)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as MenuItemDTO;
    }
@@ -199,9 +145,6 @@ export class MenuAPI extends BaseAPI {
            path: `/cms/menu/${encodeURIComponent(id)}/sections/${encodeURIComponent(sectionId)}/items/${encodeURIComponent(itemId)}`,
            method: 'POST',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as MenuItemDTO;
    }
@@ -212,7 +155,6 @@ export class MenuAPI extends BaseAPI {
            method: 'POST',
            query: this._stringifyQuery(query),
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as MenuItemDTO;
@@ -223,9 +165,6 @@ export class MenuAPI extends BaseAPI {
            path: `/cms/menu/${encodeURIComponent(id)}/sections/${encodeURIComponent(sectionId)}/items/${encodeURIComponent(itemId)}/custom/${encodeURIComponent(customItemId)}`,
            method: 'DELETE',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as MenuItemDTO;
    }

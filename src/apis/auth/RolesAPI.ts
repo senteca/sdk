@@ -1,15 +1,11 @@
 import { BaseAPI } from '../../runtime';
-import { Permission,RoleFilterResultDTO,RoleDraftDTO,RoleDTO } from '../../models';
+import { Permission, RoleFilterResultDTO, RoleDraftDTO, RoleDTO } from '../../models';
 
 export class RolesAPI extends BaseAPI {
    async getPermissions (): Promise<Permission[]> {
        const response = await this._request({
            path: `/auth/roles/permissions`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as Permission[];
    }
@@ -19,9 +15,6 @@ export class RolesAPI extends BaseAPI {
            path: `/auth/roles`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as RoleFilterResultDTO;
    }
@@ -30,9 +23,7 @@ export class RolesAPI extends BaseAPI {
        const response = await this._request({
            path: `/auth/roles`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as RoleDTO;
@@ -42,10 +33,6 @@ export class RolesAPI extends BaseAPI {
        const response = await this._request({
            path: `/auth/roles/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as RoleDTO;
    }
@@ -54,9 +41,7 @@ export class RolesAPI extends BaseAPI {
        const response = await this._request({
            path: `/auth/roles/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as RoleDTO;
@@ -66,10 +51,6 @@ export class RolesAPI extends BaseAPI {
        const response = await this._request({
            path: `/auth/roles/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as RoleDTO;
    }

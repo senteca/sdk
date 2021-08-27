@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { FolderDraftDTO,FolderDTO,FolderFilterResultDTO,FlipFoldersDTO } from '../../models';
+import { FolderDraftDTO, FolderDTO, FolderFilterResultDTO, FlipFoldersDTO } from '../../models';
 
 export class FoldersAPI extends BaseAPI {
    async create (dto: FolderDraftDTO): Promise<FolderDTO> {
        const response = await this._request({
            path: `/cms/folders`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as FolderDTO;
@@ -19,9 +17,6 @@ export class FoldersAPI extends BaseAPI {
            path: `/cms/folders`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as FolderFilterResultDTO;
    }
@@ -30,9 +25,7 @@ export class FoldersAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/folders/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as FolderDTO;
@@ -42,10 +35,6 @@ export class FoldersAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/folders/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as FolderDTO;
    }
@@ -54,9 +43,7 @@ export class FoldersAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/folders/flip`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        

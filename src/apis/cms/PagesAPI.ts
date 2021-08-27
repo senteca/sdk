@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { PageDraftDTO,PageDTO,PageFilterResultDTO,PageStatusUpdateDTO,PageNameUpdateDTO,PageLabelUpdateDTO,PageNodesUpdateDTO } from '../../models';
+import { PageDraftDTO, PageDTO, PageFilterResultDTO, PageStatusUpdateDTO, PageNameUpdateDTO, PageLabelUpdateDTO, PageNodesUpdateDTO } from '../../models';
 
 export class PagesAPI extends BaseAPI {
    async create (dto: PageDraftDTO): Promise<PageDTO> {
        const response = await this._request({
            path: `/cms/pages`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as PageDTO;
@@ -19,9 +17,6 @@ export class PagesAPI extends BaseAPI {
            path: `/cms/pages`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as PageFilterResultDTO;
    }
@@ -30,10 +25,6 @@ export class PagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/pages/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as PageDTO;
    }
@@ -42,9 +33,7 @@ export class PagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/pages/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as PageDTO;
@@ -54,10 +43,6 @@ export class PagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/pages/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as PageDTO;
    }
@@ -66,9 +51,7 @@ export class PagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/pages/${encodeURIComponent(id)}/status`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as PageDTO;
@@ -78,9 +61,7 @@ export class PagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/pages/${encodeURIComponent(id)}/name`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as PageDTO;
@@ -90,9 +71,7 @@ export class PagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/pages/${encodeURIComponent(id)}/label`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as PageDTO;
@@ -102,9 +81,7 @@ export class PagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/pages/${encodeURIComponent(id)}/nodes`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as PageDTO;
@@ -114,10 +91,6 @@ export class PagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/pages/${encodeURIComponent(id)}/apply`,
            method: 'POST',
-           
-           
-           
-           
         });
        return (response as unknown) as PageDTO;
    }
@@ -126,10 +99,6 @@ export class PagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/pages/${encodeURIComponent(id)}/revert`,
            method: 'POST',
-           
-           
-           
-           
         });
        return (response as unknown) as PageDTO;
    }

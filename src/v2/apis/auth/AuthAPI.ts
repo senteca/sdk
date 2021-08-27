@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { TokenRequestDTO,TokenResponseDTO,LoginRequestDTO,OAuthTokenRequestDTO,RegisterRequestDTO } from '../../../models';
+import { TokenRequestDTO, TokenResponseDTO, LoginRequestDTO, OAuthTokenRequestDTO, RegisterRequestDTO } from '../../../models';
 
 export const AuthCreateToken = async (basicAuth: { username: string, password: string }, query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: TokenRequestDTO): Promise<TokenResponseDTO> => {
     const response = await HttpClient.request({
@@ -21,7 +21,6 @@ export const AuthLogin = async (query: { storeKey?: string, interfaceKey?: strin
         method: 'POST',
         query: toQueryString(query),
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as TokenResponseDTO;
@@ -33,7 +32,6 @@ export const AuthCreateFacebookToken = async (query: { storeKey?: string, interf
         method: 'POST',
         query: toQueryString(query),
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as TokenResponseDTO;
@@ -45,7 +43,6 @@ export const AuthCreateGoogleToken = async (query: { storeKey?: string, interfac
         method: 'POST',
         query: toQueryString(query),
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as TokenResponseDTO;
@@ -57,7 +54,6 @@ export const AuthCreateAppleToken = async (query: { storeKey?: string, interface
         method: 'POST',
         query: toQueryString(query),
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as TokenResponseDTO;
@@ -69,7 +65,6 @@ export const AuthCreateAnonymousToken = async (query: { storeKey?: string, inter
         method: 'POST',
         query: toQueryString(query),
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as TokenResponseDTO;
@@ -81,7 +76,6 @@ export const AuthRefreshToken = async (query: { storeKey?: string, interfaceKey?
         method: 'POST',
         query: toQueryString(query),
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as TokenResponseDTO;
@@ -93,7 +87,6 @@ export const AuthRegister = async (query: { storeKey?: string, interfaceKey?: st
         method: 'POST',
         query: toQueryString(query),
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as TokenResponseDTO;

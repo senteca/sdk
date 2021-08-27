@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { BrandDraftDTO,BrandDTO,BrandFilterResultDTO,BrandImportDraftDTO,BrandSearchResultDTO,SetCustomFieldDTO } from '../../models';
+import { BrandDraftDTO, BrandDTO, BrandFilterResultDTO, BrandImportDraftDTO, BrandSearchResultDTO, SetCustomFieldDTO } from '../../models';
 
 export class BrandsAPI extends BaseAPI {
    async create (dto: BrandDraftDTO): Promise<BrandDTO> {
        const response = await this._request({
            path: `/merchandise/brands`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as BrandDTO;
@@ -19,9 +17,6 @@ export class BrandsAPI extends BaseAPI {
            path: `/merchandise/brands`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as BrandFilterResultDTO;
    }
@@ -30,9 +25,7 @@ export class BrandsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/brands/import`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -43,9 +36,6 @@ export class BrandsAPI extends BaseAPI {
            path: `/merchandise/brands/search`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as BrandSearchResultDTO;
    }
@@ -55,9 +45,6 @@ export class BrandsAPI extends BaseAPI {
            path: `/merchandise/brands/slug=${encodeURIComponent(slug)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as BrandDTO;
    }
@@ -67,9 +54,6 @@ export class BrandsAPI extends BaseAPI {
            path: `/merchandise/brands/externalId=${encodeURIComponent(externalId)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as BrandDTO;
    }
@@ -78,9 +62,7 @@ export class BrandsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/brands/externalId=${encodeURIComponent(externalId)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as BrandDTO;
@@ -90,10 +72,6 @@ export class BrandsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/brands/externalId=${encodeURIComponent(externalId)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as BrandDTO;
    }
@@ -103,9 +81,6 @@ export class BrandsAPI extends BaseAPI {
            path: `/merchandise/brands/${encodeURIComponent(id)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as BrandDTO;
    }
@@ -114,9 +89,7 @@ export class BrandsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/brands/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as BrandDTO;
@@ -126,10 +99,6 @@ export class BrandsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/brands/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as BrandDTO;
    }
@@ -138,9 +107,7 @@ export class BrandsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/brands/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        

@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { AttributeDraftDTO,AttributeDTO,AttributeFilterResultDTO,AttributeSearchResultDTO } from '../../models';
+import { AttributeDraftDTO, AttributeDTO, AttributeFilterResultDTO, AttributeSearchResultDTO } from '../../models';
 
 export class AttributesAPI extends BaseAPI {
    async create (dto: AttributeDraftDTO): Promise<AttributeDTO> {
        const response = await this._request({
            path: `/merchandise/attributes`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as AttributeDTO;
@@ -19,9 +17,6 @@ export class AttributesAPI extends BaseAPI {
            path: `/merchandise/attributes`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as AttributeFilterResultDTO;
    }
@@ -30,9 +25,7 @@ export class AttributesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/attributes/import`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -43,9 +36,6 @@ export class AttributesAPI extends BaseAPI {
            path: `/merchandise/attributes/search`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as AttributeSearchResultDTO;
    }
@@ -55,9 +45,6 @@ export class AttributesAPI extends BaseAPI {
            path: `/merchandise/attributes/name=${encodeURIComponent(name)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as AttributeDTO;
    }
@@ -66,9 +53,7 @@ export class AttributesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/attributes/name=${encodeURIComponent(name)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as AttributeDTO;
@@ -78,10 +63,6 @@ export class AttributesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/attributes/name=${encodeURIComponent(name)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as AttributeDTO;
    }
@@ -91,9 +72,6 @@ export class AttributesAPI extends BaseAPI {
            path: `/merchandise/attributes/${encodeURIComponent(id)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as AttributeDTO;
    }
@@ -102,9 +80,7 @@ export class AttributesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/attributes/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as AttributeDTO;
@@ -114,10 +90,6 @@ export class AttributesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/attributes/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as AttributeDTO;
    }

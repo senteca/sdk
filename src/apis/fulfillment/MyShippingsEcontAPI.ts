@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { EcontLocationCountryDTO,EcontLocationCityDTO,EcontLocationQuarterDTO,EcontLocationStreetDTO,EcontLocationOfficeDTO,EcontCountryDTO,OrderDTO,EcontCityDTO,EcontQuarterDTO,EcontStreetDTO,EcontOfficeDTO } from '../../models';
+import { EcontLocationCountryDTO, EcontLocationCityDTO, EcontLocationQuarterDTO, EcontLocationStreetDTO, EcontLocationOfficeDTO, EcontCountryDTO, OrderDTO, EcontCityDTO, EcontQuarterDTO, EcontStreetDTO, EcontOfficeDTO } from '../../models';
 
 export class MyShippingsEcontAPI extends BaseAPI {
    async findCountry (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EcontLocationCountryDTO[]> {
@@ -7,9 +7,6 @@ export class MyShippingsEcontAPI extends BaseAPI {
            path: `/fulfillment/my-shippings/econt/find-country`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as EcontLocationCountryDTO[];
    }
@@ -19,9 +16,6 @@ export class MyShippingsEcontAPI extends BaseAPI {
            path: `/fulfillment/my-shippings/econt/find-city`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as EcontLocationCityDTO[];
    }
@@ -31,9 +25,6 @@ export class MyShippingsEcontAPI extends BaseAPI {
            path: `/fulfillment/my-shippings/econt/find-quarter`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as EcontLocationQuarterDTO[];
    }
@@ -43,9 +34,6 @@ export class MyShippingsEcontAPI extends BaseAPI {
            path: `/fulfillment/my-shippings/econt/find-street`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as EcontLocationStreetDTO[];
    }
@@ -55,9 +43,6 @@ export class MyShippingsEcontAPI extends BaseAPI {
            path: `/fulfillment/my-shippings/econt/find-office`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as EcontLocationOfficeDTO[];
    }
@@ -66,9 +51,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/country`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -78,10 +61,6 @@ export class MyShippingsEcontAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/country`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -90,9 +69,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/city`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -102,10 +79,6 @@ export class MyShippingsEcontAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/city`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -114,9 +87,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/quarter`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -126,10 +97,6 @@ export class MyShippingsEcontAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/quarter`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -138,9 +105,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/street`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -150,10 +115,6 @@ export class MyShippingsEcontAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/street`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -162,9 +123,7 @@ export class MyShippingsEcontAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/office`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -174,10 +133,6 @@ export class MyShippingsEcontAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/econt/office`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }

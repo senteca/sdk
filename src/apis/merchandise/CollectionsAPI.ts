@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { CollectionDraftDTO,CollectionDTO,CollectionFilterResultDTO,CollectionSearchResultDTO,SetCustomFieldDTO } from '../../models';
+import { CollectionDraftDTO, CollectionDTO, CollectionFilterResultDTO, CollectionSearchResultDTO, SetCustomFieldDTO } from '../../models';
 
 export class CollectionsAPI extends BaseAPI {
    async create (dto: CollectionDraftDTO): Promise<CollectionDTO> {
        const response = await this._request({
            path: `/merchandise/collections`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CollectionDTO;
@@ -19,9 +17,6 @@ export class CollectionsAPI extends BaseAPI {
            path: `/merchandise/collections`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CollectionFilterResultDTO;
    }
@@ -30,9 +25,7 @@ export class CollectionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/collections/import`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -43,9 +36,6 @@ export class CollectionsAPI extends BaseAPI {
            path: `/merchandise/collections/search`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CollectionSearchResultDTO;
    }
@@ -55,9 +45,6 @@ export class CollectionsAPI extends BaseAPI {
            path: `/merchandise/collections/slug=${encodeURIComponent(slug)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CollectionDTO;
    }
@@ -67,9 +54,6 @@ export class CollectionsAPI extends BaseAPI {
            path: `/merchandise/collections/externalId=${encodeURIComponent(externalId)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CollectionDTO;
    }
@@ -78,9 +62,7 @@ export class CollectionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/collections/externalId=${encodeURIComponent(externalId)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CollectionDTO;
@@ -90,10 +72,6 @@ export class CollectionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/collections/externalId=${encodeURIComponent(externalId)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as CollectionDTO;
    }
@@ -103,9 +81,6 @@ export class CollectionsAPI extends BaseAPI {
            path: `/merchandise/collections/${encodeURIComponent(id)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CollectionDTO;
    }
@@ -114,9 +89,7 @@ export class CollectionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/collections/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CollectionDTO;
@@ -126,10 +99,6 @@ export class CollectionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/collections/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as CollectionDTO;
    }
@@ -138,9 +107,7 @@ export class CollectionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/collections/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        

@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerConsentDTO,CustomerConsentRequestDTO,CustomerConsentRequestBulkDTO,CustomerConsentConfirmDTO } from '../../models';
+import { CustomerConsentDTO, CustomerConsentRequestDTO, CustomerConsentRequestBulkDTO, CustomerConsentConfirmDTO } from '../../models';
 
 export class MyConsentsAPI extends BaseAPI {
    async getMyConsents (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerConsentDTO[]> {
@@ -7,9 +7,6 @@ export class MyConsentsAPI extends BaseAPI {
            path: `/users/my-consents`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CustomerConsentDTO[];
    }
@@ -20,7 +17,6 @@ export class MyConsentsAPI extends BaseAPI {
            method: 'PUT',
            query: this._stringifyQuery(query),
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomerConsentDTO;
@@ -32,7 +28,6 @@ export class MyConsentsAPI extends BaseAPI {
            method: 'PUT',
            query: this._stringifyQuery(query),
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomerConsentDTO[];
@@ -44,7 +39,6 @@ export class MyConsentsAPI extends BaseAPI {
            method: 'PUT',
            query: this._stringifyQuery(query),
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomerConsentDTO;
@@ -56,7 +50,6 @@ export class MyConsentsAPI extends BaseAPI {
            method: 'PUT',
            query: this._stringifyQuery(query),
            body: dto,
-           
            contentType: 'application/json',
         });
        

@@ -1,15 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { StoreViewDraftDTO,StoreViewDTO,StoreViewFilterResultDTO } from '../../../models';
+import { StoreViewDraftDTO, StoreViewDTO, StoreViewFilterResultDTO } from '../../../models';
 
 export const StoreViewsCreate = async (dto: StoreViewDraftDTO): Promise<StoreViewDTO> => {
     const response = await HttpClient.request({
         path: `/config/store-views`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as StoreViewDTO;
@@ -20,9 +18,6 @@ export const StoreViewsFilter = async (query?: { storeKey?: string, interfaceKey
         path: `/config/store-views`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as StoreViewFilterResultDTO;
 }
@@ -31,10 +26,6 @@ export const StoreViewsGetById = async (id: string): Promise<StoreViewDTO> => {
     const response = await HttpClient.request({
         path: `/config/store-views/${encodeURIComponent(id)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as StoreViewDTO;
 }
@@ -43,9 +34,7 @@ export const StoreViewsUpdate = async (id: string, dto: StoreViewDraftDTO): Prom
     const response = await HttpClient.request({
         path: `/config/store-views/${encodeURIComponent(id)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as StoreViewDTO;
@@ -55,10 +44,6 @@ export const StoreViewsDelete = async (id: string): Promise<StoreViewDTO> => {
     const response = await HttpClient.request({
         path: `/config/store-views/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as StoreViewDTO;
 }

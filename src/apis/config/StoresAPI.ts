@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { StoreDraftDTO,StoreDTO,StoreFilterResultDTO } from '../../models';
+import { StoreDraftDTO, StoreDTO, StoreFilterResultDTO } from '../../models';
 
 export class StoresAPI extends BaseAPI {
    async create (dto: StoreDraftDTO): Promise<StoreDTO> {
        const response = await this._request({
            path: `/config/stores`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as StoreDTO;
@@ -19,9 +17,6 @@ export class StoresAPI extends BaseAPI {
            path: `/config/stores`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as StoreFilterResultDTO;
    }
@@ -30,10 +25,6 @@ export class StoresAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/stores/key=${encodeURIComponent(key)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as StoreDTO;
    }
@@ -42,10 +33,6 @@ export class StoresAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/stores/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as StoreDTO;
    }
@@ -54,9 +41,7 @@ export class StoresAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/stores/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as StoreDTO;
@@ -66,10 +51,6 @@ export class StoresAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/stores/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as StoreDTO;
    }

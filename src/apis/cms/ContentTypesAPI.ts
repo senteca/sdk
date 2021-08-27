@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { ContentTypeDraftDTO,ContentTypeDTO,ContentTypeFilterResultDTO } from '../../models';
+import { ContentTypeDraftDTO, ContentTypeDTO, ContentTypeFilterResultDTO } from '../../models';
 
 export class ContentTypesAPI extends BaseAPI {
    async create (dto: ContentTypeDraftDTO): Promise<ContentTypeDTO> {
        const response = await this._request({
            path: `/cms/content-types`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ContentTypeDTO;
@@ -19,9 +17,6 @@ export class ContentTypesAPI extends BaseAPI {
            path: `/cms/content-types`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as ContentTypeFilterResultDTO;
    }
@@ -30,9 +25,7 @@ export class ContentTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/content-types/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ContentTypeDTO;
@@ -42,10 +35,6 @@ export class ContentTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/content-types/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as ContentTypeDTO;
    }

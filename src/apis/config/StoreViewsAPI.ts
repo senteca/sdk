@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { StoreViewDraftDTO,StoreViewDTO,StoreViewFilterResultDTO } from '../../models';
+import { StoreViewDraftDTO, StoreViewDTO, StoreViewFilterResultDTO } from '../../models';
 
 export class StoreViewsAPI extends BaseAPI {
    async create (dto: StoreViewDraftDTO): Promise<StoreViewDTO> {
        const response = await this._request({
            path: `/config/store-views`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as StoreViewDTO;
@@ -19,9 +17,6 @@ export class StoreViewsAPI extends BaseAPI {
            path: `/config/store-views`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as StoreViewFilterResultDTO;
    }
@@ -30,10 +25,6 @@ export class StoreViewsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/store-views/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as StoreViewDTO;
    }
@@ -42,9 +33,7 @@ export class StoreViewsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/store-views/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as StoreViewDTO;
@@ -54,10 +43,6 @@ export class StoreViewsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/store-views/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as StoreViewDTO;
    }

@@ -1,15 +1,11 @@
 import { BaseAPI } from '../../runtime';
-import { StoreDTO,ThemeDTO,ThemeDraftDTO,ThemeFilterResultDTO } from '../../models';
+import { StoreDTO, ThemeDTO, ThemeDraftDTO, ThemeFilterResultDTO } from '../../models';
 
 export class ThemeAPI extends BaseAPI {
    async install (themeId: string, storeKey: string, interfaceKey: string): Promise<StoreDTO> {
        const response = await this._request({
            path: `/cms/theme/install/themeId=${encodeURIComponent(themeId)}/storeKey=${encodeURIComponent(storeKey)}/interfaceKey=${encodeURIComponent(interfaceKey)}`,
            method: 'POST',
-           
-           
-           
-           
         });
        return (response as unknown) as StoreDTO;
    }
@@ -18,10 +14,6 @@ export class ThemeAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/theme/uninstall/storeKey=${encodeURIComponent(storeKey)}/interfaceKey=${encodeURIComponent(interfaceKey)}`,
            method: 'POST',
-           
-           
-           
-           
         });
        return (response as unknown) as StoreDTO;
    }
@@ -30,10 +22,6 @@ export class ThemeAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/theme/check/themeKey=${encodeURIComponent(themeKey)}/themeVersion=${encodeURIComponent(themeVersion)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ThemeDTO;
    }
@@ -42,10 +30,6 @@ export class ThemeAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/theme/sync/themeId=${encodeURIComponent(themeId)}/storeKey=${encodeURIComponent(storeKey)}/interfaceKey=${encodeURIComponent(interfaceKey)}`,
            method: 'POST',
-           
-           
-           
-           
         });
        return (response as unknown) as StoreDTO;
    }
@@ -54,9 +38,7 @@ export class ThemeAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/theme/config/storeKey=${encodeURIComponent(storeKey)}/interfaceKey=${encodeURIComponent(interfaceKey)}`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as StoreDTO;
@@ -66,9 +48,7 @@ export class ThemeAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/theme/template/storeKey=${encodeURIComponent(storeKey)}/interfaceKey=${encodeURIComponent(interfaceKey)}/componentName=${encodeURIComponent(componentName)}/templateName=${encodeURIComponent(templateName)}`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as StoreDTO;
@@ -78,9 +58,7 @@ export class ThemeAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/theme`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ThemeDTO;
@@ -91,9 +69,6 @@ export class ThemeAPI extends BaseAPI {
            path: `/cms/theme`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as ThemeFilterResultDTO;
    }
@@ -102,10 +77,6 @@ export class ThemeAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/theme/key=${encodeURIComponent(key)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ThemeDTO;
    }
@@ -114,10 +85,6 @@ export class ThemeAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/theme/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ThemeDTO;
    }
@@ -126,10 +93,6 @@ export class ThemeAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/theme/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as ThemeDTO;
    }

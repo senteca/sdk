@@ -1,16 +1,12 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { StoreDTO,ThemeDTO,ThemeDraftDTO,ThemeFilterResultDTO } from '../../../models';
+import { StoreDTO, ThemeDTO, ThemeDraftDTO, ThemeFilterResultDTO } from '../../../models';
 
 export const ThemeInstall = async (themeId: string, storeKey: string, interfaceKey: string): Promise<StoreDTO> => {
     const response = await HttpClient.request({
         path: `/cms/theme/install/themeId=${encodeURIComponent(themeId)}/storeKey=${encodeURIComponent(storeKey)}/interfaceKey=${encodeURIComponent(interfaceKey)}`,
         method: 'POST',
-        
-        
-        
-        
     });
     return (response as unknown) as StoreDTO;
 }
@@ -19,10 +15,6 @@ export const ThemeUninstall = async (storeKey: string, interfaceKey: string): Pr
     const response = await HttpClient.request({
         path: `/cms/theme/uninstall/storeKey=${encodeURIComponent(storeKey)}/interfaceKey=${encodeURIComponent(interfaceKey)}`,
         method: 'POST',
-        
-        
-        
-        
     });
     return (response as unknown) as StoreDTO;
 }
@@ -31,10 +23,6 @@ export const ThemeCheck = async (themeKey: string, themeVersion: string): Promis
     const response = await HttpClient.request({
         path: `/cms/theme/check/themeKey=${encodeURIComponent(themeKey)}/themeVersion=${encodeURIComponent(themeVersion)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as ThemeDTO;
 }
@@ -43,10 +31,6 @@ export const ThemeSync = async (themeId: string, storeKey: string, interfaceKey:
     const response = await HttpClient.request({
         path: `/cms/theme/sync/themeId=${encodeURIComponent(themeId)}/storeKey=${encodeURIComponent(storeKey)}/interfaceKey=${encodeURIComponent(interfaceKey)}`,
         method: 'POST',
-        
-        
-        
-        
     });
     return (response as unknown) as StoreDTO;
 }
@@ -55,9 +39,7 @@ export const ThemeSetConfig = async (storeKey: string, interfaceKey: string, dto
     const response = await HttpClient.request({
         path: `/cms/theme/config/storeKey=${encodeURIComponent(storeKey)}/interfaceKey=${encodeURIComponent(interfaceKey)}`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as StoreDTO;
@@ -67,9 +49,7 @@ export const ThemeUpdateTemplate = async (storeKey: string, interfaceKey: string
     const response = await HttpClient.request({
         path: `/cms/theme/template/storeKey=${encodeURIComponent(storeKey)}/interfaceKey=${encodeURIComponent(interfaceKey)}/componentName=${encodeURIComponent(componentName)}/templateName=${encodeURIComponent(templateName)}`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as StoreDTO;
@@ -79,9 +59,7 @@ export const ThemeCreate = async (dto: ThemeDraftDTO): Promise<ThemeDTO> => {
     const response = await HttpClient.request({
         path: `/cms/theme`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as ThemeDTO;
@@ -92,9 +70,6 @@ export const ThemeFilter = async (query?: { storeKey?: string, interfaceKey?: st
         path: `/cms/theme`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as ThemeFilterResultDTO;
 }
@@ -103,10 +78,6 @@ export const ThemeGetByKey = async (key: string): Promise<ThemeDTO> => {
     const response = await HttpClient.request({
         path: `/cms/theme/key=${encodeURIComponent(key)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as ThemeDTO;
 }
@@ -115,10 +86,6 @@ export const ThemeGetById = async (id: string): Promise<ThemeDTO> => {
     const response = await HttpClient.request({
         path: `/cms/theme/${encodeURIComponent(id)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as ThemeDTO;
 }
@@ -127,10 +94,6 @@ export const ThemeDelete = async (id: string): Promise<ThemeDTO> => {
     const response = await HttpClient.request({
         path: `/cms/theme/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as ThemeDTO;
 }

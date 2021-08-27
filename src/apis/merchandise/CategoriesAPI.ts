@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { CategoryDraftDTO,CategoryDTO,CategoryFilterResultDTO,CategoryImportDraftDTO,CategorySearchResultDTO,SetCustomFieldDTO } from '../../models';
+import { CategoryDraftDTO, CategoryDTO, CategoryFilterResultDTO, CategoryImportDraftDTO, CategorySearchResultDTO, SetCustomFieldDTO } from '../../models';
 
 export class CategoriesAPI extends BaseAPI {
    async create (dto: CategoryDraftDTO): Promise<CategoryDTO> {
        const response = await this._request({
            path: `/merchandise/categories`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CategoryDTO;
@@ -19,9 +17,6 @@ export class CategoriesAPI extends BaseAPI {
            path: `/merchandise/categories`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CategoryFilterResultDTO;
    }
@@ -30,9 +25,7 @@ export class CategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/categories/import`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -43,9 +36,6 @@ export class CategoriesAPI extends BaseAPI {
            path: `/merchandise/categories/search`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CategorySearchResultDTO;
    }
@@ -55,9 +45,6 @@ export class CategoriesAPI extends BaseAPI {
            path: `/merchandise/categories/slug=${encodeURIComponent(slug)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CategoryDTO;
    }
@@ -67,9 +54,6 @@ export class CategoriesAPI extends BaseAPI {
            path: `/merchandise/categories/externalId=${encodeURIComponent(externalId)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CategoryDTO;
    }
@@ -78,9 +62,7 @@ export class CategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/categories/externalId=${encodeURIComponent(externalId)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CategoryDTO;
@@ -90,10 +72,6 @@ export class CategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/categories/externalId=${encodeURIComponent(externalId)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as CategoryDTO;
    }
@@ -103,9 +81,6 @@ export class CategoriesAPI extends BaseAPI {
            path: `/merchandise/categories/${encodeURIComponent(id)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CategoryDTO;
    }
@@ -114,9 +89,7 @@ export class CategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/categories/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CategoryDTO;
@@ -126,10 +99,6 @@ export class CategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/categories/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as CategoryDTO;
    }
@@ -138,9 +107,7 @@ export class CategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/categories/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -150,9 +117,7 @@ export class CategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/categories/${encodeURIComponent(id)}/addon-data`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        

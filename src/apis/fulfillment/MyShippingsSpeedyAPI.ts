@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { SpeedyLocationCountryDTO,SpeedyLocationCityDTO,SpeedyLocationQuarterDTO,SpeedyLocationStreetDTO,SpeedyLocationOfficeDTO,SpeedyCountryDTO,OrderDTO,SpeedyCityDTO,SpeedyQuarterDTO,SpeedyStreetDTO,SpeedyOfficeDTO } from '../../models';
+import { SpeedyLocationCountryDTO, SpeedyLocationCityDTO, SpeedyLocationQuarterDTO, SpeedyLocationStreetDTO, SpeedyLocationOfficeDTO, SpeedyCountryDTO, OrderDTO, SpeedyCityDTO, SpeedyQuarterDTO, SpeedyStreetDTO, SpeedyOfficeDTO } from '../../models';
 
 export class MyShippingsSpeedyAPI extends BaseAPI {
    async findCountry (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<SpeedyLocationCountryDTO[]> {
@@ -7,9 +7,6 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/my-shippings/speedy/find-country`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationCountryDTO[];
    }
@@ -19,9 +16,6 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/my-shippings/speedy/find-city`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationCityDTO[];
    }
@@ -31,9 +25,6 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/my-shippings/speedy/find-quarter`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationQuarterDTO[];
    }
@@ -43,9 +34,6 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/my-shippings/speedy/find-street`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationStreetDTO[];
    }
@@ -55,9 +43,6 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/my-shippings/speedy/find-office`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationOfficeDTO[];
    }
@@ -66,9 +51,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/country`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -78,10 +61,6 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/country`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -90,9 +69,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/city`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -102,10 +79,6 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/city`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -114,9 +87,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/quarter`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -126,10 +97,6 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/quarter`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -138,9 +105,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/street`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -150,10 +115,6 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/street`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -162,9 +123,7 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/office`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -174,10 +133,6 @@ export class MyShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/speedy/office`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }

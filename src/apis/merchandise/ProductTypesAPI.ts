@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { ProductTypeDraftDTO,ProductTypeDTO,ProductTypeFilterResultDTO } from '../../models';
+import { ProductTypeDraftDTO, ProductTypeDTO, ProductTypeFilterResultDTO } from '../../models';
 
 export class ProductTypesAPI extends BaseAPI {
    async create (dto: ProductTypeDraftDTO): Promise<ProductTypeDTO> {
        const response = await this._request({
            path: `/merchandise/product-types`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ProductTypeDTO;
@@ -19,9 +17,6 @@ export class ProductTypesAPI extends BaseAPI {
            path: `/merchandise/product-types`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as ProductTypeFilterResultDTO;
    }
@@ -30,10 +25,6 @@ export class ProductTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/product-types/key=${encodeURIComponent(key)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ProductTypeDTO;
    }
@@ -42,10 +33,6 @@ export class ProductTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/product-types/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ProductTypeDTO;
    }
@@ -54,9 +41,7 @@ export class ProductTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/product-types/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ProductTypeDTO;
@@ -66,10 +51,6 @@ export class ProductTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/product-types/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as ProductTypeDTO;
    }

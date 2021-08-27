@@ -1,15 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CustomerGroupDraftDTO,CustomerGroupDTO,CustomerGroupFilterResultDTO } from '../../../models';
+import { CustomerGroupDraftDTO, CustomerGroupDTO, CustomerGroupFilterResultDTO } from '../../../models';
 
 export const CustomerGroupsCreate = async (dto: CustomerGroupDraftDTO): Promise<CustomerGroupDTO> => {
     const response = await HttpClient.request({
         path: `/users/customer-groups`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as CustomerGroupDTO;
@@ -20,9 +18,6 @@ export const CustomerGroupsFilter = async (query?: { storeKey?: string, interfac
         path: `/users/customer-groups`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as CustomerGroupFilterResultDTO;
 }
@@ -31,10 +26,6 @@ export const CustomerGroupsGetByKey = async (key: string): Promise<CustomerGroup
     const response = await HttpClient.request({
         path: `/users/customer-groups/key=${encodeURIComponent(key)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as CustomerGroupDTO;
 }
@@ -43,10 +34,6 @@ export const CustomerGroupsGetById = async (id: string): Promise<CustomerGroupDT
     const response = await HttpClient.request({
         path: `/users/customer-groups/${encodeURIComponent(id)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as CustomerGroupDTO;
 }
@@ -55,9 +42,7 @@ export const CustomerGroupsUpdate = async (id: string, dto: CustomerGroupDTO): P
     const response = await HttpClient.request({
         path: `/users/customer-groups/${encodeURIComponent(id)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as CustomerGroupDTO;
@@ -67,10 +52,6 @@ export const CustomerGroupsDelete = async (id: string): Promise<CustomerGroupDTO
     const response = await HttpClient.request({
         path: `/users/customer-groups/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as CustomerGroupDTO;
 }

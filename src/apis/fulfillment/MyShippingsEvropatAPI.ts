@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { EvropatLocationCityDTO,EvropatLocationOfficeDTO,EvropatCityDTO,OrderDTO,EvropatOfficeDTO } from '../../models';
+import { EvropatLocationCityDTO, EvropatLocationOfficeDTO, EvropatCityDTO, OrderDTO, EvropatOfficeDTO } from '../../models';
 
 export class MyShippingsEvropatAPI extends BaseAPI {
    async findCity (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EvropatLocationCityDTO[]> {
@@ -7,9 +7,6 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            path: `/fulfillment/my-shippings/evropat/find-city`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as EvropatLocationCityDTO[];
    }
@@ -19,9 +16,6 @@ export class MyShippingsEvropatAPI extends BaseAPI {
            path: `/fulfillment/my-shippings/evropat/find-office`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as EvropatLocationOfficeDTO[];
    }
@@ -30,9 +24,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/evropat/city`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -42,10 +34,6 @@ export class MyShippingsEvropatAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/evropat/city`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -54,9 +42,7 @@ export class MyShippingsEvropatAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/evropat/office`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -66,10 +52,6 @@ export class MyShippingsEvropatAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-shippings/evropat/office`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }

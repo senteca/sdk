@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { ApiClientFilterResultDTO,ApiClientDraftDTO,ApiClientDTO } from '../../models';
+import { ApiClientFilterResultDTO, ApiClientDraftDTO, ApiClientDTO } from '../../models';
 
 export class ApiClientsAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ApiClientFilterResultDTO> {
@@ -7,9 +7,6 @@ export class ApiClientsAPI extends BaseAPI {
            path: `/auth/api-clients`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as ApiClientFilterResultDTO;
    }
@@ -18,9 +15,7 @@ export class ApiClientsAPI extends BaseAPI {
        const response = await this._request({
            path: `/auth/api-clients`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ApiClientDTO;
@@ -30,10 +25,6 @@ export class ApiClientsAPI extends BaseAPI {
        const response = await this._request({
            path: `/auth/api-clients/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ApiClientDTO;
    }
@@ -42,9 +33,7 @@ export class ApiClientsAPI extends BaseAPI {
        const response = await this._request({
            path: `/auth/api-clients/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ApiClientDTO;
@@ -54,10 +43,6 @@ export class ApiClientsAPI extends BaseAPI {
        const response = await this._request({
            path: `/auth/api-clients/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as ApiClientDTO;
    }

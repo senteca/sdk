@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { TaskDraftDTO,TaskDTO,TaskFilterResultDTO } from '../../models';
+import { TaskDraftDTO, TaskDTO, TaskFilterResultDTO } from '../../models';
 
 export class TasksAPI extends BaseAPI {
    async start (name: string, query?: any): Promise<void> {
@@ -7,9 +7,6 @@ export class TasksAPI extends BaseAPI {
            path: `/config/tasks/start/${encodeURIComponent(name)}`,
            method: 'POST',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        
    }
@@ -19,9 +16,6 @@ export class TasksAPI extends BaseAPI {
            path: `/config/tasks/fail/${encodeURIComponent(name)}/execution/${encodeURIComponent(executionId)}`,
            method: 'POST',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        
    }
@@ -31,9 +25,6 @@ export class TasksAPI extends BaseAPI {
            path: `/config/tasks/comlete/${encodeURIComponent(name)}/execution/${encodeURIComponent(executionId)}`,
            method: 'POST',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        
    }
@@ -42,9 +33,7 @@ export class TasksAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/tasks`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as TaskDTO;
@@ -55,9 +44,6 @@ export class TasksAPI extends BaseAPI {
            path: `/config/tasks`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as TaskFilterResultDTO;
    }
@@ -66,10 +52,6 @@ export class TasksAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/tasks/name=${encodeURIComponent(name)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as TaskDTO;
    }
@@ -78,10 +60,6 @@ export class TasksAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/tasks/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as TaskDTO;
    }
@@ -90,10 +68,6 @@ export class TasksAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/tasks/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as TaskDTO;
    }

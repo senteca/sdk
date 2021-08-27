@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { BulkLinkUpdateDTO,BulkDeleteDTO,BulkStatusChangeDTO,BulkCustomFieldUpdateDTO,BulkCustomFieldUpdateByFilterDTO,BulkAttributeUpdateDTO,BulkAttributeDeleteDTO,BulkOfferQuantityUpdateDTO,BulkLabelSetDTO,BulkLabelRemoveDTO,ProductDraftDTO,ProductDTO,ProductFilterResultDTO,ProductImportDraftDTO,FilterQueryDTO,ProductSearchResultDTO,AttributeValueDTO,ProductUpdateDTO,SetCustomFieldDTO,AssetDTO,StoreStatusDTO,TransitionProductStateDTO,KeyReferenceDTO,LangValue,ProductScoreUpdateDTO,ProductOwnerUpdateDTO,IdReferenceDTO,ProductRelationsDTO,ProductAttributeDTO,ProductMasterVariantUpdateDTO,ContentDTO,ProductSkuUpdateDTO,ImageDTO,SwapIndexDTO,ProductVariantDraftDTO,ProductBarcodeUpdateDTO,ProductCollapseKeyUpdateDTO,ProductCollapseModeUpdateDTO,ProductAttributeDraftDTO,OfferDraftDTO,ProductAliasImagesFromUpdateDTO,ShippingDataDTO,ProductVariantOverridesDTO,OptionDefinitionDTO,InventoryDraftDTO,ProductVariantLabelDTO } from '../../models';
+import { BulkLinkUpdateDTO, BulkDeleteDTO, BulkStatusChangeDTO, BulkCustomFieldUpdateDTO, BulkCustomFieldUpdateByFilterDTO, BulkAttributeUpdateDTO, BulkAttributeDeleteDTO, BulkOfferQuantityUpdateDTO, BulkLabelSetDTO, BulkLabelRemoveDTO, ProductDraftDTO, ProductDTO, ProductFilterResultDTO, ProductImportDraftDTO, FilterQueryDTO, ProductSearchResultDTO, AttributeValueDTO, ProductUpdateDTO, SetCustomFieldDTO, AssetDTO, StoreStatusDTO, TransitionProductStateDTO, KeyReferenceDTO, LangValue, ProductScoreUpdateDTO, ProductOwnerUpdateDTO, IdReferenceDTO, ProductRelationsDTO, ProductAttributeDTO, ProductMasterVariantUpdateDTO, ContentDTO, ProductSkuUpdateDTO, ImageDTO, SwapIndexDTO, ProductVariantDraftDTO, ProductBarcodeUpdateDTO, ProductCollapseKeyUpdateDTO, ProductCollapseModeUpdateDTO, ProductAttributeDraftDTO, OfferDraftDTO, ProductAliasImagesFromUpdateDTO, ShippingDataDTO, ProductVariantOverridesDTO, OptionDefinitionDTO, InventoryDraftDTO, ProductVariantLabelDTO } from '../../models';
 
 export class ProductsAPI extends BaseAPI {
    async bulkLink (dto: BulkLinkUpdateDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/bulk/link`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -18,9 +16,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/bulk/unlink`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -30,9 +26,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/bulk/delete`,
            method: 'DELETE',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -42,9 +36,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/bulk/status`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -54,9 +46,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/bulk/custom`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -66,9 +56,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/bulk/custom-by-filter`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -78,9 +66,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/bulk/attribute-set`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -90,9 +76,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/bulk/attribute-delete`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -102,9 +86,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/bulk/offer-min-quantity`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -114,9 +96,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/bulk/offer-max-quantity`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -126,9 +106,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/bulk/label-set`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -138,9 +116,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/bulk/label-remove`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -150,9 +126,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ProductDTO;
@@ -163,9 +137,6 @@ export class ProductsAPI extends BaseAPI {
            path: `/merchandise/products`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as ProductFilterResultDTO;
    }
@@ -174,9 +145,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/no-validation`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ProductDTO;
@@ -186,9 +155,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/import`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -198,9 +165,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/export/csv`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as any;
@@ -211,9 +176,6 @@ export class ProductsAPI extends BaseAPI {
            path: `/merchandise/products/search`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as ProductSearchResultDTO;
    }
@@ -223,9 +185,6 @@ export class ProductsAPI extends BaseAPI {
            path: `/merchandise/products/slug=${encodeURIComponent(slug)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as ProductDTO;
    }
@@ -235,9 +194,6 @@ export class ProductsAPI extends BaseAPI {
            path: `/merchandise/products/externalId=${encodeURIComponent(externalId)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as ProductDTO;
    }
@@ -246,10 +202,6 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/externalId=${encodeURIComponent(externalId)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as ProductDTO;
    }
@@ -258,10 +210,6 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/attribute/${encodeURIComponent(selector)}=${encodeURIComponent(value)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as AttributeValueDTO;
    }
@@ -271,9 +219,6 @@ export class ProductsAPI extends BaseAPI {
            path: `/merchandise/products/${encodeURIComponent(id)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as ProductDTO;
    }
@@ -282,9 +227,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ProductDTO;
@@ -294,10 +237,6 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as ProductDTO;
    }
@@ -306,9 +245,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -318,9 +255,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/assets`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -330,9 +265,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/store-status`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -342,9 +275,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/state`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ProductDTO;
@@ -354,9 +285,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/tax-category`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -366,9 +295,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/name`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -378,9 +305,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/description`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -390,9 +315,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/slug`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -402,9 +325,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/meta-title`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -414,9 +335,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/meta-description`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -426,9 +345,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/meta-keywords`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -438,9 +355,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/score`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -450,9 +365,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/owner`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -462,9 +375,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/brands`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -474,9 +385,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/categories`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -486,9 +395,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/collections`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -498,9 +405,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/relations`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -510,9 +415,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/attributes`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -522,9 +425,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/master-variant`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -534,9 +435,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/content`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -546,9 +445,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/content/${encodeURIComponent(idx)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -558,10 +455,6 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/content/${encodeURIComponent(idx)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        
    }
@@ -570,9 +463,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -582,10 +473,6 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        
    }
@@ -594,10 +481,6 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/images`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ImageDTO[];
    }
@@ -606,9 +489,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/images`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'multipart/form-data',
         });
        
@@ -619,9 +500,6 @@ export class ProductsAPI extends BaseAPI {
            path: `/merchandise/products/${encodeURIComponent(sku)}/images`,
            method: 'DELETE',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        
    }
@@ -630,9 +508,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/images`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -642,9 +518,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/images/swap`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -654,9 +528,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/variants`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -666,9 +538,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/master-barcode`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -678,9 +548,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/barcode`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -690,10 +558,6 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/barcode/${encodeURIComponent(idx)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        
    }
@@ -702,9 +566,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/collapse-key`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -714,9 +576,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/collapse-mode`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -726,9 +586,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/variant-attributes`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -738,9 +596,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/sku=${encodeURIComponent(sku)}/offers`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -750,9 +606,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/sku=${encodeURIComponent(sku)}/offers`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -762,9 +616,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/sku=${encodeURIComponent(sku)}/offers/offerId=${encodeURIComponent(offerId)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -774,10 +626,6 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/sku=${encodeURIComponent(sku)}/offers/offerId=${encodeURIComponent(offerId)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        
    }
@@ -786,9 +634,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/alias-images-from`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -798,9 +644,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/shipping-data`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -810,9 +654,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/overrides`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -822,9 +664,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/sku=${encodeURIComponent(sku)}/variant-custom`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -834,9 +674,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/options`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -846,9 +684,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/options/${encodeURIComponent(index)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -858,10 +694,6 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/options/${encodeURIComponent(index)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        
    }
@@ -870,9 +702,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/inventories`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -882,9 +712,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/inventories/${encodeURIComponent(stockLocationKey)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -894,10 +722,6 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/inventories/${encodeURIComponent(stockLocationKey)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        
    }
@@ -906,9 +730,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/labels`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -918,9 +740,7 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/addon-data`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        

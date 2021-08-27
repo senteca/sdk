@@ -1,15 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { TagDraftDTO,TagDTO,TagFilterResultDTO } from '../../../models';
+import { TagDraftDTO, TagDTO, TagFilterResultDTO } from '../../../models';
 
 export const TagsCreate = async (dto: TagDraftDTO): Promise<TagDTO> => {
     const response = await HttpClient.request({
         path: `/cms/tags`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as TagDTO;
@@ -20,9 +18,6 @@ export const TagsFilter = async (query?: { storeKey?: string, interfaceKey?: str
         path: `/cms/tags`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as TagFilterResultDTO;
 }
@@ -31,9 +26,7 @@ export const TagsUpdate = async (id: string, dto: TagDraftDTO): Promise<TagDTO> 
     const response = await HttpClient.request({
         path: `/cms/tags/${encodeURIComponent(id)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as TagDTO;
@@ -43,10 +36,6 @@ export const TagsDelete = async (id: string): Promise<TagDTO> => {
     const response = await HttpClient.request({
         path: `/cms/tags/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as TagDTO;
 }

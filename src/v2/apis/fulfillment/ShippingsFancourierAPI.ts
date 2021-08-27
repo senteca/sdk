@@ -1,15 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { FancourierAuthenticationCredentialsDTO,FancourierLocationRegionDTO,FancourierLocationCityDTO,FancourierLocationStreetDTO,FancourierModuleAddressDTO,OrderDTO,FancourierRegionDTO,FancourierCityDTO,FancourierStreetDTO,FancourierCreateRequestDTO,FancourierCreateResponseDTO,FancourierSendResponseDTO,FancourierCancelRequestDTO,FancourierTrackRequestDTO,FancourierTrackResponseDTO } from '../../../models';
+import { FancourierAuthenticationCredentialsDTO, FancourierLocationRegionDTO, FancourierLocationCityDTO, FancourierLocationStreetDTO, FancourierModuleAddressDTO, OrderDTO, FancourierRegionDTO, FancourierCityDTO, FancourierStreetDTO, FancourierCreateRequestDTO, FancourierCreateResponseDTO, FancourierSendResponseDTO, FancourierCancelRequestDTO, FancourierTrackRequestDTO, FancourierTrackResponseDTO } from '../../../models';
 
 export const ShippingsFancourierSyncLocations = async (dto: FancourierAuthenticationCredentialsDTO): Promise<any> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/sync-locations`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as any;
@@ -20,9 +18,6 @@ export const ShippingsFancourierFetchRegions = async (query: { username: string,
         path: `/fulfillment/shippings/fancourier/fetch/regions`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as FancourierLocationRegionDTO[];
 }
@@ -32,9 +27,6 @@ export const ShippingsFancourierFetchCities = async (query: { username: string, 
         path: `/fulfillment/shippings/fancourier/fetch/cities`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as FancourierLocationCityDTO[];
 }
@@ -44,9 +36,6 @@ export const ShippingsFancourierFetchStreets = async (query: { username: string,
         path: `/fulfillment/shippings/fancourier/fetch/streets`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as FancourierLocationStreetDTO[];
 }
@@ -56,9 +45,6 @@ export const ShippingsFancourierSearchRegion = async (query?: { language?: strin
         path: `/fulfillment/shippings/fancourier/search/region`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as FancourierLocationRegionDTO[];
 }
@@ -68,9 +54,6 @@ export const ShippingsFancourierSearchCity = async (query?: { language?: string,
         path: `/fulfillment/shippings/fancourier/search/city`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as FancourierLocationCityDTO[];
 }
@@ -80,9 +63,6 @@ export const ShippingsFancourierSearchStreet = async (query?: { language?: strin
         path: `/fulfillment/shippings/fancourier/search/street`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as FancourierLocationStreetDTO[];
 }
@@ -91,9 +71,7 @@ export const ShippingsFancourierUpdateShippingAddress = async (orderId: string, 
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -103,9 +81,7 @@ export const ShippingsFancourierSetRegion = async (orderId: string, shippingId: 
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/region`,
         method: 'PATCH',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -115,9 +91,7 @@ export const ShippingsFancourierSetCity = async (orderId: string, shippingId: st
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/city`,
         method: 'PATCH',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -127,10 +101,6 @@ export const ShippingsFancourierUnsetCity = async (orderId: string, shippingId: 
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/city`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as OrderDTO;
 }
@@ -139,9 +109,7 @@ export const ShippingsFancourierSetStreet = async (orderId: string, shippingId: 
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/street`,
         method: 'PATCH',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -151,10 +119,6 @@ export const ShippingsFancourierUnsetStreet = async (orderId: string, shippingId
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/street`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as OrderDTO;
 }
@@ -163,9 +127,7 @@ export const ShippingsFancourierUpdateDeliveryAddress = async (orderId: string, 
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -175,9 +137,7 @@ export const ShippingsFancourierSetDeliveryCity = async (orderId: string, shippi
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/city`,
         method: 'PATCH',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -187,9 +147,7 @@ export const ShippingsFancourierSetDeliveryStreet = async (orderId: string, ship
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/street`,
         method: 'PATCH',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -199,9 +157,7 @@ export const ShippingsFancourierCreateRequest = async (orderId: string, shipping
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/create-request`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as FancourierCreateResponseDTO;
@@ -211,9 +167,7 @@ export const ShippingsFancourierSendRequest = async (orderId: string, shippingId
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/send-request`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as FancourierSendResponseDTO;
@@ -223,9 +177,7 @@ export const ShippingsFancourierCancelRequest = async (orderId: string, shipping
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/cancel-request`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -235,9 +187,7 @@ export const ShippingsFancourierTrackRequest = async (orderId: string, shippingI
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/track-request`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as FancourierTrackResponseDTO;

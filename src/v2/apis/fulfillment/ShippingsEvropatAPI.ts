@@ -1,16 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { EvropatClientAddressDTO,EvropatAuthenticationCredentialsDTO,EvropatLocationCityDTO,EvropatLocationOfficeDTO,EvropatModuleAddressDTO,OrderDTO,EvropatCityDTO,EvropatOfficeDTO,EvropatCreateRequestDTO,EvropatCreateResponseDTO,EvropatSendRequestDTO,EvropatSendResponseDTO,EvropatCancelRequestDTO,EvropatCancelResponseDTO,EvropatTrackRequestDTO,EvropatTrackResponseDTO } from '../../../models';
+import { EvropatClientAddressDTO, EvropatAuthenticationCredentialsDTO, EvropatLocationCityDTO, EvropatLocationOfficeDTO, EvropatModuleAddressDTO, OrderDTO, EvropatCityDTO, EvropatOfficeDTO, EvropatCreateRequestDTO, EvropatCreateResponseDTO, EvropatSendRequestDTO, EvropatSendResponseDTO, EvropatCancelRequestDTO, EvropatCancelResponseDTO, EvropatTrackRequestDTO, EvropatTrackResponseDTO } from '../../../models';
 
 export const ShippingsEvropatClientAddresses = async (query: { clientKey: string }): Promise<EvropatClientAddressDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/client-addresses`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as EvropatClientAddressDTO[];
 }
@@ -19,9 +16,7 @@ export const ShippingsEvropatSyncLocations = async (dto: EvropatAuthenticationCr
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/sync-locations`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as any;
@@ -32,9 +27,6 @@ export const ShippingsEvropatFetchCities = async (query: { clientKey: string }):
         path: `/fulfillment/shippings/evropat/fetch/cities`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as EvropatLocationCityDTO[];
 }
@@ -44,9 +36,6 @@ export const ShippingsEvropatFetchOffices = async (query: { clientKey: string })
         path: `/fulfillment/shippings/evropat/fetch/offices`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as EvropatLocationOfficeDTO[];
 }
@@ -56,9 +45,6 @@ export const ShippingsEvropatSearchCity = async (query?: { language?: string, pa
         path: `/fulfillment/shippings/evropat/search/city`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as EvropatLocationCityDTO[];
 }
@@ -68,9 +54,6 @@ export const ShippingsEvropatSearchOffice = async (query?: { language?: string, 
         path: `/fulfillment/shippings/evropat/search/office`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as EvropatLocationOfficeDTO[];
 }
@@ -79,9 +62,7 @@ export const ShippingsEvropatUpdateShippingAddress = async (orderId: string, shi
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -91,9 +72,7 @@ export const ShippingsEvropatSetCity = async (orderId: string, shippingId: strin
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/city`,
         method: 'PATCH',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -103,10 +82,6 @@ export const ShippingsEvropatUnsetCity = async (orderId: string, shippingId: str
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/city`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as OrderDTO;
 }
@@ -115,9 +90,7 @@ export const ShippingsEvropatSetOffice = async (orderId: string, shippingId: str
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/office`,
         method: 'PATCH',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -127,10 +100,6 @@ export const ShippingsEvropatUnsetOffice = async (orderId: string, shippingId: s
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/office`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as OrderDTO;
 }
@@ -139,9 +108,7 @@ export const ShippingsEvropatUpdateDeliveryAddress = async (orderId: string, shi
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -151,9 +118,7 @@ export const ShippingsEvropatSetDeliveryCity = async (orderId: string, shippingI
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/city`,
         method: 'PATCH',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -163,9 +128,7 @@ export const ShippingsEvropatSetDeliveryOffice = async (orderId: string, shippin
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/office`,
         method: 'PATCH',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -175,9 +138,7 @@ export const ShippingsEvropatCreateRequest = async (orderId: string, shippingId:
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/create-request`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as EvropatCreateResponseDTO;
@@ -187,9 +148,7 @@ export const ShippingsEvropatSendRequest = async (orderId: string, shippingId: s
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/send-request`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as EvropatSendResponseDTO;
@@ -199,9 +158,7 @@ export const ShippingsEvropatCancelRequest = async (orderId: string, shippingId:
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/cancel-request`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as EvropatCancelResponseDTO;
@@ -211,9 +168,7 @@ export const ShippingsEvropatTrackRequest = async (orderId: string, shippingId: 
     const response = await HttpClient.request({
         path: `/fulfillment/shippings/evropat/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/track-request`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as EvropatTrackResponseDTO;

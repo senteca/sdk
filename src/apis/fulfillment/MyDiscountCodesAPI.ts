@@ -7,9 +7,6 @@ export class MyDiscountCodesAPI extends BaseAPI {
            path: `/fulfillment/my-discount-codes`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as DiscountCodeFilterResultDTO;
    }

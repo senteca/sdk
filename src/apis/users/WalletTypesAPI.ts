@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { WalletTypeFilterResultDTO,WalletTypeDraftDTO,WalletTypeDTO,WalletTypeSearchResultDTO } from '../../models';
+import { WalletTypeFilterResultDTO, WalletTypeDraftDTO, WalletTypeDTO, WalletTypeSearchResultDTO } from '../../models';
 
 export class WalletTypesAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletTypeFilterResultDTO> {
@@ -7,9 +7,6 @@ export class WalletTypesAPI extends BaseAPI {
            path: `/users/wallet-types`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as WalletTypeFilterResultDTO;
    }
@@ -18,9 +15,7 @@ export class WalletTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/wallet-types`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as WalletTypeDTO;
@@ -31,9 +26,6 @@ export class WalletTypesAPI extends BaseAPI {
            path: `/users/wallet-types/search`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as WalletTypeSearchResultDTO;
    }
@@ -42,10 +34,6 @@ export class WalletTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/wallet-types/key=${encodeURIComponent(key)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as WalletTypeDTO;
    }
@@ -54,10 +42,6 @@ export class WalletTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/wallet-types/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as WalletTypeDTO;
    }
@@ -66,9 +50,7 @@ export class WalletTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/wallet-types/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as WalletTypeDTO;
@@ -78,10 +60,6 @@ export class WalletTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/wallet-types/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as WalletTypeDTO;
    }

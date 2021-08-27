@@ -1,15 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CustomerConsentTypeDraftDTO,CustomerConsentTypeDTO,CustomerConsentTypeFilterResultDTO } from '../../../models';
+import { CustomerConsentTypeDraftDTO, CustomerConsentTypeDTO, CustomerConsentTypeFilterResultDTO } from '../../../models';
 
 export const CustomerConsentTypesCreate = async (dto: CustomerConsentTypeDraftDTO): Promise<CustomerConsentTypeDTO> => {
     const response = await HttpClient.request({
         path: `/users/customer-consent-types`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as CustomerConsentTypeDTO;
@@ -20,9 +18,6 @@ export const CustomerConsentTypesFilter = async (query?: { storeKey?: string, in
         path: `/users/customer-consent-types`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as CustomerConsentTypeFilterResultDTO;
 }
@@ -31,10 +26,6 @@ export const CustomerConsentTypesGetByKey = async (key: string): Promise<Custome
     const response = await HttpClient.request({
         path: `/users/customer-consent-types/key=${encodeURIComponent(key)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as CustomerConsentTypeDTO;
 }
@@ -43,10 +34,6 @@ export const CustomerConsentTypesGetByTag = async (tag: string): Promise<Custome
     const response = await HttpClient.request({
         path: `/users/customer-consent-types/tag=${encodeURIComponent(tag)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as CustomerConsentTypeDTO[];
 }
@@ -55,10 +42,6 @@ export const CustomerConsentTypesGetById = async (id: string): Promise<CustomerC
     const response = await HttpClient.request({
         path: `/users/customer-consent-types/${encodeURIComponent(id)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as CustomerConsentTypeDTO;
 }
@@ -67,9 +50,7 @@ export const CustomerConsentTypesUpdate = async (id: string, dto: CustomerConsen
     const response = await HttpClient.request({
         path: `/users/customer-consent-types/${encodeURIComponent(id)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as CustomerConsentTypeDTO;
@@ -79,10 +60,6 @@ export const CustomerConsentTypesDelete = async (id: string): Promise<CustomerCo
     const response = await HttpClient.request({
         path: `/users/customer-consent-types/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as CustomerConsentTypeDTO;
 }

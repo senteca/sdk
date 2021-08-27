@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { ScriptCategoryDraftDTO,ScriptCategoryDTO,ScriptCategoryFilterResultDTO,ScriptCategoryAggregatedDTO } from '../../models';
+import { ScriptCategoryDraftDTO, ScriptCategoryDTO, ScriptCategoryFilterResultDTO, ScriptCategoryAggregatedDTO } from '../../models';
 
 export class ScriptCategoriesAPI extends BaseAPI {
    async create (dto: ScriptCategoryDraftDTO): Promise<ScriptCategoryDTO> {
        const response = await this._request({
            path: `/config/script-categories`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ScriptCategoryDTO;
@@ -19,9 +17,6 @@ export class ScriptCategoriesAPI extends BaseAPI {
            path: `/config/script-categories`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as ScriptCategoryFilterResultDTO;
    }
@@ -31,9 +26,6 @@ export class ScriptCategoriesAPI extends BaseAPI {
            path: `/config/script-categories/aggregated`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as ScriptCategoryAggregatedDTO[];
    }
@@ -42,10 +34,6 @@ export class ScriptCategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/script-categories/key=${encodeURIComponent(key)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ScriptCategoryDTO;
    }
@@ -54,10 +42,6 @@ export class ScriptCategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/script-categories/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ScriptCategoryDTO;
    }
@@ -66,9 +50,7 @@ export class ScriptCategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/script-categories/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ScriptCategoryDTO;
@@ -78,10 +60,6 @@ export class ScriptCategoriesAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/script-categories/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as ScriptCategoryDTO;
    }

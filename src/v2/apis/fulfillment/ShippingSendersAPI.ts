@@ -1,16 +1,12 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { ShippingSenderDTO,ShippingSenderDraftDTO,ShippingSenderFilterResultDTO,SetCustomFieldDTO } from '../../../models';
+import { ShippingSenderDTO, ShippingSenderDraftDTO, ShippingSenderFilterResultDTO, SetCustomFieldDTO } from '../../../models';
 
 export const ShippingSendersUpdateEcontSenders = async (moduleConfigId: string): Promise<void> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-senders/econt/moduleConfigId=${encodeURIComponent(moduleConfigId)}`,
         method: 'POST',
-        
-        
-        
-        
     });
     
 }
@@ -19,10 +15,6 @@ export const ShippingSendersUpdateSpeedySenders = async (moduleConfigId: string)
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-senders/speedy/moduleConfigId=${encodeURIComponent(moduleConfigId)}`,
         method: 'POST',
-        
-        
-        
-        
     });
     
 }
@@ -31,10 +23,6 @@ export const ShippingSendersUpdateEvropatSenders = async (moduleConfigId: string
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-senders/evropat/moduleConfigId=${encodeURIComponent(moduleConfigId)}`,
         method: 'POST',
-        
-        
-        
-        
     });
     
 }
@@ -43,10 +31,6 @@ export const ShippingSendersGetAllModuleConfigSenders = async (moduleConfigKey: 
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-senders/all/moduleConfigKey=${encodeURIComponent(moduleConfigKey)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as ShippingSenderDTO[];
 }
@@ -55,9 +39,7 @@ export const ShippingSendersCreate = async (dto: ShippingSenderDraftDTO): Promis
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-senders`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as ShippingSenderDTO;
@@ -68,9 +50,6 @@ export const ShippingSendersFilter = async (query?: { storeKey?: string, interfa
         path: `/fulfillment/shipping-senders`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as ShippingSenderFilterResultDTO;
 }
@@ -79,10 +58,6 @@ export const ShippingSendersGetByKey = async (key: string): Promise<ShippingSend
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-senders/key=${encodeURIComponent(key)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as ShippingSenderDTO;
 }
@@ -91,9 +66,7 @@ export const ShippingSendersUpdateByKey = async (key: string, dto: ShippingSende
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-senders/key=${encodeURIComponent(key)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as ShippingSenderDTO;
@@ -103,10 +76,6 @@ export const ShippingSendersDeleteByKey = async (key: string): Promise<ShippingS
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-senders/key=${encodeURIComponent(key)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as ShippingSenderDTO;
 }
@@ -115,9 +84,7 @@ export const ShippingSendersSetShippingSenderCustomByKey = async (key: string, d
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-senders/key=${encodeURIComponent(key)}/sender-custom`,
         method: 'PATCH',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     

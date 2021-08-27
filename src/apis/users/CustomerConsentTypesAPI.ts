@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerConsentTypeDraftDTO,CustomerConsentTypeDTO,CustomerConsentTypeFilterResultDTO } from '../../models';
+import { CustomerConsentTypeDraftDTO, CustomerConsentTypeDTO, CustomerConsentTypeFilterResultDTO } from '../../models';
 
 export class CustomerConsentTypesAPI extends BaseAPI {
    async create (dto: CustomerConsentTypeDraftDTO): Promise<CustomerConsentTypeDTO> {
        const response = await this._request({
            path: `/users/customer-consent-types`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomerConsentTypeDTO;
@@ -19,9 +17,6 @@ export class CustomerConsentTypesAPI extends BaseAPI {
            path: `/users/customer-consent-types`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CustomerConsentTypeFilterResultDTO;
    }
@@ -30,10 +25,6 @@ export class CustomerConsentTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-consent-types/key=${encodeURIComponent(key)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomerConsentTypeDTO;
    }
@@ -42,10 +33,6 @@ export class CustomerConsentTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-consent-types/tag=${encodeURIComponent(tag)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomerConsentTypeDTO[];
    }
@@ -54,10 +41,6 @@ export class CustomerConsentTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-consent-types/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomerConsentTypeDTO;
    }
@@ -66,9 +49,7 @@ export class CustomerConsentTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-consent-types/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomerConsentTypeDTO;
@@ -78,10 +59,6 @@ export class CustomerConsentTypesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-consent-types/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomerConsentTypeDTO;
    }

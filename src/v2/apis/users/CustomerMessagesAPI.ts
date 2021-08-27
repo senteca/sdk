@@ -1,15 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CustomerMessageDTO,CustomerMessageFilterResultDTO } from '../../../models';
+import { CustomerMessageDTO, CustomerMessageFilterResultDTO } from '../../../models';
 
 export const CustomerMessagesCreate = async (dto: CustomerMessageDTO): Promise<CustomerMessageDTO> => {
     const response = await HttpClient.request({
         path: `/users/customer-messages`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as CustomerMessageDTO;
@@ -20,9 +18,6 @@ export const CustomerMessagesFilter = async (query?: { storeKey?: string, interf
         path: `/users/customer-messages`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as CustomerMessageFilterResultDTO;
 }
@@ -31,10 +26,6 @@ export const CustomerMessagesGetById = async (id: string): Promise<CustomerMessa
     const response = await HttpClient.request({
         path: `/users/customer-messages/${encodeURIComponent(id)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as CustomerMessageDTO;
 }
@@ -43,9 +34,7 @@ export const CustomerMessagesUpdate = async (id: string, dto: CustomerMessageDTO
     const response = await HttpClient.request({
         path: `/users/customer-messages/${encodeURIComponent(id)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as CustomerMessageDTO;
@@ -55,10 +44,6 @@ export const CustomerMessagesDelete = async (id: string): Promise<CustomerMessag
     const response = await HttpClient.request({
         path: `/users/customer-messages/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as CustomerMessageDTO;
 }

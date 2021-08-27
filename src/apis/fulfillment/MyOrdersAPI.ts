@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { OrderFilterResultDTO,SendOrderDTO,OrderDTO,ShippingModulesInfo,ShippingMethodsInfo,StockLocationsInfo } from '../../models';
+import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo } from '../../models';
 
 export class MyOrdersAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
@@ -7,9 +7,6 @@ export class MyOrdersAPI extends BaseAPI {
            path: `/fulfillment/my-orders`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as OrderFilterResultDTO;
    }
@@ -20,7 +17,6 @@ export class MyOrdersAPI extends BaseAPI {
            method: 'POST',
            query: this._stringifyQuery(query),
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -30,10 +26,6 @@ export class MyOrdersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-orders/available-shipping-modules`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ShippingModulesInfo;
    }
@@ -42,10 +34,6 @@ export class MyOrdersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-orders/available-shipping-methods`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ShippingMethodsInfo;
    }
@@ -54,10 +42,6 @@ export class MyOrdersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-orders/available-stock-locations`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as StockLocationsInfo;
    }
@@ -67,9 +51,6 @@ export class MyOrdersAPI extends BaseAPI {
            path: `/fulfillment/my-orders/export`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as any;
    }
@@ -78,10 +59,6 @@ export class MyOrdersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-orders/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }

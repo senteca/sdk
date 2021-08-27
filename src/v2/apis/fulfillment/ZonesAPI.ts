@@ -1,15 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { ZoneDraftDTO,ZoneDTO,ZoneFilterResultDTO } from '../../../models';
+import { ZoneDraftDTO, ZoneDTO, ZoneFilterResultDTO } from '../../../models';
 
 export const ZonesCreate = async (dto: ZoneDraftDTO): Promise<ZoneDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/zones`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as ZoneDTO;
@@ -20,9 +18,6 @@ export const ZonesFilter = async (query?: { storeKey?: string, interfaceKey?: st
         path: `/fulfillment/zones`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as ZoneFilterResultDTO;
 }
@@ -31,10 +26,6 @@ export const ZonesGetByKey = async (key: string): Promise<ZoneDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/zones/key=${encodeURIComponent(key)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as ZoneDTO;
 }
@@ -43,10 +34,6 @@ export const ZonesGetById = async (id: string): Promise<ZoneDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/zones/${encodeURIComponent(id)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as ZoneDTO;
 }
@@ -55,9 +42,7 @@ export const ZonesUpdate = async (id: string, dto: ZoneDraftDTO): Promise<ZoneDT
     const response = await HttpClient.request({
         path: `/fulfillment/zones/${encodeURIComponent(id)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as ZoneDTO;
@@ -67,10 +52,6 @@ export const ZonesDelete = async (id: string): Promise<ZoneDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/zones/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as ZoneDTO;
 }

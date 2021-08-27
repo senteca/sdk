@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { CustomFieldDraftDTO,CustomFieldDTO,CustomFieldFilterResultDTO } from '../../models';
+import { CustomFieldDraftDTO, CustomFieldDTO, CustomFieldFilterResultDTO } from '../../models';
 
 export class CustomFieldsAPI extends BaseAPI {
    async create (dto: CustomFieldDraftDTO): Promise<CustomFieldDTO> {
        const response = await this._request({
            path: `/config/custom-fields`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomFieldDTO;
@@ -19,9 +17,6 @@ export class CustomFieldsAPI extends BaseAPI {
            path: `/config/custom-fields`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CustomFieldFilterResultDTO;
    }
@@ -30,10 +25,6 @@ export class CustomFieldsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/custom-fields/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomFieldDTO;
    }
@@ -42,9 +33,7 @@ export class CustomFieldsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/custom-fields/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomFieldDTO;
@@ -54,10 +43,6 @@ export class CustomFieldsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/custom-fields/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomFieldDTO;
    }

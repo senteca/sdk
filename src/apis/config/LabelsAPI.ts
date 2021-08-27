@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { LabelDraftDTO,LabelDTO,LabelFilterResultDTO } from '../../models';
+import { LabelDraftDTO, LabelDTO, LabelFilterResultDTO } from '../../models';
 
 export class LabelsAPI extends BaseAPI {
    async create (dto: LabelDraftDTO): Promise<LabelDTO> {
        const response = await this._request({
            path: `/config/labels`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as LabelDTO;
@@ -19,9 +17,6 @@ export class LabelsAPI extends BaseAPI {
            path: `/config/labels`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as LabelFilterResultDTO;
    }
@@ -30,10 +25,6 @@ export class LabelsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/labels/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as LabelDTO;
    }
@@ -42,10 +33,6 @@ export class LabelsAPI extends BaseAPI {
        const response = await this._request({
            path: `/config/labels/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as LabelDTO;
    }

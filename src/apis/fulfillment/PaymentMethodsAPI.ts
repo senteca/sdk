@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { PaymentMethodDraftDTO,PaymentMethodDTO,PaymentMethodFilterResultDTO } from '../../models';
+import { PaymentMethodDraftDTO, PaymentMethodDTO, PaymentMethodFilterResultDTO } from '../../models';
 
 export class PaymentMethodsAPI extends BaseAPI {
    async create (dto: PaymentMethodDraftDTO): Promise<PaymentMethodDTO> {
        const response = await this._request({
            path: `/fulfillment/payment-methods`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as PaymentMethodDTO;
@@ -19,9 +17,6 @@ export class PaymentMethodsAPI extends BaseAPI {
            path: `/fulfillment/payment-methods`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as PaymentMethodFilterResultDTO;
    }
@@ -30,10 +25,6 @@ export class PaymentMethodsAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/payment-methods/key=${encodeURIComponent(key)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as PaymentMethodDTO;
    }
@@ -42,10 +33,6 @@ export class PaymentMethodsAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/payment-methods/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as PaymentMethodDTO;
    }
@@ -54,9 +41,7 @@ export class PaymentMethodsAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/payment-methods/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as PaymentMethodDTO;
@@ -66,10 +51,6 @@ export class PaymentMethodsAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/payment-methods/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as PaymentMethodDTO;
    }

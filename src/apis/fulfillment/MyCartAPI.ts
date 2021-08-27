@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { CartDraftDTO,OrderDTO,LineItemDraftDTO,QuantityUpdateDTO,CustomLineItemDraftDTO,DiscountCodeUpdateDTO,AddressDTO,ShippingMethodsInfo,ShippingFeesDTO,PaymentMethodsInfo,PlatformMethodUpdateDTO,MerchantsMethodsUpdateDTO,MethodUpdateDTO,SetCustomFieldDTO,OrderAdditionalInfoUpdateDTO } from '../../models';
+import { CartDraftDTO, OrderDTO, LineItemDraftDTO, QuantityUpdateDTO, CustomLineItemDraftDTO, DiscountCodeUpdateDTO, AddressDTO, ShippingMethodsInfo, ShippingFeesDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, MethodUpdateDTO, SetCustomFieldDTO, OrderAdditionalInfoUpdateDTO } from '../../models';
 
 export class MyCartAPI extends BaseAPI {
    async create (dto: CartDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -18,10 +16,6 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -30,9 +24,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/line-items`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -42,10 +34,6 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/line-items/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -54,9 +42,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/line-items/${encodeURIComponent(lineItemId)}/quantity`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -66,9 +52,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/custom-line-items`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -78,10 +62,6 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/custom-line-items/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -90,9 +70,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/custom-line-items/${encodeURIComponent(lineItemId)}/quantity`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -102,9 +80,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/discount-code`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -115,9 +91,6 @@ export class MyCartAPI extends BaseAPI {
            path: `/fulfillment/my-cart/discount-code`,
            method: 'DELETE',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -126,10 +99,6 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/wallet/type=${encodeURIComponent(type)}`,
            method: 'POST',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -138,10 +107,6 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/wallet/type=${encodeURIComponent(type)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -150,9 +115,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/shipping-address`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -162,9 +125,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/billing-address`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -174,10 +135,6 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/shipping-methods`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ShippingMethodsInfo;
    }
@@ -186,10 +143,6 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/shipping-methods`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -198,9 +151,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/shipping-price/shippingMethodId=${encodeURIComponent(shippingMethodId)}`,
            method: 'GET',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ShippingFeesDTO;
@@ -210,10 +161,6 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/payment-methods`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as PaymentMethodsInfo;
    }
@@ -222,9 +169,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/platform-shipping-method`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -234,9 +179,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/merchants-shipping-methods`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -246,9 +189,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/shipping-method`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -258,10 +199,6 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/shipping-method/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -270,9 +207,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/platform-payment-method`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -282,9 +217,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/merchants-payment-methods`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -294,9 +227,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/custom-field`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -306,9 +237,7 @@ export class MyCartAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/my-cart/additionalInfo`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -319,9 +248,6 @@ export class MyCartAPI extends BaseAPI {
            path: `/fulfillment/my-cart/sync`,
            method: 'POST',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }

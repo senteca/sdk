@@ -1,15 +1,11 @@
 import { BaseAPI } from '../../runtime';
-import { UserDTO,UserProfileUpdateDTO,PasswordChangeDTO,PasswordTokenDTO,PasswordResetDTO,UserFilterResultDTO,UserDraftDTO,UserUpdateDTO } from '../../models';
+import { UserDTO, UserProfileUpdateDTO, PasswordChangeDTO, PasswordTokenDTO, PasswordResetDTO, UserFilterResultDTO, UserDraftDTO, UserUpdateDTO } from '../../models';
 
 export class UsersAPI extends BaseAPI {
    async getMyProfile (): Promise<UserDTO> {
        const response = await this._request({
            path: `/users/users/my-profile`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as UserDTO;
    }
@@ -18,9 +14,7 @@ export class UsersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/users/my-profile`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as UserDTO;
@@ -30,9 +24,7 @@ export class UsersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/users/password`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as UserDTO;
@@ -42,9 +34,7 @@ export class UsersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/users/password-token`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -54,9 +44,7 @@ export class UsersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/users/password/reset`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as UserDTO;
@@ -67,9 +55,6 @@ export class UsersAPI extends BaseAPI {
            path: `/users/users`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as UserFilterResultDTO;
    }
@@ -78,9 +63,7 @@ export class UsersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/users`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as UserDTO;
@@ -90,10 +73,6 @@ export class UsersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/users/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as UserDTO;
    }
@@ -102,9 +81,7 @@ export class UsersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/users/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as UserDTO;
@@ -114,10 +91,6 @@ export class UsersAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/users/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as UserDTO;
    }

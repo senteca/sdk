@@ -1,16 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { FancourierLocationRegionDTO,FancourierLocationCityDTO,FancourierLocationStreetDTO,FancourierRegionDTO,OrderDTO,FancourierCityDTO,FancourierStreetDTO } from '../../../models';
+import { FancourierLocationRegionDTO, FancourierLocationCityDTO, FancourierLocationStreetDTO, FancourierRegionDTO, OrderDTO, FancourierCityDTO, FancourierStreetDTO } from '../../../models';
 
 export const MyShippingsFancourierFindRegion = async (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<FancourierLocationRegionDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-shippings/fancourier/find-region`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as FancourierLocationRegionDTO[];
 }
@@ -20,9 +17,6 @@ export const MyShippingsFancourierFindCity = async (query?: { language?: string,
         path: `/fulfillment/my-shippings/fancourier/find-city`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as FancourierLocationCityDTO[];
 }
@@ -32,9 +26,6 @@ export const MyShippingsFancourierFindStreet = async (query?: { language?: strin
         path: `/fulfillment/my-shippings/fancourier/find-street`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as FancourierLocationStreetDTO[];
 }
@@ -43,9 +34,7 @@ export const MyShippingsFancourierSetRegion = async (dto: FancourierRegionDTO): 
     const response = await HttpClient.request({
         path: `/fulfillment/my-shippings/fancourier/region`,
         method: 'PATCH',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -55,10 +44,6 @@ export const MyShippingsFancourierUnsetRegion = async (): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-shippings/fancourier/region`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as OrderDTO;
 }
@@ -67,9 +52,7 @@ export const MyShippingsFancourierSetCity = async (dto: FancourierCityDTO): Prom
     const response = await HttpClient.request({
         path: `/fulfillment/my-shippings/fancourier/city`,
         method: 'PATCH',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -79,10 +62,6 @@ export const MyShippingsFancourierUnsetCity = async (): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-shippings/fancourier/city`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as OrderDTO;
 }
@@ -91,9 +70,7 @@ export const MyShippingsFancourierSetStreet = async (dto: FancourierStreetDTO): 
     const response = await HttpClient.request({
         path: `/fulfillment/my-shippings/fancourier/street`,
         method: 'PATCH',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
@@ -103,10 +80,6 @@ export const MyShippingsFancourierUnsetStreet = async (): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-shippings/fancourier/street`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as OrderDTO;
 }

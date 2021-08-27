@@ -7,9 +7,6 @@ export class MyConsentLogAPI extends BaseAPI {
            path: `/users/my-consent-log`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CustomerConsentLogFilterResultDTO;
    }

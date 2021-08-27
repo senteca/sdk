@@ -8,9 +8,6 @@ export const SitemapsGetSitemapFiles = async (query?: { storeKey?: string, inter
         path: `/cms/sitemaps`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as string[];
 }

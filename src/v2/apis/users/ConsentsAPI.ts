@@ -8,9 +8,6 @@ export const ConsentsFilter = async (query?: { storeKey?: string, interfaceKey?:
         path: `/users/consents`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as CustomerConsentDTO[];
 }

@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { SpeedyClientsDetailsDTO,SpeedyAuthenticationCredentialsDTO,SpeedyLocationCountryDTO,SpeedyLocationCityDTO,SpeedyLocationQuarterDTO,SpeedyLocationStreetDTO,SpeedyLocationOfficeDTO,SpeedyModuleAddressDTO,OrderDTO,SpeedyCountryDTO,SpeedyCityDTO,SpeedyQuarterDTO,SpeedyStreetDTO,SpeedyOfficeDTO,SpeedyCreateRequestDTO,SpeedyCreateResponseDTO,SpeedySendResponseDTO,SpeedyCancelRequestDTO,SpeedyTrackRequestDTO,SpeedyTrackResponseDTO } from '../../models';
+import { SpeedyClientsDetailsDTO, SpeedyAuthenticationCredentialsDTO, SpeedyLocationCountryDTO, SpeedyLocationCityDTO, SpeedyLocationQuarterDTO, SpeedyLocationStreetDTO, SpeedyLocationOfficeDTO, SpeedyModuleAddressDTO, OrderDTO, SpeedyCountryDTO, SpeedyCityDTO, SpeedyQuarterDTO, SpeedyStreetDTO, SpeedyOfficeDTO, SpeedyCreateRequestDTO, SpeedyCreateResponseDTO, SpeedySendResponseDTO, SpeedyCancelRequestDTO, SpeedyTrackRequestDTO, SpeedyTrackResponseDTO } from '../../models';
 
 export class ShippingsSpeedyAPI extends BaseAPI {
    async clientDetails (query: { username: string, password: string }): Promise<SpeedyClientsDetailsDTO> {
@@ -7,9 +7,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/shippings/speedy/client-details`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyClientsDetailsDTO;
    }
@@ -18,9 +15,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/sync-locations`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as any;
@@ -31,9 +26,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/shippings/speedy/fetch/countries`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationCountryDTO[];
    }
@@ -43,9 +35,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/shippings/speedy/fetch/cities`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationCityDTO[];
    }
@@ -55,9 +44,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/shippings/speedy/fetch/quarters`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationQuarterDTO[];
    }
@@ -67,9 +53,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/shippings/speedy/fetch/streets`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationStreetDTO[];
    }
@@ -79,9 +62,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/shippings/speedy/fetch/offices`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationOfficeDTO[];
    }
@@ -91,9 +71,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/shippings/speedy/search/country`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationCountryDTO[];
    }
@@ -103,9 +80,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/shippings/speedy/search/city`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationCityDTO[];
    }
@@ -115,9 +89,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/shippings/speedy/search/quarter`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationQuarterDTO[];
    }
@@ -127,9 +98,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/shippings/speedy/search/street`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationStreetDTO[];
    }
@@ -139,9 +107,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
            path: `/fulfillment/shippings/speedy/search/office`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as SpeedyLocationOfficeDTO[];
    }
@@ -150,9 +115,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -162,9 +125,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/country`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -174,10 +135,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/country`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -186,9 +143,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/city`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -198,10 +153,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/city`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -210,9 +161,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/quarter`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -222,10 +171,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/quarter`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -234,9 +179,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/street`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -246,10 +189,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/street`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -258,9 +197,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/office`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -270,10 +207,6 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/office`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -282,9 +215,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -294,9 +225,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/country`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -306,9 +235,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/city`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -318,9 +245,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/quarter`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -330,9 +255,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/street`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -342,9 +265,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/office`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -354,9 +275,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/create-request`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as SpeedyCreateResponseDTO;
@@ -366,9 +285,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/send-request`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as SpeedySendResponseDTO;
@@ -378,9 +295,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/cancel-request`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -390,9 +305,7 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/speedy/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/track-request`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as SpeedyTrackResponseDTO;

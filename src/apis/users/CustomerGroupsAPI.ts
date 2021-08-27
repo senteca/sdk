@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerGroupDraftDTO,CustomerGroupDTO,CustomerGroupFilterResultDTO } from '../../models';
+import { CustomerGroupDraftDTO, CustomerGroupDTO, CustomerGroupFilterResultDTO } from '../../models';
 
 export class CustomerGroupsAPI extends BaseAPI {
    async create (dto: CustomerGroupDraftDTO): Promise<CustomerGroupDTO> {
        const response = await this._request({
            path: `/users/customer-groups`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomerGroupDTO;
@@ -19,9 +17,6 @@ export class CustomerGroupsAPI extends BaseAPI {
            path: `/users/customer-groups`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CustomerGroupFilterResultDTO;
    }
@@ -30,10 +25,6 @@ export class CustomerGroupsAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-groups/key=${encodeURIComponent(key)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomerGroupDTO;
    }
@@ -42,10 +33,6 @@ export class CustomerGroupsAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-groups/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomerGroupDTO;
    }
@@ -54,9 +41,7 @@ export class CustomerGroupsAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-groups/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomerGroupDTO;
@@ -66,10 +51,6 @@ export class CustomerGroupsAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-groups/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomerGroupDTO;
    }

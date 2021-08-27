@@ -1,15 +1,11 @@
 import { BaseAPI } from '../../runtime';
-import { ShippingSenderDTO,ShippingSenderDraftDTO,ShippingSenderFilterResultDTO,SetCustomFieldDTO } from '../../models';
+import { ShippingSenderDTO, ShippingSenderDraftDTO, ShippingSenderFilterResultDTO, SetCustomFieldDTO } from '../../models';
 
 export class ShippingSendersAPI extends BaseAPI {
    async updateEcontSenders (moduleConfigId: string): Promise<void> {
        const response = await this._request({
            path: `/fulfillment/shipping-senders/econt/moduleConfigId=${encodeURIComponent(moduleConfigId)}`,
            method: 'POST',
-           
-           
-           
-           
         });
        
    }
@@ -18,10 +14,6 @@ export class ShippingSendersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shipping-senders/speedy/moduleConfigId=${encodeURIComponent(moduleConfigId)}`,
            method: 'POST',
-           
-           
-           
-           
         });
        
    }
@@ -30,10 +22,6 @@ export class ShippingSendersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shipping-senders/evropat/moduleConfigId=${encodeURIComponent(moduleConfigId)}`,
            method: 'POST',
-           
-           
-           
-           
         });
        
    }
@@ -42,10 +30,6 @@ export class ShippingSendersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shipping-senders/all/moduleConfigKey=${encodeURIComponent(moduleConfigKey)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ShippingSenderDTO[];
    }
@@ -54,9 +38,7 @@ export class ShippingSendersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shipping-senders`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ShippingSenderDTO;
@@ -67,9 +49,6 @@ export class ShippingSendersAPI extends BaseAPI {
            path: `/fulfillment/shipping-senders`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as ShippingSenderFilterResultDTO;
    }
@@ -78,10 +57,6 @@ export class ShippingSendersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shipping-senders/key=${encodeURIComponent(key)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ShippingSenderDTO;
    }
@@ -90,9 +65,7 @@ export class ShippingSendersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shipping-senders/key=${encodeURIComponent(key)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ShippingSenderDTO;
@@ -102,10 +75,6 @@ export class ShippingSendersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shipping-senders/key=${encodeURIComponent(key)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as ShippingSenderDTO;
    }
@@ -114,9 +83,7 @@ export class ShippingSendersAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shipping-senders/key=${encodeURIComponent(key)}/sender-custom`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        

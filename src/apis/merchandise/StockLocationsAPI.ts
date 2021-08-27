@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { StockLocationSearchResultDTO,StockLocationDraftDTO,StockLocationDTO,StockLocationFilterResultDTO } from '../../models';
+import { StockLocationSearchResultDTO, StockLocationDraftDTO, StockLocationDTO, StockLocationFilterResultDTO } from '../../models';
 
 export class StockLocationsAPI extends BaseAPI {
    async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<StockLocationSearchResultDTO> {
@@ -7,9 +7,6 @@ export class StockLocationsAPI extends BaseAPI {
            path: `/merchandise/stock-locations/search`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as StockLocationSearchResultDTO;
    }
@@ -18,9 +15,7 @@ export class StockLocationsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/stock-locations`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as StockLocationDTO;
@@ -31,9 +26,6 @@ export class StockLocationsAPI extends BaseAPI {
            path: `/merchandise/stock-locations`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as StockLocationFilterResultDTO;
    }
@@ -42,9 +34,7 @@ export class StockLocationsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/stock-locations/import`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -55,9 +45,6 @@ export class StockLocationsAPI extends BaseAPI {
            path: `/merchandise/stock-locations/key=${encodeURIComponent(key)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as StockLocationDTO;
    }
@@ -66,9 +53,7 @@ export class StockLocationsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/stock-locations/key=${encodeURIComponent(key)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as StockLocationDTO;
@@ -79,9 +64,6 @@ export class StockLocationsAPI extends BaseAPI {
            path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as StockLocationDTO;
    }
@@ -90,9 +72,7 @@ export class StockLocationsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as StockLocationDTO;
@@ -102,10 +82,6 @@ export class StockLocationsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as StockLocationDTO;
    }

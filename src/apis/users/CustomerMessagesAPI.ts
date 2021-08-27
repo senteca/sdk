@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerMessageDTO,CustomerMessageFilterResultDTO } from '../../models';
+import { CustomerMessageDTO, CustomerMessageFilterResultDTO } from '../../models';
 
 export class CustomerMessagesAPI extends BaseAPI {
    async create (dto: CustomerMessageDTO): Promise<CustomerMessageDTO> {
        const response = await this._request({
            path: `/users/customer-messages`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomerMessageDTO;
@@ -19,9 +17,6 @@ export class CustomerMessagesAPI extends BaseAPI {
            path: `/users/customer-messages`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CustomerMessageFilterResultDTO;
    }
@@ -30,10 +25,6 @@ export class CustomerMessagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-messages/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomerMessageDTO;
    }
@@ -42,9 +33,7 @@ export class CustomerMessagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-messages/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CustomerMessageDTO;
@@ -54,10 +43,6 @@ export class CustomerMessagesAPI extends BaseAPI {
        const response = await this._request({
            path: `/users/customer-messages/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as CustomerMessageDTO;
    }

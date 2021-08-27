@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { ProductDiscountSearchResultDTO,ProductDiscountFilterResultDTO,ProductDiscountDraftDTO,ProductDiscountDTO } from '../../models';
+import { ProductDiscountSearchResultDTO, ProductDiscountFilterResultDTO, ProductDiscountDraftDTO, ProductDiscountDTO } from '../../models';
 
 export class ProductDiscountsAPI extends BaseAPI {
    async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductDiscountSearchResultDTO> {
@@ -7,9 +7,6 @@ export class ProductDiscountsAPI extends BaseAPI {
            path: `/fulfillment/product-discounts/search`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as ProductDiscountSearchResultDTO;
    }
@@ -19,9 +16,6 @@ export class ProductDiscountsAPI extends BaseAPI {
            path: `/fulfillment/product-discounts`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as ProductDiscountFilterResultDTO;
    }
@@ -30,9 +24,7 @@ export class ProductDiscountsAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/product-discounts`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ProductDiscountDTO;
@@ -42,10 +34,6 @@ export class ProductDiscountsAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/product-discounts/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as ProductDiscountDTO;
    }
@@ -54,9 +42,7 @@ export class ProductDiscountsAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/product-discounts/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as ProductDiscountDTO;
@@ -66,10 +52,6 @@ export class ProductDiscountsAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/product-discounts/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as ProductDiscountDTO;
    }

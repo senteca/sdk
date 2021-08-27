@@ -1,15 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { ShippingMethodDraftDTO,ShippingMethodDTO,ShippingMethodFilterResultDTO } from '../../../models';
+import { ShippingMethodDraftDTO, ShippingMethodDTO, ShippingMethodFilterResultDTO } from '../../../models';
 
 export const ShippingMethodsCreate = async (dto: ShippingMethodDraftDTO): Promise<ShippingMethodDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-methods`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as ShippingMethodDTO;
@@ -20,9 +18,6 @@ export const ShippingMethodsFilter = async (query?: { storeKey?: string, interfa
         path: `/fulfillment/shipping-methods`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as ShippingMethodFilterResultDTO;
 }
@@ -31,10 +26,6 @@ export const ShippingMethodsGetById = async (id: string): Promise<ShippingMethod
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-methods/${encodeURIComponent(id)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as ShippingMethodDTO;
 }
@@ -43,9 +34,7 @@ export const ShippingMethodsUpdate = async (id: string, dto: ShippingMethodDraft
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-methods/${encodeURIComponent(id)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as ShippingMethodDTO;
@@ -55,10 +44,6 @@ export const ShippingMethodsDelete = async (id: string): Promise<ShippingMethodD
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-methods/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as ShippingMethodDTO;
 }

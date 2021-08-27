@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { TagDraftDTO,TagDTO,TagFilterResultDTO } from '../../models';
+import { TagDraftDTO, TagDTO, TagFilterResultDTO } from '../../models';
 
 export class TagsAPI extends BaseAPI {
    async create (dto: TagDraftDTO): Promise<TagDTO> {
        const response = await this._request({
            path: `/cms/tags`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as TagDTO;
@@ -19,9 +17,6 @@ export class TagsAPI extends BaseAPI {
            path: `/cms/tags`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as TagFilterResultDTO;
    }
@@ -30,9 +25,7 @@ export class TagsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/tags/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as TagDTO;
@@ -42,10 +35,6 @@ export class TagsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/tags/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as TagDTO;
    }

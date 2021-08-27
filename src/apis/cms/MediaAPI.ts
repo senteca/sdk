@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { MediaDTO,MediaFilterResultDTO,MediaDeleteDTO } from '../../models';
+import { MediaDTO, MediaFilterResultDTO, MediaDeleteDTO } from '../../models';
 
 export class MediaAPI extends BaseAPI {
    async uploadAssets (folderId: string, dto: any): Promise<MediaDTO[]> {
        const response = await this._request({
            path: `/cms/media/${encodeURIComponent(folderId)}`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'multipart/form-data',
         });
        return (response as unknown) as MediaDTO[];
@@ -19,9 +17,6 @@ export class MediaAPI extends BaseAPI {
            path: `/cms/media`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as MediaFilterResultDTO;
    }
@@ -30,9 +25,7 @@ export class MediaAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/media`,
            method: 'DELETE',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as any;

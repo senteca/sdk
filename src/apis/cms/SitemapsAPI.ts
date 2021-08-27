@@ -7,9 +7,6 @@ export class SitemapsAPI extends BaseAPI {
            path: `/cms/sitemaps`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as string[];
    }

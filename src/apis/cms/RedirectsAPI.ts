@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { CmsRedirectDraftDTO,CmsRedirectDTO,CmsRedirectFilterResultDTO } from '../../models';
+import { CmsRedirectDraftDTO, CmsRedirectDTO, CmsRedirectFilterResultDTO } from '../../models';
 
 export class RedirectsAPI extends BaseAPI {
    async create (dto: CmsRedirectDraftDTO): Promise<CmsRedirectDTO> {
        const response = await this._request({
            path: `/cms/redirects`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CmsRedirectDTO;
@@ -19,9 +17,6 @@ export class RedirectsAPI extends BaseAPI {
            path: `/cms/redirects`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CmsRedirectFilterResultDTO;
    }
@@ -30,9 +25,7 @@ export class RedirectsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/redirects/import`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        
@@ -42,10 +35,6 @@ export class RedirectsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/redirects/from=${encodeURIComponent(from)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CmsRedirectDTO;
    }
@@ -54,10 +43,6 @@ export class RedirectsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/redirects/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CmsRedirectDTO;
    }
@@ -66,9 +51,7 @@ export class RedirectsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/redirects/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CmsRedirectDTO;
@@ -78,10 +61,6 @@ export class RedirectsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/redirects/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as CmsRedirectDTO;
    }

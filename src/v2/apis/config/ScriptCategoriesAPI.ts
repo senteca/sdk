@@ -1,15 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { ScriptCategoryDraftDTO,ScriptCategoryDTO,ScriptCategoryFilterResultDTO,ScriptCategoryAggregatedDTO } from '../../../models';
+import { ScriptCategoryDraftDTO, ScriptCategoryDTO, ScriptCategoryFilterResultDTO, ScriptCategoryAggregatedDTO } from '../../../models';
 
 export const ScriptCategoriesCreate = async (dto: ScriptCategoryDraftDTO): Promise<ScriptCategoryDTO> => {
     const response = await HttpClient.request({
         path: `/config/script-categories`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as ScriptCategoryDTO;
@@ -20,9 +18,6 @@ export const ScriptCategoriesFilter = async (query?: { storeKey?: string, interf
         path: `/config/script-categories`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as ScriptCategoryFilterResultDTO;
 }
@@ -32,9 +27,6 @@ export const ScriptCategoriesGetAggregated = async (query?: { storeKey?: string,
         path: `/config/script-categories/aggregated`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as ScriptCategoryAggregatedDTO[];
 }
@@ -43,10 +35,6 @@ export const ScriptCategoriesGetByKey = async (key: string): Promise<ScriptCateg
     const response = await HttpClient.request({
         path: `/config/script-categories/key=${encodeURIComponent(key)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as ScriptCategoryDTO;
 }
@@ -55,10 +43,6 @@ export const ScriptCategoriesGetById = async (id: string): Promise<ScriptCategor
     const response = await HttpClient.request({
         path: `/config/script-categories/${encodeURIComponent(id)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as ScriptCategoryDTO;
 }
@@ -67,9 +51,7 @@ export const ScriptCategoriesUpdate = async (id: string, dto: ScriptCategoryDraf
     const response = await HttpClient.request({
         path: `/config/script-categories/${encodeURIComponent(id)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as ScriptCategoryDTO;
@@ -79,10 +61,6 @@ export const ScriptCategoriesDelete = async (id: string): Promise<ScriptCategory
     const response = await HttpClient.request({
         path: `/config/script-categories/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as ScriptCategoryDTO;
 }

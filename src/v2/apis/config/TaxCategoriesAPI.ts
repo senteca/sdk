@@ -1,15 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { TaxCategoryDraftDTO,TaxCategoryDTO,TaxCategoryFilterResultDTO } from '../../../models';
+import { TaxCategoryDraftDTO, TaxCategoryDTO, TaxCategoryFilterResultDTO } from '../../../models';
 
 export const TaxCategoriesCreate = async (dto: TaxCategoryDraftDTO): Promise<TaxCategoryDTO> => {
     const response = await HttpClient.request({
         path: `/config/tax-categories`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as TaxCategoryDTO;
@@ -20,9 +18,6 @@ export const TaxCategoriesFilter = async (query?: { storeKey?: string, interface
         path: `/config/tax-categories`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as TaxCategoryFilterResultDTO;
 }
@@ -31,10 +26,6 @@ export const TaxCategoriesGetByKey = async (key: string): Promise<TaxCategoryDTO
     const response = await HttpClient.request({
         path: `/config/tax-categories/key=${encodeURIComponent(key)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as TaxCategoryDTO;
 }
@@ -43,10 +34,6 @@ export const TaxCategoriesGetById = async (id: string): Promise<TaxCategoryDTO> 
     const response = await HttpClient.request({
         path: `/config/tax-categories/${encodeURIComponent(id)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as TaxCategoryDTO;
 }
@@ -55,9 +42,7 @@ export const TaxCategoriesUpdate = async (id: string, dto: TaxCategoryDTO): Prom
     const response = await HttpClient.request({
         path: `/config/tax-categories/${encodeURIComponent(id)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as TaxCategoryDTO;
@@ -67,10 +52,6 @@ export const TaxCategoriesDelete = async (id: string): Promise<TaxCategoryDTO> =
     const response = await HttpClient.request({
         path: `/config/tax-categories/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as TaxCategoryDTO;
 }

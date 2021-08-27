@@ -8,9 +8,6 @@ export const MyConsentLogGetMyConsentLog = async (query?: { storeKey?: string, i
         path: `/users/my-consent-log`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as CustomerConsentLogFilterResultDTO;
 }

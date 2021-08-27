@@ -7,9 +7,6 @@ export class ConsentsAPI extends BaseAPI {
            path: `/users/consents`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CustomerConsentDTO[];
    }

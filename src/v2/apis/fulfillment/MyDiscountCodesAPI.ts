@@ -8,9 +8,6 @@ export const MyDiscountCodesFilter = async (query?: { storeKey?: string, interfa
         path: `/fulfillment/my-discount-codes`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as DiscountCodeFilterResultDTO;
 }

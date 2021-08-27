@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { CmsContentDraftDTO,CmsContentDTO,CmsContentFilterResultDTO } from '../../models';
+import { CmsContentDraftDTO, CmsContentDTO, CmsContentFilterResultDTO } from '../../models';
 
 export class ContentsAPI extends BaseAPI {
    async create (dto: CmsContentDraftDTO): Promise<CmsContentDTO> {
        const response = await this._request({
            path: `/cms/contents`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CmsContentDTO;
@@ -19,9 +17,6 @@ export class ContentsAPI extends BaseAPI {
            path: `/cms/contents`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CmsContentFilterResultDTO;
    }
@@ -30,10 +25,6 @@ export class ContentsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/contents/key=${encodeURIComponent(key)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CmsContentDTO;
    }
@@ -42,10 +33,6 @@ export class ContentsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/contents/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CmsContentDTO;
    }
@@ -54,9 +41,7 @@ export class ContentsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/contents/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CmsContentDTO;
@@ -66,10 +51,6 @@ export class ContentsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/contents/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as CmsContentDTO;
    }

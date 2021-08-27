@@ -1,16 +1,12 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { UserDTO,UserProfileUpdateDTO,PasswordChangeDTO,PasswordTokenDTO,PasswordResetDTO,UserFilterResultDTO,UserDraftDTO,UserUpdateDTO } from '../../../models';
+import { UserDTO, UserProfileUpdateDTO, PasswordChangeDTO, PasswordTokenDTO, PasswordResetDTO, UserFilterResultDTO, UserDraftDTO, UserUpdateDTO } from '../../../models';
 
 export const UsersGetMyProfile = async (): Promise<UserDTO> => {
     const response = await HttpClient.request({
         path: `/users/users/my-profile`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as UserDTO;
 }
@@ -19,9 +15,7 @@ export const UsersUpdateMyProfile = async (dto: UserProfileUpdateDTO): Promise<U
     const response = await HttpClient.request({
         path: `/users/users/my-profile`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as UserDTO;
@@ -31,9 +25,7 @@ export const UsersChangePassword = async (dto: PasswordChangeDTO): Promise<UserD
     const response = await HttpClient.request({
         path: `/users/users/password`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as UserDTO;
@@ -43,9 +35,7 @@ export const UsersCreatePasswordToken = async (dto: PasswordTokenDTO): Promise<v
     const response = await HttpClient.request({
         path: `/users/users/password-token`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     
@@ -55,9 +45,7 @@ export const UsersResetPassword = async (dto: PasswordResetDTO): Promise<UserDTO
     const response = await HttpClient.request({
         path: `/users/users/password/reset`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as UserDTO;
@@ -68,9 +56,6 @@ export const UsersFilter = async (query?: { storeKey?: string, interfaceKey?: st
         path: `/users/users`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as UserFilterResultDTO;
 }
@@ -79,9 +64,7 @@ export const UsersCreate = async (dto: UserDraftDTO): Promise<UserDTO> => {
     const response = await HttpClient.request({
         path: `/users/users`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as UserDTO;
@@ -91,10 +74,6 @@ export const UsersGetById = async (id: string): Promise<UserDTO> => {
     const response = await HttpClient.request({
         path: `/users/users/${encodeURIComponent(id)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as UserDTO;
 }
@@ -103,9 +82,7 @@ export const UsersUpdate = async (id: string, dto: UserUpdateDTO): Promise<UserD
     const response = await HttpClient.request({
         path: `/users/users/${encodeURIComponent(id)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as UserDTO;
@@ -115,10 +92,6 @@ export const UsersDelete = async (id: string): Promise<UserDTO> => {
     const response = await HttpClient.request({
         path: `/users/users/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as UserDTO;
 }

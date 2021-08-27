@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { DiscountTemplateFilterResultDTO,DiscountTemplateDraftDTO,DiscountTemplateDTO,SetCustomFieldDTO } from '../../models';
+import { DiscountTemplateFilterResultDTO, DiscountTemplateDraftDTO, DiscountTemplateDTO, SetCustomFieldDTO } from '../../models';
 
 export class DiscountTemplatesAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<DiscountTemplateFilterResultDTO> {
@@ -7,9 +7,6 @@ export class DiscountTemplatesAPI extends BaseAPI {
            path: `/fulfillment/discount-templates`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as DiscountTemplateFilterResultDTO;
    }
@@ -18,9 +15,7 @@ export class DiscountTemplatesAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/discount-templates`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as DiscountTemplateDTO;
@@ -30,10 +25,6 @@ export class DiscountTemplatesAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/discount-templates/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as DiscountTemplateDTO;
    }
@@ -42,9 +33,7 @@ export class DiscountTemplatesAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/discount-templates/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as DiscountTemplateDTO;
@@ -54,10 +43,6 @@ export class DiscountTemplatesAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/discount-templates/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as DiscountTemplateDTO;
    }
@@ -66,9 +51,7 @@ export class DiscountTemplatesAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/discount-templates/${encodeURIComponent(id)}/custom`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        

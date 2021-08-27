@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { PriceListDraftDTO,PriceListDTO,PriceListFilterResultDTO } from '../../models';
+import { PriceListDraftDTO, PriceListDTO, PriceListFilterResultDTO } from '../../models';
 
 export class PriceListsAPI extends BaseAPI {
    async create (dto: PriceListDraftDTO): Promise<PriceListDTO> {
        const response = await this._request({
            path: `/merchandise/price-lists`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as PriceListDTO;
@@ -19,9 +17,6 @@ export class PriceListsAPI extends BaseAPI {
            path: `/merchandise/price-lists`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as PriceListFilterResultDTO;
    }
@@ -30,10 +25,6 @@ export class PriceListsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/price-lists/key=${encodeURIComponent(key)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as PriceListDTO;
    }
@@ -42,10 +33,6 @@ export class PriceListsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/price-lists/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as PriceListDTO;
    }
@@ -54,9 +41,7 @@ export class PriceListsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/price-lists/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as PriceListDTO;
@@ -66,10 +51,6 @@ export class PriceListsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/price-lists/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as PriceListDTO;
    }

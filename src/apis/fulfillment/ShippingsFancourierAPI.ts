@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { FancourierAuthenticationCredentialsDTO,FancourierLocationRegionDTO,FancourierLocationCityDTO,FancourierLocationStreetDTO,FancourierModuleAddressDTO,OrderDTO,FancourierRegionDTO,FancourierCityDTO,FancourierStreetDTO,FancourierCreateRequestDTO,FancourierCreateResponseDTO,FancourierSendResponseDTO,FancourierCancelRequestDTO,FancourierTrackRequestDTO,FancourierTrackResponseDTO } from '../../models';
+import { FancourierAuthenticationCredentialsDTO, FancourierLocationRegionDTO, FancourierLocationCityDTO, FancourierLocationStreetDTO, FancourierModuleAddressDTO, OrderDTO, FancourierRegionDTO, FancourierCityDTO, FancourierStreetDTO, FancourierCreateRequestDTO, FancourierCreateResponseDTO, FancourierSendResponseDTO, FancourierCancelRequestDTO, FancourierTrackRequestDTO, FancourierTrackResponseDTO } from '../../models';
 
 export class ShippingsFancourierAPI extends BaseAPI {
    async syncLocations (dto: FancourierAuthenticationCredentialsDTO): Promise<any> {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/sync-locations`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as any;
@@ -19,9 +17,6 @@ export class ShippingsFancourierAPI extends BaseAPI {
            path: `/fulfillment/shippings/fancourier/fetch/regions`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as FancourierLocationRegionDTO[];
    }
@@ -31,9 +26,6 @@ export class ShippingsFancourierAPI extends BaseAPI {
            path: `/fulfillment/shippings/fancourier/fetch/cities`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as FancourierLocationCityDTO[];
    }
@@ -43,9 +35,6 @@ export class ShippingsFancourierAPI extends BaseAPI {
            path: `/fulfillment/shippings/fancourier/fetch/streets`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as FancourierLocationStreetDTO[];
    }
@@ -55,9 +44,6 @@ export class ShippingsFancourierAPI extends BaseAPI {
            path: `/fulfillment/shippings/fancourier/search/region`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as FancourierLocationRegionDTO[];
    }
@@ -67,9 +53,6 @@ export class ShippingsFancourierAPI extends BaseAPI {
            path: `/fulfillment/shippings/fancourier/search/city`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as FancourierLocationCityDTO[];
    }
@@ -79,9 +62,6 @@ export class ShippingsFancourierAPI extends BaseAPI {
            path: `/fulfillment/shippings/fancourier/search/street`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as FancourierLocationStreetDTO[];
    }
@@ -90,9 +70,7 @@ export class ShippingsFancourierAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -102,9 +80,7 @@ export class ShippingsFancourierAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/region`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -114,9 +90,7 @@ export class ShippingsFancourierAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/city`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -126,10 +100,6 @@ export class ShippingsFancourierAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/city`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -138,9 +108,7 @@ export class ShippingsFancourierAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/street`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -150,10 +118,6 @@ export class ShippingsFancourierAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/address/street`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as OrderDTO;
    }
@@ -162,9 +126,7 @@ export class ShippingsFancourierAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -174,9 +136,7 @@ export class ShippingsFancourierAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/city`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -186,9 +146,7 @@ export class ShippingsFancourierAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/address/street`,
            method: 'PATCH',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -198,9 +156,7 @@ export class ShippingsFancourierAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/create-request`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as FancourierCreateResponseDTO;
@@ -210,9 +166,7 @@ export class ShippingsFancourierAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/send-request`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as FancourierSendResponseDTO;
@@ -222,9 +176,7 @@ export class ShippingsFancourierAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/cancel-request`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
@@ -234,9 +186,7 @@ export class ShippingsFancourierAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/shippings/fancourier/orders/${encodeURIComponent(orderId)}/shippings/${encodeURIComponent(shippingId)}/deliveries/${encodeURIComponent(deliveryId)}/parcels/${encodeURIComponent(parcelId)}/track-request`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as FancourierTrackResponseDTO;

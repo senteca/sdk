@@ -1,15 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { BrandDraftDTO,BrandDTO,BrandFilterResultDTO,BrandImportDraftDTO,BrandSearchResultDTO,SetCustomFieldDTO } from '../../../models';
+import { BrandDraftDTO, BrandDTO, BrandFilterResultDTO, BrandImportDraftDTO, BrandSearchResultDTO, SetCustomFieldDTO } from '../../../models';
 
 export const BrandsCreate = async (dto: BrandDraftDTO): Promise<BrandDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/brands`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as BrandDTO;
@@ -20,9 +18,6 @@ export const BrandsFilter = async (query?: { storeKey?: string, interfaceKey?: s
         path: `/merchandise/brands`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as BrandFilterResultDTO;
 }
@@ -31,9 +26,7 @@ export const BrandsImport = async (dto: BrandImportDraftDTO[]): Promise<void> =>
     const response = await HttpClient.request({
         path: `/merchandise/brands/import`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     
@@ -44,9 +37,6 @@ export const BrandsSearch = async (query?: { storeKey?: string, interfaceKey?: s
         path: `/merchandise/brands/search`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as BrandSearchResultDTO;
 }
@@ -56,9 +46,6 @@ export const BrandsGetBySlug = async (slug: string, query?: { storeKey?: string,
         path: `/merchandise/brands/slug=${encodeURIComponent(slug)}`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as BrandDTO;
 }
@@ -68,9 +55,6 @@ export const BrandsGetByExternalId = async (externalId: string, query?: { storeK
         path: `/merchandise/brands/externalId=${encodeURIComponent(externalId)}`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as BrandDTO;
 }
@@ -79,9 +63,7 @@ export const BrandsUpdateByExternalId = async (externalId: string, dto: BrandDra
     const response = await HttpClient.request({
         path: `/merchandise/brands/externalId=${encodeURIComponent(externalId)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as BrandDTO;
@@ -91,10 +73,6 @@ export const BrandsDeleteByExternalId = async (externalId: string): Promise<Bran
     const response = await HttpClient.request({
         path: `/merchandise/brands/externalId=${encodeURIComponent(externalId)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as BrandDTO;
 }
@@ -104,9 +82,6 @@ export const BrandsGetById = async (id: string, query?: { storeKey?: string, int
         path: `/merchandise/brands/${encodeURIComponent(id)}`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as BrandDTO;
 }
@@ -115,9 +90,7 @@ export const BrandsUpdateById = async (id: string, dto: BrandDraftDTO): Promise<
     const response = await HttpClient.request({
         path: `/merchandise/brands/${encodeURIComponent(id)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as BrandDTO;
@@ -127,10 +100,6 @@ export const BrandsDeleteById = async (id: string): Promise<BrandDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/brands/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as BrandDTO;
 }
@@ -139,9 +108,7 @@ export const BrandsSetCustom = async (id: string, dto: SetCustomFieldDTO[]): Pro
     const response = await HttpClient.request({
         path: `/merchandise/brands/${encodeURIComponent(id)}/custom`,
         method: 'PATCH',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     

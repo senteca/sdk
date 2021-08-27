@@ -1,14 +1,12 @@
 import { BaseAPI } from '../../runtime';
-import { CmsContentInjectionDraftDTO,CmsContentInjectionDTO,CmsContentInjectionsFilterResultDTO,CmsContentInjectionFilterValidDTO } from '../../models';
+import { CmsContentInjectionDraftDTO, CmsContentInjectionDTO, CmsContentInjectionsFilterResultDTO, CmsContentInjectionFilterValidDTO } from '../../models';
 
 export class ContentInjectionsAPI extends BaseAPI {
    async create (dto: CmsContentInjectionDraftDTO): Promise<CmsContentInjectionDTO> {
        const response = await this._request({
            path: `/cms/content-injections`,
            method: 'POST',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CmsContentInjectionDTO;
@@ -19,9 +17,6 @@ export class ContentInjectionsAPI extends BaseAPI {
            path: `/cms/content-injections`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CmsContentInjectionsFilterResultDTO;
    }
@@ -31,9 +26,6 @@ export class ContentInjectionsAPI extends BaseAPI {
            path: `/cms/content-injections/valid`,
            method: 'GET',
            query: this._stringifyQuery(query),
-           
-           
-           
         });
        return (response as unknown) as CmsContentInjectionFilterValidDTO[];
    }
@@ -42,10 +34,6 @@ export class ContentInjectionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/content-injections/${encodeURIComponent(id)}`,
            method: 'GET',
-           
-           
-           
-           
         });
        return (response as unknown) as CmsContentInjectionDTO;
    }
@@ -54,9 +42,7 @@ export class ContentInjectionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/content-injections/${encodeURIComponent(id)}`,
            method: 'PUT',
-           
            body: dto,
-           
            contentType: 'application/json',
         });
        return (response as unknown) as CmsContentInjectionDTO;
@@ -66,10 +52,6 @@ export class ContentInjectionsAPI extends BaseAPI {
        const response = await this._request({
            path: `/cms/content-injections/${encodeURIComponent(id)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        return (response as unknown) as CmsContentInjectionDTO;
    }

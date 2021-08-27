@@ -6,10 +6,6 @@ export class WishListsAPI extends BaseAPI {
        const response = await this._request({
            path: `/fulfillment/wish-lists/clean/${encodeURIComponent(days)}`,
            method: 'DELETE',
-           
-           
-           
-           
         });
        
    }

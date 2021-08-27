@@ -1,15 +1,13 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { StateDraftDTO,StateDTO,StateFilterResultDTO } from '../../../models';
+import { StateDraftDTO, StateDTO, StateFilterResultDTO } from '../../../models';
 
 export const StatesCreate = async (dto: StateDraftDTO): Promise<StateDTO> => {
     const response = await HttpClient.request({
         path: `/config/states`,
         method: 'POST',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as StateDTO;
@@ -20,9 +18,6 @@ export const StatesFilter = async (query?: { storeKey?: string, interfaceKey?: s
         path: `/config/states`,
         method: 'GET',
         query: toQueryString(query),
-        
-        
-        
     });
     return (response as unknown) as StateFilterResultDTO;
 }
@@ -31,10 +26,6 @@ export const StatesGetByKey = async (key: string): Promise<StateDTO> => {
     const response = await HttpClient.request({
         path: `/config/states/key=${encodeURIComponent(key)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as StateDTO;
 }
@@ -43,10 +34,6 @@ export const StatesGetById = async (id: string): Promise<StateDTO> => {
     const response = await HttpClient.request({
         path: `/config/states/${encodeURIComponent(id)}`,
         method: 'GET',
-        
-        
-        
-        
     });
     return (response as unknown) as StateDTO;
 }
@@ -55,9 +42,7 @@ export const StatesUpdate = async (id: string, dto: StateDraftDTO): Promise<Stat
     const response = await HttpClient.request({
         path: `/config/states/${encodeURIComponent(id)}`,
         method: 'PUT',
-        
         body: dto,
-        
         contentType: 'application/json',
     });
     return (response as unknown) as StateDTO;
@@ -67,10 +52,6 @@ export const StatesDelete = async (id: string): Promise<StateDTO> => {
     const response = await HttpClient.request({
         path: `/config/states/${encodeURIComponent(id)}`,
         method: 'DELETE',
-        
-        
-        
-        
     });
     return (response as unknown) as StateDTO;
 }
