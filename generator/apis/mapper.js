@@ -20,6 +20,15 @@ module.exports = class ApiMapper {
       name,
       methods,
       relatedModels,
+      addSpace: () => (children, render) =>
+        render(children).replace(/,/g, ', '),
+      trimEmptyLines: () => (children, render) => {
+        const content = render(children)
+          .split('\n')
+          .filter((line) => !!line.trim())
+          .join('\n');
+        return content ? content + '\n' : content;
+      },
     };
   }
 

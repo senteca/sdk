@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { {{relatedModels}} } from '../../models';
+import { {{#addSpace}}{{relatedModels}}{{/addSpace}} } from '../../models';
 
 export class {{name}} extends BaseAPI {
  {{#methods}}
@@ -7,10 +7,12 @@ export class {{name}} extends BaseAPI {
        const response = await this._request({
            path: `{{{url}}}`,
            method: '{{method}}',
+           {{#trimEmptyLines}}
            {{#hasQueryParam}}query: this._stringifyQuery(query),{{/hasQueryParam}}
            {{#hasBodyParam}}body: dto,{{/hasBodyParam}}
            {{#hasBasicAuth}}basicAuth,{{/hasBasicAuth}}
            {{#hasContentType}}contentType: '{{{contentType}}}',{{/hasContentType}}
+           {{/trimEmptyLines}}
         });
        {{#isNotVoid}}return (response as unknown) as {{response}};{{/isNotVoid}}
    }

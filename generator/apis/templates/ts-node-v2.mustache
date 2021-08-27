@@ -1,17 +1,19 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { {{relatedModels}} } from '../../../models';
+import { {{#addSpace}}{{relatedModels}}{{/addSpace}} } from '../../../models';
 
  {{#methods}}
 export const {{fullName}} = async ({{#parameters}}{{text}}{{^last}}, {{/last}}{{/parameters}}): Promise<{{response}}> => {
     const response = await HttpClient.request({
         path: `{{{url}}}`,
         method: '{{method}}',
+        {{#trimEmptyLines}}
         {{#hasQueryParam}}query: toQueryString(query),{{/hasQueryParam}}
         {{#hasBodyParam}}body: dto,{{/hasBodyParam}}
         {{#hasBasicAuth}}basicAuth,{{/hasBasicAuth}}
         {{#hasContentType}}contentType: '{{{contentType}}}',{{/hasContentType}}
+        {{/trimEmptyLines}}
     });
     {{#isNotVoid}}return (response as unknown) as {{response}};{{/isNotVoid}}
 }
