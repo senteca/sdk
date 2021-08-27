@@ -16,9 +16,6 @@ module.exports = class BaseRoutine {
     let content = exportPaths
       .map((path) => `export * from "./${path}";`)
       .join('\n');
-    if (outputDir.indexOf('v2') === -1) {
-      content += '\nexport * as v2 from "./v2";';
-    }
 
     await writeFileAsync(`${path}/index.ts`, content, {
       encoding: 'utf-8',
