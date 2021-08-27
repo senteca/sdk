@@ -1,20 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { EvropatClientAddressDTO } from '@models';
-import { EvropatAuthenticationCredentialsDTO } from '@models';
-import { EvropatLocationCityDTO } from '@models';
-import { EvropatLocationOfficeDTO } from '@models';
-import { EvropatModuleAddressDTO } from '@models';
-import { OrderDTO } from '@models';
-import { EvropatCityDTO } from '@models';
-import { EvropatOfficeDTO } from '@models';
-import { EvropatCreateRequestDTO } from '@models';
-import { EvropatCreateResponseDTO } from '@models';
-import { EvropatSendRequestDTO } from '@models';
-import { EvropatSendResponseDTO } from '@models';
-import { EvropatCancelRequestDTO } from '@models';
-import { EvropatCancelResponseDTO } from '@models';
-import { EvropatTrackRequestDTO } from '@models';
-import { EvropatTrackResponseDTO } from '@models';
+import { EvropatClientAddressDTO,EvropatAuthenticationCredentialsDTO,EvropatLocationCityDTO,EvropatLocationOfficeDTO,EvropatModuleAddressDTO,OrderDTO,EvropatCityDTO,EvropatOfficeDTO,EvropatCreateRequestDTO,EvropatCreateResponseDTO,EvropatSendRequestDTO,EvropatSendResponseDTO,EvropatCancelRequestDTO,EvropatCancelResponseDTO,EvropatTrackRequestDTO,EvropatTrackResponseDTO } from '../../models';
 
 export class ShippingsEvropatAPI extends BaseAPI {
    async clientAddresses (query: { clientKey: string }): Promise<EvropatClientAddressDTO[]> {

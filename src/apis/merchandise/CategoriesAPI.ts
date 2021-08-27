@@ -1,10 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CategoryDraftDTO } from '@models';
-import { CategoryDTO } from '@models';
-import { CategoryFilterResultDTO } from '@models';
-import { CategoryImportDraftDTO } from '@models';
-import { CategorySearchResultDTO } from '@models';
-import { SetCustomFieldDTO } from '@models';
+import { CategoryDraftDTO,CategoryDTO,CategoryFilterResultDTO,CategoryImportDraftDTO,CategorySearchResultDTO,SetCustomFieldDTO } from '../../models';
 
 export class CategoriesAPI extends BaseAPI {
    async create (dto: CategoryDraftDTO): Promise<CategoryDTO> {

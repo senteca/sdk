@@ -1,8 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { AttributeDraftDTO } from '@models';
-import { AttributeDTO } from '@models';
-import { AttributeFilterResultDTO } from '@models';
-import { AttributeSearchResultDTO } from '@models';
+import { AttributeDraftDTO,AttributeDTO,AttributeFilterResultDTO,AttributeSearchResultDTO } from '../../models';
 
 export class AttributesAPI extends BaseAPI {
    async create (dto: AttributeDraftDTO): Promise<AttributeDTO> {

@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { MediaDTO } from '@models';
-import { MediaFilterResultDTO } from '@models';
-import { MediaDeleteDTO } from '@models';
+import { MediaDTO,MediaFilterResultDTO,MediaDeleteDTO } from '../../../models';
 
 export const MediaUploadAssets = async (folderId: string, dto: any): Promise<MediaDTO[]> => {
     const response = await HttpClient.request({

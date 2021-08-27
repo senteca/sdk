@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { PaymentMethodDraftDTO } from '@models';
-import { PaymentMethodDTO } from '@models';
-import { PaymentMethodFilterResultDTO } from '@models';
+import { PaymentMethodDraftDTO,PaymentMethodDTO,PaymentMethodFilterResultDTO } from '../../../models';
 
 export const PaymentMethodsCreate = async (dto: PaymentMethodDraftDTO): Promise<PaymentMethodDTO> => {
     const response = await HttpClient.request({

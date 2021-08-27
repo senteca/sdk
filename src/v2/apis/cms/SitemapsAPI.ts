@@ -1,6 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
+import {  } from '../../../models';
 
 export const SitemapsGetSitemapFiles = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<string[]> => {
     const response = await HttpClient.request({

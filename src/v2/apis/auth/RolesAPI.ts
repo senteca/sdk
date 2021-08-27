@@ -1,10 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { Permission } from '@models';
-import { RoleFilterResultDTO } from '@models';
-import { RoleDraftDTO } from '@models';
-import { RoleDTO } from '@models';
+import { Permission,RoleFilterResultDTO,RoleDraftDTO,RoleDTO } from '../../../models';
 
 export const RolesGetPermissions = async (): Promise<Permission[]> => {
     const response = await HttpClient.request({

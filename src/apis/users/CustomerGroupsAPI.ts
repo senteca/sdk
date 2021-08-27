@@ -1,7 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerGroupDraftDTO } from '@models';
-import { CustomerGroupDTO } from '@models';
-import { CustomerGroupFilterResultDTO } from '@models';
+import { CustomerGroupDraftDTO,CustomerGroupDTO,CustomerGroupFilterResultDTO } from '../../models';
 
 export class CustomerGroupsAPI extends BaseAPI {
    async create (dto: CustomerGroupDraftDTO): Promise<CustomerGroupDTO> {

@@ -1,16 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { DiscountCodeDTO } from '@models';
-import { DiscountCodeSearchResultDTO } from '@models';
-import { DiscountCodeFilterResultDTO } from '@models';
-import { DiscountCodeDraftDTO } from '@models';
-import { DiscountCodeBulkCreateDTO } from '@models';
-import { SetCustomFieldDTO } from '@models';
-import { DiscountCodeBulkDeleteDTO } from '@models';
-import { FilterQueryDTO } from '@models';
-import { DiscountCodeBulkSetIsActiveDTO } from '@models';
-import { DiscountCodeBulkSetValidRangeDTO } from '@models';
+import { DiscountCodeDTO,DiscountCodeSearchResultDTO,DiscountCodeFilterResultDTO,DiscountCodeDraftDTO,DiscountCodeBulkCreateDTO,SetCustomFieldDTO,DiscountCodeBulkDeleteDTO,FilterQueryDTO,DiscountCodeBulkSetIsActiveDTO,DiscountCodeBulkSetValidRangeDTO } from '../../../models';
 
 export const DiscountCodesImport = async (dto: string[]): Promise<DiscountCodeDTO[]> => {
     const response = await HttpClient.request({

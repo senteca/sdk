@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { StateDraftDTO } from '@models';
-import { StateDTO } from '@models';
-import { StateFilterResultDTO } from '@models';
+import { StateDraftDTO,StateDTO,StateFilterResultDTO } from '../../../models';
 
 export const StatesCreate = async (dto: StateDraftDTO): Promise<StateDTO> => {
     const response = await HttpClient.request({

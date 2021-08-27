@@ -1,10 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { AddonFilterResultDTO } from '@models';
-import { AddonDraftDTO } from '@models';
-import { AddonDTO } from '@models';
-import { AddonRequestDTO } from '@models';
+import { AddonFilterResultDTO,AddonDraftDTO,AddonDTO,AddonRequestDTO } from '../../../models';
 
 export const AddonsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<AddonFilterResultDTO> => {
     const response = await HttpClient.request({

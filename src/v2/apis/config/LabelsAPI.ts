@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { LabelDraftDTO } from '@models';
-import { LabelDTO } from '@models';
-import { LabelFilterResultDTO } from '@models';
+import { LabelDraftDTO,LabelDTO,LabelFilterResultDTO } from '../../../models';
 
 export const LabelsCreate = async (dto: LabelDraftDTO): Promise<LabelDTO> => {
     const response = await HttpClient.request({

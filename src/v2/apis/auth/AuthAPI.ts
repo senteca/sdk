@@ -1,11 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { TokenRequestDTO } from '@models';
-import { TokenResponseDTO } from '@models';
-import { LoginRequestDTO } from '@models';
-import { OAuthTokenRequestDTO } from '@models';
-import { RegisterRequestDTO } from '@models';
+import { TokenRequestDTO,TokenResponseDTO,LoginRequestDTO,OAuthTokenRequestDTO,RegisterRequestDTO } from '../../../models';
 
 export const AuthCreateToken = async (basicAuth: { username: string, password: string }, query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: TokenRequestDTO): Promise<TokenResponseDTO> => {
     const response = await HttpClient.request({

@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { StoreViewDraftDTO } from '@models';
-import { StoreViewDTO } from '@models';
-import { StoreViewFilterResultDTO } from '@models';
+import { StoreViewDraftDTO,StoreViewDTO,StoreViewFilterResultDTO } from '../../../models';
 
 export const StoreViewsCreate = async (dto: StoreViewDraftDTO): Promise<StoreViewDTO> => {
     const response = await HttpClient.request({

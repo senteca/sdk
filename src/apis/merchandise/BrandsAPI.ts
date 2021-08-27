@@ -1,10 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { BrandDraftDTO } from '@models';
-import { BrandDTO } from '@models';
-import { BrandFilterResultDTO } from '@models';
-import { BrandImportDraftDTO } from '@models';
-import { BrandSearchResultDTO } from '@models';
-import { SetCustomFieldDTO } from '@models';
+import { BrandDraftDTO,BrandDTO,BrandFilterResultDTO,BrandImportDraftDTO,BrandSearchResultDTO,SetCustomFieldDTO } from '../../models';
 
 export class BrandsAPI extends BaseAPI {
    async create (dto: BrandDraftDTO): Promise<BrandDTO> {

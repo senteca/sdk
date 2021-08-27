@@ -1,7 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { ContentTypeDraftDTO } from '@models';
-import { ContentTypeDTO } from '@models';
-import { ContentTypeFilterResultDTO } from '@models';
+import { ContentTypeDraftDTO,ContentTypeDTO,ContentTypeFilterResultDTO } from '../../models';
 
 export class ContentTypesAPI extends BaseAPI {
    async create (dto: ContentTypeDraftDTO): Promise<ContentTypeDTO> {

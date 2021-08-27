@@ -1,7 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { TaxCategoryDraftDTO } from '@models';
-import { TaxCategoryDTO } from '@models';
-import { TaxCategoryFilterResultDTO } from '@models';
+import { TaxCategoryDraftDTO,TaxCategoryDTO,TaxCategoryFilterResultDTO } from '../../models';
 
 export class TaxCategoriesAPI extends BaseAPI {
    async create (dto: TaxCategoryDraftDTO): Promise<TaxCategoryDTO> {

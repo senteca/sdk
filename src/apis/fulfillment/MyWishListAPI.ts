@@ -1,6 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { WishListDTO } from '@models';
-import { WishListItemDraftDTO } from '@models';
+import { WishListDTO,WishListItemDraftDTO } from '../../models';
 
 export class MyWishListAPI extends BaseAPI {
    async getMy (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<WishListDTO> {

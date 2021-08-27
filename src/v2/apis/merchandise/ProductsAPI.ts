@@ -1,52 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { BulkLinkUpdateDTO } from '@models';
-import { BulkDeleteDTO } from '@models';
-import { BulkStatusChangeDTO } from '@models';
-import { BulkCustomFieldUpdateDTO } from '@models';
-import { BulkCustomFieldUpdateByFilterDTO } from '@models';
-import { BulkAttributeUpdateDTO } from '@models';
-import { BulkAttributeDeleteDTO } from '@models';
-import { BulkOfferQuantityUpdateDTO } from '@models';
-import { BulkLabelSetDTO } from '@models';
-import { BulkLabelRemoveDTO } from '@models';
-import { ProductDraftDTO } from '@models';
-import { ProductDTO } from '@models';
-import { ProductFilterResultDTO } from '@models';
-import { ProductImportDraftDTO } from '@models';
-import { FilterQueryDTO } from '@models';
-import { ProductSearchResultDTO } from '@models';
-import { AttributeValueDTO } from '@models';
-import { ProductUpdateDTO } from '@models';
-import { SetCustomFieldDTO } from '@models';
-import { AssetDTO } from '@models';
-import { StoreStatusDTO } from '@models';
-import { TransitionProductStateDTO } from '@models';
-import { KeyReferenceDTO } from '@models';
-import { LangValue } from '@models';
-import { ProductScoreUpdateDTO } from '@models';
-import { ProductOwnerUpdateDTO } from '@models';
-import { IdReferenceDTO } from '@models';
-import { ProductRelationsDTO } from '@models';
-import { ProductAttributeDTO } from '@models';
-import { ProductMasterVariantUpdateDTO } from '@models';
-import { ContentDTO } from '@models';
-import { ProductSkuUpdateDTO } from '@models';
-import { ImageDTO } from '@models';
-import { SwapIndexDTO } from '@models';
-import { ProductVariantDraftDTO } from '@models';
-import { ProductBarcodeUpdateDTO } from '@models';
-import { ProductCollapseKeyUpdateDTO } from '@models';
-import { ProductCollapseModeUpdateDTO } from '@models';
-import { ProductAttributeDraftDTO } from '@models';
-import { OfferDraftDTO } from '@models';
-import { ProductAliasImagesFromUpdateDTO } from '@models';
-import { ShippingDataDTO } from '@models';
-import { ProductVariantOverridesDTO } from '@models';
-import { OptionDefinitionDTO } from '@models';
-import { InventoryDraftDTO } from '@models';
-import { ProductVariantLabelDTO } from '@models';
+import { BulkLinkUpdateDTO,BulkDeleteDTO,BulkStatusChangeDTO,BulkCustomFieldUpdateDTO,BulkCustomFieldUpdateByFilterDTO,BulkAttributeUpdateDTO,BulkAttributeDeleteDTO,BulkOfferQuantityUpdateDTO,BulkLabelSetDTO,BulkLabelRemoveDTO,ProductDraftDTO,ProductDTO,ProductFilterResultDTO,ProductImportDraftDTO,FilterQueryDTO,ProductSearchResultDTO,AttributeValueDTO,ProductUpdateDTO,SetCustomFieldDTO,AssetDTO,StoreStatusDTO,TransitionProductStateDTO,KeyReferenceDTO,LangValue,ProductScoreUpdateDTO,ProductOwnerUpdateDTO,IdReferenceDTO,ProductRelationsDTO,ProductAttributeDTO,ProductMasterVariantUpdateDTO,ContentDTO,ProductSkuUpdateDTO,ImageDTO,SwapIndexDTO,ProductVariantDraftDTO,ProductBarcodeUpdateDTO,ProductCollapseKeyUpdateDTO,ProductCollapseModeUpdateDTO,ProductAttributeDraftDTO,OfferDraftDTO,ProductAliasImagesFromUpdateDTO,ShippingDataDTO,ProductVariantOverridesDTO,OptionDefinitionDTO,InventoryDraftDTO,ProductVariantLabelDTO } from '../../../models';
 
 export const ProductsBulkLink = async (dto: BulkLinkUpdateDTO): Promise<void> => {
     const response = await HttpClient.request({

@@ -1,4 +1,5 @@
 import { BaseAPI } from '../../runtime';
+import {  } from '../../models';
 
 export class WishListsAPI extends BaseAPI {
    async clean (days: number): Promise<void> {

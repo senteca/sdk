@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CustomerSearchHistoryFilterResultDTO } from '@models';
-import { CustomerSearchHistoryCreateDraftDTO } from '@models';
-import { CustomerSearchHistoryDTO } from '@models';
+import { CustomerSearchHistoryFilterResultDTO,CustomerSearchHistoryCreateDraftDTO,CustomerSearchHistoryDTO } from '../../../models';
 
 export const MySearchHistoryFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerSearchHistoryFilterResultDTO> => {
     const response = await HttpClient.request({

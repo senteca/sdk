@@ -1,11 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { MenuItemDTO } from '@models';
-import { MenuItemDraftDTO } from '@models';
-import { CustomItemDTO } from '@models';
-import { SectionElementDTO } from '@models';
-import { SectionItemDTO } from '@models';
+import { MenuItemDTO,MenuItemDraftDTO,CustomItemDTO,SectionElementDTO,SectionItemDTO } from '../../../models';
 
 export const MenuGetAll = async (): Promise<MenuItemDTO[]> => {
     const response = await HttpClient.request({

@@ -1,11 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { PageDraftDTO } from '@models';
-import { PageDTO } from '@models';
-import { PageFilterResultDTO } from '@models';
-import { PageStatusUpdateDTO } from '@models';
-import { PageNameUpdateDTO } from '@models';
-import { PageLabelUpdateDTO } from '@models';
-import { PageNodesUpdateDTO } from '@models';
+import { PageDraftDTO,PageDTO,PageFilterResultDTO,PageStatusUpdateDTO,PageNameUpdateDTO,PageLabelUpdateDTO,PageNodesUpdateDTO } from '../../models';
 
 export class PagesAPI extends BaseAPI {
    async create (dto: PageDraftDTO): Promise<PageDTO> {

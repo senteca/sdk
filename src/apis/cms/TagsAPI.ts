@@ -1,7 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { TagDraftDTO } from '@models';
-import { TagDTO } from '@models';
-import { TagFilterResultDTO } from '@models';
+import { TagDraftDTO,TagDTO,TagFilterResultDTO } from '../../models';
 
 export class TagsAPI extends BaseAPI {
    async create (dto: TagDraftDTO): Promise<TagDTO> {

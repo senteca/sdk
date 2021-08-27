@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CmsContentDraftDTO } from '@models';
-import { CmsContentDTO } from '@models';
-import { CmsContentFilterResultDTO } from '@models';
+import { CmsContentDraftDTO,CmsContentDTO,CmsContentFilterResultDTO } from '../../../models';
 
 export const ContentsCreate = async (dto: CmsContentDraftDTO): Promise<CmsContentDTO> => {
     const response = await HttpClient.request({

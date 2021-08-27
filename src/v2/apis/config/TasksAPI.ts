@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { TaskDraftDTO } from '@models';
-import { TaskDTO } from '@models';
-import { TaskFilterResultDTO } from '@models';
+import { TaskDraftDTO,TaskDTO,TaskFilterResultDTO } from '../../../models';
 
 export const TasksStart = async (name: string, query?: any): Promise<void> => {
     const response = await HttpClient.request({

@@ -1,11 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { ScriptDraftDTO } from '@models';
-import { ScriptDTO } from '@models';
-import { ScriptFilterResultDTO } from '@models';
-import { CookieDraftDTO } from '@models';
-import { CookieDTO } from '@models';
+import { ScriptDraftDTO,ScriptDTO,ScriptFilterResultDTO,CookieDraftDTO,CookieDTO } from '../../../models';
 
 export const ScriptsCreate = async (dto: ScriptDraftDTO): Promise<ScriptDTO> => {
     const response = await HttpClient.request({

@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-{{#relatedModels}}
-import { {{.}} } from '@models';
-{{/relatedModels}}
+import { {{relatedModels}} } from '../../../models';
 
  {{#methods}}
 export const {{fullName}} = async ({{#parameters}}{{text}}{{^last}}, {{/last}}{{/parameters}}): Promise<{{response}}> => {

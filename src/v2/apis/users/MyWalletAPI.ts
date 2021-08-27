@@ -1,8 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { WalletDTO } from '@models';
-import { WalletDraftDTO } from '@models';
+import { WalletDTO,WalletDraftDTO } from '../../../models';
 
 export const MyWalletGetByType = async (type: string): Promise<WalletDTO> => {
     const response = await HttpClient.request({

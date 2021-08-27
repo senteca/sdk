@@ -1,8 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CustomerMessageDTO } from '@models';
-import { CustomerMessageFilterResultDTO } from '@models';
+import { CustomerMessageDTO,CustomerMessageFilterResultDTO } from '../../../models';
 
 export const CustomerMessagesCreate = async (dto: CustomerMessageDTO): Promise<CustomerMessageDTO> => {
     const response = await HttpClient.request({

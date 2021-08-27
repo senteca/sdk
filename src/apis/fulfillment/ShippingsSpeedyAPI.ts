@@ -1,24 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { SpeedyClientsDetailsDTO } from '@models';
-import { SpeedyAuthenticationCredentialsDTO } from '@models';
-import { SpeedyLocationCountryDTO } from '@models';
-import { SpeedyLocationCityDTO } from '@models';
-import { SpeedyLocationQuarterDTO } from '@models';
-import { SpeedyLocationStreetDTO } from '@models';
-import { SpeedyLocationOfficeDTO } from '@models';
-import { SpeedyModuleAddressDTO } from '@models';
-import { OrderDTO } from '@models';
-import { SpeedyCountryDTO } from '@models';
-import { SpeedyCityDTO } from '@models';
-import { SpeedyQuarterDTO } from '@models';
-import { SpeedyStreetDTO } from '@models';
-import { SpeedyOfficeDTO } from '@models';
-import { SpeedyCreateRequestDTO } from '@models';
-import { SpeedyCreateResponseDTO } from '@models';
-import { SpeedySendResponseDTO } from '@models';
-import { SpeedyCancelRequestDTO } from '@models';
-import { SpeedyTrackRequestDTO } from '@models';
-import { SpeedyTrackResponseDTO } from '@models';
+import { SpeedyClientsDetailsDTO,SpeedyAuthenticationCredentialsDTO,SpeedyLocationCountryDTO,SpeedyLocationCityDTO,SpeedyLocationQuarterDTO,SpeedyLocationStreetDTO,SpeedyLocationOfficeDTO,SpeedyModuleAddressDTO,OrderDTO,SpeedyCountryDTO,SpeedyCityDTO,SpeedyQuarterDTO,SpeedyStreetDTO,SpeedyOfficeDTO,SpeedyCreateRequestDTO,SpeedyCreateResponseDTO,SpeedySendResponseDTO,SpeedyCancelRequestDTO,SpeedyTrackRequestDTO,SpeedyTrackResponseDTO } from '../../models';
 
 export class ShippingsSpeedyAPI extends BaseAPI {
    async clientDetails (query: { username: string, password: string }): Promise<SpeedyClientsDetailsDTO> {

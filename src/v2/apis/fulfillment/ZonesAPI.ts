@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { ZoneDraftDTO } from '@models';
-import { ZoneDTO } from '@models';
-import { ZoneFilterResultDTO } from '@models';
+import { ZoneDraftDTO,ZoneDTO,ZoneFilterResultDTO } from '../../../models';
 
 export const ZonesCreate = async (dto: ZoneDraftDTO): Promise<ZoneDTO> => {
     const response = await HttpClient.request({

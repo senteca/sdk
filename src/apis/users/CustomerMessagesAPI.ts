@@ -1,6 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerMessageDTO } from '@models';
-import { CustomerMessageFilterResultDTO } from '@models';
+import { CustomerMessageDTO,CustomerMessageFilterResultDTO } from '../../models';
 
 export class CustomerMessagesAPI extends BaseAPI {
    async create (dto: CustomerMessageDTO): Promise<CustomerMessageDTO> {

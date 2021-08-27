@@ -1,8 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { DiscountTemplateFilterResultDTO } from '@models';
-import { DiscountTemplateDraftDTO } from '@models';
-import { DiscountTemplateDTO } from '@models';
-import { SetCustomFieldDTO } from '@models';
+import { DiscountTemplateFilterResultDTO,DiscountTemplateDraftDTO,DiscountTemplateDTO,SetCustomFieldDTO } from '../../models';
 
 export class DiscountTemplatesAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<DiscountTemplateFilterResultDTO> {

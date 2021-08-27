@@ -1,7 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { ApiClientFilterResultDTO } from '@models';
-import { ApiClientDraftDTO } from '@models';
-import { ApiClientDTO } from '@models';
+import { ApiClientFilterResultDTO,ApiClientDraftDTO,ApiClientDTO } from '../../models';
 
 export class ApiClientsAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ApiClientFilterResultDTO> {

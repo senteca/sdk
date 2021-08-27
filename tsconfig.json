@@ -19,10 +19,6 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true,
-    "baseUrl": ".",
-    "paths": {
-      "@models": ["src/models"]
-    }
   },
   "include": ["src"],
   "exclude": [

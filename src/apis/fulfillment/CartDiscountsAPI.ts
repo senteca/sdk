@@ -1,10 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CartDiscountDraftDTO } from '@models';
-import { CartDiscountDTO } from '@models';
-import { CartDiscountSearchResultDTO } from '@models';
-import { CartDiscountFilterResultDTO } from '@models';
-import { SetCustomFieldDTO } from '@models';
-import { CartDiscountBulkDeleteDTO } from '@models';
+import { CartDiscountDraftDTO,CartDiscountDTO,CartDiscountSearchResultDTO,CartDiscountFilterResultDTO,SetCustomFieldDTO,CartDiscountBulkDeleteDTO } from '../../models';
 
 export class CartDiscountsAPI extends BaseAPI {
    async import (dto: CartDiscountDraftDTO[]): Promise<CartDiscountDTO[]> {

@@ -1,7 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { PriceListDraftDTO } from '@models';
-import { PriceListDTO } from '@models';
-import { PriceListFilterResultDTO } from '@models';
+import { PriceListDraftDTO,PriceListDTO,PriceListFilterResultDTO } from '../../models';
 
 export class PriceListsAPI extends BaseAPI {
    async create (dto: PriceListDraftDTO): Promise<PriceListDTO> {

@@ -1,8 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { InternationalsDTO } from '@models';
-import { InternationalsDraftDTO } from '@models';
+import { InternationalsDTO,InternationalsDraftDTO } from '../../../models';
 
 export const InternationalsGet = async (): Promise<InternationalsDTO> => {
     const response = await HttpClient.request({

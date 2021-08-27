@@ -1,8 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { ScriptCategoryDraftDTO } from '@models';
-import { ScriptCategoryDTO } from '@models';
-import { ScriptCategoryFilterResultDTO } from '@models';
-import { ScriptCategoryAggregatedDTO } from '@models';
+import { ScriptCategoryDraftDTO,ScriptCategoryDTO,ScriptCategoryFilterResultDTO,ScriptCategoryAggregatedDTO } from '../../models';
 
 export class ScriptCategoriesAPI extends BaseAPI {
    async create (dto: ScriptCategoryDraftDTO): Promise<ScriptCategoryDTO> {

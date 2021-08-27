@@ -1,10 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { BoricaGeneratePaymentUrlResponse } from '@models';
-import { BoricaVerifyPaymentResultRequest } from '@models';
-import { BoricaVerifyPaymentResultResponse } from '@models';
-import { BoricaGeneratePaymentDataResponse } from '@models';
-import { BoricaVerifyPaymentDataRequest } from '@models';
-import { BoricaVerifyPaymentDataResponse } from '@models';
+import { BoricaGeneratePaymentUrlResponse,BoricaVerifyPaymentResultRequest,BoricaVerifyPaymentResultResponse,BoricaGeneratePaymentDataResponse,BoricaVerifyPaymentDataRequest,BoricaVerifyPaymentDataResponse } from '../../models';
 
 export class MyPaymentsBoricaAPI extends BaseAPI {
    async payMyOrder (orderId: string, paymentId: string): Promise<BoricaGeneratePaymentUrlResponse> {

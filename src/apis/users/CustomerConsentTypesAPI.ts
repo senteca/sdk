@@ -1,7 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerConsentTypeDraftDTO } from '@models';
-import { CustomerConsentTypeDTO } from '@models';
-import { CustomerConsentTypeFilterResultDTO } from '@models';
+import { CustomerConsentTypeDraftDTO,CustomerConsentTypeDTO,CustomerConsentTypeFilterResultDTO } from '../../models';
 
 export class CustomerConsentTypesAPI extends BaseAPI {
    async create (dto: CustomerConsentTypeDraftDTO): Promise<CustomerConsentTypeDTO> {

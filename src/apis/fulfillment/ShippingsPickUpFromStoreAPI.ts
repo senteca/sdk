@@ -1,7 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { StockLocationDTO } from '@models';
-import { PickUpFromStoreStockLocationUpdateDTO } from '@models';
-import { OrderDTO } from '@models';
+import { StockLocationDTO,PickUpFromStoreStockLocationUpdateDTO,OrderDTO } from '../../models';
 
 export class ShippingsPickUpFromStoreAPI extends BaseAPI {
    async getStockLocations (orderId: string, shippingId: string): Promise<StockLocationDTO[]> {

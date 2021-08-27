@@ -1,15 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { EcontLocationCountryDTO } from '@models';
-import { EcontLocationCityDTO } from '@models';
-import { EcontLocationQuarterDTO } from '@models';
-import { EcontLocationStreetDTO } from '@models';
-import { EcontLocationOfficeDTO } from '@models';
-import { EcontCountryDTO } from '@models';
-import { OrderDTO } from '@models';
-import { EcontCityDTO } from '@models';
-import { EcontQuarterDTO } from '@models';
-import { EcontStreetDTO } from '@models';
-import { EcontOfficeDTO } from '@models';
+import { EcontLocationCountryDTO,EcontLocationCityDTO,EcontLocationQuarterDTO,EcontLocationStreetDTO,EcontLocationOfficeDTO,EcontCountryDTO,OrderDTO,EcontCityDTO,EcontQuarterDTO,EcontStreetDTO,EcontOfficeDTO } from '../../models';
 
 export class MyShippingsEcontAPI extends BaseAPI {
    async findCountry (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EcontLocationCountryDTO[]> {

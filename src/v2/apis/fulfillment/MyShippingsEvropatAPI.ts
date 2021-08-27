@@ -1,11 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { EvropatLocationCityDTO } from '@models';
-import { EvropatLocationOfficeDTO } from '@models';
-import { EvropatCityDTO } from '@models';
-import { OrderDTO } from '@models';
-import { EvropatOfficeDTO } from '@models';
+import { EvropatLocationCityDTO,EvropatLocationOfficeDTO,EvropatCityDTO,OrderDTO,EvropatOfficeDTO } from '../../../models';
 
 export const MyShippingsEvropatFindCity = async (query?: { language?: string, parent?: string, text?: string, size?: number }): Promise<EvropatLocationCityDTO[]> => {
     const response = await HttpClient.request({

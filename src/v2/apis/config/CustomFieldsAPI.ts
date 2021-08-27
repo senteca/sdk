@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CustomFieldDraftDTO } from '@models';
-import { CustomFieldDTO } from '@models';
-import { CustomFieldFilterResultDTO } from '@models';
+import { CustomFieldDraftDTO,CustomFieldDTO,CustomFieldFilterResultDTO } from '../../../models';
 
 export const CustomFieldsCreate = async (dto: CustomFieldDraftDTO): Promise<CustomFieldDTO> => {
     const response = await HttpClient.request({

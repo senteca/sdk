@@ -1,9 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { ViewDraftDTO } from '@models';
-import { ViewDTO } from '@models';
-import { ViewFilterResultDTO } from '@models';
-import { ViewSearchResultDTO } from '@models';
-import { SetCustomFieldDTO } from '@models';
+import { ViewDraftDTO,ViewDTO,ViewFilterResultDTO,ViewSearchResultDTO,SetCustomFieldDTO } from '../../models';
 
 export class ViewsAPI extends BaseAPI {
    async create (dto: ViewDraftDTO): Promise<ViewDTO> {

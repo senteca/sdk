@@ -1,36 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { OrderImportDTO } from '@models';
-import { OrderDTO } from '@models';
-import { FilterQueryDTO } from '@models';
-import { CartDraftDTO } from '@models';
-import { NewOrders } from '@models';
-import { OrderFilterResultDTO } from '@models';
-import { TransitionOrderStateDTO } from '@models';
-import { OrderNoteUpdateDTO } from '@models';
-import { OrderAdditionalInfoUpdateDTO } from '@models';
-import { OrderCustomerGroupUpdateDTO } from '@models';
-import { OrderStatusUpdateDTO } from '@models';
-import { SetCustomFieldDTO } from '@models';
-import { TransitionLineItemQuantityState } from '@models';
-import { LineItemDraftDTO } from '@models';
-import { QuantityUpdateDTO } from '@models';
-import { DiscountCodeUpdateDTO } from '@models';
-import { AddressDTO } from '@models';
-import { ShippingMethodsInfo } from '@models';
-import { PaymentMethodsInfo } from '@models';
-import { PlatformMethodUpdateDTO } from '@models';
-import { MerchantsMethodsUpdateDTO } from '@models';
-import { ShippingMethodDTO } from '@models';
-import { ShippingMethodUpdateDTO } from '@models';
-import { ShippingStatusUpdateDTO } from '@models';
-import { ShippingDeliveryDraftDTO } from '@models';
-import { ShippingDeliveryParcelDTO } from '@models';
-import { ShippingDeliveryParcelDraftDTO } from '@models';
-import { ShippingDeliveryParcelStatusUpdateDTO } from '@models';
-import { PaymentStatusUpdateDTO } from '@models';
-import { PaymentTransactionDraftDTO } from '@models';
+import { OrderImportDTO,OrderDTO,FilterQueryDTO,CartDraftDTO,NewOrders,OrderFilterResultDTO,TransitionOrderStateDTO,OrderNoteUpdateDTO,OrderAdditionalInfoUpdateDTO,OrderCustomerGroupUpdateDTO,OrderStatusUpdateDTO,SetCustomFieldDTO,TransitionLineItemQuantityState,LineItemDraftDTO,QuantityUpdateDTO,DiscountCodeUpdateDTO,AddressDTO,ShippingMethodsInfo,PaymentMethodsInfo,PlatformMethodUpdateDTO,MerchantsMethodsUpdateDTO,ShippingMethodDTO,ShippingMethodUpdateDTO,ShippingStatusUpdateDTO,ShippingDeliveryDraftDTO,ShippingDeliveryParcelDTO,ShippingDeliveryParcelDraftDTO,ShippingDeliveryParcelStatusUpdateDTO,PaymentStatusUpdateDTO,PaymentTransactionDraftDTO } from '../../../models';
 
 export const OrdersImport = async (dto: OrderImportDTO[]): Promise<OrderDTO[]> => {
     const response = await HttpClient.request({

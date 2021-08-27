@@ -1,10 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { AttributeDraftDTO } from '@models';
-import { AttributeDTO } from '@models';
-import { AttributeFilterResultDTO } from '@models';
-import { AttributeSearchResultDTO } from '@models';
+import { AttributeDraftDTO,AttributeDTO,AttributeFilterResultDTO,AttributeSearchResultDTO } from '../../../models';
 
 export const AttributesCreate = async (dto: AttributeDraftDTO): Promise<AttributeDTO> => {
     const response = await HttpClient.request({

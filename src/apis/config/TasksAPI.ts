@@ -1,7 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { TaskDraftDTO } from '@models';
-import { TaskDTO } from '@models';
-import { TaskFilterResultDTO } from '@models';
+import { TaskDraftDTO,TaskDTO,TaskFilterResultDTO } from '../../models';
 
 export class TasksAPI extends BaseAPI {
    async start (name: string, query?: any): Promise<void> {

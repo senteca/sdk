@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { StockLocationDTO } from '@models';
-import { PickUpFromStoreStockLocationUpdateDTO } from '@models';
-import { OrderDTO } from '@models';
+import { StockLocationDTO,PickUpFromStoreStockLocationUpdateDTO,OrderDTO } from '../../../models';
 
 export const MyShippingsPickUpFromStoreGetMyStockLocations = async (): Promise<StockLocationDTO[]> => {
     const response = await HttpClient.request({

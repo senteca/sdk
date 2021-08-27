@@ -1,9 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CollectionDraftDTO } from '@models';
-import { CollectionDTO } from '@models';
-import { CollectionFilterResultDTO } from '@models';
-import { CollectionSearchResultDTO } from '@models';
-import { SetCustomFieldDTO } from '@models';
+import { CollectionDraftDTO,CollectionDTO,CollectionFilterResultDTO,CollectionSearchResultDTO,SetCustomFieldDTO } from '../../models';
 
 export class CollectionsAPI extends BaseAPI {
    async create (dto: CollectionDraftDTO): Promise<CollectionDTO> {

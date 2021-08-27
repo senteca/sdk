@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { TagDraftDTO } from '@models';
-import { TagDTO } from '@models';
-import { TagFilterResultDTO } from '@models';
+import { TagDraftDTO,TagDTO,TagFilterResultDTO } from '../../../models';
 
 export const TagsCreate = async (dto: TagDraftDTO): Promise<TagDTO> => {
     const response = await HttpClient.request({

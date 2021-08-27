@@ -1,7 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { ZoneDraftDTO } from '@models';
-import { ZoneDTO } from '@models';
-import { ZoneFilterResultDTO } from '@models';
+import { ZoneDraftDTO,ZoneDTO,ZoneFilterResultDTO } from '../../models';
 
 export class ZonesAPI extends BaseAPI {
    async create (dto: ZoneDraftDTO): Promise<ZoneDTO> {

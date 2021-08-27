@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CmsRedirectDraftDTO } from '@models';
-import { CmsRedirectDTO } from '@models';
-import { CmsRedirectFilterResultDTO } from '@models';
+import { CmsRedirectDraftDTO,CmsRedirectDTO,CmsRedirectFilterResultDTO } from '../../../models';
 
 export const RedirectsCreate = async (dto: CmsRedirectDraftDTO): Promise<CmsRedirectDTO> => {
     const response = await HttpClient.request({

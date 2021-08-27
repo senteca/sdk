@@ -1,21 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CartDraftDTO } from '@models';
-import { OrderDTO } from '@models';
-import { LineItemDraftDTO } from '@models';
-import { QuantityUpdateDTO } from '@models';
-import { CustomLineItemDraftDTO } from '@models';
-import { DiscountCodeUpdateDTO } from '@models';
-import { AddressDTO } from '@models';
-import { ShippingMethodsInfo } from '@models';
-import { ShippingFeesDTO } from '@models';
-import { PaymentMethodsInfo } from '@models';
-import { PlatformMethodUpdateDTO } from '@models';
-import { MerchantsMethodsUpdateDTO } from '@models';
-import { MethodUpdateDTO } from '@models';
-import { SetCustomFieldDTO } from '@models';
-import { OrderAdditionalInfoUpdateDTO } from '@models';
+import { CartDraftDTO,OrderDTO,LineItemDraftDTO,QuantityUpdateDTO,CustomLineItemDraftDTO,DiscountCodeUpdateDTO,AddressDTO,ShippingMethodsInfo,ShippingFeesDTO,PaymentMethodsInfo,PlatformMethodUpdateDTO,MerchantsMethodsUpdateDTO,MethodUpdateDTO,SetCustomFieldDTO,OrderAdditionalInfoUpdateDTO } from '../../../models';
 
 export const MyCartCreate = async (dto: CartDraftDTO): Promise<OrderDTO> => {
     const response = await HttpClient.request({

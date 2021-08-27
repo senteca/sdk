@@ -1,12 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { UserDTO } from '@models';
-import { UserProfileUpdateDTO } from '@models';
-import { PasswordChangeDTO } from '@models';
-import { PasswordTokenDTO } from '@models';
-import { PasswordResetDTO } from '@models';
-import { UserFilterResultDTO } from '@models';
-import { UserDraftDTO } from '@models';
-import { UserUpdateDTO } from '@models';
+import { UserDTO,UserProfileUpdateDTO,PasswordChangeDTO,PasswordTokenDTO,PasswordResetDTO,UserFilterResultDTO,UserDraftDTO,UserUpdateDTO } from '../../models';
 
 export class UsersAPI extends BaseAPI {
    async getMyProfile (): Promise<UserDTO> {

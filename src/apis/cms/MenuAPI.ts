@@ -1,9 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { MenuItemDTO } from '@models';
-import { MenuItemDraftDTO } from '@models';
-import { CustomItemDTO } from '@models';
-import { SectionElementDTO } from '@models';
-import { SectionItemDTO } from '@models';
+import { MenuItemDTO,MenuItemDraftDTO,CustomItemDTO,SectionElementDTO,SectionItemDTO } from '../../models';
 
 export class MenuAPI extends BaseAPI {
    async getAll (): Promise<MenuItemDTO[]> {

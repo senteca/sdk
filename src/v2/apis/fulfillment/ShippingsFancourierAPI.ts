@@ -1,21 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { FancourierAuthenticationCredentialsDTO } from '@models';
-import { FancourierLocationRegionDTO } from '@models';
-import { FancourierLocationCityDTO } from '@models';
-import { FancourierLocationStreetDTO } from '@models';
-import { FancourierModuleAddressDTO } from '@models';
-import { OrderDTO } from '@models';
-import { FancourierRegionDTO } from '@models';
-import { FancourierCityDTO } from '@models';
-import { FancourierStreetDTO } from '@models';
-import { FancourierCreateRequestDTO } from '@models';
-import { FancourierCreateResponseDTO } from '@models';
-import { FancourierSendResponseDTO } from '@models';
-import { FancourierCancelRequestDTO } from '@models';
-import { FancourierTrackRequestDTO } from '@models';
-import { FancourierTrackResponseDTO } from '@models';
+import { FancourierAuthenticationCredentialsDTO,FancourierLocationRegionDTO,FancourierLocationCityDTO,FancourierLocationStreetDTO,FancourierModuleAddressDTO,OrderDTO,FancourierRegionDTO,FancourierCityDTO,FancourierStreetDTO,FancourierCreateRequestDTO,FancourierCreateResponseDTO,FancourierSendResponseDTO,FancourierCancelRequestDTO,FancourierTrackRequestDTO,FancourierTrackResponseDTO } from '../../../models';
 
 export const ShippingsFancourierSyncLocations = async (dto: FancourierAuthenticationCredentialsDTO): Promise<any> => {
     const response = await HttpClient.request({

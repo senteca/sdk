@@ -1,12 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CartDiscountDraftDTO } from '@models';
-import { CartDiscountDTO } from '@models';
-import { CartDiscountSearchResultDTO } from '@models';
-import { CartDiscountFilterResultDTO } from '@models';
-import { SetCustomFieldDTO } from '@models';
-import { CartDiscountBulkDeleteDTO } from '@models';
+import { CartDiscountDraftDTO,CartDiscountDTO,CartDiscountSearchResultDTO,CartDiscountFilterResultDTO,SetCustomFieldDTO,CartDiscountBulkDeleteDTO } from '../../../models';
 
 export const CartDiscountsImport = async (dto: CartDiscountDraftDTO[]): Promise<CartDiscountDTO[]> => {
     const response = await HttpClient.request({

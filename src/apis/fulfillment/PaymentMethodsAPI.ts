@@ -1,7 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { PaymentMethodDraftDTO } from '@models';
-import { PaymentMethodDTO } from '@models';
-import { PaymentMethodFilterResultDTO } from '@models';
+import { PaymentMethodDraftDTO,PaymentMethodDTO,PaymentMethodFilterResultDTO } from '../../models';
 
 export class PaymentMethodsAPI extends BaseAPI {
    async create (dto: PaymentMethodDraftDTO): Promise<PaymentMethodDTO> {

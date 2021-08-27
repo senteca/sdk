@@ -1,10 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { OrderFilterResultDTO } from '@models';
-import { SendOrderDTO } from '@models';
-import { OrderDTO } from '@models';
-import { ShippingModulesInfo } from '@models';
-import { ShippingMethodsInfo } from '@models';
-import { StockLocationsInfo } from '@models';
+import { OrderFilterResultDTO,SendOrderDTO,OrderDTO,ShippingModulesInfo,ShippingMethodsInfo,StockLocationsInfo } from '../../models';
 
 export class MyOrdersAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {

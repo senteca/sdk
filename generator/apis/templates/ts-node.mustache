@@ -1,7 +1,5 @@
 import { BaseAPI } from '../../runtime';
-{{#relatedModels}}
-import { {{.}} } from '@models';
-{{/relatedModels}}
+import { {{relatedModels}} } from '../../models';
 
 export class {{name}} extends BaseAPI {
  {{#methods}}

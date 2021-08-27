@@ -1,7 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CmsRedirectDraftDTO } from '@models';
-import { CmsRedirectDTO } from '@models';
-import { CmsRedirectFilterResultDTO } from '@models';
+import { CmsRedirectDraftDTO,CmsRedirectDTO,CmsRedirectFilterResultDTO } from '../../models';
 
 export class RedirectsAPI extends BaseAPI {
    async create (dto: CmsRedirectDraftDTO): Promise<CmsRedirectDTO> {

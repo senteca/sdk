@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { ApiClientFilterResultDTO } from '@models';
-import { ApiClientDraftDTO } from '@models';
-import { ApiClientDTO } from '@models';
+import { ApiClientFilterResultDTO,ApiClientDraftDTO,ApiClientDTO } from '../../../models';
 
 export const ApiClientsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ApiClientFilterResultDTO> => {
     const response = await HttpClient.request({

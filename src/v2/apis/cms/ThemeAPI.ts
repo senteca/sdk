@@ -1,10 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { StoreDTO } from '@models';
-import { ThemeDTO } from '@models';
-import { ThemeDraftDTO } from '@models';
-import { ThemeFilterResultDTO } from '@models';
+import { StoreDTO,ThemeDTO,ThemeDraftDTO,ThemeFilterResultDTO } from '../../../models';
 
 export const ThemeInstall = async (themeId: string, storeKey: string, interfaceKey: string): Promise<StoreDTO> => {
     const response = await HttpClient.request({

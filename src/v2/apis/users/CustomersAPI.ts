@@ -1,22 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CustomerDTO } from '@models';
-import { CustomerUpdateDTO } from '@models';
-import { PasswordChangeDTO } from '@models';
-import { EmailChangeRequestDTO } from '@models';
-import { EmailChangeDTO } from '@models';
-import { AddressDTO } from '@models';
-import { AddressDraftDTO } from '@models';
-import { CustomerDraftDTO } from '@models';
-import { CustomerFilterResultDTO } from '@models';
-import { CustomerSearchResultDTO } from '@models';
-import { SetCustomFieldDTO } from '@models';
-import { EmailVerificationDTO } from '@models';
-import { PasswordTokenDTO } from '@models';
-import { PasswordResetDTO } from '@models';
-import { SetCustomerGroupDTO } from '@models';
-import { FilterQueryDTO } from '@models';
+import { CustomerDTO,CustomerUpdateDTO,PasswordChangeDTO,EmailChangeRequestDTO,EmailChangeDTO,AddressDTO,AddressDraftDTO,CustomerDraftDTO,CustomerFilterResultDTO,CustomerSearchResultDTO,SetCustomFieldDTO,EmailVerificationDTO,PasswordTokenDTO,PasswordResetDTO,SetCustomerGroupDTO,FilterQueryDTO } from '../../../models';
 
 export const CustomersGetMyProfile = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> => {
     const response = await HttpClient.request({

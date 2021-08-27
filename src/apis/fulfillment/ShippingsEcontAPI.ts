@@ -1,25 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { EcontProfilesResponseElement } from '@models';
-import { EcontAuthenticationCredentialsDTO } from '@models';
-import { EcontLocationCountryDTO } from '@models';
-import { EcontLocationCityDTO } from '@models';
-import { EcontLocationQuarterDTO } from '@models';
-import { EcontLocationStreetDTO } from '@models';
-import { EcontLocationOfficeDTO } from '@models';
-import { EcontModuleAddressDTO } from '@models';
-import { OrderDTO } from '@models';
-import { EcontCountryDTO } from '@models';
-import { EcontCityDTO } from '@models';
-import { EcontQuarterDTO } from '@models';
-import { EcontStreetDTO } from '@models';
-import { EcontOfficeDTO } from '@models';
-import { EcontCreateRequestDTO } from '@models';
-import { EcontCreateResponseDTO } from '@models';
-import { EcontSendResponseDTO } from '@models';
-import { EcontCancelRequestDTO } from '@models';
-import { EcontCancelResponseDTO } from '@models';
-import { EcontTrackRequestDTO } from '@models';
-import { EcontTrackResponseDTO } from '@models';
+import { EcontProfilesResponseElement,EcontAuthenticationCredentialsDTO,EcontLocationCountryDTO,EcontLocationCityDTO,EcontLocationQuarterDTO,EcontLocationStreetDTO,EcontLocationOfficeDTO,EcontModuleAddressDTO,OrderDTO,EcontCountryDTO,EcontCityDTO,EcontQuarterDTO,EcontStreetDTO,EcontOfficeDTO,EcontCreateRequestDTO,EcontCreateResponseDTO,EcontSendResponseDTO,EcontCancelRequestDTO,EcontCancelResponseDTO,EcontTrackRequestDTO,EcontTrackResponseDTO } from '../../models';
 
 export class ShippingsEcontAPI extends BaseAPI {
    async clientProfile (query: { username: string, password: string }): Promise<EcontProfilesResponseElement> {

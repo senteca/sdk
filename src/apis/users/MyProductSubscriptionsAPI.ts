@@ -1,6 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerProductSubscriptionCreateDTO } from '@models';
-import { CustomerProductSubscriptionDTO } from '@models';
+import { CustomerProductSubscriptionCreateDTO,CustomerProductSubscriptionDTO } from '../../models';
 
 export class MyProductSubscriptionsAPI extends BaseAPI {
    async subscribe (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CustomerProductSubscriptionCreateDTO): Promise<CustomerProductSubscriptionDTO> {

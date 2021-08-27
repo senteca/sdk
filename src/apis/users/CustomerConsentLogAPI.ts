@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerConsentTypeFilterResultDTO } from '@models';
+import { CustomerConsentTypeFilterResultDTO } from '../../models';
 
 export class CustomerConsentLogAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerConsentTypeFilterResultDTO> {

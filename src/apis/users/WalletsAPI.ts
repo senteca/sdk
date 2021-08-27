@@ -1,9 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { WalletSearchResultDTO } from '@models';
-import { WalletFilterResultDTO } from '@models';
-import { WalletDraftDTO } from '@models';
-import { WalletDTO } from '@models';
-import { SetCustomFieldDTO } from '@models';
+import { WalletSearchResultDTO,WalletFilterResultDTO,WalletDraftDTO,WalletDTO,SetCustomFieldDTO } from '../../models';
 
 export class WalletsAPI extends BaseAPI {
    async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletSearchResultDTO> {
