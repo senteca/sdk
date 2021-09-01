@@ -73,9 +73,9 @@ export class ThemeAPI extends BaseAPI {
        return (response as unknown) as ThemeFilterResultDTO;
    }
 
-   async getByKey (key: string): Promise<ThemeDTO> {
+   async getVersion (key: string, version: string): Promise<ThemeDTO> {
        const response = await this._request({
-           path: `/cms/theme/key=${encodeURIComponent(key)}`,
+           path: `/cms/theme/key=${encodeURIComponent(key)}/versions/version:=version`,
            method: 'GET',
         });
        return (response as unknown) as ThemeDTO;

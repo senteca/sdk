@@ -74,9 +74,9 @@ export const ThemeFilter = async (query?: { storeKey?: string, interfaceKey?: st
     return (response as unknown) as ThemeFilterResultDTO;
 }
 
-export const ThemeGetByKey = async (key: string): Promise<ThemeDTO> => {
+export const ThemeGetVersion = async (key: string, version: string): Promise<ThemeDTO> => {
     const response = await HttpClient.request({
-        path: `/cms/theme/key=${encodeURIComponent(key)}`,
+        path: `/cms/theme/key=${encodeURIComponent(key)}/versions/version:=version`,
         method: 'GET',
     });
     return (response as unknown) as ThemeDTO;
