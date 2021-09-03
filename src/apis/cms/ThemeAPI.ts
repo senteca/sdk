@@ -75,7 +75,7 @@ export class ThemeAPI extends BaseAPI {
 
    async getVersion (key: string, version: string): Promise<ThemeDTO> {
        const response = await this._request({
-           path: `/cms/theme/key=${encodeURIComponent(key)}/versions/version:=version`,
+           path: `/cms/theme/key=${encodeURIComponent(key)}/versions/version=${encodeURIComponent(version)}`,
            method: 'GET',
         });
        return (response as unknown) as ThemeDTO;
