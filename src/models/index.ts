@@ -237,6 +237,7 @@ export * from "./KeyReferenceDTO";
 export * from "./LabelDTO";
 export * from "./LabelDraftDTO";
 export * from "./LabelFilterResultDTO";
+export * from "./LabelSizeDTO";
 export * from "./LangValue";
 export * from "./LineItemDTO";
 export * from "./LineItemDraftDTO";
