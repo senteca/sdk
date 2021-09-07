@@ -4,6 +4,6 @@ export interface ReviewRatingStatisticsDTO {
   highestRating: number;
   lowestRating: number;
   count: number;
-  ratingsDistribution: string;
+  ratingsDistribution: any;
 }
 
