@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerDTO, CustomerUpdateDTO, PasswordChangeDTO, EmailChangeRequestDTO, EmailChangeDTO, AddressDTO, AddressDraftDTO, CustomerDraftDTO, CustomerFilterResultDTO, CustomerSearchResultDTO, SetCustomFieldDTO, EmailVerificationDTO, PasswordTokenDTO, PasswordResetDTO, SetCustomerGroupDTO, FilterQueryDTO } from '../../models';
+import { CustomerDTO, CustomerUpdateDTO, PasswordChangeDTO, EmailChangeRequestDTO, EmailChangeDTO, AddressDTO, AddressDraftDTO, CustomerDraftDTO, CustomerFilterResultDTO, CustomerSearchResultDTO, SetCustomFieldDTO, EmailVerificationDTO, EmailVerificationResponseDTO, PasswordTokenDTO, PasswordResetDTO, SetCustomerGroupDTO, FilterQueryDTO } from '../../models';
 
 export class CustomersAPI extends BaseAPI {
    async getMyProfile (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> {
@@ -243,14 +243,14 @@ export class CustomersAPI extends BaseAPI {
        return (response as unknown) as CustomerDTO;
    }
 
-   async verifyEmail (dto: EmailVerificationDTO): Promise<void> {
+   async verifyEmail (dto: EmailVerificationDTO): Promise<EmailVerificationResponseDTO> {
        const response = await this._request({
            path: `/users/customers/email-verify`,
            method: 'POST',
            body: dto,
            contentType: 'application/json',
         });
-       
+       return (response as unknown) as EmailVerificationResponseDTO;
    }
 
    async createPasswordToken (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: PasswordTokenDTO): Promise<void> {
