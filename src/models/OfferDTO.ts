@@ -15,6 +15,7 @@ export interface OfferDTO {
   status: OfferDTOStatusEnum;
   originalPrice: MoneyDTO;
   tiers: OfferTierDTO[];
+  tier?: OfferTierDTO;
   externalDiscount?: OfferDiscountDTO;
   unit?: OfferDTOUnitEnum;
   quantity?: number;
