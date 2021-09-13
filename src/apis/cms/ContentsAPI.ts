@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CmsContentDraftDTO, CmsContentDTO, CmsContentFilterResultDTO } from '../../models';
+import { CmsContentDraftDTO, CmsContentDTO, CmsContentFilterResultDTO, CmsContentImportDTO } from '../../models';
 
 export class ContentsAPI extends BaseAPI {
    async create (dto: CmsContentDraftDTO): Promise<CmsContentDTO> {
@@ -19,6 +19,16 @@ export class ContentsAPI extends BaseAPI {
            query: this._stringifyQuery(query),
         });
        return (response as unknown) as CmsContentFilterResultDTO;
+   }
+
+   async import (dto: CmsContentImportDTO[]): Promise<void> {
+       const response = await this._request({
+           path: `/cms/contents/import`,
+           method: 'POST',
+           body: dto,
+           contentType: 'application/json',
+        });
+       
    }
 
    async getByKey (key: string): Promise<CmsContentDTO> {

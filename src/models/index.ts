@@ -68,6 +68,7 @@ export * from "./CmsContentDTO";
 export * from "./CmsContentDataDTO";
 export * from "./CmsContentDraftDTO";
 export * from "./CmsContentFilterResultDTO";
+export * from "./CmsContentImportDTO";
 export * from "./CmsContentInjectionDTO";
 export * from "./CmsContentInjectionDraftDTO";
 export * from "./CmsContentInjectionFilterValidDTO";

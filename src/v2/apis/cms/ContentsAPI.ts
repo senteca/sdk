@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CmsContentDraftDTO, CmsContentDTO, CmsContentFilterResultDTO } from '../../../models';
+import { CmsContentDraftDTO, CmsContentDTO, CmsContentFilterResultDTO, CmsContentImportDTO } from '../../../models';
 
 export const ContentsCreate = async (dto: CmsContentDraftDTO): Promise<CmsContentDTO> => {
     const response = await HttpClient.request({
@@ -20,6 +20,16 @@ export const ContentsFilter = async (query?: { storeKey?: string, interfaceKey?:
         query: toQueryString(query),
     });
     return (response as unknown) as CmsContentFilterResultDTO;
+}
+
+export const ContentsImport = async (dto: CmsContentImportDTO[]): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/cms/contents/import`,
+        method: 'POST',
+        body: dto,
+        contentType: 'application/json',
+    });
+    
 }
 
 export const ContentsGetByKey = async (key: string): Promise<CmsContentDTO> => {

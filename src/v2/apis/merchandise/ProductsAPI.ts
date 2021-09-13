@@ -729,16 +729,6 @@ export const ProductsAddVariantInventory = async (sku: string, dto: InventoryDra
     
 }
 
-export const ProductsUpdateVariantInventories = async (sku: string, dto: InventoryDraftDTO[]): Promise<void> => {
-    const response = await HttpClient.request({
-        path: `/merchandise/products/${encodeURIComponent(sku)}/inventories`,
-        method: 'PUT',
-        body: dto,
-        contentType: 'application/json',
-    });
-    
-}
-
 export const ProductsUpdateVariantInventory = async (sku: string, stockLocationKey: string, dto: InventoryDraftDTO): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(sku)}/inventories/${encodeURIComponent(stockLocationKey)}`,
