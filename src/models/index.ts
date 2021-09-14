@@ -181,6 +181,7 @@ export * from "./EcontTrackResponseDTO";
 export * from "./EmailChangeDTO";
 export * from "./EmailChangeRequestDTO";
 export * from "./EmailVerificationDTO";
+export * from "./EmailVerificationRequestDTO";
 export * from "./EmailVerificationResponseDTO";
 export * from "./EvropatAuthenticationCredentialsDTO";
 export * from "./EvropatCancelRequestDTO";

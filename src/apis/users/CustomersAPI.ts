@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerDTO, CustomerUpdateDTO, PasswordChangeDTO, EmailChangeRequestDTO, EmailChangeDTO, AddressDTO, AddressDraftDTO, CustomerDraftDTO, CustomerFilterResultDTO, CustomerSearchResultDTO, SetCustomFieldDTO, EmailVerificationDTO, EmailVerificationResponseDTO, PasswordTokenDTO, PasswordResetDTO, SetCustomerGroupDTO, FilterQueryDTO } from '../../models';
+import { CustomerDTO, CustomerUpdateDTO, PasswordChangeDTO, EmailChangeRequestDTO, EmailVerificationRequestDTO, EmailChangeDTO, AddressDTO, AddressDraftDTO, CustomerDraftDTO, CustomerFilterResultDTO, CustomerSearchResultDTO, SetCustomFieldDTO, EmailVerificationDTO, EmailVerificationResponseDTO, PasswordTokenDTO, PasswordResetDTO, SetCustomerGroupDTO, FilterQueryDTO } from '../../models';
 
 export class CustomersAPI extends BaseAPI {
    async getMyProfile (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> {
@@ -58,6 +58,16 @@ export class CustomersAPI extends BaseAPI {
    async requestEmailChange (dto: EmailChangeRequestDTO): Promise<void> {
        const response = await this._request({
            path: `/users/customers/email/request`,
+           method: 'POST',
+           body: dto,
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async requestEmailVerification (dto: EmailVerificationRequestDTO): Promise<void> {
+       const response = await this._request({
+           path: `/users/customers/email/verification/request`,
            method: 'POST',
            body: dto,
            contentType: 'application/json',

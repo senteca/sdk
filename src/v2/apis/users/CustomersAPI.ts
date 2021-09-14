@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CustomerDTO, CustomerUpdateDTO, PasswordChangeDTO, EmailChangeRequestDTO, EmailChangeDTO, AddressDTO, AddressDraftDTO, CustomerDraftDTO, CustomerFilterResultDTO, CustomerSearchResultDTO, SetCustomFieldDTO, EmailVerificationDTO, EmailVerificationResponseDTO, PasswordTokenDTO, PasswordResetDTO, SetCustomerGroupDTO, FilterQueryDTO } from '../../../models';
+import { CustomerDTO, CustomerUpdateDTO, PasswordChangeDTO, EmailChangeRequestDTO, EmailVerificationRequestDTO, EmailChangeDTO, AddressDTO, AddressDraftDTO, CustomerDraftDTO, CustomerFilterResultDTO, CustomerSearchResultDTO, SetCustomFieldDTO, EmailVerificationDTO, EmailVerificationResponseDTO, PasswordTokenDTO, PasswordResetDTO, SetCustomerGroupDTO, FilterQueryDTO } from '../../../models';
 
 export const CustomersGetMyProfile = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> => {
     const response = await HttpClient.request({
@@ -59,6 +59,16 @@ export const CustomersChangePassword = async (dto: PasswordChangeDTO): Promise<C
 export const CustomersRequestEmailChange = async (dto: EmailChangeRequestDTO): Promise<void> => {
     const response = await HttpClient.request({
         path: `/users/customers/email/request`,
+        method: 'POST',
+        body: dto,
+        contentType: 'application/json',
+    });
+    
+}
+
+export const CustomersRequestEmailVerification = async (dto: EmailVerificationRequestDTO): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/users/customers/email/verification/request`,
         method: 'POST',
         body: dto,
         contentType: 'application/json',
