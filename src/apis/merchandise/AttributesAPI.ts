@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { AttributeDraftDTO, AttributeDTO, AttributeFilterResultDTO, AttributeSearchResultDTO } from '../../models';
+import { AttributeDraftDTO, AttributeDTO, AttributeFilterResultDTO, AttributeSearchResultDTO, UpdateAttributeDTO } from '../../models';
 
 export class AttributesAPI extends BaseAPI {
    async create (dto: AttributeDraftDTO): Promise<AttributeDTO> {
@@ -49,7 +49,7 @@ export class AttributesAPI extends BaseAPI {
        return (response as unknown) as AttributeDTO;
    }
 
-   async updateByName (name: string, dto: AttributeDraftDTO): Promise<AttributeDTO> {
+   async updateByName (name: string, dto: UpdateAttributeDTO): Promise<AttributeDTO> {
        const response = await this._request({
            path: `/merchandise/attributes/name=${encodeURIComponent(name)}`,
            method: 'PUT',
@@ -76,7 +76,7 @@ export class AttributesAPI extends BaseAPI {
        return (response as unknown) as AttributeDTO;
    }
 
-   async updateById (id: string, dto: AttributeDraftDTO): Promise<AttributeDTO> {
+   async updateById (id: string, dto: UpdateAttributeDTO): Promise<AttributeDTO> {
        const response = await this._request({
            path: `/merchandise/attributes/${encodeURIComponent(id)}`,
            method: 'PUT',

@@ -472,6 +472,8 @@ export * from "./TokenResponseDTO";
 export * from "./TransitionLineItemQuantityState";
 export * from "./TransitionOrderStateDTO";
 export * from "./TransitionProductStateDTO";
+export * from "./UpdateAttributeDTO";
+export * from "./UpdateAttributeValueDTO";
 export * from "./UserDTO";
 export * from "./UserDraftDTO";
 export * from "./UserFilterResultDTO";

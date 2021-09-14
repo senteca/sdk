@@ -1,6 +1,6 @@
 
 export interface SectionItemDTO {
-  _id: any;
+  _id?: string;
   data?: any;
   name?: string;
   linkUrl?: string;

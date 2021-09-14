@@ -11,6 +11,7 @@ import { MoneyDTO } from './MoneyDTO';
 import { DiscountedLineItemPriceForQuantity } from './DiscountedLineItemPriceForQuantity';
 import { ItemShippingDetailsDTO } from './ItemShippingDetailsDTO';
 import { ReservationDTO } from './ReservationDTO';
+import { CustomField } from './CustomField';
 
 export interface LineItemDTO {
   _id: string;
@@ -41,6 +42,7 @@ export interface LineItemDTO {
   reservations?: ReservationDTO[];
   reservedUntil?: number;
   collapseKey?: string;
+  custom?: CustomField[];
 }
 
 export enum LineItemDTOStatusEnum {

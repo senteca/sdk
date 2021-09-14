@@ -2,7 +2,7 @@ import { SectionItemDTO } from './SectionItemDTO';
 import { AssetDTO } from './AssetDTO';
 
 export interface SectionElementDTO {
-  _id: string;
+  _id?: string;
   items: SectionItemDTO[];
   name?: string;
   linkUrl?: string;

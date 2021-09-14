@@ -21,7 +21,7 @@ export const CatalogSearch = async (query: { storeKey?: string, interfaceKey?: s
     return (response as unknown) as CatalogSearchResultDTO;
 }
 
-export const CatalogAggregate = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, postFilter?: string, fuzzy?: boolean, fuzzyLevel?: string, count?: boolean, unfilterSelected?: boolean, terms: string, ranges: string, stats: string, collapseMode?: string }): Promise<CatalogAggregateResponseDTO> => {
+export const CatalogAggregate = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, postFilter?: string, fuzzy?: boolean, fuzzyLevel?: string, count?: boolean, unfilterSelected?: boolean, terms: string, ranges: string, stats: string, collapseMode?: string, attributeSortType?: string }): Promise<CatalogAggregateResponseDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/catalog/aggregate`,
         method: 'GET',

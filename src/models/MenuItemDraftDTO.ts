@@ -6,8 +6,8 @@ export interface MenuItemDraftDTO {
   version?: number;
   sections?: SectionElementDTO[];
   items?: CustomItemDTO[];
-  createdAt: number;
-  updatedAt: number;
+  createdAt?: number;
+  updatedAt?: number;
   name: string;
   linkUrl: string;
   tags?: string[];

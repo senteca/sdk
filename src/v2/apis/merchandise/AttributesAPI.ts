@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { AttributeDraftDTO, AttributeDTO, AttributeFilterResultDTO, AttributeSearchResultDTO } from '../../../models';
+import { AttributeDraftDTO, AttributeDTO, AttributeFilterResultDTO, AttributeSearchResultDTO, UpdateAttributeDTO } from '../../../models';
 
 export const AttributesCreate = async (dto: AttributeDraftDTO): Promise<AttributeDTO> => {
     const response = await HttpClient.request({
@@ -50,7 +50,7 @@ export const AttributesGetByName = async (name: string, query?: { storeKey?: str
     return (response as unknown) as AttributeDTO;
 }
 
-export const AttributesUpdateByName = async (name: string, dto: AttributeDraftDTO): Promise<AttributeDTO> => {
+export const AttributesUpdateByName = async (name: string, dto: UpdateAttributeDTO): Promise<AttributeDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/attributes/name=${encodeURIComponent(name)}`,
         method: 'PUT',
@@ -77,7 +77,7 @@ export const AttributesGetById = async (id: string, query?: { storeKey?: string,
     return (response as unknown) as AttributeDTO;
 }
 
-export const AttributesUpdateById = async (id: string, dto: AttributeDraftDTO): Promise<AttributeDTO> => {
+export const AttributesUpdateById = async (id: string, dto: UpdateAttributeDTO): Promise<AttributeDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/attributes/${encodeURIComponent(id)}`,
         method: 'PUT',
