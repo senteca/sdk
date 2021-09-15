@@ -47,10 +47,10 @@
     "eslint": "^7.16.0",
     "eslint-plugin-import": "^2.22.1",
     "mustache": "^4.1.0",
-    "node-fetch": "^3.0.0",
+    "node-fetch": "^2.6.2",
     "prettier": "^2.2.1",
-    "typescript": "^3.9.7",
-    "split-string": "^6.1.0"
+    "split-string": "^6.1.0",
+    "typescript": "^3.9.7"
   },
   "repository": {
     "type": "git",
