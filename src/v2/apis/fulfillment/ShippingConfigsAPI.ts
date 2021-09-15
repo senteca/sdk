@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { ShippingConfigDraftDTO, ShippingConfigDTO, ShippingConfigFilterResultDTO } from '../../../models';
+import { ShippingConfigDraftDTO, ShippingConfigDTO, ShippingConfigFilterResultDTO, PatchDTO } from '../../../models';
 
 export const ShippingConfigsCreate = async (dto: ShippingConfigDraftDTO): Promise<ShippingConfigDTO> => {
     const response = await HttpClient.request({
@@ -46,5 +46,13 @@ export const ShippingConfigsDelete = async (id: string): Promise<ShippingConfigD
         method: 'DELETE',
     });
     return (response as unknown) as ShippingConfigDTO;
+}
+
+export const ShippingConfigsGetHistoryById = async (id: string): Promise<PatchDTO[]> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/shipping-configs/history/${encodeURIComponent(id)}`,
+        method: 'GET',
+    });
+    return (response as unknown) as PatchDTO[];
 }
 

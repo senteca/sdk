@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { TokenRequestDTO, TokenResponseDTO, JwtDTO, LoginRequestDTO, OAuthTokenRequestDTO, RegisterRequestDTO } from '../../models';
+import { TokenRequestDTO, TokenResponseDTO, LoginRequestDTO, OAuthTokenRequestDTO, RegisterRequestDTO } from '../../models';
 
 export class AuthAPI extends BaseAPI {
    async createToken (basicAuth: { username: string, password: string }, query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: TokenRequestDTO): Promise<TokenResponseDTO> {
@@ -12,14 +12,6 @@ export class AuthAPI extends BaseAPI {
            contentType: 'application/json',
         });
        return (response as unknown) as TokenResponseDTO;
-   }
-
-   async introspectToken (): Promise<JwtDTO> {
-       const response = await this._request({
-           path: `/auth/token/introspect`,
-           method: 'POST',
-        });
-       return (response as unknown) as JwtDTO;
    }
 
    async login (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: LoginRequestDTO): Promise<TokenResponseDTO> {
