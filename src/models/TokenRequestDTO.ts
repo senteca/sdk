@@ -4,7 +4,7 @@ export interface TokenRequestDTO {
   email?: string;
   password?: string;
   refreshToken?: string;
-  isOrgUser?: boolean;
+  isUser?: boolean;
   anonymousId?: string;
   responseMode?: TokenRequestDTOResponseModeEnum;
 }

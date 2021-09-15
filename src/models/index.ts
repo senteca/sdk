@@ -236,6 +236,7 @@ export * from "./InventorySnapshotDTO";
 export * from "./ItemShippingDetailsDTO";
 export * from "./ItemShippingDetailsDraftDTO";
 export * from "./ItemShippingTargetDTO";
+export * from "./JwtDTO";
 export * from "./KeyReferenceDTO";
 export * from "./LabelDTO";
 export * from "./LabelDraftDTO";

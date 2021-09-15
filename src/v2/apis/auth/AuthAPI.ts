@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { TokenRequestDTO, TokenResponseDTO, LoginRequestDTO, OAuthTokenRequestDTO, RegisterRequestDTO } from '../../../models';
+import { TokenRequestDTO, TokenResponseDTO, JwtDTO, LoginRequestDTO, OAuthTokenRequestDTO, RegisterRequestDTO } from '../../../models';
 
 export const AuthCreateToken = async (basicAuth: { username: string, password: string }, query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: TokenRequestDTO): Promise<TokenResponseDTO> => {
     const response = await HttpClient.request({
@@ -13,6 +13,14 @@ export const AuthCreateToken = async (basicAuth: { username: string, password: s
         contentType: 'application/json',
     });
     return (response as unknown) as TokenResponseDTO;
+}
+
+export const AuthIntrospectToken = async (): Promise<JwtDTO> => {
+    const response = await HttpClient.request({
+        path: `/auth/token/introspect`,
+        method: 'POST',
+    });
+    return (response as unknown) as JwtDTO;
 }
 
 export const AuthLogin = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: LoginRequestDTO): Promise<TokenResponseDTO> => {
