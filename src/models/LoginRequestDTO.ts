@@ -2,7 +2,7 @@
 export interface LoginRequestDTO {
   email: string;
   password: string;
-  isOrgUser?: boolean;
+  isUser?: boolean;
   responseMode?: LoginRequestDTOResponseModeEnum;
   anonymousId?: string;
 }

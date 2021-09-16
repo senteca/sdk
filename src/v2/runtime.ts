@@ -66,6 +66,10 @@ export class HttpClient {
       }
     }
 
+    if (options?.headers) {
+      Object.assign(headers, options.headers);
+    }
+
     if (context.basicAuth) {
       const { username, password } = context.basicAuth;
       headers['Authorization'] = `Basic ${this.base64(
@@ -125,6 +129,7 @@ export interface ConfigOptionsV2 {
   fetchApi?: FetchAPIV2;
   token?: string;
   cookies?: any;
+  headers?: any;
 }
 
 export class ConfigurationV2 {

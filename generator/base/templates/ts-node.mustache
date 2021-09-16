@@ -1,13 +1,13 @@
 /* eslint-disable */
 
 export class BaseAPI {
-  private config?: Configuration;
+  public config?: Configuration;
 
   constructor(config?: Configuration) {
     this.config = config;
   }
 
-  private getOptions(): ConfigOptions | undefined {
+  public getOptions(): ConfigOptions | undefined {
     return this.config?.options;
   }
 
@@ -17,7 +17,7 @@ export class BaseAPI {
     let parsedResponse;
     if (response) {
       const contentType = response.headers?.get('content-type')?.split(';')[0];
-      if (contentType === "application/json") {
+      if (contentType === 'application/json') {
         parsedResponse = await response.json();
       } else {
         parsedResponse = await response.blob();
@@ -42,18 +42,18 @@ export class BaseAPI {
     let body;
     if (context.body) {
       body =
-        context.contentType === "multipart/form-data"
+        context.contentType === 'multipart/form-data'
           ? context.body
           : JSON.stringify(context.body);
     }
 
     const headers = {};
-    if (context.contentType !== "multipart/form-data") {
+    if (context.contentType !== 'multipart/form-data') {
       // do not set explicit Content-Type "multipart/form-data" so that the boundary can be added
-      headers["Content-Type"] = context.contentType || "application/json";
+      headers['Content-Type'] = context.contentType || 'application/json';
     }
     if (options?.token) {
-      headers["Authorization"] = `Bearer ${options.token}`;
+      headers['Authorization'] = `Bearer ${options.token}`;
     }
     if (options?.cookies) {
       const cookieKeys = Object.keys(options.cookies);
@@ -65,32 +65,36 @@ export class BaseAPI {
           }
         };
         const isSet = (x: any) => !!x;
-        headers["cookie"] = cookieKeys.map(toCookie).filter(isSet).join("; ");
+        headers['cookie'] = cookieKeys.map(toCookie).filter(isSet).join('; ');
       }
     }
 
     if (context.basicAuth) {
       const { username, password } = context.basicAuth;
-      headers["Authorization"] = `Basic ${this.base64(
-        [username, password].join(":")
+      headers['Authorization'] = `Basic ${this.base64(
+        [username, password].join(':'),
       )}`;
+    }
+
+    if (options?.headers) {
+      Object.assign(headers, options.headers);
     }
 
     const init = {
       method: context.method,
       headers: headers,
-      body
+      body,
     };
     return { url, init };
   }
 
   protected _stringifyQuery(queryObj: any): string {
     if (!queryObj) {
-      return "";
+      return '';
     }
     return Object.keys(queryObj)
       .map((key) => `${key}=${encodeURIComponent(queryObj[key])}`)
-      .join("&");
+      .join('&');
   }
 
   private fetchApi = async (url: string, init: RequestInit) => {
@@ -98,7 +102,7 @@ export class BaseAPI {
 
     const fetch =
       this.getOptions()?.fetchApi ||
-      (typeof window !== "undefined" ? window.fetch.bind(window) : null);
+      (typeof window !== 'undefined' ? window.fetch.bind(window) : null);
 
     if (fetch) {
       return fetch(fetchParams.url, fetchParams.init);
@@ -106,10 +110,10 @@ export class BaseAPI {
   };
 
   private base64(inputStr: string) {
-    if (typeof btoa !== "undefined") {
+    if (typeof btoa !== 'undefined') {
       return btoa(inputStr);
-    } else if (typeof Buffer !== "undefined") {
-      return Buffer.from(inputStr, "utf-8").toString("base64");
+    } else if (typeof Buffer !== 'undefined') {
+      return Buffer.from(inputStr, 'utf-8').toString('base64');
     }
     return inputStr;
   }
@@ -120,17 +124,18 @@ export interface RequestOptions {
   method: string;
   query?: string;
   body?: any;
-  contentType?: "application/json" | "multipart/form-data";
+  contentType?: 'application/json' | 'multipart/form-data';
   basicAuth?: { username: string; password: string };
 }
 
-export type FetchAPI = WindowOrWorkerGlobalScope["fetch"];
+export type FetchAPI = WindowOrWorkerGlobalScope['fetch'];
 
 export interface ConfigOptions {
   basePath?: string;
   fetchApi?: FetchAPI;
   token?: string;
   cookies?: any;
+  headers?: any;
 }
 
 export class Configuration {
