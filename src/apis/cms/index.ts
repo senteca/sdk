@@ -6,6 +6,7 @@ export * from "./MediaAPI";
 export * from "./MenuAPI";
 export * from "./PagesAPI";
 export * from "./RedirectsAPI";
+export * from "./RegexRedirectAPI";
 export * from "./SitemapsAPI";
 export * from "./TagsAPI";
 export * from "./ThemeAPI";

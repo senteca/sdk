@@ -1,16 +1,17 @@
 
-export interface CmsRedirectDTO {
+export interface RegexRedirectDTO {
   version?: number;
-  from: string;
-  to: string;
+  matchingRegex: string;
+  transformingRegex: string;
+  transformingExpression: string;
+  type?: RegexRedirectDTOTypeEnum;
   interfaceKey: string;
-  type?: CmsRedirectDTOTypeEnum;
   _id: string;
   createdAt: number;
   updatedAt: number;
 }
 
-export enum CmsRedirectDTOTypeEnum {
+export enum RegexRedirectDTOTypeEnum {
     Permanent = 'permanent',  
     Temporary = 'temporary',  
     Reference = 'reference',  

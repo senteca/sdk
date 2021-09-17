@@ -10,4 +10,5 @@ export interface CmsRedirectDraftDTO {
 export enum CmsRedirectDraftDTOTypeEnum {
     Permanent = 'permanent',  
     Temporary = 'temporary',  
+    Reference = 'reference',  
 }
