@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo } from '../../../models';
+import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo, ReturnRequestDTO } from '../../../models';
 
 export const MyOrdersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> => {
     const response = await HttpClient.request({
@@ -62,5 +62,15 @@ export const MyOrdersGetById = async (id: string): Promise<OrderDTO> => {
         method: 'GET',
     });
     return (response as unknown) as OrderDTO;
+}
+
+export const MyOrdersSubmitReturnRequest = async (dto: ReturnRequestDTO): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/my-orders/submit-return-request`,
+        method: 'POST',
+        body: dto,
+        contentType: 'application/json',
+    });
+    
 }
 

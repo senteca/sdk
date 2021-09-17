@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo } from '../../models';
+import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo, ReturnRequestDTO } from '../../models';
 
 export class MyOrdersAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
@@ -61,6 +61,16 @@ export class MyOrdersAPI extends BaseAPI {
            method: 'GET',
         });
        return (response as unknown) as OrderDTO;
+   }
+
+   async submitReturnRequest (dto: ReturnRequestDTO): Promise<void> {
+       const response = await this._request({
+           path: `/fulfillment/my-orders/submit-return-request`,
+           method: 'POST',
+           body: dto,
+           contentType: 'application/json',
+        });
+       
    }
 
 }

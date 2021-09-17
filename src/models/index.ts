@@ -345,6 +345,7 @@ export * from "./RangeAggregation";
 export * from "./RangeAggregationResult";
 export * from "./RegisterRequestDTO";
 export * from "./ReservationDTO";
+export * from "./ReturnRequestDTO";
 export * from "./ReviewRatingStatisticsDTO";
 export * from "./RoleDTO";
 export * from "./RoleDraftDTO";
