@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { TokenRequestDTO, TokenResponseDTO, JwtDTO, LoginRequestDTO, OAuthTokenRequestDTO, RegisterRequestDTO } from '../../models';
+import { TokenRequestDTO, TokenResponseDTO, JwtDTO, LoginRequestDTO, OAuthTokenRequestDTO, RegisterRequestDTO, CustomerDTO } from '../../models';
 
 export class AuthAPI extends BaseAPI {
    async createToken (basicAuth: { username: string, password: string }, query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: TokenRequestDTO): Promise<TokenResponseDTO> {
@@ -88,7 +88,7 @@ export class AuthAPI extends BaseAPI {
        return (response as unknown) as TokenResponseDTO;
    }
 
-   async register (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: RegisterRequestDTO): Promise<TokenResponseDTO> {
+   async register (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: RegisterRequestDTO): Promise<CustomerDTO> {
        const response = await this._request({
            path: `/auth/register`,
            method: 'POST',
@@ -96,7 +96,7 @@ export class AuthAPI extends BaseAPI {
            body: dto,
            contentType: 'application/json',
         });
-       return (response as unknown) as TokenResponseDTO;
+       return (response as unknown) as CustomerDTO;
    }
 
 }

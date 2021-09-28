@@ -1,8 +1,8 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerConsentTypeDraftDTO, CustomerConsentTypeDTO, CustomerConsentTypeFilterResultDTO } from '../../models';
+import { CustomerConsentTypeCreateDTO, CustomerConsentTypeDTO, CustomerConsentTypeFilterResultDTO } from '../../models';
 
 export class CustomerConsentTypesAPI extends BaseAPI {
-   async create (dto: CustomerConsentTypeDraftDTO): Promise<CustomerConsentTypeDTO> {
+   async create (dto: CustomerConsentTypeCreateDTO): Promise<CustomerConsentTypeDTO> {
        const response = await this._request({
            path: `/users/customer-consent-types`,
            method: 'POST',

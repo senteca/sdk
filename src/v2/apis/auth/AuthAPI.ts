@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { TokenRequestDTO, TokenResponseDTO, JwtDTO, LoginRequestDTO, OAuthTokenRequestDTO, RegisterRequestDTO } from '../../../models';
+import { TokenRequestDTO, TokenResponseDTO, JwtDTO, LoginRequestDTO, OAuthTokenRequestDTO, RegisterRequestDTO, CustomerDTO } from '../../../models';
 
 export const AuthCreateToken = async (basicAuth: { username: string, password: string }, query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: TokenRequestDTO): Promise<TokenResponseDTO> => {
     const response = await HttpClient.request({
@@ -89,7 +89,7 @@ export const AuthRefreshToken = async (query: { storeKey?: string, interfaceKey?
     return (response as unknown) as TokenResponseDTO;
 }
 
-export const AuthRegister = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: RegisterRequestDTO): Promise<TokenResponseDTO> => {
+export const AuthRegister = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: RegisterRequestDTO): Promise<CustomerDTO> => {
     const response = await HttpClient.request({
         path: `/auth/register`,
         method: 'POST',
@@ -97,6 +97,6 @@ export const AuthRegister = async (query: { storeKey?: string, interfaceKey?: st
         body: dto,
         contentType: 'application/json',
     });
-    return (response as unknown) as TokenResponseDTO;
+    return (response as unknown) as CustomerDTO;
 }
 

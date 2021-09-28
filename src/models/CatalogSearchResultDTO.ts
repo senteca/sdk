@@ -5,5 +5,6 @@ export interface CatalogSearchResultDTO {
   products: SearchResultDTO[];
   brands: any[];
   categories: any[];
+  suggestions: string[];
 }
 

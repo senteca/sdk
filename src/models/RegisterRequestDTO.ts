@@ -51,4 +51,5 @@ export enum RegisterRequestDTOStatusEnum {
     Disabled = 'disabled',  
     AwaitingApproval = 'awaiting-approval',  
     Rejected = 'rejected',  
+    Unverified = 'unverified',  
 }

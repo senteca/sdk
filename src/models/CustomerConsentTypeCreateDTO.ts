@@ -1,6 +1,6 @@
 import { LangValue } from './LangValue';
 
-export interface CustomerConsentTypeDraftDTO {
+export interface CustomerConsentTypeCreateDTO {
   version?: number;
   key: string;
   label?: LangValue[];

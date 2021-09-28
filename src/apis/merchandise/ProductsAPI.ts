@@ -728,6 +728,16 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
+   async updateVariantInventories (sku: string, dto: InventoryDraftDTO[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/${encodeURIComponent(sku)}/inventories`,
+           method: 'PUT',
+           body: dto,
+           contentType: 'application/json',
+        });
+       
+   }
+
    async updateVariantInventory (sku: string, stockLocationKey: string, dto: InventoryDraftDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/inventories/${encodeURIComponent(stockLocationKey)}`,

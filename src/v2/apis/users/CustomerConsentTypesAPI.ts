@@ -1,9 +1,9 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CustomerConsentTypeDraftDTO, CustomerConsentTypeDTO, CustomerConsentTypeFilterResultDTO } from '../../../models';
+import { CustomerConsentTypeCreateDTO, CustomerConsentTypeDTO, CustomerConsentTypeFilterResultDTO } from '../../../models';
 
-export const CustomerConsentTypesCreate = async (dto: CustomerConsentTypeDraftDTO): Promise<CustomerConsentTypeDTO> => {
+export const CustomerConsentTypesCreate = async (dto: CustomerConsentTypeCreateDTO): Promise<CustomerConsentTypeDTO> => {
     const response = await HttpClient.request({
         path: `/users/customer-consent-types`,
         method: 'POST',

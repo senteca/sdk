@@ -54,7 +54,10 @@ export interface OrderDTO {
   itemShippingAddresses?: AddressDTO[];
   lineItems: LineItemDTO[];
   lineItemsCount: number;
+  lineItemsTotalQuantity: number;
   customLineItems?: CustomLineItemDTO[];
+  customLineItemsCount?: number;
+  customLineItemsTotalQuantity?: number;
   merchants?: KeyReferenceDTO[];
   merchantsTotalPrices: MerchantPriceDTO[];
   grandTotalPrice: MoneyDTO;

@@ -30,4 +30,5 @@ export enum StoreDraftDTODefaultCustomerStatusEnum {
     Disabled = 'disabled',  
     AwaitingApproval = 'awaiting-approval',  
     Rejected = 'rejected',  
+    Unverified = 'unverified',  
 }
