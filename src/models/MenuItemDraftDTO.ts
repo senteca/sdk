@@ -9,7 +9,7 @@ export interface MenuItemDraftDTO {
   createdAt?: number;
   updatedAt?: number;
   name: string;
-  linkUrl: string;
+  linkUrl?: string;
   tags?: string[];
   key?: string;
   interfaceKey: string;

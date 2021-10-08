@@ -1,6 +1,6 @@
 
 export interface LocationDTO {
-  countryCode: string;
+  countryCode?: string;
   region?: string;
   city?: string;
   postCode?: string;

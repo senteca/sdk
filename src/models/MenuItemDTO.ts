@@ -10,7 +10,7 @@ export interface MenuItemDTO {
   sections?: SectionElementDTO[];
   items?: CustomItemDTO[];
   name: string;
-  linkUrl: string;
+  linkUrl?: string;
   tags?: string[];
   key?: string;
   interfaceKey: string;
