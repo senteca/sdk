@@ -235,6 +235,14 @@ export class OrdersAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
+   async deleteCustomLineItem (id: string, customLineItemId: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/orders/${encodeURIComponent(id)}/custom-line-item/${encodeURIComponent(customLineItemId)}`,
+           method: 'DELETE',
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
    async setDiscountCode (id: string, dto: DiscountCodeUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/orders/${encodeURIComponent(id)}/discount-code`,
