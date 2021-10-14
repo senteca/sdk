@@ -236,6 +236,14 @@ export const OrdersSetLineItemQuantity = async (id: string, lineItemId: string, 
     return (response as unknown) as OrderDTO;
 }
 
+export const OrdersDeleteCustomLineItem = async (id: string, customLineItemId: string): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/orders/${encodeURIComponent(id)}/custom-line-item/${encodeURIComponent(customLineItemId)}`,
+        method: 'DELETE',
+    });
+    return (response as unknown) as OrderDTO;
+}
+
 export const OrdersSetDiscountCode = async (id: string, dto: DiscountCodeUpdateDTO): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/orders/${encodeURIComponent(id)}/discount-code`,
