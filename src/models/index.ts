@@ -254,6 +254,7 @@ export * from "./MediaDeleteDTO";
 export * from "./MediaFilterResultDTO";
 export * from "./MenuItemDTO";
 export * from "./MenuItemDraftDTO";
+export * from "./MenuItemFilterResultDTO";
 export * from "./MerchantDTO";
 export * from "./MerchantDraftDTO";
 export * from "./MerchantFilterResultDTO";

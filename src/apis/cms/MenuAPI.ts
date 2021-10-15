@@ -1,13 +1,14 @@
 import { BaseAPI } from '../../runtime';
-import { MenuItemDTO, MenuItemDraftDTO, CustomItemDTO, SectionElementDTO, SectionItemDTO } from '../../models';
+import { MenuItemFilterResultDTO, MenuItemDraftDTO, MenuItemDTO, CustomItemDTO, SectionElementDTO, SectionItemDTO } from '../../models';
 
 export class MenuAPI extends BaseAPI {
-   async getAll (): Promise<MenuItemDTO[]> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<MenuItemFilterResultDTO> {
        const response = await this._request({
            path: `/cms/menu`,
            method: 'GET',
+           query: this._stringifyQuery(query),
         });
-       return (response as unknown) as MenuItemDTO[];
+       return (response as unknown) as MenuItemFilterResultDTO;
    }
 
    async create (dto: MenuItemDraftDTO): Promise<MenuItemDTO[]> {
@@ -16,6 +17,14 @@ export class MenuAPI extends BaseAPI {
            method: 'POST',
            body: dto,
            contentType: 'application/json',
+        });
+       return (response as unknown) as MenuItemDTO[];
+   }
+
+   async getAll (): Promise<MenuItemDTO[]> {
+       const response = await this._request({
+           path: `/cms/menu/all`,
+           method: 'GET',
         });
        return (response as unknown) as MenuItemDTO[];
    }

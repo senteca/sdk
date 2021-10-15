@@ -1,14 +1,15 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { MenuItemDTO, MenuItemDraftDTO, CustomItemDTO, SectionElementDTO, SectionItemDTO } from '../../../models';
+import { MenuItemFilterResultDTO, MenuItemDraftDTO, MenuItemDTO, CustomItemDTO, SectionElementDTO, SectionItemDTO } from '../../../models';
 
-export const MenuGetAll = async (): Promise<MenuItemDTO[]> => {
+export const MenuFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<MenuItemFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/cms/menu`,
         method: 'GET',
+        query: toQueryString(query),
     });
-    return (response as unknown) as MenuItemDTO[];
+    return (response as unknown) as MenuItemFilterResultDTO;
 }
 
 export const MenuCreate = async (dto: MenuItemDraftDTO): Promise<MenuItemDTO[]> => {
@@ -17,6 +18,14 @@ export const MenuCreate = async (dto: MenuItemDraftDTO): Promise<MenuItemDTO[]> 
         method: 'POST',
         body: dto,
         contentType: 'application/json',
+    });
+    return (response as unknown) as MenuItemDTO[];
+}
+
+export const MenuGetAll = async (): Promise<MenuItemDTO[]> => {
+    const response = await HttpClient.request({
+        path: `/cms/menu/all`,
+        method: 'GET',
     });
     return (response as unknown) as MenuItemDTO[];
 }
