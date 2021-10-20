@@ -4,6 +4,6 @@ export interface AttributeValueDTO {
   key: string;
   label: LangValue[];
   extra?: any;
-  _id: string;
+  _id?: string;
 }
 

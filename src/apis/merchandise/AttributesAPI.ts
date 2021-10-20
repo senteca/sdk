@@ -40,7 +40,7 @@ export class AttributesAPI extends BaseAPI {
        return (response as unknown) as AttributeSearchResultDTO;
    }
 
-   async getByName (name: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<AttributeDTO> {
+   async getByName (name: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<AttributeDTO> {
        const response = await this._request({
            path: `/merchandise/attributes/name=${encodeURIComponent(name)}`,
            method: 'GET',

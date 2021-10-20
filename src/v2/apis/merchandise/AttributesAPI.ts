@@ -41,7 +41,7 @@ export const AttributesSearch = async (query?: { storeKey?: string, interfaceKey
     return (response as unknown) as AttributeSearchResultDTO;
 }
 
-export const AttributesGetByName = async (name: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<AttributeDTO> => {
+export const AttributesGetByName = async (name: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<AttributeDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/attributes/name=${encodeURIComponent(name)}`,
         method: 'GET',
