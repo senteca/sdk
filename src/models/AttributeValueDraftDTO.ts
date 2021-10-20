@@ -1,7 +1,6 @@
 import { LangValue } from './LangValue';
 
-export interface AttributeValueDTO {
-  _id: string;
+export interface AttributeValueDraftDTO {
   key: string;
   label: LangValue[];
   extra?: any;

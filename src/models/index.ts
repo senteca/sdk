@@ -21,6 +21,8 @@ export * from "./AttributeFilterResultDTO";
 export * from "./AttributeRuleDTO";
 export * from "./AttributeSearchResultDTO";
 export * from "./AttributeValueDTO";
+export * from "./AttributeValueDraftDTO";
+export * from "./AttributeValueMoveDTO";
 export * from "./BaseCurrencyConversion";
 export * from "./BoricaGeneratePaymentDataResponse";
 export * from "./BoricaGeneratePaymentUrlResponse";

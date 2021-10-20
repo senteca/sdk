@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { AttributeDraftDTO, AttributeDTO, AttributeFilterResultDTO, AttributeSearchResultDTO, UpdateAttributeDTO } from '../../models';
+import { AttributeDraftDTO, AttributeDTO, AttributeFilterResultDTO, AttributeSearchResultDTO, UpdateAttributeDTO, AttributeValueDraftDTO, AttributeValueDTO, AttributeValueMoveDTO } from '../../models';
 
 export class AttributesAPI extends BaseAPI {
    async create (dto: AttributeDraftDTO): Promise<AttributeDTO> {
@@ -67,7 +67,7 @@ export class AttributesAPI extends BaseAPI {
        return (response as unknown) as AttributeDTO;
    }
 
-   async getById (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<AttributeDTO> {
+   async getById (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<AttributeDTO> {
        const response = await this._request({
            path: `/merchandise/attributes/${encodeURIComponent(id)}`,
            method: 'GET',
@@ -92,6 +92,44 @@ export class AttributesAPI extends BaseAPI {
            method: 'DELETE',
         });
        return (response as unknown) as AttributeDTO;
+   }
+
+   async addAttributeValue (id: string, dto: AttributeValueDraftDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/attributes/${encodeURIComponent(id)}/value`,
+           method: 'POST',
+           body: dto,
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async updateAttributeValue (id: string, dto: AttributeValueDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/attributes/${encodeURIComponent(id)}/value`,
+           method: 'PATCH',
+           body: dto,
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async moveAttributeValue (id: string, dto: AttributeValueMoveDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/attributes/${encodeURIComponent(id)}/value/move`,
+           method: 'PATCH',
+           body: dto,
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async deleteAttributeValue (id: string, value: string): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/attributes/${encodeURIComponent(id)}/value/${encodeURIComponent(value)}`,
+           method: 'DELETE',
+        });
+       
    }
 
 }

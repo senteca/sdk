@@ -11,6 +11,7 @@ export interface AttributeDTO {
   _id: string;
   createdAt: number;
   updatedAt: number;
+  totalValues?: number;
 }
 
 export enum AttributeDTOTypeEnum {
