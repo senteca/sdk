@@ -1,12 +1,12 @@
 import { LangValue } from './LangValue';
-import { AttributeValueDTO } from './AttributeValueDTO';
+import { AttributeValueDraftDTO } from './AttributeValueDraftDTO';
 
 export interface AttributeDraftDTO {
   version?: number;
   type: AttributeDraftDTOTypeEnum;
   name: string;
   label?: LangValue[];
-  values?: AttributeValueDTO[];
+  values?: AttributeValueDraftDTO[];
   extra?: any;
 }
 

@@ -1,17 +1,17 @@
-import { LangValue } from './LangValue';
 import { AttributeValueDTO } from './AttributeValueDTO';
+import { LangValue } from './LangValue';
 
 export interface AttributeDTO {
-  version?: number;
-  type: AttributeDTOTypeEnum;
-  name: string;
-  label?: LangValue[];
-  values?: AttributeValueDTO[];
-  extra?: any;
   _id: string;
   createdAt: number;
   updatedAt: number;
   totalValues?: number;
+  values?: AttributeValueDTO[];
+  version?: number;
+  type: AttributeDTOTypeEnum;
+  name: string;
+  label?: LangValue[];
+  extra?: any;
 }
 
 export enum AttributeDTOTypeEnum {
