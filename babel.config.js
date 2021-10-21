@@ -21,13 +21,9 @@ module.exports = function (api) {
   ];
 
   const plugins = [
-    '@babel/plugin-proposal-class-properties',
-    [
-      '@babel/plugin-transform-runtime',
-      {
-        regenerator: true,
-      },
-    ],
+    ['@babel/plugin-proposal-class-properties', { loose: true }],
+    ['@babel/plugin-transform-runtime', { regenerator: true }],
+    ['@babel/plugin-proposal-private-methods', { loose: true }],
   ];
 
   return {
