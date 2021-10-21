@@ -92,8 +92,10 @@ export class BaseAPI {
     if (!queryObj) {
       return '';
     }
-    return Object.keys(queryObj)
-      .map((key) => `${key}=${encodeURIComponent(queryObj[key])}`)
+    return Object.entries(queryObj)
+      .flatMap(([key, values]) =>
+        new Array<any>().concat(values).map((value) => `${key}=${encodeURIComponent(value)}`),
+      )
       .join('&');
   }
 
