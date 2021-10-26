@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { PaypalGeneratePaymentUrlResponseDTO, PaypalVerifyPaymentDataResponseDTO } from '../../models';
+import { PaypalGeneratePaymentUrlResponseDTO, PaypalCaptureRequestDTO, PaypalVerifyPaymentDataResponseDTO } from '../../models';
 
 export class MyPaymentsPaypalAPI extends BaseAPI {
    async payMyOrder (orderId: string, paymentId: string): Promise<PaypalGeneratePaymentUrlResponseDTO> {
@@ -10,10 +10,12 @@ export class MyPaymentsPaypalAPI extends BaseAPI {
        return (response as unknown) as PaypalGeneratePaymentUrlResponseDTO;
    }
 
-   async captureOrder (): Promise<PaypalVerifyPaymentDataResponseDTO> {
+   async captureOrder (dto: PaypalCaptureRequestDTO): Promise<PaypalVerifyPaymentDataResponseDTO> {
        const response = await this._request({
            path: `/fulfillment/my-payments/paypal/capture`,
            method: 'POST',
+           body: dto,
+           contentType: 'application/json',
         });
        return (response as unknown) as PaypalVerifyPaymentDataResponseDTO;
    }

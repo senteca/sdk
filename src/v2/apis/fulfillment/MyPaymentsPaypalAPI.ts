@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { PaypalGeneratePaymentUrlResponseDTO, PaypalVerifyPaymentDataResponseDTO } from '../../../models';
+import { PaypalGeneratePaymentUrlResponseDTO, PaypalCaptureRequestDTO, PaypalVerifyPaymentDataResponseDTO } from '../../../models';
 
 export const MyPaymentsPaypalPayMyOrder = async (orderId: string, paymentId: string): Promise<PaypalGeneratePaymentUrlResponseDTO> => {
     const response = await HttpClient.request({
@@ -11,10 +11,12 @@ export const MyPaymentsPaypalPayMyOrder = async (orderId: string, paymentId: str
     return (response as unknown) as PaypalGeneratePaymentUrlResponseDTO;
 }
 
-export const MyPaymentsPaypalCaptureOrder = async (): Promise<PaypalVerifyPaymentDataResponseDTO> => {
+export const MyPaymentsPaypalCaptureOrder = async (dto: PaypalCaptureRequestDTO): Promise<PaypalVerifyPaymentDataResponseDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-payments/paypal/capture`,
         method: 'POST',
+        body: dto,
+        contentType: 'application/json',
     });
     return (response as unknown) as PaypalVerifyPaymentDataResponseDTO;
 }
