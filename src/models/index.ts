@@ -307,6 +307,7 @@ export * from "./PaymentMethodFilterResultDTO";
 export * from "./PaymentMethodsInfo";
 export * from "./PaymentStatusUpdateDTO";
 export * from "./PaymentTransactionDraftDTO";
+export * from "./PaypalCaptureRequestDTO";
 export * from "./PaypalGeneratePaymentUrlResponseDTO";
 export * from "./PaypalVerifyPaymentDataResponseDTO";
 export * from "./Permission";
