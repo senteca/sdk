@@ -1,6 +1,6 @@
 import { LangValue } from './LangValue';
 
-export interface BrandResultDTO {
+export interface LinkResultDTO {
   _id: string;
   name: LangValue[];
   slug: LangValue[];

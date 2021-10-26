@@ -41,10 +41,11 @@ export class MyWishListAPI extends BaseAPI {
        return (response as unknown) as WishListDTO;
    }
 
-   async removeMyItem (itemId: string): Promise<WishListDTO> {
+   async removeMyItem (itemId: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<WishListDTO> {
        const response = await this._request({
            path: `/fulfillment/my-wish-list/${encodeURIComponent(itemId)}`,
            method: 'DELETE',
+           query: this._stringifyQuery(query),
         });
        return (response as unknown) as WishListDTO;
    }

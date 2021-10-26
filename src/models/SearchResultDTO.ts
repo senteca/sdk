@@ -1,5 +1,5 @@
 import { LangValue } from './LangValue';
-import { BrandResultDTO } from './BrandResultDTO';
+import { LinkResultDTO } from './LinkResultDTO';
 import { ImageDTO } from './ImageDTO';
 import { OfferDTO } from './OfferDTO';
 import { InventorySnapshotDTO } from './InventorySnapshotDTO';
@@ -15,7 +15,9 @@ export interface SearchResultDTO {
   sku: string;
   slug: LangValue[];
   name: LangValue[];
-  brands: BrandResultDTO[];
+  brands: LinkResultDTO[];
+  categories: LinkResultDTO[];
+  collections: LinkResultDTO[];
   images: ImageDTO[];
   offers: OfferDTO[];
   offer?: OfferDTO;

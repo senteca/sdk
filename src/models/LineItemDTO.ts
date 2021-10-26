@@ -8,6 +8,7 @@ import { OfferDTO } from './OfferDTO';
 import { TaxedItemPriceDTO } from './TaxedItemPriceDTO';
 import { TaxRateDTO } from './TaxRateDTO';
 import { MoneyDTO } from './MoneyDTO';
+import { ProductRelationsDTO } from './ProductRelationsDTO';
 import { DiscountedLineItemPriceForQuantity } from './DiscountedLineItemPriceForQuantity';
 import { ItemShippingDetailsDTO } from './ItemShippingDetailsDTO';
 import { ReservationDTO } from './ReservationDTO';
@@ -36,6 +37,7 @@ export interface LineItemDTO {
   taxedPrice?: TaxedItemPriceDTO;
   taxRate?: TaxRateDTO;
   totalPrice?: MoneyDTO;
+  relations?: ProductRelationsDTO;
   discountedPricePerQuantity?: DiscountedLineItemPriceForQuantity[];
   lineItemMode: LineItemDTOLineItemModeEnum;
   shippingDetails?: ItemShippingDetailsDTO;
