@@ -5,6 +5,7 @@ export * from "./MyCartAPI";
 export * from "./MyDiscountCodesAPI";
 export * from "./MyOrdersAPI";
 export * from "./MyPaymentsBoricaAPI";
+export * from "./MyPaymentsPaypalAPI";
 export * from "./MyShippingsEcontAPI";
 export * from "./MyShippingsEvropatAPI";
 export * from "./MyShippingsFancourierAPI";
