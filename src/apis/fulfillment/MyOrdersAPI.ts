@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo, ReturnRequestDTO } from '../../models';
+import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo, PaymentMethodDTO, ReturnRequestDTO } from '../../models';
 
 export class MyOrdersAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
@@ -44,6 +44,14 @@ export class MyOrdersAPI extends BaseAPI {
            method: 'GET',
         });
        return (response as unknown) as StockLocationsInfo;
+   }
+
+   async getAvailablePlatformPaymentMethods (): Promise<PaymentMethodDTO[]> {
+       const response = await this._request({
+           path: `/fulfillment/my-orders/available-platform-payment-methods`,
+           method: 'GET',
+        });
+       return (response as unknown) as PaymentMethodDTO[];
    }
 
    async exportMyOrders (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, columnDelimiter?: string, recordDelimiter?: string, prettyKeys?: boolean, prettyValues?: boolean }): Promise<any> {
