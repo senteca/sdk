@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo, ReturnRequestDTO } from '../../../models';
+import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo, PaymentMethodDTO, PaymentMethodsInfo, ReturnRequestDTO } from '../../../models';
 
 export const MyOrdersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> => {
     const response = await HttpClient.request({
@@ -47,6 +47,14 @@ export const MyOrdersGetAvailableStockLocations = async (): Promise<StockLocatio
     return (response as unknown) as StockLocationsInfo;
 }
 
+export const MyOrdersGetAvailablePlatformPaymentMethods = async (): Promise<PaymentMethodDTO[]> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/my-orders/available-platform-payment-methods`,
+        method: 'GET',
+    });
+    return (response as unknown) as PaymentMethodDTO[];
+}
+
 export const MyOrdersExportMyOrders = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, columnDelimiter?: string, recordDelimiter?: string, prettyKeys?: boolean, prettyValues?: boolean }): Promise<any> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-orders/export`,
@@ -62,6 +70,14 @@ export const MyOrdersGetById = async (id: string): Promise<OrderDTO> => {
         method: 'GET',
     });
     return (response as unknown) as OrderDTO;
+}
+
+export const MyOrdersGetPaymentMethods = async (id: string): Promise<PaymentMethodsInfo> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/my-orders/${encodeURIComponent(id)}/payment-methods`,
+        method: 'GET',
+    });
+    return (response as unknown) as PaymentMethodsInfo;
 }
 
 export const MyOrdersSubmitReturnRequest = async (dto: ReturnRequestDTO): Promise<void> => {
