@@ -40,3 +40,11 @@ export const ContentTypesDelete = async (id: string): Promise<ContentTypeDTO> =>
     return (response as unknown) as ContentTypeDTO;
 }
 
+export const ContentTypesGetByName = async (name: string): Promise<ContentTypeDTO> => {
+    const response = await HttpClient.request({
+        path: `/cms/content-types/name=${encodeURIComponent(name)}`,
+        method: 'GET',
+    });
+    return (response as unknown) as ContentTypeDTO;
+}
+

@@ -39,4 +39,12 @@ export class ContentTypesAPI extends BaseAPI {
        return (response as unknown) as ContentTypeDTO;
    }
 
+   async getByName (name: string): Promise<ContentTypeDTO> {
+       const response = await this._request({
+           path: `/cms/content-types/name=${encodeURIComponent(name)}`,
+           method: 'GET',
+        });
+       return (response as unknown) as ContentTypeDTO;
+   }
+
 }
