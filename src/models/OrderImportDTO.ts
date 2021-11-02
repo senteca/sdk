@@ -61,6 +61,7 @@ export interface OrderImportDTO {
   merchantShippingMethods?: MerchantMethodDTO[];
   platformShippingMethod?: IdReferenceDTO;
   canPurchase?: boolean;
+  totalWeightInGrams?: number;
   custom?: CustomField[];
 }
 
