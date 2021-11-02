@@ -1,6 +1,7 @@
 import { AddressDraftDTO } from './AddressDraftDTO';
 import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { AddressDTO } from './AddressDTO';
+import { IdReferenceDTO } from './IdReferenceDTO';
 import { CustomField } from './CustomField';
 
 export interface CustomerDraftDTO {
@@ -33,6 +34,8 @@ export interface CustomerDraftDTO {
   companyDetails?: AddressDTO[];
   invitationToken?: string;
   anonymizationRequested?: boolean;
+  discountCodes?: IdReferenceDTO[];
+  referrer?: IdReferenceDTO;
   custom?: CustomField[];
 }
 

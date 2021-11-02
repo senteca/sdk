@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo, PaymentMethodDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, ReturnRequestDTO } from '../../models';
+import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, OrderGrandTotalPrice, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo, PaymentMethodDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, ReturnRequestDTO } from '../../models';
 
 export class MyOrdersAPI extends BaseAPI {
    async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
@@ -20,6 +20,24 @@ export class MyOrdersAPI extends BaseAPI {
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
+   }
+
+   async getMyReferralOrders (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-orders/referrals`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+        });
+       return (response as unknown) as OrderFilterResultDTO;
+   }
+
+   async getMyReferralOrdersGrandTotalPrice (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderGrandTotalPrice> {
+       const response = await this._request({
+           path: `/fulfillment/my-orders/referrals/grand-total-price`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+        });
+       return (response as unknown) as OrderGrandTotalPrice;
    }
 
    async getAvailableShippingModules (): Promise<ShippingModulesInfo> {

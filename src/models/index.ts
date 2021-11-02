@@ -284,6 +284,7 @@ export * from "./OrderAdditionalInfoUpdateDTO";
 export * from "./OrderCustomerGroupUpdateDTO";
 export * from "./OrderDTO";
 export * from "./OrderFilterResultDTO";
+export * from "./OrderGrandTotalPrice";
 export * from "./OrderImportDTO";
 export * from "./OrderNoteUpdateDTO";
 export * from "./OrderStatusUpdateDTO";

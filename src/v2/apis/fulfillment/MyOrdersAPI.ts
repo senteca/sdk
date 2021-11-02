@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo, PaymentMethodDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, ReturnRequestDTO } from '../../../models';
+import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, OrderGrandTotalPrice, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo, PaymentMethodDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, ReturnRequestDTO } from '../../../models';
 
 export const MyOrdersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> => {
     const response = await HttpClient.request({
@@ -21,6 +21,24 @@ export const MyOrdersCreate = async (query: { storeKey?: string, interfaceKey?: 
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
+}
+
+export const MyOrdersGetMyReferralOrders = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/my-orders/referrals`,
+        method: 'GET',
+        query: toQueryString(query),
+    });
+    return (response as unknown) as OrderFilterResultDTO;
+}
+
+export const MyOrdersGetMyReferralOrdersGrandTotalPrice = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderGrandTotalPrice> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/my-orders/referrals/grand-total-price`,
+        method: 'GET',
+        query: toQueryString(query),
+    });
+    return (response as unknown) as OrderGrandTotalPrice;
 }
 
 export const MyOrdersGetAvailableShippingModules = async (): Promise<ShippingModulesInfo> => {

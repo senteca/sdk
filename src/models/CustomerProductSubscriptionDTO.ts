@@ -6,7 +6,7 @@ export interface CustomerProductSubscriptionDTO {
   quantity: number;
   storeKey: string;
   interfaceKey: string;
-  merchantKey?: string;
+  merchantKey: string;
   priceListKey: string;
   languageCode: string;
   currencyCode: string;
