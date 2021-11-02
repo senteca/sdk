@@ -192,4 +192,12 @@ export class ShippingsFancourierAPI extends BaseAPI {
        return (response as unknown) as FancourierTrackResponseDTO;
    }
 
+   async getTrackingData (waybill: string): Promise<FancourierSendResponseDTO> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/fancourier/${encodeURIComponent(waybill)}/tracking-data`,
+           method: 'GET',
+        });
+       return (response as unknown) as FancourierSendResponseDTO;
+   }
+
 }

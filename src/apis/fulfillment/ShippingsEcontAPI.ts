@@ -311,4 +311,12 @@ export class ShippingsEcontAPI extends BaseAPI {
        return (response as unknown) as EcontTrackResponseDTO;
    }
 
+   async getTrackingData (waybill: string): Promise<EcontSendResponseDTO> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/econt/${encodeURIComponent(waybill)}/tracking-data`,
+           method: 'GET',
+        });
+       return (response as unknown) as EcontSendResponseDTO;
+   }
+
 }

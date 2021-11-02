@@ -174,3 +174,11 @@ export const ShippingsEvropatTrackRequest = async (orderId: string, shippingId: 
     return (response as unknown) as EvropatTrackResponseDTO;
 }
 
+export const ShippingsEvropatGetTrackingData = async (waybill: string): Promise<EvropatSendResponseDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/shippings/evropat/${encodeURIComponent(waybill)}/tracking-data`,
+        method: 'GET',
+    });
+    return (response as unknown) as EvropatSendResponseDTO;
+}
+

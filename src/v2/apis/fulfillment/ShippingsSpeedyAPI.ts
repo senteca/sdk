@@ -312,3 +312,11 @@ export const ShippingsSpeedyTrackRequest = async (orderId: string, shippingId: s
     return (response as unknown) as SpeedyTrackResponseDTO;
 }
 
+export const ShippingsSpeedyGetTrackingData = async (waybill: string): Promise<SpeedySendResponseDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/shippings/speedy/${encodeURIComponent(waybill)}/tracking-data`,
+        method: 'GET',
+    });
+    return (response as unknown) as SpeedySendResponseDTO;
+}
+

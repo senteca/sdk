@@ -193,3 +193,11 @@ export const ShippingsFancourierTrackRequest = async (orderId: string, shippingI
     return (response as unknown) as FancourierTrackResponseDTO;
 }
 
+export const ShippingsFancourierGetTrackingData = async (waybill: string): Promise<FancourierSendResponseDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/shippings/fancourier/${encodeURIComponent(waybill)}/tracking-data`,
+        method: 'GET',
+    });
+    return (response as unknown) as FancourierSendResponseDTO;
+}
+

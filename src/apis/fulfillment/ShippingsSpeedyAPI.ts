@@ -311,4 +311,12 @@ export class ShippingsSpeedyAPI extends BaseAPI {
        return (response as unknown) as SpeedyTrackResponseDTO;
    }
 
+   async getTrackingData (waybill: string): Promise<SpeedySendResponseDTO> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/speedy/${encodeURIComponent(waybill)}/tracking-data`,
+           method: 'GET',
+        });
+       return (response as unknown) as SpeedySendResponseDTO;
+   }
+
 }

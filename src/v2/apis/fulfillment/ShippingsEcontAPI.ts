@@ -312,3 +312,11 @@ export const ShippingsEcontTrackRequest = async (orderId: string, shippingId: st
     return (response as unknown) as EcontTrackResponseDTO;
 }
 
+export const ShippingsEcontGetTrackingData = async (waybill: string): Promise<EcontSendResponseDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/shippings/econt/${encodeURIComponent(waybill)}/tracking-data`,
+        method: 'GET',
+    });
+    return (response as unknown) as EcontSendResponseDTO;
+}
+

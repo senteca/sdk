@@ -173,4 +173,12 @@ export class ShippingsEvropatAPI extends BaseAPI {
        return (response as unknown) as EvropatTrackResponseDTO;
    }
 
+   async getTrackingData (waybill: string): Promise<EvropatSendResponseDTO> {
+       const response = await this._request({
+           path: `/fulfillment/shippings/evropat/${encodeURIComponent(waybill)}/tracking-data`,
+           method: 'GET',
+        });
+       return (response as unknown) as EvropatSendResponseDTO;
+   }
+
 }
