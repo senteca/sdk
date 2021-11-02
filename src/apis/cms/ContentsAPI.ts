@@ -65,4 +65,12 @@ export class ContentsAPI extends BaseAPI {
        return (response as unknown) as CmsContentDTO;
    }
 
+   async deleteAllByTypeName (typeName: string): Promise<void> {
+       const response = await this._request({
+           path: `/cms/contents/typeName=${encodeURIComponent(typeName)}`,
+           method: 'DELETE',
+        });
+       
+   }
+
 }

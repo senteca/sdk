@@ -4,6 +4,5 @@ export interface CustomerGroupDraftDTO {
   version?: number;
   key: string;
   label: LangValue[];
-  requiresApproval?: boolean;
 }
 

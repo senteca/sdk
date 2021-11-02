@@ -66,3 +66,11 @@ export const ContentsDelete = async (id: string): Promise<CmsContentDTO> => {
     return (response as unknown) as CmsContentDTO;
 }
 
+export const ContentsDeleteAllByTypeName = async (typeName: string): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/cms/contents/typeName=${encodeURIComponent(typeName)}`,
+        method: 'DELETE',
+    });
+    
+}
+
