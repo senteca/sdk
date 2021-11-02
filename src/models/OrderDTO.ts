@@ -68,7 +68,7 @@ export interface OrderDTO {
   discountCodes: DiscountCodeInfoDTO[];
   subtotal?: MoneyDTO;
   discountedSubtotal?: SubtotalDiscountDTO;
-  wallets?: OrderWalletDTO[];
+  wallet?: OrderWalletDTO;
   payments: any[];
   paymentsAuthority?: OrderDTOPaymentsAuthorityEnum;
   merchantPaymentMethods?: MerchantMethodDTO[];
