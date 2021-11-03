@@ -89,6 +89,14 @@ export class MyOrdersAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
+   async getPlatformPaymentMethod (id: string): Promise<PaymentMethodDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-orders/${encodeURIComponent(id)}/platform-payment-method`,
+           method: 'GET',
+        });
+       return (response as unknown) as PaymentMethodDTO;
+   }
+
    async submitReturnRequest (dto: ReturnRequestDTO): Promise<void> {
        const response = await this._request({
            path: `/fulfillment/my-orders/submit-return-request`,

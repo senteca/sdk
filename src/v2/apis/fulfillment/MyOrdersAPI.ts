@@ -90,6 +90,14 @@ export const MyOrdersSetPlatformPaymentMethod = async (id: string, dto: Platform
     return (response as unknown) as OrderDTO;
 }
 
+export const MyOrdersGetPlatformPaymentMethod = async (id: string): Promise<PaymentMethodDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/my-orders/${encodeURIComponent(id)}/platform-payment-method`,
+        method: 'GET',
+    });
+    return (response as unknown) as PaymentMethodDTO;
+}
+
 export const MyOrdersSubmitReturnRequest = async (dto: ReturnRequestDTO): Promise<void> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-orders/submit-return-request`,
