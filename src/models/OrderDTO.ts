@@ -82,6 +82,7 @@ export interface OrderDTO {
   mergedCartIds?: string[];
   meta?: MetaItemDTO[];
   ip?: string;
+  referrer?: IdReferenceDTO;
 }
 
 export enum OrderDTOStatusEnum {
