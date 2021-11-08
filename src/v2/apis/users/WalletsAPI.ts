@@ -31,6 +31,22 @@ export const WalletsCreate = async (dto: WalletDraftDTO): Promise<WalletDTO> => 
     return (response as unknown) as WalletDTO;
 }
 
+export const WalletsGetByKey = async (key: string): Promise<WalletDTO> => {
+    const response = await HttpClient.request({
+        path: `/users/wallets/key=${encodeURIComponent(key)}`,
+        method: 'GET',
+    });
+    return (response as unknown) as WalletDTO;
+}
+
+export const WalletsDeleteByKey = async (key: string): Promise<WalletDTO> => {
+    const response = await HttpClient.request({
+        path: `/users/wallets/key=${encodeURIComponent(key)}`,
+        method: 'DELETE',
+    });
+    return (response as unknown) as WalletDTO;
+}
+
 export const WalletsGetById = async (id: string): Promise<WalletDTO> => {
     const response = await HttpClient.request({
         path: `/users/wallets/${encodeURIComponent(id)}`,
