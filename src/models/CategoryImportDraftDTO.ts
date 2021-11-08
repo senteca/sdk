@@ -22,6 +22,7 @@ export interface CategoryImportDraftDTO {
   metaKeywords?: LangValue[];
   custom?: CustomField[];
   externalId?: string;
+  googleCategoryId?: string;
   addonData?: AddonDataDTO[];
   externalParent?: IdReferenceDTO;
 }
