@@ -98,6 +98,14 @@ export const MyOrdersGetPlatformPaymentMethod = async (id: string): Promise<Paym
     return (response as unknown) as PaymentMethodDTO;
 }
 
+export const MyOrdersReOrder = async (id: string): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/my-orders/${encodeURIComponent(id)}/re-order`,
+        method: 'POST',
+    });
+    return (response as unknown) as OrderDTO;
+}
+
 export const MyOrdersSubmitReturnRequest = async (dto: ReturnRequestDTO): Promise<void> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-orders/submit-return-request`,
