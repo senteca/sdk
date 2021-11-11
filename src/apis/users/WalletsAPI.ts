@@ -30,22 +30,6 @@ export class WalletsAPI extends BaseAPI {
        return (response as unknown) as WalletDTO;
    }
 
-   async getByKey (key: string): Promise<WalletDTO> {
-       const response = await this._request({
-           path: `/users/wallets/key=${encodeURIComponent(key)}`,
-           method: 'GET',
-        });
-       return (response as unknown) as WalletDTO;
-   }
-
-   async deleteByKey (key: string): Promise<WalletDTO> {
-       const response = await this._request({
-           path: `/users/wallets/key=${encodeURIComponent(key)}`,
-           method: 'DELETE',
-        });
-       return (response as unknown) as WalletDTO;
-   }
-
    async getById (id: string): Promise<WalletDTO> {
        const response = await this._request({
            path: `/users/wallets/${encodeURIComponent(id)}`,

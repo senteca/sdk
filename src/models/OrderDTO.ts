@@ -14,6 +14,7 @@ import { OrderWalletDTO } from './OrderWalletDTO';
 import { MerchantMethodDTO } from './MerchantMethodDTO';
 import { IdReferenceDTO } from './IdReferenceDTO';
 import { ShippingDTO } from './ShippingDTO';
+import { OrderLoanInfoDTO } from './OrderLoanInfoDTO';
 import { CustomField } from './CustomField';
 import { MetaItemDTO } from './MetaItemDTO';
 
@@ -78,6 +79,7 @@ export interface OrderDTO {
   merchantShippingMethods?: MerchantMethodDTO[];
   platformShippingMethod?: IdReferenceDTO;
   additionalInfo?: string;
+  loanInfo?: OrderLoanInfoDTO;
   custom?: CustomField[];
   mergedCartIds?: string[];
   meta?: MetaItemDTO[];

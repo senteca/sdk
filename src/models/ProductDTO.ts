@@ -11,6 +11,7 @@ import { CustomField } from './CustomField';
 import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
 import { ProductRelationsDTO } from './ProductRelationsDTO';
 import { AddonDataDTO } from './AddonDataDTO';
+import { ProductLoanInfoDTO } from './ProductLoanInfoDTO';
 
 export interface ProductDTO {
   createdAt: number;
@@ -45,5 +46,6 @@ export interface ProductDTO {
   reviewRatingStatistics?: ReviewRatingStatisticsDTO;
   relations?: ProductRelationsDTO;
   addonData?: AddonDataDTO[];
+  loanInfo?: ProductLoanInfoDTO;
 }
 

@@ -10,6 +10,7 @@ import { CustomField } from './CustomField';
 import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
 import { ProductRelationsDTO } from './ProductRelationsDTO';
 import { AddonDataDTO } from './AddonDataDTO';
+import { ProductLoanInfoDTO } from './ProductLoanInfoDTO';
 
 export interface ProductImportDraftDTO {
   attributes?: ProductAttributeDraftDTO[];
@@ -41,6 +42,7 @@ export interface ProductImportDraftDTO {
   reviewRatingStatistics?: ReviewRatingStatisticsDTO;
   relations?: ProductRelationsDTO;
   addonData?: AddonDataDTO[];
+  loanInfo?: ProductLoanInfoDTO;
   externalCategories?: IdReferenceDTO[];
   externalBrands?: IdReferenceDTO[];
   externalCollections?: IdReferenceDTO[];

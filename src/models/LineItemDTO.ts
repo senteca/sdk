@@ -13,6 +13,7 @@ import { DiscountedLineItemPriceForQuantity } from './DiscountedLineItemPriceFor
 import { ItemShippingDetailsDTO } from './ItemShippingDetailsDTO';
 import { ReservationDTO } from './ReservationDTO';
 import { CustomField } from './CustomField';
+import { ProductLoanInfoDTO } from './ProductLoanInfoDTO';
 
 export interface LineItemDTO {
   _id: string;
@@ -45,6 +46,7 @@ export interface LineItemDTO {
   reservedUntil?: number;
   collapseKey?: string;
   custom?: CustomField[];
+  loanInfo?: ProductLoanInfoDTO;
 }
 
 export enum LineItemDTOStatusEnum {

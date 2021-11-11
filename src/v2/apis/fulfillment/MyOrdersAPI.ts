@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo, PaymentMethodDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, ReturnRequestDTO } from '../../../models';
+import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo, PaymentMethodDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, CustomLineItemDraftDTO, ReturnRequestDTO } from '../../../models';
 
 export const MyOrdersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> => {
     const response = await HttpClient.request({
@@ -96,6 +96,16 @@ export const MyOrdersGetPlatformPaymentMethod = async (id: string): Promise<Paym
         method: 'GET',
     });
     return (response as unknown) as PaymentMethodDTO;
+}
+
+export const MyOrdersUpdateCustomLineItem = async (id: string, customLineItemId: string, dto: CustomLineItemDraftDTO): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/my-orders/${encodeURIComponent(id)}/custom-line-items/${encodeURIComponent(customLineItemId)}`,
+        method: 'PUT',
+        body: dto,
+        contentType: 'application/json',
+    });
+    return (response as unknown) as OrderDTO;
 }
 
 export const MyOrdersReOrder = async (id: string): Promise<OrderDTO> => {

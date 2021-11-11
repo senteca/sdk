@@ -4,6 +4,7 @@ export * from "./DiscountTemplatesAPI";
 export * from "./MyCartAPI";
 export * from "./MyDiscountCodesAPI";
 export * from "./MyOrdersAPI";
+export * from "./MyPaymentsBnpAPI";
 export * from "./MyPaymentsBoricaAPI";
 export * from "./MyPaymentsPaypalAPI";
 export * from "./MyShippingsEcontAPI";

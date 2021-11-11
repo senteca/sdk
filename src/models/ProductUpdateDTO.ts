@@ -8,6 +8,7 @@ import { CustomField } from './CustomField';
 import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
 import { ProductRelationsDTO } from './ProductRelationsDTO';
 import { AddonDataDTO } from './AddonDataDTO';
+import { ProductLoanInfoDTO } from './ProductLoanInfoDTO';
 import { ProductAttributeDTO } from './ProductAttributeDTO';
 import { AttributeRuleDTO } from './AttributeRuleDTO';
 
@@ -38,6 +39,7 @@ export interface ProductUpdateDTO {
   reviewRatingStatistics?: ReviewRatingStatisticsDTO;
   relations?: ProductRelationsDTO;
   addonData?: AddonDataDTO[];
+  loanInfo?: ProductLoanInfoDTO;
   updatedAt?: number;
   attributes?: ProductAttributeDTO[];
   attributeRules?: AttributeRuleDTO[];
