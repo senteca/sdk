@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { OrderImportDTO, OrderDTO, FilterQueryDTO, CartDraftDTO, NewOrders, OrderFilterResultDTO, TransitionOrderStateDTO, OrderNoteUpdateDTO, OrderAdditionalInfoUpdateDTO, OrderCustomerGroupUpdateDTO, OrderStatusUpdateDTO, SetCustomFieldDTO, TransitionLineItemQuantityState, LineItemDraftDTO, QuantityUpdateDTO, DiscountCodeUpdateDTO, AddressDTO, ShippingMethodsInfo, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, ShippingMethodDTO, ShippingMethodUpdateDTO, ShippingStatusUpdateDTO, ShippingDeliveryDraftDTO, ShippingDeliveryParcelDTO, ShippingDeliveryParcelDraftDTO, ShippingDeliveryParcelStatusUpdateDTO, PaymentStatusUpdateDTO, PaymentTransactionDraftDTO, TaxIncludedUpdateDTO } from '../../models';
+import { OrderImportDTO, OrderDTO, FilterQueryDTO, CartDraftDTO, NewOrders, OrderFilterResultDTO, OrderGrandTotalPrice, TransitionOrderStateDTO, OrderNoteUpdateDTO, OrderAdditionalInfoUpdateDTO, OrderCustomerGroupUpdateDTO, OrderStatusUpdateDTO, SetCustomFieldDTO, TransitionLineItemQuantityState, LineItemDraftDTO, QuantityUpdateDTO, DiscountCodeUpdateDTO, AddressDTO, ShippingMethodsInfo, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, ShippingMethodDTO, ShippingMethodUpdateDTO, ShippingStatusUpdateDTO, ShippingDeliveryDraftDTO, ShippingDeliveryParcelDTO, ShippingDeliveryParcelDraftDTO, ShippingDeliveryParcelStatusUpdateDTO, PaymentStatusUpdateDTO, PaymentTransactionDraftDTO, TaxIncludedUpdateDTO } from '../../models';
 
 export class OrdersAPI extends BaseAPI {
    async import (dto: OrderImportDTO[]): Promise<OrderDTO[]> {
@@ -79,6 +79,15 @@ export class OrdersAPI extends BaseAPI {
            query: this._stringifyQuery(query),
         });
        return (response as unknown) as OrderFilterResultDTO;
+   }
+
+   async getGrandTotalPrice (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderGrandTotalPrice> {
+       const response = await this._request({
+           path: `/fulfillment/orders/grand-total-price`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+        });
+       return (response as unknown) as OrderGrandTotalPrice;
    }
 
    async getByOrderNumber (number: number): Promise<OrderDTO> {

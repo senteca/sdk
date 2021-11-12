@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { OrderImportDTO, OrderDTO, FilterQueryDTO, CartDraftDTO, NewOrders, OrderFilterResultDTO, TransitionOrderStateDTO, OrderNoteUpdateDTO, OrderAdditionalInfoUpdateDTO, OrderCustomerGroupUpdateDTO, OrderStatusUpdateDTO, SetCustomFieldDTO, TransitionLineItemQuantityState, LineItemDraftDTO, QuantityUpdateDTO, DiscountCodeUpdateDTO, AddressDTO, ShippingMethodsInfo, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, ShippingMethodDTO, ShippingMethodUpdateDTO, ShippingStatusUpdateDTO, ShippingDeliveryDraftDTO, ShippingDeliveryParcelDTO, ShippingDeliveryParcelDraftDTO, ShippingDeliveryParcelStatusUpdateDTO, PaymentStatusUpdateDTO, PaymentTransactionDraftDTO, TaxIncludedUpdateDTO } from '../../../models';
+import { OrderImportDTO, OrderDTO, FilterQueryDTO, CartDraftDTO, NewOrders, OrderFilterResultDTO, OrderGrandTotalPrice, TransitionOrderStateDTO, OrderNoteUpdateDTO, OrderAdditionalInfoUpdateDTO, OrderCustomerGroupUpdateDTO, OrderStatusUpdateDTO, SetCustomFieldDTO, TransitionLineItemQuantityState, LineItemDraftDTO, QuantityUpdateDTO, DiscountCodeUpdateDTO, AddressDTO, ShippingMethodsInfo, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, ShippingMethodDTO, ShippingMethodUpdateDTO, ShippingStatusUpdateDTO, ShippingDeliveryDraftDTO, ShippingDeliveryParcelDTO, ShippingDeliveryParcelDraftDTO, ShippingDeliveryParcelStatusUpdateDTO, PaymentStatusUpdateDTO, PaymentTransactionDraftDTO, TaxIncludedUpdateDTO } from '../../../models';
 
 export const OrdersImport = async (dto: OrderImportDTO[]): Promise<OrderDTO[]> => {
     const response = await HttpClient.request({
@@ -80,6 +80,15 @@ export const OrdersFilter = async (query?: { storeKey?: string, interfaceKey?: s
         query: toQueryString(query),
     });
     return (response as unknown) as OrderFilterResultDTO;
+}
+
+export const OrdersGetGrandTotalPrice = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderGrandTotalPrice> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/orders/grand-total-price`,
+        method: 'GET',
+        query: toQueryString(query),
+    });
+    return (response as unknown) as OrderGrandTotalPrice;
 }
 
 export const OrdersGetByOrderNumber = async (number: number): Promise<OrderDTO> => {

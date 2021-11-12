@@ -1,8 +1,8 @@
 import { BaseAPI } from '../../runtime';
-import { CustomerMessageDraftDTO, CustomerMessageDTO, CustomerMessageFilterResultDTO } from '../../models';
+import { CustomerMessageDTO, CustomerMessageFilterResultDTO } from '../../models';
 
 export class CustomerMessagesAPI extends BaseAPI {
-   async create (dto: CustomerMessageDraftDTO): Promise<CustomerMessageDTO> {
+   async create (dto: CustomerMessageDTO): Promise<CustomerMessageDTO> {
        const response = await this._request({
            path: `/users/customer-messages`,
            method: 'POST',
