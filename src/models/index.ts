@@ -126,6 +126,7 @@ export * from "./CustomerInvitationDTO";
 export * from "./CustomerInvitationDraftDTO";
 export * from "./CustomerInvitationFilterResultDTO";
 export * from "./CustomerMessageDTO";
+export * from "./CustomerMessageDraftDTO";
 export * from "./CustomerMessageFilterResultDTO";
 export * from "./CustomerMessageStatusUpdateDTO";
 export * from "./CustomerProductSubscriptionCreateDTO";
