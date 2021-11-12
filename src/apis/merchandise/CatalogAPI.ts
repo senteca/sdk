@@ -11,7 +11,7 @@ export class CatalogAPI extends BaseAPI {
        return (response as unknown) as CatalogFilterResultDTO;
    }
 
-   async search (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, text: string, fuzzy?: boolean, fuzzyLevel?: string, includeProducts?: boolean, includeBrands?: boolean, includeCategories?: boolean, limit?: number, includeSuggestions?: boolean, suggestionsMaxAmount?: number }): Promise<CatalogSearchResultDTO> {
+   async search (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, text: string, fuzzy?: boolean, fuzzyLevel?: string, includeProducts?: boolean, includeBrands?: boolean, includeCategories?: boolean, limit?: number, includeSuggestions?: boolean, suggestionsMaxAmount?: number, sort?: string, secondarySort?: string, geographicalCoordinates?: string }): Promise<CatalogSearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/catalog/search`,
            method: 'GET',
