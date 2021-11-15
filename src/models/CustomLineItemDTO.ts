@@ -22,5 +22,6 @@ export interface CustomLineItemDTO {
   shippingDetails?: ItemShippingDetailsDraftDTO;
   fields?: any;
   custom?: CustomField[];
+  type: string;
 }
 
