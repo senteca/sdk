@@ -1,12 +1,13 @@
+import { MoneyDTO } from './MoneyDTO';
 
 export interface BNPLoanVariantDTO {
   apr: string;
-  correctDownPaymentAmount: string;
-  installmentAmount: string;
+  correctDownPaymentAmount: MoneyDTO;
+  installmentAmount: MoneyDTO;
   maturity: string;
   nir: string;
-  processingFeeAmount: string;
-  totalRepaymentAmount: string;
+  processingFeeAmount: MoneyDTO;
+  totalRepaymentAmount: MoneyDTO;
   variantId: string;
 }
 
