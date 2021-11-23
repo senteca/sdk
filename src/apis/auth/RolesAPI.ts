@@ -10,7 +10,7 @@ export class RolesAPI extends BaseAPI {
        return (response as unknown) as Permission[];
    }
 
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<RoleFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<RoleFilterResultDTO> {
        const response = await this._request({
            path: `/auth/roles`,
            method: 'GET',

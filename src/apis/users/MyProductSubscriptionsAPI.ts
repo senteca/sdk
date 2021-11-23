@@ -2,7 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { CustomerProductSubscriptionCreateDTO, CustomerProductSubscriptionDTO } from '../../models';
 
 export class MyProductSubscriptionsAPI extends BaseAPI {
-   async subscribe (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CustomerProductSubscriptionCreateDTO): Promise<CustomerProductSubscriptionDTO> {
+   async subscribe (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }, dto: CustomerProductSubscriptionCreateDTO): Promise<CustomerProductSubscriptionDTO> {
        const response = await this._request({
            path: `/users/my-product-subscriptions/subscribe`,
            method: 'POST',

@@ -13,7 +13,7 @@ export const ViewsCreate = async (dto: ViewDraftDTO): Promise<ViewDTO> => {
     return (response as unknown) as ViewDTO;
 }
 
-export const ViewsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ViewFilterResultDTO> => {
+export const ViewsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ViewFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/views`,
         method: 'GET',
@@ -32,7 +32,7 @@ export const ViewsImport = async (dto: ViewDraftDTO[]): Promise<void> => {
     
 }
 
-export const ViewsSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<ViewSearchResultDTO> => {
+export const ViewsSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<ViewSearchResultDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/views/search`,
         method: 'GET',
@@ -49,7 +49,7 @@ export const ViewsGetByTag = async (tag: string): Promise<ViewFilterResultDTO> =
     return (response as unknown) as ViewFilterResultDTO;
 }
 
-export const ViewsGetBySlug = async (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ViewDTO> => {
+export const ViewsGetBySlug = async (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<ViewDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/views/slug=${encodeURIComponent(slug)}`,
         method: 'GET',
@@ -66,7 +66,7 @@ export const ViewsGetByKey = async (key: string): Promise<ViewDTO> => {
     return (response as unknown) as ViewDTO;
 }
 
-export const ViewsGetById = async (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ViewDTO> => {
+export const ViewsGetById = async (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<ViewDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/views/${encodeURIComponent(id)}`,
         method: 'GET',

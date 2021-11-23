@@ -51,7 +51,7 @@ export const UsersResetPassword = async (dto: PasswordResetDTO): Promise<UserDTO
     return (response as unknown) as UserDTO;
 }
 
-export const UsersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<UserFilterResultDTO> => {
+export const UsersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<UserFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/users/users`,
         method: 'GET',

@@ -3,7 +3,7 @@
 import { HttpClient, toQueryString } from '../../runtime';
 import { CustomerDTO, CustomerUpdateDTO, PasswordChangeDTO, EmailChangeRequestDTO, EmailVerificationRequestDTO, EmailChangeDTO, AddressDTO, AddressDraftDTO, CustomerDraftDTO, CustomerFilterResultDTO, CustomerSearchResultDTO, SetCustomFieldDTO, EmailVerificationDTO, EmailVerificationResponseDTO, PasswordTokenDTO, PasswordResetDTO, SetCustomerGroupDTO, FilterQueryDTO } from '../../../models';
 
-export const CustomersGetMyProfile = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> => {
+export const CustomersGetMyProfile = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> => {
     const response = await HttpClient.request({
         path: `/users/customers/my-profile`,
         method: 'GET',
@@ -184,7 +184,7 @@ export const CustomersCreate = async (dto: CustomerDraftDTO): Promise<CustomerDT
     return (response as unknown) as CustomerDTO;
 }
 
-export const CustomersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerFilterResultDTO> => {
+export const CustomersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/users/customers`,
         method: 'GET',
@@ -193,7 +193,7 @@ export const CustomersFilter = async (query?: { storeKey?: string, interfaceKey?
     return (response as unknown) as CustomerFilterResultDTO;
 }
 
-export const CustomersSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<CustomerSearchResultDTO> => {
+export const CustomersSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<CustomerSearchResultDTO> => {
     const response = await HttpClient.request({
         path: `/users/customers/search`,
         method: 'GET',
@@ -264,7 +264,7 @@ export const CustomersVerifyEmail = async (dto: EmailVerificationDTO): Promise<E
     return (response as unknown) as EmailVerificationResponseDTO;
 }
 
-export const CustomersCreatePasswordToken = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: PasswordTokenDTO): Promise<void> => {
+export const CustomersCreatePasswordToken = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }, dto: PasswordTokenDTO): Promise<void> => {
     const response = await HttpClient.request({
         path: `/users/customers/password-token`,
         method: 'POST',
@@ -275,7 +275,7 @@ export const CustomersCreatePasswordToken = async (query: { storeKey?: string, i
     
 }
 
-export const CustomersResetPassword = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: PasswordResetDTO): Promise<CustomerDTO> => {
+export const CustomersResetPassword = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }, dto: PasswordResetDTO): Promise<CustomerDTO> => {
     const response = await HttpClient.request({
         path: `/users/customers/password/reset`,
         method: 'POST',

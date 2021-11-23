@@ -13,7 +13,7 @@ export const PagesCreate = async (dto: PageDraftDTO): Promise<PageDTO> => {
     return (response as unknown) as PageDTO;
 }
 
-export const PagesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<PageFilterResultDTO> => {
+export const PagesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<PageFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/cms/pages`,
         method: 'GET',

@@ -2,7 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { AddonFilterResultDTO, AddonDraftDTO, AddonDTO, AddonRequestDTO } from '../../models';
 
 export class AddonsAPI extends BaseAPI {
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<AddonFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<AddonFilterResultDTO> {
        const response = await this._request({
            path: `/config/addons`,
            method: 'GET',

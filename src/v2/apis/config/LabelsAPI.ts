@@ -13,7 +13,7 @@ export const LabelsCreate = async (dto: LabelDraftDTO): Promise<LabelDTO> => {
     return (response as unknown) as LabelDTO;
 }
 
-export const LabelsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<LabelFilterResultDTO> => {
+export const LabelsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<LabelFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/config/labels`,
         method: 'GET',

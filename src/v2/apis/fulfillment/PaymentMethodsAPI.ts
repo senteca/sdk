@@ -13,7 +13,7 @@ export const PaymentMethodsCreate = async (dto: PaymentMethodDraftDTO): Promise<
     return (response as unknown) as PaymentMethodDTO;
 }
 
-export const PaymentMethodsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<PaymentMethodFilterResultDTO> => {
+export const PaymentMethodsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<PaymentMethodFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/payment-methods`,
         method: 'GET',

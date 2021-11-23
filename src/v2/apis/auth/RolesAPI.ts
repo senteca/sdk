@@ -11,7 +11,7 @@ export const RolesGetPermissions = async (): Promise<Permission[]> => {
     return (response as unknown) as Permission[];
 }
 
-export const RolesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<RoleFilterResultDTO> => {
+export const RolesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<RoleFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/auth/roles`,
         method: 'GET',

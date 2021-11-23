@@ -73,7 +73,7 @@ export const OrdersDeleteById = async (id: string): Promise<OrderDTO> => {
     return (response as unknown) as OrderDTO;
 }
 
-export const OrdersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> => {
+export const OrdersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/orders`,
         method: 'GET',
@@ -82,7 +82,7 @@ export const OrdersFilter = async (query?: { storeKey?: string, interfaceKey?: s
     return (response as unknown) as OrderFilterResultDTO;
 }
 
-export const OrdersGetGrandTotalPrice = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderGrandTotalPrice> => {
+export const OrdersGetGrandTotalPrice = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderGrandTotalPrice> => {
     const response = await HttpClient.request({
         path: `/fulfillment/orders/grand-total-price`,
         method: 'GET',

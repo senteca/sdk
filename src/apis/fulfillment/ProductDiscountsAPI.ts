@@ -2,7 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { ProductDiscountSearchResultDTO, ProductDiscountFilterResultDTO, ProductDiscountDraftDTO, ProductDiscountDTO } from '../../models';
 
 export class ProductDiscountsAPI extends BaseAPI {
-   async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductDiscountSearchResultDTO> {
+   async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductDiscountSearchResultDTO> {
        const response = await this._request({
            path: `/fulfillment/product-discounts/search`,
            method: 'GET',
@@ -11,7 +11,7 @@ export class ProductDiscountsAPI extends BaseAPI {
        return (response as unknown) as ProductDiscountSearchResultDTO;
    }
 
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductDiscountFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductDiscountFilterResultDTO> {
        const response = await this._request({
            path: `/fulfillment/product-discounts`,
            method: 'GET',

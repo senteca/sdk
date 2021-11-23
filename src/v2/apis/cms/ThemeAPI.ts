@@ -65,7 +65,7 @@ export const ThemeCreate = async (dto: ThemeDraftDTO): Promise<ThemeDTO> => {
     return (response as unknown) as ThemeDTO;
 }
 
-export const ThemeFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ThemeFilterResultDTO> => {
+export const ThemeFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ThemeFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/cms/theme`,
         method: 'GET',

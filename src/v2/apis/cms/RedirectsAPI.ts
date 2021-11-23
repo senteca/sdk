@@ -13,7 +13,7 @@ export const RedirectsCreate = async (dto: CmsRedirectDraftDTO): Promise<CmsRedi
     return (response as unknown) as CmsRedirectDTO;
 }
 
-export const RedirectsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CmsRedirectFilterResultDTO> => {
+export const RedirectsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CmsRedirectFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/cms/redirects`,
         method: 'GET',

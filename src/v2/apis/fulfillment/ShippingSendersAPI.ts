@@ -45,7 +45,7 @@ export const ShippingSendersCreate = async (dto: ShippingSenderDraftDTO): Promis
     return (response as unknown) as ShippingSenderDTO;
 }
 
-export const ShippingSendersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ShippingSenderFilterResultDTO> => {
+export const ShippingSendersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ShippingSenderFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-senders`,
         method: 'GET',

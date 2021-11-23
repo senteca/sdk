@@ -2,7 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { MenuItemFilterResultDTO, MenuItemDraftDTO, MenuItemDTO, CustomItemDTO, SectionElementDTO, SectionItemDTO } from '../../models';
 
 export class MenuAPI extends BaseAPI {
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<MenuItemFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<MenuItemFilterResultDTO> {
        const response = await this._request({
            path: `/cms/menu`,
            method: 'GET',

@@ -13,7 +13,7 @@ export const PriceListsCreate = async (dto: PriceListDraftDTO): Promise<PriceLis
     return (response as unknown) as PriceListDTO;
 }
 
-export const PriceListsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<PriceListFilterResultDTO> => {
+export const PriceListsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<PriceListFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/price-lists`,
         method: 'GET',

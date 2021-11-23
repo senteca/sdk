@@ -2,7 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { CustomerDTO, CustomerUpdateDTO, PasswordChangeDTO, EmailChangeRequestDTO, EmailVerificationRequestDTO, EmailChangeDTO, AddressDTO, AddressDraftDTO, CustomerDraftDTO, CustomerFilterResultDTO, CustomerSearchResultDTO, SetCustomFieldDTO, EmailVerificationDTO, EmailVerificationResponseDTO, PasswordTokenDTO, PasswordResetDTO, SetCustomerGroupDTO, FilterQueryDTO } from '../../models';
 
 export class CustomersAPI extends BaseAPI {
-   async getMyProfile (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> {
+   async getMyProfile (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<CustomerDTO> {
        const response = await this._request({
            path: `/users/customers/my-profile`,
            method: 'GET',
@@ -183,7 +183,7 @@ export class CustomersAPI extends BaseAPI {
        return (response as unknown) as CustomerDTO;
    }
 
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerFilterResultDTO> {
        const response = await this._request({
            path: `/users/customers`,
            method: 'GET',
@@ -192,7 +192,7 @@ export class CustomersAPI extends BaseAPI {
        return (response as unknown) as CustomerFilterResultDTO;
    }
 
-   async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<CustomerSearchResultDTO> {
+   async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<CustomerSearchResultDTO> {
        const response = await this._request({
            path: `/users/customers/search`,
            method: 'GET',
@@ -263,7 +263,7 @@ export class CustomersAPI extends BaseAPI {
        return (response as unknown) as EmailVerificationResponseDTO;
    }
 
-   async createPasswordToken (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: PasswordTokenDTO): Promise<void> {
+   async createPasswordToken (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }, dto: PasswordTokenDTO): Promise<void> {
        const response = await this._request({
            path: `/users/customers/password-token`,
            method: 'POST',
@@ -274,7 +274,7 @@ export class CustomersAPI extends BaseAPI {
        
    }
 
-   async resetPassword (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: PasswordResetDTO): Promise<CustomerDTO> {
+   async resetPassword (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }, dto: PasswordResetDTO): Promise<CustomerDTO> {
        const response = await this._request({
            path: `/users/customers/password/reset`,
            method: 'POST',

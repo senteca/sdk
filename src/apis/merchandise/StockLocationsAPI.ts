@@ -2,7 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { StockLocationSearchResultDTO, StockLocationDraftDTO, StockLocationDTO, StockLocationFilterResultDTO } from '../../models';
 
 export class StockLocationsAPI extends BaseAPI {
-   async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<StockLocationSearchResultDTO> {
+   async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<StockLocationSearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/stock-locations/search`,
            method: 'GET',
@@ -21,7 +21,7 @@ export class StockLocationsAPI extends BaseAPI {
        return (response as unknown) as StockLocationDTO;
    }
 
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<StockLocationFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<StockLocationFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/stock-locations`,
            method: 'GET',
@@ -40,7 +40,7 @@ export class StockLocationsAPI extends BaseAPI {
        
    }
 
-   async getByKey (key: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<StockLocationDTO> {
+   async getByKey (key: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<StockLocationDTO> {
        const response = await this._request({
            path: `/merchandise/stock-locations/key=${encodeURIComponent(key)}`,
            method: 'GET',
@@ -59,7 +59,7 @@ export class StockLocationsAPI extends BaseAPI {
        return (response as unknown) as StockLocationDTO;
    }
 
-   async getById (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<StockLocationDTO> {
+   async getById (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<StockLocationDTO> {
        const response = await this._request({
            path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
            method: 'GET',

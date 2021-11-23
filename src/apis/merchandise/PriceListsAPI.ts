@@ -12,7 +12,7 @@ export class PriceListsAPI extends BaseAPI {
        return (response as unknown) as PriceListDTO;
    }
 
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<PriceListFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<PriceListFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/price-lists`,
            method: 'GET',

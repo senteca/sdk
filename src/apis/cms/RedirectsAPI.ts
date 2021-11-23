@@ -12,7 +12,7 @@ export class RedirectsAPI extends BaseAPI {
        return (response as unknown) as CmsRedirectDTO;
    }
 
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CmsRedirectFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CmsRedirectFilterResultDTO> {
        const response = await this._request({
            path: `/cms/redirects`,
            method: 'GET',

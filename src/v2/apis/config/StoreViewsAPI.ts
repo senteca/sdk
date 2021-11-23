@@ -13,7 +13,7 @@ export const StoreViewsCreate = async (dto: StoreViewDraftDTO): Promise<StoreVie
     return (response as unknown) as StoreViewDTO;
 }
 
-export const StoreViewsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<StoreViewFilterResultDTO> => {
+export const StoreViewsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<StoreViewFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/config/store-views`,
         method: 'GET',

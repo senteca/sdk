@@ -13,7 +13,7 @@ export const TaxCategoriesCreate = async (dto: TaxCategoryDraftDTO): Promise<Tax
     return (response as unknown) as TaxCategoryDTO;
 }
 
-export const TaxCategoriesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<TaxCategoryFilterResultDTO> => {
+export const TaxCategoriesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<TaxCategoryFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/config/tax-categories`,
         method: 'GET',

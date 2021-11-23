@@ -12,7 +12,7 @@ export class ContentInjectionsAPI extends BaseAPI {
        return (response as unknown) as CmsContentInjectionDTO;
    }
 
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CmsContentInjectionsFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CmsContentInjectionsFilterResultDTO> {
        const response = await this._request({
            path: `/cms/content-injections`,
            method: 'GET',
@@ -21,7 +21,7 @@ export class ContentInjectionsAPI extends BaseAPI {
        return (response as unknown) as CmsContentInjectionsFilterResultDTO;
    }
 
-   async getAllValid (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CmsContentInjectionFilterValidDTO[]> {
+   async getAllValid (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<CmsContentInjectionFilterValidDTO[]> {
        const response = await this._request({
            path: `/cms/content-injections/valid`,
            method: 'GET',

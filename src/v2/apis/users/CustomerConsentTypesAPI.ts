@@ -13,7 +13,7 @@ export const CustomerConsentTypesCreate = async (dto: CustomerConsentTypeCreateD
     return (response as unknown) as CustomerConsentTypeDTO;
 }
 
-export const CustomerConsentTypesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerConsentTypeFilterResultDTO> => {
+export const CustomerConsentTypesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerConsentTypeFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/users/customer-consent-types`,
         method: 'GET',

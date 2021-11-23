@@ -13,7 +13,7 @@ export const StatesCreate = async (dto: StateDraftDTO): Promise<StateDTO> => {
     return (response as unknown) as StateDTO;
 }
 
-export const StatesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<StateFilterResultDTO> => {
+export const StatesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<StateFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/config/states`,
         method: 'GET',

@@ -13,7 +13,7 @@ export const ContentsCreate = async (dto: CmsContentDraftDTO): Promise<CmsConten
     return (response as unknown) as CmsContentDTO;
 }
 
-export const ContentsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CmsContentFilterResultDTO> => {
+export const ContentsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CmsContentFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/cms/contents`,
         method: 'GET',

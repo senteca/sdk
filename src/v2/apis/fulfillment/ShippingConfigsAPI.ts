@@ -13,7 +13,7 @@ export const ShippingConfigsCreate = async (dto: ShippingConfigDraftDTO): Promis
     return (response as unknown) as ShippingConfigDTO;
 }
 
-export const ShippingConfigsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ShippingConfigFilterResultDTO> => {
+export const ShippingConfigsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ShippingConfigFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/shipping-configs`,
         method: 'GET',

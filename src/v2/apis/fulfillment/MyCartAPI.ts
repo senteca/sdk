@@ -244,7 +244,7 @@ export const MyCartSetCartAdditionalInfo = async (dto: OrderAdditionalInfoUpdate
     return (response as unknown) as OrderDTO;
 }
 
-export const MyCartSync = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<OrderDTO> => {
+export const MyCartSync = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-cart/sync`,
         method: 'POST',
@@ -253,7 +253,7 @@ export const MyCartSync = async (query?: { storeKey?: string, interfaceKey?: str
     return (response as unknown) as OrderDTO;
 }
 
-export const MyCartGetCrossSaleProducts = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ProductDTO[]> => {
+export const MyCartGetCrossSaleProducts = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<ProductDTO[]> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-cart/cross-sale-products`,
         method: 'GET',

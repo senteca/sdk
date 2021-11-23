@@ -3,7 +3,7 @@
 import { HttpClient, toQueryString } from '../../runtime';
 import { ProductDiscountSearchResultDTO, ProductDiscountFilterResultDTO, ProductDiscountDraftDTO, ProductDiscountDTO } from '../../../models';
 
-export const ProductDiscountsSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductDiscountSearchResultDTO> => {
+export const ProductDiscountsSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductDiscountSearchResultDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/product-discounts/search`,
         method: 'GET',
@@ -12,7 +12,7 @@ export const ProductDiscountsSearch = async (query?: { storeKey?: string, interf
     return (response as unknown) as ProductDiscountSearchResultDTO;
 }
 
-export const ProductDiscountsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductDiscountFilterResultDTO> => {
+export const ProductDiscountsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductDiscountFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/product-discounts`,
         method: 'GET',

@@ -3,7 +3,7 @@
 import { HttpClient, toQueryString } from '../../runtime';
 import { WishListDTO, WishListItemDraftDTO } from '../../../models';
 
-export const MyWishListGetMy = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<WishListDTO> => {
+export const MyWishListGetMy = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<WishListDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-wish-list`,
         method: 'GET',
@@ -12,7 +12,7 @@ export const MyWishListGetMy = async (query?: { storeKey?: string, interfaceKey?
     return (response as unknown) as WishListDTO;
 }
 
-export const MyWishListAddMyItem = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: WishListItemDraftDTO): Promise<WishListDTO> => {
+export const MyWishListAddMyItem = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }, dto: WishListItemDraftDTO): Promise<WishListDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-wish-list`,
         method: 'POST',
@@ -23,7 +23,7 @@ export const MyWishListAddMyItem = async (query: { storeKey?: string, interfaceK
     return (response as unknown) as WishListDTO;
 }
 
-export const MyWishListSyncMy = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<WishListDTO> => {
+export const MyWishListSyncMy = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<WishListDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-wish-list/sync`,
         method: 'POST',
@@ -42,7 +42,7 @@ export const MyWishListRemoveMyItemsBulk = async (dto: string[]): Promise<WishLi
     return (response as unknown) as WishListDTO;
 }
 
-export const MyWishListRemoveMyItem = async (itemId: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<WishListDTO> => {
+export const MyWishListRemoveMyItem = async (itemId: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<WishListDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-wish-list/${encodeURIComponent(itemId)}`,
         method: 'DELETE',

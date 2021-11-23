@@ -12,7 +12,7 @@ export class CartDiscountsAPI extends BaseAPI {
        return (response as unknown) as CartDiscountDTO[];
    }
 
-   async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CartDiscountSearchResultDTO> {
+   async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CartDiscountSearchResultDTO> {
        const response = await this._request({
            path: `/fulfillment/cart-discounts/search`,
            method: 'GET',
@@ -21,7 +21,7 @@ export class CartDiscountsAPI extends BaseAPI {
        return (response as unknown) as CartDiscountSearchResultDTO;
    }
 
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CartDiscountFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CartDiscountFilterResultDTO> {
        const response = await this._request({
            path: `/fulfillment/cart-discounts`,
            method: 'GET',

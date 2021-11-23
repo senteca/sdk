@@ -13,7 +13,7 @@ export const ScriptsCreate = async (dto: ScriptDraftDTO): Promise<ScriptDTO> => 
     return (response as unknown) as ScriptDTO;
 }
 
-export const ScriptsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ScriptFilterResultDTO> => {
+export const ScriptsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ScriptFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/config/scripts`,
         method: 'GET',

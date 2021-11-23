@@ -5,7 +5,6 @@ export interface FilterQueryDTO {
   currencyCode?: string;
   languageCode?: string;
   priceListKey?: string;
-  time?: number;
   merchantKey?: string;
   expand?: string;
   project?: string;

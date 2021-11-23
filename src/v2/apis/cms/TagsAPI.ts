@@ -13,7 +13,7 @@ export const TagsCreate = async (dto: TagDraftDTO): Promise<TagDTO> => {
     return (response as unknown) as TagDTO;
 }
 
-export const TagsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<TagFilterResultDTO> => {
+export const TagsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<TagFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/cms/tags`,
         method: 'GET',

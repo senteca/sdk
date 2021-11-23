@@ -3,7 +3,7 @@
 import { HttpClient, toQueryString } from '../../runtime';
 import { TokenRequestDTO, TokenResponseDTO, JwtDTO, LoginRequestDTO, OAuthTokenRequestDTO, RegisterRequestDTO, CustomerDTO } from '../../../models';
 
-export const AuthCreateToken = async (basicAuth: { username: string, password: string }, query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: TokenRequestDTO): Promise<TokenResponseDTO> => {
+export const AuthCreateToken = async (basicAuth: { username: string, password: string }, query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: TokenRequestDTO): Promise<TokenResponseDTO> => {
     const response = await HttpClient.request({
         path: `/auth/token`,
         method: 'POST',
@@ -23,7 +23,7 @@ export const AuthIntrospectToken = async (): Promise<JwtDTO> => {
     return (response as unknown) as JwtDTO;
 }
 
-export const AuthLogin = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: LoginRequestDTO): Promise<TokenResponseDTO> => {
+export const AuthLogin = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: LoginRequestDTO): Promise<TokenResponseDTO> => {
     const response = await HttpClient.request({
         path: `/auth/login`,
         method: 'POST',
@@ -34,7 +34,7 @@ export const AuthLogin = async (query: { storeKey?: string, interfaceKey?: strin
     return (response as unknown) as TokenResponseDTO;
 }
 
-export const AuthCreateFacebookToken = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string, access_token: string }, dto: OAuthTokenRequestDTO): Promise<TokenResponseDTO> => {
+export const AuthCreateFacebookToken = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string, access_token: string }, dto: OAuthTokenRequestDTO): Promise<TokenResponseDTO> => {
     const response = await HttpClient.request({
         path: `/auth/facebook/token`,
         method: 'POST',
@@ -45,7 +45,7 @@ export const AuthCreateFacebookToken = async (query: { storeKey?: string, interf
     return (response as unknown) as TokenResponseDTO;
 }
 
-export const AuthCreateGoogleToken = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string, access_token: string }, dto: OAuthTokenRequestDTO): Promise<TokenResponseDTO> => {
+export const AuthCreateGoogleToken = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string, access_token: string }, dto: OAuthTokenRequestDTO): Promise<TokenResponseDTO> => {
     const response = await HttpClient.request({
         path: `/auth/google/token`,
         method: 'POST',
@@ -56,7 +56,7 @@ export const AuthCreateGoogleToken = async (query: { storeKey?: string, interfac
     return (response as unknown) as TokenResponseDTO;
 }
 
-export const AuthCreateAppleToken = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string, id_token: string }, dto: OAuthTokenRequestDTO): Promise<TokenResponseDTO> => {
+export const AuthCreateAppleToken = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string, id_token: string }, dto: OAuthTokenRequestDTO): Promise<TokenResponseDTO> => {
     const response = await HttpClient.request({
         path: `/auth/apple/token`,
         method: 'POST',
@@ -67,7 +67,7 @@ export const AuthCreateAppleToken = async (query: { storeKey?: string, interface
     return (response as unknown) as TokenResponseDTO;
 }
 
-export const AuthCreateAnonymousToken = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: TokenRequestDTO): Promise<TokenResponseDTO> => {
+export const AuthCreateAnonymousToken = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: TokenRequestDTO): Promise<TokenResponseDTO> => {
     const response = await HttpClient.request({
         path: `/auth/anonymous`,
         method: 'POST',
@@ -78,7 +78,7 @@ export const AuthCreateAnonymousToken = async (query: { storeKey?: string, inter
     return (response as unknown) as TokenResponseDTO;
 }
 
-export const AuthRefreshToken = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: TokenRequestDTO): Promise<TokenResponseDTO> => {
+export const AuthRefreshToken = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: TokenRequestDTO): Promise<TokenResponseDTO> => {
     const response = await HttpClient.request({
         path: `/auth/refresh`,
         method: 'POST',
@@ -89,7 +89,7 @@ export const AuthRefreshToken = async (query: { storeKey?: string, interfaceKey?
     return (response as unknown) as TokenResponseDTO;
 }
 
-export const AuthRegister = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: RegisterRequestDTO): Promise<CustomerDTO> => {
+export const AuthRegister = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, requiresEmailVerification?: boolean, requiresInvitation?: boolean, defaultCustomerStatus?: string, defaultCustomerGroupKey?: string }, dto: RegisterRequestDTO): Promise<CustomerDTO> => {
     const response = await HttpClient.request({
         path: `/auth/register`,
         method: 'POST',

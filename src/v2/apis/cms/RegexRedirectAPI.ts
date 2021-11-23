@@ -13,7 +13,7 @@ export const RegexRedirectCreate = async (dto: RegexRedirectDraftDTO): Promise<R
     return (response as unknown) as RegexRedirectDTO;
 }
 
-export const RegexRedirectFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<RegexRedirectFilterResultDTO> => {
+export const RegexRedirectFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<RegexRedirectFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/cms/regex-redirect`,
         method: 'GET',

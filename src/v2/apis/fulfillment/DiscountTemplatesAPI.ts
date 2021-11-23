@@ -3,7 +3,7 @@
 import { HttpClient, toQueryString } from '../../runtime';
 import { DiscountTemplateFilterResultDTO, DiscountTemplateDraftDTO, DiscountTemplateDTO, SetCustomFieldDTO } from '../../../models';
 
-export const DiscountTemplatesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<DiscountTemplateFilterResultDTO> => {
+export const DiscountTemplatesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<DiscountTemplateFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/discount-templates`,
         method: 'GET',

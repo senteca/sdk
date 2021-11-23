@@ -12,7 +12,7 @@ export class ContentTypesAPI extends BaseAPI {
        return (response as unknown) as ContentTypeDTO;
    }
 
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ContentTypeFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ContentTypeFilterResultDTO> {
        const response = await this._request({
            path: `/cms/content-types`,
            method: 'GET',

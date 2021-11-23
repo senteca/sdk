@@ -12,7 +12,7 @@ export class BrandsAPI extends BaseAPI {
        return (response as unknown) as BrandDTO;
    }
 
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<BrandFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<BrandFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/brands`,
            method: 'GET',
@@ -31,7 +31,7 @@ export class BrandsAPI extends BaseAPI {
        
    }
 
-   async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<BrandSearchResultDTO> {
+   async search (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<BrandSearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/brands/search`,
            method: 'GET',
@@ -40,7 +40,7 @@ export class BrandsAPI extends BaseAPI {
        return (response as unknown) as BrandSearchResultDTO;
    }
 
-   async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> {
+   async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> {
        const response = await this._request({
            path: `/merchandise/brands/slug=${encodeURIComponent(slug)}`,
            method: 'GET',
@@ -49,7 +49,7 @@ export class BrandsAPI extends BaseAPI {
        return (response as unknown) as BrandDTO;
    }
 
-   async getByExternalId (externalId: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> {
+   async getByExternalId (externalId: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> {
        const response = await this._request({
            path: `/merchandise/brands/externalId=${encodeURIComponent(externalId)}`,
            method: 'GET',
@@ -76,7 +76,7 @@ export class BrandsAPI extends BaseAPI {
        return (response as unknown) as BrandDTO;
    }
 
-   async getById (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> {
+   async getById (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> {
        const response = await this._request({
            path: `/merchandise/brands/${encodeURIComponent(id)}`,
            method: 'GET',

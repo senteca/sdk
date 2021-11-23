@@ -3,7 +3,7 @@
 import { HttpClient, toQueryString } from '../../runtime';
 import { MenuItemFilterResultDTO, MenuItemDraftDTO, MenuItemDTO, CustomItemDTO, SectionElementDTO, SectionItemDTO } from '../../../models';
 
-export const MenuFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<MenuItemFilterResultDTO> => {
+export const MenuFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<MenuItemFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/cms/menu`,
         method: 'GET',

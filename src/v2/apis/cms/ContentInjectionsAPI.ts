@@ -13,7 +13,7 @@ export const ContentInjectionsCreate = async (dto: CmsContentInjectionDraftDTO):
     return (response as unknown) as CmsContentInjectionDTO;
 }
 
-export const ContentInjectionsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CmsContentInjectionsFilterResultDTO> => {
+export const ContentInjectionsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CmsContentInjectionsFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/cms/content-injections`,
         method: 'GET',
@@ -22,7 +22,7 @@ export const ContentInjectionsFilter = async (query?: { storeKey?: string, inter
     return (response as unknown) as CmsContentInjectionsFilterResultDTO;
 }
 
-export const ContentInjectionsGetAllValid = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<CmsContentInjectionFilterValidDTO[]> => {
+export const ContentInjectionsGetAllValid = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<CmsContentInjectionFilterValidDTO[]> => {
     const response = await HttpClient.request({
         path: `/cms/content-injections/valid`,
         method: 'GET',

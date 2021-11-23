@@ -13,7 +13,7 @@ export const FoldersCreate = async (dto: FolderDraftDTO): Promise<FolderDTO> => 
     return (response as unknown) as FolderDTO;
 }
 
-export const FoldersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<FolderFilterResultDTO> => {
+export const FoldersFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<FolderFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/cms/folders`,
         method: 'GET',

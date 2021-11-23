@@ -13,7 +13,7 @@ export const ProductTypesCreate = async (dto: ProductTypeDraftDTO): Promise<Prod
     return (response as unknown) as ProductTypeDTO;
 }
 
-export const ProductTypesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductTypeFilterResultDTO> => {
+export const ProductTypesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ProductTypeFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/product-types`,
         method: 'GET',

@@ -13,7 +13,7 @@ export const CustomerMessagesCreate = async (dto: CustomerMessageDraftDTO): Prom
     return (response as unknown) as CustomerMessageDTO;
 }
 
-export const CustomerMessagesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerMessageFilterResultDTO> => {
+export const CustomerMessagesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerMessageFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/users/customer-messages`,
         method: 'GET',

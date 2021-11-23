@@ -13,7 +13,7 @@ export const MediaUploadAssets = async (folderId: string, dto: any): Promise<Med
     return (response as unknown) as MediaDTO[];
 }
 
-export const MediaFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<MediaFilterResultDTO> => {
+export const MediaFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<MediaFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/cms/media`,
         method: 'GET',

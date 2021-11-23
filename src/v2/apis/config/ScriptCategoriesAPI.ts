@@ -13,7 +13,7 @@ export const ScriptCategoriesCreate = async (dto: ScriptCategoryDraftDTO): Promi
     return (response as unknown) as ScriptCategoryDTO;
 }
 
-export const ScriptCategoriesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ScriptCategoryFilterResultDTO> => {
+export const ScriptCategoriesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ScriptCategoryFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/config/script-categories`,
         method: 'GET',
@@ -22,7 +22,7 @@ export const ScriptCategoriesFilter = async (query?: { storeKey?: string, interf
     return (response as unknown) as ScriptCategoryFilterResultDTO;
 }
 
-export const ScriptCategoriesGetAggregated = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ScriptCategoryAggregatedDTO[]> => {
+export const ScriptCategoriesGetAggregated = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<ScriptCategoryAggregatedDTO[]> => {
     const response = await HttpClient.request({
         path: `/config/script-categories/aggregated`,
         method: 'GET',

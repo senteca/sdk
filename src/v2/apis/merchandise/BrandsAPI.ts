@@ -13,7 +13,7 @@ export const BrandsCreate = async (dto: BrandDraftDTO): Promise<BrandDTO> => {
     return (response as unknown) as BrandDTO;
 }
 
-export const BrandsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<BrandFilterResultDTO> => {
+export const BrandsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<BrandFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/brands`,
         method: 'GET',
@@ -32,7 +32,7 @@ export const BrandsImport = async (dto: BrandImportDraftDTO[]): Promise<void> =>
     
 }
 
-export const BrandsSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<BrandSearchResultDTO> => {
+export const BrandsSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<BrandSearchResultDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/brands/search`,
         method: 'GET',
@@ -41,7 +41,7 @@ export const BrandsSearch = async (query?: { storeKey?: string, interfaceKey?: s
     return (response as unknown) as BrandSearchResultDTO;
 }
 
-export const BrandsGetBySlug = async (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> => {
+export const BrandsGetBySlug = async (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/brands/slug=${encodeURIComponent(slug)}`,
         method: 'GET',
@@ -50,7 +50,7 @@ export const BrandsGetBySlug = async (slug: string, query?: { storeKey?: string,
     return (response as unknown) as BrandDTO;
 }
 
-export const BrandsGetByExternalId = async (externalId: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> => {
+export const BrandsGetByExternalId = async (externalId: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/brands/externalId=${encodeURIComponent(externalId)}`,
         method: 'GET',
@@ -77,7 +77,7 @@ export const BrandsDeleteByExternalId = async (externalId: string): Promise<Bran
     return (response as unknown) as BrandDTO;
 }
 
-export const BrandsGetById = async (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> => {
+export const BrandsGetById = async (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/brands/${encodeURIComponent(id)}`,
         method: 'GET',

@@ -2,7 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { CatalogFilterResultDTO, CatalogSearchResultDTO, CatalogAggregateResponseDTO, CustomSortDraftDTO, CustomSortDTO, CustomSortFilterResultDTO, SynonymDraftDTO, SynonymDTO, SynonymFilterResultDTO } from '../../models';
 
 export class CatalogAPI extends BaseAPI {
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, postFilter?: string, fuzzy?: boolean, fuzzyLevel?: string, count?: boolean, limit?: number, offset?: number, sort?: string, secondarySort?: string, geographicalCoordinates?: string, collapseMode?: string }): Promise<CatalogFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, postFilter?: string, fuzzy?: boolean, fuzzyLevel?: string, count?: boolean, limit?: number, offset?: number, sort?: string, secondarySort?: string, geographicalCoordinates?: string, collapseMode?: string }): Promise<CatalogFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/catalog/filter`,
            method: 'GET',
@@ -11,7 +11,7 @@ export class CatalogAPI extends BaseAPI {
        return (response as unknown) as CatalogFilterResultDTO;
    }
 
-   async search (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, text: string, fuzzy?: boolean, fuzzyLevel?: string, includeProducts?: boolean, includeBrands?: boolean, includeCategories?: boolean, limit?: number, includeSuggestions?: boolean, suggestionsMaxAmount?: number, sort?: string, secondarySort?: string, geographicalCoordinates?: string }): Promise<CatalogSearchResultDTO> {
+   async search (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, text: string, fuzzy?: boolean, fuzzyLevel?: string, includeProducts?: boolean, includeBrands?: boolean, includeCategories?: boolean, limit?: number, includeSuggestions?: boolean, suggestionsMaxAmount?: number, sort?: string, secondarySort?: string, geographicalCoordinates?: string }): Promise<CatalogSearchResultDTO> {
        const response = await this._request({
            path: `/merchandise/catalog/search`,
            method: 'GET',
@@ -20,7 +20,7 @@ export class CatalogAPI extends BaseAPI {
        return (response as unknown) as CatalogSearchResultDTO;
    }
 
-   async aggregate (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, postFilter?: string, fuzzy?: boolean, fuzzyLevel?: string, count?: boolean, unfilterSelected?: boolean, terms: string, ranges: string, stats: string, collapseMode?: string, attributeSortType?: string }): Promise<CatalogAggregateResponseDTO> {
+   async aggregate (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, postFilter?: string, fuzzy?: boolean, fuzzyLevel?: string, count?: boolean, unfilterSelected?: boolean, terms: string, ranges: string, stats: string, collapseMode?: string, attributeSortType?: string }): Promise<CatalogAggregateResponseDTO> {
        const response = await this._request({
            path: `/merchandise/catalog/aggregate`,
            method: 'GET',
@@ -39,7 +39,7 @@ export class CatalogAPI extends BaseAPI {
        return (response as unknown) as CustomSortDTO;
    }
 
-   async filterCustomSorts (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomSortFilterResultDTO> {
+   async filterCustomSorts (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomSortFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/catalog/custom-sorts`,
            method: 'GET',
@@ -84,7 +84,7 @@ export class CatalogAPI extends BaseAPI {
        return (response as unknown) as SynonymDTO;
    }
 
-   async filterSynonyms (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<SynonymFilterResultDTO> {
+   async filterSynonyms (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<SynonymFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/catalog/synonyms`,
            method: 'GET',

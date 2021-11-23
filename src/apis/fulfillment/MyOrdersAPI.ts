@@ -1,8 +1,8 @@
 import { BaseAPI } from '../../runtime';
-import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, OrderGrandTotalPrice, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo, PaymentMethodDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, CustomLineItemDraftDTO, ReturnRequestDTO } from '../../models';
+import { OrderFilterResultDTO, SendOrderDTO, OrderDTO, OrderGrandTotalPrice, ShippingModulesInfo, ShippingMethodsInfo, StockLocationsInfo, PaymentMethodsInfo, PlatformMethodUpdateDTO, CustomLineItemDraftDTO, ReturnRequestDTO } from '../../models';
 
 export class MyOrdersAPI extends BaseAPI {
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
        const response = await this._request({
            path: `/fulfillment/my-orders`,
            method: 'GET',
@@ -11,7 +11,7 @@ export class MyOrdersAPI extends BaseAPI {
        return (response as unknown) as OrderFilterResultDTO;
    }
 
-   async create (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: SendOrderDTO): Promise<OrderDTO> {
+   async create (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }, dto: SendOrderDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-orders`,
            method: 'POST',
@@ -22,7 +22,7 @@ export class MyOrdersAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
-   async getMyReferralOrders (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
+   async getMyReferralOrders (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderFilterResultDTO> {
        const response = await this._request({
            path: `/fulfillment/my-orders/referrals`,
            method: 'GET',
@@ -31,13 +31,22 @@ export class MyOrdersAPI extends BaseAPI {
        return (response as unknown) as OrderFilterResultDTO;
    }
 
-   async getMyReferralOrdersGrandTotalPrice (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderGrandTotalPrice> {
+   async getMyReferralOrdersGrandTotalPrice (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<OrderGrandTotalPrice> {
        const response = await this._request({
            path: `/fulfillment/my-orders/referrals/grand-total-price`,
            method: 'GET',
            query: this._stringifyQuery(query),
         });
        return (response as unknown) as OrderGrandTotalPrice;
+   }
+
+   async searchMyReferralOrdersPhones (query?: { limit?: number, offset?: number, phone?: number }): Promise<void> {
+       const response = await this._request({
+           path: `/fulfillment/my-orders/referrals/search-phones`,
+           method: 'GET',
+           query: this._stringifyQuery(query),
+        });
+       
    }
 
    async getAvailableShippingModules (): Promise<ShippingModulesInfo> {
@@ -64,15 +73,7 @@ export class MyOrdersAPI extends BaseAPI {
        return (response as unknown) as StockLocationsInfo;
    }
 
-   async getAvailablePlatformPaymentMethods (): Promise<PaymentMethodDTO[]> {
-       const response = await this._request({
-           path: `/fulfillment/my-orders/available-platform-payment-methods`,
-           method: 'GET',
-        });
-       return (response as unknown) as PaymentMethodDTO[];
-   }
-
-   async exportMyOrders (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, columnDelimiter?: string, recordDelimiter?: string, prettyKeys?: boolean, prettyValues?: boolean }): Promise<any> {
+   async exportMyOrders (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, columnDelimiter?: string, recordDelimiter?: string, prettyKeys?: boolean, prettyValues?: boolean }): Promise<any> {
        const response = await this._request({
            path: `/fulfillment/my-orders/export`,
            method: 'GET',
@@ -107,12 +108,12 @@ export class MyOrdersAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
-   async getPlatformPaymentMethod (id: string): Promise<PaymentMethodDTO> {
+   async getPlatformPaymentMethod (id: string): Promise<any> {
        const response = await this._request({
            path: `/fulfillment/my-orders/${encodeURIComponent(id)}/platform-payment-method`,
            method: 'GET',
         });
-       return (response as unknown) as PaymentMethodDTO;
+       return (response as unknown) as any;
    }
 
    async updateCustomLineItem (id: string, customLineItemId: string, dto: CustomLineItemDraftDTO): Promise<OrderDTO> {

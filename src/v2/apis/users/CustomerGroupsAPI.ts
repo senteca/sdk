@@ -13,7 +13,7 @@ export const CustomerGroupsCreate = async (dto: CustomerGroupDraftDTO): Promise<
     return (response as unknown) as CustomerGroupDTO;
 }
 
-export const CustomerGroupsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerGroupFilterResultDTO> => {
+export const CustomerGroupsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerGroupFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/users/customer-groups`,
         method: 'GET',

@@ -3,7 +3,7 @@
 import { HttpClient, toQueryString } from '../../runtime';
 import { StockLocationSearchResultDTO, StockLocationDraftDTO, StockLocationDTO, StockLocationFilterResultDTO } from '../../../models';
 
-export const StockLocationsSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<StockLocationSearchResultDTO> => {
+export const StockLocationsSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, sort?: string, limit?: number, offset?: number, language?: string, term?: string, phrase?: string }): Promise<StockLocationSearchResultDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/stock-locations/search`,
         method: 'GET',
@@ -22,7 +22,7 @@ export const StockLocationsCreate = async (dto: StockLocationDraftDTO): Promise<
     return (response as unknown) as StockLocationDTO;
 }
 
-export const StockLocationsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<StockLocationFilterResultDTO> => {
+export const StockLocationsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<StockLocationFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/stock-locations`,
         method: 'GET',
@@ -41,7 +41,7 @@ export const StockLocationsImport = async (dto: StockLocationDraftDTO[]): Promis
     
 }
 
-export const StockLocationsGetByKey = async (key: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<StockLocationDTO> => {
+export const StockLocationsGetByKey = async (key: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<StockLocationDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/stock-locations/key=${encodeURIComponent(key)}`,
         method: 'GET',
@@ -60,7 +60,7 @@ export const StockLocationsUpdateByKey = async (key: string, dto: StockLocationD
     return (response as unknown) as StockLocationDTO;
 }
 
-export const StockLocationsGetById = async (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<StockLocationDTO> => {
+export const StockLocationsGetById = async (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<StockLocationDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/stock-locations/${encodeURIComponent(id)}`,
         method: 'GET',

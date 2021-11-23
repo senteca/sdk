@@ -13,7 +13,7 @@ export const CustomFieldsCreate = async (dto: CustomFieldDraftDTO): Promise<Cust
     return (response as unknown) as CustomFieldDTO;
 }
 
-export const CustomFieldsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomFieldFilterResultDTO> => {
+export const CustomFieldsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomFieldFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/config/custom-fields`,
         method: 'GET',

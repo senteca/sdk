@@ -3,7 +3,7 @@
 import { HttpClient, toQueryString } from '../../runtime';
 import { CustomerConsentDTO, CustomerConsentRequestDTO, CustomerConsentRequestBulkDTO, CustomerConsentConfirmDTO } from '../../../models';
 
-export const MyConsentsGetMyConsents = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerConsentDTO[]> => {
+export const MyConsentsGetMyConsents = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerConsentDTO[]> => {
     const response = await HttpClient.request({
         path: `/users/my-consents`,
         method: 'GET',
@@ -12,7 +12,7 @@ export const MyConsentsGetMyConsents = async (query?: { storeKey?: string, inter
     return (response as unknown) as CustomerConsentDTO[];
 }
 
-export const MyConsentsApprove = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentRequestDTO): Promise<CustomerConsentDTO> => {
+export const MyConsentsApprove = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentRequestDTO): Promise<CustomerConsentDTO> => {
     const response = await HttpClient.request({
         path: `/users/my-consents/approve`,
         method: 'PUT',
@@ -23,7 +23,7 @@ export const MyConsentsApprove = async (query: { storeKey?: string, interfaceKey
     return (response as unknown) as CustomerConsentDTO;
 }
 
-export const MyConsentsApproveBulk = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentRequestBulkDTO): Promise<CustomerConsentDTO[]> => {
+export const MyConsentsApproveBulk = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentRequestBulkDTO): Promise<CustomerConsentDTO[]> => {
     const response = await HttpClient.request({
         path: `/users/my-consents/approve/bulk`,
         method: 'PUT',
@@ -34,7 +34,7 @@ export const MyConsentsApproveBulk = async (query: { storeKey?: string, interfac
     return (response as unknown) as CustomerConsentDTO[];
 }
 
-export const MyConsentsReject = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentRequestDTO): Promise<CustomerConsentDTO> => {
+export const MyConsentsReject = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentRequestDTO): Promise<CustomerConsentDTO> => {
     const response = await HttpClient.request({
         path: `/users/my-consents/reject`,
         method: 'PUT',
@@ -45,7 +45,7 @@ export const MyConsentsReject = async (query: { storeKey?: string, interfaceKey?
     return (response as unknown) as CustomerConsentDTO;
 }
 
-export const MyConsentsConfirm = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentConfirmDTO): Promise<void> => {
+export const MyConsentsConfirm = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }, dto: CustomerConsentConfirmDTO): Promise<void> => {
     const response = await HttpClient.request({
         path: `/users/my-consents/confirm`,
         method: 'PUT',

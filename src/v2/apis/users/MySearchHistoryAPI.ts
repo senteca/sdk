@@ -3,7 +3,7 @@
 import { HttpClient, toQueryString } from '../../runtime';
 import { CustomerSearchHistoryFilterResultDTO, CustomerSearchHistoryCreateDraftDTO, CustomerSearchHistoryDTO } from '../../../models';
 
-export const MySearchHistoryFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerSearchHistoryFilterResultDTO> => {
+export const MySearchHistoryFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<CustomerSearchHistoryFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/users/my-search-history`,
         method: 'GET',

@@ -2,7 +2,7 @@ import { BaseAPI } from '../../runtime';
 import { WishListDTO, WishListItemDraftDTO } from '../../models';
 
 export class MyWishListAPI extends BaseAPI {
-   async getMy (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<WishListDTO> {
+   async getMy (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, limit?: number, offset?: number }): Promise<WishListDTO> {
        const response = await this._request({
            path: `/fulfillment/my-wish-list`,
            method: 'GET',
@@ -11,7 +11,7 @@ export class MyWishListAPI extends BaseAPI {
        return (response as unknown) as WishListDTO;
    }
 
-   async addMyItem (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }, dto: WishListItemDraftDTO): Promise<WishListDTO> {
+   async addMyItem (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }, dto: WishListItemDraftDTO): Promise<WishListDTO> {
        const response = await this._request({
            path: `/fulfillment/my-wish-list`,
            method: 'POST',
@@ -22,7 +22,7 @@ export class MyWishListAPI extends BaseAPI {
        return (response as unknown) as WishListDTO;
    }
 
-   async syncMy (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<WishListDTO> {
+   async syncMy (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<WishListDTO> {
        const response = await this._request({
            path: `/fulfillment/my-wish-list/sync`,
            method: 'POST',
@@ -41,7 +41,7 @@ export class MyWishListAPI extends BaseAPI {
        return (response as unknown) as WishListDTO;
    }
 
-   async removeMyItem (itemId: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<WishListDTO> {
+   async removeMyItem (itemId: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<WishListDTO> {
        const response = await this._request({
            path: `/fulfillment/my-wish-list/${encodeURIComponent(itemId)}`,
            method: 'DELETE',

@@ -243,7 +243,7 @@ export class MyCartAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
-   async sync (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<OrderDTO> {
+   async sync (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/sync`,
            method: 'POST',
@@ -252,7 +252,7 @@ export class MyCartAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
-   async getCrossSaleProducts (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ProductDTO[]> {
+   async getCrossSaleProducts (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<ProductDTO[]> {
        const response = await this._request({
            path: `/fulfillment/my-cart/cross-sale-products`,
            method: 'GET',

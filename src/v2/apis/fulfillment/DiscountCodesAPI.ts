@@ -13,7 +13,7 @@ export const DiscountCodesImport = async (dto: string[]): Promise<DiscountCodeDT
     return (response as unknown) as DiscountCodeDTO[];
 }
 
-export const DiscountCodesGetPublic = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<DiscountCodeSearchResultDTO> => {
+export const DiscountCodesGetPublic = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<DiscountCodeSearchResultDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/discount-codes/public`,
         method: 'GET',
@@ -22,7 +22,7 @@ export const DiscountCodesGetPublic = async (query?: { storeKey?: string, interf
     return (response as unknown) as DiscountCodeSearchResultDTO;
 }
 
-export const DiscountCodesSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<DiscountCodeSearchResultDTO> => {
+export const DiscountCodesSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<DiscountCodeSearchResultDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/discount-codes/search`,
         method: 'GET',
@@ -31,7 +31,7 @@ export const DiscountCodesSearch = async (query?: { storeKey?: string, interface
     return (response as unknown) as DiscountCodeSearchResultDTO;
 }
 
-export const DiscountCodesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<DiscountCodeFilterResultDTO> => {
+export const DiscountCodesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<DiscountCodeFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/discount-codes`,
         method: 'GET',

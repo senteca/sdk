@@ -12,7 +12,7 @@ export class ScriptCategoriesAPI extends BaseAPI {
        return (response as unknown) as ScriptCategoryDTO;
    }
 
-   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ScriptCategoryFilterResultDTO> {
+   async filter (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ScriptCategoryFilterResultDTO> {
        const response = await this._request({
            path: `/config/script-categories`,
            method: 'GET',
@@ -21,7 +21,7 @@ export class ScriptCategoriesAPI extends BaseAPI {
        return (response as unknown) as ScriptCategoryFilterResultDTO;
    }
 
-   async getAggregated (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string }): Promise<ScriptCategoryAggregatedDTO[]> {
+   async getAggregated (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<ScriptCategoryAggregatedDTO[]> {
        const response = await this._request({
            path: `/config/script-categories/aggregated`,
            method: 'GET',

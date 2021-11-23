@@ -13,7 +13,7 @@ export const ZonesCreate = async (dto: ZoneDraftDTO): Promise<ZoneDTO> => {
     return (response as unknown) as ZoneDTO;
 }
 
-export const ZonesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ZoneFilterResultDTO> => {
+export const ZonesFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<ZoneFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/zones`,
         method: 'GET',

@@ -3,7 +3,7 @@
 import { HttpClient, toQueryString } from '../../runtime';
 import { WalletSearchResultDTO, WalletFilterResultDTO, WalletDraftDTO, WalletDTO, SetCustomFieldDTO } from '../../../models';
 
-export const WalletsSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletSearchResultDTO> => {
+export const WalletsSearch = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletSearchResultDTO> => {
     const response = await HttpClient.request({
         path: `/users/wallets/search`,
         method: 'GET',
@@ -12,7 +12,7 @@ export const WalletsSearch = async (query?: { storeKey?: string, interfaceKey?: 
     return (response as unknown) as WalletSearchResultDTO;
 }
 
-export const WalletsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, time?: number, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletFilterResultDTO> => {
+export const WalletsFilter = async (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, filter?: string, sort?: string, limit?: number, offset?: number }): Promise<WalletFilterResultDTO> => {
     const response = await HttpClient.request({
         path: `/users/wallets`,
         method: 'GET',
