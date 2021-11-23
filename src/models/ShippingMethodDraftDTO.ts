@@ -4,6 +4,7 @@ import { ZoneRateDTO } from './ZoneRateDTO';
 import { CodFeeTableOrderTotalAmountDTO } from './CodFeeTableOrderTotalAmountDTO';
 
 export interface ShippingMethodDraftDTO {
+  _id?: string;
   version?: number;
   type: ShippingMethodDraftDTOTypeEnum;
   configKey?: KeyReferenceDTO;
