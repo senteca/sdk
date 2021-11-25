@@ -28,6 +28,7 @@ export interface ProductVariantDTO {
   selectedOptions?: SelectedOptionDTO[];
   inventorySnapshot?: InventorySnapshotDTO;
   inventories?: InventoryDTO[];
+  isActive?: boolean;
   name?: LangValue[];
   description?: LangValue[];
   content?: ContentDTO[];

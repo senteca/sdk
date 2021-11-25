@@ -21,6 +21,7 @@ export interface ProductVariantUpdateDTO {
   shippingData?: ShippingDataDTO;
   availableOptions?: OptionDefinitionDTO[];
   inventories?: InventoryDraftDTO[];
+  isActive?: boolean;
   name?: LangValue[];
   description?: LangValue[];
   content?: ContentDTO[];
