@@ -357,6 +357,7 @@ export * from "./ProductVariantDTO";
 export * from "./ProductVariantDraftDTO";
 export * from "./ProductVariantLabelDTO";
 export * from "./ProductVariantOverridesDTO";
+export * from "./ProductVariantStoreAvailabilityDTO";
 export * from "./ProductVariantUpdateDTO";
 export * from "./QuantityUpdateDTO";
 export * from "./RangeAggregation";

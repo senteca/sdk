@@ -4,6 +4,7 @@ import { ImageDTO } from './ImageDTO';
 import { ShippingDataDTO } from './ShippingDataDTO';
 import { OptionDefinitionDTO } from './OptionDefinitionDTO';
 import { InventoryDraftDTO } from './InventoryDraftDTO';
+import { ProductVariantStoreAvailabilityDTO } from './ProductVariantStoreAvailabilityDTO';
 import { LangValue } from './LangValue';
 import { ContentDTO } from './ContentDTO';
 import { ProductVariantLabelDTO } from './ProductVariantLabelDTO';
@@ -21,6 +22,7 @@ export interface ProductVariantUpdateDTO {
   shippingData?: ShippingDataDTO;
   availableOptions?: OptionDefinitionDTO[];
   inventories?: InventoryDraftDTO[];
+  storeAvailability?: ProductVariantStoreAvailabilityDTO[];
   name?: LangValue[];
   description?: LangValue[];
   content?: ContentDTO[];
