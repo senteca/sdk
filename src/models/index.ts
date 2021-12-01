@@ -106,6 +106,7 @@ export * from "./CustomLineItemDTO";
 export * from "./CustomLineItemDraftDTO";
 export * from "./CustomLineItemTypeDTO";
 export * from "./CustomLineItemTypeDraftDTO";
+export * from "./CustomLineItemTypeFilterResultDTO";
 export * from "./CustomSortDTO";
 export * from "./CustomSortDraftDTO";
 export * from "./CustomSortFilterResultDTO";
