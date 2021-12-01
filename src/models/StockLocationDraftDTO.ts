@@ -2,6 +2,7 @@ import { LangValue } from './LangValue';
 import { AddressDraftDTO } from './AddressDraftDTO';
 
 export interface StockLocationDraftDTO {
+  _id?: string;
   version?: number;
   key: string;
   merchantKey: string;

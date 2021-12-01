@@ -1,3 +1,4 @@
+import { LangValue } from './LangValue';
 import { MoneyDTO } from './MoneyDTO';
 import { OfferTierDTO } from './OfferTierDTO';
 import { OfferDiscountDTO } from './OfferDiscountDTO';
@@ -9,6 +10,7 @@ export interface ProductOfferSetOfferDTO {
   validFrom?: number;
   validTo?: number;
   status: ProductOfferSetOfferDTOStatusEnum;
+  statusMessage?: LangValue[];
   originalPrice: MoneyDTO;
   tiers: OfferTierDTO[];
   tier?: OfferTierDTO;
@@ -25,7 +27,7 @@ export interface ProductOfferSetOfferDTO {
 export enum ProductOfferSetOfferDTOStatusEnum {
     Active = 'active',  
     Inactive = 'inactive',  
-    Paused = 'paused',  
+    Fictive = 'fictive',  
 }
 export enum ProductOfferSetOfferDTOUnitEnum {
     G = 'g',  
