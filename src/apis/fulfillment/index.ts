@@ -8,6 +8,7 @@ export * from "./MyOrdersAPI";
 export * from "./MyPaymentsBnpAPI";
 export * from "./MyPaymentsBoricaAPI";
 export * from "./MyPaymentsPaypalAPI";
+export * from "./MyPaymentsUnicreditAPI";
 export * from "./MyShippingsEcontAPI";
 export * from "./MyShippingsEvropatAPI";
 export * from "./MyShippingsFancourierAPI";

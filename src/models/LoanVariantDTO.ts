@@ -1,6 +1,6 @@
 import { MoneyDTO } from './MoneyDTO';
 
-export interface BNPLoanVariantDTO {
+export interface LoanVariantDTO {
   apr: string;
   correctDownPaymentAmount: MoneyDTO;
   installmentAmount: MoneyDTO;
