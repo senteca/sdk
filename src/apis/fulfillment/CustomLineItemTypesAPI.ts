@@ -31,4 +31,22 @@ export class CustomLineItemTypesAPI extends BaseAPI {
        return (response as unknown) as CustomLineItemTypeDTO[];
    }
 
+   async updateById (id: string, dto: CustomLineItemTypeDraftDTO): Promise<CustomLineItemTypeDTO> {
+       const response = await this._request({
+           path: `/fulfillment/custom-line-item-types/${encodeURIComponent(id)}`,
+           method: 'PUT',
+           body: dto,
+           contentType: 'application/json',
+        });
+       return (response as unknown) as CustomLineItemTypeDTO;
+   }
+
+   async deleteById (id: string): Promise<CustomLineItemTypeDTO> {
+       const response = await this._request({
+           path: `/fulfillment/custom-line-item-types/${encodeURIComponent(id)}`,
+           method: 'DELETE',
+        });
+       return (response as unknown) as CustomLineItemTypeDTO;
+   }
+
 }

@@ -32,3 +32,21 @@ export const CustomLineItemTypesBulkRegisterCustomLineItemType = async (dto: Cus
     return (response as unknown) as CustomLineItemTypeDTO[];
 }
 
+export const CustomLineItemTypesUpdateById = async (id: string, dto: CustomLineItemTypeDraftDTO): Promise<CustomLineItemTypeDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/custom-line-item-types/${encodeURIComponent(id)}`,
+        method: 'PUT',
+        body: dto,
+        contentType: 'application/json',
+    });
+    return (response as unknown) as CustomLineItemTypeDTO;
+}
+
+export const CustomLineItemTypesDeleteById = async (id: string): Promise<CustomLineItemTypeDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/custom-line-item-types/${encodeURIComponent(id)}`,
+        method: 'DELETE',
+    });
+    return (response as unknown) as CustomLineItemTypeDTO;
+}
+

@@ -1,3 +1,4 @@
+import { CustomLineItemTypeFieldDTO } from './CustomLineItemTypeFieldDTO';
 
 export interface CustomLineItemTypeDTO {
   _id: string;
@@ -6,5 +7,6 @@ export interface CustomLineItemTypeDTO {
   version: number;
   name: string;
   callbackURL: string;
+  fields: CustomLineItemTypeFieldDTO[];
 }
 
