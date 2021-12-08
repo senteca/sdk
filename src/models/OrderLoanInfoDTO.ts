@@ -1,11 +1,11 @@
 import { MoneyDTO } from './MoneyDTO';
-import { BNPLoanVariantDTO } from './BNPLoanVariantDTO';
-import { BNPLoanOfferDTO } from './BNPLoanOfferDTO';
+import { LoanVariantDTO } from './LoanVariantDTO';
+import { LoanOfferDTO } from './LoanOfferDTO';
 
 export interface OrderLoanInfoDTO {
   customerPIN?: string;
   downPayment: MoneyDTO;
-  selectedPricingVariant: BNPLoanVariantDTO;
-  availablePricingVariants: BNPLoanOfferDTO;
+  selectedPricingVariant: LoanVariantDTO;
+  availablePricingVariants: LoanOfferDTO;
 }
 
