@@ -11,6 +11,7 @@ import { MerchantWeightDTO } from './MerchantWeightDTO';
 import { DiscountCodeInfoDTO } from './DiscountCodeInfoDTO';
 import { SubtotalDiscountDTO } from './SubtotalDiscountDTO';
 import { OrderWalletDTO } from './OrderWalletDTO';
+import { PaymentDTO } from './PaymentDTO';
 import { MerchantMethodDTO } from './MerchantMethodDTO';
 import { IdReferenceDTO } from './IdReferenceDTO';
 import { ShippingDTO } from './ShippingDTO';
@@ -70,7 +71,7 @@ export interface OrderDTO {
   subtotal?: MoneyDTO;
   discountedSubtotal?: SubtotalDiscountDTO;
   wallet?: OrderWalletDTO;
-  payments: any[];
+  payments: PaymentDTO[];
   paymentsAuthority?: OrderDTOPaymentsAuthorityEnum;
   merchantPaymentMethods?: MerchantMethodDTO[];
   platformPaymentMethod?: IdReferenceDTO;
