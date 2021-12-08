@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { BulkLinkUpdateDTO, BulkDeleteDTO, BulkStatusChangeDTO, BulkStateChangeDTO, BulkCustomFieldUpdateDTO, BulkCustomFieldUpdateByFilterDTO, BulkAttributeUpdateDTO, BulkAttributeDeleteDTO, BulkOfferQuantityUpdateDTO, BulkLabelSetDTO, BulkLabelRemoveDTO, ProductOfferSetDTO, ProductDraftDTO, ProductDTO, ProductFilterResultDTO, ProductImportDraftDTO, FilterQueryDTO, ProductSearchResultDTO, AttributeValueDTO, ProductUpdateDTO, SetCustomFieldDTO, AssetDTO, StoreStatusDTO, TransitionProductStateDTO, KeyReferenceDTO, ReviewRatingStatisticsDTO, LangValue, ProductScoreUpdateDTO, ProductOwnerUpdateDTO, IdReferenceDTO, ProductRelationsDTO, ProductAttributeDTO, ProductMasterVariantUpdateDTO, ContentDTO, ProductSkuUpdateDTO, ImageDTO, SwapIndexDTO, ProductVariantDraftDTO, ProductBarcodeUpdateDTO, ProductCollapseKeyUpdateDTO, ProductCollapseModeUpdateDTO, ProductAttributeDraftDTO, OfferDraftDTO, ProductAliasImagesFromUpdateDTO, ShippingDataDTO, ProductVariantOverridesDTO, OptionDefinitionDTO, InventoryDraftDTO, ProductVariantLabelDTO } from '../../../models';
+import { BulkLinkUpdateDTO, BulkDeleteDTO, BulkStatusChangeDTO, BulkStateChangeDTO, BulkCustomFieldUpdateDTO, BulkCustomFieldUpdateByFilterDTO, BulkAttributeUpdateDTO, BulkAttributeDeleteDTO, BulkOfferQuantityUpdateDTO, BulkLabelSetDTO, BulkLabelRemoveDTO, ProductOfferSetDTO, ProductDraftDTO, ProductDTO, ProductFilterResultDTO, ProductImportDraftDTO, FilterQueryDTO, ProductSearchResultDTO, AttributeValueDTO, ProductUpdateDTO, SetCustomFieldDTO, IncCustomFieldDTO, AssetDTO, StoreStatusDTO, TransitionProductStateDTO, KeyReferenceDTO, ReviewRatingStatisticsDTO, LangValue, ProductScoreUpdateDTO, ProductOwnerUpdateDTO, IdReferenceDTO, ProductRelationsDTO, ProductAttributeDTO, ProductMasterVariantUpdateDTO, ContentDTO, ProductSkuUpdateDTO, ImageDTO, SwapIndexDTO, ProductVariantDraftDTO, ProductBarcodeUpdateDTO, ProductCollapseKeyUpdateDTO, ProductCollapseModeUpdateDTO, ProductAttributeDraftDTO, OfferDraftDTO, ProductAliasImagesFromUpdateDTO, ShippingDataDTO, ProductVariantOverridesDTO, OptionDefinitionDTO, InventoryDraftDTO, ProductVariantLabelDTO } from '../../../models';
 
 export const ProductsBulkLink = async (dto: BulkLinkUpdateDTO): Promise<void> => {
     const response = await HttpClient.request({
@@ -265,6 +265,16 @@ export const ProductsDelete = async (id: string): Promise<ProductDTO> => {
 export const ProductsSetCustom = async (id: string, dto: SetCustomFieldDTO[]): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(id)}/custom`,
+        method: 'PATCH',
+        body: dto,
+        contentType: 'application/json',
+    });
+    
+}
+
+export const ProductsIncCustomField = async (id: string, dto: IncCustomFieldDTO): Promise<void> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/${encodeURIComponent(id)}/inc/custom`,
         method: 'PATCH',
         body: dto,
         contentType: 'application/json',

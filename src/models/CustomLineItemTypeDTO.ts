@@ -7,6 +7,6 @@ export interface CustomLineItemTypeDTO {
   version: number;
   name: string;
   callbackURL: string;
-  fields: CustomLineItemTypeFieldDTO[];
+  fields?: CustomLineItemTypeFieldDTO[];
 }
 
