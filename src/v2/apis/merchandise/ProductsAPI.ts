@@ -500,6 +500,14 @@ export const ProductsDeleteContent = async (id: string, idx: number): Promise<vo
     
 }
 
+export const ProductsGetImageOptions = async (): Promise<any> => {
+    const response = await HttpClient.request({
+        path: `/merchandise/products/variants/image-options`,
+        method: 'GET',
+    });
+    return (response as unknown) as any;
+}
+
 export const ProductsSetVariantSku = async (sku: string, dto: ProductSkuUpdateDTO): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,

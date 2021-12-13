@@ -499,6 +499,14 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
+   async getImageOptions (): Promise<any> {
+       const response = await this._request({
+           path: `/merchandise/products/variants/image-options`,
+           method: 'GET',
+        });
+       return (response as unknown) as any;
+   }
+
    async setVariantSku (sku: string, dto: ProductSkuUpdateDTO): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
