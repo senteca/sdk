@@ -14,4 +14,5 @@ export enum CartDiscountValueDTOTypeEnum {
     Relative = 'relative',  
     Absolute = 'absolute',  
     GiftLineItem = 'giftLineItem',  
+    SelectableGiftLineItem = 'selectableGiftLineItem',  
 }

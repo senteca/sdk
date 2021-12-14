@@ -59,4 +59,5 @@ export enum LineItemDTOStatusEnum {
 export enum LineItemDTOLineItemModeEnum {
     Standard = 'Standard',  
     Gift = 'Gift',  
+    SelectableGift = 'SelectableGift',  
 }

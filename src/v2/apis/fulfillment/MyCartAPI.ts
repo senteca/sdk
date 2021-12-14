@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CartDraftDTO, OrderDTO, LineItemDraftDTO, QuantityUpdateDTO, CustomLineItemDraftDTO, DiscountCodeUpdateDTO, AddressDTO, ShippingMethodsInfo, ShippingFeesDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, MethodUpdateDTO, SetCustomFieldDTO, OrderAdditionalInfoUpdateDTO, ProductDTO } from '../../../models';
+import { CartDraftDTO, OrderDTO, LineItemDraftDTO, QuantityUpdateDTO, CustomLineItemDraftDTO, DiscountCodeUpdateDTO, AddressDTO, ShippingMethodsInfo, ShippingFeesDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, MethodUpdateDTO, SetCustomFieldDTO, OrderAdditionalInfoUpdateDTO, ProductDTO, OrderSelectableGiftVariantUpdateDTO } from '../../../models';
 
 export const MyCartCreate = async (dto: CartDraftDTO): Promise<OrderDTO> => {
     const response = await HttpClient.request({
@@ -260,5 +260,15 @@ export const MyCartGetCrossSaleProducts = async (query?: { storeKey?: string, in
         query: toQueryString(query),
     });
     return (response as unknown) as ProductDTO[];
+}
+
+export const MyCartChangeSelectableGiftLineItemVariant = async (dto: OrderSelectableGiftVariantUpdateDTO): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/my-cart/line-items/change-selectable-gift-variant`,
+        method: 'PATCH',
+        body: dto,
+        contentType: 'application/json',
+    });
+    return (response as unknown) as OrderDTO;
 }
 

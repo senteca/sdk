@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CartDraftDTO, OrderDTO, LineItemDraftDTO, QuantityUpdateDTO, CustomLineItemDraftDTO, DiscountCodeUpdateDTO, AddressDTO, ShippingMethodsInfo, ShippingFeesDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, MethodUpdateDTO, SetCustomFieldDTO, OrderAdditionalInfoUpdateDTO, ProductDTO } from '../../models';
+import { CartDraftDTO, OrderDTO, LineItemDraftDTO, QuantityUpdateDTO, CustomLineItemDraftDTO, DiscountCodeUpdateDTO, AddressDTO, ShippingMethodsInfo, ShippingFeesDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, MethodUpdateDTO, SetCustomFieldDTO, OrderAdditionalInfoUpdateDTO, ProductDTO, OrderSelectableGiftVariantUpdateDTO } from '../../models';
 
 export class MyCartAPI extends BaseAPI {
    async create (dto: CartDraftDTO): Promise<OrderDTO> {
@@ -259,6 +259,16 @@ export class MyCartAPI extends BaseAPI {
            query: this._stringifyQuery(query),
         });
        return (response as unknown) as ProductDTO[];
+   }
+
+   async changeSelectableGiftLineItemVariant (dto: OrderSelectableGiftVariantUpdateDTO): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-cart/line-items/change-selectable-gift-variant`,
+           method: 'PATCH',
+           body: dto,
+           contentType: 'application/json',
+        });
+       return (response as unknown) as OrderDTO;
    }
 
 }
