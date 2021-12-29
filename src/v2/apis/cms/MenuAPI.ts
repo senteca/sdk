@@ -30,14 +30,6 @@ export const MenuGetAll = async (): Promise<MenuItemDTO[]> => {
     return (response as unknown) as MenuItemDTO[];
 }
 
-export const MenuGetMenuByKey = async (key: string): Promise<MenuItemDTO> => {
-    const response = await HttpClient.request({
-        path: `/cms/menu/key=${encodeURIComponent(key)}`,
-        method: 'GET',
-    });
-    return (response as unknown) as MenuItemDTO;
-}
-
 export const MenuGetMenuById = async (id: string): Promise<MenuItemDTO> => {
     const response = await HttpClient.request({
         path: `/cms/menu/${encodeURIComponent(id)}`,
