@@ -9,7 +9,7 @@ export interface ViewDTO {
   key?: string;
   validFrom?: number;
   validTo?: number;
-  filters: string;
+  filters?: string;
   assets?: AssetDTO[];
   slug: LangValue[];
   metaTitle?: LangValue[];

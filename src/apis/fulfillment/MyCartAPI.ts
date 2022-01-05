@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CartDraftDTO, OrderDTO, LineItemDraftDTO, QuantityUpdateDTO, CustomLineItemDraftDTO, DiscountCodeUpdateDTO, AddressDTO, ShippingMethodsInfo, ShippingFeesDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, MethodUpdateDTO, SetCustomFieldDTO, OrderAdditionalInfoUpdateDTO, ProductDTO, OrderSelectableGiftVariantUpdateDTO } from '../../models';
+import { CartDraftDTO, OrderDTO, LineItemDraftDTO, QuantityUpdateDTO, CustomLineItemDraftDTO, DiscountCodeUpdateDTO, AddressDTO, OrderLoanInfoDTO, ShippingMethodsInfo, ShippingFeesDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, MethodUpdateDTO, SetCustomFieldDTO, OrderAdditionalInfoUpdateDTO, ProductDTO, OrderSelectableGiftVariantUpdateDTO } from '../../models';
 
 export class MyCartAPI extends BaseAPI {
    async create (dto: CartDraftDTO): Promise<OrderDTO> {
@@ -114,6 +114,16 @@ export class MyCartAPI extends BaseAPI {
    async setShippingAddress (dto: AddressDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/shipping-address`,
+           method: 'PATCH',
+           body: dto,
+           contentType: 'application/json',
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
+   async setLoanInfo (dto: OrderLoanInfoDTO): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-cart/loan-info`,
            method: 'PATCH',
            body: dto,
            contentType: 'application/json',

@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CartDraftDTO, OrderDTO, LineItemDraftDTO, QuantityUpdateDTO, CustomLineItemDraftDTO, DiscountCodeUpdateDTO, AddressDTO, ShippingMethodsInfo, ShippingFeesDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, MethodUpdateDTO, SetCustomFieldDTO, OrderAdditionalInfoUpdateDTO, ProductDTO, OrderSelectableGiftVariantUpdateDTO } from '../../../models';
+import { CartDraftDTO, OrderDTO, LineItemDraftDTO, QuantityUpdateDTO, CustomLineItemDraftDTO, DiscountCodeUpdateDTO, AddressDTO, OrderLoanInfoDTO, ShippingMethodsInfo, ShippingFeesDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, MethodUpdateDTO, SetCustomFieldDTO, OrderAdditionalInfoUpdateDTO, ProductDTO, OrderSelectableGiftVariantUpdateDTO } from '../../../models';
 
 export const MyCartCreate = async (dto: CartDraftDTO): Promise<OrderDTO> => {
     const response = await HttpClient.request({
@@ -115,6 +115,16 @@ export const MyCartDeleteWallet = async (type: string): Promise<OrderDTO> => {
 export const MyCartSetShippingAddress = async (dto: AddressDTO): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-cart/shipping-address`,
+        method: 'PATCH',
+        body: dto,
+        contentType: 'application/json',
+    });
+    return (response as unknown) as OrderDTO;
+}
+
+export const MyCartSetLoanInfo = async (dto: OrderLoanInfoDTO): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/my-cart/loan-info`,
         method: 'PATCH',
         body: dto,
         contentType: 'application/json',
