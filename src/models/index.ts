@@ -45,6 +45,7 @@ export * from "./BulkLabelRemoveDTO";
 export * from "./BulkLabelSetDTO";
 export * from "./BulkLinkUpdateDTO";
 export * from "./BulkOfferQuantityUpdateDTO";
+export * from "./BulkScoreUpdateDTO";
 export * from "./BulkStateChangeDTO";
 export * from "./BulkStatusChangeDTO";
 export * from "./CSVParametersDTO";
