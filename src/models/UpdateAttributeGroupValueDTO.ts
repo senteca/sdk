@@ -1,10 +1,8 @@
 import { LangValue } from './LangValue';
 
-export interface UpdateAttributeValueDTO {
+export interface UpdateAttributeGroupValueDTO {
   key: string;
   label: LangValue[];
-  groupName: string;
-  groupValueKey: string;
   extra?: any;
   oldKey: string;
 }

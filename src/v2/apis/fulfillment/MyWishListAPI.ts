@@ -32,10 +32,11 @@ export const MyWishListSyncMy = async (query?: { storeKey?: string, interfaceKey
     return (response as unknown) as WishListDTO;
 }
 
-export const MyWishListRemoveMyItemsBulk = async (dto: string[]): Promise<WishListDTO> => {
+export const MyWishListRemoveMyItemsBulk = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }, dto: string[]): Promise<WishListDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-wish-list/bulk`,
         method: 'DELETE',
+        query: toQueryString(query),
         body: dto,
         contentType: 'application/json',
     });

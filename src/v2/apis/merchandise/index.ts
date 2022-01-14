@@ -1,3 +1,4 @@
+export * from "./AttributeGroupsAPI";
 export * from "./AttributesAPI";
 export * from "./BrandsAPI";
 export * from "./CatalogAPI";
