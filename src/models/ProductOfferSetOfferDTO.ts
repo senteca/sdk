@@ -22,6 +22,7 @@ export interface ProductOfferSetOfferDTO {
   step?: number;
   sellUnit: ProductOfferSetOfferDTOSellUnitEnum;
   conversionRate?: number;
+  externallyChanged?: boolean;
 }
 
 export enum ProductOfferSetOfferDTOStatusEnum {

@@ -339,6 +339,7 @@ export * from "./PlatformMethodUpdateDTO";
 export * from "./PriceListDTO";
 export * from "./PriceListDraftDTO";
 export * from "./PriceListFilterResultDTO";
+export * from "./PriceUpdateDTO";
 export * from "./PricingSchemesDTO";
 export * from "./ProductAliasImagesFromUpdateDTO";
 export * from "./ProductAttributeDTO";

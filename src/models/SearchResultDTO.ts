@@ -27,5 +27,6 @@ export interface SearchResultDTO {
   variantOptions: number;
   custom: CustomField[];
   labels?: ProductVariantLabelDTO[];
+  variants?: SearchResultDTO[];
 }
 

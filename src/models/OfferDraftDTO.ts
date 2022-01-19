@@ -21,6 +21,7 @@ export interface OfferDraftDTO {
   step?: number;
   sellUnit: OfferDraftDTOSellUnitEnum;
   conversionRate?: number;
+  externallyChanged?: boolean;
 }
 
 export enum OfferDraftDTOStatusEnum {
