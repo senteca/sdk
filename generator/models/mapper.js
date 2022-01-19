@@ -25,7 +25,7 @@ module.exports = class ModelsMapper {
         name,
       );
 
-      if (relatedModel && !relatedModels.includes(relatedModel)) {
+      if (relatedModel && !relatedModels.includes(relatedModel) && relatedModel !== name) {
         relatedModels.push(relatedModel);
       }
 
