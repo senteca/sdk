@@ -11,6 +11,7 @@ import { ProductVariantLabelDTO } from './ProductVariantLabelDTO';
 import { CustomField } from './CustomField';
 
 export interface ProductVariantUpdateDTO {
+  sku?: string;
   masterBarcode?: string;
   barcodes?: string[];
   collapseKey?: string;
@@ -31,6 +32,7 @@ export interface ProductVariantUpdateDTO {
   metaKeywords?: LangValue[];
   labels?: ProductVariantLabelDTO[];
   custom?: CustomField[];
+  score?: number;
 }
 
 export enum ProductVariantUpdateDTOCollapseModeEnum {

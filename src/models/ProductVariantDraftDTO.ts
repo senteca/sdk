@@ -33,6 +33,7 @@ export interface ProductVariantDraftDTO {
   metaKeywords?: LangValue[];
   labels?: ProductVariantLabelDTO[];
   custom?: CustomField[];
+  score?: number;
 }
 
 export enum ProductVariantDraftDTOCollapseModeEnum {

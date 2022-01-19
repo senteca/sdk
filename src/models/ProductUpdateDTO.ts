@@ -10,6 +10,7 @@ import { ProductRelationsDTO } from './ProductRelationsDTO';
 import { AddonDataDTO } from './AddonDataDTO';
 import { ProductLoanInfoDTO } from './ProductLoanInfoDTO';
 import { ProductAttributeDTO } from './ProductAttributeDTO';
+import { ProductVariantDTO } from './ProductVariantDTO';
 import { AttributeRuleDTO } from './AttributeRuleDTO';
 
 export interface ProductUpdateDTO {
@@ -41,6 +42,7 @@ export interface ProductUpdateDTO {
   loanInfo?: ProductLoanInfoDTO;
   updatedAt?: number;
   attributes?: ProductAttributeDTO[];
+  variants?: ProductVariantDTO[];
   attributeRules?: AttributeRuleDTO[];
 }
 
