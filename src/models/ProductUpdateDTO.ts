@@ -1,3 +1,4 @@
+import { ProductUpdateOptionsDTO } from './ProductUpdateOptionsDTO';
 import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { StoreStatusDTO } from './StoreStatusDTO';
 import { LangValue } from './LangValue';
@@ -14,6 +15,7 @@ import { ProductVariantDTO } from './ProductVariantDTO';
 import { AttributeRuleDTO } from './AttributeRuleDTO';
 
 export interface ProductUpdateDTO {
+  options?: ProductUpdateOptionsDTO;
   version?: number;
   type?: KeyReferenceDTO;
   owner?: string;

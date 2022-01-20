@@ -370,6 +370,7 @@ export * from "./ProductTypeDTO";
 export * from "./ProductTypeDraftDTO";
 export * from "./ProductTypeFilterResultDTO";
 export * from "./ProductUpdateDTO";
+export * from "./ProductUpdateOptionsDTO";
 export * from "./ProductVariantDTO";
 export * from "./ProductVariantDraftDTO";
 export * from "./ProductVariantLabelDTO";
