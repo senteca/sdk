@@ -10,6 +10,7 @@ import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
 import { ProductRelationsDTO } from './ProductRelationsDTO';
 import { AddonDataDTO } from './AddonDataDTO';
 import { ProductLoanInfoDTO } from './ProductLoanInfoDTO';
+import { AttributeRuleDTO } from './AttributeRuleDTO';
 import { ProductAttributeDraftDTO } from './ProductAttributeDraftDTO';
 import { ProductVariantDraftDTO } from './ProductVariantDraftDTO';
 
@@ -41,6 +42,7 @@ export interface ProductUpdateDTO {
   relations?: ProductRelationsDTO;
   addonData?: AddonDataDTO[];
   loanInfo?: ProductLoanInfoDTO;
+  attributeRules?: AttributeRuleDTO[];
   attributes?: ProductAttributeDraftDTO[];
   variants?: ProductVariantDraftDTO[];
 }

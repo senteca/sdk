@@ -1,6 +1,5 @@
 import { ProductAttributeDTO } from './ProductAttributeDTO';
 import { ProductVariantDTO } from './ProductVariantDTO';
-import { AttributeRuleDTO } from './AttributeRuleDTO';
 import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { StoreStatusDTO } from './StoreStatusDTO';
 import { LangValue } from './LangValue';
@@ -12,13 +11,13 @@ import { ReviewRatingStatisticsDTO } from './ReviewRatingStatisticsDTO';
 import { ProductRelationsDTO } from './ProductRelationsDTO';
 import { AddonDataDTO } from './AddonDataDTO';
 import { ProductLoanInfoDTO } from './ProductLoanInfoDTO';
+import { AttributeRuleDTO } from './AttributeRuleDTO';
 
 export interface ProductDTO {
   createdAt: number;
   updatedAt: number;
   attributes?: ProductAttributeDTO[];
   variants?: ProductVariantDTO[];
-  attributeRules?: AttributeRuleDTO[];
   _id?: string;
   version?: number;
   type: KeyReferenceDTO;
@@ -46,5 +45,6 @@ export interface ProductDTO {
   relations?: ProductRelationsDTO;
   addonData?: AddonDataDTO[];
   loanInfo?: ProductLoanInfoDTO;
+  attributeRules?: AttributeRuleDTO[];
 }
 
