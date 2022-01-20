@@ -1,10 +1,10 @@
 import { LangValue } from './LangValue';
 
 export interface AttributeValueDTO {
+  groupName?: string;
+  groupValueKey?: string;
   key: string;
   label: LangValue[];
-  groupName: string;
-  groupValueKey: string;
   extra?: any;
   _id?: string;
 }
