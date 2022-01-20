@@ -253,10 +253,11 @@ export class ProductsAPI extends BaseAPI {
        return (response as unknown) as ProductDTO;
    }
 
-   async updateProduct (id: string, dto: ProductUpdateDTO): Promise<ProductDTO> {
+   async updateProduct (id: string, query: { overrideVariants?: boolean }, dto: ProductUpdateDTO): Promise<ProductDTO> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}`,
            method: 'PATCH',
+           query: this._stringifyQuery(query),
            body: dto,
            contentType: 'application/json',
         });

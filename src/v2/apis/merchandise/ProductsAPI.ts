@@ -254,10 +254,11 @@ export const ProductsGetById = async (id: string, query?: { storeKey?: string, i
     return (response as unknown) as ProductDTO;
 }
 
-export const ProductsUpdateProduct = async (id: string, dto: ProductUpdateDTO): Promise<ProductDTO> => {
+export const ProductsUpdateProduct = async (id: string, query: { overrideVariants?: boolean }, dto: ProductUpdateDTO): Promise<ProductDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(id)}`,
         method: 'PATCH',
+        query: toQueryString(query),
         body: dto,
         contentType: 'application/json',
     });
