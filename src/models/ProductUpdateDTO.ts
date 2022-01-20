@@ -1,3 +1,4 @@
+import { ProductUpdateVariantDTO } from './ProductUpdateVariantDTO';
 import { ProductUpdateOptionsDTO } from './ProductUpdateOptionsDTO';
 import { KeyReferenceDTO } from './KeyReferenceDTO';
 import { StoreStatusDTO } from './StoreStatusDTO';
@@ -12,9 +13,9 @@ import { AddonDataDTO } from './AddonDataDTO';
 import { ProductLoanInfoDTO } from './ProductLoanInfoDTO';
 import { AttributeRuleDTO } from './AttributeRuleDTO';
 import { ProductAttributeDraftDTO } from './ProductAttributeDraftDTO';
-import { ProductVariantDraftDTO } from './ProductVariantDraftDTO';
 
 export interface ProductUpdateDTO {
+  variants?: ProductUpdateVariantDTO[];
   options?: ProductUpdateOptionsDTO;
   version?: number;
   type?: KeyReferenceDTO;
@@ -44,6 +45,5 @@ export interface ProductUpdateDTO {
   loanInfo?: ProductLoanInfoDTO;
   attributeRules?: AttributeRuleDTO[];
   attributes?: ProductAttributeDraftDTO[];
-  variants?: ProductVariantDraftDTO[];
 }
 
