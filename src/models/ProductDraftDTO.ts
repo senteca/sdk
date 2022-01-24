@@ -17,6 +17,8 @@ export interface ProductDraftDTO {
   attributes?: ProductAttributeDraftDTO[];
   variants?: ProductVariantDraftDTO[];
   _id?: string;
+  createdAt?: number;
+  updatedAt?: number;
   version?: number;
   type: KeyReferenceDTO;
   owner?: string;

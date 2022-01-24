@@ -17,6 +17,8 @@ import { ProductAttributeDraftDTO } from './ProductAttributeDraftDTO';
 export interface ProductUpdateDTO {
   variants?: ProductUpdateVariantDTO[];
   options?: ProductUpdateOptionsDTO;
+  createdAt?: number;
+  updatedAt?: number;
   version?: number;
   type?: KeyReferenceDTO;
   owner?: string;
