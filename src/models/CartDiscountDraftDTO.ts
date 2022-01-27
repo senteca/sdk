@@ -19,6 +19,7 @@ export interface CartDiscountDraftDTO {
   validFrom?: number;
   validTo?: number;
   requiresDiscountCode?: boolean;
+  evadeUniqueFilter?: boolean;
   stackingMode: CartDiscountDraftDTOStackingModeEnum;
   custom?: CustomField[];
 }
