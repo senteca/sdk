@@ -15,6 +15,7 @@ export interface PaymentMethodDTO {
   countryCode: string;
   currencyCode: string;
   config: any;
+  isActive?: boolean;
 }
 
 export enum PaymentMethodDTOTypeEnum {
