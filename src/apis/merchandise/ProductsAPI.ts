@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { BulkLinkUpdateDTO, BulkDeleteDTO, BulkStatusChangeDTO, BulkStateChangeDTO, BulkCustomFieldUpdateDTO, BulkCustomFieldUpdateByFilterDTO, BulkAttributeUpdateDTO, BulkAttributeDeleteDTO, BulkOfferQuantityUpdateDTO, BulkScoreUpdateDTO, BulkLabelSetDTO, BulkLabelRemoveDTO, ProductOfferSetDTO, ProductDraftDTO, ProductDTO, ProductFilterResultDTO, ProductImportDraftDTO, FilterQueryDTO, ProductSearchResultDTO, AttributeValueDTO, ProductUpdateDTO, SetCustomFieldDTO, IncCustomFieldDTO, AssetDTO, StoreStatusDTO, TransitionProductStateDTO, KeyReferenceDTO, ReviewRatingStatisticsDTO, LangValue, ProductScoreUpdateDTO, ProductOwnerUpdateDTO, IdReferenceDTO, ProductRelationsDTO, ProductAttributeDTO, ProductMasterVariantUpdateDTO, ContentDTO, ImageOptionsDTO, ProductSkuUpdateDTO, ImageDTO, SwapIndexDTO, ProductVariantDraftDTO, ProductBarcodeUpdateDTO, ProductCollapseKeyUpdateDTO, ProductCollapseModeUpdateDTO, ProductAttributeDraftDTO, OfferDraftDTO, ProductAliasImagesFromUpdateDTO, ShippingDataDTO, ProductVariantOverridesDTO, OptionDefinitionDTO, InventoryDraftDTO, ProductVariantLabelDTO } from '../../models';
+import { BulkLinkUpdateDTO, BulkDeleteDTO, BulkStatusChangeDTO, BulkStateChangeDTO, BulkCustomFieldUpdateDTO, BulkCustomFieldUpdateByFilterDTO, BulkAttributeUpdateDTO, BulkAttributeDeleteDTO, BulkOfferQuantityUpdateDTO, BulkScoreUpdateDTO, BulkLabelSetDTO, BulkLabelRemoveDTO, ProductVariantOfferSetDTO, ProductDraftDTO, ProductDTO, ProductFilterResultDTO, ProductImportDraftDTO, FilterQueryDTO, ProductSearchResultDTO, AttributeValueDTO, ProductUpdateDTO, SetCustomFieldDTO, IncCustomFieldDTO, AssetDTO, StoreStatusDTO, TransitionProductStateDTO, KeyReferenceDTO, ReviewRatingStatisticsDTO, LangValue, ProductScoreUpdateDTO, ProductOwnerUpdateDTO, IdReferenceDTO, ProductRelationsDTO, ProductAttributeDTO, ProductMasterVariantUpdateDTO, ContentDTO, ImageOptionsDTO, ProductSkuUpdateDTO, ImageDTO, SwapIndexDTO, ProductVariantDraftDTO, ProductBarcodeUpdateDTO, ProductCollapseKeyUpdateDTO, ProductCollapseModeUpdateDTO, ProductAttributeDraftDTO, OfferDraftDTO, ProductAliasImagesFromUpdateDTO, ShippingDataDTO, ProductVariantOverridesDTO, OptionDefinitionDTO, InventoryDraftDTO, ProductVariantLabelDTO } from '../../models';
 
 export class ProductsAPI extends BaseAPI {
    async bulkLink (dto: BulkLinkUpdateDTO): Promise<void> {
@@ -142,9 +142,19 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async bulkSetOffers (dto: ProductOfferSetDTO[]): Promise<void> {
+   async bulkSetOffers (dto: ProductVariantOfferSetDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/bulk/offers`,
+           method: 'PATCH',
+           body: dto,
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async bulkDeleteExternalDiscounts (dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/bulk/delete-external-discounts`,
            method: 'PATCH',
            body: dto,
            contentType: 'application/json',

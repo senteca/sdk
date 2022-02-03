@@ -1,6 +1,6 @@
 import { ProductOfferSetOfferDTO } from './ProductOfferSetOfferDTO';
 
-export interface ProductOfferSetVariantDTO {
+export interface ProductVariantOfferSetDTO {
   sku: string;
   offers?: ProductOfferSetOfferDTO[];
 }

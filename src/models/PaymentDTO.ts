@@ -17,7 +17,6 @@ export interface PaymentDTO {
   amount: MoneyDTO;
   billingAddress?: AddressDTO;
   transactions?: PaymentTransactionDTO[];
-  isActive?: boolean;
 }
 
 export enum PaymentDTOStatusEnum {
