@@ -246,10 +246,11 @@ export class ProductsAPI extends BaseAPI {
        return (response as unknown) as ProductDTO;
    }
 
-   async getAttributeLabel (selector: string, value: string): Promise<AttributeValueDTO> {
+   async getAttributeLabel (selector: string, value: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<AttributeValueDTO> {
        const response = await this._request({
            path: `/merchandise/products/attribute/${encodeURIComponent(selector)}=${encodeURIComponent(value)}`,
            method: 'GET',
+           query: this._stringifyQuery(query),
         });
        return (response as unknown) as AttributeValueDTO;
    }

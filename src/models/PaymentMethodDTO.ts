@@ -4,6 +4,7 @@ export interface PaymentMethodDTO {
   _id: string;
   createdAt: number;
   updatedAt: number;
+  isActive: boolean;
   version?: number;
   key: string;
   type: PaymentMethodDTOTypeEnum;

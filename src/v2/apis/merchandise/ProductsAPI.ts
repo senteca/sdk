@@ -247,10 +247,11 @@ export const ProductsDeleteByExternalId = async (externalId: string): Promise<Pr
     return (response as unknown) as ProductDTO;
 }
 
-export const ProductsGetAttributeLabel = async (selector: string, value: string): Promise<AttributeValueDTO> => {
+export const ProductsGetAttributeLabel = async (selector: string, value: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<AttributeValueDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/attribute/${encodeURIComponent(selector)}=${encodeURIComponent(value)}`,
         method: 'GET',
+        query: toQueryString(query),
     });
     return (response as unknown) as AttributeValueDTO;
 }
