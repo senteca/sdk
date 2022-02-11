@@ -9,6 +9,7 @@ import { ProductVariantLabelDTO } from './ProductVariantLabelDTO';
 
 export interface SearchResultDTO {
   attributes?: any;
+  variantAttributes?: any;
   _id: string;
   variantId: string;
   collapseKey: string;
