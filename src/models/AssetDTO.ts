@@ -8,6 +8,7 @@ export interface AssetDTO {
   sources: AssetSourceDTO[];
   description?: LangValue[];
   tags?: string[];
+  link?: string;
   custom?: CustomField[];
 }
 
