@@ -41,7 +41,7 @@ export const BrandsSearch = async (query?: { storeKey?: string, interfaceKey?: s
     return (response as unknown) as BrandSearchResultDTO;
 }
 
-export const BrandsGetBySlug = async (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<BrandDTO> => {
+export const BrandsGetBySlug = async (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, scopeLanguages?: boolean }): Promise<BrandDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/brands/slug=${encodeURIComponent(slug)}`,
         method: 'GET',

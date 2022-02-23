@@ -41,7 +41,7 @@ export const CategoriesSearch = async (query?: { storeKey?: string, interfaceKey
     return (response as unknown) as CategorySearchResultDTO;
 }
 
-export const CategoriesGetBySlug = async (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<CategoryDTO> => {
+export const CategoriesGetBySlug = async (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, scopeLanguages?: boolean }): Promise<CategoryDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/categories/slug=${encodeURIComponent(slug)}`,
         method: 'GET',

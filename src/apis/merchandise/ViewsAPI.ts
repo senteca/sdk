@@ -48,7 +48,7 @@ export class ViewsAPI extends BaseAPI {
        return (response as unknown) as ViewFilterResultDTO;
    }
 
-   async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<ViewDTO> {
+   async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, scopeLanguages?: boolean }): Promise<ViewDTO> {
        const response = await this._request({
            path: `/merchandise/views/slug=${encodeURIComponent(slug)}`,
            method: 'GET',

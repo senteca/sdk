@@ -40,7 +40,7 @@ export class CategoriesAPI extends BaseAPI {
        return (response as unknown) as CategorySearchResultDTO;
    }
 
-   async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<CategoryDTO> {
+   async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, scopeLanguages?: boolean }): Promise<CategoryDTO> {
        const response = await this._request({
            path: `/merchandise/categories/slug=${encodeURIComponent(slug)}`,
            method: 'GET',
