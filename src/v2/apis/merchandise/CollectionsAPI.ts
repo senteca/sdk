@@ -41,7 +41,7 @@ export const CollectionsSearch = async (query?: { storeKey?: string, interfaceKe
     return (response as unknown) as CollectionSearchResultDTO;
 }
 
-export const CollectionsGetBySlug = async (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, scopeLanguages?: boolean }): Promise<CollectionDTO> => {
+export const CollectionsGetBySlug = async (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[] }): Promise<CollectionDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/collections/slug=${encodeURIComponent(slug)}`,
         method: 'GET',

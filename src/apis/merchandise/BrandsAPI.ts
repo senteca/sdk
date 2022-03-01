@@ -40,7 +40,7 @@ export class BrandsAPI extends BaseAPI {
        return (response as unknown) as BrandSearchResultDTO;
    }
 
-   async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, scopeLanguages?: boolean }): Promise<BrandDTO> {
+   async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[] }): Promise<BrandDTO> {
        const response = await this._request({
            path: `/merchandise/brands/slug=${encodeURIComponent(slug)}`,
            method: 'GET',

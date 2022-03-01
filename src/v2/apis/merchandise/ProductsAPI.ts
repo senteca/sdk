@@ -221,7 +221,7 @@ export const ProductsSearch = async (query?: { storeKey?: string, interfaceKey?:
     return (response as unknown) as ProductSearchResultDTO;
 }
 
-export const ProductsGetBySlug = async (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, scopeLanguages?: boolean, stockLocationKey?: string }): Promise<ProductDTO> => {
+export const ProductsGetBySlug = async (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[], stockLocationKey?: string }): Promise<ProductDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/slug=${encodeURIComponent(slug)}`,
         method: 'GET',
@@ -230,7 +230,7 @@ export const ProductsGetBySlug = async (slug: string, query?: { storeKey?: strin
     return (response as unknown) as ProductDTO;
 }
 
-export const ProductsGetByExternalId = async (externalId: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, scopeLanguages?: boolean, stockLocationKey?: string }): Promise<ProductDTO> => {
+export const ProductsGetByExternalId = async (externalId: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[], stockLocationKey?: string }): Promise<ProductDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/externalId=${encodeURIComponent(externalId)}`,
         method: 'GET',
@@ -256,7 +256,7 @@ export const ProductsGetAttributeLabel = async (selector: string, value: string,
     return (response as unknown) as AttributeValueDTO;
 }
 
-export const ProductsGetById = async (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, scopeLanguages?: boolean, stockLocationKey?: string }): Promise<ProductDTO> => {
+export const ProductsGetById = async (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[], stockLocationKey?: string }): Promise<ProductDTO> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(id)}`,
         method: 'GET',

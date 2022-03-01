@@ -40,7 +40,7 @@ export class CollectionsAPI extends BaseAPI {
        return (response as unknown) as CollectionSearchResultDTO;
    }
 
-   async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, scopeLanguages?: boolean }): Promise<CollectionDTO> {
+   async getBySlug (slug: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[] }): Promise<CollectionDTO> {
        const response = await this._request({
            path: `/merchandise/collections/slug=${encodeURIComponent(slug)}`,
            method: 'GET',
