@@ -413,9 +413,9 @@ export const ProductsSetMetaKeywords = async (id: string, dto: LangValue[]): Pro
     
 }
 
-export const ProductsSetScore = async (id: string, dto: ProductScoreUpdateDTO): Promise<void> => {
+export const ProductsSetVariantScore = async (sku: string, dto: ProductScoreUpdateDTO): Promise<void> => {
     const response = await HttpClient.request({
-        path: `/merchandise/products/${encodeURIComponent(id)}/score`,
+        path: `/merchandise/products/${encodeURIComponent(sku)}/score`,
         method: 'PATCH',
         body: dto,
         contentType: 'application/json',

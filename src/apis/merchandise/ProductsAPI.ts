@@ -412,9 +412,9 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setScore (id: string, dto: ProductScoreUpdateDTO): Promise<void> {
+   async setVariantScore (sku: string, dto: ProductScoreUpdateDTO): Promise<void> {
        const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(id)}/score`,
+           path: `/merchandise/products/${encodeURIComponent(sku)}/score`,
            method: 'PATCH',
            body: dto,
            contentType: 'application/json',
