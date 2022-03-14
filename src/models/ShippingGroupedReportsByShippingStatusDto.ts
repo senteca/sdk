@@ -1,10 +1,10 @@
 
-export interface ShippingGroupedReportsByShippingStatusDto {
+export interface ShippingGroupedReportsByShippingStatusDTO {
   orderIds: string[];
-  newStatus: ShippingGroupedReportsByShippingStatusDtoNewStatusEnum;
+  newStatus: ShippingGroupedReportsByShippingStatusDTONewStatusEnum;
 }
 
-export enum ShippingGroupedReportsByShippingStatusDtoNewStatusEnum {
+export enum ShippingGroupedReportsByShippingStatusDTONewStatusEnum {
     Initial = 'Initial',  
     Pending = 'Pending',  
     Delayed = 'Delayed',  

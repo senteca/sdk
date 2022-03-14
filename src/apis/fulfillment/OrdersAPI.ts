@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { OrderImportDTO, OrderDTO, FilterQueryDTO, CartDraftDTO, NewOrders, OrderFilterResultDTO, OrderGrandTotalPrice, TransitionOrderStateDTO, OrderNoteUpdateDTO, OrderAdditionalInfoUpdateDTO, OrderCustomerGroupUpdateDTO, OrderStatusUpdateDTO, SetCustomFieldDTO, TransitionLineItemQuantityState, LineItemDraftDTO, QuantityUpdateDTO, PriceUpdateDTO, DiscountCodeUpdateDTO, AddressDTO, ShippingMethodsInfo, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, ShippingMethodDTO, ShippingMethodUpdateDTO, ShippingStatusUpdateDTO, ShippingGroupedReportsByShippingStatusDto, ShippingDeliveryDraftDTO, ShippingDeliveryParcelDTO, ShippingDeliveryParcelDraftDTO, ShippingDeliveryParcelStatusUpdateDTO, PaymentStatusUpdateDTO, PaymentTransactionDraftDTO, TaxIncludedUpdateDTO } from '../../models';
+import { OrderImportDTO, OrderDTO, FilterQueryDTO, CartDraftDTO, NewOrders, OrderFilterResultDTO, OrderGrandTotalPrice, TransitionOrderStateDTO, OrderNoteUpdateDTO, OrderAdditionalInfoUpdateDTO, OrderCustomerGroupUpdateDTO, OrderStatusUpdateDTO, SetCustomFieldDTO, TransitionLineItemQuantityState, LineItemDraftDTO, QuantityUpdateDTO, PriceUpdateDTO, DiscountCodeUpdateDTO, AddressDTO, ShippingMethodsInfo, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, ShippingMethodDTO, ShippingMethodUpdateDTO, ShippingStatusUpdateDTO, ShippingGroupedReportsByShippingStatusDTO, ShippingDeliveryDraftDTO, ShippingDeliveryParcelDTO, ShippingDeliveryParcelDraftDTO, ShippingDeliveryParcelStatusUpdateDTO, PaymentStatusUpdateDTO, PaymentTransactionDraftDTO, TaxIncludedUpdateDTO } from '../../models';
 
 export class OrdersAPI extends BaseAPI {
    async import (dto: OrderImportDTO[]): Promise<OrderDTO[]> {
@@ -386,7 +386,7 @@ export class OrdersAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
-   async bulkUpdateShippingStatus (dto: ShippingGroupedReportsByShippingStatusDto): Promise<void> {
+   async bulkUpdateShippingStatus (dto: ShippingGroupedReportsByShippingStatusDTO): Promise<void> {
        const response = await this._request({
            path: `/fulfillment/orders/bulk/shippings/status`,
            method: 'PATCH',

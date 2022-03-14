@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { BulkLinkUpdateDTO, BulkDeleteDTO, BulkStatusChangeDTO, BulkStateChangeDTO, BulkCustomFieldUpdateDTO, BulkCustomFieldUpdateByFilterDTO, BulkAttributeUpdateDTO, BulkAttributeDeleteDTO, BulkOfferQuantityUpdateDTO, BulkScoreUpdateDTO, BulkLabelSetDTO, BulkLabelRemoveDTO, ProductVariantOfferSetDTO, ProductDraftDTO, ProductDTO, ProductFilterResultDTO, ProductImportDraftDTO, FilterQueryDTO, ProductSearchResultDTO, AttributeValueDTO, ProductUpdateDTO, SetCustomFieldDTO, IncCustomFieldDTO, AssetDTO, StoreStatusDTO, TransitionProductStateDTO, KeyReferenceDTO, ReviewRatingStatisticsDTO, LangValue, ProductScoreUpdateDTO, ProductOwnerUpdateDTO, IdReferenceDTO, ProductRelationsDTO, ProductAttributeDTO, ProductMasterVariantUpdateDTO, ContentDTO, ImageOptionsDTO, ProductSkuUpdateDTO, ImageDTO, SwapIndexDTO, ProductVariantDraftDTO, ProductBarcodeUpdateDTO, ProductCollapseKeyUpdateDTO, ProductCollapseModeUpdateDTO, ProductAttributeDraftDTO, OfferDraftDTO, ProductAliasImagesFromUpdateDTO, ShippingDataDTO, ProductVariantOverridesDTO, OptionDefinitionDTO, InventoryDraftDTO, ProductVariantLabelDTO } from '../../models';
+import { BulkLinkUpdateDTO, BulkDeleteDTO, BulkStatusChangeDTO, BulkStateChangeDTO, BulkCustomFieldUpdateDTO, BulkCustomFieldUpdateByFilterDTO, BulkAttributeUpdateDTO, BulkAttributeDeleteDTO, BulkOfferQuantityUpdateDTO, BulkScoreUpdateDTO, BulkLabelSetDTO, BulkLabelRemoveDTO, ProductVariantOfferSetDTO, ProductDraftDTO, ProductDTO, ProductFilterResultDTO, ProductImportDraftDTO, FilterQueryDTO, ProductSearchResultDTO, AttributeValueDTO, ProductUpdateDTO, SetCustomFieldDTO, IncCustomFieldDTO, AssetDTO, StoreStatusDTO, TransitionProductStateDTO, KeyReferenceDTO, ReviewRatingStatisticsDTO, LangValue, ProductScoreUpdateDTO, ProductOwnerUpdateDTO, IdReferenceDTO, ProductRelationsDTO, ProductAttributeDTO, ProductMasterVariantUpdateDTO, ContentDTO, ImageOptionsDTO, ProductVariantUpdateDTO, ProductVariantDTO, ImageDTO, SwapIndexDTO, ProductVariantDraftDTO, ProductSkuUpdateDTO, ProductBarcodeUpdateDTO, ProductCollapseKeyUpdateDTO, ProductCollapseModeUpdateDTO, ProductAttributeDraftDTO, OfferDraftDTO, ProductAliasImagesFromUpdateDTO, ShippingDataDTO, ProductVariantOverridesDTO, OptionDefinitionDTO, InventoryDraftDTO, ProductVariantLabelDTO } from '../../models';
 
 export class ProductsAPI extends BaseAPI {
    async bulkLink (dto: BulkLinkUpdateDTO): Promise<void> {
@@ -412,9 +412,9 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
-   async setScore (id: string, dto: ProductScoreUpdateDTO): Promise<void> {
+   async setVariantScore (sku: string, dto: ProductScoreUpdateDTO): Promise<void> {
        const response = await this._request({
-           path: `/merchandise/products/${encodeURIComponent(id)}/score`,
+           path: `/merchandise/products/${encodeURIComponent(sku)}/score`,
            method: 'PATCH',
            body: dto,
            contentType: 'application/json',
@@ -528,22 +528,14 @@ export class ProductsAPI extends BaseAPI {
        return (response as unknown) as ImageOptionsDTO;
    }
 
-   async setVariantSku (sku: string, dto: ProductSkuUpdateDTO): Promise<void> {
+   async updateVariant (id: string, dto: ProductVariantUpdateDTO): Promise<ProductVariantDTO> {
        const response = await this._request({
-           path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
+           path: `/merchandise/products/variants/${encodeURIComponent(id)}`,
            method: 'PATCH',
            body: dto,
            contentType: 'application/json',
         });
-       
-   }
-
-   async deleteVariant (sku: string): Promise<void> {
-       const response = await this._request({
-           path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
-           method: 'DELETE',
-        });
-       
+       return (response as unknown) as ProductVariantDTO;
    }
 
    async getSKUImages (sku: string): Promise<ImageDTO[]> {
@@ -597,6 +589,24 @@ export class ProductsAPI extends BaseAPI {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(id)}/variants`,
            method: 'POST',
+           body: dto,
+           contentType: 'application/json',
+        });
+       
+   }
+
+   async deleteVariant (sku: string): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/variants/${encodeURIComponent(sku)}`,
+           method: 'DELETE',
+        });
+       
+   }
+
+   async setVariantSku (sku: string, dto: ProductSkuUpdateDTO): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/variants/${encodeURIComponent(sku)}/sku`,
+           method: 'PATCH',
            body: dto,
            contentType: 'application/json',
         });
