@@ -40,10 +40,11 @@ export class ViewsAPI extends BaseAPI {
        return (response as unknown) as ViewSearchResultDTO;
    }
 
-   async getByTag (tag: string): Promise<ViewFilterResultDTO> {
+   async getByTag (tag: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string }): Promise<ViewFilterResultDTO> {
        const response = await this._request({
            path: `/merchandise/views/tag=${encodeURIComponent(tag)}`,
            method: 'GET',
+           query: this._stringifyQuery(query),
         });
        return (response as unknown) as ViewFilterResultDTO;
    }

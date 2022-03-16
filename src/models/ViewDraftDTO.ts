@@ -18,5 +18,6 @@ export interface ViewDraftDTO {
   customerGroup?: string;
   tags?: string[];
   custom?: CustomField[];
+  storeAvailability?: string[];
 }
 

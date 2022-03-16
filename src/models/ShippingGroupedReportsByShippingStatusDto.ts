@@ -1,6 +1,6 @@
 
 export interface ShippingGroupedReportsByShippingStatusDTO {
-  orderIds: string[];
+  filter: string;
   newStatus: ShippingGroupedReportsByShippingStatusDTONewStatusEnum;
 }
 

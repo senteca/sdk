@@ -18,6 +18,7 @@ export interface ViewDTO {
   customerGroup?: string;
   tags?: string[];
   custom?: CustomField[];
+  storeAvailability?: string[];
   _id: string;
   createdAt: number;
   updatedAt: number;
