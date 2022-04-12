@@ -1,7 +1,7 @@
 
 export interface CartDiscountTargetDTO {
   type: CartDiscountTargetDTOTypeEnum;
-  predicate: string;
+  predicate?: string;
 }
 
 export enum CartDiscountTargetDTOTypeEnum {

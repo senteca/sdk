@@ -12,10 +12,11 @@ export class MyCartAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
-   async get (): Promise<OrderDTO> {
+   async get (query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[] }): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart`,
            method: 'GET',
+           query: this._stringifyQuery(query),
         });
        return (response as unknown) as OrderDTO;
    }
