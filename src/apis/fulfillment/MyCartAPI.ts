@@ -1,5 +1,5 @@
 import { BaseAPI } from '../../runtime';
-import { CartDraftDTO, OrderDTO, LineItemDraftDTO, QuantityUpdateDTO, CustomLineItemDraftDTO, DiscountCodeUpdateDTO, AddressDTO, OrderLoanInfoDTO, ShippingMethodsInfo, ShippingFeesDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, MethodUpdateDTO, SetCustomFieldDTO, OrderAdditionalInfoUpdateDTO, ProductDTO, OrderSelectableGiftVariantUpdateDTO } from '../../models';
+import { CartDraftDTO, OrderDTO, LineItemDraftDTO, QuantityUpdateDTO, CustomLineItemDraftDTO, DiscountCodeUpdateDTO, VoucherCodeUpdateDTO, AddressDTO, OrderLoanInfoDTO, ShippingMethodsInfo, ShippingFeesDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, MethodUpdateDTO, SetCustomFieldDTO, OrderAdditionalInfoUpdateDTO, ProductDTO, OrderSelectableGiftVariantUpdateDTO } from '../../models';
 
 export class MyCartAPI extends BaseAPI {
    async create (dto: CartDraftDTO): Promise<OrderDTO> {
@@ -21,28 +21,31 @@ export class MyCartAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
-   async addLineItem (dto: LineItemDraftDTO): Promise<OrderDTO> {
+   async addLineItem (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[] }, dto: LineItemDraftDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/line-items`,
            method: 'POST',
+           query: this._stringifyQuery(query),
            body: dto,
            contentType: 'application/json',
         });
        return (response as unknown) as OrderDTO;
    }
 
-   async deleteLineItem (id: string): Promise<OrderDTO> {
+   async deleteLineItem (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[] }): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/line-items/${encodeURIComponent(id)}`,
            method: 'DELETE',
+           query: this._stringifyQuery(query),
         });
        return (response as unknown) as OrderDTO;
    }
 
-   async setLineItemQuantity (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
+   async setLineItemQuantity (lineItemId: string, query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[] }, dto: QuantityUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/line-items/${encodeURIComponent(lineItemId)}/quantity`,
            method: 'PATCH',
+           query: this._stringifyQuery(query),
            body: dto,
            contentType: 'application/json',
         });
@@ -67,10 +70,11 @@ export class MyCartAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
-   async setCustomLineItemQuantity (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> {
+   async setCustomLineItemQuantity (lineItemId: string, query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[] }, dto: QuantityUpdateDTO): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-cart/custom-line-items/${encodeURIComponent(lineItemId)}/quantity`,
            method: 'PATCH',
+           query: this._stringifyQuery(query),
            body: dto,
            contentType: 'application/json',
         });
@@ -92,6 +96,24 @@ export class MyCartAPI extends BaseAPI {
            path: `/fulfillment/my-cart/discount-code`,
            method: 'DELETE',
            query: this._stringifyQuery(query),
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
+   async addMyVoucher (dto: VoucherCodeUpdateDTO): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-cart/voucher`,
+           method: 'PATCH',
+           body: dto,
+           contentType: 'application/json',
+        });
+       return (response as unknown) as OrderDTO;
+   }
+
+   async deleteMyVoucherCode (code: string): Promise<OrderDTO> {
+       const response = await this._request({
+           path: `/fulfillment/my-cart/voucher-code/code=${encodeURIComponent(code)}`,
+           method: 'DELETE',
         });
        return (response as unknown) as OrderDTO;
    }

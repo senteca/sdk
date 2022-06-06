@@ -17,7 +17,7 @@ export interface DiscountCodeDTO {
   code: string;
   customer?: IdReferenceDTO;
   cartDiscounts: IdReferenceDTO[];
-  cartPredicate: string;
+  cartPredicate?: string;
   groups?: string[];
   isActive?: boolean;
   isPublic?: boolean;

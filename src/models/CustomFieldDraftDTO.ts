@@ -38,6 +38,8 @@ export enum CustomFieldDraftDTOResourceTypeIdEnum {
     ProductDiscount = 'product-discount',  
     CartDiscount = 'cart-discount',  
     DiscountCode = 'discount-code',  
+    Voucher = 'voucher',  
+    VoucherTemplate = 'voucher-template',  
     Item = 'item',  
     Order = 'order',  
     Payment = 'payment',  

@@ -12,7 +12,7 @@ export interface CartDiscountDraftDTO {
   description?: LangValue[];
   value: CartDiscountValueDTO;
   maxDiscountValue?: MoneyDTO;
-  cartPredicate: string;
+  cartPredicate?: string;
   target?: CartDiscountTargetDTO;
   sortOrder: number;
   isActive: boolean;

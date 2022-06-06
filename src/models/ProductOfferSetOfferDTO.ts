@@ -23,6 +23,7 @@ export interface ProductOfferSetOfferDTO {
   sellUnit: ProductOfferSetOfferDTOSellUnitEnum;
   conversionRate?: number;
   externallyChanged?: boolean;
+  isFinalPrice?: boolean;
 }
 
 export enum ProductOfferSetOfferDTOStatusEnum {

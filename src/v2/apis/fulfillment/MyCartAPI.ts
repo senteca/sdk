@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { HttpClient, toQueryString } from '../../runtime';
-import { CartDraftDTO, OrderDTO, LineItemDraftDTO, QuantityUpdateDTO, CustomLineItemDraftDTO, DiscountCodeUpdateDTO, AddressDTO, OrderLoanInfoDTO, ShippingMethodsInfo, ShippingFeesDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, MethodUpdateDTO, SetCustomFieldDTO, OrderAdditionalInfoUpdateDTO, ProductDTO, OrderSelectableGiftVariantUpdateDTO } from '../../../models';
+import { CartDraftDTO, OrderDTO, LineItemDraftDTO, QuantityUpdateDTO, CustomLineItemDraftDTO, DiscountCodeUpdateDTO, VoucherCodeUpdateDTO, AddressDTO, OrderLoanInfoDTO, ShippingMethodsInfo, ShippingFeesDTO, PaymentMethodsInfo, PlatformMethodUpdateDTO, MerchantsMethodsUpdateDTO, MethodUpdateDTO, SetCustomFieldDTO, OrderAdditionalInfoUpdateDTO, ProductDTO, OrderSelectableGiftVariantUpdateDTO } from '../../../models';
 
 export const MyCartCreate = async (dto: CartDraftDTO): Promise<OrderDTO> => {
     const response = await HttpClient.request({
@@ -22,28 +22,31 @@ export const MyCartGet = async (query?: { storeKey?: string, interfaceKey?: stri
     return (response as unknown) as OrderDTO;
 }
 
-export const MyCartAddLineItem = async (dto: LineItemDraftDTO): Promise<OrderDTO> => {
+export const MyCartAddLineItem = async (query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[] }, dto: LineItemDraftDTO): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-cart/line-items`,
         method: 'POST',
+        query: toQueryString(query),
         body: dto,
         contentType: 'application/json',
     });
     return (response as unknown) as OrderDTO;
 }
 
-export const MyCartDeleteLineItem = async (id: string): Promise<OrderDTO> => {
+export const MyCartDeleteLineItem = async (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[] }): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-cart/line-items/${encodeURIComponent(id)}`,
         method: 'DELETE',
+        query: toQueryString(query),
     });
     return (response as unknown) as OrderDTO;
 }
 
-export const MyCartSetLineItemQuantity = async (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> => {
+export const MyCartSetLineItemQuantity = async (lineItemId: string, query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[] }, dto: QuantityUpdateDTO): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-cart/line-items/${encodeURIComponent(lineItemId)}/quantity`,
         method: 'PATCH',
+        query: toQueryString(query),
         body: dto,
         contentType: 'application/json',
     });
@@ -68,10 +71,11 @@ export const MyCartDeleteCustomLineItem = async (id: string): Promise<OrderDTO> 
     return (response as unknown) as OrderDTO;
 }
 
-export const MyCartSetCustomLineItemQuantity = async (lineItemId: string, dto: QuantityUpdateDTO): Promise<OrderDTO> => {
+export const MyCartSetCustomLineItemQuantity = async (lineItemId: string, query: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[] }, dto: QuantityUpdateDTO): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-cart/custom-line-items/${encodeURIComponent(lineItemId)}/quantity`,
         method: 'PATCH',
+        query: toQueryString(query),
         body: dto,
         contentType: 'application/json',
     });
@@ -93,6 +97,24 @@ export const MyCartDeleteDiscountCode = async (query: { code: string }): Promise
         path: `/fulfillment/my-cart/discount-code`,
         method: 'DELETE',
         query: toQueryString(query),
+    });
+    return (response as unknown) as OrderDTO;
+}
+
+export const MyCartAddMyVoucher = async (dto: VoucherCodeUpdateDTO): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/my-cart/voucher`,
+        method: 'PATCH',
+        body: dto,
+        contentType: 'application/json',
+    });
+    return (response as unknown) as OrderDTO;
+}
+
+export const MyCartDeleteMyVoucherCode = async (code: string): Promise<OrderDTO> => {
+    const response = await HttpClient.request({
+        path: `/fulfillment/my-cart/voucher-code/code=${encodeURIComponent(code)}`,
+        method: 'DELETE',
     });
     return (response as unknown) as OrderDTO;
 }

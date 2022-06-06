@@ -14,7 +14,7 @@ export interface DiscountTemplateDTO {
   description?: LangValue[];
   customer?: IdReferenceDTO;
   cartDiscounts: IdReferenceDTO[];
-  cartPredicate: string;
+  cartPredicate?: string;
   tags?: string[];
   isActive?: boolean;
   isPublic?: boolean;

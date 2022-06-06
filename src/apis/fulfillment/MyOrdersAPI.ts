@@ -126,10 +126,11 @@ export class MyOrdersAPI extends BaseAPI {
        return (response as unknown) as OrderDTO;
    }
 
-   async reOrder (id: string): Promise<OrderDTO> {
+   async reOrder (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[] }): Promise<OrderDTO> {
        const response = await this._request({
            path: `/fulfillment/my-orders/${encodeURIComponent(id)}/re-order`,
            method: 'POST',
+           query: this._stringifyQuery(query),
         });
        return (response as unknown) as OrderDTO;
    }

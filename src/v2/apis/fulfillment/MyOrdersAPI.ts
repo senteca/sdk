@@ -127,10 +127,11 @@ export const MyOrdersUpdateCustomLineItem = async (id: string, customLineItemId:
     return (response as unknown) as OrderDTO;
 }
 
-export const MyOrdersReOrder = async (id: string): Promise<OrderDTO> => {
+export const MyOrdersReOrder = async (id: string, query?: { storeKey?: string, interfaceKey?: string, currencyCode?: string, languageCode?: string, priceListKey?: string, merchantKey?: string, expand?: string, project?: string, unscopedFields?: string[] }): Promise<OrderDTO> => {
     const response = await HttpClient.request({
         path: `/fulfillment/my-orders/${encodeURIComponent(id)}/re-order`,
         method: 'POST',
+        query: toQueryString(query),
     });
     return (response as unknown) as OrderDTO;
 }
