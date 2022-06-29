@@ -64,4 +64,5 @@ export enum CustomFieldDTOResourceTypeIdEnum {
     ProductVariant = 'product-variant',  
     ShippingSender = 'shipping-sender',  
     Addon = 'addon',  
+    User = 'user',  
 }

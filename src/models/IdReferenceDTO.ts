@@ -42,4 +42,5 @@ export enum IdReferenceDTOResourceTypeEnum {
     ProductVariant = 'product-variant',  
     ShippingSender = 'shipping-sender',  
     Addon = 'addon',  
+    User = 'user',  
 }
