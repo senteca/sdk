@@ -7,6 +7,7 @@ export interface TokenRequestDTO {
   isUser?: boolean;
   anonymousId?: string;
   responseMode?: TokenRequestDTOResponseModeEnum;
+  expiresIn?: string;
 }
 
 export enum TokenRequestDTOGrantTypeEnum {
