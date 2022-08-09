@@ -816,16 +816,6 @@ export const ProductsDeleteVariantInventory = async (sku: string, stockLocationK
     
 }
 
-export const ProductsBulkUpdateVariantInventory = async (dto: string[]): Promise<void> => {
-    const response = await HttpClient.request({
-        path: `/merchandise/products/bulk/update-variants-inventory`,
-        method: 'PUT',
-        body: dto,
-        contentType: 'application/json',
-    });
-    
-}
-
 export const ProductsSetVariantLabels = async (sku: string, dto: ProductVariantLabelDTO[]): Promise<void> => {
     const response = await HttpClient.request({
         path: `/merchandise/products/${encodeURIComponent(sku)}/labels`,
