@@ -815,6 +815,16 @@ export class ProductsAPI extends BaseAPI {
        
    }
 
+   async bulkUpdateVariantInventory (dto: string[]): Promise<void> {
+       const response = await this._request({
+           path: `/merchandise/products/bulk/update-variants-inventory`,
+           method: 'PUT',
+           body: dto,
+           contentType: 'application/json',
+        });
+       
+   }
+
    async setVariantLabels (sku: string, dto: ProductVariantLabelDTO[]): Promise<void> {
        const response = await this._request({
            path: `/merchandise/products/${encodeURIComponent(sku)}/labels`,
