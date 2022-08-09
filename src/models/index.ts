@@ -372,6 +372,7 @@ export * from "./ProductUpdateOptionsDTO";
 export * from "./ProductUpdateVariantDTO";
 export * from "./ProductVariantDTO";
 export * from "./ProductVariantDraftDTO";
+export * from "./ProductVariantInventorySetDTO";
 export * from "./ProductVariantLabelDTO";
 export * from "./ProductVariantOfferSetDTO";
 export * from "./ProductVariantOverridesDTO";
